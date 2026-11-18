@@ -93,8 +93,7 @@ def pred(tr, te, v, oo):
     if v == "l1log": return zfit(tr, te, "quantile", extra={"alpha": 0.5})
     if v == "l2log": return zfit(tr, te, "l2")
     if v == "huber": return zfit(tr, te, "huber", extra={"alpha": 0.5})
-    if v == "huber_tr":   # D367: Huber + the five rhythm inputs (daily ACF lags 1 / 7, weekly ACF lags 1 / 4, best-weekday share)
-        global B_, F_
+    if v == "huber_tr":   # D367: Huber + the five rhythm inputs (daily ACF lags 1 / 7, weekly ACF lags 1 / 4, best-weekday share); global B_, F_ declared at the top of pred
         _b, _f = B_, F_; B_, F_ = _b + TR, _f + TR
         try: return zfit(tr, te, "huber", extra={"alpha": 0.5})
         finally: B_, F_ = _b, _f
