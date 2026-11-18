@@ -1,0 +1,4 @@
+2025-02: train 13330 rows, 28s | WAPE(P50 total) 0.670 bias +0.440
+2025-03: train 15548 rows, 28s | WAPE(P50 total) 0.672 bias +0.499
+2025-04: train 17933 rows, 37s | WAPE(P50 total) 0.482 bias +0.233
+2025-05: train 20472 rows, 41s | WAPE(P50 total) 0.318 bias +0.022
