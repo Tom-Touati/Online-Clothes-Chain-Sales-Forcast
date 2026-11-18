@@ -1,0 +1,2587 @@
+{
+"models": [
+{
+"id": "rules",
+"name": "Rule agents",
+"role": "member, weight 1",
+"source": "agent_eval/<origin>/rules.py (D103–D105)",
+"features": [
+{
+"name": "recent monthly units",
+"block": "rules",
+"desc": "the last 3–6 months of the item's units"
+},
+{
+"name": "launch age",
+"block": "rules",
+"desc": "months since launch, for launch-curve rules"
+},
+{
+"name": "type seasonality",
+"block": "rules",
+"desc": "last year's like-for-like ratio of the product type"
+},
+{
+"name": "stock and size gaps",
+"block": "rules",
+"desc": "rules for items short of stock or sizes"
+},
+{
+"name": "event and calendar windows",
+"block": "rules",
+"desc": "dated events in the forecast months"
+}
+],
+"n": 5
+},
+{
+"id": "tree",
+"name": "Quantile LightGBM, Huber loss on the log ratio (candidate; ec_ns in the submitted system)",
+"role": "member, weight 1",
+"source": "eda/180q_models.py sets('ec_ns'); D253, D353",
+"features": [
+{
+"name": "lagr1",
+"block": "recent momentum",
+"desc": "units 1 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr2",
+"block": "recent momentum",
+"desc": "units 2 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr3",
+"block": "recent momentum",
+"desc": "units 3 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr4",
+"block": "recent momentum",
+"desc": "units 4 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr5",
+"block": "recent momentum",
+"desc": "units 5 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr6",
+"block": "recent momentum",
+"desc": "units 6 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lvl",
+"block": "sales level",
+"desc": "recent monthly level (91-day rate × 30.44), log"
+},
+{
+"name": "tmonth",
+"block": "seasonality (history)",
+"desc": "target month"
+},
+{
+"name": "own_sea4",
+"block": "seasonality (history)",
+"desc": "the item's own last-year ratio for the target months"
+},
+{
+"name": "f_r7",
+"block": "recent momentum",
+"desc": "last 7 days' pace against the level"
+},
+{
+"name": "f_r28",
+"block": "recent momentum",
+"desc": "last 28 days' pace against the level"
+},
+{
+"name": "trend91",
+"block": "recent momentum",
+"desc": "91-day trend"
+},
+{
+"name": "peak_r",
+"block": "recent momentum",
+"desc": "best month so far against the level"
+},
+{
+"name": "lfl_type4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's type (last year, target months)"
+},
+{
+"name": "lfl_macro4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's macro (last year, target months)"
+},
+{
+"name": "lfl_occ4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's occ (last year, target months)"
+},
+{
+"name": "occ_next",
+"block": "special events / occasions",
+"desc": "occasion timing: next"
+},
+{
+"name": "occ_last",
+"block": "special events / occasions",
+"desc": "occasion timing: last"
+},
+{
+"name": "occ_n4",
+"block": "special events / occasions",
+"desc": "occasion timing: n4"
+},
+{
+"name": "cp_nb_sea4",
+"block": "co-purchase cluster seasonality",
+"desc": "co-purchase neighbours: sea4"
+},
+{
+"name": "cp_nb_lvl",
+"block": "co-purchase cluster seasonality",
+"desc": "co-purchase neighbours: lvl"
+},
+{
+"name": "t_org",
+"block": "temperature / weather",
+"desc": "temperature at the origin"
+},
+{
+"name": "ta_org",
+"block": "temperature / weather",
+"desc": "temperature anomaly at the origin"
+},
+{
+"name": "t_tgt_norm",
+"block": "temperature / weather",
+"desc": "normal temperature of the target months"
+},
+{
+"name": "dT_norm",
+"block": "temperature / weather",
+"desc": "temperature change from the origin to the target months (normals)"
+},
+{
+"name": "dT_real_from_org",
+"block": "temperature / weather",
+"desc": "temperature / weather"
+},
+{
+"name": "beta_T",
+"block": "temperature / weather",
+"desc": "the item's sensitivity of sales to temperature"
+},
+{
+"name": "bT_dT",
+"block": "temperature / weather",
+"desc": "temperature sensitivity × dT"
+},
+{
+"name": "bT_ta",
+"block": "temperature / weather",
+"desc": "temperature sensitivity × ta"
+},
+{
+"name": "ev_valentine_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: valentine"
+},
+{
+"name": "ev_valentine_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: valentine"
+},
+{
+"name": "ev_spring_break_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: spring break"
+},
+{
+"name": "ev_spring_break_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: spring break"
+},
+{
+"name": "ev_easter_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: easter"
+},
+{
+"name": "ev_easter_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: easter"
+},
+{
+"name": "ev_festival_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: festival"
+},
+{
+"name": "ev_festival_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: festival"
+},
+{
+"name": "ev_prom_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: prom"
+},
+{
+"name": "ev_prom_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: prom"
+},
+{
+"name": "ev_mothers_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: mothers"
+},
+{
+"name": "ev_mothers_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: mothers"
+},
+{
+"name": "ev_memorial_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: memorial"
+},
+{
+"name": "ev_memorial_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: memorial"
+},
+{
+"name": "ev_graduation_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: graduation"
+},
+{
+"name": "ev_graduation_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: graduation"
+},
+{
+"name": "ev_july4_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: july4"
+},
+{
+"name": "ev_july4_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: july4"
+},
+{
+"name": "ev_prime_day_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: prime day"
+},
+{
+"name": "ev_prime_day_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: prime day"
+},
+{
+"name": "ev_bts_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: bts"
+},
+{
+"name": "ev_bts_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: bts"
+},
+{
+"name": "ev_labor_day_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: labor day"
+},
+{
+"name": "ev_labor_day_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: labor day"
+},
+{
+"name": "ev_halloween_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: halloween"
+},
+{
+"name": "ev_halloween_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: halloween"
+},
+{
+"name": "ev_bfcm_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: bfcm"
+},
+{
+"name": "ev_bfcm_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: bfcm"
+},
+{
+"name": "ev_holiday_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: holiday"
+},
+{
+"name": "ev_holiday_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: holiday"
+},
+{
+"name": "ev_nye_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: nye"
+},
+{
+"name": "ev_nye_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: nye"
+},
+{
+"name": "x_halloween",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: halloween"
+},
+{
+"name": "x_party",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: party"
+},
+{
+"name": "x_festival",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: festival"
+},
+{
+"name": "x_bts",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: bts"
+},
+{
+"name": "x_summer",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: summer"
+},
+{
+"name": "x_winter",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: winter"
+},
+{
+"name": "x_warm_dT",
+"block": "temperature / weather",
+"desc": "item score × season or event interaction: warm dT"
+},
+{
+"name": "dy_nb_sea4",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: sea4"
+},
+{
+"name": "dy_nb_lvl",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: lvl"
+},
+{
+"name": "dy_nb_mom3",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: mom3"
+},
+{
+"name": "dy_nb_yoy",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: yoy"
+},
+{
+"name": "e2_super_bowl_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: super bowl"
+},
+{
+"name": "e2_super_bowl_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: super bowl"
+},
+{
+"name": "e2_st_patricks_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: st patricks"
+},
+{
+"name": "e2_st_patricks_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: st patricks"
+},
+{
+"name": "e2_fathers_day_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: fathers day"
+},
+{
+"name": "e2_fathers_day_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: fathers day"
+},
+{
+"name": "e2_pride_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: pride"
+},
+{
+"name": "e2_pride_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: pride"
+},
+{
+"name": "e2_prime_fall_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: prime fall"
+},
+{
+"name": "e2_prime_fall_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: prime fall"
+},
+{
+"name": "e2_singles_day_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: singles day"
+},
+{
+"name": "e2_singles_day_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: singles day"
+},
+{
+"name": "e2_xmas_ship_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: xmas ship"
+},
+{
+"name": "e2_xmas_ship_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: xmas ship"
+},
+{
+"name": "e2_after_xmas_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: after xmas"
+},
+{
+"name": "e2_after_xmas_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: after xmas"
+},
+{
+"name": "e2_new_year_sale_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: new year sale"
+},
+{
+"name": "e2_new_year_sale_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: new year sale"
+},
+{
+"name": "e2_mlk_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: mlk"
+},
+{
+"name": "e2_mlk_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: mlk"
+},
+{
+"name": "e2_presidents_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: presidents"
+},
+{
+"name": "e2_presidents_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: presidents"
+},
+{
+"name": "e2_tax_refund_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: tax refund"
+},
+{
+"name": "e2_tax_refund_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: tax refund"
+},
+{
+"name": "e2_back_to_college_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: back to college"
+},
+{
+"name": "e2_back_to_college_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: back to college"
+},
+{
+"name": "e2_nyfw_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: nyfw"
+},
+{
+"name": "e2_nyfw_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: nyfw"
+},
+{
+"name": "e2_cyber_week_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: cyber week"
+},
+{
+"name": "e2_cyber_week_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: cyber week"
+},
+{
+"name": "c_wkend",
+"block": "events and calendar (D253)",
+"desc": "calendar count in the target months: wkend"
+},
+{
+"name": "c_fri",
+"block": "events and calendar (D253)",
+"desc": "calendar count in the target months: fri"
+},
+{
+"name": "c_days",
+"block": "events and calendar (D253)",
+"desc": "calendar count in the target months: days"
+},
+{
+"name": "curve_fwd",
+"block": "launch curve (D253)",
+"desc": "launch curve: fwd"
+},
+{
+"name": "curve_dev",
+"block": "launch curve (D253)",
+"desc": "launch curve: dev"
+},
+{
+"name": "first30",
+"block": "launch curve (D253)",
+"desc": "units in the first 30 days after launch, against the level"
+},
+{
+"name": "best_bucket",
+"block": "launch curve (D253)",
+"desc": "the item's best launch-curve bucket so far"
+}
+],
+"n": 109
+},
+{
+"id": "nn",
+"name": "Sales-curve neural net (S13ecx6)",
+"role": "member, weight 1",
+"source": "eda/57_embed_nn.py + eda/197b_nn_ec.py (D272)",
+"features": [
+{
+"name": "lagr1",
+"block": "recent momentum",
+"desc": "units 1 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr2",
+"block": "recent momentum",
+"desc": "units 2 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr3",
+"block": "recent momentum",
+"desc": "units 3 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr4",
+"block": "recent momentum",
+"desc": "units 4 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr5",
+"block": "recent momentum",
+"desc": "units 5 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr6",
+"block": "recent momentum",
+"desc": "units 6 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lvl",
+"block": "sales level",
+"desc": "recent monthly level (91-day rate × 30.44), log"
+},
+{
+"name": "f_r7",
+"block": "recent momentum",
+"desc": "last 7 days' pace against the level"
+},
+{
+"name": "f_r28",
+"block": "recent momentum",
+"desc": "last 28 days' pace against the level"
+},
+{
+"name": "trend91",
+"block": "recent momentum",
+"desc": "91-day trend"
+},
+{
+"name": "peak_r",
+"block": "recent momentum",
+"desc": "best month so far against the level"
+},
+{
+"name": "sh_ret",
+"block": "history and item state",
+"desc": "own-store share of units"
+},
+{
+"name": "sh_drop",
+"block": "history and item state",
+"desc": "partner (drop-ship) share of units"
+},
+{
+"name": "sh_tt",
+"block": "history and item state",
+"desc": "TikTok share of units"
+},
+{
+"name": "disc_item",
+"block": "history and item state",
+"desc": "the item's web discount"
+},
+{
+"name": "disc_rel",
+"block": "history and item state",
+"desc": "the item's discount against the site's"
+},
+{
+"name": "lfl_type",
+"block": "history and item state",
+"desc": "like-for-like seasonal ratio of the item's type (last year, target months)"
+},
+{
+"name": "lfl_macro",
+"block": "history and item state",
+"desc": "like-for-like seasonal ratio of the item's macro (last year, target months)"
+},
+{
+"name": "lfl_occ",
+"block": "history and item state",
+"desc": "like-for-like seasonal ratio of the item's occ (last year, target months)"
+},
+{
+"name": "own_sea",
+"block": "history and item state",
+"desc": "the item's own last-year ratio for the target months"
+},
+{
+"name": "color_num",
+"block": "history and item state",
+"desc": "colour number within the style (1 = first colour)"
+},
+{
+"name": "l_age",
+"block": "history and item state",
+"desc": "age in months (log)"
+},
+{
+"name": "l_live",
+"block": "history and item state",
+"desc": "days live (log)"
+},
+{
+"name": "e2_super_bowl_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: super bowl"
+},
+{
+"name": "e2_super_bowl_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: super bowl"
+},
+{
+"name": "e2_st_patricks_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: st patricks"
+},
+{
+"name": "e2_st_patricks_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: st patricks"
+},
+{
+"name": "e2_fathers_day_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: fathers day"
+},
+{
+"name": "e2_fathers_day_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: fathers day"
+},
+{
+"name": "e2_pride_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: pride"
+},
+{
+"name": "e2_pride_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: pride"
+},
+{
+"name": "e2_prime_fall_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: prime fall"
+},
+{
+"name": "e2_prime_fall_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: prime fall"
+},
+{
+"name": "e2_singles_day_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: singles day"
+},
+{
+"name": "e2_singles_day_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: singles day"
+},
+{
+"name": "e2_xmas_ship_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: xmas ship"
+},
+{
+"name": "e2_xmas_ship_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: xmas ship"
+},
+{
+"name": "e2_after_xmas_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: after xmas"
+},
+{
+"name": "e2_after_xmas_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: after xmas"
+},
+{
+"name": "e2_new_year_sale_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: new year sale"
+},
+{
+"name": "e2_new_year_sale_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: new year sale"
+},
+{
+"name": "e2_mlk_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: mlk"
+},
+{
+"name": "e2_mlk_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: mlk"
+},
+{
+"name": "e2_presidents_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: presidents"
+},
+{
+"name": "e2_presidents_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: presidents"
+},
+{
+"name": "e2_tax_refund_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: tax refund"
+},
+{
+"name": "e2_tax_refund_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: tax refund"
+},
+{
+"name": "e2_back_to_college_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: back to college"
+},
+{
+"name": "e2_back_to_college_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: back to college"
+},
+{
+"name": "e2_nyfw_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: nyfw"
+},
+{
+"name": "e2_nyfw_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: nyfw"
+},
+{
+"name": "e2_cyber_week_t",
+"block": "events and calendar (D253)",
+"desc": "event window in the target months: cyber week"
+},
+{
+"name": "e2_cyber_week_o",
+"block": "events and calendar (D253)",
+"desc": "event window around the origin: cyber week"
+},
+{
+"name": "c_wkend",
+"block": "events and calendar (D253)",
+"desc": "calendar count in the target months: wkend"
+},
+{
+"name": "c_fri",
+"block": "events and calendar (D253)",
+"desc": "calendar count in the target months: fri"
+},
+{
+"name": "c_days",
+"block": "events and calendar (D253)",
+"desc": "calendar count in the target months: days"
+},
+{
+"name": "curve_fwd",
+"block": "launch curve (D253)",
+"desc": "launch curve: fwd"
+},
+{
+"name": "curve_dev",
+"block": "launch curve (D253)",
+"desc": "launch curve: dev"
+},
+{
+"name": "first30",
+"block": "launch curve (D253)",
+"desc": "units in the first 30 days after launch, against the level"
+},
+{
+"name": "best_bucket",
+"block": "launch curve (D253)",
+"desc": "the item's best launch-curve bucket so far"
+},
+{
+"name": "macro group",
+"block": "embedding",
+"desc": "learned vector of the product group"
+},
+{
+"name": "product type",
+"block": "embedding",
+"desc": "learned vector of the type"
+},
+{
+"name": "style",
+"block": "embedding",
+"desc": "learned vector shared by the style's colours"
+},
+{
+"name": "item",
+"block": "embedding",
+"desc": "learned vector of the item (falls back to style and type when new)"
+},
+{
+"name": "occasion, collection, tagger attributes",
+"block": "embedding",
+"desc": "learned side vectors"
+},
+{
+"name": "target month",
+"block": "embedding",
+"desc": "calendar month of each forecast month"
+},
+{
+"name": "horizon",
+"block": "embedding",
+"desc": "months ahead"
+},
+{
+"name": "item × target month",
+"block": "embedding",
+"desc": "the item's own seasonality"
+}
+],
+"n": 68
+},
+{
+"id": "pf2c",
+"name": "TabPFN v2, conformal quantiles",
+"role": "member, weight 1",
+"source": "eda/196b_tabpfn.py feat=dyn; eda/199c_conformal.py (D207)",
+"features": [
+{
+"name": "lagr1",
+"block": "recent momentum",
+"desc": "units 1 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr2",
+"block": "recent momentum",
+"desc": "units 2 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr3",
+"block": "recent momentum",
+"desc": "units 3 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr4",
+"block": "recent momentum",
+"desc": "units 4 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr5",
+"block": "recent momentum",
+"desc": "units 5 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr6",
+"block": "recent momentum",
+"desc": "units 6 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lvl",
+"block": "sales level",
+"desc": "recent monthly level (91-day rate × 30.44), log"
+},
+{
+"name": "ptype",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "tmonth",
+"block": "seasonality (history)",
+"desc": "target month"
+},
+{
+"name": "own_sea4",
+"block": "seasonality (history)",
+"desc": "the item's own last-year ratio for the target months"
+},
+{
+"name": "f_r7",
+"block": "recent momentum",
+"desc": "last 7 days' pace against the level"
+},
+{
+"name": "f_r28",
+"block": "recent momentum",
+"desc": "last 28 days' pace against the level"
+},
+{
+"name": "trend91",
+"block": "recent momentum",
+"desc": "91-day trend"
+},
+{
+"name": "peak_r",
+"block": "recent momentum",
+"desc": "best month so far against the level"
+},
+{
+"name": "lfl_type4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's type (last year, target months)"
+},
+{
+"name": "lfl_macro4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's macro (last year, target months)"
+},
+{
+"name": "lfl_occ4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's occ (last year, target months)"
+},
+{
+"name": "a_weight",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_fabric_feel",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_print_pattern",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_silhouette",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_length",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_sleeve",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_occasion_tier",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "occ_next",
+"block": "special events / occasions",
+"desc": "occasion timing: next"
+},
+{
+"name": "occ_last",
+"block": "special events / occasions",
+"desc": "occasion timing: last"
+},
+{
+"name": "occ_n4",
+"block": "special events / occasions",
+"desc": "occasion timing: n4"
+},
+{
+"name": "cp_nb_sea4",
+"block": "co-purchase cluster seasonality",
+"desc": "co-purchase neighbours: sea4"
+},
+{
+"name": "cp_nb_lvl",
+"block": "co-purchase cluster seasonality",
+"desc": "co-purchase neighbours: lvl"
+},
+{
+"name": "warmth",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "coverage",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "formality",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "fit_tightness",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "statement",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "staple",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "summer",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "winter",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "back_to_school",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "party",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "halloween",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "festival",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "layering",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "versatility",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "t_org",
+"block": "temperature / weather",
+"desc": "temperature at the origin"
+},
+{
+"name": "ta_org",
+"block": "temperature / weather",
+"desc": "temperature anomaly at the origin"
+},
+{
+"name": "t_tgt_norm",
+"block": "temperature / weather",
+"desc": "normal temperature of the target months"
+},
+{
+"name": "dT_norm",
+"block": "temperature / weather",
+"desc": "temperature change from the origin to the target months (normals)"
+},
+{
+"name": "dT_real_from_org",
+"block": "temperature / weather",
+"desc": "temperature / weather"
+},
+{
+"name": "beta_T",
+"block": "temperature / weather",
+"desc": "the item's sensitivity of sales to temperature"
+},
+{
+"name": "bT_dT",
+"block": "temperature / weather",
+"desc": "temperature sensitivity × dT"
+},
+{
+"name": "bT_ta",
+"block": "temperature / weather",
+"desc": "temperature sensitivity × ta"
+},
+{
+"name": "ev_valentine_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: valentine"
+},
+{
+"name": "ev_valentine_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: valentine"
+},
+{
+"name": "ev_spring_break_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: spring break"
+},
+{
+"name": "ev_spring_break_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: spring break"
+},
+{
+"name": "ev_easter_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: easter"
+},
+{
+"name": "ev_easter_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: easter"
+},
+{
+"name": "ev_festival_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: festival"
+},
+{
+"name": "ev_festival_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: festival"
+},
+{
+"name": "ev_prom_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: prom"
+},
+{
+"name": "ev_prom_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: prom"
+},
+{
+"name": "ev_mothers_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: mothers"
+},
+{
+"name": "ev_mothers_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: mothers"
+},
+{
+"name": "ev_memorial_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: memorial"
+},
+{
+"name": "ev_memorial_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: memorial"
+},
+{
+"name": "ev_graduation_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: graduation"
+},
+{
+"name": "ev_graduation_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: graduation"
+},
+{
+"name": "ev_july4_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: july4"
+},
+{
+"name": "ev_july4_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: july4"
+},
+{
+"name": "ev_prime_day_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: prime day"
+},
+{
+"name": "ev_prime_day_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: prime day"
+},
+{
+"name": "ev_bts_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: bts"
+},
+{
+"name": "ev_bts_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: bts"
+},
+{
+"name": "ev_labor_day_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: labor day"
+},
+{
+"name": "ev_labor_day_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: labor day"
+},
+{
+"name": "ev_halloween_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: halloween"
+},
+{
+"name": "ev_halloween_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: halloween"
+},
+{
+"name": "ev_bfcm_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: bfcm"
+},
+{
+"name": "ev_bfcm_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: bfcm"
+},
+{
+"name": "ev_holiday_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: holiday"
+},
+{
+"name": "ev_holiday_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: holiday"
+},
+{
+"name": "ev_nye_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: nye"
+},
+{
+"name": "ev_nye_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: nye"
+},
+{
+"name": "x_halloween",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: halloween"
+},
+{
+"name": "x_party",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: party"
+},
+{
+"name": "x_festival",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: festival"
+},
+{
+"name": "x_bts",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: bts"
+},
+{
+"name": "x_summer",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: summer"
+},
+{
+"name": "x_winter",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: winter"
+},
+{
+"name": "x_warm_dT",
+"block": "temperature / weather",
+"desc": "item score × season or event interaction: warm dT"
+},
+{
+"name": "dy_nb_sea4",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: sea4"
+},
+{
+"name": "dy_nb_lvl",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: lvl"
+},
+{
+"name": "dy_nb_mom3",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: mom3"
+},
+{
+"name": "dy_nb_yoy",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: yoy"
+}
+],
+"n": 94
+},
+{
+"id": "pf2d32",
+"name": "TabPFN v2, 32 estimators",
+"role": "member, weight 1",
+"source": "eda/196b_tabpfn.py feat=dyn est=32 (D206)",
+"features": [
+{
+"name": "lagr1",
+"block": "recent momentum",
+"desc": "units 1 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr2",
+"block": "recent momentum",
+"desc": "units 2 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr3",
+"block": "recent momentum",
+"desc": "units 3 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr4",
+"block": "recent momentum",
+"desc": "units 4 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr5",
+"block": "recent momentum",
+"desc": "units 5 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr6",
+"block": "recent momentum",
+"desc": "units 6 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lvl",
+"block": "sales level",
+"desc": "recent monthly level (91-day rate × 30.44), log"
+},
+{
+"name": "ptype",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "tmonth",
+"block": "seasonality (history)",
+"desc": "target month"
+},
+{
+"name": "own_sea4",
+"block": "seasonality (history)",
+"desc": "the item's own last-year ratio for the target months"
+},
+{
+"name": "f_r7",
+"block": "recent momentum",
+"desc": "last 7 days' pace against the level"
+},
+{
+"name": "f_r28",
+"block": "recent momentum",
+"desc": "last 28 days' pace against the level"
+},
+{
+"name": "trend91",
+"block": "recent momentum",
+"desc": "91-day trend"
+},
+{
+"name": "peak_r",
+"block": "recent momentum",
+"desc": "best month so far against the level"
+},
+{
+"name": "lfl_type4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's type (last year, target months)"
+},
+{
+"name": "lfl_macro4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's macro (last year, target months)"
+},
+{
+"name": "lfl_occ4",
+"block": "seasonality (history)",
+"desc": "like-for-like seasonal ratio of the item's occ (last year, target months)"
+},
+{
+"name": "a_weight",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_fabric_feel",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_print_pattern",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_silhouette",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_length",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_sleeve",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "a_occasion_tier",
+"block": "product type and attributes",
+"desc": "product type and attributes"
+},
+{
+"name": "occ_next",
+"block": "special events / occasions",
+"desc": "occasion timing: next"
+},
+{
+"name": "occ_last",
+"block": "special events / occasions",
+"desc": "occasion timing: last"
+},
+{
+"name": "occ_n4",
+"block": "special events / occasions",
+"desc": "occasion timing: n4"
+},
+{
+"name": "cp_nb_sea4",
+"block": "co-purchase cluster seasonality",
+"desc": "co-purchase neighbours: sea4"
+},
+{
+"name": "cp_nb_lvl",
+"block": "co-purchase cluster seasonality",
+"desc": "co-purchase neighbours: lvl"
+},
+{
+"name": "warmth",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "coverage",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "formality",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "fit_tightness",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "statement",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "staple",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "summer",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "winter",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "back_to_school",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "party",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "halloween",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "festival",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "layering",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "versatility",
+"block": "fashion descriptors (LLM scores)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "t_org",
+"block": "temperature / weather",
+"desc": "temperature at the origin"
+},
+{
+"name": "ta_org",
+"block": "temperature / weather",
+"desc": "temperature anomaly at the origin"
+},
+{
+"name": "t_tgt_norm",
+"block": "temperature / weather",
+"desc": "normal temperature of the target months"
+},
+{
+"name": "dT_norm",
+"block": "temperature / weather",
+"desc": "temperature change from the origin to the target months (normals)"
+},
+{
+"name": "dT_real_from_org",
+"block": "temperature / weather",
+"desc": "temperature / weather"
+},
+{
+"name": "beta_T",
+"block": "temperature / weather",
+"desc": "the item's sensitivity of sales to temperature"
+},
+{
+"name": "bT_dT",
+"block": "temperature / weather",
+"desc": "temperature sensitivity × dT"
+},
+{
+"name": "bT_ta",
+"block": "temperature / weather",
+"desc": "temperature sensitivity × ta"
+},
+{
+"name": "ev_valentine_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: valentine"
+},
+{
+"name": "ev_valentine_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: valentine"
+},
+{
+"name": "ev_spring_break_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: spring break"
+},
+{
+"name": "ev_spring_break_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: spring break"
+},
+{
+"name": "ev_easter_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: easter"
+},
+{
+"name": "ev_easter_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: easter"
+},
+{
+"name": "ev_festival_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: festival"
+},
+{
+"name": "ev_festival_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: festival"
+},
+{
+"name": "ev_prom_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: prom"
+},
+{
+"name": "ev_prom_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: prom"
+},
+{
+"name": "ev_mothers_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: mothers"
+},
+{
+"name": "ev_mothers_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: mothers"
+},
+{
+"name": "ev_memorial_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: memorial"
+},
+{
+"name": "ev_memorial_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: memorial"
+},
+{
+"name": "ev_graduation_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: graduation"
+},
+{
+"name": "ev_graduation_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: graduation"
+},
+{
+"name": "ev_july4_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: july4"
+},
+{
+"name": "ev_july4_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: july4"
+},
+{
+"name": "ev_prime_day_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: prime day"
+},
+{
+"name": "ev_prime_day_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: prime day"
+},
+{
+"name": "ev_bts_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: bts"
+},
+{
+"name": "ev_bts_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: bts"
+},
+{
+"name": "ev_labor_day_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: labor day"
+},
+{
+"name": "ev_labor_day_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: labor day"
+},
+{
+"name": "ev_halloween_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: halloween"
+},
+{
+"name": "ev_halloween_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: halloween"
+},
+{
+"name": "ev_bfcm_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: bfcm"
+},
+{
+"name": "ev_bfcm_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: bfcm"
+},
+{
+"name": "ev_holiday_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: holiday"
+},
+{
+"name": "ev_holiday_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: holiday"
+},
+{
+"name": "ev_nye_t",
+"block": "special events / occasions",
+"desc": "event window in the target months: nye"
+},
+{
+"name": "ev_nye_o",
+"block": "special events / occasions",
+"desc": "event window around the origin: nye"
+},
+{
+"name": "x_halloween",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: halloween"
+},
+{
+"name": "x_party",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: party"
+},
+{
+"name": "x_festival",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: festival"
+},
+{
+"name": "x_bts",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: bts"
+},
+{
+"name": "x_summer",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: summer"
+},
+{
+"name": "x_winter",
+"block": "special events / occasions",
+"desc": "item score × season or event interaction: winter"
+},
+{
+"name": "x_warm_dT",
+"block": "temperature / weather",
+"desc": "item score × season or event interaction: warm dT"
+},
+{
+"name": "dy_nb_sea4",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: sea4"
+},
+{
+"name": "dy_nb_lvl",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: lvl"
+},
+{
+"name": "dy_nb_mom3",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: mom3"
+},
+{
+"name": "dy_nb_yoy",
+"block": "dynamic co-purchase network (D198)",
+"desc": "dynamic co-purchase network neighbours: yoy"
+}
+],
+"n": 94
+},
+{
+"id": "rc",
+"name": "Location recommender (DeepFM, log-error loss)",
+"role": "member, weight 1/4 in the candidate (D358); not in the submitted system",
+"source": "eda/202_rc_model.py itemfeat=1 loss=logl1 etaclip=3 mino=12 (D331–D339)",
+"features": [
+{
+"name": "h",
+"block": "history and item state",
+"desc": "horizon (months ahead)"
+},
+{
+"name": "l3",
+"block": "history and item state",
+"desc": "units at this location, last 3 months (log)"
+},
+{
+"name": "l1",
+"block": "history and item state",
+"desc": "units at this location, last month (log)"
+},
+{
+"name": "ly",
+"block": "history and item state",
+"desc": "units at this location a year before the target month (log)"
+},
+{
+"name": "pair_age",
+"block": "history and item state",
+"desc": "months the item has sold at this location (log)"
+},
+{
+"name": "loc_age",
+"block": "history and item state",
+"desc": "months the location has been open (log)"
+},
+{
+"name": "loc3",
+"block": "history and item state",
+"desc": "the location's total units, last 3 months (log)"
+},
+{
+"name": "it3",
+"block": "history and item state",
+"desc": "the item's units at all locations, last 3 months (log)"
+},
+{
+"name": "share",
+"block": "history and item state",
+"desc": "this location's share of the item's units"
+},
+{
+"name": "disc_in",
+"block": "history and item state",
+"desc": "discount input: the item's last discount at this location"
+},
+{
+"name": "disc_last",
+"block": "history and item state",
+"desc": "the item's last discount at this location"
+},
+{
+"name": "disc_d",
+"block": "history and item state",
+"desc": "planned minus last discount (0 when no plan)"
+},
+{
+"name": "age_m",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "age in months"
+},
+{
+"name": "bT_dT",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "temperature sensitivity × dT"
+},
+{
+"name": "bT_ta",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "temperature sensitivity × ta"
+},
+{
+"name": "back_to_school",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "beta_T",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "the item's sensitivity of sales to temperature"
+},
+{
+"name": "coverage",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "cp_nb_lvl",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "co-purchase neighbours: lvl"
+},
+{
+"name": "cp_nb_sea4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "co-purchase neighbours: sea4"
+},
+{
+"name": "dT_norm",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "temperature change from the origin to the target months (normals)"
+},
+{
+"name": "ev_bfcm_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: bfcm"
+},
+{
+"name": "ev_bfcm_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: bfcm"
+},
+{
+"name": "ev_bts_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: bts"
+},
+{
+"name": "ev_bts_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: bts"
+},
+{
+"name": "ev_easter_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: easter"
+},
+{
+"name": "ev_easter_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: easter"
+},
+{
+"name": "ev_festival_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: festival"
+},
+{
+"name": "ev_festival_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: festival"
+},
+{
+"name": "ev_graduation_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: graduation"
+},
+{
+"name": "ev_graduation_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: graduation"
+},
+{
+"name": "ev_halloween_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: halloween"
+},
+{
+"name": "ev_halloween_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: halloween"
+},
+{
+"name": "ev_holiday_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: holiday"
+},
+{
+"name": "ev_holiday_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: holiday"
+},
+{
+"name": "ev_july4_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: july4"
+},
+{
+"name": "ev_july4_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: july4"
+},
+{
+"name": "ev_labor_day_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: labor day"
+},
+{
+"name": "ev_labor_day_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: labor day"
+},
+{
+"name": "ev_memorial_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: memorial"
+},
+{
+"name": "ev_memorial_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: memorial"
+},
+{
+"name": "ev_mothers_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: mothers"
+},
+{
+"name": "ev_mothers_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: mothers"
+},
+{
+"name": "ev_nye_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: nye"
+},
+{
+"name": "ev_nye_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: nye"
+},
+{
+"name": "ev_prime_day_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: prime day"
+},
+{
+"name": "ev_prime_day_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: prime day"
+},
+{
+"name": "ev_prom_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: prom"
+},
+{
+"name": "ev_prom_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: prom"
+},
+{
+"name": "ev_spring_break_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: spring break"
+},
+{
+"name": "ev_spring_break_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: spring break"
+},
+{
+"name": "ev_valentine_o",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window around the origin: valentine"
+},
+{
+"name": "ev_valentine_t",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "event window in the target months: valentine"
+},
+{
+"name": "f_r28",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "last 28 days' pace against the level"
+},
+{
+"name": "f_r7",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "last 7 days' pace against the level"
+},
+{
+"name": "festival",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "fit_tightness",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "formality",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "halloween",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "lagr1",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "units 1 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr2",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "units 2 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr3",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "units 3 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "units 4 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr5",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "units 5 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr6",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "units 6 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "layering",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "lfl_macro4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "like-for-like seasonal ratio of the item's macro (last year, target months)"
+},
+{
+"name": "lfl_occ4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "like-for-like seasonal ratio of the item's occ (last year, target months)"
+},
+{
+"name": "lfl_type4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "like-for-like seasonal ratio of the item's type (last year, target months)"
+},
+{
+"name": "lvl",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "recent monthly level (91-day rate × 30.44), log"
+},
+{
+"name": "occ_last",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "occasion timing: last"
+},
+{
+"name": "occ_n4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "occasion timing: n4"
+},
+{
+"name": "occ_next",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "occasion timing: next"
+},
+{
+"name": "own_sea4",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "the item's own last-year ratio for the target months"
+},
+{
+"name": "party",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "peak_r",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "best month so far against the level"
+},
+{
+"name": "staple",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "statement",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "summer",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "t_org",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "temperature at the origin"
+},
+{
+"name": "t_tgt_norm",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "normal temperature of the target months"
+},
+{
+"name": "ta_org",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "temperature anomaly at the origin"
+},
+{
+"name": "tmonth",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "target month"
+},
+{
+"name": "trend91",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "91-day trend"
+},
+{
+"name": "versatility",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "warmth",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "winter",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "fashion descriptors (LLM scores)"
+},
+{
+"name": "x_bts",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: bts"
+},
+{
+"name": "x_festival",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: festival"
+},
+{
+"name": "x_halloween",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: halloween"
+},
+{
+"name": "x_party",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: party"
+},
+{
+"name": "x_summer",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: summer"
+},
+{
+"name": "x_warm_dT",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: warm dT"
+},
+{
+"name": "x_winter",
+"block": "item inputs (as the tree member, at the origin)",
+"desc": "item score × season or event interaction: winter"
+},
+{
+"name": "item",
+"block": "embedding (factorisation machine)",
+"desc": "identity vector + a projection of its attributes (type, 7 tagged attributes, 14 fashion scores)"
+},
+{
+"name": "location",
+"block": "embedding (factorisation machine)",
+"desc": "31 locations: edikted.com by US region (4) and other, TikTok, 18 own stores, 7 partners"
+},
+{
+"name": "location kind",
+"block": "embedding (factorisation machine)",
+"desc": "web, TikTok, store, partner"
+},
+{
+"name": "calendar month",
+"block": "embedding (factorisation machine)",
+"desc": "month of year of the target month"
+},
+{
+"name": "interactions",
+"block": "embedding (factorisation machine)",
+"desc": "item × location, item × month, location × month: the compatibility terms"
+}
+],
+"n": 99
+},
+{
+"id": "seg",
+"name": "Segment correction",
+"role": "correction",
+"source": "eda/179x2_bias.py (D245)",
+"features": [
+{
+"name": "volume band",
+"block": "segment",
+"desc": "fifth of the recent level"
+},
+{
+"name": "age band",
+"block": "segment",
+"desc": "under 3, 3–6, 6–12, 12+ months"
+},
+{
+"name": "discount band",
+"block": "segment",
+"desc": "the item's web discount"
+}
+],
+"n": 3
+},
+{
+"id": "brk",
+"name": "Breakout correction",
+"role": "correction",
+"source": "eda/179b_breakout.py XSIG=1 (D247, D259)",
+"features": [
+{
+"name": "age_m",
+"block": "AGE",
+"desc": "age in months"
+},
+{
+"name": "lagr1",
+"block": "recent momentum",
+"desc": "units 1 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr2",
+"block": "recent momentum",
+"desc": "units 2 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "lagr3",
+"block": "recent momentum",
+"desc": "units 3 month(s) before the origin, relative to the recent level"
+},
+{
+"name": "acc7",
+"block": "history and item state",
+"desc": "last 7 days against the 28 before (acceleration)"
+},
+{
+"name": "trend91",
+"block": "recent momentum",
+"desc": "91-day trend"
+},
+{
+"name": "peak_r",
+"block": "recent momentum",
+"desc": "best month so far against the level"
+},
+{
+"name": "sh_ret",
+"block": "history and item state",
+"desc": "own-store share of units"
+},
+{
+"name": "sh_drop",
+"block": "history and item state",
+"desc": "partner (drop-ship) share of units"
+},
+{
+"name": "disc_item",
+"block": "history and item state",
+"desc": "the item's web discount"
+},
+{
+"name": "disc_rel",
+"block": "history and item state",
+"desc": "the item's discount against the site's"
+},
+{
+"name": "sh_tt",
+"block": "history and item state",
+"desc": "TikTok share of units"
+},
+{
+"name": "own_sea",
+"block": "history and item state",
+"desc": "the item's own last-year ratio for the target months"
+},
+{
+"name": "wk_mom",
+"block": "history and item state",
+"desc": "weekly launch curve: mom"
+},
+{
+"name": "wk_last",
+"block": "history and item state",
+"desc": "weekly launch curve: last"
+},
+{
+"name": "wk_live",
+"block": "history and item state",
+"desc": "weekly launch curve: live"
+},
+{
+"name": "wk_peak",
+"block": "history and item state",
+"desc": "weekly launch curve: peak"
+},
+{
+"name": "wk_recent",
+"block": "history and item state",
+"desc": "weekly launch curve: recent"
+},
+{
+"name": "pe_trend",
+"block": "history and item state",
+"desc": "launch-curve fit: trend"
+},
+{
+"name": "pe_mom",
+"block": "history and item state",
+"desc": "launch-curve fit: mom"
+},
+{
+"name": "pe_launch",
+"block": "history and item state",
+"desc": "launch-curve fit: launch"
+},
+{
+"name": "pe_resid",
+"block": "history and item state",
+"desc": "launch-curve fit: resid"
+},
+{
+"name": "spread",
+"block": "history and item state",
+"desc": "disagreement between the five members (log range)"
+},
+{
+"name": "n_q4",
+"block": "history and item state",
+"desc": "number of October–December months in the window"
+},
+{
+"name": "pk_28",
+"block": "PEAK",
+"desc": "best 28 days in the last year against the level"
+},
+{
+"name": "pk_365_days",
+"block": "PEAK",
+"desc": "days since the best 28 days of the last year"
+},
+{
+"name": "pk_anniv_dist",
+"block": "PEAK",
+"desc": "months to the anniversary of the item's peak"
+},
+{
+"name": "curve_fwd",
+"block": "launch curve (D253)",
+"desc": "launch curve: fwd"
+},
+{
+"name": "curve_dev",
+"block": "launch curve (D253)",
+"desc": "launch curve: dev"
+},
+{
+"name": "promo_lift",
+"block": "history and item state",
+"desc": "the item's sales lift on deep-discount days"
+}
+],
+"n": 30
+}
+],
+"note": "Every input is known at the forecast origin. The recommender's discount input is the last discount at each location (the plan setting, with realised discounts, was a test only)."
+}

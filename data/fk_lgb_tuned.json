@@ -1,0 +1,16 @@
+{
+ "params": {
+  "learning_rate": 0.05,
+  "num_leaves": 15,
+  "min_child_samples": 40,
+  "colsample_bytree": 0.8,
+  "subsample": 0.8,
+  "reg_lambda": 5.0,
+  "min_split_gain": 0.0,
+  "max_bin": 255,
+  "n_estimators": 300
+ },
+ "early_wape": 0.42800281210781504,
+ "ref_early_wape": 0.42800281210781504,
+ "trials": 60
+}

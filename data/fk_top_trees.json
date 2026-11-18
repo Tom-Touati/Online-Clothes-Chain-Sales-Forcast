@@ -1,0 +1,704 @@
+{
+ "2025-02": [
+  {
+   "tree": 0,
+   "total_gain": 203.14968299865723,
+   "rules": "if f_r7 <= 0.20073848932753122 (gain 69.0):\n  if winter <= 1.5000000000000002 (gain 42.7):\n    if x_warm_dT <= 1.0000000180025095e-35 (gain 10.0):\n      ...\n    else:\n      ...\n  else:\n    if tmonth <= 6.500000000000001 (gain 34.5):\n      ...\n    else:\n      ...\nelse:\n  if winter <= 2.5000000000000004 (gain 5.4):\n    if trend91 <= -0.45909495522801086 (gain 6.9):\n      ...\n    else:\n  else:"
+  },
+  {
+   "tree": 2,
+   "total_gain": 193.29049921035767,
+   "rules": "if f_r7 <= 0.21578521109177629 (gain 55.1):\n  if winter <= 1.5000000000000002 (gain 38.6):\n    if t_tgt_norm <= 18.38794709544717 (gain 10.9):\n      ...\n    else:\n      ...\n  else:\n    if dT_norm <= 10.4926317341625 (gain 33.7):\n      ...\n    else:\nelse:\n  if lvl <= 5.039356714283657 (gain 5.3):\n    if lagr6 <= 0.18917794186388073 (gain 6.1):\n    else:\n  else:\n    if summer <= 5.500000000000001 (gain 2.9):\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 189.30795979499817,
+   "rules": "if f_r7 <= 0.19386151679644514 (gain 53.2):\n  if winter <= 1.5000000000000002 (gain 37.4):\n    if t_org <= 19.654561902948956 (gain 11.3):\n      ...\n    else:\n      ...\n  else:\n    if ev_spring_break_o <= 1.0000000180025095e-35 (gain 34.8):\n      ...\n    else:\n      ...\nelse:\n  if f_r7 <= 0.5605168794209453 (gain 5.9):\n    if x_summer <= 8.700000000000001 (gain 5.0):\n      ...\n    else:\n  else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 169.95077800750732,
+   "rules": "if f_r7 <= 0.22376156194805244 (gain 50.1):\n  if winter <= 1.5000000000000002 (gain 37.0):\n    if x_warm_dT <= 0.3661341313056991 (gain 11.4):\n      ...\n    else:\n      ...\n  else:\n    if dT_norm <= 10.4926317341625 (gain 28.8):\n      ...\n    else:\nelse:\n  if f_r7 <= 0.6408313248123162 (gain 6.0):\n    if back_to_school <= 2.5000000000000004 (gain 3.6):\n      ...\n    else:\n  else:"
+  },
+  {
+   "tree": 4,
+   "total_gain": 169.01739192008972,
+   "rules": "if winter <= 1.5000000000000002 (gain 40.0):\n  if t_tgt_norm <= 18.38794709544717 (gain 25.4):\n    if occ_next <= 92.50000000000001 (gain 11.0):\n    else:\n      ...\n  else:\n    if f_r28 <= 0.1709205712609043 (gain 7.6):\n      ...\n    else:\nelse:\n  if ta_org <= 1.0636803991559323 (gain 33.2):\n    if ptype == 12||13||29||36||39 (gain 13.0):\n    else:\n      ...\n  else:\n    if lagr3 <= -0.1443459651594725 (gain 4.5):\n    else:"
+  }
+ ],
+ "2025-02_gain_importance": {
+  "f_r7": 959.9897608757019,
+  "ptype": 886.0953582525253,
+  "lvl": 784.6567814350128,
+  "winter": 597.0736961364746,
+  "x_warm_dT": 498.9798114299774,
+  "peak_r": 431.1011198759079,
+  "bT_dT": 393.5438352227211,
+  "a_fabric_feel": 386.6890090703964,
+  "cp_nb_lvl": 374.17001926898956,
+  "lagr3": 358.39283061027527,
+  "lagr4": 328.09350967407227,
+  "lagr6": 327.42426109313965,
+  "f_r28": 326.24437057971954,
+  "beta_T": 309.97201108932495,
+  "bT_ta": 306.1326310634613,
+  "dT_norm": 289.5966331958771,
+  "t_org": 273.05169069767,
+  "lagr5": 265.8312792778015,
+  "lagr2": 255.00947046279907,
+  "ta_org": 254.97215056419373,
+  "t_tgt_norm": 239.8589096069336,
+  "occ_next": 228.95406889915466,
+  "x_summer": 199.88826894760132,
+  "trend91": 172.97620964050293,
+  "a_silhouette": 155.86308991909027
+ },
+ "2025-03": [
+  {
+   "tree": 0,
+   "total_gain": 198.1242322921753,
+   "rules": "if f_r28 <= -0.014186062241442816 (gain 42.6):\n  if winter <= 2.5000000000000004 (gain 27.7):\n    if x_warm_dT <= -0.9328804248474921 (gain 11.0):\n    else:\n      ...\n  else:\n    if tmonth <= 5.500000000000001 (gain 20.8):\n    else:\n      ...\nelse:\n  if tmonth <= 11.500000000000002 (gain 18.9):\n    if f_r7 <= 0.2734126624276339 (gain 20.2):\n      ...\n    else:\n  else:\n    if lagr6 <= 0.6224276224563935 (gain 7.3):\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 197.79311227798462,
+   "rules": "if winter <= 2.5000000000000004 (gain 33.8):\n  if f_r7 <= -0.10872439889195344 (gain 31.1):\n    if ev_prom_o <= 40.00000000000001 (gain 8.7):\n    else:\n  else:\n    if t_tgt_norm <= 7.903635237223079 (gain 18.7):\n      ...\n    else:\n      ...\nelse:\n  if t_org <= 16.516529891936653 (gain 38.9):\n    if ev_prom_o <= 40.00000000000001 (gain 7.6):\n      ...\n    else:\n  else:\n    if summer <= 2.5000000000000004 (gain 4.9):\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 191.1014280319214,
+   "rules": "if f_r7 <= -0.2420405426184213 (gain 33.3):\n  if summer <= 5.500000000000001 (gain 21.3):\n    if ev_spring_break_o <= 1.0000000180025095e-35 (gain 16.6):\n      ...\n    else:\n  else:\n    if ev_prime_day_o <= 1.0000000180025095e-35 (gain 5.9):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 34.2):\n    if f_r7 <= 0.3765799467592624 (gain 17.2):\n      ...\n    else:\n  else:\n    if lagr6 <= 0.6224276224563935 (gain 7.8):\n    else:\n      ..."
+  },
+  {
+   "tree": 3,
+   "total_gain": 178.86072969436646,
+   "rules": "if f_r28 <= 0.162429946762754 (gain 34.9):\n  if winter <= 1.5000000000000002 (gain 30.1):\n    if dT_real_from_org <= 1.0000000180025095e-35 (gain 18.9):\n      ...\n    else:\n      ...\n  else:\n    if t_org <= 16.736451268612374 (gain 26.0):\n      ...\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 14.8):\n    if winter <= 2.5000000000000004 (gain 6.8):\n      ...\n    else:\n  else:\n    if a_fabric_feel == 0||5||7||11 (gain 4.5):\n    else:"
+  },
+  {
+   "tree": 5,
+   "total_gain": 177.49501013755798,
+   "rules": "if winter <= 1.5000000000000002 (gain 31.6):\n  if x_warm_dT <= 0.3664686669832849 (gain 34.0):\n    if lagr5 <= 0.37125382326647466 (gain 12.8):\n      ...\n    else:\n      ...\n  else:\n    if lvl <= 5.635902870128624 (gain 8.9):\n    else:\nelse:\n  if t_org <= 16.736451268612374 (gain 38.1):\n    if a_silhouette == 1||9 (gain 8.5):\n    else:\n      ...\n  else:\n    if lagr2 <= 0.28963557087622965 (gain 6.2):\n      ...\n    else:"
+  }
+ ],
+ "2025-03_gain_importance": {
+  "ptype": 998.4756487607956,
+  "lvl": 797.6528367996216,
+  "t_org": 588.2489414215088,
+  "x_warm_dT": 556.9827791452408,
+  "f_r7": 555.827969789505,
+  "f_r28": 489.149241566658,
+  "peak_r": 468.47122967243195,
+  "lagr3": 462.4119508266449,
+  "lagr6": 457.12341153621674,
+  "winter": 446.25484573841095,
+  "a_fabric_feel": 437.4584515094757,
+  "cp_nb_lvl": 431.58754992485046,
+  "t_tgt_norm": 364.735350728035,
+  "bT_dT": 345.91442930698395,
+  "beta_T": 321.966309428215,
+  "lagr2": 319.8973091840744,
+  "ta_org": 256.9208492040634,
+  "lagr4": 252.009059548378,
+  "occ_last": 250.35812067985535,
+  "lagr5": 249.43746054172516,
+  "x_summer": 235.09270918369293,
+  "bT_ta": 223.45628023147583,
+  "dT_real_from_org": 217.53687965869904,
+  "occ_next": 211.65957748889923,
+  "x_bts": 203.5832198858261
+ },
+ "2025-04": [
+  {
+   "tree": 0,
+   "total_gain": 253.1568660736084,
+   "rules": "if ev_bfcm_o <= 1.0000000180025095e-35 (gain 48.3):\n  if f_r7 <= -0.05663231886668758 (gain 69.1):\n    if x_winter <= 8.400000000000002 (gain 29.7):\n      ...\n    else:\n  else:\n    if f_r7 <= 0.27019697606924115 (gain 11.3):\n      ...\n    else:\nelse:\n  if lagr6 <= 0.6309430328666035 (gain 12.5):\n  else:\n    if peak_r <= 0.41621810749665017 (gain 8.1):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 232.1711597442627,
+   "rules": "if f_r7 <= -0.04506217851229863 (gain 37.3):\n  if x_winter <= 6.000000000000001 (gain 39.8):\n    if ev_mothers_o <= 1.0000000180025095e-35 (gain 29.7):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_valentine_t <= 1.0000000180025095e-35 (gain 46.7):\n    if summer <= 5.500000000000001 (gain 8.3):\n      ...\n    else:\n      ...\n  else:\n    if ta_org <= 0.3854284600547367 (gain 11.3):\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 230.8162226676941,
+   "rules": "if f_r28 <= 0.004662322503816148 (gain 47.6):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 34.2):\n    if x_warm_dT <= -5.992950702916832 (gain 26.4):\n    else:\n      ...\n  else:\n    if winter <= 1.0000000180025095e-35 (gain 10.5):\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 24.8):\n    if winter <= 2.5000000000000004 (gain 15.3):\n      ...\n    else:\n  else:\n    if peak_r <= 0.48073046121541685 (gain 9.7):\n    else:\n      ..."
+  },
+  {
+   "tree": 3,
+   "total_gain": 214.94108963012695,
+   "rules": "if ev_spring_break_t <= 1.0000000180025095e-35 (gain 37.0):\n  if f_r7 <= -0.11811520040844446 (gain 51.8):\n    if x_winter <= 6.000000000000001 (gain 26.4):\n      ...\n    else:\n  else:\n    if f_r7 <= 0.22376156194805244 (gain 10.9):\n      ...\n    else:\nelse:\n  if t_org <= 9.839387164425856 (gain 9.4):\n  else:\n    if lagr6 <= 0.6309430328666035 (gain 10.3):\n    else:\n      ..."
+  },
+  {
+   "tree": 5,
+   "total_gain": 213.0616798400879,
+   "rules": "if ev_spring_break_t <= 1.0000000180025095e-35 (gain 36.5):\n  if winter <= 1.5000000000000002 (gain 37.9):\n    if dT_real_from_org <= 2.6394084723838334 (gain 35.3):\n      ...\n    else:\n      ...\n  else:\n    if ta_org <= 1.0586153046973863 (gain 27.4):\n      ...\n    else:\nelse:\n  if lagr6 <= 0.8825083110246913 (gain 10.7):\n    if lagr1 <= 0.46066991010725516 (gain 9.0):\n      ...\n    else:\n  else:"
+  }
+ ],
+ "2025-04_gain_importance": {
+  "ptype": 1058.3830857276917,
+  "lvl": 932.0268825292587,
+  "f_r7": 762.7757962942123,
+  "f_r28": 672.6023408174515,
+  "x_warm_dT": 579.987670302391,
+  "peak_r": 564.4747723340988,
+  "lagr6": 480.91262090206146,
+  "cp_nb_lvl": 461.38035094738007,
+  "a_fabric_feel": 428.21200013160706,
+  "x_winter": 379.64232981204987,
+  "t_org": 376.216309428215,
+  "bT_dT": 363.1366205215454,
+  "t_tgt_norm": 337.71839940547943,
+  "ev_spring_break_t": 335.94726943969727,
+  "lagr2": 335.0089482665062,
+  "beta_T": 320.1234393119812,
+  "lagr4": 310.54167926311493,
+  "lagr5": 295.1436400413513,
+  "lagr3": 291.4397192001343,
+  "winter": 278.7139723300934,
+  "ta_org": 278.11925208568573,
+  "x_bts": 264.4772104024887,
+  "occ_next": 249.9193207025528,
+  "occ_last": 213.69691956043243,
+  "bT_ta": 212.9404913187027
+ },
+ "2025-05": [
+  {
+   "tree": 0,
+   "total_gain": 263.455096244812,
+   "rules": "if f_r28 <= 0.019630969707317363 (gain 78.3):\n  if ev_prom_o <= 40.00000000000001 (gain 41.3):\n    if x_warm_dT <= -6.048005916048337 (gain 33.1):\n    else:\n      ...\n  else:\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 21.6):\n    if peak_r <= 0.26393924807365926 (gain 8.6):\n      ...\n    else:\n  else:\n    if x_warm_dT <= -6.472598357798551 (gain 9.9):\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 255.97063875198364,
+   "rules": "if f_r28 <= 0.019630969707317363 (gain 65.6):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 37.5):\n    if x_warm_dT <= -6.048005916048337 (gain 29.8):\n    else:\n      ...\n  else:\n    if summer <= 7.500000000000001 (gain 14.2):\n      ...\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 19.9):\n    if winter <= 2.5000000000000004 (gain 11.4):\n      ...\n    else:\n  else:\n    if peak_r <= 0.4816709624500481 (gain 14.3):\n    else:"
+  },
+  {
+   "tree": 2,
+   "total_gain": 249.23624086380005,
+   "rules": "if f_r28 <= -0.06047093325308999 (gain 64.9):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 33.0):\n    if x_winter <= 8.400000000000002 (gain 25.2):\n      ...\n    else:\n  else:\n    if summer <= 7.500000000000001 (gain 8.1):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 25.7):\n    if f_r7 <= 0.263621477122581 (gain 17.0):\n      ...\n    else:\n  else:\n    if peak_r <= 0.4816709624500481 (gain 13.8):\n    else:\n      ..."
+  },
+  {
+   "tree": 3,
+   "total_gain": 236.51402139663696,
+   "rules": "if f_r28 <= -0.04079452027940602 (gain 61.7):\n  if ev_prom_o <= 40.00000000000001 (gain 30.3):\n    if x_winter <= 8.400000000000002 (gain 21.7):\n      ...\n    else:\n  else:\n    if lagr6 <= 0.05048372407113815 (gain 4.8):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 19.7):\n    if f_r7 <= 0.22310005950601677 (gain 16.5):\n      ...\n    else:\n  else:\n    if peak_r <= 0.49370776236402175 (gain 12.0):\n      ...\n    else:"
+  },
+  {
+   "tree": 6,
+   "total_gain": 229.17900228500366,
+   "rules": "if f_r7 <= -0.05617680997441835 (gain 48.5):\n  if x_winter <= 6.000000000000001 (gain 29.5):\n    if ev_prom_o <= 40.00000000000001 (gain 26.5):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_bfcm_o <= 1.0000000180025095e-35 (gain 34.2):\n    if winter <= 1.5000000000000002 (gain 8.7):\n      ...\n    else:\n      ...\n  else:\n    if peak_r <= 1.2204558310128808 (gain 11.8):\n      ...\n    else:"
+  }
+ ],
+ "2025-05_gain_importance": {
+  "ptype": 1158.1580492258072,
+  "f_r28": 1037.709302186966,
+  "lvl": 863.1397498846054,
+  "f_r7": 738.5548903942108,
+  "peak_r": 664.7204611301422,
+  "x_warm_dT": 574.7972996234894,
+  "a_fabric_feel": 559.7403420209885,
+  "cp_nb_lvl": 538.2507685422897,
+  "t_org": 513.8032108545303,
+  "lagr6": 463.9609304666519,
+  "t_tgt_norm": 454.4120593070984,
+  "x_winter": 391.2771805524826,
+  "winter": 375.7662318944931,
+  "x_summer": 361.0103806257248,
+  "beta_T": 346.6594897508621,
+  "bT_dT": 339.17593932151794,
+  "ev_spring_break_t": 322.9306888580322,
+  "lagr4": 320.10218930244446,
+  "x_bts": 291.7921097278595,
+  "lagr2": 284.0600199699402,
+  "occ_next": 278.22338032722473,
+  "summer": 274.58344078063965,
+  "lagr3": 270.3494590520859,
+  "lagr5": 260.98350918293,
+  "a_silhouette": 243.00004982948303
+ },
+ "2025-06": [
+  {
+   "tree": 2,
+   "total_gain": 314.7582893371582,
+   "rules": "if f_r7 <= -0.040922779531457 (gain 90.3):\n  if x_winter <= 6.000000000000001 (gain 49.0):\n    if ev_prom_o <= 40.00000000000001 (gain 34.8):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 36.9):\n    if f_r7 <= 0.22426098590087387 (gain 6.8):\n      ...\n    else:\n  else:\n    if x_warm_dT <= -0.270369133299135 (gain 15.1):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 0,
+   "total_gain": 312.44285011291504,
+   "rules": "if f_r28 <= 0.01889409178890956 (gain 99.8):\n  if ev_prom_o <= 40.00000000000001 (gain 45.3):\n    if x_warm_dT <= -6.007852828188766 (gain 33.9):\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 19.5):\n    if winter <= 1.5000000000000002 (gain 10.2):\n      ...\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 11.5):\n    else:\n      ..."
+  },
+  {
+   "tree": 3,
+   "total_gain": 294.083701133728,
+   "rules": "if f_r7 <= -0.040922779531457 (gain 86.7):\n  if x_winter <= 8.400000000000002 (gain 43.3):\n    if ev_prom_o <= 40.00000000000001 (gain 29.9):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 33.3):\n    if summer <= 5.500000000000001 (gain 7.7):\n    else:\n      ...\n  else:\n    if x_summer <= 1.8000000000000003 (gain 14.6):\n      ...\n    else:"
+  },
+  {
+   "tree": 1,
+   "total_gain": 282.16564083099365,
+   "rules": "if f_r28 <= -0.11647368443380114 (gain 85.9):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 35.6):\n    if x_warm_dT <= -6.007852828188766 (gain 19.0):\n    else:\n      ...\n  else:\n    if summer <= 7.500000000000001 (gain 7.4):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 25.8):\n    if winter <= 3.5000000000000004 (gain 15.1):\n      ...\n    else:\n      ...\n  else:\n    if winter <= 1.5000000000000002 (gain 19.7):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 5,
+   "total_gain": 263.1655683517456,
+   "rules": "if f_r7 <= -0.007935057118342135 (gain 73.2):\n  if x_winter <= 8.400000000000002 (gain 40.1):\n    if ev_prom_o <= 40.00000000000001 (gain 28.9):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 31.1):\n    if f_r7 <= 0.3351624651340055 (gain 6.2):\n    else:\n  else:\n    if x_summer <= 1.5000000000000002 (gain 13.9):\n      ...\n    else:"
+  }
+ ],
+ "2025-06_gain_importance": {
+  "ptype": 1322.941822886467,
+  "f_r28": 1099.1520260572433,
+  "f_r7": 1020.7625571489334,
+  "lvl": 861.0870809555054,
+  "x_warm_dT": 708.1427292823792,
+  "peak_r": 646.0139331817627,
+  "cp_nb_lvl": 543.641313791275,
+  "lagr6": 520.2998208999634,
+  "beta_T": 485.31897950172424,
+  "a_fabric_feel": 483.07954812049866,
+  "x_winter": 453.46829879283905,
+  "t_tgt_norm": 437.74340999126434,
+  "bT_dT": 417.70552003383636,
+  "t_org": 381.86513113975525,
+  "x_summer": 359.8078109025955,
+  "winter": 348.9098770618439,
+  "lagr3": 348.5174708366394,
+  "x_bts": 347.42076098918915,
+  "ev_spring_break_t": 333.3264899253845,
+  "lagr1": 324.22989070415497,
+  "cp_nb_sea4": 320.5431182384491,
+  "lagr5": 320.51818013191223,
+  "trend91": 289.9789299964905,
+  "lagr4": 281.35602164268494,
+  "occ_last": 277.182360291481
+ },
+ "2025-07": [
+  {
+   "tree": 0,
+   "total_gain": 362.18373680114746,
+   "rules": "if f_r28 <= 0.0045933118164361185 (gain 132.6):\n  if ev_prom_o <= 40.00000000000001 (gain 48.9):\n    if x_winter <= 8.400000000000002 (gain 35.3):\n      ...\n    else:\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 20.4):\n    if f_r28 <= 0.16164862214817863 (gain 8.2):\n    else:\n      ...\n  else:\n    if winter <= 1.5000000000000002 (gain 13.6):\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 345.4184470176697,
+   "rules": "if f_r28 <= -0.06540194624040097 (gain 124.6):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 45.9):\n    if x_warm_dT <= -6.03030988677594 (gain 27.9):\n    else:\n      ...\n  else:\n    if summer <= 7.500000000000001 (gain 10.0):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 23.0):\n    if f_r7 <= 0.29521617744232403 (gain 19.1):\n      ...\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 15.3):\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 328.3529028892517,
+   "rules": "if f_r28 <= -0.06540194624040097 (gain 116.8):\n  if cp_nb_sea4 <= 1.5273796553853671 (gain 40.2):\n    if winter <= 1.5000000000000002 (gain 7.9):\n    else:\n  else:\n    if ev_memorial_o <= 1.0000000180025095e-35 (gain 24.8):\n      ...\n    else:\n      ...\nelse:\n  if tmonth <= 1.5000000000000002 (gain 21.4):\n    if winter <= 1.5000000000000002 (gain 7.6):\n    else:\n  else:\n    if f_r7 <= -0.040922779531457 (gain 17.1):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 4,
+   "total_gain": 303.3638348579407,
+   "rules": "if f_r28 <= -0.06540194624040097 (gain 100.4):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 35.6):\n    if x_warm_dT <= -6.03030988677594 (gain 25.5):\n    else:\n      ...\n  else:\n    if summer <= 7.500000000000001 (gain 9.4):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 17.6):\n    if f_r7 <= 0.1974254047125146 (gain 16.6):\n      ...\n    else:\n  else:\n    if peak_r <= 0.4604956020012529 (gain 15.9):\n      ...\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 301.4905261993408,
+   "rules": "if f_r7 <= -0.05834589785944284 (gain 110.4):\n  if cp_nb_sea4 <= 1.428284275073825 (gain 34.2):\n    if x_summer <= 5.800000000000002 (gain 15.9):\n    else:\n  else:\n    if ev_prom_o <= 40.00000000000001 (gain 16.9):\n      ...\n    else:\n      ...\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 32.6):\n    if f_r7 <= 0.23819715295750107 (gain 14.4):\n    else:\n  else:\n    if f_r28 <= 0.29405559152589283 (gain 11.1):\n      ...\n    else:"
+  }
+ ],
+ "2025-07_gain_importance": {
+  "f_r28": 1636.6255244016647,
+  "ptype": 1397.8549700975418,
+  "f_r7": 1148.8404395580292,
+  "x_warm_dT": 894.922703742981,
+  "lvl": 888.7400988340378,
+  "peak_r": 610.1381385326385,
+  "a_fabric_feel": 598.07410800457,
+  "cp_nb_lvl": 546.3987596035004,
+  "x_winter": 482.9395979642868,
+  "lagr6": 472.70461881160736,
+  "t_org": 470.80939042568207,
+  "cp_nb_sea4": 457.9600273370743,
+  "beta_T": 439.1733800172806,
+  "x_bts": 430.29065132141113,
+  "bT_dT": 426.7811698913574,
+  "t_tgt_norm": 418.4357513189316,
+  "x_summer": 411.7676491737366,
+  "lagr5": 339.8437805175781,
+  "bT_ta": 327.31087923049927,
+  "trend91": 305.72456097602844,
+  "occ_next": 303.6162909269333,
+  "lagr3": 297.712029337883,
+  "ev_spring_break_t": 280.1134078502655,
+  "winter": 278.7045180797577,
+  "lagr1": 262.068009018898
+ },
+ "2025-08": [
+  {
+   "tree": 0,
+   "total_gain": 375.3227152824402,
+   "rules": "if f_r28 <= -0.05959871487872017 (gain 152.6):\n  if ev_prom_o <= 40.00000000000001 (gain 41.2):\n    if x_warm_dT <= -5.992950702916832 (gain 27.6):\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 31.5):\n    if f_r28 <= 0.16051325892855725 (gain 10.6):\n      ...\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 18.8):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 373.61468505859375,
+   "rules": "if f_r28 <= -0.0649123523043209 (gain 141.8):\n  if ev_mothers_o <= 1.0000000180025095e-35 (gain 43.5):\n    if x_winter <= 8.400000000000002 (gain 26.7):\n      ...\n    else:\n  else:\n    if summer <= 7.500000000000001 (gain 10.8):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 26.9):\n    if f_r7 <= 0.2698368327627161 (gain 19.5):\n      ...\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 16.3):\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 363.05706787109375,
+   "rules": "if f_r28 <= -0.11724591773438955 (gain 138.4):\n  if ev_memorial_o <= 1.0000000180025095e-35 (gain 31.3):\n    if x_winter <= 8.400000000000002 (gain 24.0):\n      ...\n    else:\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 27.5):\n    if f_r7 <= 0.2335439848021129 (gain 24.4):\n      ...\n    else:\n  else:\n    if peak_r <= 0.49219623674639473 (gain 17.3):\n      ...\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 361.9159188270569,
+   "rules": "if f_r7 <= -0.1167904191564973 (gain 136.8):\n  if t_org <= 11.321664099896074 (gain 28.3):\n    if warmth <= 3.5000000000000004 (gain 28.1):\n      ...\n    else:\n  else:\n    if warmth <= 3.5000000000000004 (gain 33.9):\n      ...\n    else:\nelse:\n  if ev_bfcm_o <= 1.0000000180025095e-35 (gain 37.8):\n    if f_r7 <= 0.31507866120310396 (gain 15.0):\n    else:\n  else:\n    if x_summer <= 2.2000000000000006 (gain 15.4):\n      ...\n    else:"
+  },
+  {
+   "tree": 5,
+   "total_gain": 324.7391085624695,
+   "rules": "if f_r7 <= -0.16633736220036457 (gain 109.6):\n  if x_winter <= 6.000000000000001 (gain 41.7):\n    if ev_graduation_o <= 38.50000000000001 (gain 32.0):\n      ...\n    else:\n  else:\nelse:\n  if ev_bfcm_o <= 1.0000000180025095e-35 (gain 32.6):\n    if f_r7 <= 0.3310198775976142 (gain 12.6):\n      ...\n    else:\n  else:\n    if x_summer <= 2.2000000000000006 (gain 15.5):\n      ...\n    else:\n      ..."
+  }
+ ],
+ "2025-08_gain_importance": {
+  "f_r28": 1754.7442222833633,
+  "ptype": 1636.496498823166,
+  "f_r7": 1477.3047462701797,
+  "lvl": 882.3094902038574,
+  "x_warm_dT": 774.6740263700485,
+  "t_org": 670.7432994842529,
+  "a_fabric_feel": 621.3325200080872,
+  "peak_r": 584.2988908290863,
+  "lagr6": 539.8834600448608,
+  "cp_nb_lvl": 537.2303788661957,
+  "x_winter": 505.60061824321747,
+  "x_summer": 465.3774596452713,
+  "bT_dT": 436.59420108795166,
+  "cp_nb_sea4": 426.212309718132,
+  "beta_T": 419.05651104450226,
+  "x_bts": 405.1085214614868,
+  "lagr5": 338.36880135536194,
+  "bT_ta": 338.1787209510803,
+  "ev_spring_break_t": 337.329718708992,
+  "summer": 318.66634726524353,
+  "t_tgt_norm": 314.92291128635406,
+  "trend91": 301.47150111198425,
+  "lagr4": 299.64640045166016,
+  "lagr3": 282.83620035648346,
+  "winter": 282.52254951000214
+ },
+ "2025-09": [
+  {
+   "tree": 1,
+   "total_gain": 413.00078535079956,
+   "rules": "if f_r7 <= -0.15548755642008893 (gain 161.2):\n  if x_winter <= 6.000000000000001 (gain 41.9):\n    if ev_graduation_o <= 38.50000000000001 (gain 36.9):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 51.9):\n    if f_r7 <= 0.3162524591647874 (gain 18.6):\n      ...\n    else:\n  else:\n    if x_summer <= 2.2000000000000006 (gain 17.7):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 390.4204487800598,
+   "rules": "if f_r7 <= -0.16371263160774316 (gain 149.9):\n  if x_winter <= 6.000000000000001 (gain 46.5):\n    if ev_memorial_o <= 1.0000000180025095e-35 (gain 28.3):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 45.7):\n    if f_r7 <= 0.22107559765209345 (gain 19.5):\n      ...\n    else:\n  else:\n    if peak_r <= 0.5032577631693952 (gain 14.6):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 0,
+   "total_gain": 381.4506549835205,
+   "rules": "if f_r28 <= -0.05929051288879492 (gain 159.8):\n  if ev_memorial_o <= 1.0000000180025095e-35 (gain 45.8):\n    if x_winter <= 6.000000000000001 (gain 26.9):\n      ...\n    else:\n  else:\n    if t_tgt_norm <= 22.37899292172084 (gain 10.3):\n      ...\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 32.2):\n    if f_r28 <= 0.1662651381531234 (gain 10.5):\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 17.5):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 3,
+   "total_gain": 361.1551365852356,
+   "rules": "if f_r7 <= -0.16371263160774316 (gain 142.2):\n  if t_org <= 10.02991040426433 (gain 29.3):\n    if warmth <= 3.5000000000000004 (gain 20.5):\n      ...\n    else:\n  else:\n    if coverage <= 4.500000000000001 (gain 23.6):\n      ...\n    else:\n      ...\nelse:\n  if ev_bfcm_o <= 1.0000000180025095e-35 (gain 40.3):\n    if f_r7 <= 0.26706766089342177 (gain 19.8):\n      ...\n    else:\n  else:\n    if x_summer <= 2.2000000000000006 (gain 15.6):\n      ...\n    else:"
+  },
+  {
+   "tree": 5,
+   "total_gain": 341.6504144668579,
+   "rules": "if f_r7 <= -0.04959458283936626 (gain 114.9):\n  if x_winter <= 3.600000000000001 (gain 40.3):\n    if t_tgt_norm <= 19.072347672797314 (gain 33.0):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_bfcm_o <= 1.0000000180025095e-35 (gain 30.0):\n    if lvl <= 5.572333697883658 (gain 12.5):\n      ...\n    else:\n  else:\n    if x_summer <= 1.8000000000000003 (gain 13.9):\n      ...\n    else:"
+  }
+ ],
+ "2025-09_gain_importance": {
+  "ptype": 1813.6728726625443,
+  "f_r28": 1753.7007360458374,
+  "f_r7": 1666.9548897743225,
+  "lvl": 1009.4304208755493,
+  "x_warm_dT": 729.1197481155396,
+  "t_org": 680.6235818862915,
+  "a_fabric_feel": 645.1594676971436,
+  "cp_nb_sea4": 598.7995702028275,
+  "cp_nb_lvl": 557.178178191185,
+  "peak_r": 551.2235605716705,
+  "lagr6": 535.8138630390167,
+  "bT_dT": 520.6238604784012,
+  "x_summer": 520.3639991283417,
+  "t_tgt_norm": 506.02174639701843,
+  "x_winter": 491.35799837112427,
+  "beta_T": 417.1001206636429,
+  "lagr5": 406.16587817668915,
+  "x_bts": 405.44511914253235,
+  "occ_next": 352.9547497034073,
+  "trend91": 351.8855701684952,
+  "ev_spring_break_t": 330.39722752571106,
+  "bT_ta": 271.4012396335602,
+  "lagr3": 270.6559979915619,
+  "lagr1": 263.97676026821136,
+  "lagr2": 256.1817784309387
+ },
+ "2025-10": [
+  {
+   "tree": 1,
+   "total_gain": 451.5521593093872,
+   "rules": "if f_r7 <= -0.1615509485612117 (gain 144.8):\n  if ev_graduation_o <= 38.50000000000001 (gain 64.7):\n    if x_winter <= 6.000000000000001 (gain 47.3):\n      ...\n    else:\n  else:\n    if winter <= 1.0000000180025095e-35 (gain 22.6):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 56.8):\n    if f_r7 <= 0.3006175844625569 (gain 21.9):\n      ...\n    else:\n  else:\n    if x_summer <= 2.2000000000000006 (gain 19.7):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 425.6355810165405,
+   "rules": "if f_r7 <= -0.1657518395197047 (gain 134.8):\n  if t_org <= 11.187493583181059 (gain 55.1):\n    if winter <= 1.5000000000000002 (gain 22.5):\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 52.3):\n      ...\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 48.9):\n    if f_r7 <= 0.22589145495223645 (gain 20.2):\n      ...\n    else:\n      ...\n  else:\n    if peak_r <= 1.3120776510799288 (gain 14.2):\n      ...\n    else:"
+  },
+  {
+   "tree": 0,
+   "total_gain": 424.33476066589355,
+   "rules": "if f_r28 <= -0.05937360450295547 (gain 141.4):\n  if ev_memorial_o <= 1.0000000180025095e-35 (gain 84.0):\n    if x_winter <= 6.000000000000001 (gain 27.5):\n      ...\n    else:\n  else:\n    if lagr5 <= -0.0925852645828156 (gain 15.1):\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 31.4):\n    if cp_nb_sea4 <= 0.39230846699533056 (gain 16.4):\n    else:\n      ...\n  else:\n    if winter <= 1.5000000000000002 (gain 18.6):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 4,
+   "total_gain": 374.20240783691406,
+   "rules": "if f_r7 <= -0.1615509485612117 (gain 110.6):\n  if ev_graduation_o <= 38.50000000000001 (gain 50.5):\n    if x_warm_dT <= -4.817670093205526 (gain 37.7):\n    else:\n      ...\n  else:\n    if summer <= 5.500000000000001 (gain 19.3):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 38.7):\n    if cp_nb_sea4 <= 0.6234774042139543 (gain 15.8):\n    else:\n      ...\n  else:\n    if peak_r <= 0.5096962941415778 (gain 14.6):\n      ...\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 354.95456075668335,
+   "rules": "if f_r7 <= -0.05778151619579718 (gain 125.5):\n  if ev_graduation_o <= 38.50000000000001 (gain 56.1):\n    if bT_dT <= 0.15418048116515737 (gain 24.9):\n      ...\n    else:\n      ...\n  else:\n    if x_summer <= 2.2000000000000006 (gain 16.9):\n      ...\n    else:\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 38.7):\n    if f_r7 <= 0.41869257044542996 (gain 16.5):\n      ...\n    else:\n  else:\n    if dT_real_from_org <= -11.476503417618085 (gain 11.6):\n    else:"
+  }
+ ],
+ "2025-10_gain_importance": {
+  "ptype": 2007.2171683311462,
+  "f_r7": 1639.925206542015,
+  "f_r28": 1418.6728790998459,
+  "lvl": 936.3913686275482,
+  "t_org": 741.6942601203918,
+  "x_warm_dT": 709.4113417863846,
+  "cp_nb_sea4": 695.8106172084808,
+  "a_fabric_feel": 686.7060899734497,
+  "cp_nb_lvl": 591.0207588672638,
+  "x_summer": 578.7467974424362,
+  "bT_dT": 561.4075502157211,
+  "lagr6": 538.7445077896118,
+  "peak_r": 534.1738880872726,
+  "lagr5": 500.57291758060455,
+  "x_winter": 497.37444484233856,
+  "ev_graduation_o": 444.1473476886749,
+  "t_tgt_norm": 422.02705812454224,
+  "ev_spring_break_t": 421.76497435569763,
+  "beta_T": 421.04992735385895,
+  "winter": 382.5712914466858,
+  "occ_next": 365.20579838752747,
+  "summer": 360.24282932281494,
+  "x_bts": 354.624738574028,
+  "lagr3": 327.03782963752747,
+  "trend91": 324.45997965335846
+ },
+ "2025-11": [
+  {
+   "tree": 1,
+   "total_gain": 495.4946002960205,
+   "rules": "if f_r7 <= -0.14677291673510276 (gain 159.9):\n  if ev_prom_o <= 40.00000000000001 (gain 52.1):\n    if x_winter <= 6.000000000000001 (gain 49.6):\n      ...\n    else:\n  else:\n    if x_summer <= 1.8000000000000003 (gain 18.0):\n      ...\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 56.3):\n    if cp_nb_sea4 <= 0.5615968562374742 (gain 38.4):\n    else:\n      ...\n  else:\n    if x_summer <= 2.2000000000000006 (gain 22.0):\n      ...\n    else:"
+  },
+  {
+   "tree": 2,
+   "total_gain": 474.08329582214355,
+   "rules": "if f_r7 <= -0.16288836980869342 (gain 146.8):\n  if t_org <= 11.187493583181059 (gain 51.4):\n    if winter <= 1.5000000000000002 (gain 21.5):\n    else:\n  else:\n    if winter <= 1.5000000000000002 (gain 57.1):\n      ...\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 51.7):\n    if cp_nb_sea4 <= 0.394129520267273 (gain 34.0):\n    else:\n      ...\n  else:\n    if peak_r <= 1.3051648917851366 (gain 14.0):\n    else:"
+  },
+  {
+   "tree": 0,
+   "total_gain": 453.5288324356079,
+   "rules": "if f_r28 <= 0.008102310168630803 (gain 154.8):\n  if ev_prom_o <= 40.00000000000001 (gain 81.9):\n    if x_warm_dT <= -6.017455571363985 (gain 30.7):\n    else:\n      ...\n  else:\n    if x_summer <= 2.2000000000000006 (gain 17.5):\n      ...\n    else:\nelse:\n  if cp_nb_sea4 <= 0.3725366372268299 (gain 23.0):\n  else:\n    if ev_halloween_o <= 1.0000000180025095e-35 (gain 29.9):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 4,
+   "total_gain": 412.8633031845093,
+   "rules": "if f_r7 <= -0.16288836980869342 (gain 118.9):\n  if t_org <= 10.14782047975809 (gain 41.3):\n    if winter <= 1.5000000000000002 (gain 19.2):\n    else:\n  else:\n    if summer <= 5.500000000000001 (gain 45.2):\n      ...\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 35.5):\n    if cp_nb_sea4 <= 0.5615968562374742 (gain 31.0):\n    else:\n      ...\n  else:\n    if peak_r <= 0.5104062583491392 (gain 14.0):\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 398.73020124435425,
+   "rules": "if f_r7 <= -0.05802028493923737 (gain 140.0):\n  if ev_prom_o <= 40.00000000000001 (gain 48.2):\n    if bT_dT <= 0.23741493535102673 (gain 32.2):\n      ...\n    else:\n  else:\n    if x_summer <= 1.8000000000000003 (gain 20.9):\n      ...\n    else:\n      ...\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 37.1):\n    if cp_nb_sea4 <= 0.5615968562374742 (gain 29.7):\n    else:\n      ...\n  else:\n    if dT_real_from_org <= -11.595841704215017 (gain 12.0):\n    else:\n      ..."
+  }
+ ],
+ "2025-11_gain_importance": {
+  "ptype": 2033.9327300786972,
+  "f_r7": 1936.0838770866394,
+  "f_r28": 1514.4959752559662,
+  "cp_nb_sea4": 1064.703775882721,
+  "lvl": 914.2984297275543,
+  "x_warm_dT": 877.4004510641098,
+  "t_org": 734.7489037513733,
+  "a_fabric_feel": 670.1862697601318,
+  "cp_nb_lvl": 652.6466995477676,
+  "lagr6": 650.6322327852249,
+  "x_summer": 583.4019488096237,
+  "bT_dT": 575.967297077179,
+  "peak_r": 553.6438820362091,
+  "lagr5": 530.5386883020401,
+  "winter": 526.2728809118271,
+  "ev_prom_o": 479.4645457267761,
+  "occ_next": 454.47004103660583,
+  "t_tgt_norm": 448.2035502195358,
+  "ev_spring_break_t": 421.86956119537354,
+  "x_bts": 419.45746076107025,
+  "summer": 415.5049695968628,
+  "beta_T": 415.15650165081024,
+  "own_sea4": 382.7379186153412,
+  "lagr3": 329.5899806022644,
+  "x_winter": 312.101789355278
+ },
+ "2025-12": [
+  {
+   "tree": 1,
+   "total_gain": 566.6644048690796,
+   "rules": "if f_r7 <= -0.055672239953871654 (gain 198.3):\n  if ev_prom_o <= 40.00000000000001 (gain 61.1):\n    if x_winter <= 6.000000000000001 (gain 64.2):\n      ...\n    else:\n  else:\n    if x_summer <= 1.8000000000000003 (gain 19.6):\n      ...\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 52.5):\n    if cp_nb_sea4 <= 0.39230846699533056 (gain 43.4):\n    else:\n      ...\n  else:\n    if x_summer <= 2.2000000000000006 (gain 21.1):\n      ...\n    else:"
+  },
+  {
+   "tree": 0,
+   "total_gain": 545.6217031478882,
+   "rules": "if f_r28 <= 0.00464553307430709 (gain 188.7):\n  if ev_prom_o <= 40.00000000000001 (gain 87.9):\n    if x_warm_dT <= -5.349496695280769 (gain 42.0):\n    else:\n      ...\n  else:\n    if x_summer <= 2.2000000000000006 (gain 17.4):\n      ...\n    else:\nelse:\n  if cp_nb_sea4 <= 0.35243047622642387 (gain 37.7):\n  else:\n    if ev_spring_break_t <= 1.0000000180025095e-35 (gain 30.9):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 529.6703062057495,
+   "rules": "if f_r7 <= -0.16355678807790716 (gain 186.4):\n  if ev_memorial_o <= 1.0000000180025095e-35 (gain 41.9):\n    if x_winter <= 6.000000000000001 (gain 59.9):\n      ...\n    else:\n  else:\n    if cp_nb_sea4 <= 0.34315379052781453 (gain 25.2):\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 49.4):\n    if cp_nb_sea4 <= 0.39230846699533056 (gain 46.0):\n    else:\n      ...\n  else:\n    if peak_r <= 1.318974530726404 (gain 14.5):\n      ...\n    else:"
+  },
+  {
+   "tree": 4,
+   "total_gain": 489.7787961959839,
+   "rules": "if f_r7 <= -0.14854672683818868 (gain 157.2):\n  if ev_graduation_o <= 38.50000000000001 (gain 40.4):\n    if x_warm_dT <= -4.693297403258355 (gain 46.2):\n    else:\n      ...\n  else:\n    if summer <= 5.500000000000001 (gain 32.2):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 40.5):\n    if summer <= 4.500000000000001 (gain 42.2):\n      ...\n    else:\n      ...\n  else:\n    if peak_r <= 0.8448137855654417 (gain 13.4):\n      ...\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 462.1293821334839,
+   "rules": "if f_r7 <= -0.04641417759339559 (gain 179.1):\n  if ev_prom_o <= 40.00000000000001 (gain 52.2):\n    if bT_dT <= 0.23883935775345042 (gain 35.0):\n      ...\n    else:\n      ...\n  else:\n    if x_summer <= 1.8000000000000003 (gain 21.2):\n      ...\n    else:\n      ...\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 41.2):\n    if cp_nb_sea4 <= 0.5573332760223212 (gain 34.7):\n    else:\n      ...\n  else:\n    if dT_real_from_org <= -11.498085896041088 (gain 12.2):\n    else:"
+  }
+ ],
+ "2025-12_gain_importance": {
+  "f_r7": 2553.430209159851,
+  "ptype": 2107.2153668403625,
+  "f_r28": 1442.9733468294144,
+  "cp_nb_sea4": 1402.7687019109726,
+  "lvl": 938.553129196167,
+  "x_warm_dT": 913.6991164684296,
+  "lagr6": 761.1954989433289,
+  "x_summer": 712.1577033996582,
+  "a_fabric_feel": 647.6785997152328,
+  "peak_r": 627.515140414238,
+  "t_org": 609.720694065094,
+  "cp_nb_lvl": 593.3062007427216,
+  "x_winter": 591.4800021648407,
+  "bT_dT": 573.228080034256,
+  "t_tgt_norm": 572.069310426712,
+  "ev_prom_o": 555.9831099510193,
+  "own_sea4": 523.5953193902969,
+  "lfl_macro4": 490.42297637462616,
+  "occ_next": 486.3647907972336,
+  "summer": 466.05897891521454,
+  "lagr5": 453.0362114906311,
+  "beta_T": 386.87597024440765,
+  "ev_spring_break_t": 384.2208912372589,
+  "lagr3": 372.80109906196594,
+  "x_bts": 371.57556998729706
+ },
+ "2026-01": [
+  {
+   "tree": 0,
+   "total_gain": 630.9877071380615,
+   "rules": "if f_r28 <= 0.004734466878625047 (gain 206.0):\n  if ev_prom_o <= 40.00000000000001 (gain 85.9):\n    if x_winter <= 6.000000000000001 (gain 102.0):\n      ...\n    else:\n      ...\n  else:\n    if cp_nb_sea4 <= 0.32961166659676927 (gain 17.0):\n    else:\n      ...\nelse:\n  if cp_nb_sea4 <= 0.3538081691824967 (gain 41.8):\n  else:\n    if ev_spring_break_t <= 1.0000000180025095e-35 (gain 32.1):\n      ...\n    else:\n      ..."
+  },
+  {
+   "tree": 1,
+   "total_gain": 629.7047100067139,
+   "rules": "if f_r7 <= -0.05722803246811085 (gain 224.9):\n  if x_winter <= 6.000000000000001 (gain 80.9):\n    if ev_prom_o <= 40.00000000000001 (gain 89.5):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 52.6):\n    if cp_nb_sea4 <= 0.3969990929155129 (gain 51.1):\n    else:\n      ...\n  else:\n    if dT_real_from_org <= -11.513918250761991 (gain 11.4):\n    else:\n      ..."
+  },
+  {
+   "tree": 2,
+   "total_gain": 606.0050048828125,
+   "rules": "if f_r7 <= -0.1748799364256858 (gain 217.2):\n  if x_winter <= 6.000000000000001 (gain 67.7):\n    if ev_memorial_o <= 1.0000000180025095e-35 (gain 66.8):\n      ...\n    else:\n      ...\n  else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 50.6):\n    if cp_nb_sea4 <= 0.3969990929155129 (gain 49.7):\n    else:\n      ...\n  else:\n    if peak_r <= 1.262710207141337 (gain 14.9):\n      ...\n    else:"
+  },
+  {
+   "tree": 4,
+   "total_gain": 556.2870035171509,
+   "rules": "if f_r7 <= -0.14677291673510276 (gain 178.8):\n  if x_warm_dT <= -4.71259578244324 (gain 67.8):\n  else:\n    if ev_prom_o <= 40.00000000000001 (gain 55.9):\n      ...\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 40.2):\n    if summer <= 4.500000000000001 (gain 52.4):\n      ...\n    else:\n      ...\n  else:\n    if peak_r <= 0.8576187894070618 (gain 13.8):\n      ...\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 534.5573139190674,
+   "rules": "if f_r7 <= -0.04111260104261005 (gain 205.6):\n  if cp_nb_sea4 <= 0.014089025025858737 (gain 56.3):\n  else:\n    if lfl_macro4 <= 0.5398961849187025 (gain 44.3):\n      ...\n    else:\nelse:\n  if ev_halloween_o <= 1.0000000180025095e-35 (gain 41.8):\n    if cp_nb_sea4 <= 0.5546676850434408 (gain 38.3):\n    else:\n      ...\n  else:\n    if dT_real_from_org <= -11.513918250761991 (gain 11.3):\n    else:"
+  }
+ ],
+ "2026-01_gain_importance": {
+  "f_r7": 3156.4299799203873,
+  "ptype": 2596.5659363269806,
+  "cp_nb_sea4": 1505.8254134654999,
+  "x_warm_dT": 1199.979599237442,
+  "f_r28": 1138.9381976127625,
+  "lvl": 982.1762911081314,
+  "x_winter": 884.6005190610886,
+  "lfl_macro4": 843.1722819805145,
+  "lagr6": 790.4022781848907,
+  "x_summer": 706.1074287891388,
+  "cp_nb_lvl": 685.7776789665222,
+  "t_org": 657.5949573516846,
+  "peak_r": 657.1687630414963,
+  "own_sea4": 626.7310589551926,
+  "a_fabric_feel": 622.2203110456467,
+  "t_tgt_norm": 605.1807285547256,
+  "ev_prom_o": 592.2591962814331,
+  "occ_next": 542.4499192237854,
+  "bT_dT": 533.9861928224564,
+  "beta_T": 468.5088200569153,
+  "lagr1": 465.0968978404999,
+  "lagr3": 432.4623404741287,
+  "lagr5": 423.36336958408356,
+  "summer": 409.7866016626358,
+  "x_bts": 408.8998974561691
+ },
+ "2026-02": [
+  {
+   "tree": 1,
+   "total_gain": 744.3826017379761,
+   "rules": "if f_r7 <= -0.17338351839016705 (gain 249.6):\n  if x_warm_dT <= -4.652958025312383 (gain 121.4):\n  else:\n    if ev_prom_o <= 40.00000000000001 (gain 76.1):\n      ...\n    else:\n      ...\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 60.5):\n    if cp_nb_sea4 <= 0.39567831737685466 (gain 62.6):\n    else:\n      ...\n  else:\n    if x_summer <= 2.2000000000000006 (gain 20.9):\n    else:"
+  },
+  {
+   "tree": 0,
+   "total_gain": 729.7623929977417,
+   "rules": "if f_r28 <= 0.004555853137268949 (gain 238.9):\n  if x_warm_dT <= -6.098849289062651 (gain 102.5):\n  else:\n    if ev_prom_o <= 40.00000000000001 (gain 117.7):\n      ...\n    else:\n      ...\nelse:\n  if cp_nb_sea4 <= 0.37596134215776417 (gain 54.0):\n  else:\n    if ev_spring_break_t <= 1.0000000180025095e-35 (gain 34.0):\n      ...\n    else:"
+  },
+  {
+   "tree": 2,
+   "total_gain": 683.3798999786377,
+   "rules": "if f_r7 <= -0.17338351839016705 (gain 230.3):\n  if x_winter <= 6.000000000000001 (gain 112.4):\n    if ev_memorial_o <= 1.0000000180025095e-35 (gain 67.2):\n      ...\n    else:\n      ...\n  else:\n    if beta_T <= 0.021393636958563746 (gain 15.4):\n    else:\nelse:\n  if ev_spring_break_t <= 1.0000000180025095e-35 (gain 52.0):\n    if cp_nb_sea4 <= 0.3000989849192413 (gain 55.0):\n    else:\n      ...\n  else:\n    if peak_r <= 1.2665213820009658 (gain 15.4):\n      ...\n    else:"
+  },
+  {
+   "tree": 3,
+   "total_gain": 619.2787971496582,
+   "rules": "if f_r7 <= -0.05984824904219916 (gain 219.9):\n  if lfl_macro4 <= 0.5398961849187025 (gain 78.3):\n    if cp_nb_sea4 <= 0.013836247805449032 (gain 58.9):\n    else:\n      ...\n  else:\nelse:\n  if ev_bfcm_o <= 1.0000000180025095e-35 (gain 40.7):\n    if cp_nb_sea4 <= 0.39567831737685466 (gain 47.7):\n    else:\n      ...\n  else:\n    if x_summer <= 1.8000000000000003 (gain 20.7):\n    else:"
+  },
+  {
+   "tree": 4,
+   "total_gain": 608.572208404541,
+   "rules": "if f_r7 <= -0.16177902322785884 (gain 195.7):\n  if x_warm_dT <= -4.652958025312383 (gain 105.1):\n  else:\n    if ev_prom_o <= 40.00000000000001 (gain 56.6):\n      ...\n    else:\n      ...\nelse:\n  if x_warm_dT <= -5.433149866246164 (gain 45.7):\n  else:\n    if ev_halloween_o <= 1.0000000180025095e-35 (gain 37.4):\n      ...\n    else:"
+  }
+ ],
+ "2026-02_gain_importance": {
+  "f_r7": 2964.05454826355,
+  "ptype": 2689.6750005483627,
+  "x_warm_dT": 1988.0625938177109,
+  "f_r28": 1884.6573073863983,
+  "cp_nb_sea4": 1645.3436785936356,
+  "lfl_macro4": 1065.9216804504395,
+  "lvl": 1020.3303923606873,
+  "own_sea4": 854.8300094604492,
+  "x_winter": 854.445722579956,
+  "peak_r": 748.1754324436188,
+  "cp_nb_lvl": 733.1150329113007,
+  "ev_prom_o": 673.3372476100922,
+  "lagr6": 669.3322107791901,
+  "x_summer": 649.8931667804718,
+  "a_fabric_feel": 626.019779086113,
+  "bT_dT": 605.5184906721115,
+  "t_tgt_norm": 588.0854588747025,
+  "t_org": 568.7164191007614,
+  "occ_next": 536.9488176107407,
+  "lagr5": 497.7949525117874,
+  "lagr3": 463.6111310720444,
+  "ev_spring_break_t": 427.71063017845154,
+  "lagr1": 423.9253591299057,
+  "winter": 406.17074036598206,
+  "beta_T": 401.6048892736435
+ }
+}

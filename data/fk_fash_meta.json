@@ -1,0 +1,103 @@
+{
+ "FA": [
+  "fa_type_mom",
+  "fa_type_yoy",
+  "fa_col_mom",
+  "fa_col_yoy",
+  "fa_print_pattern_mom",
+  "fa_print_pattern_yoy",
+  "fa_occasion_tier_mom",
+  "fa_occasion_tier_yoy",
+  "fa_silhouette_mom",
+  "fa_silhouette_yoy",
+  "fa_mean_mom",
+  "fa_mean_yoy",
+  "fa_mean_acc1",
+  "fa_mean_sea4",
+  "fa_llm_mom",
+  "fa_llm_yoy",
+  "fa_launch_type",
+  "fa_launch_col",
+  "fa_in_type"
+ ],
+ "CH": [
+  "ch_mom",
+  "ch_yoy",
+  "ch_acc1",
+  "ch_traj6",
+  "ch_surprise",
+  "ch_surprise_med",
+  "ch_young",
+  "ch_rel_mom"
+ ],
+ "NN": [
+  "nn_surprise",
+  "nn_acc1",
+  "nn_mom3",
+  "nn_yoy",
+  "nn_sea4",
+  "nn_lvl_rel",
+  "nn_sim",
+  "nn_age"
+ ],
+ "FL": [
+  "fl_peak_type",
+  "fl_trough_type",
+  "fl_peak_col",
+  "fl_peak_silhouette",
+  "fl_peak_print",
+  "fl_combo_mom",
+  "fl_combo_yoy",
+  "fl_reg_type",
+  "fl_reg_all",
+  "fl_new_type"
+ ],
+ "LEAN": [
+  "fa_mean_acc1",
+  "ch_acc1",
+  "nn_acc1",
+  "fa_llm_yoy",
+  "nn_sea4",
+  "fa_mean_sea4",
+  "fl_reg_all",
+  "fa_mean_mom",
+  "fl_combo_mom",
+  "ch_mom",
+  "fa_type_yoy",
+  "fa_in_type",
+  "fa_mean_yoy",
+  "fl_trough_type",
+  "nn_sim",
+  "fa_type_mom",
+  "fa_llm_mom",
+  "nn_mom3",
+  "ch_traj6",
+  "fa_occasion_tier_mom",
+  "fa_silhouette_yoy"
+ ],
+ "CORE": [
+  "fa_mean_acc1",
+  "ch_acc1",
+  "nn_acc1",
+  "fl_reg_all",
+  "fa_in_type",
+  "nn_sim"
+ ],
+ "_selection": "LEAN: |Spearman with the D198 residual| >= 0.08 and the same sign in >= 3 of the 4 early test origins (2025-02..05); CORE: same sign in all 4. Recent origins not used (eda/fash_select_early.txt).",
+ "NC": [
+  "nc_surprise",
+  "nc_acc1",
+  "nc_mom3",
+  "nc_yoy",
+  "nc_sea4",
+  "nc_lvl_rel",
+  "nc_sim",
+  "nc_age"
+ ],
+ "NCSEL": [
+  "nc_acc1",
+  "nc_mom3",
+  "nc_sea4"
+ ],
+ "_selection_nc": "NCSEL: same early-origin rule as LEAN (|rho| >= 0.08, same sign in >= 3 of 4 early origins), eda/nnc_feats_output.txt."
+}

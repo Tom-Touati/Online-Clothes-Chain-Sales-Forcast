@@ -1,0 +1,1428 @@
+# D329 (fork): per-segment (Mondrian) calibrated range ratios at the June 2026 origin, for Main's candidate_nx5 (D366).
+# segment = age band at the origin (months since the item's first sale: under 3, 3-6, 6-12, over 12) x volume third (recency level = the last three months' average monthly units, ranked within the origin over all 1,423 items: low / mid / high).
+# widths from the conformal TabPFN member's 2026-06 quantiles (log((q50+1)/(qX+1)), floored at 0.02); each side's factor per segment fitted on all 13 backtest origins around the submitted forecast (10% / 25% of actuals outside each side).
+# apply as P = (P50 + 1) x r - 1; for P50 above about 20 units P50 x r is within 5%. Backtest (D328, factors left one origin out): P10-P90 79.9% inside, 78-83% by segment; P25-P75 51.7%, 48-55% by segment.
+style_color,segment,r10,r25,r75,r90,target
+1031_BLACK,over 12 months | high,0.611,0.7264,1.0942,1.3935,False
+1031_BLUE,over 12 months | low,0.2737,0.5194,1.1818,1.7975,False
+1031_BROWN,over 12 months | low,0.3238,0.568,1.1697,1.7448,False
+1031_BURGUNDY,over 12 months | mid,0.6445,0.785,1.1086,1.4361,False
+1031_GREEN,over 12 months | low,0.2352,0.49,1.2004,1.8976,False
+1031_METALIC-PINK,over 12 months | low,0.3201,0.5665,1.1649,1.6933,False
+1031_RED,over 12 months | low,0.3615,0.5984,1.1536,1.6564,False
+1031_SILVER,over 12 months | low,0.3722,0.6063,1.1476,1.6057,False
+2005_LIGHT-BLUE,over 12 months | low,0.2233,0.486,1.1844,1.8158,False
+ACC0010_GOLD,over 12 months | mid,0.6436,0.7862,1.1137,1.4426,False
+ACC0418_GOLD,over 12 months | mid,0.6317,0.7861,1.099,1.3914,False
+ACC0478_GOLD,over 12 months | low,0.2965,0.5664,1.1685,1.7201,False
+ACC0495_WHITE,over 12 months | high,0.6153,0.73,1.0895,1.3577,False
+ACC0528_BURGUNDY,over 12 months | low,0.3516,0.5841,1.1598,1.6936,False
+ACC0560_WHITE,over 12 months | mid,0.6506,0.7918,1.0966,1.3682,False
+ACC0574_GOLD,over 12 months | low,0.249,0.5286,1.1681,1.7257,False
+ACC0616_SILVER,over 12 months | low,0.3544,0.5906,1.1678,1.7436,False
+ACC0667_GOLD,over 12 months | high,0.6285,0.7417,1.0817,1.3204,False
+ACC0669_GOLD,over 12 months | mid,0.6346,0.7815,1.1081,1.4164,False
+ACC0739_LIGHT-PINK,over 12 months | low,0.311,0.5622,1.1704,1.7496,False
+ACC0746_BLACK,over 12 months | low,0.2433,0.5171,1.1716,1.7451,False
+ACC0746_WHITE,over 12 months | high,0.5609,0.6894,1.1131,1.4735,False
+ACC0747_WHITE,over 12 months | low,0.3264,0.58,1.1621,1.6976,False
+ACC0770_GOLD,over 12 months | high,0.6319,0.7431,1.0815,1.3154,False
+ACC0918_GOLD,over 12 months | low,0.2159,0.508,1.1632,1.7215,False
+ACC0955_WHITE,over 12 months | low,0.2624,0.5466,1.1639,1.726,False
+ACC1005_CREAM,over 12 months | low,0.4605,0.4748,1.7908,8.3122,False
+ACC1054_BLUE,3-6 months | mid,0.5767,0.7049,1.2785,1.7778,False
+ACC1070-1_MIX,over 12 months | mid,0.5633,0.727,1.1527,1.6385,True
+ACC1084_SILVER-AND-GOLD,over 12 months | low,0.3259,0.589,1.1526,1.6417,False
+ACC1092_GOLD,over 12 months | mid,0.4341,0.6833,1.146,1.6133,False
+ACC1102_WHITE,3-6 months | mid,0.5793,0.7029,1.2853,1.8239,False
+ACC1109_WHITE,over 12 months | low,0.3449,0.5819,1.1641,1.7249,False
+ACC1146_BLACK,over 12 months | low,0.3601,0.6004,1.1495,1.6308,False
+ACC1178_BLACK,over 12 months | high,0.6337,0.7418,1.0803,1.3115,False
+ACC1178_BROWN,over 12 months | high,0.6393,0.748,1.0765,1.2947,False
+ACC1185_GOLD,over 12 months | high,0.6463,0.751,1.0764,1.2917,False
+ACC1210_GRAY,over 12 months | low,0.2765,0.5254,1.1894,1.8713,False
+ACC1224_PINK-AND-WHITE,3-6 months | low,0.3062,0.4971,1.2758,2.2464,False
+ACC1253_BEIGE,6-12 months | low,0.0533,0.317,1.6567,3.7183,False
+ACC1255_BROWN,over 12 months | low,0.356,0.5985,1.1546,1.6519,False
+ACC1289_GOLD,over 12 months | low,0.2311,0.5047,1.1728,1.7441,False
+ACC1302_BLACK,3-6 months | mid,0.5991,0.7228,1.2423,1.6552,False
+ACC1302_DARK-BROWN,3-6 months | mid,0.5761,0.7068,1.2919,1.8213,False
+ACC1304_BROWN,over 12 months | mid,0.6172,0.768,1.1144,1.44,False
+ACC1306_GOLD,over 12 months | high,0.6309,0.742,1.0851,1.3312,False
+ACC1306_SILVER,6-12 months | low,0.4229,0.6272,1.1945,1.5153,False
+ACC1319_GOLD,over 12 months | high,0.6141,0.7293,1.0883,1.3491,False
+ACC1341_IVORY,over 12 months | low,0.0342,0.3331,1.2209,2.1439,False
+ACC1371_BROWN,3-6 months | low,0.3838,0.5462,1.2091,1.8541,False
+ACC1381_WHITE,over 12 months | high,0.5873,0.7086,1.0998,1.3972,False
+ACC1407_BLACK,over 12 months | low,0.0246,0.1457,1.3105,3.1122,False
+ACC1430_SILVER,6-12 months | low,0.2467,0.499,1.2816,1.8473,False
+ACC1431_BLACK-AND-WHITE,6-12 months | high,0.5478,0.6954,1.1686,1.5195,False
+ACC1431_NAVY,over 12 months | high,0.5783,0.6991,1.1057,1.4398,False
+ACC1441_BROWN,over 12 months | low,0.3414,0.597,1.1432,1.5993,False
+ACC1481_TORTOISE,over 12 months | high,0.5308,0.6622,1.1239,1.5258,False
+ACC1512_WHITE,over 12 months | mid,0.5832,0.748,1.1343,1.545,False
+ACC1625_GOLD,over 12 months | low,0.3132,0.5728,1.1704,1.7444,False
+ACC1631_BROWN,over 12 months | low,0.2368,0.5177,1.1699,1.7485,False
+ACC1643_GOLD,over 12 months | high,0.5834,0.7048,1.1039,1.4164,False
+ACC1646_TORTOISE,6-12 months | high,0.537,0.6809,1.1889,1.6257,False
+ACC1652_TORTOISE,3-6 months | low,0.3248,0.5253,1.1879,1.7837,False
+ACC1653_BROWN,6-12 months | mid,0.5752,0.7436,1.2326,1.6725,False
+ACC1661_BLACK-AND-WHITE,6-12 months | low,0.3298,0.5704,1.2109,1.5811,False
+ACC1684_BLUE,3-6 months | low,0.2076,0.4733,1.2104,1.8568,False
+ACC1710_GOLD,6-12 months | high,0.5808,0.717,1.1633,1.4995,False
+ACC1714_GOLD,6-12 months | low,0.43,0.6293,1.1987,1.5322,False
+ACC1718_GOLD,6-12 months | low,0.4056,0.6155,1.2069,1.5527,False
+ACC1812_GOLD,6-12 months | mid,0.6091,0.7606,1.2017,1.5906,False
+ACC1812_WHITE,3-6 months | high,0.5347,0.6952,1.0996,1.3645,False
+ACC1844_CREAM,6-12 months | low,0.351,0.5795,1.2292,1.6176,False
+ACC1905_BLACK,6-12 months | mid,0.5817,0.741,1.2764,1.7854,False
+ACC1977_BLACK,6-12 months | low,0.3708,0.5845,1.2247,1.6126,False
+ACC1978_BEIGE,3-6 months | mid,0.4857,0.6583,1.365,2.0456,False
+ACC1978_WHITE,6-12 months | mid,0.5714,0.7342,1.2951,1.8928,False
+ACC1994_GOLD,6-12 months | high,0.5958,0.7272,1.1473,1.4523,False
+ACC2011_GOLD,3-6 months | high,0.547,0.7054,1.0996,1.3646,False
+ACC2020_GOLD,6-12 months | high,0.5865,0.7214,1.1491,1.4598,False
+ACC2028_BLACK,under 3 months | mid,0.5518,0.7176,1.4524,2.0847,False
+ACC2044_BROWN-AND-PINK,6-12 months | low,0.2539,0.4691,1.346,2.1648,False
+ACC2047_TORTOISE,6-12 months | low,0.4146,0.6191,1.2012,1.5366,False
+ACC2052_GOLD,3-6 months | mid,0.6087,0.7288,1.2344,1.6492,False
+ACC2067_SILVER,6-12 months | low,0.3354,0.5673,1.2433,1.6745,False
+ACC2069_BLACK,6-12 months | high,0.609,0.7378,1.1367,1.423,False
+ACC2069_BROWN,6-12 months | high,0.6144,0.7444,1.1317,1.4075,False
+ACC2069_DARK-BROWN,3-6 months | high,0.5108,0.6786,1.1059,1.3915,False
+ACC2083_GOLD,3-6 months | high,0.5297,0.6942,1.1047,1.3848,False
+ACC2115_GOLD,3-6 months | high,0.5353,0.6972,1.1047,1.3881,False
+ACC2119_GOLD,6-12 months | mid,0.6315,0.7771,1.1909,1.5475,False
+ACC2130_SILVER,6-12 months | low,0.3499,0.5619,1.25,1.7121,False
+ACC2165_IVORY,6-12 months | mid,0.6003,0.756,1.2074,1.6147,False
+ACC2199_PINK,3-6 months | high,0.5426,0.7004,1.1053,1.3899,False
+ACC2221_PINK,3-6 months | low,0.2456,0.4802,1.2569,2.089,False
+ACC2229_BLUE-AND-WHITE,3-6 months | low,0.32,0.536,1.2009,1.806,False
+ACC2262_GOLD,6-12 months | high,0.6018,0.733,1.1402,1.4238,False
+ACC2265_SILVER,3-6 months | low,0.421,0.5716,1.1806,1.7329,False
+ACC2303_GOLD,6-12 months | low,0.281,0.5211,1.2812,1.8492,False
+ACC2342_GOLD,6-12 months | mid,0.6286,0.7771,1.1806,1.5096,False
+ACC2354_TORTOISE,3-6 months | mid,0.6054,0.7293,1.2252,1.631,False
+ACC2357_BLACK,3-6 months | low,0.3549,0.5213,1.2457,2.0418,False
+ACC2388_SILVER,under 3 months | mid,0.5769,0.7378,1.3681,1.8328,False
+ACC2390_WHITE,3-6 months | mid,0.5494,0.6908,1.3124,1.8888,False
+ACC2394_GOLD,3-6 months | mid,0.5613,0.6982,1.2987,1.8473,False
+ACC2396_GOLD,6-12 months | mid,0.5855,0.7409,1.2644,1.7178,False
+ACC2397_GOLD,6-12 months | low,0.3166,0.5624,1.239,1.6785,False
+ACC2435_GOLD,3-6 months | mid,0.6256,0.742,1.2102,1.5804,False
+ACC2450_SILVER,under 3 months | low,0.4629,0.5986,1.2743,1.5914,False
+ACC2469_PINK,under 3 months | mid,0.5969,0.74,1.4249,2.0214,False
+ACC2473_SILVER,under 3 months | mid,0.5768,0.7285,1.48,2.1864,False
+ACC2491_GOLD,3-6 months | high,0.5237,0.687,1.0997,1.3743,False
+ACC2517_GOLD,3-6 months | low,0.4444,0.6038,1.1516,1.6081,False
+ACC2555_PINK,under 3 months | high,0.562,0.7278,1.1701,1.4988,False
+ACC2555_WHITE,3-6 months | high,0.5607,0.72,1.0948,1.3472,False
+ACC2557_PINK,3-6 months | high,0.5644,0.7216,1.093,1.3549,False
+ACC2635_YELLOW,under 3 months | mid,0.6153,0.752,1.3612,1.8274,False
+ACC2789_GOLD,under 3 months | low,0.4261,0.5535,1.3739,1.8277,False
+S11191_LIGHT-BLUE,over 12 months | high,0.6299,0.74,1.0884,1.382,False
+S11233P_BLACK,6-12 months | high,0.5591,0.698,1.1691,1.5411,False
+S11233_BLACK,over 12 months | high,0.6411,0.7477,1.0787,1.2983,True
+S11233_BROWN,6-12 months | mid,0.6052,0.7529,1.2185,1.6046,False
+S11233_WHITE,over 12 months | high,0.6181,0.7316,1.0857,1.3417,True
+S11592-1_MIX,over 12 months | low,0.3672,0.6087,1.1456,1.6089,False
+S11629_DARK-GRAY,over 12 months | low,0.3326,0.5761,1.1638,1.7224,False
+S11954_BLUE,over 12 months | low,0.1656,0.4178,1.2501,2.1907,False
+S12093_CREAM,over 12 months | mid,0.6243,0.7724,1.1133,1.445,False
+S12139_LIGHT-BLUE,over 12 months | high,0.6702,0.7708,1.0714,1.2752,False
+S12338_LIGHT-PINK,over 12 months | mid,0.6372,0.7838,1.1121,1.4339,False
+S12403_BLUE,over 12 months | low,0.3807,0.6247,1.1458,1.5384,False
+S12459_MIX,over 12 months | low,0.1611,0.4324,1.2021,1.9018,False
+S12591_CREAM,over 12 months | low,0.1377,0.4111,1.2632,2.3321,False
+S12601_BLACK,over 12 months | mid,0.6917,0.8237,1.0849,1.3288,False
+S12612_GRAY,over 12 months | high,0.6528,0.7555,1.0796,1.3016,False
+S12612_NAVY-AND-WHITE,6-12 months | high,0.5934,0.7252,1.1553,1.483,False
+S12749_BLACK,over 12 months | high,0.5954,0.7115,1.1025,1.42,False
+S12782_OLIVE,over 12 months | low,0.1202,0.3483,1.3005,2.5949,False
+S12822_BLACK,over 12 months | mid,0.6809,0.8087,1.0931,1.3652,False
+S12822_BORDU,over 12 months | mid,0.6512,0.7903,1.1085,1.4312,False
+S12867_BLACK,over 12 months | low,0.3367,0.5753,1.1579,1.6699,False
+S12958_OLIVE,over 12 months | low,0.3613,0.5965,1.1547,1.6573,False
+S13040_WHITE,over 12 months | mid,0.6509,0.7878,1.1131,1.4552,False
+S13044_BLUE,over 12 months | mid,0.6137,0.7622,1.1283,1.5107,False
+S13093_BLACK,over 12 months | low,0.3434,0.571,1.173,1.7548,False
+S13110_BLACK,over 12 months | mid,0.625,0.7715,1.1252,1.5006,False
+S13134_CREAM,over 12 months | low,0.3804,0.6217,1.1452,1.5968,False
+S13312_DARK-BLUE,over 12 months | mid,0.5137,0.6948,1.1667,1.6783,False
+S13312_LIGHT-PINK,over 12 months | mid,0.5436,0.7178,1.153,1.6205,False
+S13342_BROWN,over 12 months | low,0.2504,0.495,1.2062,1.9256,False
+S13342_YELLOW,over 12 months | low,0.2624,0.5085,1.1973,1.884,False
+S13349_BLACK,over 12 months | low,0.3708,0.606,1.1566,1.6575,False
+S13376_WHITE,over 12 months | mid,0.6266,0.7847,1.0936,1.3582,False
+S13380_BLUE,over 12 months | low,0.2888,0.5395,1.1793,1.7752,False
+S13398_WHITE,over 12 months | mid,0.6532,0.7905,1.1064,1.4079,False
+S13520_WHITE,over 12 months | mid,0.664,0.8021,1.0894,1.3455,False
+S13525_LIGHT-BLUE,over 12 months | low,0.3377,0.5777,1.1688,1.7319,False
+S13586_PINK,over 12 months | low,0.1782,0.2518,1.3511,2.9756,False
+S13608_INDIGO-BLUE-RAW-WASHED,3-6 months | mid,0.6156,0.7316,1.2132,1.6142,False
+S13608_LIGHT-BLUE,over 12 months | high,0.6261,0.7434,1.08,1.3329,False
+S13608_WHITE,3-6 months | high,0.6026,0.7453,1.081,1.3135,True
+S13614_GRAY-MELANGE,over 12 months | low,0.2961,0.5596,1.1595,1.6918,False
+S13662_BLUE,over 12 months | high,0.6216,0.7339,1.0826,1.3181,False
+S13662_LIGHT-BLUE-WASHED,3-6 months | high,0.5659,0.7206,1.096,1.3473,False
+S13662_WHITE,3-6 months | high,0.5555,0.7219,1.0817,1.2929,True
+S13688_WHITE,over 12 months | mid,0.441,0.7066,1.1365,1.5176,False
+S13738_RED,over 12 months | low,0.3278,0.568,1.1647,1.721,False
+S13740_YELLOW,over 12 months | high,0.4779,0.6571,1.1079,1.4396,False
+S13792_WHITE,over 12 months | low,0.2403,0.5071,1.1923,1.8143,False
+S13804_LIGHT-BLUE,over 12 months | high,0.6487,0.7585,1.0749,1.2892,False
+S13840_WHITE,over 12 months | low,0.1087,0.3689,1.2261,1.9406,False
+S13841_WHITE,over 12 months | low,0.2789,0.5535,1.1498,1.5908,False
+S13955_BLACK-AND-WHITE,over 12 months | mid,0.6551,0.7957,1.0998,1.3899,False
+S13976_WHITE,over 12 months | low,0.3077,0.5624,1.1738,1.731,False
+S14008P_LIGHT-BLUE,3-6 months | mid,0.6222,0.7376,1.1994,1.5587,False
+S14008_BLACK-WASHED,over 12 months | high,0.6493,0.7547,1.0747,1.286,False
+S14008_BLUE,over 12 months | high,0.6356,0.7434,1.0852,1.3259,False
+S14008_BLUE-VINTAGE-WASHED,6-12 months | high,0.6188,0.745,1.1422,1.4208,False
+S14008_LIGHT-BLUE,over 12 months | high,0.6511,0.7635,1.0748,1.2965,False
+S14053_WHITE,over 12 months | high,0.6177,0.7311,1.084,1.3284,False
+S14057_PINK,over 12 months | low,0.0928,0.3156,1.2635,2.3572,False
+S14091T_BLACK-WASHED,3-6 months | mid,0.5811,0.7144,1.2488,1.7014,False
+S14091T_LIGHT-BLUE,3-6 months | mid,0.5625,0.701,1.2806,1.7794,False
+S14091_BLACK-WASHED,over 12 months | high,0.6908,0.7854,1.0735,1.222,True
+S14091_BLUE,over 12 months | high,0.6915,0.7868,1.0742,1.2201,True
+S14091_BLUE-WASHED,over 12 months | high,0.6909,0.7866,1.0744,1.2202,False
+S14091_DARK-BLUE-WASHED,6-12 months | high,0.6337,0.7579,1.13,1.4221,False
+S14091_DENIM-BLACK,3-6 months | high,0.5073,0.6803,1.115,1.4383,False
+S14091_INDIGO-BLUE-RAW-WASHED,over 12 months | high,0.6806,0.7812,1.0731,1.239,False
+S14091_MEDIUM-VINTAGE-INDIGO,6-12 months | mid,0.6318,0.7712,1.1961,1.5734,False
+S14091_TINTED-DENIM,6-12 months | mid,0.6334,0.7752,1.1904,1.5427,False
+S14150_BLUE,over 12 months | high,0.6192,0.7327,1.095,1.3896,False
+S14164_LIGHT-BLUE,over 12 months | high,0.6566,0.7625,1.0734,1.2778,False
+S14189_WHITE,over 12 months | low,0.401,0.64,1.1502,1.5124,False
+S14193_BLUE,over 12 months | mid,0.6477,0.7877,1.1024,1.4205,False
+S14193_GRAY-WASHED,over 12 months | high,0.6457,0.7512,1.078,1.3108,False
+S14197_BLACK,over 12 months | mid,0.6463,0.7886,1.103,1.4015,False
+S14197_WHITE,over 12 months | high,0.6059,0.7257,1.0916,1.3725,False
+S14256_YELLOW,over 12 months | low,0.1993,0.4501,1.2022,1.9123,False
+S14259_MIX,over 12 months | high,0.6512,0.7572,1.0763,1.3107,False
+S14283_BROWN,over 12 months | low,0.3432,0.5864,1.157,1.6604,False
+S14283_BURGUNDY,over 12 months | high,0.6228,0.7366,1.0879,1.3546,False
+S14294_GREEN,over 12 months | low,0.3808,0.6232,1.145,1.6096,False
+S14338_MIX,over 12 months | low,0.1251,0.3656,1.2816,2.3168,False
+S14339_WHITE,over 12 months | low,0.1894,0.4536,1.2065,1.9421,False
+S14344_BLUE,over 12 months | mid,0.5746,0.7447,1.1389,1.5704,False
+S14351_SILVER,over 12 months | low,0.2645,0.5247,1.1793,1.8217,False
+S14461_NAVY,over 12 months | mid,0.6403,0.792,1.0915,1.3392,False
+S14461_WHITE,over 12 months | high,0.6218,0.7384,1.0831,1.3383,False
+S14475_NAVY,over 12 months | low,0.0525,0.2209,1.3235,2.644,False
+S14489_BLUE-AND-WHITE,over 12 months | high,0.6528,0.762,1.0721,1.2751,False
+S14514_PINK,over 12 months | mid,0.602,0.7796,1.0951,1.3475,False
+S14514_RED,over 12 months | high,0.4785,0.6655,1.101,1.3977,False
+S14520_WHITE,over 12 months | mid,0.658,0.8035,1.0887,1.3402,False
+S14559_GREEN,over 12 months | high,0.3669,0.5332,1.1716,1.7423,False
+S14563_LIGHT-PINK,over 12 months | low,0.3597,0.6061,1.1465,1.615,False
+S14580_BLUE,over 12 months | mid,0.5864,0.7522,1.127,1.507,False
+S14580_YELLOW,over 12 months | mid,0.6584,0.7999,1.099,1.3821,False
+S14591_BLACK,over 12 months | low,0.2978,0.5493,1.1759,1.75,False
+S14602_LEOPARD,over 12 months | low,0.2229,0.5001,1.1751,1.7426,False
+S14611_BURGUNDY,over 12 months | mid,0.677,0.8044,1.0948,1.3507,False
+S14611_PINK,over 12 months | low,0.3937,0.623,1.1439,1.5897,False
+S14611_YELLOW,over 12 months | mid,0.6206,0.7702,1.1206,1.4693,False
+S14612_WHITE,over 12 months | low,0.2425,0.5285,1.1651,1.6758,False
+S14633_PINK,over 12 months | low,0.1533,0.4312,1.2742,2.3504,False
+S14656_BLACK,over 12 months | low,0.1179,0.2802,1.2977,2.5454,False
+S14682_WHITE,over 12 months | mid,0.63,0.7863,1.0927,1.3485,False
+S14699_NAVY-AND-WHITE,over 12 months | mid,0.6086,0.7662,1.1155,1.452,False
+S14712_NAVY,over 12 months | low,0.1518,0.4481,1.1901,1.9056,False
+S14736_WHITE,over 12 months | mid,0.6181,0.7694,1.1157,1.4583,False
+S14752_YELLOW,over 12 months | low,0.2409,0.4989,1.1734,1.7612,False
+S14754_BLACK,over 12 months | high,0.6566,0.7611,1.0786,1.3101,False
+S14754_BORDU,over 12 months | high,0.6146,0.7299,1.0922,1.3654,False
+S14754_RED,6-12 months | mid,0.6373,0.7825,1.1615,1.4467,False
+S14754_WHITE,over 12 months | mid,0.6754,0.8098,1.0945,1.3636,False
+S14770_WHITE,over 12 months | mid,0.6518,0.7973,1.0944,1.365,False
+S14787_NAVY,over 12 months | low,0.2859,0.5315,1.1882,1.8647,False
+S14826_BLUE-WASHED,over 12 months | low,0.2457,0.5129,1.1866,1.8446,False
+S14833_BEIGE,over 12 months | low,0.3327,0.5707,1.1655,1.721,False
+S14833_BROWN,over 12 months | mid,0.6051,0.7574,1.1308,1.527,False
+S14837_CREAM,over 12 months | low,0.1256,0.391,1.2941,2.6569,False
+S14842_BLACK,over 12 months | high,0.6272,0.7355,1.0889,1.363,True
+S14843_BLACK,over 12 months | low,0.3778,0.6026,1.1566,1.6901,False
+S14843_BROWN,over 12 months | low,0.2897,0.5383,1.1801,1.785,False
+S14850_BLACK,over 12 months | mid,0.6689,0.8033,1.0982,1.3867,False
+S14857_BLUE-WASHED,over 12 months | high,0.6703,0.7695,1.0695,1.2644,True
+S14857_WHITE,3-6 months | high,0.5824,0.7332,1.0852,1.3022,False
+S14866_WHITE,over 12 months | low,0.1293,0.2639,1.3243,2.6868,False
+S14884_BLUE,over 12 months | low,0.3015,0.5686,1.148,1.6149,False
+S14903_BLUE-AND-NAVY,over 12 months | mid,0.624,0.7735,1.1149,1.4516,False
+S14903_LIGHT-PINK-AND-CREAM,over 12 months | mid,0.5596,0.7243,1.142,1.5863,False
+S14920_WHITE,over 12 months | low,0.3715,0.6022,1.1548,1.65,False
+S14923_CREAM,over 12 months | low,0.2402,0.5111,1.1818,1.7907,False
+S14939_BLUE,over 12 months | mid,0.5604,0.7298,1.1443,1.5703,False
+S14939_GRAY,over 12 months | mid,0.5461,0.7202,1.1512,1.5921,False
+S14947_DARK-BLUE,over 12 months | high,0.6304,0.7396,1.0842,1.3457,True
+S14956_NAVY,over 12 months | low,0.2446,0.4848,1.2032,1.9102,False
+S14961_BLACK,over 12 months | low,0.3772,0.6108,1.156,1.6617,False
+S14964_BLACK,over 12 months | mid,0.6432,0.7825,1.1115,1.4507,False
+S14995_NAVY,over 12 months | mid,0.5801,0.7411,1.1399,1.5772,True
+S14997_BLACK,over 12 months | low,0.1707,0.422,1.2374,2.0871,False
+S15005_OLIVE,over 12 months | low,0.2079,0.4931,1.1763,1.7773,False
+S15031_CREAM,over 12 months | mid,0.6313,0.7829,1.1039,1.4135,False
+S15034_WHITE,over 12 months | low,0.1845,0.1972,1.4651,3.891,False
+S15063_BLACK,over 12 months | low,0.38,0.6088,1.1592,1.674,False
+S15115_NAVY,over 12 months | low,0.3008,0.5437,1.1775,1.778,False
+S15119_BLUE,over 12 months | low,0.2573,0.5033,1.2047,1.9592,False
+S15119_WHITE,over 12 months | low,0.3763,0.6112,1.1462,1.6123,False
+S15132T_WHITE,3-6 months | high,0.5558,0.7182,1.0888,1.3329,False
+S15132_BURGUNDY,over 12 months | mid,0.6609,0.7983,1.098,1.3804,False
+S15132_WHITE,over 12 months | high,0.7016,0.7998,1.0779,1.2046,True
+S15147_BLUE-WASHED,over 12 months | low,0.3475,0.5825,1.1661,1.7259,False
+S15151_BLACK,6-12 months | mid,0.5755,0.7363,1.2962,1.8316,False
+S15152_BLUE-WASHED,over 12 months | low,0.1976,0.4477,1.2416,2.1948,False
+S15171_NAVY,over 12 months | low,0.2719,0.508,1.198,1.8912,False
+S15175_NAVY,over 12 months | high,0.5947,0.7112,1.1044,1.4417,False
+S15183_RED,over 12 months | mid,0.676,0.8061,1.0937,1.356,False
+S15224_BLACK,over 12 months | mid,0.6019,0.7554,1.1344,1.5288,False
+S15231_NAVY,over 12 months | low,0.2644,0.5276,1.16,1.6838,False
+S15270_RED,over 12 months | low,0.1844,0.4593,1.2211,2.0895,False
+S15285_BLACK,over 12 months | low,0.1104,0.3808,1.2663,2.2402,False
+S15314_BLACK,over 12 months | mid,0.6619,0.797,1.1003,1.4037,False
+S15317_GOLD,over 12 months | low,0.381,0.6148,1.1497,1.6124,False
+S15327_NAVY,over 12 months | low,0.2636,0.5295,1.1787,1.7651,False
+S15329_BLUE,6-12 months | mid,0.6038,0.7515,1.2395,1.6869,False
+S15329_GRAY-MELANGE,over 12 months | mid,0.6459,0.7865,1.1091,1.4212,True
+S15360_CREAM,over 12 months | mid,0.5058,0.6912,1.18,1.8051,False
+S15401_SILVER,over 12 months | low,0.3902,0.6237,1.1434,1.5898,False
+S15418_BLACK,over 12 months | mid,0.677,0.8065,1.0961,1.3768,False
+S15421_BLACK,over 12 months | low,0.3421,0.5807,1.1679,1.7408,False
+S15435_NAVY,over 12 months | low,0.2058,0.4649,1.1955,1.8884,False
+S15477_PINK,over 12 months | mid,0.6312,0.7977,1.0847,1.3017,False
+S15482_MAUVE,over 12 months | low,0.3816,0.6184,1.1482,1.6096,False
+S15485_BROWN,over 12 months | low,0.2536,0.5019,1.1975,1.881,False
+S15495_BLACK,over 12 months | mid,0.6642,0.8146,1.0828,1.2864,False
+S15497_BLACK,over 12 months | mid,0.6056,0.7852,1.0907,1.3303,False
+S15510_SILVER,over 12 months | low,0.3789,0.6154,1.1515,1.6356,False
+S15511_BURGUNDY,over 12 months | low,0.2178,0.4889,1.1862,1.8313,False
+S15518_BLACK,over 12 months | mid,0.6691,0.797,1.1032,1.4135,False
+S15526_BROWN,over 12 months | low,0.3171,0.5645,1.1665,1.7097,False
+S15531_BLUE,over 12 months | low,0.228,0.4968,1.1863,1.8245,False
+S15531_GRAY-MELANGE,over 12 months | mid,0.4842,0.6892,1.1771,1.733,False
+S15556_BLACK,over 12 months | mid,0.6511,0.7916,1.1005,1.3885,False
+S15557_NAVY,over 12 months | high,0.4761,0.6192,1.145,1.5982,True
+S15574_BLACK,over 12 months | low,0.2759,0.5158,1.1994,1.8874,False
+S15578_BURGUNDY,6-12 months | mid,0.5897,0.7438,1.2659,1.7206,False
+S15588_BLACK-AND-WHITE,over 12 months | low,0.106,0.3584,1.3018,2.52,False
+S15592_LIGHT-BLUE,over 12 months | low,0.3183,0.5626,1.1718,1.7778,False
+S15604_WHITE,over 12 months | low,0.3437,0.5961,1.141,1.5738,False
+S15607_WHITE,over 12 months | low,0.2961,0.5629,1.1528,1.6342,False
+S15636_LIGHT-BLUE,over 12 months | low,0.2337,0.492,1.2011,1.923,False
+S15642_BURGUNDY,over 12 months | mid,0.6666,0.795,1.0973,1.3732,False
+S15679_BLUE-WASHED,over 12 months | mid,0.6294,0.7776,1.1153,1.4668,False
+S15693_MAUVE,over 12 months | mid,0.6162,0.7715,1.1182,1.4696,False
+S15717_LIGHT-PINK,over 12 months | mid,0.5417,0.7147,1.1823,1.8114,False
+S15728_CREAM,over 12 months | low,0.272,0.5139,1.1905,1.8091,False
+S15736_BURGUNDY,over 12 months | mid,0.6484,0.7879,1.1064,1.4097,False
+S15744_NAVY,over 12 months | low,0.1578,0.4019,1.2733,2.4232,False
+S15756_GRAY-MELANGE,over 12 months | mid,0.6234,0.768,1.1251,1.4962,False
+S15759_WHITE,over 12 months | low,0.3522,0.5839,1.1646,1.7285,False
+S15761_BLUE,over 12 months | mid,0.6116,0.759,1.1318,1.4945,False
+S15761_BLUE-AND-WHITE,6-12 months | mid,0.5451,0.7152,1.3479,2.0096,False
+S15761_LIGHT-GRAY,over 12 months | mid,0.5726,0.7315,1.1485,1.5554,False
+S15761_RED-AND-WHITE,6-12 months | low,0.3055,0.5129,1.296,1.8722,False
+S15763_BLACK,over 12 months | low,0.3188,0.5495,1.1828,1.7873,False
+S15763_BROWN,6-12 months | mid,0.5452,0.7109,1.3374,1.9044,False
+S15769_WHITE,over 12 months | mid,0.6701,0.8101,1.0817,1.2982,False
+S15770_WHITE,over 12 months | low,0.3792,0.6327,1.1476,1.4861,False
+S15782_BLACK-WASHED,over 12 months | high,0.6826,0.7819,1.0713,1.2719,False
+S15782_BLUE-WASHED,over 12 months | high,0.671,0.772,1.0706,1.2628,False
+S15782_INDIGO-BLUE-RAW-WASHED,over 12 months | high,0.6662,0.7689,1.07,1.2765,False
+S15782_LIGHT-BLUE,over 12 months | high,0.6769,0.775,1.0705,1.2461,False
+S15782_TINTED-DENIM,6-12 months | mid,0.6295,0.7696,1.1991,1.6072,False
+S15805_WHITE,over 12 months | low,0.2902,0.5255,1.2013,2.0189,False
+S15811_LIGHT-BLUE,over 12 months | low,0.1595,0.4375,1.1892,1.8351,False
+S15820_GRAY,over 12 months | low,0.265,0.5088,1.1965,1.8648,False
+S15821_BLACK,over 12 months | high,0.6431,0.7481,1.0806,1.3221,False
+S15852_CREAM,over 12 months | high,0.6496,0.7598,1.0732,1.2746,False
+S15858_MIX,over 12 months | low,0.1334,0.4323,1.1927,1.7628,False
+S15871_BLACK,over 12 months | low,0.2599,0.5099,1.1898,1.8368,False
+S15872_BLACK,over 12 months | mid,0.6643,0.7935,1.1021,1.3947,True
+S15908_BLACK,over 12 months | low,0.3405,0.5911,1.1597,1.6749,False
+S15964_WHITE,over 12 months | mid,0.5908,0.7556,1.1316,1.5241,False
+S15968_RED,over 12 months | low,0.2607,0.51,1.1945,1.8631,False
+S15981_LIGHT-BLUE,over 12 months | low,0.2916,0.5333,1.1916,1.8711,False
+S15987_RED,over 12 months | mid,0.6395,0.7811,1.1046,1.4159,True
+S15988_BLACK,over 12 months | low,0.3348,0.5789,1.1581,1.6738,False
+S15997_LIGHT-PINK,over 12 months | low,0.3474,0.5971,1.1554,1.6474,False
+S15999_BLUE,over 12 months | high,0.6811,0.7783,1.0714,1.2454,True
+S15999_BLUE-AND-YELLOW,under 3 months | mid,0.6307,0.763,1.3023,1.6744,False
+S15999_DARK-GREEN,over 12 months | high,0.5688,0.7117,1.0908,1.3639,False
+S15999_MIX,over 12 months | mid,0.6353,0.788,1.098,1.3842,False
+S15999_NAVY,over 12 months | high,0.6735,0.7752,1.0713,1.2653,False
+S15999_PINK,over 12 months | high,0.668,0.7706,1.0696,1.2614,False
+S15999_WINE,3-6 months | high,0.5961,0.7454,1.0839,1.3127,False
+S16009_BLACK,over 12 months | low,0.3827,0.617,1.1473,1.6142,False
+S16018_PURPLE,over 12 months | low,0.3456,0.5889,1.1569,1.6466,False
+S16036_CREAM,over 12 months | mid,0.6687,0.7994,1.1013,1.3854,False
+S16040_WHITE,over 12 months | low,0.1389,0.4036,1.2321,2.1127,False
+S16057_GRAY-MELANGE,over 12 months | mid,0.6298,0.7719,1.1217,1.4646,False
+S16058_BLACK,over 12 months | high,0.6274,0.7412,1.0914,1.3677,False
+S16058_GRAY-MELANGE,over 12 months | high,0.6558,0.7593,1.0733,1.2755,False
+S16060_CREAM,over 12 months | low,0.0904,0.3284,1.2787,2.4398,False
+S16093_LIGHT-PINK,over 12 months | low,0.1525,0.3953,1.2367,2.106,False
+S16103_LIGHT-BLUE,over 12 months | high,0.5761,0.6988,1.1115,1.5038,False
+S16112_WHITE,over 12 months | low,0.3298,0.5879,1.1466,1.6223,False
+S16153_SAGE,over 12 months | low,0.3853,0.6273,1.1449,1.5805,False
+S16164_CREAM,over 12 months | high,0.6546,0.7608,1.0751,1.2919,True
+S16171_CREAM,over 12 months | mid,0.6721,0.8111,1.0833,1.2983,False
+S16196_OLIVE,over 12 months | low,0.1774,0.4396,1.2082,1.975,False
+S16201_BLUE-AND-WHITE,over 12 months | high,0.6094,0.7338,1.0822,1.3216,False
+S16212_BLACK,over 12 months | mid,0.5834,0.7505,1.132,1.5293,False
+S16212_WHITE,over 12 months | high,0.5892,0.7161,1.1055,1.4367,False
+S16275_YELLOW,over 12 months | mid,0.7072,0.8329,1.0916,1.2636,False
+S16285_NAVY-AND-WHITE,over 12 months | high,0.631,0.7432,1.0822,1.3399,True
+S16293_WHITE,over 12 months | low,0.4696,0.4838,2.428,63.3938,False
+S16300_RED,over 12 months | mid,0.6628,0.7996,1.0976,1.3802,False
+S16314_NAVY,over 12 months | high,0.6475,0.7605,1.0691,1.2578,False
+S16339_PINK,over 12 months | mid,0.6451,0.7927,1.1034,1.3969,False
+S16347_OLIVE,over 12 months | low,0.0408,0.1356,1.4609,3.4759,False
+S16380_BLACK,over 12 months | mid,0.688,0.8123,1.0855,1.3164,False
+S16382_BLACK,3-6 months | low,0.2942,0.505,1.2215,1.8769,False
+S16382_BROWN,over 12 months | mid,0.6258,0.779,1.1108,1.4406,True
+S16383_BROWN,over 12 months | high,0.6077,0.7249,1.0962,1.3918,False
+S16392_BLUE-AND-WHITE,over 12 months | low,0.3385,0.5817,1.1572,1.6705,False
+S16397_BLACK-AND-WHITE,over 12 months | low,0.1423,0.4309,1.2028,1.9143,False
+S16411_BLUE,over 12 months | low,0.323,0.5663,1.1701,1.738,False
+S16411_NAVY,over 12 months | mid,0.4937,0.7138,1.1278,1.4939,False
+S16411_RED,over 12 months | high,0.374,0.572,1.1275,1.5157,False
+S16431_BLUE-AND-WHITE,3-6 months | high,0.5487,0.7053,1.1067,1.405,False
+S16431_GRAY-MELANGE,over 12 months | high,0.5852,0.7031,1.1082,1.4491,False
+S16435_CREAM,over 12 months | low,0.1884,0.4477,1.1986,1.9079,False
+S16450_BLACK,over 12 months | low,0.4091,0.6383,1.1452,1.5598,False
+S16455_BLACK,over 12 months | high,0.6351,0.7399,1.0846,1.334,False
+S16459_WHITE,over 12 months | mid,0.6538,0.7967,1.1001,1.3813,False
+S16484_RED,over 12 months | mid,0.6097,0.7716,1.113,1.447,True
+S16538_LIGHT-PINK,over 12 months | mid,0.5997,0.7635,1.1169,1.4734,False
+S16583_BURGUNDY,over 12 months | high,0.6167,0.7324,1.0947,1.3792,False
+S16583_LIGHT-BLUE,6-12 months | high,0.6289,0.7542,1.1385,1.4135,False
+S16583_NAVY,over 12 months | high,0.6328,0.7415,1.0827,1.3393,False
+S16583_YELLOW,over 12 months | high,0.636,0.7485,1.0809,1.3326,False
+S16589_CREAM,over 12 months | low,0.2131,0.4807,1.18,1.7959,False
+S16597_RED,over 12 months | mid,0.5395,0.7396,1.121,1.4644,False
+S16600_BLACK,over 12 months | mid,0.5976,0.7585,1.1348,1.5466,False
+S16622_CREAM,over 12 months | mid,0.6572,0.8,1.0842,1.3186,False
+S16627_MIX,over 12 months | low,0.1739,0.4421,1.2114,2.0153,False
+S16644_LEOPARD,over 12 months | high,0.5911,0.7133,1.1006,1.4243,False
+S16647_BLACK,over 12 months | high,0.6629,0.7631,1.0736,1.2819,False
+S16694_WHITE,over 12 months | mid,0.6428,0.7966,1.0881,1.3187,False
+S16732_BEIGE,over 12 months | high,0.658,0.7583,1.0827,1.325,False
+S16732_MAROON,6-12 months | high,0.6438,0.7633,1.1325,1.3963,False
+S16732_NAVY,over 12 months | high,0.6669,0.7651,1.0804,1.3171,False
+S16732_PINK,over 12 months | mid,0.6695,0.8056,1.0901,1.3684,False
+S16737_RED,over 12 months | high,0.4707,0.6495,1.1059,1.4306,True
+S16745_BROWN,6-12 months | high,0.6277,0.7528,1.1433,1.4479,False
+S16745_GREEN,over 12 months | mid,0.6577,0.7942,1.1025,1.3929,False
+S16745_PINK,3-6 months | low,0.5393,0.6647,1.1209,1.4444,False
+S16745_YELLOW,over 12 months | high,0.6524,0.7585,1.0722,1.289,False
+S16798_RED,over 12 months | low,0.3306,0.5776,1.1623,1.6835,False
+S16802_BLACK,over 12 months | high,0.6656,0.7692,1.0707,1.2478,False
+S16802_DARK-GRAY,over 12 months | mid,0.6087,0.7663,1.1147,1.4482,False
+S16810_LEOPARD,over 12 months | low,0.2988,0.5484,1.1785,1.7808,False
+S16820_CREAM,over 12 months | low,0.3385,0.5792,1.1634,1.7114,False
+S16840_AQUA,3-6 months | low,0.5007,0.6396,1.1386,1.5108,False
+S16840_BLACK,over 12 months | high,0.6607,0.7625,1.0711,1.2693,False
+S16840_BLACK-AND-WHITE,over 12 months | high,0.6507,0.7536,1.0782,1.3016,False
+S16840_BURGUNDY,over 12 months | high,0.6556,0.7581,1.0756,1.2868,True
+S16840_WHITE-AND-BLACK,6-12 months | high,0.6142,0.743,1.1336,1.4136,False
+S16849_BLUE-WASHED,over 12 months | low,0.376,0.6204,1.1428,1.5941,False
+S16857_BLACK,over 12 months | low,0.2845,0.5483,1.1749,1.7308,False
+S16865_BLUE,over 12 months | high,0.6402,0.7546,1.0798,1.3239,False
+S16865_GRAY-MELANGE,over 12 months | mid,0.643,0.7936,1.095,1.366,False
+S16872_BLUE-WASHED,over 12 months | low,0.3529,0.604,1.1408,1.5777,False
+S16899_BLUE,over 12 months | low,0.4272,0.4418,1.4157,4.0483,False
+S16913_BLACK,over 12 months | mid,0.6422,0.7842,1.1111,1.4231,False
+S16913_BROWN,over 12 months | high,0.6318,0.7397,1.0895,1.3576,False
+S16924_BLACK,over 12 months | low,0.37,0.6098,1.1545,1.6636,False
+S16927_BLACK,over 12 months | high,0.6447,0.7491,1.0769,1.292,False
+S16977_BURGUNDY,over 12 months | mid,0.628,0.7794,1.1072,1.4264,False
+S16977_CREAM,over 12 months | high,0.6765,0.7793,1.0727,1.2386,False
+S16977_GRAY-MELANGE,over 12 months | high,0.6525,0.7586,1.0708,1.2721,False
+S16977_LIGHT-BLUE,over 12 months | mid,0.6307,0.7811,1.1026,1.4099,False
+S16977_MIX,under 3 months | mid,0.6219,0.7568,1.3043,1.7097,False
+S16977_NAVY,over 12 months | high,0.6511,0.7584,1.071,1.2708,True
+S16977_PINK,over 12 months | high,0.5878,0.7093,1.0963,1.3789,False
+S16985_MINT,over 12 months | low,0.1757,0.462,1.1874,1.7655,False
+S17002_MIX,over 12 months | low,0.1807,0.4428,1.2184,2.0308,False
+S17019_CREAM,over 12 months | high,0.6276,0.7368,1.0828,1.3244,True
+S17026_RED,over 12 months | mid,0.4125,0.6637,1.1704,1.6914,True
+S17027_RED,over 12 months | mid,0.3941,0.6558,1.1615,1.6209,False
+S17044_BLACK,over 12 months | high,0.6557,0.7555,1.0789,1.3134,True
+S17044_BURGUNDY,over 12 months | mid,0.6741,0.8012,1.0955,1.3774,False
+S17051_WHITE,under 3 months | low,0.4839,0.6155,1.2365,1.4949,False
+S17065_YELLOW,over 12 months | low,0.0945,0.405,1.2237,2.1398,False
+S17067_BLACK-AND-WHITE,over 12 months | low,0.3268,0.5832,1.1563,1.6593,False
+S17076_WHITE,over 12 months | low,0.3612,0.6048,1.1493,1.6213,False
+S17079_LIGHT-BLUE,over 12 months | high,0.5962,0.713,1.0986,1.4042,False
+S17079_NAVY,over 12 months | high,0.6006,0.7157,1.0983,1.4038,False
+S17086_BLACK,over 12 months | low,0.3556,0.5977,1.1495,1.6389,False
+S17086_WHITE,over 12 months | high,0.536,0.6919,1.0979,1.3752,False
+S17091_BLUE,6-12 months | mid,0.5799,0.7358,1.297,1.9216,True
+S17091_LIGHT-GRAY-MELANGE,over 12 months | high,0.6462,0.7518,1.081,1.3195,True
+S17091_NAVY,over 12 months | high,0.6228,0.7346,1.0907,1.3725,False
+S17107_LIGHT-PINK,over 12 months | mid,0.6036,0.7613,1.1187,1.4677,False
+S17126_LIGHT-BLUE,over 12 months | low,0.1266,0.4244,1.2039,1.8455,False
+S17159_BLACK-WASHED,over 12 months | high,0.6455,0.7525,1.0737,1.2767,True
+S17181_WHITE,over 12 months | low,0.3709,0.6142,1.1437,1.5907,False
+S17204_BLACK,over 12 months | mid,0.6707,0.7976,1.1032,1.4017,False
+S17204_BROWN,over 12 months | low,0.3023,0.5477,1.1765,1.7456,False
+S17208_CREAM,over 12 months | mid,0.4451,0.7034,1.1343,1.527,False
+S17236_NAVY-AND-WHITE,over 12 months | low,0.264,0.5294,1.1725,1.7722,False
+S17245_WHITE,over 12 months | low,0.3825,0.6292,1.1476,1.5227,False
+S17248_BLACK-WASHED,over 12 months | low,0.3618,0.5966,1.1554,1.6858,False
+S17249_PINK,over 12 months | low,0.2001,0.4575,1.2172,2.0045,False
+S17250_LEOPARD,over 12 months | high,0.5669,0.7047,1.0954,1.392,True
+S17258_BEIGE,over 12 months | low,0.3143,0.5731,1.1628,1.6897,False
+S17272_BLUE,over 12 months | low,0.0611,0.189,1.2976,2.6424,False
+S17285_RED,over 12 months | high,0.5917,0.7399,1.0747,1.2804,False
+S17285_YELLOW,3-6 months | mid,0.5524,0.7045,1.2475,1.7024,False
+S17286_RED,over 12 months | high,0.5496,0.7157,1.0817,1.3012,False
+S17299_NAVY,over 12 months | high,0.6614,0.7664,1.0717,1.2952,True
+S17300_BLUE-VINTAGE-WASHED,6-12 months | low,0.4106,0.6111,1.2045,1.5548,False
+S17300_GRAY-WASHED,over 12 months | mid,0.6026,0.7631,1.1187,1.4714,False
+S17302_WHITE,over 12 months | high,0.6109,0.7235,1.0916,1.3605,True
+S17304_DARK-BLUE,over 12 months | low,0.0761,0.3344,1.2741,2.3916,False
+S17310_BROWN,over 12 months | mid,0.6103,0.7661,1.1177,1.4651,False
+S17324_BLUE,over 12 months | high,0.609,0.7248,1.094,1.3654,True
+S17326_BLUE-AND-WHITE,over 12 months | mid,0.6278,0.7791,1.1092,1.4122,False
+S17332_OLIVE,over 12 months | high,0.6188,0.7357,1.0804,1.307,False
+S17343_LIGHT-PINK,over 12 months | high,0.5756,0.7113,1.0923,1.3762,False
+S17350_NAVY,over 12 months | mid,0.6785,0.8128,1.0899,1.3478,False
+S17359_PINK,over 12 months | low,0.3689,0.6099,1.1449,1.5948,False
+S17367_BLUE-WASHED,over 12 months | high,0.6272,0.7363,1.0872,1.3438,False
+S17368_BLACK,over 12 months | low,0.3682,0.6001,1.1571,1.6853,False
+S17370P_BLUE-AND-WHITE,3-6 months | mid,0.6082,0.7307,1.2248,1.6273,False
+S17370_PINK-AND-WHITE,over 12 months | mid,0.6292,0.7807,1.1092,1.4176,False
+S17383_BLACK,over 12 months | mid,0.6045,0.761,1.1199,1.4751,False
+S17383_WHITE,over 12 months | mid,0.606,0.7602,1.1233,1.4896,False
+S17389_BLACK,over 12 months | mid,0.6157,0.7641,1.1241,1.476,False
+S17389_OLIVE,6-12 months | high,0.5563,0.6964,1.1835,1.5805,False
+S17389_WHITE,over 12 months | high,0.6338,0.744,1.0867,1.3476,True
+S17392_LEOPARD,over 12 months | high,0.5916,0.7188,1.0986,1.3982,False
+S17412_GRAY,over 12 months | low,0.091,0.3816,1.2804,2.5227,False
+S17419_BLUE,3-6 months | high,0.5886,0.7398,1.0816,1.281,False
+S17419_TURQUOISE,3-6 months | high,0.6009,0.7519,1.0728,1.2584,False
+S17419_WHITE,over 12 months | high,0.6584,0.7614,1.077,1.2871,False
+S17421_RED,over 12 months | mid,0.6221,0.7705,1.1194,1.471,False
+S17440_BLACK,over 12 months | low,0.2197,0.4727,1.2066,1.945,False
+S17452_BURGUNDY,over 12 months | low,0.3328,0.5702,1.1658,1.7129,False
+S17452_GRAY-MELANGE,over 12 months | high,0.5099,0.6515,1.1349,1.5764,False
+S17453_BURGUNDY,over 12 months | low,0.2802,0.5274,1.1862,1.8235,False
+S17454_NAVY,over 12 months | mid,0.6168,0.7665,1.1193,1.4696,False
+S17455_NAVY,over 12 months | mid,0.6137,0.7631,1.1256,1.4915,False
+S17456_WHITE,over 12 months | low,0.3152,0.5542,1.1742,1.7435,False
+S17459_CREAM,over 12 months | mid,0.5442,0.7177,1.1481,1.5969,False
+S17464_BLACK,over 12 months | mid,0.5748,0.7389,1.1429,1.5759,False
+S17467_RED,over 12 months | high,0.6502,0.7551,1.0762,1.2849,False
+S17467_WHITE,over 12 months | high,0.6389,0.7511,1.0832,1.3357,False
+S17473_BLUE,over 12 months | high,0.5929,0.7121,1.0978,1.3949,False
+S17473_CREAM,over 12 months | mid,0.5236,0.7046,1.1699,1.7086,False
+S17473_DARK-GRAY,over 12 months | high,0.5489,0.6765,1.1121,1.4784,True
+S17473_YELLOW,over 12 months | high,0.6059,0.7274,1.0949,1.3876,False
+S17474_BLUE,over 12 months | mid,0.6158,0.7682,1.1178,1.475,False
+S17474_DARK-GRAY,over 12 months | high,0.5594,0.6895,1.1098,1.4655,False
+S17475_GREEN,over 12 months | mid,0.6294,0.7738,1.1139,1.4455,False
+S17477_PINK,over 12 months | low,0.3493,0.5874,1.1618,1.6969,False
+S17483_CREAM,over 12 months | mid,0.4253,0.6559,1.2061,1.8804,True
+S17506_MIX,over 12 months | mid,0.6059,0.7622,1.1253,1.5033,False
+S17533_GRAY-MELANGE,over 12 months | low,0.3066,0.5452,1.1809,1.8141,False
+S17544_DARK-BLUE,over 12 months | high,0.6406,0.7471,1.0797,1.3155,False
+S17551_CREAM,over 12 months | low,0.3117,0.5521,1.1724,1.7378,False
+S17553_NAVY-AND-CREAM,over 12 months | high,0.6009,0.7164,1.1036,1.4211,False
+S17554_BROWN-AND-BEIGE,6-12 months | mid,0.608,0.7602,1.2109,1.6275,False
+S17554_NAVY-AND-CREAM,over 12 months | high,0.6018,0.7231,1.0941,1.3983,False
+S17555_BURGUNDY,over 12 months | mid,0.6482,0.7858,1.1114,1.4398,False
+S17555_GRAY-MELANGE,over 12 months | high,0.5981,0.7174,1.102,1.4187,False
+S17558_LIGHT-BLUE,over 12 months | mid,0.5759,0.7408,1.1407,1.5609,False
+S17575_BLUE-WASHED,over 12 months | low,0.2067,0.4787,1.188,1.8769,False
+S17586_MIX,over 12 months | mid,0.5808,0.7474,1.1268,1.4978,False
+S17589_LIGHT-GRAY,over 12 months | mid,0.6241,0.7717,1.1234,1.4691,False
+S17595_NAVY-AND-RED,over 12 months | mid,0.6208,0.7732,1.115,1.455,False
+S17595_WHITE-AND-YELLOW,6-12 months | mid,0.5362,0.715,1.3426,2.0138,False
+S17606P_NAVY,3-6 months | low,0.4465,0.5975,1.1603,1.6348,False
+S17606_GREEN,over 12 months | low,0.341,0.5809,1.1622,1.6993,False
+S17606_NAVY,over 12 months | high,0.6304,0.7399,1.0874,1.3591,False
+S17607_BLACK,over 12 months | low,0.4115,0.6374,1.1457,1.5782,False
+S17613_NAVY-AND-CREAM,over 12 months | mid,0.5531,0.7201,1.1467,1.6278,False
+S17614_BURGUNDY,over 12 months | mid,0.5915,0.7453,1.1327,1.5086,False
+S17614_NAVY-AND-WHITE,6-12 months | low,0.3769,0.5748,1.243,1.696,False
+S17614_WHITE-AND-NAVY,6-12 months | low,0.375,0.5729,1.2503,1.7234,False
+S17637_MIX,over 12 months | low,0.2857,0.5418,1.1722,1.7606,False
+S17640_BLACK,6-12 months | high,0.6046,0.7341,1.1494,1.4708,False
+S17640_GRAY,over 12 months | mid,0.6364,0.7791,1.1152,1.4673,False
+S17656_BURGUNDY,over 12 months | mid,0.6719,0.8043,1.0974,1.3743,False
+S17660_BLACK-AND-WHITE,over 12 months | mid,0.6719,0.8024,1.1009,1.3912,False
+S17661_DARK-GRAY,over 12 months | mid,0.6248,0.774,1.115,1.461,False
+S17664_GRAY-WASHED,over 12 months | low,0.206,0.4617,1.2269,2.0909,False
+S17670_DARK-GRAY,over 12 months | low,0.2963,0.5391,1.1898,1.867,False
+S17671_LIGHT-BLUE,over 12 months | low,0.266,0.5195,1.1951,1.8809,False
+S17673_WHITE,over 12 months | low,0.3595,0.6096,1.1421,1.5962,False
+S17697_CREAM,over 12 months | low,0.1223,0.381,1.2472,2.2557,False
+S17709_BLACK,over 12 months | mid,0.642,0.7857,1.1121,1.4476,False
+S17711_NAVY,over 12 months | low,0.1781,0.4497,1.2453,2.164,False
+S17712_CREAM,over 12 months | high,0.5833,0.703,1.112,1.4771,False
+S17718_WHITE,over 12 months | mid,0.6357,0.7821,1.1152,1.4539,False
+S17726_BLACK,over 12 months | low,0.2717,0.5301,1.1821,1.8629,False
+S17738_SILVER,over 12 months | mid,0.6516,0.7871,1.1083,1.4152,False
+S17742_WHITE,over 12 months | mid,0.671,0.8103,1.0835,1.3236,False
+S17754_GREEN,over 12 months | low,0.3696,0.6216,1.1451,1.516,False
+S17758_NAVY-AND-WHITE,over 12 months | mid,0.5293,0.7034,1.1548,1.68,False
+S17761_NAVY,over 12 months | mid,0.5732,0.7352,1.1497,1.584,False
+S17761_WHITE,over 12 months | mid,0.5884,0.7468,1.1354,1.5279,False
+S17764_BLACK-AND-WHITE,over 12 months | low,0.3354,0.5715,1.1681,1.737,False
+S17764_BROWN,over 12 months | mid,0.5404,0.7119,1.1617,1.6982,True
+S17766_BLUE-WASHED,over 12 months | mid,0.5957,0.7574,1.126,1.4912,False
+S17766_INDIGO-BLUE-RAW-WASHED,over 12 months | high,0.6109,0.7261,1.0941,1.3868,False
+S17771_BLUE-WASHED,over 12 months | mid,0.6696,0.8084,1.0925,1.3625,False
+S17782_BLACK,over 12 months | high,0.6406,0.7498,1.0862,1.3625,False
+S17784_LIGHT-BLUE,over 12 months | mid,0.5799,0.7421,1.1396,1.5565,False
+S17790_BLUE-AND-CREAM,over 12 months | mid,0.6054,0.756,1.1218,1.4704,False
+S17791_NAVY,over 12 months | low,0.322,0.5589,1.1874,1.8868,False
+S17795_BLACK,over 12 months | low,0.3772,0.6169,1.1474,1.6188,False
+S17796_BLACK,over 12 months | high,0.6509,0.7528,1.0816,1.3273,False
+S17796_BROWN,over 12 months | low,0.3869,0.6164,1.1478,1.641,False
+S17809_RED,over 12 months | mid,0.6405,0.7845,1.1056,1.4088,False
+S17812_GRAY-MELANGE,over 12 months | low,0.2917,0.5301,1.1962,1.889,False
+S17816_GRAY-MELANGE,6-12 months | mid,0.595,0.7475,1.2575,1.7106,False
+S17818_LIGHT-PINK,over 12 months | low,0.3323,0.573,1.1698,1.7711,False
+S17819_LIGHT-BLUE,over 12 months | mid,0.6381,0.7829,1.1138,1.4581,False
+S17829_BLACK,over 12 months | low,0.2951,0.5454,1.1794,1.7841,False
+S17869_NAVY,over 12 months | mid,0.5635,0.7287,1.1342,1.5605,False
+S17869_OLIVE,over 12 months | mid,0.6054,0.7512,1.1219,1.4733,False
+S17870_BLACK,over 12 months | low,0.3458,0.579,1.1645,1.7269,False
+S17871_BLACK,over 12 months | high,0.6317,0.7413,1.0895,1.3629,False
+S17871_GRAY-MELANGE,over 12 months | high,0.6259,0.7363,1.0919,1.3739,False
+S17873_RED,over 12 months | low,0.2245,0.4623,1.2708,2.542,False
+S17884_PINK,over 12 months | mid,0.5529,0.7284,1.145,1.6037,False
+S17899_BROWN,over 12 months | mid,0.6669,0.7968,1.1019,1.4009,False
+S17914_BLACK,over 12 months | low,0.3915,0.6336,1.1485,1.5359,False
+S17920_BLACK,6-12 months | mid,0.6288,0.7686,1.1895,1.5444,False
+S17920_BROWN,over 12 months | high,0.6225,0.7306,1.0874,1.34,True
+S17922_BURGUNDY,over 12 months | high,0.6281,0.7386,1.0858,1.3365,False
+S17927_BROWN,over 12 months | low,0.1935,0.4795,1.1835,1.8228,False
+S17954_BROWN,6-12 months | mid,0.5166,0.6937,1.3997,2.1917,False
+S17954_CREAM,over 12 months | mid,0.546,0.7126,1.1526,1.644,True
+S17954_DARK-GRAY,over 12 months | low,0.2444,0.4759,1.2364,2.2625,False
+S17954_LIGHT-PINK,over 12 months | mid,0.617,0.7623,1.1169,1.4526,False
+S17955_PINK,over 12 months | mid,0.6426,0.7876,1.1053,1.4042,False
+S17964_BLACK-AND-WHITE,over 12 months | low,0.3306,0.5672,1.175,1.7704,False
+S17969_CREAM,over 12 months | low,0.2146,0.4731,1.1862,1.8215,False
+S17972_LIGHT-BLUE,6-12 months | low,0.3655,0.5683,1.2373,1.6484,False
+S17972_LIGHT-PINK,over 12 months | mid,0.5642,0.7266,1.1425,1.5828,False
+S17984_CREAM,over 12 months | low,0.3025,0.5461,1.1801,1.8242,False
+S17985_BURGUNDY,6-12 months | mid,0.6143,0.7612,1.2133,1.6063,False
+S17985_GRAY-MELANGE,over 12 months | mid,0.6176,0.77,1.1161,1.4507,False
+S17986_BURGUNDY,6-12 months | mid,0.6079,0.7536,1.231,1.6411,False
+S17986_GRAY-MELANGE,over 12 months | mid,0.6098,0.7604,1.1289,1.5061,False
+S17992_BLACK,over 12 months | mid,0.6216,0.7655,1.1288,1.5256,False
+S17992_CREAM,over 12 months | mid,0.5,0.6794,1.1883,1.8625,False
+S17994_BURGUNDY,6-12 months | low,0.3966,0.5928,1.2182,1.5935,False
+S17998_NAVY,over 12 months | low,0.3446,0.5773,1.1679,1.7319,False
+S17999_BEIGE,over 12 months | mid,0.6527,0.789,1.1082,1.4445,False
+S18012_PINK,over 12 months | low,0.3515,0.5934,1.1554,1.6672,False
+S18015_GRAY,over 12 months | low,0.3228,0.5815,1.1598,1.678,False
+S18024_WHITE,over 12 months | high,0.629,0.74,1.0916,1.3835,False
+S18030_LIGHT-BLUE,over 12 months | low,0.259,0.5247,1.179,1.7839,False
+S18074_CREAM,over 12 months | low,0.1562,0.4145,1.2477,2.2345,False
+S18093_WHITE,over 12 months | mid,0.653,0.7966,1.1005,1.396,False
+S18094_BROWN,over 12 months | mid,0.6529,0.7885,1.1053,1.4181,False
+S18095_BURGUNDY,over 12 months | low,0.3117,0.548,1.1749,1.7677,False
+S18116_BLUE,over 12 months | low,0.3356,0.5714,1.1714,1.7506,False
+S18124_NUDE,over 12 months | low,0.3557,0.5978,1.1575,1.6646,False
+S18127_BLACK,over 12 months | mid,0.6459,0.7902,1.1018,1.3934,False
+S18132_BLACK-AND-WHITE,over 12 months | low,0.3574,0.6203,1.1454,1.4985,False
+S18139_PINK,over 12 months | mid,0.6506,0.808,1.0862,1.2893,False
+S18142_BLACK-AND-WHITE,over 12 months | mid,0.6983,0.8319,1.0888,1.2553,False
+S18143_BLACK-AND-WHITE,over 12 months | mid,0.6763,0.8194,1.0862,1.2848,False
+S18146_BLACK,over 12 months | mid,0.655,0.7979,1.0908,1.3492,False
+S18149_OLIVE,over 12 months | low,0.2959,0.537,1.1872,1.8565,False
+S18157_BLUE,over 12 months | mid,0.6485,0.7838,1.1052,1.4087,False
+S18157_BURGUNDY,over 12 months | mid,0.6755,0.806,1.0945,1.3566,False
+S18157_WHITE,over 12 months | high,0.6046,0.7178,1.0928,1.3669,False
+S18184_DARK-GRAY,over 12 months | high,0.6888,0.7906,1.076,1.2295,True
+S18184_LIGHT-BLUE,3-6 months | high,0.4724,0.6803,1.0977,1.3563,True
+S18184_YELLOW,over 12 months | high,0.662,0.7723,1.0709,1.2633,False
+S18185_DARK-GRAY,over 12 months | high,0.6802,0.7865,1.0748,1.2341,False
+S18185_LIGHT-BLUE,3-6 months | high,0.4443,0.66,1.1034,1.376,False
+S18185_NAVY,under 3 months | mid,0.6109,0.7583,1.2856,1.6249,False
+S18185_TURQUOISE,under 3 months | high,0.6111,0.7673,1.1379,1.4114,False
+S18185_YELLOW,over 12 months | high,0.6508,0.7653,1.0702,1.2722,False
+S18194_CAMEL,over 12 months | low,0.3271,0.5657,1.1728,1.7428,False
+S18199_BLACK,over 12 months | low,0.1665,0.411,1.2377,2.0858,False
+S18232_BLACK,over 12 months | mid,0.6193,0.7781,1.0993,1.3852,False
+S18242_BLACK,over 12 months | low,0.348,0.5915,1.1621,1.7046,False
+S18243_GOLD,over 12 months | low,0.3688,0.5958,1.1581,1.6839,False
+S18276_NAVY,over 12 months | mid,0.6674,0.8124,1.0841,1.2923,False
+S18277_NAVY,over 12 months | mid,0.6626,0.8114,1.0835,1.2963,False
+S18281_LIGHT-PINK,over 12 months | mid,0.5523,0.7315,1.154,1.5977,False
+S18288_BLACK,6-12 months | low,0.121,0.4347,1.3735,2.3361,False
+S18299_PINK,over 12 months | low,0.2343,0.5157,1.1719,1.6788,False
+S18300_OFF-WHITE,over 12 months | low,0.1553,0.3068,1.2974,2.641,False
+S18304_BLACK,over 12 months | low,0.0854,0.3286,1.2291,1.9778,False
+S18309_BLACK,over 12 months | mid,0.6476,0.7856,1.1104,1.4458,False
+S18309_WHITE,over 12 months | mid,0.6302,0.7754,1.1156,1.4663,False
+S18324_BLACK-AND-GRAY,over 12 months | mid,0.614,0.7621,1.1244,1.4921,False
+S18324_NAVY-AND-WHITE,6-12 months | mid,0.5739,0.7355,1.2809,1.784,False
+S18342_NAVY,over 12 months | mid,0.5839,0.7531,1.1272,1.4998,False
+S18343_BLUE,over 12 months | mid,0.6614,0.796,1.1023,1.406,False
+S18359_CREAM,over 12 months | high,0.6272,0.7361,1.0867,1.3446,False
+S18360_BROWN,over 12 months | low,0.112,0.4024,1.2811,2.3535,False
+S18376_RED,over 12 months | mid,0.6357,0.782,1.1141,1.4542,False
+S18394_BLUE,over 12 months | high,0.6158,0.7318,1.0894,1.359,False
+S18394_CREAM,6-12 months | mid,0.619,0.7618,1.2111,1.6375,False
+S18401_GRAY-MELANGE,over 12 months | high,0.5959,0.7155,1.1001,1.4146,False
+S18402_GRAY-MELANGE,over 12 months | high,0.6157,0.7281,1.0944,1.3918,False
+S18408_NAVY,over 12 months | high,0.5771,0.6984,1.1176,1.5034,True
+S18429_BLACK,3-6 months | mid,0.5889,0.7134,1.2559,1.7145,False
+S18429_GRAY,over 12 months | mid,0.6147,0.7668,1.1176,1.457,False
+S18430_BLACK,3-6 months | mid,0.5888,0.7158,1.2501,1.6976,False
+S18452_BLACK,over 12 months | high,0.6502,0.7606,1.0801,1.3237,False
+S18467_BURGUNDY,over 12 months | low,0.2258,0.4618,1.2122,1.9367,False
+S18471P_BLACK-WASHED,3-6 months | mid,0.5877,0.7187,1.2388,1.6685,False
+S18471_BLACK-WASHED,over 12 months | high,0.6483,0.7537,1.0741,1.2887,False
+S18475_WHITE,over 12 months | low,0.1679,0.4404,1.2106,1.8795,False
+S18479_BLACK,over 12 months | high,0.6376,0.7449,1.0852,1.3359,False
+S18490_LIGHT-BLUE,over 12 months | low,0.1767,0.44,1.2203,2.0575,False
+S18512_BROWN,over 12 months | high,0.6224,0.7295,1.0887,1.3532,False
+S18512_DARK-GRAY,3-6 months | high,0.5697,0.7226,1.0921,1.3332,False
+S18513_BROWN,over 12 months | high,0.6267,0.7338,1.088,1.3445,False
+S18514_SAGE,over 12 months | mid,0.5981,0.764,1.1095,1.4382,False
+S18519_WHITE,over 12 months | high,0.6535,0.7602,1.074,1.2787,False
+S18523_DARK-BLUE,over 12 months | high,0.6538,0.756,1.0795,1.3043,False
+S18525_TAN,over 12 months | low,0.2684,0.5377,1.17,1.7543,False
+S18532_BLUE-WASHED,over 12 months | low,0.0289,0.1411,1.2987,2.7958,False
+S18534_BLUE-WASHED,over 12 months | low,0.2803,0.544,1.1845,1.8096,False
+S18549_NAVY,over 12 months | low,0.2893,0.5349,1.1874,1.8509,False
+S18560_GREEN,over 12 months | low,0.3038,0.558,1.1561,1.6634,False
+S18587_MIX,over 12 months | high,0.65,0.7592,1.0729,1.2928,False
+S18613_BLACK,over 12 months | mid,0.6637,0.802,1.0951,1.3602,False
+S18618_BLUE,over 12 months | low,0.3397,0.5753,1.1654,1.7171,False
+S18623_GRAY-MELANGE,over 12 months | high,0.6047,0.7149,1.1038,1.4409,False
+S18629_MIX,over 12 months | low,0.3599,0.5888,1.1637,1.7135,False
+S18633_CREAM,over 12 months | mid,0.5505,0.7195,1.1433,1.6098,False
+S18639_GREEN,over 12 months | low,0.3633,0.5952,1.1646,1.7018,False
+S18642_TAN,over 12 months | low,0.2997,0.5418,1.1797,1.7778,False
+S18657_BROWN,over 12 months | low,0.2341,0.4994,1.1883,1.8399,False
+S18686_BLACK,over 12 months | high,0.6747,0.7779,1.0709,1.2794,False
+S18686_BURGUNDY,over 12 months | high,0.67,0.7687,1.0741,1.2806,False
+S18686_GREEN,over 12 months | high,0.6083,0.7227,1.0987,1.4015,True
+S18690_TURQUOISE,over 12 months | low,0.1775,0.4554,1.1905,1.9057,False
+S18691_GREEN,over 12 months | mid,0.6402,0.7861,1.11,1.432,False
+S18695_BLUE,over 12 months | low,0.2242,0.4962,1.1957,1.8602,False
+S18719_BROWN,over 12 months | low,0.114,0.4047,1.2123,1.9642,False
+S18752_BLACK,over 12 months | low,0.3044,0.5488,1.1798,1.7882,False
+S18752_WHITE,over 12 months | low,0.3193,0.5574,1.1753,1.7473,False
+S18753_DARK-BLUE,over 12 months | high,0.6372,0.7453,1.0799,1.3151,False
+S18757_LIGHT-PINK,over 12 months | low,0.2149,0.4748,1.2082,1.9536,False
+S18769_BLACK,over 12 months | mid,0.6668,0.8022,1.0933,1.3571,False
+S18769_BURGUNDY,6-12 months | mid,0.6259,0.77,1.1897,1.5358,False
+S18770_BLACK,over 12 months | high,0.642,0.7447,1.0869,1.35,False
+S18779_DARK-GRAY,3-6 months | high,0.5963,0.7443,1.0789,1.2842,False
+S18819_MIX,over 12 months | low,0.354,0.5839,1.1658,1.7423,False
+S18838_BLACK-AND-WHITE,over 12 months | high,0.6561,0.7575,1.08,1.3043,False
+S18838_RED-AND-WHITE,over 12 months | high,0.5854,0.711,1.0936,1.3699,True
+S18840_BLACK,3-6 months | low,0.4925,0.6174,1.1504,1.5834,False
+S18840_BURGUNDY,over 12 months | mid,0.6516,0.791,1.112,1.4328,False
+S18848_CREAM,over 12 months | mid,0.6264,0.7771,1.1132,1.4479,False
+S18857_BLACK,over 12 months | low,0.3267,0.5658,1.1691,1.7373,False
+S18865_RED,over 12 months | low,0.2096,0.4765,1.1995,1.9014,False
+S18867_YELLOW,over 12 months | low,0.2545,0.5227,1.1853,1.7974,False
+S18900_LIGHT-PINK,6-12 months | mid,0.5971,0.7471,1.2489,1.7068,False
+S18912_WHITE,over 12 months | high,0.6062,0.7188,1.0992,1.4068,False
+S18914_BLUE,over 12 months | mid,0.6091,0.7601,1.1286,1.4878,False
+S18915_BLUE,over 12 months | mid,0.6243,0.7707,1.1248,1.484,True
+S18916_WHITE,over 12 months | low,0.2707,0.517,1.1988,1.912,False
+S18948_BLACK,over 12 months | low,0.3013,0.5467,1.1778,1.7643,False
+S18958_BLACK,over 12 months | high,0.6182,0.7341,1.0844,1.3388,False
+S18958_LIGHT-PINK,over 12 months | high,0.5858,0.7094,1.1014,1.445,False
+S18958_WHITE,over 12 months | high,0.6208,0.7368,1.0826,1.3326,True
+S18974_BLACK-AND-WHITE,over 12 months | high,0.6464,0.7635,1.0674,1.2566,False
+S18974_BLUE,3-6 months | high,0.6296,0.7705,1.0685,1.2443,True
+S18974_PINK-AND-WHITE,over 12 months | high,0.6516,0.7604,1.0733,1.2802,False
+S18975_BLACK-AND-WHITE,over 12 months | high,0.655,0.7689,1.0697,1.2535,False
+S18975_BLUE,3-6 months | high,0.6429,0.78,1.0659,1.2364,False
+S18975_PINK,under 3 months | high,0.6214,0.7737,1.1347,1.4036,False
+S18975_PINK-AND-WHITE,over 12 months | high,0.6636,0.7685,1.0717,1.2771,False
+S18978_BLUE,over 12 months | low,0.1413,0.4101,1.2368,2.197,False
+S18988_BLACK,over 12 months | mid,0.6065,0.7561,1.135,1.5279,False
+S18993_MIX,over 12 months | low,0.3031,0.5521,1.1691,1.7366,False
+S19024_BLACK,3-6 months | high,0.5802,0.732,1.083,1.2957,False
+S19024_BURGUNDY,over 12 months | high,0.6332,0.7403,1.0834,1.3315,False
+S19026_LEOPARD,over 12 months | mid,0.6455,0.7941,1.0908,1.3519,False
+S19028_CREAM,over 12 months | high,0.6588,0.7639,1.0781,1.3085,False
+S19030_BLACK,over 12 months | high,0.6402,0.7465,1.0851,1.3301,True
+S19040_CREAM,over 12 months | low,0.2437,0.5108,1.1826,1.8214,False
+S19057_GRAY-MELANGE,over 12 months | mid,0.5619,0.7298,1.1503,1.6105,False
+S19069_GREEN,over 12 months | low,0.0269,0.2464,1.2641,2.4917,False
+S19096_WHITE,over 12 months | mid,0.6493,0.7946,1.0914,1.3591,False
+S19110_BLACK,over 12 months | low,0.2658,0.5178,1.1947,1.9091,False
+S19121_BROWN-WASHED,over 12 months | mid,0.6442,0.7803,1.109,1.4165,False
+S19122_BROWN-WASHED,over 12 months | low,0.3857,0.6221,1.1458,1.6374,False
+S19125_WHITE-AND-CAMEL,over 12 months | low,0.1364,0.4165,1.2248,2.1345,False
+S19143_NAVY,over 12 months | high,0.5939,0.7115,1.101,1.4142,False
+S19150_PINK,over 12 months | mid,0.6347,0.7906,1.092,1.3552,False
+S19169_LIGHT-BLUE,over 12 months | mid,0.6396,0.7828,1.1031,1.3901,False
+S19188_LEOPARD,over 12 months | mid,0.6566,0.7941,1.1004,1.3841,False
+S19189_BLACK-WASHED,over 12 months | mid,0.6773,0.8065,1.0928,1.3564,False
+S19190_WHITE-AND-PINK,over 12 months | mid,0.5696,0.7634,1.0995,1.361,False
+S19217_GRAY,over 12 months | mid,0.6456,0.7849,1.1072,1.4046,False
+S19224_TURQUOISE,over 12 months | mid,0.6327,0.7777,1.1129,1.4348,False
+S19229_WHITE,over 12 months | low,0.2841,0.5459,1.1776,1.7623,False
+S19240_BLACK,over 12 months | mid,0.6655,0.8007,1.0959,1.3665,False
+S19255_BLACK,over 12 months | high,0.6221,0.7308,1.0905,1.3483,False
+S19255_WHITE,3-6 months | high,0.534,0.6958,1.0948,1.3462,False
+S19257_BLACK,over 12 months | mid,0.6966,0.8227,1.0854,1.3307,False
+S19257_CREAM,over 12 months | low,0.3875,0.624,1.1454,1.613,False
+S19258_LEOPARD,over 12 months | low,0.3118,0.5556,1.1769,1.7877,False
+S19270_BLACK,over 12 months | mid,0.6612,0.8026,1.092,1.3652,False
+S19271_BROWN,6-12 months | high,0.5885,0.7162,1.1692,1.5455,True
+S19276_LIGHT-PINK,over 12 months | mid,0.6303,0.7793,1.1168,1.4603,False
+S19278_LIGHT-BLUE,over 12 months | high,0.656,0.7623,1.074,1.2841,False
+S19279_BLUE,over 12 months | low,0.3148,0.558,1.1736,1.7663,False
+S19286_BLACK,over 12 months | mid,0.6143,0.7765,1.1046,1.4145,False
+S19291_OLIVE,over 12 months | mid,0.6539,0.8037,1.0844,1.3117,False
+S19310_LEOPARD,over 12 months | mid,0.5237,0.7049,1.1664,1.7061,False
+S19312_BLACK,6-12 months | low,0.4284,0.6334,1.1742,1.4531,False
+S19312_BLUE-WASHED,over 12 months | mid,0.6722,0.8104,1.0827,1.3089,False
+S19320_WHITE,over 12 months | low,0.2642,0.503,1.1975,1.8594,False
+S19328_BLUE-WASHED,over 12 months | high,0.6525,0.7613,1.0752,1.3017,False
+S19328_CREAM,3-6 months | high,0.543,0.7015,1.1012,1.3766,False
+S19328_DARK-BLUE-WASHED,3-6 months | high,0.5624,0.719,1.0939,1.3389,False
+S19328_LIGHT-BLUE,6-12 months | high,0.6122,0.7389,1.1426,1.4638,False
+S19328_WHITE,over 12 months | high,0.6255,0.7413,1.0787,1.2935,False
+S19355_GRAY-MELANGE,over 12 months | low,0.1465,0.4284,1.2238,2.1616,False
+S19356_GRAY-MELANGE,over 12 months | high,0.6036,0.7154,1.1004,1.4184,False
+S19364_DARK-BLUE,over 12 months | mid,0.635,0.7805,1.1154,1.4624,False
+S19389_YELLOW,over 12 months | low,0.2012,0.4767,1.1831,1.7542,False
+S19411_LIGHT-BLUE,over 12 months | high,0.5886,0.7122,1.0969,1.4046,False
+S19411_OLIVE,over 12 months | high,0.5924,0.7069,1.104,1.4316,False
+S19412_LIGHT-BLUE,over 12 months | high,0.607,0.7228,1.094,1.3799,False
+S19412_OLIVE,over 12 months | mid,0.6291,0.775,1.1231,1.4875,False
+S19426_PURPLE,3-6 months | high,0.5837,0.7351,1.0906,1.3303,False
+S19426_YELLOW,over 12 months | high,0.664,0.7635,1.08,1.3171,False
+S19427_DARK-BROWN,6-12 months | mid,0.6367,0.7781,1.1927,1.5458,False
+S19427_PURPLE,3-6 months | high,0.5709,0.7248,1.0955,1.3534,False
+S19431_WHITE,over 12 months | high,0.2456,0.5124,1.1654,1.705,True
+S19431_YELLOW,over 12 months | low,0.1691,0.4926,1.1808,1.827,False
+S19504_BROWN,6-12 months | mid,0.6327,0.7784,1.1719,1.4922,False
+S19505_CREAM,over 12 months | high,0.6465,0.7535,1.0854,1.3355,False
+S19514_WHITE,over 12 months | low,0.3761,0.6201,1.1446,1.5636,False
+S19518_BLACK,over 12 months | mid,0.6339,0.7785,1.108,1.4284,False
+S19529_BLUE-AND-WHITE,over 12 months | low,0.3468,0.5864,1.1608,1.7043,False
+S19538_AQUA,under 3 months | low,0.4386,0.5752,1.281,1.6383,False
+S19543_WHITE,over 12 months | high,0.6421,0.7556,1.0737,1.2987,False
+S19546_BROWN,6-12 months | low,0.434,0.6277,1.1971,1.5353,False
+S19546_DARK-GRAY,3-6 months | low,0.5116,0.6471,1.1304,1.4895,False
+S19546_NAVY,6-12 months | mid,0.6061,0.7572,1.2171,1.6225,False
+S19551_BLUE,6-12 months | low,0.4058,0.6011,1.2181,1.612,False
+S19551_BURGUNDY,6-12 months | low,0.3919,0.5935,1.2179,1.5965,False
+S19551_GRAY-MELANGE,over 12 months | mid,0.6387,0.7795,1.1122,1.4446,False
+S19553_YELLOW,over 12 months | low,0.3421,0.5953,1.143,1.5992,False
+S19560_WHITE,over 12 months | mid,0.639,0.7925,1.0911,1.3444,False
+S19566_PINK,over 12 months | low,0.2945,0.5547,1.1604,1.706,False
+S19586_NAVY-AND-WHITE,over 12 months | high,0.579,0.7061,1.1016,1.4144,False
+S19605_BLACK,over 12 months | mid,0.6335,0.7831,1.1076,1.4255,False
+S19624_NAVY-AND-WHITE,over 12 months | low,0.307,0.5576,1.1766,1.805,False
+S19681_WHITE,over 12 months | high,0.5875,0.7051,1.1056,1.4175,False
+S19687_BLUE-WASHED,over 12 months | mid,0.6468,0.789,1.1053,1.4175,False
+S19696_OLIVE,over 12 months | low,0.3629,0.611,1.1424,1.5814,False
+S19703_NAVY,over 12 months | mid,0.5751,0.7392,1.1411,1.5662,False
+S19716_WHITE,over 12 months | mid,0.647,0.7927,1.0978,1.3907,False
+S19718_CREAM-AND-NAVY,over 12 months | mid,0.6363,0.7863,1.1001,1.403,False
+S19726_BURGUNDY,over 12 months | low,0.3684,0.616,1.1434,1.5575,False
+S19731_BLACK,over 12 months | mid,0.643,0.7886,1.1041,1.4079,False
+S19732_BLUE-WASHED,6-12 months | low,0.4385,0.6358,1.1867,1.496,False
+S19732_WHITE,over 12 months | high,0.6506,0.7611,1.0712,1.272,False
+S19737_LIGHT-PINK,over 12 months | mid,0.6568,0.7906,1.099,1.3773,False
+S19737_TURQUOISE,over 12 months | high,0.6107,0.7243,1.0893,1.3662,False
+S19743P_CREAM,3-6 months | mid,0.5781,0.7128,1.2584,1.744,False
+S19743_BURGUNDY,6-12 months | high,0.5099,0.6682,1.2169,1.7548,False
+S19743_CREAM,over 12 months | high,0.5726,0.7046,1.1029,1.433,True
+S19743_TURQUOISE,under 3 months | low,0.3696,0.5095,1.4585,2.0569,False
+S19747_NAVY-AND-WHITE,over 12 months | high,0.625,0.7377,1.0884,1.3627,False
+S19748_NAVY-AND-WHITE,over 12 months | high,0.6013,0.7185,1.1018,1.4141,False
+S19756_CREAM,over 12 months | high,0.6473,0.7546,1.0769,1.3129,False
+S19757_CREAM,over 12 months | high,0.6185,0.735,1.0876,1.3514,False
+S19792_LIGHT-PINK,over 12 months | low,0.2337,0.512,1.1679,1.7521,False
+S19805_YELLOW,over 12 months | low,0.3346,0.5989,1.1401,1.5328,False
+S19811_BLACK,over 12 months | mid,0.6549,0.7923,1.1033,1.3792,False
+S19822_BLACK,over 12 months | high,0.6346,0.7482,1.0836,1.3407,False
+S19834_OLIVE,6-12 months | low,0.4471,0.6407,1.1775,1.4764,False
+S19835_CREAM,over 12 months | mid,0.5962,0.762,1.1238,1.4979,False
+S19838_GOLD,over 12 months | high,0.6496,0.7538,1.0727,1.2787,False
+S19854_BLUE,over 12 months | mid,0.5002,0.6932,1.1742,1.7575,False
+S19854_WHITE,3-6 months | high,0.2596,0.5646,1.1406,1.5932,False
+S19878_BROWN,over 12 months | high,0.6514,0.7623,1.0785,1.3172,False
+S19908_BLACK,over 12 months | high,0.6146,0.7255,1.0938,1.3773,False
+S19917_LIGHT-PINK,over 12 months | high,0.6218,0.7351,1.089,1.3472,False
+S19917_NAVY,over 12 months | high,0.6049,0.7241,1.088,1.3611,False
+S19917_OLIVE,over 12 months | low,0.3364,0.5896,1.1483,1.6231,False
+S19921_BLACK,over 12 months | mid,0.6496,0.7919,1.1,1.3858,False
+S19932_BLACK,over 12 months | mid,0.6636,0.795,1.099,1.3798,False
+S19932_PINK,over 12 months | mid,0.6414,0.786,1.1115,1.443,False
+S19933_CHAMPAGNE,over 12 months | mid,0.6559,0.7935,1.1026,1.3984,False
+S19946_NAVY,over 12 months | mid,0.606,0.7625,1.1254,1.4914,False
+S19958_WHITE,6-12 months | high,0.6197,0.7484,1.1402,1.4365,False
+S19962_BEIGE,over 12 months | mid,0.6575,0.7935,1.1066,1.4095,False
+S19962_BROWN,6-12 months | low,0.4126,0.6174,1.1924,1.5296,False
+S19977_BLACK,over 12 months | high,0.6263,0.7428,1.0879,1.3521,False
+S19977_BURGUNDY,6-12 months | high,0.6294,0.7535,1.1274,1.3955,False
+S19996_BEIGE,over 12 months | mid,0.6456,0.7848,1.1136,1.4349,False
+S20000_LIGHT-BLUE,over 12 months | high,0.6114,0.7284,1.0942,1.3839,False
+S20015_BLUE-WASHED,over 12 months | low,0.2616,0.5299,1.1839,1.8303,False
+S20018_PINK,over 12 months | low,0.2795,0.5426,1.1806,1.7832,False
+S20031_BURGUNDY,6-12 months | low,0.4428,0.6367,1.1902,1.4946,False
+S20057_CREAM,over 12 months | mid,0.6285,0.7732,1.1139,1.4641,False
+S20094_WHITE,over 12 months | mid,0.6204,0.7794,1.1081,1.4319,False
+S20128_WHITE,3-6 months | high,0.6068,0.7534,1.0718,1.2568,False
+S20139_PINK,over 12 months | low,0.3516,0.5901,1.1566,1.655,False
+S20142_BURGUNDY,6-12 months | mid,0.6576,0.7935,1.1833,1.539,False
+S20145_BEIGE,over 12 months | high,0.6381,0.7501,1.0837,1.3332,False
+S20150_BLUE-WASHED,over 12 months | low,0.312,0.5552,1.1788,1.784,False
+S20186_NAVY,over 12 months | high,0.5924,0.7151,1.0916,1.3768,False
+S20190_WHITE,over 12 months | mid,0.6503,0.7942,1.1063,1.419,False
+S20198_GRAY,over 12 months | low,0.3116,0.5698,1.1706,1.7309,False
+S20227_LIGHT-BLUE,over 12 months | mid,0.6484,0.7963,1.0986,1.3847,False
+S20228_LIGHT-BLUE,over 12 months | mid,0.6202,0.7724,1.1143,1.4436,False
+S20228_LIGHT-PINK,6-12 months | mid,0.5708,0.7391,1.2511,1.7034,False
+S20229_GREEN,over 12 months | mid,0.6706,0.804,1.0947,1.3656,False
+S20261_BLACK,6-12 months | high,0.5966,0.7305,1.151,1.4456,False
+S20261_BLUE-WASHED,over 12 months | high,0.6495,0.7566,1.0763,1.2832,False
+S20261_BURGUNDY,6-12 months | low,0.431,0.6268,1.1955,1.5316,False
+S20261_INDIGO-BLUE-RAW-WASHED,6-12 months | high,0.6034,0.7338,1.143,1.4525,False
+S20261_LIGHT-BLUE,6-12 months | high,0.6032,0.736,1.134,1.3969,False
+S20272_LIGHT-PINK,over 12 months | high,0.6489,0.754,1.0743,1.2912,False
+S20272_TURQUOISE,over 12 months | high,0.6563,0.7596,1.0754,1.2892,False
+S20285_INDIGO-BLUE-RAW-WASHED,6-12 months | mid,0.5745,0.7399,1.2676,1.7707,False
+S20285_LIGHT-BLUE,6-12 months | mid,0.6268,0.7714,1.191,1.5455,False
+S20294_DARK-BLUE,over 12 months | mid,0.64,0.7814,1.11,1.4421,False
+S20296_BLUE,over 12 months | mid,0.6396,0.7813,1.1111,1.4572,False
+S20322_GRAY,6-12 months | mid,0.5887,0.7507,1.2128,1.6302,False
+S20322_NAVY,over 12 months | high,0.6076,0.7308,1.0915,1.375,False
+S20323_GRAY,6-12 months | low,0.17,0.1819,5.7465,279.318,False
+S20339_BLUE,6-12 months | mid,0.6444,0.7847,1.1816,1.5266,False
+S20342_BLACK-AND-WHITE,over 12 months | high,0.5924,0.7115,1.0958,1.3827,False
+S20344_BLACK-WASHED,over 12 months | low,0.2403,0.4927,1.1926,1.8762,False
+S20347_BLACK-AND-WHITE,over 12 months | high,0.5517,0.6879,1.113,1.4992,False
+S20387_LIGHT-PINK,over 12 months | low,0.0305,0.1269,1.434,3.7399,False
+S20395_CREAM,6-12 months | high,0.5886,0.7202,1.1546,1.4897,False
+S20395_LIGHT-BLUE,over 12 months | mid,0.6333,0.7768,1.1063,1.4161,False
+S20395_LIGHT-PINK,over 12 months | high,0.5891,0.7124,1.0979,1.4167,False
+S20399_TURQUOISE,over 12 months | high,0.6013,0.7178,1.0909,1.3674,False
+S20400_BLUE,over 12 months | low,0.2873,0.5488,1.1696,1.7644,False
+S20407_BEIGE,over 12 months | high,0.6284,0.7406,1.0823,1.3138,False
+S20407_BLACK,over 12 months | high,0.6219,0.7364,1.0818,1.3163,False
+S20415_GREEN,over 12 months | mid,0.6577,0.7925,1.1006,1.3798,False
+S20415_NAVY,6-12 months | mid,0.6178,0.7639,1.2025,1.5726,False
+S20415_PINK,over 12 months | high,0.6113,0.7272,1.0891,1.3683,False
+S20424_WHITE,6-12 months | mid,0.5819,0.7425,1.2706,1.7975,False
+S20431_BLACK,6-12 months | high,0.649,0.7699,1.1244,1.3764,False
+S20431_BROWN,over 12 months | high,0.6433,0.749,1.0832,1.3151,False
+S20431_MINT,under 3 months | mid,0.6162,0.7506,1.3552,1.8149,False
+S20433_BURGUNDY,6-12 months | high,0.6187,0.7402,1.139,1.4227,False
+S20433_GREEN,over 12 months | high,0.6284,0.7388,1.0865,1.3435,False
+S20433_LIGHT-PINK,under 3 months | mid,0.6194,0.7501,1.3228,1.74,False
+S20454_LIGHT-BLUE,over 12 months | high,0.5274,0.6601,1.1271,1.5141,False
+S20458_OLIVE,over 12 months | mid,0.595,0.7516,1.1325,1.5129,False
+S20481_BLACK,over 12 months | high,0.6313,0.7428,1.0825,1.3228,False
+S20484_BURGUNDY,6-12 months | low,0.4608,0.6533,1.1766,1.4573,False
+S20535_BLACK,over 12 months | low,0.1577,0.4621,1.1903,1.9227,False
+S20555_BLUE,6-12 months | low,0.3662,0.5691,1.2449,1.6995,False
+S20627_BROWN,6-12 months | high,0.6193,0.7406,1.1431,1.4374,False
+S20627_GREEN,6-12 months | mid,0.6562,0.7921,1.175,1.4967,False
+S20627_TEAL,3-6 months | mid,0.64,0.7478,1.1916,1.5613,False
+S20635_TAN,over 12 months | high,0.6078,0.7236,1.0902,1.3619,False
+S20644_GREEN,under 3 months | low,0.4471,0.5664,1.3727,1.8246,False
+S20646_BLACK,6-12 months | high,0.5987,0.7346,1.1479,1.4674,True
+S20646_RED,6-12 months | mid,0.6123,0.7616,1.214,1.6344,False
+S20674_LIGHT-PINK,6-12 months | mid,0.5427,0.7231,1.3178,1.9293,False
+S20677_BROWN,6-12 months | high,0.6463,0.7627,1.1216,1.3581,True
+S20677_GRAY,6-12 months | high,0.606,0.7359,1.1507,1.4593,False
+S20677_PINK,3-6 months | high,0.5588,0.7148,1.0968,1.3493,False
+S20679_BURGUNDY,6-12 months | high,0.6488,0.7679,1.1152,1.3458,True
+S20679_NAVY-AND-WHITE,under 3 months | mid,0.5123,0.6878,1.6307,2.494,False
+S20697_BLUE,6-12 months | low,0.1089,0.402,1.2918,1.8764,False
+S20701_NAVY,over 12 months | mid,0.6544,0.8025,1.0894,1.3223,False
+S20731_LIGHT-PINK,6-12 months | low,0.3591,0.5682,1.2445,1.7036,False
+S20741_DARK-GRAY,6-12 months | high,0.5531,0.7048,1.1663,1.5462,False
+S20743_BLACK,6-12 months | mid,0.6483,0.7797,1.1847,1.5163,False
+S20743_BURGUNDY,6-12 months | low,0.4573,0.6454,1.1833,1.476,False
+S20758_NAVY,6-12 months | mid,0.5955,0.7483,1.242,1.6843,False
+S20759_DARK-GRAY,6-12 months | mid,0.5627,0.7265,1.3139,1.8773,False
+S20759_NAVY,6-12 months | low,0.4094,0.5994,1.2269,1.6475,False
+S20773_GRAY-MELANGE,over 12 months | low,0.2209,0.496,1.1942,1.9446,False
+S20794_GRAY-MELANGE,over 12 months | low,0.2838,0.5214,1.1907,1.8428,False
+S20827_NAVY,3-6 months | high,0.5995,0.7416,1.0814,1.3122,True
+S20827_WHITE,6-12 months | high,0.6162,0.7449,1.1394,1.4306,False
+S20831_BLACK,6-12 months | high,0.5476,0.687,1.186,1.6051,False
+S20845P_BLACK,3-6 months | mid,0.6297,0.7409,1.1998,1.5589,False
+S20845_BLACK,6-12 months | high,0.6077,0.7367,1.1464,1.4524,False
+S20850_BLACK-AND-WHITE,over 12 months | high,0.6455,0.749,1.0828,1.3302,True
+S20850_BROWN,6-12 months | high,0.5878,0.7164,1.1696,1.5487,False
+S20850_GRAY-MELANGE,6-12 months | low,0.3865,0.5816,1.2371,1.6798,False
+S20850_WHITE,6-12 months | high,0.6027,0.7295,1.1546,1.4989,False
+S20851_BLACK-AND-WHITE,over 12 months | high,0.5785,0.7019,1.1005,1.4067,True
+S20851_BROWN,6-12 months | high,0.5063,0.6557,1.2331,1.8104,False
+S20851_WHITE,6-12 months | mid,0.5883,0.7417,1.2623,1.7694,False
+S20860_WHITE,over 12 months | high,0.1982,0.4608,1.1745,1.7559,False
+S20878_BLACK,under 3 months | mid,0.6223,0.7549,1.346,1.7788,False
+S20878_LIGHT-BLUE,6-12 months | high,0.4922,0.6637,1.1966,1.6704,True
+S20878_WHITE,3-6 months | high,0.3935,0.62,1.1334,1.4852,True
+S20878_YELLOW,3-6 months | high,0.5509,0.7143,1.0937,1.3653,True
+S20892_BROWN,6-12 months | low,0.4196,0.6162,1.2006,1.5368,False
+S20910_CREAM,6-12 months | mid,0.6431,0.7845,1.1884,1.5522,False
+S20929_WHITE,6-12 months | low,0.3974,0.5983,1.2172,1.5918,False
+S20932_WHITE,6-12 months | low,0.4002,0.6184,1.1839,1.4608,False
+S20942_WHITE-AND-BLACK,6-12 months | high,0.558,0.6967,1.1744,1.5934,False
+S20961_BURGUNDY,6-12 months | low,0.3593,0.5648,1.2423,1.6724,False
+S20964_BLUE-WASHED,6-12 months | high,0.6064,0.7362,1.1535,1.4885,False
+S20972_BLUE-VINTAGE-WASHED,3-6 months | high,0.5102,0.6806,1.1151,1.4431,False
+S20972_INDIGO-BLUE-RAW-WASHED,6-12 months | high,0.5946,0.7233,1.1596,1.525,False
+S20977_BROWN,6-12 months | low,0.3675,0.5751,1.2465,1.7017,False
+S20980_YELLOW,6-12 months | mid,0.6098,0.7598,1.2083,1.6061,False
+S20990_WHITE-AND-BLACK,6-12 months | high,0.6416,0.764,1.1298,1.3886,False
+S20995_NAVY-AND-CREAM,6-12 months | mid,0.5974,0.7478,1.2527,1.7291,False
+S21004_RED-AND-WHITE,over 12 months | high,0.5703,0.6968,1.1035,1.418,False
+S21005_NAVY,6-12 months | mid,0.6317,0.7742,1.1819,1.5383,False
+S21005_RED-AND-WHITE,over 12 months | high,0.5843,0.7083,1.0987,1.3993,False
+S21009_CREAM,6-12 months | low,0.351,0.5557,1.2486,1.6897,False
+S21022_BLACK,6-12 months | mid,0.6468,0.788,1.1776,1.5215,False
+S21041_GRAY-MELANGE,6-12 months | mid,0.614,0.7595,1.2121,1.6158,False
+S21042_GRAY-MELANGE,6-12 months | mid,0.6129,0.7585,1.2224,1.6295,False
+S21045_LIGHT-BLUE,6-12 months | low,0.436,0.6335,1.1808,1.4882,False
+S21058_GOLD,6-12 months | mid,0.6465,0.7774,1.1823,1.5169,False
+S21067_DARK-BLUE,6-12 months | low,0.3929,0.5941,1.2247,1.6282,False
+S21078_LIGHT-BLUE,6-12 months | mid,0.5875,0.7427,1.2549,1.7175,False
+S21078_LIGHT-PINK,6-12 months | high,0.5885,0.7217,1.158,1.5032,False
+S21078_LILAC,6-12 months | mid,0.5485,0.72,1.3252,1.9212,False
+S21079_LIGHT-PINK,6-12 months | mid,0.5846,0.7419,1.2713,1.7578,False
+S21087_LIGHT-PINK,6-12 months | high,0.5871,0.7226,1.1555,1.51,True
+S21100_YELLOW,6-12 months | mid,0.5413,0.7224,1.3179,1.9073,False
+S21119_BURGUNDY,6-12 months | mid,0.5278,0.7004,1.3606,2.0103,False
+S21126_BURGUNDY,6-12 months | high,0.6074,0.7352,1.1488,1.47,False
+S21126_NAVY,6-12 months | high,0.5986,0.7301,1.1481,1.4712,False
+S21126_WHITE,3-6 months | low,0.4215,0.5801,1.1682,1.6542,False
+S21127_BURGUNDY,6-12 months | mid,0.612,0.7573,1.232,1.6529,False
+S21127_NAVY,6-12 months | high,0.5873,0.7167,1.1663,1.544,False
+S21133_BLUE,6-12 months | mid,0.6135,0.7574,1.2279,1.685,False
+S21134_DARK-GRAY,6-12 months | mid,0.6084,0.7593,1.2146,1.6292,False
+S21143P_BLACK,3-6 months | mid,0.566,0.6991,1.2939,1.8405,False
+S21143_BLACK,6-12 months | high,0.5893,0.7299,1.1464,1.4641,True
+S21144_BLACK,6-12 months | high,0.5954,0.7217,1.1653,1.536,True
+S21168_NAVY-AND-WHITE,6-12 months | mid,0.5967,0.7549,1.2214,1.643,False
+S21181_BROWN,6-12 months | low,0.4178,0.6084,1.215,1.5823,False
+S21193_BLACK,6-12 months | mid,0.6495,0.7844,1.192,1.5514,False
+S21193_WHITE,6-12 months | high,0.6342,0.761,1.1318,1.4159,False
+S21199_BLACK,6-12 months | mid,0.6222,0.7691,1.1969,1.5694,False
+S21201_RED-AND-PINK,6-12 months | high,0.5764,0.7126,1.1752,1.5681,False
+S21214_MIX,6-12 months | mid,0.6336,0.7707,1.1893,1.5408,False
+S21236_BLACK,6-12 months | low,0.3945,0.5963,1.2131,1.5756,False
+S21239_BLACK,6-12 months | low,0.405,0.6023,1.2177,1.5937,False
+S21261_GRAY,6-12 months | low,0.1901,0.4572,1.3739,2.1767,False
+S21287_WHITE,6-12 months | high,0.6064,0.7393,1.1535,1.4948,False
+S21325_BURGUNDY,6-12 months | mid,0.649,0.7825,1.1899,1.5488,False
+S21342_BURGUNDY,6-12 months | mid,0.6421,0.7785,1.1865,1.5245,False
+S21351_DARK-BLUE-WASHED,6-12 months | mid,0.5699,0.7366,1.272,1.7824,False
+S21351_INDIGO-BLUE-RAW-WASHED,6-12 months | high,0.6365,0.7583,1.1268,1.3889,False
+S21353_BLACK,6-12 months | low,0.3435,0.5525,1.2666,1.7675,False
+S21353_NAVY,6-12 months | low,0.284,0.5276,1.2634,1.7972,False
+S21361_NAVY,6-12 months | low,0.3578,0.5651,1.2417,1.6695,False
+S21363_GRAY-MELANGE,6-12 months | low,0.3827,0.5796,1.245,1.693,False
+S21373_BLACK,6-12 months | low,0.4392,0.6236,1.1991,1.5516,False
+S21375_WHITE,6-12 months | low,0.4225,0.6193,1.2041,1.5487,False
+S21376_BLACK,6-12 months | high,0.6544,0.7714,1.1235,1.367,True
+S21376_BURGUNDY,6-12 months | high,0.619,0.7446,1.1404,1.4201,False
+S21376_YELLOW,6-12 months | high,0.6293,0.755,1.1341,1.4251,False
+S21384_LIGHT-BLUE,6-12 months | low,0.3117,0.5471,1.2541,1.7328,False
+S21386_BLACK,6-12 months | high,0.6433,0.7605,1.1373,1.4101,False
+S21393_DARK-BROWN,6-12 months | mid,0.646,0.7823,1.19,1.5415,False
+S21395_CREAM,6-12 months | low,0.4132,0.6199,1.1938,1.5363,False
+S21402_BLACK,6-12 months | low,0.4291,0.6258,1.1918,1.5031,False
+S21409_BLACK,6-12 months | mid,0.638,0.7785,1.1857,1.5349,False
+S21410_BLACK,6-12 months | mid,0.6089,0.7592,1.2151,1.6073,False
+S21418_CREAM,6-12 months | high,0.57,0.7073,1.1634,1.4949,False
+S21420_LIGHT-GRAY,6-12 months | low,0.317,0.538,1.2701,1.7308,False
+S21429_BLACK,6-12 months | low,0.3098,0.5187,1.2835,1.7788,False
+S21433_BLACK,6-12 months | mid,0.6514,0.7824,1.1798,1.5124,False
+S21444_BROWN,6-12 months | high,0.6087,0.7414,1.1321,1.4041,False
+S21463_BURGUNDY,6-12 months | mid,0.6123,0.7589,1.2333,1.6487,False
+S21463_DARK-GRAY-MELANGE,6-12 months | mid,0.6106,0.7564,1.2353,1.6609,False
+S21464_DARK-GRAY-MELANGE,6-12 months | mid,0.601,0.751,1.2456,1.6864,False
+S21470_BROWN,6-12 months | low,0.3846,0.5854,1.2278,1.6318,False
+S21470_YELLOW,6-12 months | mid,0.606,0.7515,1.2433,1.7007,False
+S21475_CREAM,3-6 months | mid,0.5543,0.6995,1.2848,1.7919,False
+S21475_LIGHT-BLUE,6-12 months | mid,0.6013,0.7499,1.2575,1.7164,False
+S21476_LIGHT-BLUE,6-12 months | high,0.5622,0.7001,1.1835,1.5853,False
+S21486_BROWN,6-12 months | mid,0.5865,0.7415,1.2687,1.7439,False
+S21486_LIGHT-PINK,6-12 months | mid,0.5782,0.7363,1.2885,1.783,False
+S21495_MIX,6-12 months | low,0.4171,0.6154,1.211,1.5632,False
+S21517_NAVY-AND-WHITE,6-12 months | low,0.403,0.6024,1.2085,1.5657,False
+S21530_LIGHT-BLUE,6-12 months | low,0.2875,0.4997,1.2903,1.8604,False
+S21539_LIGHT-PINK,6-12 months | low,0.3201,0.5349,1.268,1.7397,False
+S21546_BROWN,6-12 months | mid,0.6454,0.7817,1.1873,1.5319,False
+S21566_NAVY,6-12 months | low,0.4455,0.6312,1.1992,1.5378,False
+S21580_WHITE,6-12 months | low,0.3481,0.5624,1.2429,1.7003,False
+S21583_BLACK,6-12 months | high,0.6052,0.7333,1.1455,1.4346,True
+S21585_BLACK,3-6 months | high,0.5816,0.7335,1.0905,1.3265,False
+S21614_BROWN,6-12 months | low,0.327,0.5335,1.2744,1.8519,False
+S21622_NAVY,6-12 months | mid,0.5964,0.747,1.2782,1.8023,False
+S21632_PINK,6-12 months | mid,0.6025,0.753,1.2179,1.622,False
+S21644_WHITE,6-12 months | high,0.6023,0.7301,1.1496,1.468,False
+S21653_BLACK,6-12 months | mid,0.6089,0.7552,1.2414,1.7235,False
+S21654_BLACK-AND-WHITE,6-12 months | mid,0.6363,0.7768,1.1911,1.5358,False
+S21657_OLIVE,6-12 months | low,0.2559,0.4908,1.3242,1.9734,False
+S21659_AQUA,6-12 months | low,0.3907,0.5912,1.2321,1.6652,True
+S21663_DARK-BROWN,6-12 months | low,0.4016,0.5989,1.2111,1.5647,False
+S21671_LIGHT-BLUE,6-12 months | low,0.3498,0.5559,1.247,1.6715,False
+S21685_BLACK,6-12 months | high,0.5744,0.7057,1.1793,1.587,False
+S21685_BURGUNDY,6-12 months | mid,0.596,0.7468,1.2626,1.7456,False
+S21686_BLACK,6-12 months | mid,0.6127,0.7553,1.241,1.7271,False
+S21694_CREAM,6-12 months | mid,0.6113,0.7555,1.2248,1.679,False
+S21695_CREAM,3-6 months | low,0.3141,0.5133,1.2413,1.9696,False
+S21706_GRAY-MELANGE,6-12 months | mid,0.624,0.7655,1.2068,1.6017,False
+S21708_BLACK,6-12 months | mid,0.6349,0.7721,1.1941,1.5468,False
+S21712_BLUE,6-12 months | low,0.3489,0.5497,1.2589,1.7296,False
+S21714_LIGHT-PINK,6-12 months | low,0.2831,0.5086,1.3103,1.9331,False
+S21719_BURGUNDY,6-12 months | mid,0.6359,0.7717,1.2058,1.5804,False
+S21729_GRAY-AND-WHITE,6-12 months | high,0.6336,0.7535,1.1352,1.4233,True
+S21729_LIGHT-PINK-AND-CREAM,6-12 months | high,0.5832,0.7184,1.1607,1.5131,False
+S21729_NAVY-AND-WHITE,6-12 months | high,0.5472,0.6973,1.1679,1.54,False
+S21729_TURQUOISE-AND-WHITE,under 3 months | high,0.4934,0.693,1.1906,1.5612,False
+S21730_GRAY-AND-WHITE,6-12 months | high,0.5964,0.7302,1.149,1.4708,True
+S21730_NAVY-AND-WHITE,6-12 months | high,0.5827,0.715,1.1668,1.5344,False
+S21753_BLACK,6-12 months | low,0.438,0.6371,1.184,1.4879,False
+S21769_PURPLE,6-12 months | mid,0.6305,0.7694,1.2016,1.5809,False
+S21775_BURGUNDY-AND-CREAM,6-12 months | low,0.4141,0.6054,1.2201,1.5962,False
+S21775_GRAY-AND-WHITE,6-12 months | low,0.0885,0.4061,1.4123,2.4324,False
+S21777_CREAM,6-12 months | low,0.3291,0.5381,1.2714,1.7718,False
+S21782_GOLD,6-12 months | mid,0.6205,0.767,1.2049,1.5841,False
+S21791_BLACK,3-6 months | mid,0.5656,0.704,1.2659,1.7345,False
+S21791_YELLOW,6-12 months | mid,0.5988,0.7464,1.2604,1.7383,False
+S21801_GOLD,6-12 months | mid,0.604,0.7575,1.2057,1.5987,False
+S21804_BLACK,6-12 months | low,0.3978,0.5916,1.2327,1.6623,False
+S21811_BLACK,6-12 months | low,0.4111,0.6129,1.2038,1.5433,False
+S21817_PURPLE,6-12 months | high,0.5981,0.7295,1.1613,1.5195,False
+S21827_GOLD,6-12 months | high,0.6102,0.7426,1.1453,1.4457,False
+S21830_GOLD,6-12 months | high,0.581,0.7201,1.1608,1.5004,False
+S21833_BLACK,6-12 months | low,0.3921,0.5899,1.225,1.6177,False
+S21845_TAN,6-12 months | mid,0.5976,0.7461,1.245,1.7225,False
+S21846_BLACK,6-12 months | low,0.3272,0.5389,1.2622,1.7076,False
+S21848_DARK-BLUE-WASHED,6-12 months | mid,0.574,0.7376,1.2895,1.8284,False
+S21855_BURGUNDY,6-12 months | mid,0.6001,0.7491,1.2526,1.7005,False
+S21872_NAVY,6-12 months | low,0.4332,0.6264,1.1996,1.5225,False
+S21874_BLACK,6-12 months | low,0.4367,0.6216,1.1998,1.5521,False
+S21887_BROWN,6-12 months | low,0.3994,0.5998,1.2156,1.5815,False
+S21894_BLACK,6-12 months | mid,0.635,0.7744,1.1946,1.548,False
+S21900_BLACK,6-12 months | high,0.6172,0.7439,1.1313,1.4008,False
+S21911_LIGHT-GRAY,6-12 months | mid,0.5583,0.721,1.2982,1.8448,True
+S21925_CREAM,6-12 months | mid,0.5931,0.746,1.268,1.793,False
+S21926_BLACK,6-12 months | high,0.614,0.7423,1.1443,1.4359,True
+S21929_BURGUNDY,6-12 months | high,0.5745,0.7089,1.174,1.5392,False
+S21929_NAVY,6-12 months | high,0.5692,0.705,1.1792,1.5586,False
+S21929_NAVY-AND-PINK,3-6 months | mid,0.553,0.7001,1.285,1.7891,False
+S21930_NAVY,6-12 months | high,0.5661,0.6999,1.1786,1.5678,False
+S21940_BROWN,6-12 months | mid,0.6044,0.752,1.2435,1.7085,False
+S21942_OLIVE,6-12 months | low,0.3305,0.5521,1.2473,1.7124,False
+S21944_BURGUNDY,6-12 months | low,0.3891,0.5852,1.2425,1.6788,False
+S21946_GRAY-MELANGE,6-12 months | mid,0.5601,0.7188,1.3137,1.8551,True
+S21948_YELLOW,6-12 months | mid,0.6109,0.7571,1.2445,1.682,False
+S21955_NAVY,3-6 months | mid,0.6038,0.7235,1.2465,1.697,False
+S21955_PINK,6-12 months | mid,0.6058,0.7534,1.2513,1.7131,False
+S21992_BLACK,6-12 months | mid,0.5908,0.7435,1.2555,1.7391,False
+S22005_BLACK,6-12 months | mid,0.6057,0.753,1.2331,1.6646,False
+S22005_NAVY,6-12 months | mid,0.6048,0.7517,1.2401,1.6839,False
+S22006_DARK-GRAY,6-12 months | low,0.2982,0.5212,1.2881,1.8492,False
+S22007_NAVY,6-12 months | mid,0.5735,0.7272,1.3005,1.8444,False
+S22036_NAVY-AND-CREAM,3-6 months | high,0.5244,0.6851,1.1122,1.4205,False
+S22036_OLIVE,6-12 months | high,0.5863,0.7149,1.1704,1.5551,False
+S22042_BURGUNDY,6-12 months | low,0.3965,0.5966,1.2287,1.6357,False
+S22052_GOLD,3-6 months | low,0.3139,0.5058,1.2543,1.9922,False
+S22063_BLACK,6-12 months | low,0.3498,0.5596,1.2426,1.6491,False
+S22079_BLACK,6-12 months | low,0.4516,0.6445,1.1807,1.468,False
+S22084_BLACK,6-12 months | low,0.3474,0.5702,1.237,1.6454,False
+S22086_CREAM,6-12 months | mid,0.6115,0.755,1.2056,1.5718,False
+S22099_BROWN,6-12 months | low,0.3157,0.5526,1.2484,1.6994,False
+S22101_BLUE,6-12 months | high,0.622,0.7472,1.1345,1.4146,True
+S22101_BURGUNDY,6-12 months | high,0.634,0.7544,1.1319,1.3955,True
+S22101_DARK-GRAY,3-6 months | mid,0.5958,0.7179,1.2494,1.6873,False
+S22101_LIGHT-GRAY-MELANGE,6-12 months | high,0.5842,0.7154,1.1639,1.5305,True
+S22101_LIGHT-PINK,6-12 months | high,0.5969,0.7276,1.1546,1.4919,False
+S22101_YELLOW,6-12 months | high,0.6338,0.7549,1.1312,1.3919,False
+S22102_BLUE,6-12 months | high,0.6169,0.744,1.1424,1.4521,True
+S22102_BURGUNDY,6-12 months | high,0.6209,0.7441,1.142,1.4542,False
+S22102_DARK-GRAY,3-6 months | mid,0.5992,0.7207,1.2467,1.6904,False
+S22102_LIGHT-GRAY-MELANGE,6-12 months | high,0.6086,0.7364,1.1544,1.4869,True
+S22102_LIGHT-PINK,6-12 months | high,0.5877,0.7186,1.1688,1.5283,False
+S22102_RED,3-6 months | mid,0.5989,0.7197,1.2475,1.691,False
+S22102_YELLOW,6-12 months | high,0.6148,0.7404,1.1451,1.4597,False
+S22110_OLIVE,6-12 months | low,0.3812,0.5774,1.2395,1.6821,False
+S22116_BLACK,6-12 months | high,0.6104,0.7405,1.1452,1.4616,False
+S22125_BURGUNDY,6-12 months | mid,0.625,0.7678,1.211,1.6126,False
+S22130_BLUE,6-12 months | mid,0.5855,0.7449,1.2585,1.7425,False
+S22135_BROWN,6-12 months | low,0.424,0.6153,1.2014,1.5313,False
+S22157_BLACK,3-6 months | mid,0.5911,0.7126,1.2724,1.7467,False
+S22165_BLACK,6-12 months | high,0.602,0.7319,1.1503,1.4605,True
+S22165_PINK,under 3 months | low,0.4517,0.5695,1.3044,1.7134,False
+S22181_GOLD,6-12 months | mid,0.6405,0.7761,1.1939,1.5495,False
+S22197_PINK,6-12 months | low,0.3715,0.5742,1.232,1.643,False
+S22198_BLACK,6-12 months | mid,0.5841,0.7473,1.2566,1.7591,False
+S22206_GOLD,6-12 months | high,0.613,0.7399,1.1389,1.4212,False
+S22208_BROWN,6-12 months | low,0.4099,0.6011,1.2037,1.5484,False
+S22216_DARK-GRAY,6-12 months | low,0.4314,0.6201,1.2013,1.5241,False
+S22234_BLACK,6-12 months | mid,0.5686,0.7291,1.2639,1.7682,False
+S22236_NAVY,6-12 months | mid,0.596,0.7488,1.2471,1.6735,False
+S22242_SILVER,6-12 months | low,0.411,0.6102,1.2102,1.5604,False
+S22261_BLUE-AND-WHITE,6-12 months | mid,0.5547,0.72,1.3026,1.8596,False
+S22261_GRAY-AND-WHITE,3-6 months | low,0.3956,0.5524,1.2046,1.8255,False
+S22262_BLACK,6-12 months | low,0.4494,0.638,1.1874,1.4889,False
+S22267_WHITE,3-6 months | high,0.6036,0.7506,1.0767,1.2802,False
+S22268_BLACK,6-12 months | low,0.3946,0.5894,1.2346,1.6617,False
+S22279_PINK,3-6 months | low,0.5287,0.6559,1.1291,1.4887,False
+S22288_BLACK,6-12 months | high,0.6126,0.738,1.1505,1.4575,False
+S22289_NAVY,6-12 months | low,0.2972,0.5252,1.2869,1.8484,False
+S22321_BLACK,6-12 months | mid,0.6483,0.7812,1.189,1.5634,False
+S22324_NAVY,6-12 months | mid,0.6344,0.7753,1.1965,1.5608,False
+S22328_BEIGE,6-12 months | mid,0.5668,0.7283,1.3251,1.9325,False
+S22332_WHITE,6-12 months | high,0.6214,0.7463,1.1418,1.4206,False
+S22334_DARK-GRAY,6-12 months | mid,0.595,0.7494,1.2499,1.692,False
+S22341_LIGHT-PINK,3-6 months | low,0.3158,0.5065,1.2624,2.0738,False
+S22345_BLACK,6-12 months | mid,0.641,0.7791,1.1982,1.564,False
+S22355_LIGHT-BLUE,6-12 months | mid,0.5878,0.7396,1.2757,1.7781,False
+S22357_NAVY,6-12 months | low,0.4042,0.5986,1.2267,1.6295,False
+S22365_BROWN,6-12 months | high,0.5458,0.6845,1.195,1.6498,False
+S22382_PINK,3-6 months | mid,0.4286,0.6385,1.3946,2.1294,False
+S22382_WHITE,6-12 months | high,0.5719,0.7055,1.1767,1.5396,True
+S22397_BLACK,6-12 months | low,0.4016,0.5951,1.2245,1.6282,False
+S22400_GRAY-MELANGE,6-12 months | low,0.3654,0.5671,1.2366,1.6604,False
+S22405_BLACK,6-12 months | mid,0.6209,0.7616,1.2186,1.6153,False
+S22405_DARK-BROWN,6-12 months | high,0.6142,0.738,1.1517,1.4692,False
+S22422_BLUE-VINTAGE-WASHED,6-12 months | low,0.3599,0.5668,1.2539,1.7524,False
+S22433_LIGHT-PINK,6-12 months | low,0.3724,0.5752,1.2403,1.6647,False
+S22436_DARK-GRAY,6-12 months | low,0.4109,0.6065,1.208,1.5523,False
+S22451_BLACK,3-6 months | mid,0.6044,0.729,1.2171,1.602,False
+S22456_LIGHT-GRAY-MELANGE,6-12 months | high,0.5761,0.7162,1.1509,1.4618,False
+S22474_NAVY,6-12 months | low,0.3865,0.5801,1.239,1.6625,False
+S22501_DARK-GRAY,6-12 months | low,0.396,0.5918,1.2242,1.6048,False
+S22529_BLACK,6-12 months | high,0.6049,0.7357,1.1539,1.4815,False
+S22535_WHITE,3-6 months | high,0.5505,0.7084,1.1019,1.3962,False
+S22540_WHITE,3-6 months | mid,0.6244,0.7474,1.1719,1.4585,False
+S22542_BLUE-AND-WHITE,under 3 months | mid,0.6383,0.7665,1.2728,1.6204,False
+S22546_WHITE,3-6 months | high,0.5019,0.6826,1.0934,1.3419,True
+S22549_BLUE,3-6 months | mid,0.6146,0.7332,1.2224,1.6473,False
+S22564_OLIVE,3-6 months | high,0.6084,0.761,1.0712,1.2537,False
+S22569_WHITE,3-6 months | mid,0.6124,0.7352,1.2017,1.5535,False
+S22572_BLACK-AND-WHITE,3-6 months | high,0.6397,0.7804,1.0649,1.2317,False
+S22576_OLIVE,3-6 months | mid,0.6661,0.7668,1.1527,1.4094,False
+S22605_BLUE,6-12 months | mid,0.6357,0.7755,1.1915,1.5477,False
+S22611_LIGHT-PINK,3-6 months | high,0.5329,0.6971,1.1056,1.4021,False
+S22621_LIGHT-YELLOW,6-12 months | low,0.3173,0.5277,1.2685,1.759,False
+S22627_BROWN,6-12 months | mid,0.5922,0.7464,1.2482,1.7042,False
+S22632_PINK,3-6 months | mid,0.5652,0.7004,1.3021,1.8455,False
+S22635_NAVY,3-6 months | high,0.5786,0.7287,1.0915,1.3487,False
+S22641_BLACK,3-6 months | low,0.391,0.5588,1.1752,1.7271,False
+S22675_BLACK,6-12 months | low,0.3844,0.5866,1.2152,1.5655,False
+S22701_PURPLE,6-12 months | low,0.4321,0.6261,1.1983,1.5307,False
+S22704_LEOPARD,3-6 months | low,0.4853,0.6251,1.1462,1.5444,False
+S22706_BLACK,6-12 months | high,0.6065,0.7339,1.1513,1.4686,False
+S22732_NAVY,6-12 months | low,0.3087,0.5218,1.2741,1.788,False
+S22744_YELLOW,3-6 months | high,0.4613,0.651,1.1194,1.4494,True
+S22758_DARK-BROWN,6-12 months | low,0.4041,0.5985,1.2254,1.6309,False
+S22771_LIGHT-BLUE-WASHED,3-6 months | high,0.5853,0.7387,1.0797,1.2998,False
+S22779_PLUM,3-6 months | mid,0.6479,0.7565,1.18,1.5087,False
+S22793_WHITE,3-6 months | mid,0.5776,0.7153,1.248,1.6745,False
+S22798_BEIGE,3-6 months | mid,0.5758,0.7214,1.2004,1.523,False
+S22812_BLUE,3-6 months | high,0.6009,0.7448,1.0813,1.303,False
+S22813_BLUE,3-6 months | high,0.5837,0.7294,1.091,1.3463,False
+S22817_WHITE,3-6 months | mid,0.6314,0.7459,1.1773,1.4993,False
+S22825_BLACK,6-12 months | mid,0.6279,0.7673,1.1993,1.5667,False
+S22832_BROWN,3-6 months | high,0.5997,0.746,1.0818,1.3075,False
+S22835_LIGHT-PINK,3-6 months | high,0.5702,0.7241,1.0948,1.3438,False
+S22842_BLUE-WASHED,6-12 months | low,0.3905,0.5823,1.238,1.7027,False
+S22850_LIGHT-YELLOW,3-6 months | low,0.4772,0.6059,1.166,1.6767,False
+S22854_BLACK-AND-WHITE,3-6 months | mid,0.5933,0.7323,1.1914,1.5044,False
+S22858_GRAY,3-6 months | low,0.402,0.5575,1.1864,1.7489,False
+S22863_LILAC,3-6 months | low,0.532,0.6589,1.1262,1.4575,False
+S22865_NAVY,6-12 months | high,0.6104,0.7322,1.1588,1.5331,False
+S22868_BEIGE,6-12 months | low,0.4252,0.6218,1.1938,1.5113,False
+S22870_BURGUNDY,6-12 months | mid,0.6278,0.7732,1.1922,1.5486,False
+S22871_YELLOW,3-6 months | low,0.376,0.5587,1.1896,1.7954,False
+S22872_PINK,6-12 months | low,0.3828,0.5749,1.251,1.7337,False
+S22875_BLACK,3-6 months | mid,0.5697,0.7054,1.2842,1.8197,False
+S22875_GRAY-MELANGE,6-12 months | high,0.5482,0.6952,1.1785,1.5951,True
+S22875_NAVY,under 3 months | mid,0.5705,0.729,1.3949,1.8811,False
+S22908_PLUM,6-12 months | mid,0.5294,0.7234,1.2654,1.7284,False
+S22923_DARK-GRAY,6-12 months | low,0.3781,0.5936,1.2292,1.6279,False
+S22948_LIGHT-BLUE,under 3 months | mid,0.535,0.6986,1.635,2.5107,False
+S22952_LIGHT-PINK,under 3 months | mid,0.5055,0.6981,1.4774,2.0683,False
+S22956_DARK-BLUE,6-12 months | low,0.3154,0.5445,1.2633,1.7669,False
+S22978_GRAY-MELANGE,6-12 months | high,0.6094,0.7375,1.1429,1.4244,False
+S22978_WHITE,3-6 months | high,0.5716,0.7224,1.0867,1.3077,False
+S22994_BLACK,3-6 months | high,0.5793,0.7325,1.0859,1.2944,False
+S22994_NAVY-AND-WHITE,under 3 months | high,0.5766,0.7394,1.1641,1.4983,True
+S22994_WHITE,6-12 months | high,0.624,0.7482,1.1353,1.4249,False
+S22996_LIGHT-GRAY-MELANGE,3-6 months | high,0.5563,0.7167,1.0853,1.3062,False
+S23000_BLACK,3-6 months | high,0.3908,0.6097,1.1272,1.4667,False
+S23008_DARK-BROWN,3-6 months | low,0.4648,0.6019,1.1593,1.6323,False
+S23033_BLUE-VINTAGE-WASHED,6-12 months | low,0.3647,0.5856,1.2074,1.5927,False
+S23042_BLACK,3-6 months | mid,0.5936,0.7268,1.2379,1.6908,False
+S23043_LIGHT-YELLOW,3-6 months | mid,0.4922,0.6648,1.3402,1.9439,False
+S23053_DARK-BROWN,6-12 months | low,0.4597,0.6517,1.1795,1.4772,False
+S23068_DARK-GRAY-MELANGE,3-6 months | high,0.4941,0.6643,1.12,1.4486,False
+S23089_BLUE,3-6 months | low,0.4477,0.5832,1.1905,1.8375,False
+S23105_WINE,6-12 months | low,0.3484,0.5516,1.2661,1.7959,False
+S23115_NAVY-AND-WHITE,6-12 months | low,0.3608,0.5604,1.2566,1.7408,False
+S23145_PINK,under 3 months | high,0.5551,0.7199,1.1729,1.5187,False
+S23162_GRAY-MELANGE,6-12 months | high,0.5635,0.7121,1.1714,1.5594,True
+S23209_AQUA,3-6 months | mid,0.6257,0.7392,1.2067,1.5902,False
+S23222_DARK-GRAY,3-6 months | mid,0.6036,0.735,1.1912,1.5029,False
+S23255_BLACK,6-12 months | high,0.6167,0.7457,1.1328,1.4056,False
+S23262_GRAY-MELANGE,3-6 months | low,0.4535,0.5925,1.1662,1.6624,False
+S23277_LIGHT-BLUE,under 3 months | low,0.3679,0.5025,1.5114,2.2286,False
+S23277_OFF-WHITE,3-6 months | high,0.5398,0.7039,1.099,1.3804,True
+S23295_YELLOW,3-6 months | low,0.4606,0.5991,1.1639,1.6533,False
+S23312_LIGHT-GRAY-MELANGE,3-6 months | high,0.5386,0.7051,1.0887,1.329,False
+S23314_BLACK,3-6 months | low,0.3342,0.5326,1.2178,1.9261,False
+S23337_TURQUOISE,under 3 months | low,0.4653,0.6049,1.24,1.5005,False
+S23339_BROWN,3-6 months | low,0.5143,0.6451,1.1395,1.5413,False
+S23361_GRAY-MELANGE-AND-LIGHT-PINK,3-6 months | high,0.5435,0.7011,1.1081,1.4061,False
+S23371_LIGHT-PINK,3-6 months | mid,0.6331,0.7453,1.2023,1.5744,False
+S23372_GOLD,3-6 months | low,0.5127,0.6406,1.1453,1.5557,False
+S23374_AQUA,3-6 months | high,0.4696,0.6697,1.1102,1.398,False
+S23374_LIGHT-GRAY-MELANGE,3-6 months | high,0.5548,0.7163,1.0922,1.3399,True
+S23375_AQUA,3-6 months | high,0.5575,0.7134,1.092,1.3328,False
+S23375_LIGHT-GRAY-MELANGE,3-6 months | high,0.585,0.7357,1.0893,1.312,False
+S23377_TURQUOISE,3-6 months | high,0.5527,0.7129,1.0918,1.3575,True
+S23403_GRAY,3-6 months | high,0.5949,0.7456,1.0862,1.3147,False
+S23410_BLACK-WASHED,3-6 months | low,0.3878,0.5544,1.1872,1.7631,False
+S23416_BEIGE,3-6 months | high,0.5601,0.7142,1.1,1.3731,False
+S23419_DARK-GRAY,3-6 months | low,0.5085,0.6419,1.1367,1.5116,False
+S23425_PINK-AND-WHITE,3-6 months | high,0.5996,0.7423,1.0819,1.3075,False
+S23426_BLACK,6-12 months | high,0.617,0.746,1.135,1.4163,True
+S23432_WHITE-AND-BLUE,3-6 months | low,0.4507,0.5932,1.1733,1.7173,False
+S23440_WHITE,3-6 months | low,0.5263,0.658,1.1298,1.4832,False
+S23465_BLACK-WASHED,3-6 months | low,0.4539,0.5954,1.1693,1.6824,False
+S23469_BLUE-VINTAGE-WASHED,3-6 months | low,0.4443,0.5872,1.1687,1.6796,False
+S23474_WHITE,under 3 months | high,0.5712,0.7406,1.166,1.5184,False
+S23475_BLUE-WASHED,under 3 months | low,0.3785,0.5258,1.4196,1.9649,False
+S23476_BLACK,3-6 months | high,0.5897,0.7345,1.0872,1.3085,False
+S23479_PURPLE,3-6 months | low,0.4939,0.6176,1.147,1.5463,False
+S23484_LIGHT-BLUE,3-6 months | high,0.5403,0.7044,1.1022,1.3997,True
+S23485_BLACK,3-6 months | mid,0.6484,0.7549,1.1874,1.5268,False
+S23490_WHITE-AND-BLACK,3-6 months | mid,0.5295,0.6738,1.3766,2.2257,False
+S23493_LIGHT-YELLOW,3-6 months | high,0.6105,0.7617,1.0697,1.2527,False
+S23495_YELLOW,under 3 months | mid,0.3491,0.65,1.5804,2.6268,False
+S23501_TAUPE,3-6 months | mid,0.5355,0.6969,1.2705,1.7723,False
+S23508_WHITE,3-6 months | mid,0.5715,0.6992,1.2811,1.814,False
+S23516_WHITE,3-6 months | high,0.5567,0.7135,1.0882,1.3219,False
+S23529_CREAM,3-6 months | high,0.5802,0.7335,1.0836,1.3128,False
+S23532_CREAM,3-6 months | high,0.5888,0.7371,1.0849,1.3225,False
+S23548_BURGUNDY-AND-WHITE,under 3 months | high,0.573,0.7455,1.141,1.4071,False
+S23548_NAVY-AND-WHITE,6-12 months | high,0.6117,0.7426,1.1436,1.4533,False
+S23548_WHITE-AND-BLACK,3-6 months | high,0.5786,0.7338,1.0772,1.2751,False
+S23556_BLACK,3-6 months | high,0.5916,0.7424,1.0767,1.2792,False
+S23561_BURGUNDY,3-6 months | mid,0.6103,0.7283,1.2376,1.6826,False
+S23567_BEIGE,3-6 months | low,0.513,0.6433,1.1398,1.5182,False
+S23600_BEIGE,3-6 months | mid,0.624,0.7359,1.2183,1.6324,False
+S23605_PINK,3-6 months | high,0.5746,0.7287,1.0879,1.3308,True
+S23624_BLACK,3-6 months | high,0.599,0.7457,1.0748,1.2661,False
+S23642_CREAM,3-6 months | high,0.5576,0.7162,1.0899,1.3392,False
+S23652_AQUA,3-6 months | mid,0.6146,0.7353,1.2103,1.5923,False
+S23653_WHITE,3-6 months | high,0.5952,0.7456,1.0774,1.2799,False
+S23690_BLACK,3-6 months | low,0.4665,0.6092,1.1559,1.5921,False
+S23724_BLUE,3-6 months | high,0.569,0.7289,1.0841,1.3108,False
+S23736_DARK-GRAY-AND-WHITE,3-6 months | high,0.5721,0.729,1.085,1.3226,False
+S23742_GOLD,3-6 months | low,0.4872,0.6119,1.1539,1.6008,False
+S23771_LIGHT-PINK,under 3 months | mid,0.5144,0.6876,1.558,2.2667,False
+S23774_LIGHT-PINK,3-6 months | mid,0.5158,0.6735,1.3426,2.0032,False
+S23794_BLACK,under 3 months | high,0.6052,0.7664,1.1324,1.3864,True
+S23803_BLACK,under 3 months | low,0.4803,0.5998,1.2839,1.6416,False
+S23819_PINK,under 3 months | mid,0.5961,0.7415,1.3701,1.8841,False
+S23821_MIX,under 3 months | mid,0.6108,0.7471,1.3742,1.853,False
+S23839_GRAY-MELANGE,3-6 months | high,0.593,0.7396,1.0841,1.3163,True
+S23840_GRAY-MELANGE,3-6 months | high,0.5443,0.7015,1.111,1.4258,False
+S23846_BLACK,3-6 months | high,0.5932,0.741,1.0787,1.2769,False
+S23847_BLACK,3-6 months | high,0.5519,0.7069,1.0953,1.3466,False
+S23852_WHITE,under 3 months | mid,0.6331,0.7634,1.3153,1.7166,False
+S23855_MIX,3-6 months | high,0.6086,0.7525,1.0765,1.2876,False
+S23856_MIX,3-6 months | high,0.5917,0.7374,1.0872,1.3318,False
+S23869_LIGHT-BLUE,3-6 months | high,0.5759,0.733,1.0804,1.295,False
+S23875_BLUE-AND-YELLOW,3-6 months | high,0.5849,0.7335,1.0861,1.2956,False
+S23875_LIGHT-PINK-AND-BLUE,under 3 months | high,0.5591,0.7288,1.1648,1.5264,False
+S23876_BLUE-AND-YELLOW,3-6 months | high,0.5879,0.7373,1.0909,1.3313,False
+S23888_BLACK,3-6 months | high,0.6053,0.7455,1.0808,1.3112,False
+S23888_YELLOW,3-6 months | high,0.5742,0.7256,1.0923,1.3462,True
+S23916_WHITE,3-6 months | high,0.5447,0.714,1.0893,1.3221,True
+S23920_NAVY-AND-WHITE,3-6 months | high,0.5369,0.6978,1.1077,1.4113,False
+S23924_OLIVE,3-6 months | high,0.5559,0.7172,1.0828,1.2926,False
+S23925_LIGHT-BLUE,3-6 months | mid,0.6015,0.7281,1.2193,1.6178,False
+S23936_BLACK,3-6 months | high,0.5826,0.734,1.0906,1.3293,False
+S23937_GRAY-MELANGE,under 3 months | high,0.5726,0.7457,1.1444,1.434,False
+S23939_AQUA,3-6 months | high,0.435,0.6336,1.1229,1.4603,False
+S23942_LIGHT-PINK,under 3 months | high,0.559,0.7227,1.175,1.5173,False
+S23944_CREAM,3-6 months | mid,0.6566,0.7597,1.1604,1.4188,False
+S23954_GRAY-MELANGE,under 3 months | mid,0.636,0.7688,1.2664,1.5982,False
+S23965_BLACK,under 3 months | high,0.6307,0.7814,1.1188,1.345,True
+S23970_BLUE-WASHED,under 3 months | low,0.5161,0.6341,1.2335,1.5112,False
+S23995_YELLOW,under 3 months | high,0.6063,0.7629,1.1272,1.3598,False
+S24040_LIGHT-YELLOW,under 3 months | mid,0.5783,0.726,1.4814,2.0939,False
+S24046_NAVY,under 3 months | high,0.5722,0.7375,1.1566,1.4794,False
+S24099_LIGHT-PINK,under 3 months | high,0.6124,0.7663,1.1522,1.4603,False
+S24151_NAVY-AND-WHITE,under 3 months | low,0.48,0.599,1.2788,1.6473,False
+S24167_BLUE-AND-WHITE,under 3 months | high,0.5387,0.714,1.1796,1.5438,True
+S24178_MIX,under 3 months | high,0.5923,0.7506,1.1557,1.4824,False
+S24229_PINK,under 3 months | mid,0.5959,0.738,1.4018,1.879,False
+S24230_LIGHT-PINK,under 3 months | mid,0.5929,0.7429,1.3641,1.8783,False
+S24251_MEDIUM-VINTAGE-INDIGO,under 3 months | low,0.4877,0.6154,1.2399,1.5171,False
+S24253_BLACK,under 3 months | low,0.5254,0.6328,1.2512,1.5496,False
+S24284_BLUE-VINTAGE-WASHED,under 3 months | mid,0.553,0.7231,1.4097,1.9671,False
+S24323_LIGHT-BLUE,under 3 months | high,0.5691,0.7362,1.1696,1.5282,False
+S24346_GREEN,under 3 months | high,0.5839,0.7473,1.1696,1.5217,False
+S24354_NAVY-AND-WHITE,under 3 months | mid,0.5172,0.6869,1.5853,2.3791,False
+S24404_WHITE,under 3 months | low,0.4931,0.6136,1.2545,1.5608,False
+S24414_MINT,under 3 months | high,0.6185,0.7728,1.1406,1.408,False
+S24503_AQUA,under 3 months | high,0.5839,0.754,1.138,1.4088,False
+S24598_LIGHT-BLUE,under 3 months | high,0.5917,0.7595,1.1375,1.3955,False
+S24654_PURPLE,under 3 months | low,0.5457,0.6578,1.2075,1.4378,False
+S24684_WHITE,under 3 months | mid,0.6501,0.7739,1.2464,1.5556,False
+S24702_BLUE,under 3 months | low,0.4263,0.554,1.3789,1.872,False
+S24743_WHITE,under 3 months | mid,0.5908,0.7392,1.3702,1.8739,False
+S24758_TURQUOISE,under 3 months | low,0.4623,0.5884,1.2811,1.6529,False
+S24803_PINK,under 3 months | mid,0.5413,0.6962,1.5178,2.1825,False
+S24804_LEOPARD,under 3 months | low,0.4416,0.5693,1.3187,1.7241,False
+S24811_BURGUNDY,under 3 months | mid,0.5404,0.7019,1.5206,2.2113,False
+S24837_BLACK,under 3 months | low,0.4257,0.5549,1.3777,1.9155,False
+S24838_PINK,under 3 months | low,0.4674,0.5805,1.2788,1.6349,False
+S24840_LIGHT-GRAY-MELANGE,under 3 months | high,0.4224,0.6441,1.231,1.7906,True
+S24842_LIGHT-BLUE,under 3 months | high,0.3954,0.6118,1.3365,2.1744,False
+S24843_LIGHT-BLUE,under 3 months | high,0.5623,0.7341,1.1702,1.5358,False
+S24844_BLACK,under 3 months | high,0.51,0.6958,1.2067,1.6544,False
+S24845_BLACK,under 3 months | high,0.5682,0.7372,1.1702,1.5205,False
+S24846_NAVY,under 3 months | high,0.5543,0.7244,1.1781,1.5368,False
+S24847_NAVY,under 3 months | high,0.5684,0.7376,1.1647,1.517,True
+S24850_WHITE,under 3 months | low,0.4907,0.6044,1.2767,1.6454,False
+S24875_PINK,under 3 months | mid,0.63,0.7629,1.3117,1.7173,False
+S24880_BLUE-AND-WHITE,under 3 months | mid,0.5456,0.7102,1.5291,2.2898,False
+S24885_BLUE-AND-WHITE,6-12 months | mid,0.3442,0.5784,1.8003,3.4144,False
+S24892_PINK,under 3 months | high,0.5782,0.7417,1.1625,1.4822,False
+S24935_WHITE-AND-GREEN,under 3 months | mid,0.5684,0.7337,1.3621,1.8463,False
+S24948_ORANGE,under 3 months | high,0.5548,0.7281,1.1814,1.5899,False
+S24962_NAVY,under 3 months | high,0.4849,0.6741,1.2212,1.7177,False
+S24963_NAVY,under 3 months | mid,0.6055,0.7512,1.3187,1.7409,False
+S24976_DARK-GRAY,under 3 months | mid,0.5585,0.7164,1.47,2.0599,False
+S25021_RED,under 3 months | high,0.544,0.7188,1.1884,1.5925,False
+S25022_WHITE,under 3 months | high,0.5601,0.7322,1.1724,1.5514,False
+S25026_CREAM,under 3 months | high,0.5277,0.7113,1.1758,1.5283,False
+S25028_CREAM,under 3 months | high,0.5431,0.7198,1.174,1.5231,False
+S25032_BLUE,under 3 months | high,0.5928,0.7564,1.1373,1.4056,False
+S25035_WHITE,under 3 months | high,0.5497,0.7217,1.1881,1.592,False
+S25036_WHITE,under 3 months | mid,0.6035,0.7482,1.3391,1.7953,False
+S25037_GREEN,under 3 months | high,0.4063,0.6251,1.307,2.0565,False
+S25038_PINK,under 3 months | high,0.5007,0.6881,1.201,1.619,False
+S25039_YELLOW,under 3 months | high,0.5115,0.696,1.1929,1.5738,True
+S25076_CREAM,under 3 months | mid,0.6176,0.753,1.3363,1.7743,False
+S25122_SAGE,under 3 months | mid,0.6185,0.7545,1.3383,1.7962,False
+S25152_WHITE,under 3 months | mid,0.5987,0.7441,1.3686,1.8704,False

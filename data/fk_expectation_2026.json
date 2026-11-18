@@ -1,0 +1,105 @@
+{
+ "md5": "c0f7df24184659889d1809adbfb5a42d",
+ "workbook": "Edikted_Forecasting_Exercise_filled.xlsx",
+ "total": 601801,
+ "months": {
+  "jul": 171591,
+  "aug": 175788,
+  "sep": 123969,
+  "oct": 130453
+ },
+ "model_total": 620602,
+ "r3_total": 473375.0,
+ "sea_total": 593665.0,
+ "central": {
+  "abs_wape": 0.287,
+  "wape_r3": 0.694,
+  "vs_seasonal": 0.75,
+  "bias": -0.097,
+  "hit20": 0.389,
+  "hit20_units": 0.383,
+  "gmrae": 0.754,
+  "cover": 0.717,
+  "above": 0.185
+ },
+ "range": {
+  "abs_wape": [
+   0.27,
+   0.293
+  ],
+  "wape_r3": [
+   0.541,
+   0.787
+  ],
+  "vs_seasonal": [
+   0.594,
+   0.75
+  ],
+  "bias": [
+   -0.097,
+   0.012
+  ],
+  "hit20": [
+   0.364,
+   0.389
+  ],
+  "hit20_units": [
+   0.383,
+   0.512
+  ],
+  "gmrae": [
+   0.584,
+   0.927
+  ],
+  "cover": [
+   0.717,
+   0.81
+  ],
+  "above": [
+   0.016,
+   0.185
+  ]
+ },
+ "band100": {
+  "abs_wape": [
+   0.249,
+   0.308
+  ],
+  "wape_r3": [
+   0.639,
+   0.773
+  ],
+  "vs_seasonal": [
+   0.68,
+   0.845
+  ],
+  "bias": [
+   -0.133,
+   -0.041
+  ],
+  "hit20": [
+   0.37,
+   0.48
+  ],
+  "hit20_units": [
+   0.316,
+   0.462
+  ],
+  "gmrae": [
+   0.555,
+   0.73
+  ],
+  "cover": [
+   0.67,
+   0.77
+  ],
+  "above": [
+   0.17,
+   0.25
+  ]
+ },
+ "pool_n": 339,
+ "pool_min_r3": 1063.0,
+ "backtest_cover_overall": 0.743,
+ "widen_13": 0.788
+}

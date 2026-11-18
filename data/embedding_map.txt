@@ -1,0 +1,50 @@
+== product types: 3 nearest by learned vector (types with >= 8 items)
+Bag              -> Hairclip 0.92, Belt 0.88, Earrings 0.78
+Belt             -> Bag 0.88, Hairclip 0.87, Bracelet 0.83
+Bodysuit         -> Top 0.69, Strapless 0.58, Crop Top 0.57
+Bracelet         -> Socks 0.91, Belt 0.83, Hairclip 0.80
+Cardigan         -> Sweater 0.89, Sweatpants 0.67, Top 0.59
+Corset           -> Crop Top 0.87, Tank Top 0.79, Shirt 0.70
+Crop Top         -> Corset 0.87, Top 0.73, Strapless 0.71
+Dress            -> Bracelet 0.38, Shirt 0.29, Bag 0.29
+Earrings         -> Necklace 0.88, Hairclip 0.86, Socks 0.84
+Hairclip         -> Bag 0.92, Belt 0.87, Earrings 0.86
+Hoodie           -> Sweater 0.67, Sweatpants 0.65, Cardigan 0.58
+Jacket           -> Sweatpants 0.56, Cardigan 0.56, Sweater 0.51
+Jeans            -> Skort 0.81, Skirt 0.69, Short Jeans 0.56
+Knitted Top      -> Strapless 0.79, Corset 0.64, Crop Top 0.64
+Necklace         -> Earrings 0.88, Sunglasses 0.80, Socks 0.80
+Pants            -> Shorts 0.56, Skort 0.53, Jeans 0.52
+Shirt            -> Top 0.70, Corset 0.70, Crop Top 0.67
+Short Jeans      -> Skort 0.59, Jeans 0.56, Skirt 0.54
+Shorts           -> Skirt 0.65, Pants 0.56, Jeans 0.52
+Skirt            -> Skort 0.76, Jeans 0.69, Shorts 0.65
+Skort            -> Jeans 0.81, Skirt 0.76, Short Jeans 0.59
+Socks            -> Bracelet 0.91, Earrings 0.84, Necklace 0.80
+Strapless        -> Knitted Top 0.79, Crop Top 0.71, Corset 0.69
+Sunglasses       -> Earrings 0.80, Necklace 0.80, Socks 0.72
+Sweater          -> Cardigan 0.89, Sweatpants 0.72, Hoodie 0.67
+Sweatpants       -> Sweater 0.72, Cardigan 0.67, Hoodie 0.65
+Swimwear Bottom  -> Belt 0.54, Bag 0.50, Hairclip 0.41
+Swimwear Top     -> Swimwear Bottom 0.35, Jacket 0.35, Shorts 0.30
+T-Shirt          -> Tank Top 0.59, Corset 0.55, Cardigan 0.53
+Tank Top         -> Corset 0.79, Crop Top 0.71, Strapless 0.61
+Top              -> Crop Top 0.73, Shirt 0.70, Corset 0.69
+
+== items whose own vectors moved furthest from their type (learned item-specific behaviour):
+                              ptype   dist
+style_color                               
+S18604_BLUE                   Jeans  4.068
+S19708_LIGHT-BLUE            Shorts  3.771
+S22456_LIGHT-GRAY-MELANGE  Leggings  3.731
+S16131_BROWN                T-Shirt  3.527
+S17508_GREEN                    Top  3.484
+ACC1441_BROWN                   Bag  3.450
+S17992_CREAM                  Dress  3.425
+S20018_PINK                Tank Top  3.390
+S16164_CREAM                  Dress  3.302
+S23162_GRAY-MELANGE        Cardigan  3.300
+S20190_WHITE                    Top  3.276
+S21730_GRAY-AND-WHITE        Shorts  3.267
+
+targets: median distance 1.761 | all items 1.65

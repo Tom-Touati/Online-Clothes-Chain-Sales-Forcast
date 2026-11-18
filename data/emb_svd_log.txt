@@ -1,0 +1,15 @@
+2025-02 {'ens': np.float64(0.539), 'ens_emb': np.float64(0.562), 'ens3': np.float64(0.551)}
+2025-03 {'ens': np.float64(0.474), 'ens_emb': np.float64(0.491), 'ens3': np.float64(0.483)}
+2025-04 {'ens': np.float64(0.336), 'ens_emb': np.float64(0.328), 'ens3': np.float64(0.325)}
+2025-05 {'ens': np.float64(0.291), 'ens_emb': np.float64(0.292), 'ens3': np.float64(0.288)}
+2025-06 {'ens': np.float64(0.314), 'ens_emb': np.float64(0.312), 'ens3': np.float64(0.312)}
+2025-07 {'ens': np.float64(0.326), 'ens_emb': np.float64(0.326), 'ens3': np.float64(0.331)}
+2025-08 {'ens': np.float64(0.375), 'ens_emb': np.float64(0.379), 'ens3': np.float64(0.367)}
+2025-09 {'ens': np.float64(0.441), 'ens_emb': np.float64(0.433), 'ens3': np.float64(0.443)}
+2025-10 {'ens': np.float64(0.433), 'ens_emb': np.float64(0.435), 'ens3': np.float64(0.444)}
+2025-11 {'ens': np.float64(0.293), 'ens_emb': np.float64(0.299), 'ens3': np.float64(0.282)}
+2025-12 {'ens': np.float64(0.234), 'ens_emb': np.float64(0.235), 'ens3': np.float64(0.23)}
+2026-01 {'ens': np.float64(0.302), 'ens_emb': np.float64(0.302), 'ens3': np.float64(0.307)}
+2026-02 {'ens': np.float64(0.358), 'ens_emb': np.float64(0.365), 'ens3': np.float64(0.357)}
+== all: mean WAPE {'ens': 0.3628, 'full': 0.3656, 'full_emb': 0.3752, 'ens_emb': 0.3661, 'ens3': 0.3631} | ens_emb beats ens at 5 | ens3 beats ens at 7 of 13
+== targets: mean WAPE {'ens': 0.3711, 'full': 0.3759, 'full_emb': 0.3844, 'ens_emb': 0.3735, 'ens3': 0.3719} | ens_emb beats ens at 7 | ens3 beats ens at 6 of 13
