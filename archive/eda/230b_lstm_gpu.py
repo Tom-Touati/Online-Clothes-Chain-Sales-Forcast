@@ -11,22 +11,29 @@ Model: LSTM (2 layers, hidden 64, dropout 0.1) -> last hidden state (+ context) 
 sqrt(L + 1) (the score is volume-weighted); Adam 2e-3, 5 epochs, batch 1024; 3 seeds averaged in z.
 Time-honest: for scoring month-end o, training cutoffs are every 7th day with the 30-day target ended by o's last day (c + 30 <= end of o);
 an item enters at a cutoff if it is live and sold >= 5 units in the 60-day window.
-Writes out/lstm_preds.parquet (origin, style_color, version, y1_hat, z_hat, L)."""
+Env W (default 60): the window in days. D405 (user: "try the lstm with a full year of daily history"): W=365; days before the data start
+(1 Jan 2024) are zero-padded with a "data available" flag (10th input); scaling s stays the last 60 days' mean so the earlier months read
+relative to the current level (last year's same-season ramp included); the training-entry rule is unchanged (>= 5 units in the last 60
+days, live). Versions are named daily365 / ctx365.
+Writes out/lstm_preds.parquet (W=60) or out/lstm_preds_w<W>.parquet (origin, style_color, version, y1_hat, z_hat, L)."""
+import os
 import sys, time, numpy as np, pandas as pd, torch, torch.nn as nn
 dev = "cuda"; Z = np.load("data/lstm_inputs.npz", allow_pickle=True)
-X = Z["X"].astype(np.float32); N, Dd, _ = X.shape; day0 = pd.Timestamp(str(Z["day0"])); items = Z["items"]; ptype = torch.tensor(Z["ptype"].astype(np.int64), device=dev); first = Z["first_ix"]
+W = int(os.environ.get("W", 60)); PAD = max(W - 60, 0)
+X = np.concatenate([np.zeros((Z["X"].shape[0], PAD, 5), np.float32), Z["X"].astype(np.float32)], 1); N, Dd, _ = X.shape; day0 = pd.Timestamp(str(Z["day0"])) - pd.Timedelta(days=PAD); DATA0 = PAD; items = Z["items"]; ptype = torch.tensor(Z["ptype"].astype(np.int64), device=dev); first = Z["first_ix"] + PAD
 EVO, EVI = Z["ev_origin"], Z["ev_item"]; ii = pd.Series(np.arange(N), index=items)
-W = 60; tot = X[:, :, :4].sum(2); csum = np.concatenate([np.zeros((N, 1), np.float32), np.cumsum(tot, 1)], 1)
-dow = np.arange(Dd) + day0.dayofweek; DOW = np.stack([np.sin(2 * np.pi * dow / 7), np.cos(2 * np.pi * dow / 7)], 1).astype(np.float32)
+tot = X[:, :, :4].sum(2); csum = np.concatenate([np.zeros((N, 1), np.float32), np.cumsum(tot, 1)], 1)
+dow = np.arange(Dd) + day0.day_of_week; DOW = np.stack([np.sin(2 * np.pi * dow / 7), np.cos(2 * np.pi * dow / 7)], 1).astype(np.float32)
 Xg = torch.tensor(X, device=dev); DOWg = torch.tensor(DOW, device=dev); first_g = torch.tensor(first, device=dev)
 def window_sum(r, a, b): return csum[r, b + 1] - csum[r, a]   # units on days a..b (inclusive), vectorised over rows r
 def batch_inputs(rows, cuts, ndays):
     """rows, cuts: int tensors on the GPU; returns sequence (B, 60, 9), context (B, 12) parts and L"""
     idx = cuts[:, None] + torch.arange(-W + 1, 1, device=dev)[None, :]
     seq = Xg[rows[:, None], idx]                                    # (B, 60, 5)
-    tot_ = seq[:, :, :4].sum(2, keepdim=True); s = tot_.mean(1, keepdim=True) + 0.5
+    tot_ = seq[:, :, :4].sum(2, keepdim=True); s = tot_[:, -60:].mean(1, keepdim=True) + 0.5   # scale = the last 60 days' level
     live = (idx >= first_g[rows][:, None]).float()[:, :, None]
-    x = torch.cat([torch.log1p(seq[:, :, :4] / s), torch.log1p(tot_ / s), seq[:, :, 4:5], DOWg[idx], live], 2)
+    avail = (idx >= DATA0).float()[:, :, None]
+    x = torch.cat([torch.log1p(seq[:, :, :4] / s), torch.log1p(tot_ / s), seq[:, :, 4:5], DOWg[idx], live, avail], 2)
     L = seq[:, -30:, :4].sum((1, 2)) * ndays / 30.0
     tm = ((day0 + pd.to_timedelta(cuts.cpu().numpy() + 1, "D")).month.values - 1).astype(np.float32)
     ctx = torch.stack([torch.tensor(np.sin(2 * np.pi * tm / 12), device=dev), torch.tensor(np.cos(2 * np.pi * tm / 12), device=dev),
@@ -34,7 +41,7 @@ def batch_inputs(rows, cuts, ndays):
     return x, ctx, L
 class Net(nn.Module):
     def __init__(self, use_ctx):
-        super().__init__(); self.use_ctx = use_ctx; self.lstm = nn.LSTM(9, 64, 2, batch_first=True, dropout=0.1)
+        super().__init__(); self.use_ctx = use_ctx; self.lstm = nn.LSTM(10, 64, 2, batch_first=True, dropout=0.1)
         self.emb = nn.Embedding(int(ptype.max()) + 1, 8); k = 64 + (8 + 4 if use_ctx else 0)
         self.head = nn.Sequential(nn.Linear(k, 64), nn.ReLU(), nn.Linear(64, 1))
     def forward(self, x, ctx, pt):
@@ -46,16 +53,16 @@ out = []; t_all = time.time()
 for o in sorted(set(EVO)):
     end = month_end_ix(o); te = np.where(EVO == o)[0]; te_rows = ii.reindex(EVI[te]).values; ok = ~np.isnan(te_rows); te, te_rows = te[ok], te_rows[ok].astype(int)
     nd = pd.Period(o, "M").__add__(1).days_in_month
-    cuts = np.arange(W - 1, end - 30 + 1, 7); R, C = np.meshgrid(np.arange(N), cuts, indexing="ij"); R, C = R.ravel(), C.ravel()
-    keep = (window_sum(R, C - W + 1, C) >= 5) & (C >= first[R]); R, C = R[keep], C[keep]
+    cuts = np.arange(PAD + 59, end - 30 + 1, 7); R, C = np.meshgrid(np.arange(N), cuts, indexing="ij"); R, C = R.ravel(), C.ravel()
+    keep = (window_sum(R, C - 59, C) >= 5) & (C >= first[R]); R, C = R[keep], C[keep]
     y = window_sum(R, C + 1, C + 30); Ltr = window_sum(R, C - 29, C)
     ztr = torch.tensor(np.log((y + 1) / (Ltr + 1)), device=dev, dtype=torch.float32); wtr = torch.tensor(np.sqrt(Ltr + 1), device=dev, dtype=torch.float32); wtr = wtr / wtr.mean()
     Rg, Cg = torch.tensor(R, device=dev), torch.tensor(C, device=dev)
     rows_te = torch.tensor(te_rows, device=dev); cut_te = torch.full((len(te_rows),), end, device=dev)
-    for ver in ("daily", "ctx"):
+    for ver in (("daily", "ctx") if W == 60 else (f"daily{W}", f"ctx{W}")):
         zs = []
         for seed in range(3):
-            torch.manual_seed(seed); np.random.seed(seed); net = Net(ver == "ctx").to(dev); opt = torch.optim.Adam(net.parameters(), lr=2e-3); lossf = nn.HuberLoss(delta=0.5, reduction="none")
+            torch.manual_seed(seed); np.random.seed(seed); net = Net(ver.startswith("ctx")).to(dev); opt = torch.optim.Adam(net.parameters(), lr=2e-3); lossf = nn.HuberLoss(delta=0.5, reduction="none")
             for ep in range(5):
                 perm = torch.randperm(len(R), device=dev); net.train()
                 for b in range(0, len(R), 1024):
@@ -67,4 +74,4 @@ for o in sorted(set(EVO)):
         zh = np.mean(zs, 0); L = Lte.cpu().numpy()
         out.append(pd.DataFrame({"origin": o, "style_color": EVI[te], "version": ver, "z_hat": zh, "L": L, "y1_hat": np.clip((L + 1) * np.exp(zh) - 1, 0, None)}))
     print(o, "| training sequences", len(R), "| scored items", len(te), f"| {time.time() - t_all:.0f} s", flush=True)
-pd.concat(out).to_parquet("out/lstm_preds.parquet", index=False); print("saved")
+pd.concat(out).to_parquet("out/lstm_preds.parquet" if W == 60 else f"out/lstm_preds_w{W}.parquet", index=False); print("saved")

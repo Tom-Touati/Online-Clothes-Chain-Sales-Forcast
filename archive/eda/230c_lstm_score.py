@@ -10,7 +10,8 @@ Metrics on next-month units: WAPE, ratio to R3m's WAPE, bias, share within +/-20
 July 2025 (origin 2025-06); style bootstrap of each against system m1. stdout -> eda/lstm_score_output.txt"""
 import sys, os, numpy as np, pandas as pd
 sys.stdout.reconfigure(encoding="utf-8"); pd.set_option("display.width", 220)
-P = pd.read_parquet("data/lstm_preds.parquet"); Z = np.load("data/lstm_inputs.npz", allow_pickle=True)
+import glob; P = pd.concat([pd.read_parquet(f) for f in sorted(glob.glob("data/lstm_preds*.parquet"))]);   # D405: the 60- and 365-day versions together
+ Z = np.load("data/lstm_inputs.npz", allow_pickle=True)
 E = pd.DataFrame({"origin": Z["ev_origin"], "style_color": Z["ev_item"], "y1": Z["ev_y1"].astype(float)}); E = E[E.y1.notna()]
 for v in P.version.unique(): E = E.merge(P[P.version == v][["origin", "style_color", "y1_hat"]].rename(columns={"y1_hat": f"lstm_{v}"}), on=["origin", "style_color"], how="left")
 M = pd.read_parquet("data/monthly_item.parquet"); M.columns = [str(c) for c in M.columns]
