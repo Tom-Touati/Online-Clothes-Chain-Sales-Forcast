@@ -1,0 +1,17 @@
+{
+ "params": {
+  "num_leaves": 57,
+  "learning_rate": 0.015788046044295134,
+  "n_estimators": 800,
+  "min_child_samples": 63,
+  "colsample_bytree": 0.9668399143820638,
+  "subsample": 0.667218418455068,
+  "reg_lambda": 0.7591955635615684,
+  "reg_alpha": 0.006236170535942019
+ },
+ "w_base": 0.02204141445719182,
+ "huber_delta": 0.20721209685736824,
+ "criterion": 1.2197470555389005,
+ "default_criterion": 1.2588,
+ "trial": 36
+}

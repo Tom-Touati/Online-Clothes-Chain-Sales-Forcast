@@ -1,0 +1,14 @@
+name vocabulary: 175 words; items with >= 1 word: 1475 of 1483
+2025-02: train 13330 rows, 22s | WAPE(P50 total) 0.656 bias +0.370
+2025-03: train 15548 rows, 23s | WAPE(P50 total) 0.582 bias +0.374
+2025-04: train 17933 rows, 26s | WAPE(P50 total) 0.402 bias +0.120
+2025-05: train 20472 rows, 30s | WAPE(P50 total) 0.336 bias +0.071
+2025-06: train 23168 rows, 34s | WAPE(P50 total) 0.376 bias +0.111
+2025-07: train 26006 rows, 39s | WAPE(P50 total) 0.375 bias +0.092
+2025-08: train 29006 rows, 42s | WAPE(P50 total) 0.363 bias -0.052
+2025-09: train 32187 rows, 46s | WAPE(P50 total) 0.376 bias -0.230
+2025-10: train 35579 rows, 53s | WAPE(P50 total) 0.366 bias -0.118
+2025-11: train 39206 rows, 56s | WAPE(P50 total) 0.330 bias +0.155
+2025-12: train 43087 rows, 61s | WAPE(P50 total) 0.301 bias +0.098
+2026-01: train 47229 rows, 69s | WAPE(P50 total) 0.336 bias +0.098
+2026-02: train 51606 rows, 76s | WAPE(P50 total) 0.367 bias +0.028

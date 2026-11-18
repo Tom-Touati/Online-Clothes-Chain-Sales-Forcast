@@ -1,0 +1,16 @@
+2025-02: train 2558 rows, 10s | WAPE(P50 total) 1.389 bias +1.128
+2025-03: train 3045 rows, 10s | WAPE(P50 total) 0.564 bias +0.317
+2025-04: train 3577 rows, 10s | WAPE(P50 total) 0.465 bias +0.204
+2025-05: train 4150 rows, 14s | WAPE(P50 total) 0.542 bias +0.375
+2025-06: train 4776 rows, 14s | WAPE(P50 total) 0.543 bias +0.385
+2025-07: train 5430 rows, 16s | WAPE(P50 total) 0.384 bias +0.006
+2025-08: train 6116 rows, 16s | WAPE(P50 total) 0.456 bias +0.081
+2025-09: train 6846 rows, 18s | WAPE(P50 total) 0.411 bias -0.153
+2025-10: train 7614 rows, 18s | WAPE(P50 total) 0.434 bias -0.311
+2025-11: train 8430 rows, 20s | WAPE(P50 total) 0.240 bias -0.047
+2025-12: train 9297 rows, 23s | WAPE(P50 total) 0.259 bias -0.144
+2026-01: train 10238 rows, 25s | WAPE(P50 total) 0.410 bias +0.063
+2026-02: train 11241 rows, 27s | WAPE(P50 total) 0.453 bias -0.084
+/home/ubuntu/m5/eda/57_embed_nn.py:107: RuntimeWarning: divide by zero encountered in scalar divide
+  print(f"{o}: train {len(tr)} rows, {time.time() - t0:.0f}s | WAPE(P50 total) {(g.q50 - g.y).abs().sum() / g.y.sum():.3f} bias {g.q50.sum() / g.y.sum() - 1:+.3f}", flush=True)
+2026-06: train 15877 rows, 39s | WAPE(P50 total) inf bias +inf

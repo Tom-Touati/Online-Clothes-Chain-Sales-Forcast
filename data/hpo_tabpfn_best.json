@@ -1,0 +1,27 @@
+{
+ "best": {
+  "trial": 13,
+  "est": 32,
+  "temp": 1.232,
+  "cap": 0,
+  "abs_": 1,
+  "crit": 0.64084,
+  "alone": 0.68973,
+  "mean5": 0.59196,
+  "secs": 1242
+ },
+ "base": {
+  "trial": 0,
+  "est": 32,
+  "temp": 0.9,
+  "cap": 0,
+  "abs_": 0,
+  "crit": 0.64209,
+  "alone": 0.69198,
+  "mean5": 0.5922,
+  "secs": 1252
+ },
+ "n": 15,
+ "n_ok": 15,
+ "note": "stopped after trial 14 at Fork 2's request"
+}

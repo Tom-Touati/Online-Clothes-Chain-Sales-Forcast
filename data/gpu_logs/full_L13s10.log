@@ -1,0 +1,14 @@
+weekly sequences built: (85264, 52, 2)
+2025-02: train 13330 rows, 34s | WAPE(P50 total) 0.793 bias +0.486
+2025-03: train 15548 rows, 36s | WAPE(P50 total) 0.597 bias +0.389
+2025-04: train 17933 rows, 42s | WAPE(P50 total) 0.339 bias -0.013
+2025-05: train 20472 rows, 47s | WAPE(P50 total) 0.313 bias +0.055
+2025-06: train 23168 rows, 53s | WAPE(P50 total) 0.339 bias +0.044
+2025-07: train 26006 rows, 59s | WAPE(P50 total) 0.362 bias +0.095
+2025-08: train 29006 rows, 66s | WAPE(P50 total) 0.362 bias +0.008
+2025-09: train 32187 rows, 73s | WAPE(P50 total) 0.386 bias -0.240
+2025-10: train 35579 rows, 81s | WAPE(P50 total) 0.378 bias -0.186
+2025-11: train 39206 rows, 89s | WAPE(P50 total) 0.311 bias +0.138
+2025-12: train 43087 rows, 91s | WAPE(P50 total) 0.278 bias +0.068
+2026-01: train 47229 rows, 84s | WAPE(P50 total) 0.314 bias +0.023
+2026-02: train 51606 rows, 116s | WAPE(P50 total) 0.341 bias -0.050
