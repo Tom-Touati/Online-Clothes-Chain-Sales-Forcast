@@ -4,14 +4,14 @@ Monthly unit-sales forecast for 100 style-colours of an online fashion retailer 
 January 2024 to June 2026 (about 1,500 items, sold on edikted.com, in the chain's own stores and through partners). Each item also
 gets a confidence level (1 to 3), and 18 items get a written explanation.
 
-**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)**: 630,254 units
+**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx10): 630,254 units
 (July 177,694, August 187,685, September 130,828, October 134,047); confidence 10 items at 1, 86 at 2, 4 at 3. Its sheets:
 
 | Sheet | What it holds |
 |---|---|
 | Forecast | Monthly units, total, confidence and the model's raw total for each item; explanations for 18 items |
 | Model explanation | The approach, how it was tested, where it is weak |
-| Method and decisions | Each major choice with its evidence: models, information used, evaluation |
+| Method and decisions | Each major choice with its evidence (models, information used, evaluation) and a six-step improvement roadmap |
 | Cascade (items), Cascade (hierarchy) | Every step per item: the six models, their average, the corrections, the monthly split, the campaign uplift, the hand rules, P10–P90 and P25–P75 ranges, the buying quantity |
 
 ## Interactive pages
@@ -25,6 +25,11 @@ fonts.
 | [**Item explorer**](docs/pages/item_explorer.html) | One item at a time, for each of the 100: its history, past forecasts and the July–October projection with its ranges; the steps from the recent rate to the forecast; what pushes the tree model up or down; weekly history; where it sells; its discount on edikted.com; the item against its product type and group; its nearest neighbours; what the item is and the business around it |
 | [**Forecast atlas**](docs/pages/atlas.html) | The project end to end: from order lines to a filled workbook; what the data holds (six-fold growth that is mostly more items, a site that is always on sale, each product type's own year, the launch curve, fifteen data traps); every model from the first quantile model to the final stack; the evaluation against recency; the forecast for the 100 items; every input of every model; the decision log |
 | [**Error study**](docs/pages/error_study.html) | Where the backtest forecast goes wrong and what would fix it: how concentrated, one-sided and shared the error is; 34 cohort axes and pairs of them; which missing information would have helped most (the roll-out plan); how much of the improvement is real; what the large misses have in common; how the 100 targets sit against the risky cohorts |
+
+A fourth page, the scoreboard of every system scored in the project, is not in the repository: it loads its numbers from claude.ai.
+Its table is [`data/scoreboard.json`](data/scoreboard.json): 648 rows, 72 systems (from R3 and single models to each version of the
+submission) on 9 subsets of the backtest (all 13 month-ends, the nine recent ones, the 100 targets, each season, ...), with WAPE and
+the per-item scores as ratios to R3, bias, the share within ±20%, pinball loss, bootstrap intervals and the buying-simulation loss.
 
 ## How the forecast is made
 
@@ -118,7 +123,7 @@ Measured in the backtest, these would help most:
 
 All scripts run from the repository root with Python 3.12 (`python pipeline/<script>`); [`pipeline/README.md`](pipeline/README.md)
 gives the stages and the exact commands.
-- The workbook builder (`pipeline/181q_final_nx9_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
+- The workbook builder (`pipeline/181r_final_nx10_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
   cell.
 - Rerunning the earlier stages needs the raw order lines (`Dataset.parquet`, 249 MB) at the root. They are not in the repository
   because of GitHub's file limit.

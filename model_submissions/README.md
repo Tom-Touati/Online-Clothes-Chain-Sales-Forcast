@@ -2,7 +2,7 @@
 
 Every workbook other than the submission, one folder each: two single-model forecasts and the earlier versions of the submission.
 Totals are July–October 2026 units for the 100 items; confidence counts are items at level 1 / 2 / 3. Decision ids refer to
-[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx9 (D422): nx8 plus the look-alike term.
+[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx10 (D428): nx9's numbers with the repaired text and the improvement roadmap.
 
 | Folder | What it is | Total | Confidence | Decision |
 |---|---|---|---|---|
@@ -20,3 +20,4 @@ Totals are July–October 2026 units for the 100 items; confidence counts are it
 | `10_nx7_audited_text` | Corrected text, 18 chosen explanations, decisions sheet | 620,826 | 10 / 86 / 4 | D389v |
 | `11_nx7c_campaign_uplift` | The two new site sales added explicitly | 629,779 | 10 / 86 / 4 | D389x, submitted |
 | `12_nx8_combined` | nx7c's numbers with nx7's text | 629,779 | 10 / 86 / 4 | D421, submitted |
+| `13_nx9_lookalike_term` | nx8 plus the look-alikes' last-year ramp in the correction | 630,254 | 10 / 86 / 4 | D422, submitted |

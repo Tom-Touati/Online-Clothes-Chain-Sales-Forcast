@@ -1,7 +1,5 @@
-"""The words of the workbook nx10 (D424): nx9's text (D422) with Fork 2's repairs A1-A7 and improvement roadmap B1-B2 (D413, eda/drafts/nx10_text_changes.md;
-the user: "add this improvement roadmap to the model explanation, and repair with each of your suggestions"). nx9 header follows.
-The words of the workbook nx9 (D422; as nx8, D421, with the look-alike correction of D401 described): the three "Model explanation" boxes, the "Method and decisions" sheet and the item
-explanations. Read by eda/181r_final_nx10_2026.py, which fills the {placeholders} from the numbers it computes, so text and numbers cannot
+"""The words of the workbook nx9 (D422; as nx8, D421, with the look-alike correction of D401 described): the three "Model explanation" boxes, the "Method and decisions" sheet and the item
+explanations. Read by eda/181q_final_nx9_2026.py, which fills the {placeholders} from the numbers it computes, so text and numbers cannot
 disagree.
 
 Sources of the statements: the time-honest backtest of the submitted system (log.md; D389u for the audit that corrected the earlier text,
@@ -16,7 +14,7 @@ six-model average."""
 
 MODEL_EXPLANATION = {
  "Your approach": (
-   "Each item's July-October total is forecast relative to its own recent rate and then split by month. It is a weighted average of six models that see the problem differently: (1) planning rules written by AI agents, revised at each month-end with only the data up to it "
+   "Each item's July-October total is forecast relative to its own recent rate and then split by month. It is a weighted average of six models that see the problem differently: (1) hand-written planning rules "
    "(recent daily rate x seasonal and event indices by product type x launch ramp and fade); (2) LightGBM on tabular features, the best single model, with a launch-weighted version for items under six months old; "
    "(3) a neural network that learns an item embedding and reads the weekly sales curve; (4, 5) TabPFN v2, a tabular foundation model, one version with calibrated ranges; (6) a model that forecasts each item at each place "
    "it sells and adds them up, at a quarter weight because it leans most on last year. Two small models trained on earlier forecast errors then correct the average (biases by volume, age and discount; signs of breakouts "
@@ -33,28 +31,23 @@ MODEL_EXPLANATION = {
  "How you tested it": (
    "A rolling backtest at 13 month-ends (February 2025 to February 2026): everything, including the corrections, is trained only on data before the month-end and scored on the next four months, exactly the task asked. "
    "Error (WAPE of item totals) is always read against simple baselines.\n"
-   "Result: the model improved significantly on R3 (the last three months x 4), on a naive seasonal forecast (R3 x last year's seasonal pattern of the product type) and on the agents' rules, alone and together. "
-   "On the nine most recent month-ends its error is 0.38 of R3's, 0.61 of the seasonal naive's, 0.78 of the agents' rules' and 0.59 of the three averaged together; it beats each at every one of those month-ends, and the "
+   "Result: the model improved significantly on R3 (the last three months x 4), on a naive seasonal forecast (R3 x last year's seasonal pattern of the product type) and on the hand rules, alone and together. "
+   "On the nine most recent month-ends its error is 0.38 of R3's, 0.61 of the seasonal naive's, 0.78 of the hand rules' and 0.59 of the three averaged together; it beats each at every one of those month-ends, and the "
    "95% intervals stay well below 1. On last July-October, the same months as this forecast, it had 0.69 of R3's error and 0.82 of the three together. About four in ten item totals land within +/-20%. "
-   "These figures are for the models before the campaign uplift, which was backtested separately. "
-   "Besides WAPE (volume-weighted), each system is scored per item so that small and large items count equally (geometric mean of each item's error relative to R3), on bias, on the share within +/-20%, "
-   "on pinball loss and coverage for the ranges, and on whether each confidence level's claim holds.\n"
+   "These figures are for the models before the campaign uplift, which was backtested separately.\n"
    "In the later rounds a change was kept only if it also held on month-ends not used to tune it and with last year's same season removed from training; well over a hundred ideas failed and were dropped. "
-   "Leakage checks passed (features rebuilt from data cut at the month-end are identical; a model trained on shuffled outcomes collapses; a model that never saw an item's style is only 1% worse, so it generalises rather than memorising items).\n"
+   "Leakage checks passed (features rebuilt from data cut at the month-end are identical; a model trained on shuffled outcomes collapses).\n"
    "Confidence follows the scale's own definitions, checked in the same backtest: 1 only for items with the narrowest range that are also rising and sold in the same months last year (about 60% of such items landed "
    "within +/-20%, though only 37% last July-October); 3 for the four hand-ruled items; 2 for the rest (about 80% landed within +/-50%). 'Cascade (items)' also gives each item a P10-P90 and a P25-P75 range "
    "(about 80% and 50% of past actuals fell inside) and a buying quantity about {buying_uplift}% above the forecast, because forecasting too low costs more than too high."),
  "Where it is weak": (
    "The largest misses are young launches that break out (sales growing 3-10x within the window); every model misses them together. About half show within the first month, so a re-forecast after July "
-   "catches them. Items bought together rise and fall together, and past sales do not predict that shared shock. "
+   "catches them. Items bought together rise and fall together, and past sales do not predict that shared shock; the launch and markdown plan, early sell-through and the stock plan would help most. "
    "The forecast ran about 6% below actual sales on the nine recent month-ends (2% over all 13), and 7-12% below for items under six months old. For the {launch_items} targets under six months, the launch-weighted tree raises the "
    "six-model average by about {launch_lift}: the backtest supports the direction but never showed a lift that large, and for two launches (the Vikkey tank top and the Stephanie lace dress) the last June weeks were already below the level "
    "the forecast assumes for July. These are the first items to re-forecast. The campaign uplift rests on one assumption, half the lift of a past campaign day, because the plan gives only headline discounts. "
    "The backtest only holds items still selling in 2025-26, so it never saw an item being discontinued. The same month-ends were also used to choose between models, so the real error should be somewhat worse than 0.38. "
-   "The World Cup and out-of-stock items rest on judgement rather than a model (confidence 3).\n"
-   "What would improve it, by measured value: a re-forecast after the first weeks of sales (the month-1 read was worth 0.05 of R3's error in the backtest; half of the breakouts show in July); "
-   "Edikted's per-item plan for stores, partners, launches and discounts as known inputs (already built: 0.385 to 0.371 in the backtest); demand signals that come before sales (page views, add-to-cart, wishlists, "
-   "TikTok views of a look) to foresee the shared shocks of looks and launches; pricing tests to measure price response causally; and a third season of history. More compute ranks last: no tuning round transferred to later months."),
+   "The World Cup and out-of-stock items rest on judgement rather than a model (confidence 3)."),
 }
 
 # (area, decision, why and the evidence)
@@ -67,10 +60,8 @@ DECISIONS = [
   "Item x location x month forecasts summed up were clearly worse (0.57 against 0.47 for the item-level model then): sparse location counts add noise that does not cancel. Reconciling to category totals did not help either."),
  ("Models", "Average six different models with simple weights",
   "Their errors differ: alone they score 0.42-0.49, their average 0.39. Weights fitted on recent windows, or per item, cluster and product type from each model's past correlation with actual sales, were level or worse on later months, so the weights stay equal apart from the sixth model."),
- ("Models", "1. Planning rules written by AI agents",
-  "Recent daily rate x seasonal and event indices by product type x launch ramp and fade. At each of the 13 backtest month-ends a fresh agent saw only a data snapshot cut at that month-end (checked: no later date in any file) "
-  "and the previous month's rules with a scoreboard of their past forecasts, and revised them; no fitted models allowed. Transparent, anchored on level, and wrong in different places from the learned models (0.49 alone). "
-  "The same rules are the rule-based baseline the system is compared with."),
+ ("Models", "1. Hand-written planning rules",
+  "Recent daily rate x seasonal and event indices by product type x launch ramp and fade, written and checked month by month. Transparent, anchored on level, and wrong in different places from the learned models (0.49 alone)."),
  ("Models", "2. LightGBM on tabular features; a launch-weighted version for items under six months",
   "The best single model (0.42). Training rows of new items counted five times improve the forecast of launches; used for every item it hurt established items, so it is routed by age. On the previous five-model system this cut the error on five later month-ends from 0.295 to 0.293 and passed the last-year test."),
  ("Models", "3. Neural network with an item embedding and a weekly-curve encoder",
@@ -104,8 +95,7 @@ DECISIONS = [
  ("Information", "Locations and channels",
   "The recommender forecasts web regions, TikTok, each own store and each partner separately; the other models see store and channel shares. Store openings are distribution steps, not demand. The 2026 roll-out plan was not in the data: in the backtest, knowing the placement, discount and launch plan ahead cut the error from 0.385 to about 0.371."),
  ("Information", "Fashion attributes",
-  "The data has no long descriptions, so a language model scored every item on 14 fixed 0-10 fashion fields with anchored rubrics (warmth, coverage, formality, statement, staple ...), and product photos and texts were embedded "
-  "(OpenCLIP for photos, a sentence model for text) to find look-alikes and looks. Tagger attributes and these scores go into TabPFN, and the neural network embeds occasion, collection and tagger attributes. In LightGBM they added nothing once sales history was in, so they were removed there; "
+  "Tagger attributes and scores derived from them (season, occasion, formality, statement or staple) go into TabPFN, and the neural network embeds occasion, collection and tagger attributes. In LightGBM they added nothing once sales history was in, so they were removed there; "
   "a retest with photo and text embeddings gave new items a small, non-significant gain and lost with last year's season removed. The fashion signal that does help sits in the correction models."),
  ("Information", "Looks and items bought together",
   "Looks are groups of items bought together and looking alike (baskets, images, text). Growth of look-alike items and their ramp in the same months last year feed the breakout correction, and neighbours in the basket network lend their seasonality. Items of a look rise and fall together within a window: "
@@ -117,10 +107,8 @@ DECISIONS = [
  ("Evaluation", "A rolling backtest at 13 month-ends",
   "Each month-end repeats the real task: train on data before it, forecast the next four months, score item totals. Thirteen overlapping windows behave like about three independent tests, so single-window gains are not trusted."),
  ("Evaluation", "Error measured against baselines",
-  "Raw error swings with the season; a ratio to a baseline does not. The model is significantly better than R3, a naive seasonal forecast and the agents' rules, alone and together: 0.38, 0.61, 0.78 and 0.59 of their error, "
-  "better at every recent month-end, with 95% intervals (resampling styles and whole month-ends) no higher than 0.82. On last July-October: 0.69 of R3's error. "
-  "Besides WAPE (volume-weighted), each system is scored per item so that small and large items count equally (geometric mean of each item's error relative to R3), on bias, on the share within +/-20%, on pinball loss "
-  "and coverage for the ranges, and on whether each confidence level's claim holds."),
+  "Raw error swings with the season; a ratio to a baseline does not. The model is significantly better than R3, a naive seasonal forecast and the hand rules, alone and together: 0.38, 0.61, 0.78 and 0.59 of their error, "
+  "better at every recent month-end, with 95% intervals (resampling styles and whole month-ends) no higher than 0.82. On last July-October: 0.69 of R3's error."),
  ("Evaluation", "Rules for accepting a change",
   "It must also hold on month-ends not used to choose it, on the four earliest month-ends, and with last year's same season removed, with intervals from resampling whole styles (colours of a style move together). Well over a hundred ideas failed."),
  ("Evaluation", "Confidence levels by a tested rule",
@@ -128,34 +116,9 @@ DECISIONS = [
  ("Evaluation", "Ranges calibrated on the system's own past errors",
   "Per age and volume group, each side separately, with last July-October and the latest March-June counting four times as much; leaving each month-end out, about 80% of actuals fell inside P10-P90 and 50% inside P25-P75."),
  ("Evaluation", "A buying simulation",
-  "A daily buying simulation: each day an order is placed from the latest month-end forecast (no look-ahead), arriving 21 days later, with at least 7 days between orders of the same item and safety stock from the forecast's spread; "
-  "profit is compared with perfect foresight. On earlier versions of the system it lost 11.8% of the ideal profit against 14.2% for a run-rate rule on July-September 2025, and was better in 9 of 11 three-month windows. "
-  "It showed that forecasting too low costs more than too high, so the buying quantity sits about {buying_uplift}% above the forecast. Seeing a breakout in July does not pay off under a 21-day lead time, so faster replenishment matters as much as the forecast."),
- ("Evaluation", "Explanations checked against the model",
-  "Each forecast's move away from R3 is explained by SHAP values of the tree model, grouped into 11 categories (momentum, life cycle, events, seasonality, weather, regional climate, items bought with it, last year, style, scale, "
-  "portfolio drift) by a language model, with three model judges as a second opinion. The explanation is tested, not assumed: a linear model on the 11 category sums recovers 72% of the model's gain over R3 (85% on the 15 largest "
-  "SHAP values), and the categories explain the final forecast's deviation from R3 with R2 0.94; a linear model on the raw inputs fails, so the model's effects are genuinely non-linear."),
- ("Roadmap", "A re-forecast after the first weeks of sales",
-  "The largest misses are launches that break out, and half of them show within a month: they run 1.47x the forecast in month 1, then about 2x. Knowing month 1 was worth 0.048 of R3's error in the backtest (0.398 to 0.350), "
-  "and rescaling months 2-4 by the month-1 pace cut their error from 0.326 to 0.303. Cheapest large gain: a weekly re-forecast for items under six months. Under the current 21-day lead time it pays only with faster replenishment or chase buying of breakouts."),
- ("Roadmap", "Edikted's per-item plan as known inputs",
-  "Training the models with each item's store, partner, launch and discount plan for the window cut the error from 0.385 to 0.371, at all 13 month-ends; for launches that gained 5+ stores the under-forecast fell from 37% to 28%. "
-  "88% of the large under-forecast error is on items that gained 2+ stores. The inputs are built; the 2026 plan is the missing piece."),
- ("Roadmap", "Foresee the demand for looks and launches",
-  "The misses are shared: knowing each product type x look total would cut the error from 0.40 to 0.26, and in 72% of the largest misses all five models are wrong in the same direction. Past sales cannot foresee this "
-  "(breakouts are spotted at the month-end with AUC 0.66; analog launch curves lost). Signals that arrive before the sales can: product-page views, add-to-cart, wishlists, TikTok and social views of the look, look-level search interest, "
-  "email and ad response. A hierarchical model would forecast look demand from them and from photo and attribute similarity, then share it out to items; a vision-language model reading the photos for trend attributes "
-  "(silhouette, colour story, styling) extends this to brand-new launches."),
- ("Roadmap", "Pricing tests and a price-aware demand model",
-  "A past campaign day sold about 1.55x a normal day, and the response grows sharply with depth, but discounts were not set at random: slow sellers are marked down, strong sellers are not, so history mixes price response with that choice "
-  "(item discount and elasticity inputs did not help). Randomised or rotated discount tests by product type, age and channel (holdout items, alternating weeks or regions) would measure price response causally, replace the assumed "
-  "half-strength campaign uplift with a measured one, and turn the forecast into demand at a given price, useful for markdown and campaign planning as well as buying."),
- ("Roadmap", "A third season of history",
-  "With two seasons the calendar cannot be learned as an input, every change had to pass the test with last year's season removed, and 13 month-ends are about three independent tests. A third season would allow multi-year "
-  "seasonality and campaign effects, and a re-test of weighting the youngest launches more, which helped on the latest month-ends but failed that test."),
- ("Roadmap", "Compute last",
-  "Tuning all six models overnight never transferred to later month-ends. Compute is best spent on weekly nowcasting, photo-based trend extraction, averaging several runs of the neural models (two runs of the recommender's "
-  "neural part differ by a median 13% per item) and, with a commercial licence, the newer TabPFN."),
+  "Orders placed from the forecast and compared with perfect foresight: forecasting too low costs more than too high, so the buying quantity sits about {buying_uplift}% above the forecast."),
+ ("Evaluation", "What would improve it most",
+  "A re-forecast after one month of sales (0.395 to 0.369 in the backtest), the store and partner placement plan, and the launch, markdown and stock plans."),
 ]
 
 # One or two sentences per item: what drove the number, what the models said, whether it was adjusted. The builder fills, per item:

@@ -37,7 +37,7 @@ and gives the same numbers up to the models' run-to-run noise (the neural networ
 
 | Member | Script and run | Output |
 |---|---|---|
-| Planning rules | Hand-written per month-end in [`rule_agents/`](../rule_agents/) (`rules.py`); checked by `76_rules_harness.py` | `rule_agents/<origin>/predictions_verified.csv` |
+| Planning rules | Written by AI agents per month-end in [`rule_agents/`](../rule_agents/) (`rules.py`); checked by `76_rules_harness.py` | `rule_agents/<origin>/predictions_verified.csv` |
 | LightGBM tree | `187_losses.py huber huber_new5` (execs `180q_models.py` for the features); June 2026: `ORIGS=2026-06 OSUF=_2026`; last-year test: `LYDROP=1 OSUF=_lyd` (CPU server) | `q_backtest_ls_huber[_new5][_2026].parquet` |
 | … launch routing | `218a_route_tree_2026.py`: items under six months use the launch-weighted tree | `q_backtest_ls_huber_routed_2026.parquet` |
 | Neural network | `197b_nn_ec.py seq=1 seeds=3 seed0=0 tag=_S13ec` and `seed0=10 tag=_S13ecs10`; June 2026 the same with `origins=2026-06 tag=_finalSec / _finalSec_s10` (GPU; execs `57_embed_nn.py`). The backtest file is the mean of the two seed sets (an inline step, D272) | `nn_backtest_preds_S13ecx6`, `…_finalSec[_s10]` |
@@ -68,15 +68,16 @@ Final corrections: `geo_nx5r_fash_2026.parquet` (June 2026) and `geo_nx5r_fash_x
 
 ## 6 The workbook
 
-`181q_final_nx9_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
-(`data/final_2026_nx9_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
-confidence → buying quantity → explanations → sheets. All words are in `181q_nx9_text.py`.
+`181r_final_nx10_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
+(`data/final_2026_nx10_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
+confidence → buying quantity → explanations → sheets. All words are in `181r_nx10_text.py`. (nx10 is nx9 with the repaired text and the roadmap; the
+numbers are identical, and `data/final_2026_nx9_*` are the same tables under nx9's name.)
 
 ## 7 Evaluation quoted in the workbook
 
 | Script | What it measures |
 |---|---|
-| `226_vs_baselines.py` (`SYS=nx5r_fash`) | Error against R3, a naive seasonal forecast, the hand rules and the three together, with intervals |
+| `226_vs_baselines.py` (`SYS=nx5r_fash`) | Error against R3, a naive seasonal forecast, the agents' rules and the three together, with intervals |
 | `224_gate_nx5r.py` | The system with last year's same season removed from training |
 | `221_month_split.py` | Nine ways to split the 4-month total by month |
 | `226_campaign_test.py` | The campaign uplift's backtest |
