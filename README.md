@@ -4,14 +4,15 @@ Monthly unit-sales forecast for 100 style-colours of an online fashion retailer 
 January 2024 to June 2026 (about 1,500 items, sold on edikted.com, in the chain's own stores and through partners). Each item also
 gets a confidence level (1 to 3), and 18 items get a written explanation.
 
-**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx11): 630,254 units
+**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx12): 630,254 units
 (July 177,694, August 187,685, September 130,828, October 134,047); confidence 10 items at 1, 86 at 2, 4 at 3. Its sheets:
 
 | Sheet | What it holds |
 |---|---|
 | Forecast | Monthly units, total, confidence and the model's raw total for each item; explanations for 18 items |
-| Model explanation | The approach (coarse to fine: summary, models, information, data artefacts), how it was tested (protocol, one metric per aspect, the buying simulation, explainability), where it is weak |
+| Model explanation | Three boxes, one topic per line, each opening with a bold summary: the approach (summary, real-world evaluation, models, information, data artefacts), how it was tested (protocol, leakage checks, one metric per aspect, the buying simulation, explainability), where it is weak |
 | Method and decisions | Each major choice with its evidence, by area: framing, models, information, judgement, metrics (one row per aspect: volume-weighted error, per-item error, hit rate, bias, R², ranges, confidence, decision value, how sure the scores are), evaluation, explainability (the cascade, SHAP) and a six-step improvement roadmap |
+| Metrics vs baselines | Every metric of the submitted forecast next to R3, the seasonal naive and the agents' rules, and how much better it is than each (the table below) |
 | Cascade (items) | Each item's July–October total step by step: R3 and a seasonal baseline, the six models (model 1 is the planning rules), their weighted average, the total after the corrections (the raw model total), the share sold on edikted.com, the campaign uplift, the final total (World Cup and out-of-stock rules included), the buying quantity, the highest / lowest model ratio, confidence, P10 / P25 / P75 / P90 |
 | Cascade (hierarchy) | The same steps, from R3 to the buying quantity, summed for the total, each product type and each style |
 | Ranges (totals) | P10, P25, P50, P75 and P90 of the July–October total for all 100 items, each of the 13 product types and the two styles with three items |
@@ -60,8 +61,9 @@ Each item's July–October total is forecast relative to its own recent rate, th
      than forecasting too high.
 
 The models use momentum; seasonality read from like-for-like items; each item's place on its launch curve; where it sells; items
-bought together; fashion attributes and looks (language-model scores, photo and text embeddings); about 30 US events; and normal
-temperatures where each item sells.
+bought together; fashion attributes and looks (language-model scores, photo and text embeddings); about 30 US events; and temperature
+where each item sells: actual monthly temperatures for every US state from NOAA (Hawaii and DC from Open-Meteo), weighted by where
+each item sells, observed up to each month-end, with normals for the coming months.
 
 ## The data and its traps
 
@@ -81,13 +83,30 @@ A rolling backtest at 13 month-ends (February 2025 to February 2026). Everything
 data before the month-end and scored on the next four months. Error is the WAPE of item totals, always read against simple
 baselines:
 
-| Error as a share of the baseline's error, on the nine most recent month-ends | |
-|---|---|
-| R3, a recency forecast (last three months × 4) | 0.38 |
-| A naive seasonal forecast (R3 × last year's seasonal pattern of the product type) | 0.61 |
-| The agents' planning rules | 0.78 |
-| The three baselines averaged together | 0.59 |
-| R3 on last July–October, the same months as this forecast | 0.68 |
+**Real-world evaluation first.** The main baseline is planning rules written by AI agents: at each month-end a fresh agent saw only
+the data up to that date (never anything later, apart from whatever general knowledge its language-model pretraining holds, which
+cannot be audited) and revised the previous rules, as a planner would. And the forecast is also judged by what it is worth in the
+decision it serves: a daily buying simulation (orders every 7 days at most, 21-day lead time) scores the profit lost against perfect
+foresight.
+
+Every metric on the nine most recent month-ends (9,031 item forecasts), all scored the same way (`pipeline/232_metrics_table.py`;
+the workbook's "Metrics vs baselines" sheet):
+
+| Metric | Submitted system | R3 | Seasonal naive | Agents' rules | Better than R3 | Better than the seasonal naive | Better than the agents' rules |
+|---|---|---|---|---|---|---|---|
+| Volume-weighted error (WAPE) | 26.5% | 69.9% | 43.6% | 34.1% | 62% lower | 39% lower | 22% lower |
+| Per-item error (median) | 24.2% | 57.2% | 38.8% | 30.3% | 58% lower | 38% lower | 20% lower |
+| Hit rate: items within ±20% | 42.3% | 18.1% | 27.1% | 34.6% | +24.3 pts | +15.2 pts | +7.7 pts |
+| Hit rate: units within ±20% | 49.1% | 19.2% | 29.9% | 37.9% | +30.0 pts | +19.2 pts | +11.2 pts |
+| Bias | -5.6% | +15.4% | -6.7% | -6.4% | +9.8 pts closer to 0 | +1.0 pts closer to 0 | +0.8 pts closer to 0 |
+| Error plus bias | 33.6% | 113.7% | 50.4% | 45.0% | 70% lower | 33% lower | 25% lower |
+| Variance explained (R², units) | 0.85 | 0.15 | 0.64 | 0.76 | +0.71 | +0.21 | +0.10 |
+| Variance explained (R², log units) | 0.92 | 0.76 | 0.84 | 0.90 | +0.16 | +0.09 | +0.02 |
+| Pinball loss, P10 to P90 | 10.5% | 28.1% | 16.7% | 13.2% | 63% lower | 37% lower | 20% lower |
+| Buying loss (decision value) | 10.6% | 19.5% | 14.5% | 12.4% | 46% lower | 27% lower | 14% lower |
+| Win rate |  |  |  |  | 76% of items | 68% of items | 61% of items |
+
+On last July–October, the same months as this forecast, the error is 0.68 of R3's; against the three baselines averaged, 0.59.
 
 - **Against the baselines.** The system beats each baseline at every one of those month-ends, with 95% intervals (resampling
   styles and whole month-ends) well below 1. About four in ten item totals land within ±20%.
@@ -125,7 +144,7 @@ Measured in the backtest, these would help most:
 
 All scripts run from the repository root with Python 3.12 (`python pipeline/<script>`); [`pipeline/README.md`](pipeline/README.md)
 gives the stages and the exact commands.
-- The workbook builder (`pipeline/181s_final_nx11_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
+- The workbook builder (`pipeline/181t_final_nx12_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
   cell.
 - Rerunning the earlier stages needs the raw order lines (`Dataset.parquet`, 249 MB) at the root. They are not in the repository
   because of GitHub's file limit.

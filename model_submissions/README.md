@@ -3,8 +3,8 @@
 Every workbook other than the submission, one folder each: two early candidates that add one member to the LightGBM quantile model,
 and the earlier versions of the submission.
 Totals are July–October 2026 units for the 100 items; confidence counts are items at level 1 / 2 / 3. Decision ids refer to
-[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx11 (D429): nx9's numbers with the explanation rewritten coarse to fine, all the main metrics and the
-cascade as explainability.
+[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx12 (D431): nx9's numbers; the explanation one topic per line with bold summaries, the buying simulation of
+the submitted system, a metrics-versus-baselines sheet, the NOAA temperature data.
 
 | Folder | What it is | Total | Confidence | Decision |
 |---|---|---|---|---|
@@ -24,3 +24,4 @@ cascade as explainability.
 | `12_nx8_combined` | nx7c's numbers with nx7's text | 629,779 | 10 / 86 / 4 | D421, submitted |
 | `13_nx9_lookalike_term` | nx8 plus the look-alikes' last-year ramp in the correction | 630,254 | 10 / 86 / 4 | D422, submitted |
 | `14_nx10_roadmap_text` | nx9's numbers with the repaired text and the improvement roadmap | 630,254 | 10 / 86 / 4 | D424, submitted D428 |
+| `15_nx11_metrics_cascade` | The explanation coarse to fine, all the main metrics, the cascade as explainability | 630,254 | 10 / 86 / 4 | D429, submitted |

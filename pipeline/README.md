@@ -68,10 +68,10 @@ Final corrections: `geo_nx5r_fash_2026.parquet` (June 2026) and `geo_nx5r_fash_x
 
 ## 6 The workbook
 
-`181s_final_nx11_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
-(`data/final_2026_nx11_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
-confidence → buying quantity → explanations → sheets. All words are in `181s_nx11_text.py`. (nx11 has nx9's numbers with the rewritten text: the roadmap (nx10), then all the main
-metrics and the cascade as explainability (nx11); `data/final_2026_nx9_*` and `…nx10_*` are the same tables under earlier names.)
+`181t_final_nx12_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
+(`data/final_2026_nx12_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
+confidence → buying quantity → explanations → sheets. All words are in `181t_nx12_text.py`; it also writes the "Metrics vs baselines" sheet from `data/metrics_table_nx12.csv`. (nx12 has
+nx9's numbers with the rewritten text; `data/final_2026_nx9_*` … `nx11_*` are the same tables under earlier names.)
 
 ## 7 Evaluation quoted in the workbook
 
@@ -82,5 +82,8 @@ metrics and the cascade as explainability (nx11); `data/final_2026_nx9_*` and `�
 | `221_month_split.py` | Nine ways to split the 4-month total by month |
 | `226_campaign_test.py` | The campaign uplift's backtest |
 | `217_score_new5.py` | The launch-weighted tree, everywhere and routed to new items |
+| `231_sim_nx11.py`, `231b_sim_naive.py` | The daily buying simulation of the submitted system, R3, the agents' rules and the seasonal naive (11 three-month windows; `data/sim_nx11_windows.csv`) |
+| `232_metrics_table.py` | Every metric of the submitted system against R3, the seasonal naive and the agents' rules (`data/metrics_table_nx12.csv`), scored as the scoreboard |
 
-Shared helpers: `score_lib.py`, `86_metrics_suite.py`, `20b_quantiles_lean.py`, `lowrun.ps1`.
+Shared helpers: `score_lib.py`, `86_metrics_suite.py`, `20b_quantiles_lean.py`, `lowrun.ps1`; the buying simulator `47_decision_sim.py`,
+`59_sim_v2.py`, `87_sim_systems.py`; the scoreboard's base table `157_stack_new.py`, `159_scoreboard.py` (read by `232`).

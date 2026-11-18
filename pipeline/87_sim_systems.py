@@ -1,4 +1,4 @@
-"""Buying-simulation profit loss for every system (D110). eda/59_sim_v2.py machinery and 11 rolling 3-month windows (2025-03 .. 2026-01),
+"""Buying-simulation profit loss for every system (D110). pipeline/59_sim_v2.py machinery and 11 rolling 3-month windows (2025-03 .. 2026-01),
 order every 7 days at most, 21-day lead, P=1, C=0.40, salvage 0.20, holding 25%/yr; loss = % of the perfect-foresight profit.
 Only the monthly forecast changes; the safety-stock spread is the calibrated quantile-model IQR for all systems (D067), tau 0.80.
 Two policies: 'production' = calendar shape + 14-day level nowcast (alpha 0.5) switched off Sep-Dec (D083/D090);
@@ -6,19 +6,19 @@ Two policies: 'production' = calendar shape + 14-day level nowcast (alpha 0.5) s
 Monthly forecasts per (origin, item, h):
   R3     = mean of the last 3 months, every month
   qmodel = LightGBM monthly split scaled to the quantile-model P50 total (the D067 construction)
-  lgb_nn = 50/50 LightGBM-split and NN monthly P50 (as eda/59 'blend')
+  lgb_nn = 50/50 LightGBM-split and NN monthly P50 (as pipeline/59 'blend')
   nn     = NN monthly P50 (S13x6);  rules = the rule agents' monthly forecasts
   q_nn, r_q, r_q_nn = geometric means of the members' monthly forecasts.
 Items without a rules or NN forecast at an origin fall back to the qmodel construction (counted)."""
 import sys, importlib.util, numpy as np, pandas as pd
 sys.stdout.reconfigure(encoding="utf-8")
 sys.argv = ["x", "nn=nn_backtest_preds_S13x6"]
-spec = importlib.util.spec_from_file_location("v2", "eda/59_sim_v2.py"); v2 = importlib.util.module_from_spec(spec); spec.loader.exec_module(v2)
+spec = importlib.util.spec_from_file_location("v2", "pipeline/59_sim_v2.py"); v2 = importlib.util.module_from_spec(spec); spec.loader.exec_module(v2)
 sim = v2.sim
 Mo = pd.read_parquet("data/monthly_item.parquet"); Mo.columns = [str(c) for c in Mo.columns]
 RUL = {}
 for o in [str(p) for p in pd.period_range("2025-02", "2026-02", freq="M")]:
-    r = pd.read_csv(f"agent_eval/{o}/predictions_verified.csv", dtype={"month": str})
+    r = pd.read_csv(f"rule_agents/{o}/predictions_verified.csv", dtype={"month": str})
     r["h"] = [(pd.Period(m, "M") - pd.Period(o, "M")).n for m in r.month]; RUL[o] = r.pivot(index="style_color", columns="h", values="pred")
 FALL = {"rules": [0, 0], "nn": [0, 0]}
 def g(*xs): return np.exp(np.mean([np.log(np.maximum(x, 0) + 0.5) for x in xs], axis=0)) - 0.5

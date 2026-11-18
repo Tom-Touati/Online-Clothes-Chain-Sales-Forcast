@@ -1,11 +1,11 @@
 """D153: the D150/D151 quantile model (lean + cart-neighbour seasonal ramp + LLM scores, data/q_backtest_nf_cpllm.parquet) in the
-three-way and stacked with the Black Friday fix, against the D141 best system. Built from eda/137 (D141), standard table: three-way on the lean + occasion-timing quantile model (D135), plus the Black Friday
-fix (D137: November level from last year + item-lift allocation; applied as each item's 4-month adjustment ratio from eda/132's monthly
+three-way and stacked with the Black Friday fix, against the D141 best system. Built from archive/eda/137 (D141), standard table: three-way on the lean + occasion-timing quantile model (D135), plus the Black Friday
+fix (D137: November level from last year + item-lift allocation; applied as each item's 4-month adjustment ratio from archive/eda/132's monthly
 split: sum_h base_h x r_h / sum_h base_h). Rows: the three-way, each fix alone, both together. Recent, all 13, targets, BF origins."""
 import numpy as np, pandas as pd, sys, importlib.util
 sys.stdout.reconfigure(encoding="utf-8"); pd.set_option("display.width", 250)
 T = pd.read_parquet("data/fixes_items.parquet")
-spec = importlib.util.spec_from_file_location("sl", "eda/score_lib.py"); sl = importlib.util.module_from_spec(spec); spec.loader.exec_module(sl)
+spec = importlib.util.spec_from_file_location("sl", "pipeline/score_lib.py"); sl = importlib.util.module_from_spec(spec); spec.loader.exec_module(sl)
 q = pd.read_parquet("data/q_backtest.parquet").set_index(["origin", "style_color"]).reindex(pd.MultiIndex.from_arrays([T.origin, T.style_color]))
 LQ = np.log1p(q[["q10", "q25", "q50", "q75", "q90"]].values); D = {c: LQ[:, j] - LQ[:, 2] for j, c in enumerate(["q10", "q25", "q50", "q75", "q90"])}
 lean = pd.read_parquet("data/q_backtest_abl_leanocct.parquet").set_index(["origin", "style_color"]).q50.reindex(pd.MultiIndex.from_arrays([T.origin, T.style_color])).values
@@ -16,7 +16,7 @@ b = pd.read_parquet("data/best_backtest_preds.parquet")[["origin", "style_color"
 n = pd.read_parquet("data/nn_backtest_preds_S13x6.parquet")[["origin", "style_color", "h", "q50"]].rename(columns={"q50": "nn_m"})
 RR = []
 for o in T.origin.unique():
-    r = pd.read_csv(f"agent_eval/{o}/predictions_verified.csv", dtype={"month": str}); r["h"] = [(pd.Period(m, "M") - pd.Period(o, "M")).n for m in r.month]; RR.append(r.assign(origin=o))
+    r = pd.read_csv(f"rule_agents/{o}/predictions_verified.csv", dtype={"month": str}); r["h"] = [(pd.Period(m, "M") - pd.Period(o, "M")).n for m in r.month]; RR.append(r.assign(origin=o))
 Mo = b.merge(n, on=["origin", "style_color", "h"]).merge(pd.concat(RR)[["origin", "style_color", "h", "pred"]].rename(columns={"pred": "ru_m"}), on=["origin", "style_color", "h"])
 Mo["geo"] = np.exp((np.log(Mo.lgb_m.clip(lower=.01)) + np.log(Mo.nn_m.clip(lower=.01)) + np.log(Mo.ru_m.clip(lower=.01))) / 3)
 Mo = Mo.merge(X, on=["origin", "style_color", "h"], how="left").fillna({"r_level": 1.0, "r_bf": 1.0})

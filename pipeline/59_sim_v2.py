@@ -4,13 +4,13 @@
     calendar, which the business knows in advance) instead of evenly;
 (b) nowcast as a ratio: recent 14-day sales are compared with what the forecast expected for those same 14 days, and the
     forward forecast is scaled by that ratio^alpha (the D067 nowcast blended levels, so it chased the Black Friday peak);
-(c) forecast source: LightGBM (as D067), the embedding NN (monthly P50, eda/57), or their 50/50 blend; spread either the
+(c) forecast source: LightGBM (as D067), the embedding NN (monthly P50, pipeline/57), or their 50/50 blend; spread either the
     D067 4-month IQR or the NN's own month-level IQR.
-Usage: python eda/59_sim_v2.py [nn=nn_backtest_preds_tag]"""
+Usage: python pipeline/59_sim_v2.py [nn=nn_backtest_preds_tag]"""
 import importlib.util, sys, numpy as np, pandas as pd
 sys.stdout.reconfigure(encoding="utf-8"); pd.set_option("display.width", 230)
 ARGS = dict(a.split("=") for a in sys.argv[1:])
-spec = importlib.util.spec_from_file_location("sim", "eda/47_decision_sim.py"); sim = importlib.util.module_from_spec(spec)
+spec = importlib.util.spec_from_file_location("sim", "pipeline/47_decision_sim.py"); sim = importlib.util.module_from_spec(spec)
 sys.argv = ["x"]; spec.loader.exec_module(sim)
 from scipy.stats import norm
 NNF = ARGS.get("nn"); NN = pd.read_parquet(f"data/{NNF}.parquet") if NNF else None

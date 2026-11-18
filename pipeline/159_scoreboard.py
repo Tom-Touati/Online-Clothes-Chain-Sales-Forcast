@@ -1,6 +1,6 @@
 """Scoreboard data for the forecast-scoreboard dashboard (https://claude.ai/artifact/9ZPDJvYzHq2cUqELfcXdVY).
 Every registered system is scored on the same 11,727 item-origins (13 backtest origins, Feb 2025 - Feb 2026) with the standard
-R3-relative table (eda/score_lib.py: WAPE / R3, relMAE vs R3, win rate vs R3 and vs R3 + rules, (MAE + |bias|) / R3, pinball / R3
+R3-relative table (pipeline/score_lib.py: WAPE / R3, relMAE vs R3, win rate vs R3 and vs R3 + rules, (MAE + |bias|) / R3, pinball / R3
 with the stored quantile model's spread, bias), on four subsets: the nine recent origins, all 13, the 100 targets (recent) and the
 Black Friday origins (Jul-Oct 2025). Buying-simulation loss (production policy, 11 windows Mar 2025 - Jan 2026, all items) comes
 from the stored simulation files, as the mean loss and as a ratio to R3's.
@@ -9,7 +9,7 @@ Writes data/scoreboard.json ({rows, meta}) and data/scoreboard_sim.json (loss pe
 import sys, json, io, contextlib, numpy as np, pandas as pd
 sys.stdout.reconfigure(encoding="utf-8")
 with contextlib.redirect_stdout(io.StringIO()):                      # T with r_q_nn, r_qlean_nn, best (D141), r_qnew_nn, best_new (D153)
-    exec(open("eda/157_stack_new.py", encoding="utf-8").read().split("BF = T.origin.isin")[0].replace("sys.stdout.reconfigure(encoding=\"utf-8\"); ", ""))
+    exec(open("pipeline/157_stack_new.py", encoding="utf-8").read().split("BF = T.origin.isin")[0].replace("sys.stdout.reconfigure(encoding=\"utf-8\"); ", ""))
 key = pd.MultiIndex.from_arrays([T.origin, T.style_color]); G = lambda *xs: np.exp(np.mean([np.log(np.maximum(x, 0) + 0.5) for x in xs], axis=0)) - 0.5
 rd = pd.read_parquet("data/q_backtest_rd_log.parquet").set_index(["origin", "style_color"]).reindex(key).q50.values
 T["r_share_rd"] = G(T.rules.values, G(T.q_lean.values, rd), T.nn.values)
@@ -244,23 +244,23 @@ S0 = pd.read_csv("data/sim_systems_windows.csv"); S0 = S0[S0.policy == "producti
 NONCOM = {"q_tab35f", "tab_p35f", "tab_p2_35f", "fk_p2c_35fd"}   # TabPFN 3.5: non-commercial licence; never champion (D169)
 SIMF = {"sys": S0.rename(columns={"system": "key"}), "best": pd.read_csv("data/sim_best_stack_windows.csv").rename(columns={"variant": "key"}),
         "new": pd.read_csv("data/sim_new_stack_windows.csv").rename(columns={"variant": "key"}),
-        "wx": pd.read_csv("data/sim_wx_stack_windows.csv").rename(columns={"variant": "key"}),   # D161 (eda/168)
-        "dyn": pd.read_csv("data/sim_dyn_stack_windows.csv").rename(columns={"variant": "key"}),   # D165 (eda/171)
-        "tab": pd.read_csv("data/sim_tabpfn_stack_windows.csv").rename(columns={"variant": "key"}),   # D169 (eda/175)
-        "fkm5": pd.read_csv("data/sim_fkm5_stack_windows.csv").rename(columns={"variant": "key"}),   # D187 (eda/175b)
-        "fk2": pd.read_csv("data/sim_fk2_stack_windows.csv").rename(columns={"variant": "key"}),   # D188 (eda/175c)
-        "fk3": pd.read_csv("data/sim_fk3_stack_windows.csv").rename(columns={"variant": "key"}),   # D230 (eda/175d)
-        "fk4": pd.read_csv("data/sim_fk4_stack_windows.csv").rename(columns={"variant": "key"}),   # D231 (eda/175e)
-        "fk5": pd.read_csv("data/sim_fk5_stack_windows.csv").rename(columns={"variant": "key"}),   # D232 (eda/175f)
-        "fk6": pd.read_csv("data/sim_fk6_stack_windows.csv").rename(columns={"variant": "key"}),   # D233 (eda/175g)
-        "fk7": pd.read_csv("data/sim_fk7_stack_windows.csv").rename(columns={"variant": "key"}),   # D236 (eda/175h)
-        "seg": pd.read_csv("data/sim_seg_windows.csv").rename(columns={"variant": "key"}),   # D246 (eda/175i)
-        "geo": pd.read_csv("data/sim_geo_windows.csv").rename(columns={"variant": "key"}),   # D249 (eda/175j)
-        "nx": pd.read_csv("data/sim_nx_windows.csv").rename(columns={"variant": "key"}),   # D260 (eda/175k)
-        "lnx": pd.read_csv("data/sim_ladder_nx_windows.csv").rename(columns={"variant": "key"}),   # D260 (eda/175l)
-        "chase": pd.read_csv("data/sim_chase_windows.csv").rename(columns={"variant": "key"}),   # D265 (eda/175m)
-        "nn": pd.read_csv("data/sim_nn_windows.csv").rename(columns={"variant": "key"}),   # D273 (eda/175n)
-        "nnsig": pd.read_csv("data/sim_nnsig_windows.csv").rename(columns={"variant": "key"})}   # D293 (eda/175p)
+        "wx": pd.read_csv("data/sim_wx_stack_windows.csv").rename(columns={"variant": "key"}),   # D161 (archive/eda/168)
+        "dyn": pd.read_csv("data/sim_dyn_stack_windows.csv").rename(columns={"variant": "key"}),   # D165 (archive/eda/171)
+        "tab": pd.read_csv("data/sim_tabpfn_stack_windows.csv").rename(columns={"variant": "key"}),   # D169 (archive/eda/175)
+        "fkm5": pd.read_csv("data/sim_fkm5_stack_windows.csv").rename(columns={"variant": "key"}),   # D187 (archive/eda/175b)
+        "fk2": pd.read_csv("data/sim_fk2_stack_windows.csv").rename(columns={"variant": "key"}),   # D188 (archive/eda/175c)
+        "fk3": pd.read_csv("data/sim_fk3_stack_windows.csv").rename(columns={"variant": "key"}),   # D230 (archive/eda/175d)
+        "fk4": pd.read_csv("data/sim_fk4_stack_windows.csv").rename(columns={"variant": "key"}),   # D231 (archive/eda/175e)
+        "fk5": pd.read_csv("data/sim_fk5_stack_windows.csv").rename(columns={"variant": "key"}),   # D232 (archive/eda/175f)
+        "fk6": pd.read_csv("data/sim_fk6_stack_windows.csv").rename(columns={"variant": "key"}),   # D233 (archive/eda/175g)
+        "fk7": pd.read_csv("data/sim_fk7_stack_windows.csv").rename(columns={"variant": "key"}),   # D236 (archive/eda/175h)
+        "seg": pd.read_csv("data/sim_seg_windows.csv").rename(columns={"variant": "key"}),   # D246 (archive/eda/175i)
+        "geo": pd.read_csv("data/sim_geo_windows.csv").rename(columns={"variant": "key"}),   # D249 (archive/eda/175j)
+        "nx": pd.read_csv("data/sim_nx_windows.csv").rename(columns={"variant": "key"}),   # D260 (archive/eda/175k)
+        "lnx": pd.read_csv("data/sim_ladder_nx_windows.csv").rename(columns={"variant": "key"}),   # D260 (archive/eda/175l)
+        "chase": pd.read_csv("data/sim_chase_windows.csv").rename(columns={"variant": "key"}),   # D265 (archive/eda/175m)
+        "nn": pd.read_csv("data/sim_nn_windows.csv").rename(columns={"variant": "key"}),   # D273 (archive/eda/175n)
+        "nnsig": pd.read_csv("data/sim_nnsig_windows.csv").rename(columns={"variant": "key"})}   # D293 (archive/eda/175p)
 def simw(src): f, k = src; x = SIMF[f]; return x[x.key == k].set_index("start").loss_pct
 r3loss = simw(("sys", "R3")).mean()
 BF = T.origin.isin(["2025-07", "2025-08", "2025-09", "2025-10"]).values; REC = (T.origin >= "2025-06").values

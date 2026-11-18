@@ -1,12 +1,12 @@
 """The words of the workbook nx11 (D429): nx10's text (D424 / D425) with the "Model explanation" rewritten coarse to fine, all the main
-metrics and the cascade as explainability, from Fork 2's draft archive/eda/drafts/nx11_text.py (D417). User: "you need to edit the submission to
+metrics and the cascade as explainability, from Fork 2's draft eda/drafts/nx11_text.py (D417). User: "you need to edit the submission to
 match the concepts we discussed. add to explainability the cascade" and "the evaluation metrics need to cover all main metrics that capture
 different aspects". The figures were checked against data/scoreboard.json (row nx9_geo = the submitted numbers, campaign uplift included),
-the nx10 cascade tables and the log (D429). Read by pipeline/181s_final_nx11_2026.py, which fills the {placeholders}:
+the nx10 cascade tables and the log (D429). Read by eda/181s_final_nx11_2026.py, which fills the {placeholders}:
 {campaign_pct} = what the campaign uplift adds to the 100 items in total; {buying_uplift} = the median buying quantity over the forecast, in
 percent; {launch_items} / {launch_lift} = the targets under six months and what the launch-weighted tree adds to their six-model average.
 "Method and decisions" areas, in order: Framing, Models, Information, Judgement, Metrics (one row per aspect of accuracy), Evaluation,
-Explainability (the cascade, then SHAP), Roadmap. nx10's text and its sources: archive/eda/181r_nx10_text.py."""
+Explainability (the cascade, then SHAP), Roadmap. nx10's text and its sources: eda/181r_nx10_text.py."""
 
 MODEL_EXPLANATION = {
  "Your approach": (
