@@ -27,7 +27,7 @@ for it in J["items"]:
     if imp is None or bench is None or launch:
         v.update(call="no call", tone="neutral", adj=None,
                  text=("A launch or near-launch: the recent rate (R3) covers too little selling to anchor a seasonal check, so the projection rests on the models' launch curves and neighbours. "
-                       "I would not override it; I would watch the first four weeks of July and re-forecast (the month-1 update cut the error from 0.395 to 0.369 in the backtest)."))
+                       "I would not override it; I would watch the first four weeks of July and re-forecast (in the backtest, knowing the first month of sales was worth 0.048 of R3's error, 0.398 to 0.350)."))
     else:
         g = imp / bench; v["gap"] = round(g, 2)
         if g < 0.80:

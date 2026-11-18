@@ -1,5 +1,5 @@
 """D338 (fork 2): the hand-over file of the location recommender for Main's sixth-member test (corrections re-fitted there).
-Chosen run (D339): members' item inputs + log-error loss, prediction within exp(±3) of the recent level, and below 12 closed training origins the DeepFM falls back to the tree version (eda/202 itemfeat=1 loss=logl1 etaclip=3 mino=12), honest setting.
+Chosen run (D339): members' item inputs + log-error loss, prediction within exp(±3) of the recent level, and below 12 closed training origins the DeepFM falls back to the tree version (pipeline/202 itemfeat=1 loss=logl1 etaclip=3 mino=12), honest setting.
 Fix: the DeepFM version has a handful of exploding forecasts at the earliest origins, where it trains on few rows (all-13 WAPE / R3 in
 the hundreds). Every recommender forecast is capped at 3 x the highest of the five members for that item and origin (a guard, not a
 tuned value); the recent-origin scores are unchanged by it.

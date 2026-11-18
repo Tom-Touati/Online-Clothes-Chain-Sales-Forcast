@@ -1,9 +1,9 @@
 # The pipeline
 
-Every script that produced the submission, in stage order. All run from the repository root (`python pipeline/<script>`), read
-and write `data/`, and keep the numbered names they had during the project, so the decision log ([`docs/decision_log.md`](../docs/decision_log.md),
+Every script that produced the submission, in stage order. All run from the repository root (`python pipeline/<script>`, with the arguments given below), read
+and write `data/` (except `196b_tabpfn.py`, which writes to `out/`), and keep the numbered names they had during the project, so the decision log ([`docs/decision_log.md`](../docs/decision_log.md),
 entries `D…`) can be searched for them; [`docs/FILE_MAP.tsv`](../docs/FILE_MAP.tsv) maps the log's `eda/…` paths to this repository.
-"Laptop" jobs ran on 3 threads at low priority (`lowrun.ps1`); "GPU" jobs on a cloud T4 / A10; "CPU server" on an 8-core cloud machine.
+"Laptop" jobs ran on 3 threads at low priority (`lowrun.ps1`, which has the project folder's path and Python written in: edit both lines to use it elsewhere); "GPU" jobs on a cloud T4 / A10; "CPU server" on an 8-core cloud machine.
 
 Checked: the workbook builder rerun in this repository reproduces the submission in every cell of every sheet, and stage 3's
 routing step, stage 7's baseline comparison, last-year test and monthly-split test reproduce their logged numbers here.
@@ -14,8 +14,8 @@ and gives the same numbers up to the models' run-to-run noise (the neural networ
 
 | Script | What it does |
 |---|---|
-| `02_build_aggs.py` | Reads `Dataset.parquet` with DuckDB: units per item, day and channel (`daily_item_chan`), items (`items`), order types |
-| `03_targets.py` | The 100 target items from the exercise workbook (`targets.csv`) |
+| `02_build_aggs.py Dataset.parquet` | Reads the order lines (the path is its only argument) with DuckDB: units per item, day and channel (`daily_item_chan`), items (`items`), order types |
+| `03_targets.py exercise/Edikted_Forecasting_Exercise.xlsx` | The 100 target items from the exercise workbook, its only argument (`targets.csv`) |
 | `04_eda.py` | Units per item and month (`monthly_item`), the targets' overview, suspected stock-outs |
 | `06_features.py` | One row per item × month-end × horizon from data up to the month-end only: recent rates, momentum, seasonal ratios (`features`) |
 
@@ -38,23 +38,23 @@ and gives the same numbers up to the models' run-to-run noise (the neural networ
 | Member | Script and run | Output |
 |---|---|---|
 | Planning rules | Written by AI agents per month-end in [`rule_agents/`](../rule_agents/) (`rules.py`); checked by `76_rules_harness.py` | `rule_agents/<origin>/predictions_verified.csv` |
-| LightGBM tree | `187_losses.py huber huber_new5` (execs `180q_models.py` for the features); June 2026: `ORIGS=2026-06 OSUF=_2026`; last-year test: `LYDROP=1 OSUF=_lyd` (CPU server) | `q_backtest_ls_huber[_new5][_2026].parquet` |
-| … launch routing | `218a_route_tree_2026.py`: items under six months use the launch-weighted tree | `q_backtest_ls_huber_routed_2026.parquet` |
+| LightGBM tree | `187_losses.py huber huber_new5` (execs `180q_models.py` for the features); June 2026: `ORIGS=2026-06 OSUF=_2026`; last-year test: `LYDROP=1 OSUF=_lyd` (CPU server; the plain tree's last-year run is stored as `srv4/q_backtest_ls_huber_noly`) | `q_backtest_ls_huber[_new5][_2026].parquet`, `q_backtest_ls_huber_new5_lyd.parquet`, `srv4/q_backtest_ls_huber_noly.parquet` |
+| … launch routing | `218a_route_tree_2026.py --write` (after stage 4's `218_base_nx5r.py`, whose age column it reads; without `--write` it only writes a check file): items under six months use the launch-weighted tree | `q_backtest_ls_huber_routed_2026.parquet` |
 | Neural network | `197b_nn_ec.py seq=1 seeds=3 seed0=0 tag=_S13ec` and `seed0=10 tag=_S13ecs10`; June 2026 the same with `origins=2026-06 tag=_finalSec / _finalSec_s10` (GPU; execs `57_embed_nn.py`). The backtest file is the mean of the two seed sets (an inline step, D272) | `nn_backtest_preds_S13ecx6`, `…_finalSec[_s10]` |
-| TabPFN 32 | `196b_tabpfn.py v2 feat=dyn est=32` and `orig=2026-06` (GPU) | `q_backtest_fktab_tabpfn_v2_dyn_e32`, `fk_2026_pf2d32` |
-| TabPFN calibrated | `196b_tabpfn.py v2 feat=dyn` (8 estimators), then `199c_conformal.py` (per-segment conformal quantiles, backtest) and `199e_conformal_apply.py` (June 2026) | `q_backtest_fkconf_pfn2dyn_seg_tails`, `fk_2026_pf2c` |
-| Recommender | `202_rc_model.py` (DeepFM per item × selling place, summed; GPU), D339 / D354 / D358 | `rc_recsys_preds` (column `rc_deepfm`) |
+| TabPFN 32 | `196b_tabpfn.py v2 feat=dyn est=32` and the same with `orig=2026-06` (GPU; the script writes `out/q_backtest_tabpfn_v2_dyn_e32.parquet` and `out/q_backtest_tabpfn_v2_o2026-06_dyn_e32.parquet`, so create `out/` first; they were copied into `data/` under the names on the right) | `q_backtest_fktab_tabpfn_v2_dyn_e32`, `fk_2026_pf2d32` |
+| TabPFN calibrated | `196b_tabpfn.py v2 feat=dyn` (8 estimators) and the same with `orig=2026-06` (GPU; written to `out/`, the backtest copied to `data/q_backtest_fktab_tabpfn_v2_dyn.parquet`), then `199c_conformal.py pfn2dyn=data/q_backtest_fktab_tabpfn_v2_dyn.parquet` (per-segment conformal quantiles, backtest; the `seg_tails` variant is the member) and `199e_conformal_apply.py backtest=data/q_backtest_fkconf_pfn2dyn_seg_tails.parquet target=out/q_backtest_tabpfn_v2_o2026-06_dyn.parquet out=data/fk_2026_pf2c.parquet` (June 2026) | `q_backtest_fkconf_pfn2dyn_seg_tails`, `fk_2026_pf2c` |
+| Recommender | `202_rc_model.py itemfeat=1 loss=logl1 etaclip=3 mino=12 tag=_if_logl1_c3_m12` (DeepFM per item × selling place, summed; GPU / CPU server), then `205_rc_handover.py` (caps each forecast at 3 × the highest member and writes the columns `rc_deepfm`, `rc_gbm`, `rc_avg`), D338 / D339 / D354 / D358 | `rc_recsys_preds` (column `rc_deepfm`) |
 
 ## 4 Base table and corrections
 
 | Script | What it does |
 |---|---|
-| `179d_base.py`, `180d_newbase.py`, `181a_base2026.py` | The table of member forecasts, actuals and descriptors per item × month-end (`dec_base…`); `181a` appends June 2026 (env `SRC`, `NNS`, `MEMF`, `RC=1 RCW=0.25`, D361) |
+| `179d_base.py`, `180d_newbase.py <tag>`, `181a_base2026.py` | The table of member forecasts, actuals and descriptors per item × month-end (`dec_base…`): `179d` writes the five-member `dec_base`, `180d <tag>` swaps in a tree member from `q_backtest_nx_<tag>`. The six-member backtest base `dec_base_ecnsnnhubrq.parquet` (Huber tree, NN, recommender at 0.25; D355 / D358) was made by an inline step and is read as stored. `181a` appends June 2026: `SRC=ecnsnnhubrq NNS=nn_backtest_preds_finalSec,nn_backtest_preds_finalSec_s10 MEMF=data/q_backtest_ls_huber_2026.parquet RC=1 RCW=0.25` → `dec_base_ecnsnnhubrq26` (D361) |
 | `218_base_nx5r.py` | Swaps in the routed tree, recomputes the weighted mean (`dec_base_nx5r26`) |
 | `179x2_bias.py` | Bias by volume × age × discount group, learnt from earlier month-ends only: `DEC=_nx5r26 NOSCORE=1` (CPU server) |
 | `179b_breakout.py` | Breakout / fading residual model: `XSIG=1 DEC=_nx5r26 NOSCORE=1` (CPU server) |
 | `218c_geo_nx5r.py` | Combines the two (geometric mean, each month-end's total kept) |
-| `228_breakout_fashion.py` | Adds the look-alikes' last-year ramp as a small linear term (D401; CPU server) | 
+| `228_breakout_fashion.py` | Adds the look-alikes' last-year ramp as a small linear term (within-origin ridge, D401): `OUT2026=1` (CPU server; without it, or with `LYGATE=1`, it only prints the backtest scores) | 
 
 Final corrections: `geo_nx5r_fash_2026.parquet` (June 2026) and `geo_nx5r_fash_x_preds.parquet` (backtest).
 
@@ -68,10 +68,10 @@ Final corrections: `geo_nx5r_fash_2026.parquet` (June 2026) and `geo_nx5r_fash_x
 
 ## 6 The workbook
 
-`181r_final_nx10_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
-(`data/final_2026_nx10_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
-confidence → buying quantity → explanations → sheets. All words are in `181r_nx10_text.py`. (nx10 is nx9 with the repaired text and the roadmap; the
-numbers are identical, and `data/final_2026_nx9_*` are the same tables under nx9's name.)
+`181s_final_nx11_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
+(`data/final_2026_nx11_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
+confidence → buying quantity → explanations → sheets. All words are in `181s_nx11_text.py`. (nx11 has nx9's numbers with the rewritten text: the roadmap (nx10), then all the main
+metrics and the cascade as explainability (nx11); `data/final_2026_nx9_*` and `…nx10_*` are the same tables under earlier names.)
 
 ## 7 Evaluation quoted in the workbook
 

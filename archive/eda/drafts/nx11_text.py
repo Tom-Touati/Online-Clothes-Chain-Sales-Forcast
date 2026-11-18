@@ -1,0 +1,58 @@
+"""Fork 2 (D417): the Model explanation rewritten coarse-to-fine, with all the main metrics and the cascade as explainability.
+User, 18 Nov: "you need to edit the submission to match the concepts we discussed. add to explainability the cascade" and "the evaluation metrics
+need to cover all main metrics that capture different aspects". The concepts: the user's own outline (summary -> models -> axes of information ->
+evaluation -> explainability), with Fork 2's corrections (mixture weights fixed, ranges calibrated; rules by agents, time-honest; no per-decision
+tracing; steps tested with intervals, not all significant). Forecast numbers unchanged. Numbers: scoreboard row nx9_geo = the submitted nx10
+(data/scoreboard.json, recent 9 unless stated), cascade data/final_2026_nx10_cascade*.csv, log entries named in the comments.
+Run it to print each box's length. The builder takes APPROACH, TESTED, WEAK and the ROWS edits."""
+
+APPROACH = """In short: an ensemble of deep-learning and classical models that reads each item's recent history, its seasonality, fashion trends and look-alike items, campaigns and special events, and then corrects itself on its own past errors. Each part was kept only if it held in a backtest that replays the real decision month by month, against the rules a planner would write and in a simulation of inventory buying.
+The models. Six models each forecast the July-October total relative to the item's recent rate: (1) planning rules written by AI agents, revised at each month-end with only the data up to it; (2) gradient-boosted trees (LightGBM), with a separate version for items under six months old that weighs launches more; (3) a neural network with a hierarchical item embedding (product type, style, colour) that reads the weekly sales curve; (4, 5) TabPFN, a tabular foundation model, one version with calibrated ranges; (6) a recommender-style model that forecasts each item at each place it sells (web regions, TikTok, each store and partner) and adds them up, at a quarter weight. Two small models trained on earlier forecast errors correct their average. Ranges are calibrated on the system's own past errors, last July-October and the latest March-June counting more.
+The information. Recent history: sales rates over 7, 28 and 91 days, momentum and the weekly curve, with last year's same months as reference. Seasonality: like-for-like by product type, the item's own last year, the items bought with it, normal temperatures where it sells. Fashion trends and relations between items: a co-purchase network, nearest neighbours by photo (OpenCLIP) and text embeddings, looks, and the item embeddings of the recommender and the network; a language model turned the sparse product text into 14 standard fashion descriptors. Launches: each item's place on the launch curve for its age and type. Campaigns and events: about 30 US events; the four planned sales that recur are learnt from last year, the two new ones (Clearance 12-19 August, 24-29 September) are added at half the measured lift of a past campaign day, by edikted.com share (+1.4%). Hand rules only for the three World Cup items and the out-of-stock item.
+Data artefacts: a survivor panel that grows over time (trend read from like-for-like items only); a mass cancellation on 14-15 October 2025 (cancelled lines excluded); own stores growing from 1 to 16 (store shares, location model); partial launch months (rates per day on sale); sales before the publish date, stored in Israel time (start = first sale or NY publish date); discounts outside 0-1 clipped; possible stock-outs (0.4% of units) left alone except the out-of-stock target."""
+
+TESTED = """Protocol. A leakage-free rolling backtest at 13 month-ends (February 2025 to February 2026): everything, corrections included, is trained only on data before the month-end and scored on the next four months, the task asked. Checks: features rebuilt from data cut at each month-end are identical, a model trained on shuffled outcomes collapses, and one that never saw an item's style is only 1% worse. Baselines: R3 (last three months x4), a naive seasonal forecast and the agents' rules.
+Metrics, one per aspect (nine recent month-ends; R3 / agents' rules in brackets). Volume-weighted error (WAPE): 0.38 of R3's, 0.61 of the seasonal naive's, 0.78 of the rules'; 27% of units (70% / 34%). Per item, every item counting once: median error 24% (57% / 30%). Within +/-20%: 42% of items (18% / 35%). Closer than R3 for 76% of items, than the rules for 61%. Bias: -6% (+15% / -6%), -1% over all 13. Variance explained: R2 0.85 on units, 0.92 in logs (0.15 / 0.76 and 0.76 / 0.90). Ranges: pinball loss 0.37 of R3's; about 80% of actuals inside P10-P90 and 50% inside P25-P75. Confidence: 81% of stated levels held on the five latest month-ends. Intervals resample whole styles and whole month-ends. Five latest month-ends: 0.29 of R3's error; last July-October: 0.68.
+Decisions. A daily buying simulation orders from the forecast (arrival after 21 days, at least 7 days between orders, safety stock from the forecast's spread) and compares profit with perfect foresight: the latest simulated version of the system lost 10.8% of it, the agents' rules 12.4%, R3 19.5%. The buying quantity sits about 8% above the forecast.
+Rigour. A change was kept only if it also held on month-ends not used to choose it, on the four earliest and with last year's season removed; well over a hundred ideas failed.
+Explainability. The 'Cascade' sheets show every item, style, product type and the total as a chain: recent rate x4, seasonal baseline, each model, their weighted average, the corrections, the campaign uplift, the hand rules and the final number. For all 100 items: 473k, 594k, models 571-750k, average 651k, after corrections 645k, campaign +9k, World Cup rule -23k, final 630k. SHAP values of the tree model, grouped by a language model into 11 driver categories, explain each item's move away from its recent rate; a linear model on those categories recovers 72-85% of the model's gain over R3."""
+
+# "Where it is weak": the nx10 text, with one sentence added after "...should be somewhat worse than 0.38."
+WEAK_ADD = "On the four earliest month-ends, with under a year of history behind them, the agents' rules did better than the system (0.59 against 0.68 of R3's error)."
+
+# "Method and decisions" sheet: suggested area order Framing, Models, Information, Judgement, Metrics, Evaluation, Explainability, Roadmap.
+ROWS = {
+ "rename/replace": [
+  ("Information", "Momentum", "Recent history",
+   "Sales rates over the last 7, 28 and 91 days, lags, trend and the weekly curve go into every model, with last year's same months as reference; the breakout correction adds week-on-week momentum. It is the main driver for young items."),
+  ("Information", "Looks and items bought together", "Fashion trends and relations between items",
+   "Several parts read how items relate: the co-purchase network (basket neighbours lend their seasonality), nearest neighbours by photo and text embeddings (their ramp in the same months last year feeds the correction), looks (items bought together and looking alike), and the item embeddings of the recommender and the neural network. Items of a look rise and fall together within a window: if each product type and look total were known the error would fall from 0.40 to 0.26 of R3's, but past sales do not predict it."),
+ ],
+ "move": [("Evaluation", "Explanations checked against the model", "Explainability")],
+ "new": [
+  ("Explainability", "A cascade for every item and group",
+   "'Cascade (items)' shows each item's forecast as a chain: the recent rate x4 (R3), the product type's seasonal baseline, each of the six models, their weighted average, the total after the corrections (the raw model total), the edikted.com share and campaign uplift, and the final number, with the buying quantity, the spread between the highest and lowest model, confidence and P10-P90. 'Cascade (hierarchy)' adds the same chain up by style, product type and in total (all 100 items: R3 473k, seasonal 594k, the six models 571-750k, average 651k, after corrections 645k, campaign +9k, the World Cup rule -23k, final 630k), and 'Ranges (totals)' gives ranges for those groups that allow for misses moving together. Each step's contribution to an item, a type or the total can be read off and challenged: which model pulled it up, how much the corrections moved it, what judgement added."),
+  ("Metrics", "Volume-weighted error (WAPE), read against baselines",
+   "Captures the errors on the large items, where most units are. Nine recent month-ends: 0.38 of R3's error, 0.61 of a naive seasonal forecast's, 0.78 of the agents' rules'; 26.5% of units (R3 69.9%, rules 34.1%). All 13 month-ends 0.44, the five latest 0.29, last July-October 0.68, the four earliest 0.68 (where the agents' rules did better, 0.59)."),
+  ("Metrics", "Per-item error, every item counting once",
+   "Captures the many small items that WAPE underweights. Median absolute error per item 24% (R3 57%, rules 30%); each item's error relative to R3's, median 0.46; mean relative error 0.41 of R3's."),
+  ("Metrics", "Hit rate within +/-20% and win rate",
+   "Captures how often a single item lands close, the threshold of the confidence scale. 42% of items within +/-20% (49% of units; R3 18%, rules 35%); the 100 targets 48%. The forecast is closer than R3 for 76% of item forecasts and closer than the agents' rules for 61%."),
+  ("Metrics", "Bias",
+   "Captures the direction of the miss, which drives buying cost. -5.6% on the nine recent month-ends (R3 +15.4%, rules -6.4%), -1% over all 13; new items run 7-12% under. Error and bias together ((MAE + |bias|) relative to R3's): 0.30."),
+  ("Metrics", "Variance explained (R2)",
+   "Captures whether the forecast ranks and scales items correctly across the catalogue. R2 0.85 on units and 0.92 on log units (R3 0.15 / 0.76, rules 0.76 / 0.90). The item explorer also shows each item's correlation and R2 across month-ends."),
+  ("Metrics", "Ranges: pinball loss and coverage",
+   "Captures whether the uncertainty is honest. Pinball loss of P10 / P25 / P75 / P90 0.37 of R3's (rules 0.47); leaving each month-end out, about 80% of actuals inside P10-P90 and 50% inside P25-P75 (70% inside P10-P90 last July-October)."),
+  ("Metrics", "Confidence levels by the scale's own definitions",
+   "Captures whether each stated level keeps its word (1 within +/-20%, 2 within +/-50%, 3 could miss by more): 81% of stated levels held on the five latest month-ends; about 60% of level-1 items landed within +/-20% and 80% of level-2 items within +/-50%."),
+  ("Metrics", "Decision value: the buying simulation",
+   "Captures what the forecast is worth in the decision it serves. Daily orders from the forecast, 21-day arrival, at least 7 days between orders, safety stock from the forecast's spread; profit compared with perfect foresight. Profit lost: the latest simulated version of the system 10.8%, the agents' rules 12.4%, R3 19.5% (11 three-month windows, March 2025 to January 2026)."),
+  ("Metrics", "How sure the scores are",
+   "Intervals resample whole styles (colours of a style move together) and whole month-ends. The system against the agents' rules: -0.12 to -0.10 of R3's error by style, -0.15 to -0.08 by month-end. Thirteen overlapping month-ends behave like about three independent tests, so gains under about 0.005 are not trusted."),
+ ],
+ "drop_rows_now_covered": [("Evaluation", "Error measured against baselines"), ("Evaluation", "A buying simulation")],
+}
+
+if __name__ == "__main__":
+    for k, v in [("APPROACH", APPROACH), ("TESTED", TESTED)]: print(k, len(v), "chars,", len(v.split()), "words")

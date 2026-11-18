@@ -1,14 +1,14 @@
-"""Builds the workbook nx10 (D424): nx9 with the text repairs and the improvement roadmap of D413 (no number changes; archive/eda/181r_check_nx10.py).
+"""Builds the workbook nx10 (D424): nx9 with the text repairs and the improvement roadmap of D413 (no number changes; eda/181r_check_nx10.py).
 nx9 header follows.
 Builds the workbook nx9 (D422): nx8 (D421: the campaign version's numbers with the corrected text) plus the look-alike term in the correction
 layer that the user approved for the next candidate (D401 / D402: "add").
 
-Against archive/eda/181p_final_nx8_2026.py only the inputs change: the correction comes from data/geo_nx5r_fash_2026.parquet (the fashion fork's
-pipeline/228_breakout_fashion.py), the range ratios are recalibrated on that system's backtest (SYS=nx5r_fash pipeline/219_ranges_nx5r.py), and the
+Against eda/181p_final_nx8_2026.py only the inputs change: the correction comes from data/geo_nx5r_fash_2026.parquet (the fashion fork's
+eda/228_breakout_fashion.py), the range ratios are recalibrated on that system's backtest (SYS=nx5r_fash eda/219_ranges_nx5r.py), and the
 effect of the launch-weighted tree is now computed here from the plain tree (no longer read from an earlier candidate's table).
 
-One consolidated builder (it replaced the chain archive/eda/181k -> 181l -> 181m -> 181o and the generated archive/eda/181n builder). With nx8's inputs it
-reproduces nx8 cell for cell (archive/eda/181q_check_nx9.py); the words come from archive/eda/181q_nx9_text.py.
+One consolidated builder (it replaced the chain eda/181k -> 181l -> 181m -> 181o and the generated eda/181n builder). With nx8's inputs it
+reproduces nx8 cell for cell (eda/181q_check_nx9.py); the words come from eda/181q_nx9_text.py.
 
 Steps, for the 100 items of the exercise workbook, at the June 2026 origin:
   1  the six member forecasts of the July-October total (rules, LightGBM tree, neural network, TabPFN calibrated, TabPFN 32, recommender)
@@ -19,7 +19,7 @@ Steps, for the 100 items of the exercise workbook, at the June 2026 origin:
   6  P10 / P25 / P75 / P90 from the per-segment range ratios; ranges for totals
   7  confidence 1-3;  8  buying quantity;  9  explanations
   10 the workbook (Forecast and Model explanation sheets filled; Method and decisions, Cascade and Ranges sheets added) and the cascade tables
-Run from anywhere:  python pipeline/181r_final_nx10_2026.py"""
+Run from anywhere:  python eda/181r_final_nx10_2026.py"""
 import importlib.util, math, shutil, sys
 from pathlib import Path
 import numpy as np, pandas as pd, openpyxl
@@ -29,8 +29,8 @@ if hasattr(sys.stdout, "reconfigure"): sys.stdout.reconfigure(encoding="utf-8")
 # ---------------------------------------------------------------- where things are
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-TEMPLATE = ROOT / "exercise/Edikted_Forecasting_Exercise.xlsx"                  # the exercise workbook as received
-WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_filled.xlsx"           # written: the submission
+TEMPLATE = ROOT / "Edikted_Forecasting_Exercise.xlsx"                  # the exercise workbook as received
+WORKBOOK = ROOT / "candidates/Edikted_Forecasting_Exercise_candidate_nx10.xlsx"   # written
 CASCADE = DATA / "final_2026_nx10_cascade.csv"                           # written: every step, per item
 HIERARCHY = DATA / "final_2026_nx10_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
 TOTAL_RANGES = DATA / "final_2026_nx10_total_ranges.csv"                # written: ranges for totals
@@ -40,7 +40,7 @@ IN = dict(
     monthly=DATA / "monthly_item.parquet",                         # units per item and month
     features=DATA / "features.parquet",                            # per origin and item: recent monthly rate and the type's seasonal ratio
     daily=DATA / "daily_item_chan.parquet",                        # units per item, day and channel (edikted.com share)
-    rules=ROOT / "rule_agents" / "2026-06" / "predictions_verified.csv",   # member 1: the planning rules, by month
+    rules=ROOT / "agent_eval" / "2026-06" / "predictions_verified.csv",   # member 1: the planning rules, by month
     tree=DATA / "q_backtest_ls_huber_routed_2026.parquet",         # member 2: LightGBM, launch-weighted version for items under six months
     tree_plain=DATA / "q_backtest_ls_huber_2026.parquet",          # the same tree without the launch weighting, to quote its effect
     nn=[DATA / "nn_backtest_preds_finalSec.parquet", DATA / "nn_backtest_preds_finalSec_s10.parquet"],   # member 3: two seeds, by month

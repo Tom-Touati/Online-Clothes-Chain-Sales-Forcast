@@ -7,5 +7,6 @@
 - `pages/`: three self-contained interactive pages, described in the [main README](../README.md#interactive-pages): the
   [item explorer](pages/item_explorer.html) (each item's history, past forecasts, projection and the steps to it), the
   [forecast atlas](pages/atlas.html) (pipeline, data, models, decisions) and the [error study](pages/error_study.html) (where and
-  why the forecast misses). Download a page and open it in a browser; their links to each other work between the files.
+  why the forecast misses). Download the pages (or clone the repository) and open them in a browser. The atlas and the error study link to each other when both
+  files are in the same folder; the item explorer does not link to the other pages.
 - `FILE_MAP.tsv`: each file's path in the project folder and in this repository.

@@ -4,21 +4,23 @@ Monthly unit-sales forecast for 100 style-colours of an online fashion retailer 
 January 2024 to June 2026 (about 1,500 items, sold on edikted.com, in the chain's own stores and through partners). Each item also
 gets a confidence level (1 to 3), and 18 items get a written explanation.
 
-**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx10): 630,254 units
+**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx11): 630,254 units
 (July 177,694, August 187,685, September 130,828, October 134,047); confidence 10 items at 1, 86 at 2, 4 at 3. Its sheets:
 
 | Sheet | What it holds |
 |---|---|
 | Forecast | Monthly units, total, confidence and the model's raw total for each item; explanations for 18 items |
-| Model explanation | The approach, how it was tested, where it is weak |
-| Method and decisions | Each major choice with its evidence (models, information used, evaluation) and a six-step improvement roadmap |
-| Cascade (items), Cascade (hierarchy) | Every step per item: the six models, their average, the corrections, the monthly split, the campaign uplift, the hand rules, P10–P90 and P25–P75 ranges, the buying quantity |
+| Model explanation | The approach (coarse to fine: summary, models, information, data artefacts), how it was tested (protocol, one metric per aspect, the buying simulation, explainability), where it is weak |
+| Method and decisions | Each major choice with its evidence, by area: framing, models, information, judgement, metrics (one row per aspect: volume-weighted error, per-item error, hit rate, bias, R², ranges, confidence, decision value, how sure the scores are), evaluation, explainability (the cascade, SHAP) and a six-step improvement roadmap |
+| Cascade (items) | Each item's July–October total step by step: R3 and a seasonal baseline, the six models (model 1 is the planning rules), their weighted average, the total after the corrections (the raw model total), the share sold on edikted.com, the campaign uplift, the final total (World Cup and out-of-stock rules included), the buying quantity, the highest / lowest model ratio, confidence, P10 / P25 / P75 / P90 |
+| Cascade (hierarchy) | The same steps, from R3 to the buying quantity, summed for the total, each product type and each style |
+| Ranges (totals) | P10, P25, P50, P75 and P90 of the July–October total for all 100 items, each of the 13 product types and the two styles with three items |
 
 ## Interactive pages
 
-Three self-contained HTML pages, in [`docs/pages/`](docs/pages/), that link to each other. GitHub shows an HTML file as source code,
-so download the file (or clone the repository) and open it in a browser: no server is needed, only an internet connection for the
-fonts.
+Three self-contained HTML pages, in [`docs/pages/`](docs/pages/). GitHub shows an HTML file as source code, so download the pages (or
+clone the repository) and open them in a browser: no server is needed, only an internet connection for the fonts. The atlas and the
+error study link to each other when both files are in the same folder; the item explorer stands alone.
 
 | Page | What it shows |
 |---|---|
@@ -85,13 +87,13 @@ baselines:
 | A naive seasonal forecast (R3 × last year's seasonal pattern of the product type) | 0.61 |
 | The agents' planning rules | 0.78 |
 | The three baselines averaged together | 0.59 |
-| R3 on last July–October, the same months as this forecast | 0.69 |
+| R3 on last July–October, the same months as this forecast | 0.68 |
 
 - **Against the baselines.** The system beats each baseline at every one of those month-ends, with 95% intervals (resampling
   styles and whole month-ends) well below 1. About four in ten item totals land within ±20%.
 - **Selection.** In the later rounds a change was kept only if it also held on month-ends not used to tune it, and with last year's
-  same season removed from training. Well over a hundred ideas failed and were dropped.
-- **Leakage checks passed.** Features rebuilt from data cut at the month-end are identical. A model trained on shuffled outcomes
+  same season removed from training. Dozens of ideas, many in several variants, were rejected.
+- **Leakage checks passed.** Features rebuilt from data cut at two test month-ends (June and October 2025) are identical. A model trained on shuffled outcomes
   collapses. A model that never saw an item's style is only 1% worse, so the model generalises rather than memorising items.
 
 ## Where it is weak, and what would improve it
@@ -115,15 +117,15 @@ Measured in the backtest, these would help most:
 | [`data/`](data/) | The tables those scripts read and write: member forecasts, corrections, ranges, backtests |
 | [`rule_agents/`](rule_agents/) | The planning rules written by AI agents, one folder per backtest month-end and for June 2026 |
 | [`exercise/`](exercise/) | What the retailer provided: the exercise workbook and the item attributes |
-| [`model_submissions/`](model_submissions/) | Every other workbook: single-model forecasts and the earlier versions of the submission |
+| [`model_submissions/`](model_submissions/) | Every other workbook: two early candidates (the quantile model with the neural network, and with the network and the agents' rules) and the earlier versions of the submission |
 | [`docs/`](docs/) | The decision log (every experiment and decision, with scores), the data report, the three interactive pages |
-| [`archive/`](archive/) | Past attempts, kept as they were: about 380 other scripts, their run logs, tables and pages |
+| [`archive/`](archive/) | Past attempts, kept as they were: about 400 other scripts, their run logs, tables and pages |
 
 ## Rerunning it
 
 All scripts run from the repository root with Python 3.12 (`python pipeline/<script>`); [`pipeline/README.md`](pipeline/README.md)
 gives the stages and the exact commands.
-- The workbook builder (`pipeline/181r_final_nx10_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
+- The workbook builder (`pipeline/181s_final_nx11_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
   cell.
 - Rerunning the earlier stages needs the raw order lines (`Dataset.parquet`, 249 MB) at the root. They are not in the repository
   because of GitHub's file limit.

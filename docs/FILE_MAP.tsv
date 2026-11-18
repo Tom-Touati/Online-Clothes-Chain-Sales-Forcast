@@ -376,6 +376,7 @@ agent_eval/actuals.parquet	rule_agents/actuals.parquet
 candidates/Edikted_Forecasting_Exercise_candidate_final.xlsx	model_submissions/02_p2c32a_stack/Edikted_Forecasting_Exercise_candidate_final.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nn.xlsx	model_submissions/member_neural_network/Edikted_Forecasting_Exercise_candidate_nn.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx.xlsx	model_submissions/03_nx_new_system/Edikted_Forecasting_Exercise_candidate_nx.xlsx
+candidates/Edikted_Forecasting_Exercise_candidate_nx10.xlsx	model_submissions/14_nx10_roadmap_text/Edikted_Forecasting_Exercise_candidate_nx10.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx	model_submissions/04_nx2_new_nn/Edikted_Forecasting_Exercise_candidate_nx2.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx3.xlsx	model_submissions/05_nx3_world_cup_rule/Edikted_Forecasting_Exercise_candidate_nx3.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx4.xlsx	model_submissions/06_nx4_confidence_rule/Edikted_Forecasting_Exercise_candidate_nx4.xlsx
@@ -577,6 +578,9 @@ data/final_2026_cascade_hierarchy.csv	archive/data/final_2026_cascade_hierarchy.
 data/final_2026_nx10_cascade.csv	data/final_2026_nx10_cascade.csv
 data/final_2026_nx10_cascade_hierarchy.csv	data/final_2026_nx10_cascade_hierarchy.csv
 data/final_2026_nx10_total_ranges.csv	data/final_2026_nx10_total_ranges.csv
+data/final_2026_nx11_cascade.csv	data/final_2026_nx11_cascade.csv
+data/final_2026_nx11_cascade_hierarchy.csv	data/final_2026_nx11_cascade_hierarchy.csv
+data/final_2026_nx11_total_ranges.csv	data/final_2026_nx11_total_ranges.csv
 data/final_2026_nx2_cascade.csv	archive/data/final_2026_nx2_cascade.csv
 data/final_2026_nx2_cascade_hierarchy.csv	archive/data/final_2026_nx2_cascade_hierarchy.csv
 data/final_2026_nx3_cascade.csv	archive/data/final_2026_nx3_cascade.csv
@@ -810,6 +814,7 @@ data/loc_mom_feats.parquet	archive/data/loc_mom_feats.parquet
 data/lstm_inputs.npz	archive/data/lstm_inputs.npz
 data/lstm_preds.parquet	archive/data/lstm_preds.parquet
 data/lstm_scored.parquet	archive/data/lstm_scored.parquet
+data/lstm_tab_feats.parquet	archive/data/lstm_tab_feats.parquet
 data/m5_experiments_by_fold.csv	archive/data/m5_experiments_by_fold.csv
 data/mature_blend_all_origins.csv	archive/data/mature_blend_all_origins.csv
 data/monthly_item.parquet	data/monthly_item.parquet
@@ -1192,7 +1197,7 @@ data/rc_recsys_preds_ho_t34.parquet	archive/data/rc_recsys_preds_ho_t34.parquet
 data/rc_recsys_preds_if_honest_ps1.parquet	archive/data/rc_recsys_preds_if_honest_ps1.parquet
 data/rc_recsys_preds_if_logl1_c2_m0.parquet	archive/data/rc_recsys_preds_if_logl1_c2_m0.parquet
 data/rc_recsys_preds_if_logl1_c3_m0.parquet	archive/data/rc_recsys_preds_if_logl1_c3_m0.parquet
-data/rc_recsys_preds_if_logl1_c3_m12.parquet	archive/data/rc_recsys_preds_if_logl1_c3_m12.parquet
+data/rc_recsys_preds_if_logl1_c3_m12.parquet	data/rc_recsys_preds_if_logl1_c3_m12.parquet
 data/rc_recsys_preds_if_logl1_c3_m12_noly.parquet	archive/data/rc_recsys_preds_if_logl1_c3_m12_noly.parquet
 data/rc_recsys_preds_if_logl1_w0.parquet	archive/data/rc_recsys_preds_if_logl1_w0.parquet
 data/rc_recsys_preds_if_logl1_w0_3.parquet	archive/data/rc_recsys_preds_if_logl1_w0_3.parquet
@@ -1632,8 +1637,11 @@ eda/181q_check_nx9.py	archive/eda/181q_check_nx9.py
 eda/181q_final_nx9_2026.py	archive/eda/181q_final_nx9_2026.py
 eda/181q_nx9_text.py	archive/eda/181q_nx9_text.py
 eda/181r_check_nx10.py	archive/eda/181r_check_nx10.py
-eda/181r_final_nx10_2026.py	pipeline/181r_final_nx10_2026.py
-eda/181r_nx10_text.py	pipeline/181r_nx10_text.py
+eda/181r_final_nx10_2026.py	archive/eda/181r_final_nx10_2026.py
+eda/181r_nx10_text.py	archive/eda/181r_nx10_text.py
+eda/181s_check_nx11.py	archive/eda/181s_check_nx11.py
+eda/181s_final_nx11_2026.py	pipeline/181s_final_nx11_2026.py
+eda/181s_nx11_text.py	pipeline/181s_nx11_text.py
 eda/182_cooc_feats.py	pipeline/182_cooc_feats.py
 eda/182_newitems.py	archive/eda/182_newitems.py
 eda/182b_fashion_feats.py	pipeline/182b_fashion_feats.py
@@ -1757,7 +1765,7 @@ eda/201_rc_panel.py	archive/eda/201_rc_panel.py
 eda/202_rc_model.py	pipeline/202_rc_model.py
 eda/203_rc_score.py	archive/eda/203_rc_score.py
 eda/204_rc_compare.py	archive/eda/204_rc_compare.py
-eda/205_rc_handover.py	archive/eda/205_rc_handover.py
+eda/205_rc_handover.py	pipeline/205_rc_handover.py
 eda/206_feature_inventory.py	archive/eda/206_feature_inventory.py
 eda/207_rc_hpo.py	archive/eda/207_rc_hpo.py
 eda/209_tree_temporal.py	pipeline/209_tree_temporal.py
@@ -1805,6 +1813,8 @@ eda/230_tidy_root.py	archive/eda/230_tidy_root.py
 eda/230a_lstm_prep.py	archive/eda/230a_lstm_prep.py
 eda/230b_lstm_gpu.py	archive/eda/230b_lstm_gpu.py
 eda/230c_lstm_score.py	archive/eda/230c_lstm_score.py
+eda/230d_lstm_tab_feats.py	archive/eda/230d_lstm_tab_feats.py
+eda/231_pages_nx11.py	archive/eda/231_pages_nx11.py
 eda/23_fill_workbook_q.py	archive/eda/23_fill_workbook_q.py
 eda/24_sanity.py	archive/eda/24_sanity.py
 eda/25_own_season_test.py	archive/eda/25_own_season_test.py
@@ -1968,6 +1978,7 @@ eda/descr_behaviour_output.txt	archive/eda/descr_behaviour_output.txt
 eda/disagreement_output.txt	archive/eda/disagreement_output.txt
 eda/distributions_output.txt	archive/eda/distributions_output.txt
 eda/drafts/nx10_text_changes.md	archive/eda/drafts/nx10_text_changes.md
+eda/drafts/nx11_text.py	archive/eda/drafts/nx11_text.py
 eda/eda_output.txt	archive/eda/eda_output.txt
 eda/emb_gate_output.txt	archive/eda/emb_gate_output.txt
 eda/error_analysis_output.txt	archive/eda/error_analysis_output.txt

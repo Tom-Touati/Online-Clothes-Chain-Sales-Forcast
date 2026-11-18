@@ -10,8 +10,8 @@ Metrics on next-month units: WAPE, ratio to R3m's WAPE, bias, share within +/-20
 July 2025 (origin 2025-06); style bootstrap of each against system m1. stdout -> eda/lstm_score_output.txt"""
 import sys, os, numpy as np, pandas as pd
 sys.stdout.reconfigure(encoding="utf-8"); pd.set_option("display.width", 220)
-import glob; P = pd.concat([pd.read_parquet(f) for f in sorted(glob.glob("data/lstm_preds*.parquet"))]);   # D405: the 60- and 365-day versions together
- Z = np.load("data/lstm_inputs.npz", allow_pickle=True)
+import glob; P = pd.concat([pd.read_parquet(f) for f in sorted(glob.glob("data/lstm_preds*.parquet")) if "_h4" not in f]);   # D405: the 60- and 365-day versions together
+Z = np.load("data/lstm_inputs.npz", allow_pickle=True)
 E = pd.DataFrame({"origin": Z["ev_origin"], "style_color": Z["ev_item"], "y1": Z["ev_y1"].astype(float)}); E = E[E.y1.notna()]
 for v in P.version.unique(): E = E.merge(P[P.version == v][["origin", "style_color", "y1_hat"]].rename(columns={"y1_hat": f"lstm_{v}"}), on=["origin", "style_color"], how="left")
 M = pd.read_parquet("data/monthly_item.parquet"); M.columns = [str(c) for c in M.columns]
@@ -45,3 +45,23 @@ for lab, m in [("recent 9", O >= "2025-06"), ("held out", O >= "2025-10"), ("all
         f = E[c].values; print(f"   {c:12s} WAPE {np.abs(f - y)[m].sum() / y[m].sum():.3f} | / R3m {np.abs(f - y)[m].sum() / base:.3f} | bias {f[m].sum() / y[m].sum() - 1:+.3f} | within 20% {np.mean(np.abs(f - y)[m] <= 0.2 * y[m]):.2f}"
               + (f" | error / system m1's {np.abs(f - y)[m].sum() / np.abs(E.sys_m1.values - y)[m].sum():.3f} {ci(c, 'sys_m1', m)}" if c.startswith(("lstm", "blend")) else ""))
 E.to_parquet("data/lstm_scored.parquet", index=False)
+
+# D407: the 4-month versions (lstm_preds*_h4.parquet) against the system's own 4-month forecast, WAPE / R3 (the project's measure)
+H = [pd.read_parquet(f) for f in sorted(glob.glob("data/lstm_preds*_h4.parquet"))]
+if H:
+    H = pd.concat(H); B = pd.read_parquet("data/dec_base_nx5r26.parquet"); B = B[B.y.notna()][["origin", "style_color", "y", "R3", "rules", "nn"]]
+    B = B.merge(G, on=["origin", "style_color"], how="left")
+    for v in H.version.unique(): B = B.merge(H[H.version == v][["origin", "style_color", "y1_hat"]].rename(columns={"y1_hat": f"h4_{v}"}), on=["origin", "style_color"], how="left")
+    B["style"] = B.style_color.str.split("_").str[0]; y4 = B.y.values; O4 = B.origin.values
+    C4 = ["R3", "rules", "nn", "geo"] + [c for c in B.columns if c.startswith("h4_")]
+    for v in [c for c in B.columns if c.startswith("h4_")]: B["blend_" + v] = np.exp((np.log1p(B[v]) + np.log1p(B.geo)) / 2) - 1
+    C4 += [c for c in B.columns if c.startswith("blend_h4_")]
+    def ci4(a, m):
+        d = pd.DataFrame(dict(s=B["style"].values[m], a=np.abs(B[a].values - y4)[m], b=np.abs(B.geo.values - y4)[m])).groupby("s").sum()
+        i = rng.integers(0, len(d), size=(400, len(d))); v = d.a.values[i].sum(1) / d.b.values[i].sum(1); return f"[{np.percentile(v, 2.5):.3f}, {np.percentile(v, 97.5):.3f}]"
+    for lab, m in [("recent 9", O4 >= "2025-06"), ("held out", O4 >= "2025-10"), ("all 13", O4 <= "2026-02"), ("Jul-Oct 2025 (origin 2025-06)", O4 == "2025-06")]:
+        m = m & B[C4].notna().all(axis=1).values; base = np.abs(B.R3.values - y4)[m].sum()
+        print(f"\n== 4 MONTHS, {lab}: {m.sum()} items, actual {y4[m].sum():,.0f} units (geo = the submitted system)")
+        for c in C4:
+            f = B[c].values; print(f"   {c:20s} WAPE / R3 {np.abs(f - y4)[m].sum() / base:.4f} | WAPE {np.abs(f - y4)[m].sum() / y4[m].sum():.3f} | bias {f[m].sum() / y4[m].sum() - 1:+.3f} | within 20% {np.mean(np.abs(f - y4)[m] <= 0.2 * y4[m]):.2f}"
+                  + (f" | error / system's {np.abs(f - y4)[m].sum() / np.abs(B.geo.values - y4)[m].sum():.3f} {ci4(c, m)}" if "h4_" in c else ""))

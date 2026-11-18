@@ -1,11 +1,11 @@
-"""The words of the workbook nx10 (D424): nx9's text (D422) with Fork 2's repairs A1-A7 and improvement roadmap B1-B2 (D413, archive/eda/drafts/nx10_text_changes.md;
+"""The words of the workbook nx10 (D424): nx9's text (D422) with Fork 2's repairs A1-A7 and improvement roadmap B1-B2 (D413, eda/drafts/nx10_text_changes.md;
 the user: "add this improvement roadmap to the model explanation, and repair with each of your suggestions"). nx9 header follows.
 The words of the workbook nx9 (D422; as nx8, D421, with the look-alike correction of D401 described): the three "Model explanation" boxes, the "Method and decisions" sheet and the item
-explanations. Read by pipeline/181r_final_nx10_2026.py, which fills the {placeholders} from the numbers it computes, so text and numbers cannot
+explanations. Read by eda/181r_final_nx10_2026.py, which fills the {placeholders} from the numbers it computes, so text and numbers cannot
 disagree.
 
 Sources of the statements: the time-honest backtest of the submitted system (log.md; D389u for the audit that corrected the earlier text,
-D389v for the first version of this text, D389v / D389x of Fork 2 for the campaign plan, pipeline/226_vs_baselines.py for the baseline
+D389v for the first version of this text, D389v / D389x of Fork 2 for the campaign plan, eda/226_vs_baselines.py for the baseline
 comparison, D400 / D401 for the fashion retest and the look-alike term). Scores are the error (WAPE) relative to R3 on the nine recent month-ends unless said otherwise.
 
 The template's three boxes are 220 points high and 110 characters wide ("A page in total is plenty"), so the boxes hold a short version
