@@ -1,0 +1,481 @@
+<meta name="dash-one-writer">
+<style>
+  .sb { display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .sb h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .sb h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+  .sb h3 { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); margin: 0; color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .sb-lede { max-width: 68ch; margin: var(--cds-gap-sm) 0 0; line-height: 1.5; }
+  .sb-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 0; max-width: 72ch; line-height: 1.45; }
+  .sb-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--cds-gap-lg); }
+  .sb-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+  .sb-eyebrow { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 0; }
+  .sb-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
+  .sb-name { font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .sb-desc { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg); }
+  .sb-status { display: inline-block; font-size: 0.72rem; line-height: 1.2; padding: 3px 7px; border-radius: 999px; border: 1px solid var(--color-border-line); color: var(--color-fg-muted); justify-self: start; }
+  .sb-dl { display: grid; grid-template-columns: auto 1fr; gap: var(--cds-gap-xs) var(--cds-gap-md); margin: 0; font-size: var(--cds-font-size-caption); }
+  .sb-dl dt { color: var(--color-fg-muted); }
+  .sb-dl dd { margin: 0; font-variant-numeric: tabular-nums; min-width: 0; }
+  .sb-mini { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .sb-mini th, .sb-mini td { padding: 4px 6px; border-bottom: 1px solid var(--color-border-line); text-align: right; }
+  .sb-mini th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); }
+  .sb-mini th:first-child, .sb-mini td:first-child { text-align: left; }
+  .sb-mini tr:last-child td { border-bottom: 0; }
+  .sb-good { color: var(--color-ok); }
+  .sb-badc { color: var(--color-bad); }
+  .sb-section { display: grid; gap: var(--cds-gap-md); min-width: 0; }
+  #board { position: relative; }
+  .sb-bar { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--cds-gap-md); }
+  .sb-bar label { display: grid; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .sb-scroll { overflow-x: auto; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+  .sb-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .sb-table th, .sb-table td { padding: var(--cds-pad-sm) var(--cds-pad-md); text-align: right; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .sb-table th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); background: var(--color-panel); vertical-align: bottom; }
+  .sb-table th.sb-l, .sb-table td.sb-l { text-align: left; }
+  .sb-table td.sb-sys { white-space: normal; min-width: 14rem; }
+  .sb-table tbody tr { cursor: default; }
+  .sb-table tbody tr:hover td { background: color-mix(in srgb, var(--color-fg) 5%, transparent); }
+  .sb-table tr.sb-ref td { color: var(--color-fg-muted); }
+  .sb-table tr.sb-champ td { background: color-mix(in srgb, var(--color-ok) 9%, transparent); }
+  .sb-table td.sb-best { font-weight: var(--cds-font-weight-medium); color: var(--color-ok); }
+  .sb-pill { display: inline-block; font-size: 0.72rem; line-height: 1; padding: 3px 6px; border-radius: 999px; border: 1px solid var(--color-border-line); color: var(--color-fg-muted); margin-left: 6px; vertical-align: 1px; }
+  .sb-pill.sb-pill-champ { border-color: var(--color-ok); color: var(--color-ok); }
+  .sb-chart { position: relative; min-height: 300px; }
+  .sb-chart svg { display: block; width: 100%; overflow: visible; }
+  .sb-chart text { fill: var(--cds-text-secondary); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+  .sb-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); font-size: var(--cds-font-size-caption); width: min(340px, calc(100% - 16px)); z-index: 3; white-space: normal; text-align: left; line-height: 1.45; display: grid; gap: 6px; }
+  .sb-tip .sb-tip-h { font-weight: var(--cds-font-weight-medium); }
+  .sb-tip .sb-tip-m { color: var(--cds-text-secondary); }
+  .sb-tip table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  .sb-tip td { padding: 1px 0; border: 0; text-align: right; white-space: nowrap; }
+  .sb-tip td:first-child { text-align: left; color: var(--cds-text-secondary); white-space: normal; padding-right: 8px; }
+  .sb-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); margin: 0; padding: 0; list-style: none; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .sb-legend li { display: flex; align-items: center; gap: 6px; }
+  .sb-sw { width: 14px; height: 3px; border-radius: 2px; display: inline-block; background: var(--cds-chart-muted); }
+  .sb-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; background: var(--cds-chart-muted); }
+  .sb-notes { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+  .sb-notes summary { cursor: pointer; color: var(--color-fg); }
+  .sb-notes dl { display: grid; grid-template-columns: minmax(8rem, auto) 1fr; gap: var(--cds-gap-xs) var(--cds-gap-md); max-width: 80ch; }
+  .sb-notes dd { margin: 0; }
+  .sb-notes code { font-size: 0.95em; }
+</style>
+
+<div class="sb">
+  <header id="overview">
+    <h1>Edikted Forecast Scoreboard</h1>
+    <p class="sb-lede" data-read lang="en">On the nine recent backtest origins, <b data-draw="champ" data-source="champions" data-field="system" data-where="metric=accuracy">—</b> is the most accurate system, with <b data-draw="champ" data-source="champions" data-field="value" data-where="metric=accuracy">—</b> of R3's error. For buying, <b data-draw="champ" data-source="champions" data-field="system" data-where="metric=buying">—</b> loses the least profit: <b data-draw="champ" data-source="champions" data-field="value" data-where="metric=buying">—</b> of perfect-foresight profit.</p>
+    <p class="sb-sub">Every system forecasts each item's 4-month total at 13 monthly origins (Feb 2025 to Feb 2026), on the same 11,727 item-origins. Each score is a ratio to R3, the item's last 3 months × 4: below 1 beats recency. Hover over a row or a point for the model's details.</p>
+  </header>
+
+  <section class="sb-cards" id="champions" aria-label="Current champions">
+    <article class="sb-card" id="champ-accuracy">
+      <p class="sb-eyebrow">Accuracy champion · WAPE ÷ R3 · nine recent origins</p>
+      <div><span class="sb-big" data-draw="champ" data-source="champions" data-field="value" data-where="metric=accuracy">—</span></div>
+      <p class="sb-name" data-draw="champ" data-source="champions" data-field="system" data-where="metric=accuracy">—</p>
+      <span class="sb-status" data-draw="champ" data-source="champions" data-field="status" data-where="metric=accuracy">—</span>
+      <p class="sb-desc" data-draw="champ" data-source="champions" data-field="description" data-where="metric=accuracy">—</p>
+      <dl class="sb-dl">
+        <dt>Inputs</dt><dd data-draw="champ" data-source="champions" data-field="inputs" data-where="metric=accuracy">—</dd>
+        <dt>Decision</dt><dd data-draw="champ" data-source="champions" data-field="decision" data-where="metric=accuracy">—</dd>
+        <dt>Runner-up</dt><dd><span data-draw="champ" data-source="champions" data-field="runner_system" data-where="metric=accuracy">—</span>, <span data-draw="champ" data-source="champions" data-field="runner_value" data-where="metric=accuracy">—</span> (champion <span data-draw="champ" data-source="champions" data-field="change_vs_runner" data-where="metric=accuracy">—</span>)</dd>
+        <dt>Previous decision's best</dt><dd><span data-draw="champ" data-source="champions" data-field="prev_system" data-where="metric=accuracy">—</span>, <span data-draw="champ" data-source="champions" data-field="prev_value" data-where="metric=accuracy">—</span> (champion <span data-draw="champ" data-source="champions" data-field="change_vs_prev" data-where="metric=accuracy">—</span>)</dd>
+        <dt>R3 + rules</dt><dd><span data-draw="champ" data-source="champions" data-field="rules_value" data-where="metric=accuracy">—</span> (champion <span data-draw="champ" data-source="champions" data-field="change_vs_rules" data-where="metric=accuracy">—</span>)</dd>
+        <dt>Gain vs R3 + rules, 95%</dt><dd><span data-draw="champ" data-source="champions" data-field="boot_rules_lo" data-where="metric=accuracy">—</span> to <span data-draw="champ" data-source="champions" data-field="boot_rules_hi" data-where="metric=accuracy">—</span> WAPE ÷ R3</dd>
+        <dt>Gain vs rules + quantile + NN, 95%</dt><dd><span data-draw="champ" data-source="champions" data-field="boot_3w_lo" data-where="metric=accuracy">—</span> to <span data-draw="champ" data-source="champions" data-field="boot_3w_hi" data-where="metric=accuracy">—</span> WAPE ÷ R3</dd>
+        <dt>Typical item ÷ R3</dt><dd data-draw="champ" data-source="champions" data-field="relmae_r3" data-where="metric=accuracy">—</dd>
+        <dt>Bias</dt><dd data-draw="champ" data-source="champions" data-field="bias" data-where="metric=accuracy">—</dd>
+        <dt>Buying loss</dt><dd data-draw="champ" data-source="champions" data-field="sim_loss" data-where="metric=accuracy">—</dd>
+      </dl>
+      <h3>WAPE ÷ R3 on each set of items</h3>
+      <table class="sb-mini" data-source="champ_sets" data-row-key="metric,subset">
+        <thead><tr><th data-field="subset_name">Items</th><th data-field="wape_r3">Champion</th><th data-field="rank">Rank</th><th data-field="leader">Best on these items</th></tr></thead>
+        <tbody data-draw="champ-sets" data-metric="accuracy"></tbody>
+      </table>
+    </article>
+    <article class="sb-card" id="champ-buying">
+      <p class="sb-eyebrow">Buying champion · profit lost in the buying simulation · 11 windows</p>
+      <div><span class="sb-big" data-draw="champ" data-source="champions" data-field="value" data-where="metric=buying">—</span></div>
+      <p class="sb-name" data-draw="champ" data-source="champions" data-field="system" data-where="metric=buying">—</p>
+      <span class="sb-status" data-draw="champ" data-source="champions" data-field="status" data-where="metric=buying">—</span>
+      <p class="sb-desc" data-draw="champ" data-source="champions" data-field="description" data-where="metric=buying">—</p>
+      <dl class="sb-dl">
+        <dt>Inputs</dt><dd data-draw="champ" data-source="champions" data-field="inputs" data-where="metric=buying">—</dd>
+        <dt>Decision</dt><dd data-draw="champ" data-source="champions" data-field="decision" data-where="metric=buying">—</dd>
+        <dt>Runner-up</dt><dd><span data-draw="champ" data-source="champions" data-field="runner_system" data-where="metric=buying">—</span>, <span data-draw="champ" data-source="champions" data-field="runner_value" data-where="metric=buying">—</span> (champion <span data-draw="champ" data-source="champions" data-field="change_vs_runner" data-where="metric=buying">—</span>)</dd>
+        <dt>Previous decision's best</dt><dd><span data-draw="champ" data-source="champions" data-field="prev_system" data-where="metric=buying">—</span>, <span data-draw="champ" data-source="champions" data-field="prev_value" data-where="metric=buying">—</span> (champion <span data-draw="champ" data-source="champions" data-field="change_vs_prev" data-where="metric=buying">—</span>)</dd>
+        <dt>R3 + rules</dt><dd><span data-draw="champ" data-source="champions" data-field="rules_value" data-where="metric=buying">—</span> (champion <span data-draw="champ" data-source="champions" data-field="change_vs_rules" data-where="metric=buying">—</span>)</dd>
+        <dt>WAPE ÷ R3</dt><dd data-draw="champ" data-source="champions" data-field="wape_r3" data-where="metric=buying">—</dd>
+        <dt>Typical item ÷ R3</dt><dd data-draw="champ" data-source="champions" data-field="relmae_r3" data-where="metric=buying">—</dd>
+        <dt>Bias</dt><dd data-draw="champ" data-source="champions" data-field="bias" data-where="metric=buying">—</dd>
+      </dl>
+      <h3>WAPE ÷ R3 on each set of items</h3>
+      <table class="sb-mini" data-source="champ_sets" data-row-key="metric,subset">
+        <thead><tr><th data-field="subset_name">Items</th><th data-field="wape_r3">Champion</th><th data-field="rank">Rank</th><th data-field="leader">Best on these items</th></tr></thead>
+        <tbody data-draw="champ-sets" data-metric="buying"></tbody>
+      </table>
+      <p class="sb-sub">Systems marked "not yet simulated" can't win this card until they have been through the buying simulation.</p>
+    </article>
+  </section>
+
+  <section class="sb-section" id="board">
+    <div class="sb-bar">
+      <div>
+        <h2>Scoreboard</h2>
+        <p class="sb-sub">Sorted by WAPE ÷ R3. The best value in each column is green; the accuracy champion's row is tinted. Hover over a row for the model's description, its scores on every set of items and its confidence intervals.</p>
+      </div>
+      <label for="sb-subset">Items scored
+        <select class="dash-select" id="sb-subset">
+          <option value="recent">Nine recent origins</option>
+          <option value="all">All 13 origins</option>
+          <option value="targets">The 100 targets (recent)</option>
+          <option value="bf">Black Friday origins (Jul–Oct 2025)</option>
+        </select>
+      </label>
+    </div>
+    <div class="sb-scroll">
+      <table class="sb-table" data-source="board" data-row-key="system_id">
+        <thead>
+          <tr>
+            <th data-field="rank">#</th>
+            <th class="sb-l" data-field="system">System</th>
+            <th class="sb-l" data-field="decision">Decision</th>
+            <th data-field="wape_r3">WAPE ÷ R3</th>
+            <th data-field="relmae_r3">Typical item ÷ R3</th>
+            <th data-field="win_r3">Wins vs R3</th>
+            <th data-field="win_rules">Wins vs R3 + rules</th>
+            <th data-field="mab_r3">(MAE + |bias|) ÷ R3</th>
+            <th data-field="pinball_r3">Pinball ÷ R3</th>
+            <th data-field="bias">Bias</th>
+            <th data-field="sim_loss">Buying loss</th>
+            <th data-field="sim_loss_r3">Buying loss ÷ R3</th>
+          </tr>
+        </thead>
+        <tbody data-draw="board-rows"></tbody>
+      </table>
+    </div>
+    <p class="sb-sub">Buying loss is the share of perfect-foresight profit lost by the production buying policy over 11 windows (Mar 2025 to Jan 2026, all items), so it is the same in every view. A dash means the system has not been simulated.</p>
+  </section>
+
+  <section class="sb-section" id="ladder">
+    <div>
+      <h2>Accuracy by decision</h2>
+      <p class="sb-sub">WAPE ÷ R3 of each system in the order it was added to the decision log, for the items chosen above. The line steps down each time a system beats every earlier one. The dashed line is R3 + rules; R3 itself is 1.</p>
+    </div>
+    <ul class="sb-legend" aria-hidden="true">
+      <li><span class="sb-dot" data-role="ensemble"></span>Ensemble</li>
+      <li><span class="sb-dot" data-role="member"></span>Single model</li>
+      <li><span class="sb-sw" data-role="best"></span>Best so far</li>
+    </ul>
+    <div class="sb-chart" data-draw="ladder" data-source="board"></div>
+  </section>
+
+  <section class="sb-section" id="buying">
+    <div>
+      <h2>Buying loss by simulation window</h2>
+      <p class="sb-sub">Share of perfect-foresight profit lost, by the month the buying window starts. The Black Friday fix helps the September to November windows. The August window looks worse with it only because that simulation stops on the eve of Black Friday.</p>
+    </div>
+    <ul class="sb-legend" aria-hidden="true">
+      <li><span class="sb-sw" data-series="0"></span>R3 + rules (rule agents)</li>
+      <li><span class="sb-sw" data-series="1"></span>Rules + quantile + NN</li>
+      <li><span class="sb-sw" data-series="2"></span>Lean three-way + Black Friday fix</li>
+      <li><span class="sb-sw" data-series="3"></span>New three-way + Black Friday fix</li>
+    </ul>
+    <div class="sb-chart" data-draw="simchart" data-source="simwin"></div>
+  </section>
+
+  <details class="sb-notes" id="notes">
+    <summary>What the scores mean, and how this page is updated</summary>
+    <dl>
+      <dt>WAPE ÷ R3</dt><dd>Total absolute error over all item-origins, divided by R3's. Big items weigh most.</dd>
+      <dt>Typical item ÷ R3</dt><dd>Geometric mean over items of (|error| + 1) ÷ (|R3 error| + 1): how the system does on an ordinary item, whatever its size.</dd>
+      <dt>Wins</dt><dd>Share of item-origins where the system's absolute error is smaller (ties count half).</dd>
+      <dt>(MAE + |bias|) ÷ R3</dt><dd>Per origin, total absolute error plus the absolute total bias, divided by actual units, averaged over origins; bias hurts as much as noise.</dd>
+      <dt>Pinball ÷ R3</dt><dd>Quantile loss at P10, P25, P50, P75 and P90, with every system carrying the production quantile model's spread (×1.25) around its own forecast.</dd>
+      <dt>Bias</dt><dd>Total forecast ÷ total actual − 1. Negative means under-forecast.</dd>
+      <dt>Buying loss</dt><dd>Profit lost against perfect foresight when the production buying policy orders from the system's monthly forecast.</dd>
+      <dt>95% intervals</dt><dd>Item bootstrap within origins (300 resamples) of the difference in WAPE ÷ R3 between the system and a reference. An interval entirely below zero means the system is reliably better.</dd>
+      <dt>Champions</dt><dd>The accuracy champion has the lowest WAPE ÷ R3 on the nine recent origins; the buying champion has the lowest buying loss among simulated systems. Reference rows (R3 and R3 + rules) cannot be champion.</dd>
+      <dt>Status</dt><dd>Where each system stands: a reference, the source of the submitted workbook, the basis of a candidate workbook, tested and not adopted, or new and not yet simulated.</dd>
+      <dt>Updates</dt><dd>When a new model is scored, the project script <code>eda/159_scoreboard.py</code> is rerun and its output replaces this page's data. Each system's decision id points to its entry in the project's decision log.</dd>
+    </dl>
+  </details>
+</div>
+
+<script>
+  // Champions on the nine recent origins: lowest WAPE / R3 (accuracy) and lowest buying loss, references excluded.
+  dash.calc('champions', {
+    inputs: ['scores'],
+    title: 'Current champions',
+    description: 'Lowest WAPE ÷ R3 on the nine recent origins, and lowest buying-simulation loss, among non-reference systems; with the runner-up, the best system from an earlier decision, R3 + rules, and the champion\'s other scores.',
+    fn: (scores) => {
+      const rec = scores.filter((r) => r.subset === 'recent');
+      const dec = (r) => Number(String(r.decision).replace(/\D/g, ''));
+      const rules = rec.find((r) => r.system_id === 'rules');
+      const pick = (metric, field) => {
+        const cand = rec.filter((r) => r.role !== 'reference' && r[field] != null && Number.isFinite(Number(r[field])))
+          .sort((a, b) => Number(a[field]) - Number(b[field]));
+        if (!cand.length) return null;
+        const best = cand[0]; const runner = cand[1] || null;
+        const earlier = cand.filter((r) => dec(r) < dec(best)); const prev = earlier.length ? earlier[0] : null;
+        const v = Number(best[field]); const rv = rules ? Number(rules[field]) : null;
+        const rel = (a, b) => (a != null && b ? a / b - 1 : null);
+        return { metric, system_id: best.system_id, system: best.system, decision: best.decision, status: best.status, description: best.description, inputs: best.inputs,
+                 value: v, rules_value: rv, change_vs_rules: rel(v, rv),
+                 prev_system: prev ? prev.system : null, prev_value: prev ? Number(prev[field]) : null, change_vs_prev: prev ? rel(v, Number(prev[field])) : null,
+                 runner_system: runner ? runner.system : null, runner_value: runner ? Number(runner[field]) : null, change_vs_runner: runner ? rel(v, Number(runner[field])) : null,
+                 wape_r3: Number(best.wape_r3), relmae_r3: Number(best.relmae_r3), bias: Number(best.bias), sim_loss: best.sim_loss == null ? null : Number(best.sim_loss),
+                 boot_rules_lo: best.boot_rules_lo, boot_rules_hi: best.boot_rules_hi, boot_3w_lo: best.boot_3w_lo, boot_3w_hi: best.boot_3w_hi };
+      };
+      return [pick('accuracy', 'wape_r3'), pick('buying', 'sim_loss')].filter(Boolean);
+    },
+  });
+
+  // Each champion's WAPE / R3 and rank on every set of items, with the leader of that set.
+  dash.calc('champ_sets', {
+    inputs: ['champions', 'scores'],
+    title: 'Champions on each set of items',
+    description: 'For each champion: WAPE ÷ R3 and rank among non-reference systems on each set of item-origins, and which system leads that set.',
+    fn: (champions, scores) => {
+      const out = [];
+      for (const c of champions || []) {
+        for (const sub of ['recent', 'all', 'targets', 'bf']) {
+          const rows = scores.filter((r) => r.subset === sub && r.role !== 'reference').sort((a, b) => Number(a.wape_r3) - Number(b.wape_r3));
+          const i = rows.findIndex((r) => r.system_id === c.system_id); if (i < 0) continue;
+          out.push({ metric: c.metric, subset: sub, subset_name: rows[i].subset_name, wape_r3: Number(rows[i].wape_r3), rank: i + 1, leader: rows[0].system });
+        }
+      }
+      return out;
+    },
+  });
+
+  // The scoreboard for the chosen set of items, ranked by WAPE / R3.
+  dash.calc('board', {
+    inputs: ['scores'],
+    title: 'Scoreboard for the chosen items',
+    description: 'Every system on the chosen set of item-origins, ranked by WAPE ÷ R3.',
+    fn: (scores) => {
+      const sub = dash.params().subset || 'recent';
+      return scores.filter((r) => r.subset === sub).sort((a, b) => Number(a.wape_r3) - Number(b.wape_r3)).map((r, i) => ({ ...r, rank: i + 1 }));
+    },
+  });
+
+  const ok = (v) => v != null && v !== '' && Number.isFinite(Number(v));
+  window.sbFmt = {
+    ratio: (v) => (ok(v) ? d3.format('.3f')(Number(v)) : '—'),
+    ratio4: (v) => (ok(v) ? d3.format('.4f')(Number(v)) : '—'),
+    sratio: (v) => (ok(v) ? d3.format('+.4f')(Number(v)) : '—'),
+    pct1: (v) => (ok(v) ? d3.format('.1%')(Number(v)) : '—'),
+    pct2: (v) => (ok(v) ? d3.format('.2%')(Number(v)) : '—'),
+    spct: (v) => (ok(v) ? d3.format('+.1%')(Number(v)) : '—'),
+  };
+  window.sbDnum = (r) => Number(String(r.decision).replace(/\D/g, '')) * 100 + Number(r.order);
+  const SUBS = [['recent', 'Nine recent origins'], ['all', 'All 13 origins'], ['targets', 'The 100 targets'], ['bf', 'Black Friday origins']];
+
+  // A model's detail card, built inside the calling drawing's tooltip element.
+  window.sbDetail = (tip, id) => {
+    const s = dash.data('scores'); const F = window.sbFmt;
+    tip.replaceChildren();
+    if (s.status !== 'ok') return;
+    const mine = s.data.filter((r) => r.system_id === id); const r0 = mine.find((r) => r.subset === 'recent') || mine[0]; if (!r0) return;
+    const add = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; e.textContent = txt; tip.appendChild(e); return e; };
+    add('div', 'sb-tip-h', r0.system);
+    add('div', 'sb-tip-m', `${r0.decision} · ${r0.status || ''}`);
+    if (r0.description) add('div', '', r0.description);
+    if (r0.inputs) add('div', 'sb-tip-m', 'Inputs: ' + r0.inputs);
+    const t = document.createElement('table'); tip.appendChild(t);
+    const row = (a, b) => { const tr = t.insertRow(); tr.insertCell().textContent = a; tr.insertCell().textContent = b; };
+    for (const [k, nm] of SUBS) { const r = mine.find((x) => x.subset === k); if (r) row(`WAPE ÷ R3, ${nm.toLowerCase()}`, F.ratio(r.wape_r3)); }
+    row('Typical item ÷ R3 (recent)', F.ratio(r0.relmae_r3));
+    row('Bias (recent)', F.spct(r0.bias));
+    row('Buying loss', r0.sim_loss == null ? 'not simulated' : F.pct2(r0.sim_loss));
+    if (ok(r0.boot_rules_lo)) row('vs R3 + rules, 95% (recent)', `${F.sratio(r0.boot_rules_lo)} to ${F.sratio(r0.boot_rules_hi)}`);
+    if (ok(r0.boot_3w_lo)) row('vs rules + quantile + NN, 95%', `${F.sratio(r0.boot_3w_lo)} to ${F.sratio(r0.boot_3w_hi)}`);
+  };
+  window.sbPlace = (tip, host, ev) => {
+    const hb = host.getBoundingClientRect(); const x = ev.clientX - hb.left, y = ev.clientY - hb.top;
+    const w = tip.offsetWidth || 320; const h = tip.offsetHeight || 200;
+    tip.style.left = Math.max(4, Math.min(x + 14, hb.width - w - 4)) + 'px';
+    tip.style.top = (y + 16 + h > hb.height && y - h - 12 > 0 ? y - h - 12 : y + 16) + 'px';
+  };
+</script>
+
+<script>
+  document.querySelectorAll('#sb-subset').forEach((sel) => {
+    sel.addEventListener('change', () => dash.setParams({ subset: sel.value }));
+  });
+  dash.onData(() => {
+    document.querySelectorAll('#sb-subset').forEach((sel) => { if (document.activeElement !== sel) sel.value = dash.params().subset || 'recent'; });
+  });
+
+  // Champion figures: each element names its row (data-where) and field (data-field).
+  dash.draw('champ', (el) => {
+    const c = dash.data('champions');
+    if (c.status !== 'ok' || !Array.isArray(c.data)) { el.textContent = '—'; return; }
+    const metric = (el.dataset.where || '').split('=')[1];
+    const row = c.data.find((r) => r.metric === metric); const f = el.dataset.field;
+    if (!row) { el.textContent = '—'; return; }
+    const v = row[f]; const F = window.sbFmt;
+    el.classList.remove('sb-good', 'sb-badc');
+    if (['value', 'rules_value', 'prev_value', 'runner_value'].includes(f)) el.textContent = metric === 'buying' ? F.pct2(v) : F.ratio(v);
+    else if (f.startsWith('change')) { el.textContent = F.spct(v); if (v != null) el.classList.add(v < 0 ? 'sb-good' : 'sb-badc'); }
+    else if (f.startsWith('boot')) { el.textContent = F.sratio(v); if (v != null) el.classList.add(v < 0 ? 'sb-good' : 'sb-badc'); }
+    else if (f === 'wape_r3' || f === 'relmae_r3') el.textContent = F.ratio(v);
+    else if (f === 'bias') el.textContent = F.spct(v);
+    else if (f === 'sim_loss') el.textContent = v == null ? 'not yet simulated' : F.pct2(v);
+    else el.textContent = v == null ? '—' : String(v);
+  });
+
+  dash.draw('champ-sets', (tbody) => {
+    const c = dash.data('champ_sets'); tbody.replaceChildren();
+    if (c.status !== 'ok' || !Array.isArray(c.data)) return;
+    for (const r of c.data.filter((x) => x.metric === tbody.dataset.metric)) {
+      const tr = tbody.insertRow(); tr.dataset.key = `${r.metric},${r.subset}`;
+      tr.insertCell().textContent = r.subset_name; tr.insertCell().textContent = window.sbFmt.ratio(r.wape_r3);
+      const rk = tr.insertCell(); rk.textContent = String(r.rank); if (r.rank === 1) rk.className = 'sb-good';
+      tr.insertCell().textContent = r.rank === 1 ? 'this champion' : r.leader;
+    }
+  });
+
+  dash.draw('board-rows', (tbody) => {
+    const b = dash.data('board'); const c = dash.data('champions');
+    tbody.replaceChildren();
+    if (b.status !== 'ok' || !Array.isArray(b.data) || !b.data.length) return;
+    const rows = b.data; const F = window.sbFmt;
+    const champ = c.status === 'ok' && Array.isArray(c.data) ? c.data : [];
+    const accId = (champ.find((r) => r.metric === 'accuracy') || {}).system_id;
+    const buyId = (champ.find((r) => r.metric === 'buying') || {}).system_id;
+    const cols = [
+      ['wape_r3', 'low', F.ratio], ['relmae_r3', 'low', F.ratio], ['win_r3', 'high', F.pct1], ['win_rules', 'high', F.pct1],
+      ['mab_r3', 'low', F.ratio], ['pinball_r3', 'low', F.ratio], ['bias', 'zero', F.spct], ['sim_loss', 'low', F.pct2], ['sim_loss_r3', 'low', F.ratio],
+    ];
+    const best = {};
+    for (const [k, dir] of cols) {
+      const vals = rows.filter((r) => r.role !== 'reference' && r[k] != null).map((r) => Number(r[k]));
+      if (!vals.length) continue;
+      best[k] = dir === 'low' ? d3.min(vals) : dir === 'high' ? d3.max(vals) : vals.reduce((a, v) => (Math.abs(v) < Math.abs(a) ? v : a));
+    }
+    // The hover card lives in this drawing; its box is the scoreboard section, outside the table's scroll area.
+    const host = tbody.closest('#board') || tbody.parentElement;
+    const tip = document.createElement('div'); tip.className = 'sb-tip'; tip.hidden = true; tip.setAttribute('role', 'tooltip');
+    for (const r of rows) {
+      const tr = document.createElement('tr'); tr.dataset.key = r.system_id; tr.tabIndex = 0;
+      if (r.role === 'reference') tr.classList.add('sb-ref');
+      if (r.system_id === accId) tr.classList.add('sb-champ');
+      const td = (txt, cls) => { const x = document.createElement('td'); x.textContent = txt; if (cls) x.className = cls; tr.appendChild(x); return x; };
+      td(String(r.rank));
+      const sys = td(r.system, 'sb-l sb-sys');
+      const pill = (t, cls) => { const p = document.createElement('span'); p.className = 'sb-pill' + (cls ? ' ' + cls : ''); p.textContent = t; sys.appendChild(p); };
+      if (r.system_id === accId) pill('accuracy champion', 'sb-pill-champ');
+      if (r.system_id === buyId) pill('buying champion', 'sb-pill-champ');
+      if (r.role === 'reference') pill('reference');
+      if (r.role === 'member') pill('single model');
+      td(r.decision, 'sb-l');
+      for (const [k, , fmt] of cols) {
+        const x = td(fmt(r[k]));
+        if (r.role !== 'reference' && r[k] != null && best[k] != null && Number(r[k]) === best[k]) x.classList.add('sb-best');
+      }
+      const show = (ev) => { window.sbDetail(tip, r.system_id); tip.hidden = false; window.sbPlace(tip, host, ev); };
+      tr.addEventListener('pointerenter', show); tr.addEventListener('pointermove', (ev) => window.sbPlace(tip, host, ev));
+      tr.addEventListener('pointerleave', () => { tip.hidden = true; });
+      tr.addEventListener('focus', () => { const b2 = tr.getBoundingClientRect(); show({ clientX: b2.left + 40, clientY: b2.bottom }); });
+      tr.addEventListener('blur', () => { tip.hidden = true; });
+      tbody.appendChild(tr);
+    }
+    tbody.appendChild(tip);
+  });
+</script>
+
+<script>
+  dash.draw('ladder', {
+    mount: (el) => {
+      const svg = d3.select(el).append('svg').attr('role', 'img').attr('aria-label', 'WAPE divided by R3 for each system, in the order systems were added, with the best-so-far line');
+      const tip = d3.select(el).append('div').attr('class', 'sb-tip').property('hidden', true);
+      return { svg, tip };
+    },
+    update: (el, { svg, tip }) => {
+      const b = dash.data('board');
+      svg.selectAll('*').remove();
+      if (b.status !== 'ok' || !Array.isArray(b.data) || !b.data.length) { svg.attr('height', 40).append('text').attr('x', 0).attr('y', 20).text(b.status === 'error' ? 'Failed to load' : '—'); return; }
+      const all = b.data; const rules = all.find((r) => r.system_id === 'rules');
+      const pts = all.filter((r) => r.role !== 'reference').sort((a, c) => window.sbDnum(a) - window.sbDnum(c));
+      let run = Infinity; pts.forEach((p) => { run = Math.min(run, Number(p.wape_r3)); p._best = run; });
+      const W = el.clientWidth || 600, H = 300, m = { t: 16, r: 16, b: 42, l: 44 };
+      svg.attr('viewBox', `0 0 ${W} ${H}`).attr('height', H);
+      const x = d3.scalePoint().domain(pts.map((p) => p.system_id)).range([m.l + 10, W - m.r - 10]);
+      const vals = pts.map((p) => Number(p.wape_r3)).concat(rules ? [Number(rules.wape_r3)] : []);
+      const y = d3.scaleLinear().domain([d3.min(vals) * 0.97, d3.max(vals) * 1.02]).nice().range([H - m.b, m.t]);
+      const g = svg.append('g');
+      g.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - m.l - m.r)).tickFormat(d3.format('.2f')))
+        .call((a) => a.select('.domain').remove()).call((a) => a.selectAll('line').style('stroke', 'var(--cds-chart-grid)'));
+      const ax = g.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickSize(0).tickPadding(8).tickFormat((id) => (pts.find((p) => p.system_id === id) || {}).decision));
+      ax.select('.domain').style('stroke', 'var(--cds-chart-axis)');
+      const step = x.step(); if (step < 34) ax.selectAll('text').style('display', (d, i) => (i % 2 ? 'none' : null));
+      if (rules) {
+        const yr = y(Number(rules.wape_r3));
+        g.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', yr).attr('y2', yr).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '4 4');
+        g.append('text').attr('x', W - m.r).attr('y', yr - 6).attr('text-anchor', 'end').text('R3 + rules ' + d3.format('.3f')(Number(rules.wape_r3)));
+      }
+      g.append('path').datum(pts).attr('fill', 'none').style('stroke', 'var(--cds-chart-muted)').style('stroke-width', 2)
+        .attr('d', d3.line().curve(d3.curveStepAfter).x((p) => x(p.system_id)).y((p) => y(p._best)));
+      const col = (p) => (p.role === 'ensemble' ? dash.colors[0] : dash.colors[1] || dash.colors[0]);
+      const champ = pts.reduce((a, c) => (Number(c.wape_r3) < Number(a.wape_r3) ? c : a));
+      g.selectAll('circle').data(pts).join('circle').attr('cx', (p) => x(p.system_id)).attr('cy', (p) => y(Number(p.wape_r3))).attr('r', (p) => (p === champ ? 7 : 5))
+        .style('fill', col).style('stroke', 'var(--color-bg)').style('stroke-width', 1.5)
+        .on('pointerenter', (ev, p) => { window.sbDetail(tip.node(), p.system_id); tip.property('hidden', false); window.sbPlace(tip.node(), el, ev); })
+        .on('pointermove', (ev) => window.sbPlace(tip.node(), el, ev))
+        .on('pointerleave', () => tip.property('hidden', true));
+      g.append('text').attr('x', x(champ.system_id)).attr('y', y(Number(champ.wape_r3)) + 20).attr('text-anchor', 'middle').text(d3.format('.3f')(Number(champ.wape_r3)));
+    },
+  });
+
+  dash.draw('simchart', {
+    mount: (el) => {
+      const svg = d3.select(el).append('svg').attr('role', 'img').attr('aria-label', 'Buying-simulation profit loss by window for four systems');
+      const tip = d3.select(el).append('div').attr('class', 'sb-tip').property('hidden', true);
+      return { svg, tip };
+    },
+    update: (el, { svg, tip }) => {
+      const s = dash.data('simwin');
+      svg.selectAll('*').remove();
+      if (s.status !== 'ok' || !Array.isArray(s.data) || !s.data.length) { svg.attr('height', 40).append('text').attr('x', 0).attr('y', 20).text(s.status === 'error' ? 'Failed to load' : '—'); return; }
+      const SERIES = ['rules', 'threeway', 'lean3_bf', 'new3_bf'];
+      const pd = d3.utcParse('%Y-%m-%d');
+      const lines = SERIES.map((id, i) => ({ id, i, name: (s.data.find((r) => r.system_id === id) || {}).system || id,
+        pts: s.data.filter((r) => r.system_id === id).map((r) => ({ t: pd(r.window_start), v: Number(r.loss), w: r.window_start })).sort((a, b) => a.t - b.t) })).filter((l) => l.pts.length);
+      const W = el.clientWidth || 600, H = 300, m = { t: 16, r: 16, b: 36, l: 48 };
+      svg.attr('viewBox', `0 0 ${W} ${H}`).attr('height', H);
+      const allp = lines.flatMap((l) => l.pts);
+      const x = d3.scaleUtc().domain(d3.extent(allp, (p) => p.t)).range([m.l, W - m.r]);
+      const y = d3.scaleLinear().domain([0, d3.max(allp, (p) => p.v) * 1.08]).nice().range([H - m.b, m.t]);
+      const g = svg.append('g');
+      g.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - m.l - m.r)).tickFormat(d3.format('.0%')))
+        .call((a) => a.select('.domain').remove()).call((a) => a.selectAll('line').style('stroke', 'var(--cds-chart-grid)'));
+      const ax = g.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(W < 480 ? 4 : 8).tickFormat(d3.utcFormat('%b %y')));
+      ax.select('.domain').style('stroke', 'var(--cds-chart-axis)');
+      for (const l of lines) {
+        g.append('path').datum(l.pts).attr('fill', 'none').style('stroke', dash.colors[l.i % dash.colors.length]).style('stroke-width', l.id === 'new3_bf' || l.id === 'lean3_bf' ? 2.2 : 1.6)
+          .attr('d', d3.line().x((p) => x(p.t)).y((p) => y(p.v)));
+        g.append('g').selectAll('circle').data(l.pts).join('circle').attr('cx', (p) => x(p.t)).attr('cy', (p) => y(p.v)).attr('r', 3).style('fill', dash.colors[l.i % dash.colors.length]);
+      }
+      const hover = g.append('line').attr('y1', m.t).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-reference)').style('display', 'none');
+      svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', W - m.l - m.r).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+        .on('pointermove', (ev) => {
+          const t = x.invert(d3.pointer(ev, svg.node())[0]);
+          const ts = lines[0].pts.map((p) => p.t); const near = ts.reduce((a, c) => (Math.abs(c - t) < Math.abs(a - t) ? c : a));
+          hover.style('display', null).attr('x1', x(near)).attr('x2', x(near));
+          const tn = tip.node(); tn.replaceChildren();
+          const h = document.createElement('div'); h.className = 'sb-tip-h'; h.textContent = 'Window starting ' + d3.utcFormat('%b %Y')(near); tn.appendChild(h);
+          for (const l of lines) { const p = l.pts.find((q) => +q.t === +near); if (p) { const d = document.createElement('div'); d.textContent = `${l.name}: ${d3.format('.2%')(p.v)}`; tn.appendChild(d); } }
+          tip.property('hidden', false); window.sbPlace(tn, el, ev);
+        })
+        .on('pointerleave', () => { tip.property('hidden', true); hover.style('display', 'none'); });
+    },
+  });
+
+  // Legend swatches take the chart colors.
+  dash.onData(() => {
+    document.querySelectorAll('.sb-sw[data-series]').forEach((e) => { e.style.background = dash.colors[Number(e.dataset.series) % dash.colors.length]; });
+    document.querySelectorAll('.sb-dot[data-role="ensemble"]').forEach((e) => { e.style.background = dash.colors[0]; });
+    document.querySelectorAll('.sb-dot[data-role="member"]').forEach((e) => { e.style.background = dash.colors[1] || dash.colors[0]; });
+  });
+</script>

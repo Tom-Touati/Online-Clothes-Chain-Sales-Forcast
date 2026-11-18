@@ -1,0 +1,5 @@
+July/June before 1.47 -> after 1.502 | monthly totals: {'f_jul': 180929, 'f_aug': 181322, 'f_sep': 132426, 'f_oct': 132848} | total 627525
+12m+: July/June 1.535 -> 1.574 | July share 0.267 -> 0.274
+3-12 months: July/June 1.496 -> 1.487 | July share 0.276 -> 0.275
+launch <3m: July/June 1.285 -> 1.382 | July share 0.345 -> 0.371
+items changed: 88 | largest July changes: {'S21376_BLACK': -36, 'S23794_BLACK': 1423, 'S23965_BLACK': 682, 'S22994_NAVY-AND-WHITE': 171}

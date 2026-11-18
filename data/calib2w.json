@@ -1,0 +1,318 @@
+{
+ "rows": [
+  {
+   "variant": "weights",
+   "weights": "rules 0.22 tree 0.00 nn 0.20 pf2c 0.00 pf2d32 0.58",
+   "level": 1.0,
+   "in_sample": 0.3698,
+   "sub_in": 0.3824,
+   "fit25_on26": 0.2449,
+   "fit26_on25": 0.6797,
+   "sub_26": 0.249,
+   "sub_25": 0.6936,
+   "other11": 0.4623,
+   "sub_other11": 0.4504,
+   "ci_other11": [
+    0.0033,
+    0.0205
+   ],
+   "hold4": 0.3185,
+   "sub_hold4": 0.3073,
+   "ci_hold4": [
+    0.0048,
+    0.0181
+   ],
+   "cross": -0.009
+  },
+  {
+   "variant": "weights + level",
+   "weights": "rules 0.20 tree 0.00 nn 0.20 pf2c 0.00 pf2d32 0.59",
+   "level": 0.994,
+   "in_sample": 0.3698,
+   "sub_in": 0.3824,
+   "fit25_on26": 0.2454,
+   "fit26_on25": 0.6794,
+   "sub_26": 0.249,
+   "sub_25": 0.6936,
+   "other11": 0.4602,
+   "sub_other11": 0.4504,
+   "ci_other11": [
+    0.0013,
+    0.018
+   ],
+   "hold4": 0.3168,
+   "sub_hold4": 0.3073,
+   "ci_hold4": [
+    0.0029,
+    0.0161
+   ],
+   "cross": -0.0089
+  },
+  {
+   "variant": "level only",
+   "weights": "rules 0.20 tree 0.20 nn 0.20 pf2c 0.20 pf2d32 0.20",
+   "level": 1.068,
+   "in_sample": 0.3764,
+   "sub_in": 0.3824,
+   "fit25_on26": 0.2448,
+   "fit26_on25": 0.6835,
+   "sub_26": 0.249,
+   "sub_25": 0.6936,
+   "other11": 0.473,
+   "sub_other11": 0.4504,
+   "ci_other11": [
+    0.0167,
+    0.029
+   ],
+   "hold4": 0.3126,
+   "sub_hold4": 0.3073,
+   "ci_hold4": [
+    0.0009,
+    0.0108
+   ],
+   "cross": -0.0072
+  },
+  {
+   "variant": "weights, no corrections",
+   "weights": "rules 0.15 tree 0.00 nn 0.25 pf2c 0.06 pf2d32 0.55",
+   "level": 1.0,
+   "in_sample": 0.3846,
+   "sub_in": 0.3824,
+   "fit25_on26": 0.2659,
+   "fit26_on25": 0.6895,
+   "sub_26": 0.249,
+   "sub_25": 0.6936,
+   "other11": 0.4719,
+   "sub_other11": 0.4504,
+   "ci_other11": [
+    0.0114,
+    0.032
+   ],
+   "hold4": 0.3287,
+   "sub_hold4": 0.3073,
+   "ci_hold4": [
+    0.0135,
+    0.03
+   ],
+   "cross": 0.0064
+  },
+  {
+   "variant": "weights + level, no corrections",
+   "weights": "rules 0.16 tree 0.00 nn 0.23 pf2c 0.00 pf2d32 0.60",
+   "level": 0.981,
+   "in_sample": 0.3843,
+   "sub_in": 0.3824,
+   "fit25_on26": 0.2704,
+   "fit26_on25": 0.6986,
+   "sub_26": 0.249,
+   "sub_25": 0.6936,
+   "other11": 0.4662,
+   "sub_other11": 0.4504,
+   "ci_other11": [
+    0.0061,
+    0.0239
+   ],
+   "hold4": 0.3273,
+   "sub_hold4": 0.3073,
+   "ci_hold4": [
+    0.0123,
+    0.0285
+   ],
+   "cross": 0.0132
+  }
+ ],
+ "ranges": {
+  "power_lo": 0.73,
+  "power_hi": 2.26,
+  "below_above_current": {
+   "Jul-Oct 25": [
+    0.098,
+    0.241
+   ],
+   "Mar-Jun 26": [
+    0.038,
+    0.232
+   ],
+   "other 11": [
+    0.117,
+    0.145
+   ]
+  },
+  "below_above_calibrated": {
+   "Jul-Oct 25": [
+    0.156,
+    0.117
+   ],
+   "Mar-Jun 26": [
+    0.064,
+    0.09
+   ],
+   "other 11": [
+    0.193,
+    0.056
+   ]
+  },
+  "cross": {
+   "fit Jul-Oct 25, read Mar-Jun 26": [
+    0.039,
+    0.078
+   ],
+   "fit Mar-Jun 26, read Jul-Oct 25": [
+    0.23,
+    0.135
+   ]
+  }
+ },
+ "fits": {
+  "weights": {
+   "weights": [
+    0.219,
+    0.0,
+    0.197,
+    0.0,
+    0.583
+   ],
+   "level": 1.0,
+   "corrections": true
+  },
+  "weights + level": {
+   "weights": [
+    0.204,
+    0.0,
+    0.204,
+    0.0,
+    0.593
+   ],
+   "level": 0.994,
+   "corrections": true
+  },
+  "level only": {
+   "weights": [
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+   ],
+   "level": 1.068,
+   "corrections": true
+  },
+  "weights, no corrections": {
+   "weights": [
+    0.148,
+    0.0,
+    0.246,
+    0.059,
+    0.547
+   ],
+   "level": 1.0,
+   "corrections": false
+  },
+  "weights + level, no corrections": {
+   "weights": [
+    0.162,
+    0.0,
+    0.233,
+    0.0,
+    0.605
+   ],
+   "level": 0.981,
+   "corrections": false
+  }
+ },
+ "totals_2026": {
+  "total_submitted": 601801,
+  "total_weights": 610054,
+  "total_weights_+_level": 606524,
+  "total_level_only": 642506,
+  "total_weights_no_corrections": 616349,
+  "total_weights_+_level_no_corrections": 606654
+ },
+ "cross_ci": {
+  "weights": {
+   "fit Jul-Oct 25 -> Mar-Jun 26": [
+    -0.0041,
+    [
+     -0.011,
+     0.0029
+    ]
+   ],
+   "fit Mar-Jun 26 -> Jul-Oct 25": [
+    -0.014,
+    [
+     -0.0473,
+     0.0222
+    ]
+   ],
+   "weights from Mar-Jun 26": "rules 0.16 tree 0.00 nn 0.15 pf2c 0.07 pf2d32 0.62 level 1.000"
+  },
+  "weights + level": {
+   "fit Jul-Oct 25 -> Mar-Jun 26": [
+    -0.0036,
+    [
+     -0.0131,
+     0.0042
+    ]
+   ],
+   "fit Mar-Jun 26 -> Jul-Oct 25": [
+    -0.0142,
+    [
+     -0.0505,
+     0.0234
+    ]
+   ],
+   "weights from Mar-Jun 26": "rules 0.16 tree 0.00 nn 0.16 pf2c 0.04 pf2d32 0.65 level 0.994"
+  },
+  "level only": {
+   "fit Jul-Oct 25 -> Mar-Jun 26": [
+    -0.0042,
+    [
+     -0.0114,
+     0.0015
+    ]
+   ],
+   "fit Mar-Jun 26 -> Jul-Oct 25": [
+    -0.0101,
+    [
+     -0.03,
+     0.0111
+    ]
+   ],
+   "weights from Mar-Jun 26": "rules 0.20 tree 0.20 nn 0.20 pf2c 0.20 pf2d32 0.20 level 1.068"
+  },
+  "weights, no corrections": {
+   "fit Jul-Oct 25 -> Mar-Jun 26": [
+    0.0169,
+    [
+     0.0084,
+     0.0251
+    ]
+   ],
+   "fit Mar-Jun 26 -> Jul-Oct 25": [
+    -0.0041,
+    [
+     -0.0413,
+     0.0353
+    ]
+   ],
+   "weights from Mar-Jun 26": "rules 0.06 tree 0.00 nn 0.13 pf2c 0.20 pf2d32 0.61 level 1.000"
+  },
+  "weights + level, no corrections": {
+   "fit Jul-Oct 25 -> Mar-Jun 26": [
+    0.0214,
+    [
+     0.0115,
+     0.0287
+    ]
+   ],
+   "fit Mar-Jun 26 -> Jul-Oct 25": [
+    0.005,
+    [
+     -0.0169,
+     0.0253
+    ]
+   ],
+   "weights from Mar-Jun 26": "rules 0.06 tree 0.00 nn 0.14 pf2c 0.59 pf2d32 0.21 level 1.079"
+  }
+ }
+}

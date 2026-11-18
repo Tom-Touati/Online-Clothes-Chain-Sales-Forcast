@@ -1,0 +1,16 @@
+{
+ "P25/P75": {
+  "method": "raw",
+  "shift_lo": 0.0,
+  "shift_hi": 0.0,
+  "beats_raw_on_recent_and_june2025": false,
+  "apply": false
+ },
+ "P10/P90": {
+  "method": "raw",
+  "shift_lo": 0.0,
+  "shift_hi": 0.0,
+  "beats_raw_on_recent_and_june2025": false,
+  "apply": false
+ }
+}

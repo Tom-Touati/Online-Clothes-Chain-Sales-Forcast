@@ -1,0 +1,49 @@
+== all 13 origins: pooled WAPE / bias / within 20%
+         wape   bias    w20
+rules   0.340 -0.063  0.345
+qmodel  0.382 -0.002  0.330
+nn      0.368  0.019  0.336
+lgb_nn  0.349 -0.024  0.350
+q_nn    0.359 -0.000  0.344
+r_q     0.328 -0.052  0.352
+r_nn    0.320 -0.041  0.368
+r_q_nn  0.326 -0.037  0.363
+r_qnn   0.320 -0.049  0.362
+origins where r_q_nn beats: {'r_q': 10, 'q_nn': 12, 'qmodel': 10} of 13
+  r_q_nn - r_q: [-0.005 -0.002  0.001]
+  r_q_nn - q_nn: [-0.038 -0.033 -0.028]
+  r_q - q_nn: [-0.039 -0.031 -0.025]
+  r_qnn - r_q: [-0.01  -0.008 -0.006]
+== nine recent origins: pooled WAPE / bias / within 20%
+         wape   bias    w20
+rules   0.341 -0.064  0.346
+qmodel  0.329 -0.099  0.358
+nn      0.338 -0.034  0.348
+lgb_nn  0.328 -0.074  0.361
+q_nn    0.319 -0.074  0.367
+r_q     0.313 -0.094  0.363
+r_nn    0.311 -0.065  0.372
+r_q_nn  0.307 -0.082  0.375
+r_qnn   0.308 -0.082  0.370
+origins where r_q_nn beats: {'r_q': 8, 'q_nn': 8, 'qmodel': 6} of 9
+  r_q_nn - r_q: [-0.009 -0.006 -0.004]
+  r_q_nn - q_nn: [-0.015 -0.012 -0.009]
+  r_q - q_nn: [-0.011 -0.006 -0.   ]
+  r_qnn - r_q: [-0.007 -0.005 -0.003]
+== recent origins, targets only
+        items   wape   bias
+rules   570.0  0.360 -0.133
+qmodel  570.0  0.337 -0.195
+nn      570.0  0.323 -0.132
+lgb_nn  570.0  0.328 -0.173
+q_nn    570.0  0.320 -0.170
+r_q     570.0  0.328 -0.175
+r_nn    570.0  0.318 -0.145
+r_q_nn  570.0  0.318 -0.167
+r_qnn   570.0  0.321 -0.162
+== recent origins by weight on rules (rest split q/nn equally)
+  w_rules 0.20: recent 0.310 | all 0.335
+  w_rules 0.33: recent 0.307 | all 0.326
+  w_rules 0.40: recent 0.307 | all 0.323
+  w_rules 0.50: recent 0.308 | all 0.320
+  w_rules 0.60: recent 0.311 | all 0.319

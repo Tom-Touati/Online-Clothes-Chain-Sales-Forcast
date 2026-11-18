@@ -1,0 +1,22 @@
+2025-02 {'ens': np.float64(0.539), 'ens_deep': np.float64(0.515), 'ens_all': np.float64(0.483)}
+2025-03 {'ens': np.float64(0.474), 'ens_deep': np.float64(0.43), 'ens_all': np.float64(0.407)}
+2025-04 {'ens': np.float64(0.336), 'ens_deep': np.float64(0.325), 'ens_all': np.float64(0.323)}
+2025-05 {'ens': np.float64(0.291), 'ens_deep': np.float64(0.278), 'ens_all': np.float64(0.27)}
+2025-06 {'ens': np.float64(0.314), 'ens_deep': np.float64(0.367), 'ens_all': np.float64(0.369)}
+2025-07 {'ens': np.float64(0.326), 'ens_deep': np.float64(0.359), 'ens_all': np.float64(0.364)}
+2025-08 {'ens': np.float64(0.375), 'ens_deep': np.float64(0.414), 'ens_all': np.float64(0.402)}
+2025-09 {'ens': np.float64(0.441), 'ens_deep': np.float64(0.431), 'ens_all': np.float64(0.419)}
+2025-10 {'ens': np.float64(0.433), 'ens_deep': np.float64(0.424), 'ens_all': np.float64(0.391)}
+2025-11 {'ens': np.float64(0.293), 'ens_deep': np.float64(0.326), 'ens_all': np.float64(0.31)}
+2025-12 {'ens': np.float64(0.234), 'ens_deep': np.float64(0.302), 'ens_all': np.float64(0.283)}
+2026-01 {'ens': np.float64(0.302), 'ens_deep': np.float64(0.297), 'ens_all': np.float64(0.291)}
+2026-02 {'ens': np.float64(0.358), 'ens_deep': np.float64(0.342), 'ens_all': np.float64(0.345)}
+== all: mean WAPE {'ens': 0.3628, 'ens_deep': 0.37, 'ens_all': 0.3583} | deep beats ens at 8 | all beats ens at 8 of 13
+== targets: mean WAPE {'ens': 0.3711, 'ens_deep': 0.378, 'ens_all': 0.3648} | deep beats ens at 6 | all beats ens at 7 of 13
+month-level aggregate |log error| by h:
+     ens  ens_deep  ens_all
+h                          
+1  0.185     0.235    0.233
+2  0.182     0.239    0.233
+3  0.176     0.220    0.207
+4  0.187     0.179    0.154
