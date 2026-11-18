@@ -1,6 +1,6 @@
-"""Builds the workbook nx17 (D431): nx11 with the text restructured (one topic per line, a bold summary first), the buying simulation of the
+"""Builds the workbook nx18 (D431): nx11 with the text restructured (one topic per line, a bold summary first), the buying simulation of the
 submitted system, the NOAA temperature data, real-world evaluation as the principle, the ranges as a weakness; boxes in black, the decisions
-sheet aligned (pipeline/181y_nx17_text.py). No number changes (archive/eda/181y_check_nx17.py). nx11 header follows.
+sheet aligned (pipeline/181z_nx18_text.py). No number changes (archive/eda/181z_check_nx18.py). nx11 header follows.
 Builds the workbook nx11 (D429): nx10 with the Model explanation rewritten coarse to fine, all the main metrics and the cascade as
 explainability (archive/eda/181s_nx11_text.py); column B of "Model explanation" widened from 110 to 120 for the longer boxes. No number changes
 (archive/eda/181s_check_nx11.py). nx10 header follows.
@@ -25,7 +25,7 @@ Steps, for the 100 items of the exercise workbook, at the June 2026 origin:
   6  P10 / P25 / P75 / P90 from the per-segment range ratios; ranges for totals
   7  confidence 1-3;  8  buying quantity;  9  explanations
   10 the workbook (Forecast and Model explanation sheets filled; Method and decisions, Cascade and Ranges sheets added) and the cascade tables
-Run from anywhere:  python pipeline/181y_final_nx17_2026.py"""
+Run from anywhere:  python pipeline/181z_final_nx18_2026.py"""
 import importlib.util, math, shutil, sys
 from pathlib import Path
 import numpy as np, pandas as pd, openpyxl
@@ -37,10 +37,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TEMPLATE = ROOT / "exercise/Edikted_Forecasting_Exercise.xlsx"                  # the exercise workbook as received
 WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_filled.xlsx"           # written: the submission
-CASCADE = DATA / "final_2026_nx17_cascade.csv"                           # written: every step, per item
-HIERARCHY = DATA / "final_2026_nx17_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
-TOTAL_RANGES = DATA / "final_2026_nx17_total_ranges.csv"                # written: ranges for totals
-TEXT = Path(__file__).with_name("181y_nx17_text.py")
+CASCADE = DATA / "final_2026_nx18_cascade.csv"                           # written: every step, per item
+HIERARCHY = DATA / "final_2026_nx18_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
+TOTAL_RANGES = DATA / "final_2026_nx18_total_ranges.csv"                # written: ranges for totals
+TEXT = Path(__file__).with_name("181z_nx18_text.py")
 IN = dict(
     items=DATA / "items.parquet",                                  # product type per item
     monthly=DATA / "monthly_item.parquet",                         # units per item and month
@@ -314,6 +314,6 @@ write_models_table(wm.max_row + 2)                                        # the 
 wb.save(WORKBOOK)
 
 months_total = C[MONTHS + ["total"]].sum().astype(int).to_dict()
-print("nx17:", months_total, "| model raw total", round(float(C.forecast.sum())), "| campaign", fill["campaign_pct"], round(float(C.campaign_add.sum())), "units, items >= 0.5%:", int((C.campaign_add >= 0.005 * C.forecast).sum()))
+print("nx18:", months_total, "| model raw total", round(float(C.forecast.sum())), "| campaign", fill["campaign_pct"], round(float(C.campaign_add.sum())), "units, items >= 0.5%:", int((C.campaign_add >= 0.005 * C.forecast).sum()))
 print("confidence", C.confidence.value_counts().sort_index().to_dict(), "| explanations", int((C.explanation != "").sum()), "| buying", round(float(C.buying.sum())), f"(+{fill['buying_uplift']}% median), below the total for", int((C.buying < C.total - 0.5).sum()), "items")
 print("hand-ruled:", HAND_RULED, "| boxes:", {row[0].value: (len(str(row[1].value)), wm.row_dimensions[row[0].row].height) for row in wm.iter_rows(min_row=2) if row[0].value in text.MODEL_EXPLANATION})

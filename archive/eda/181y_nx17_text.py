@@ -1,9 +1,9 @@
 """The words of the workbook nx17 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
 opening with a summary up to its first colon, which the builder sets in bold. Added: real-world evaluation as the principle (a Framing row
-first), the buying simulation of the submitted system itself (pipeline/231_sim_nx11.py: 10.6% of the perfect-foresight profit lost, the agents'
+first), the buying simulation of the submitted system itself (eda/231_sim_nx11.py: 10.6% of the perfect-foresight profit lost, the agents'
 rules 12.4%, R3 19.5%; an earlier five-member version, split differently, lost 10.8%), the NOAA temperature data (D155 / D157 / D159 / D159b)
 and the ranges as a weakness. Figures as audited (workflow audit-nx11-buying-sim). User requests quoted in D431. Read by
-pipeline/181y_final_nx17_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
+eda/181y_final_nx17_2026.py, which fills the {placeholders} (see eda/181s_nx11_text.py for them and for the earlier sources)."""
 
 MODEL_EXPLANATION = {
  "Your approach": (
@@ -297,7 +297,7 @@ DECISIONS = [
 
 # The "Metrics vs baselines" sheet (user: "add a table that shows the improvement of each metric over R3, seasonal naive, and agent rule based.
 # emphasize the agents never saw any data into the future (except for their unknow pretraining)"). Values from data/metrics_table_nx12.csv
-# (pipeline/232_metrics_table.py: scored exactly as data/scoreboard.json; buying loss from pipeline/231_sim_nx11.py and pipeline/231b_sim_naive.py).
+# (eda/232_metrics_table.py: scored exactly as data/scoreboard.json; buying loss from eda/231_sim_nx11.py and eda/231b_sim_naive.py).
 METRICS_NOTE = ("Every metric of the submitted forecast next to the three baselines, on the nine most recent backtest month-ends (9,031 item forecasts), all scored the same way. "
                 "The agents' rules are the toughest baseline and a time-honest one: at each month-end a fresh AI agent wrote and revised planning rules from a data snapshot cut at "
                 "that month-end, so it never saw any later data (its only outside knowledge is its language model's pretraining, which cannot be audited). "
