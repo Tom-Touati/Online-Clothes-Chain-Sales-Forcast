@@ -1,0 +1,3 @@
+wvol03 131s | P50 WAPE recent 1769.6227 all 1769.6227
+sel 28s | P50 WAPE recent 1874.0016 all 1874.0016
+base 35s | P50 WAPE recent 2072.7864 all 2072.7864

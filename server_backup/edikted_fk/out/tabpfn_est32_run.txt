@@ -1,0 +1,28 @@
+tabpfn v2 2025-02 context 2558 test 626 P50 WAPE 0.595 101s
+tabpfn v2 2025-03 context 3045 test 654 P50 WAPE 0.477 229s
+tabpfn v2 2025-04 context 3577 test 686 P50 WAPE 0.319 416s
+tabpfn v2 2025-05 context 4150 test 730 P50 WAPE 0.326 639s
+tabpfn v2 2025-06 context 4776 test 768 P50 WAPE 0.309 903s
+tabpfn v2 2025-07 context 5430 test 816 P50 WAPE 0.363 1233s
+tabpfn v2 2025-08 context 6116 test 867 P50 WAPE 0.439 1462s
+tabpfn v2 2025-09 context 6846 test 941 P50 WAPE 0.349 1722s
+tabpfn v2 2025-10 context 7614 test 1003 P50 WAPE 0.356 2024s
+tabpfn v2 2025-11 context 8430 test 1070 P50 WAPE 0.302 2382s
+tabpfn v2 2025-12 context 9297 test 1128 P50 WAPE 0.208 2820s
+tabpfn v2 2026-01 context 10238 test 1176 P50 WAPE 0.236 3625s
+tabpfn v2 2026-02 context 11241 test 1262 P50 WAPE 0.276 4622s
+saved v2_dyn
+tabpfn v3.5-fast 2025-02 context 2558 test 626 P50 WAPE 0.727 31s
+tabpfn v3.5-fast 2025-03 context 3045 test 654 P50 WAPE 0.449 68s
+tabpfn v3.5-fast 2025-04 context 3577 test 686 P50 WAPE 0.322 112s
+tabpfn v3.5-fast 2025-05 context 4150 test 730 P50 WAPE 0.316 162s
+tabpfn v3.5-fast 2025-06 context 4776 test 768 P50 WAPE 0.321 220s
+tabpfn v3.5-fast 2025-07 context 5430 test 816 P50 WAPE 0.313 284s
+tabpfn v3.5-fast 2025-08 context 6116 test 867 P50 WAPE 0.327 361s
+tabpfn v3.5-fast 2025-09 context 6846 test 941 P50 WAPE 0.323 446s
+tabpfn v3.5-fast 2025-10 context 7614 test 1003 P50 WAPE 0.289 536s
+tabpfn v3.5-fast 2025-11 context 8430 test 1070 P50 WAPE 0.245 643s
+tabpfn v3.5-fast 2025-12 context 9297 test 1128 P50 WAPE 0.229 755s
+tabpfn v3.5-fast 2026-01 context 10238 test 1176 P50 WAPE 0.257 884s
+tabpfn v3.5-fast 2026-02 context 11241 test 1262 P50 WAPE 0.287 1021s
+saved v3_5-fast_dyn

@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tabpfn v2 ecns 2025-02 context 2558 test 626 P50 WAPE 0.567 49s
+tabpfn v2 ecns 2025-03 context 3045 test 654 P50 WAPE 0.551 113s
+tabpfn v2 ecns 2025-04 context 3577 test 686 P50 WAPE 0.371 194s
+tabpfn v2 ecns 2025-05 context 4150 test 730 P50 WAPE 0.323 321s
+tabpfn v2 ecns 2025-06 context 4776 test 768 P50 WAPE 0.326 517s
+tabpfn v2 ecns 2025-07 context 5430 test 816 P50 WAPE 0.324 763s
+tabpfn v2 ecns 2025-08 context 6116 test 867 P50 WAPE 0.425 1059s
+tabpfn v2 ecns 2025-09 context 6846 test 941 P50 WAPE 0.325 1401s
+tabpfn v2 ecns 2025-10 context 7614 test 1003 P50 WAPE 0.324 1813s
+tabpfn v2 ecns 2025-11 context 8430 test 1070 P50 WAPE 0.252 2185s
+tabpfn v2 ecns 2025-12 context 9297 test 1128 P50 WAPE 0.203 2580s
+tabpfn v2 ecns 2026-01 context 10238 test 1176 P50 WAPE 0.246 3048s
+tabpfn v2 ecns 2026-02 context 11241 test 1262 P50 WAPE 0.294 3602s
+saved ecns_e32
+tabpfn v2 ec 2025-02 context 2558 test 626 P50 WAPE 0.739 64s
+tabpfn v2 ec 2025-03 context 3045 test 654 P50 WAPE 0.591 146s
+tabpfn v2 ec 2025-04 context 3577 test 686 P50 WAPE 0.380 251s
+tabpfn v2 ec 2025-05 context 4150 test 730 P50 WAPE 0.340 382s
+tabpfn v2 ec 2025-06 context 4776 test 768 P50 WAPE 0.342 543s
+tabpfn v2 ec 2025-07 context 5430 test 816 P50 WAPE 0.355 746s
+tabpfn v2 ec 2025-08 context 6116 test 867 P50 WAPE 0.428 991s
+tabpfn v2 ec 2025-09 context 6846 test 941 P50 WAPE 0.333 1284s
+tabpfn v2 ec 2025-10 context 7614 test 1003 P50 WAPE 0.342 1628s
+tabpfn v2 ec 2025-11 context 8430 test 1070 P50 WAPE 0.256 2041s
+tabpfn v2 ec 2025-12 context 9297 test 1128 P50 WAPE 0.209 2534s
+tabpfn v2 ec 2026-01 context 10238 test 1176 P50 WAPE 0.232 3115s
+tabpfn v2 ec 2026-02 context 11241 test 1262 P50 WAPE 0.279 3840s
+saved ec_e32

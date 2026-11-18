@@ -1,0 +1,4 @@
+xgb 1456s | P50 WAPE recent 0.3204 all 0.3539
+cat 897s | P50 WAPE recent 0.3068 all 0.3508
+dart 333s | P50 WAPE recent 0.3427 all 0.3713
+base 142s | P50 WAPE recent 0.3015 all 0.3358

@@ -1,0 +1,3 @@
+wvol05 3969s | P50 WAPE recent 0.2974 all 0.338
+wvol1 214s | P50 WAPE recent 0.3081 all 0.3489
+wvol03 220s | P50 WAPE recent 0.2963 all 0.3343

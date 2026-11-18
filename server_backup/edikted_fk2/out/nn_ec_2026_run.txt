@@ -1,0 +1,8 @@
+D272: added 37 EV2 + CURVE features
+weekly sequences built: (85264, 26, 2)
+eda/57_embed_nn.py:143: RuntimeWarning: divide by zero encountered in scalar divide
+2026-06: train 71487 rows, 91s | WAPE(P50 total) inf bias +inf
+D272: added 37 EV2 + CURVE features
+weekly sequences built: (85264, 26, 2)
+eda/57_embed_nn.py:143: RuntimeWarning: divide by zero encountered in scalar divide
+2026-06: train 71487 rows, 92s | WAPE(P50 total) inf bias +inf

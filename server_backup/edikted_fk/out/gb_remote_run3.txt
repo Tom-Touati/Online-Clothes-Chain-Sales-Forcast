@@ -1,0 +1,3 @@
+tw15 1578s | P50 WAPE recent 0.3117 all 0.3625
+sel+winmix 2328s | P50 WAPE recent 0.3093 all 0.3317
+sel+wvol05 108s | P50 WAPE recent 0.3105 all 0.335

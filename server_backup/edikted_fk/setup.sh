@@ -1,0 +1,9 @@
+set -x
+python3 -m venv venv
+venv/bin/pip install -q --upgrade pip
+venv/bin/pip install -q torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+venv/bin/pip install -q pandas pyarrow numpy scipy scikit-learn lightgbm shap
+venv/bin/pip install -q "chronos-forecasting>=2.0"
+venv/bin/pip install -q "timesfm[torch]"
+venv/bin/pip freeze > freeze.txt
+venv/bin/python -c "import torch, chronos; print(\"OK\", torch.__version__, torch.cuda.is_available())"

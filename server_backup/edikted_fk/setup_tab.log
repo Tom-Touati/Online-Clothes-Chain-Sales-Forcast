@@ -1,0 +1,9 @@
++ python3 -m venv venv_tab
++ venv_tab/bin/pip install -q --upgrade pip
++ venv_tab/bin/pip install -q torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
++ venv_tab/bin/pip install -q pandas pyarrow numpy scikit-learn
++ venv_tab/bin/pip install -q tabdpt
++ venv_tab/bin/pip install -q 'autogluon.tabular[mitra]'
++ venv_tab/bin/pip freeze
++ venv_tab/bin/python -c 'import torch; print("OK", torch.__version__, torch.cuda.is_available())'
+OK 2.13.0+cu130 True

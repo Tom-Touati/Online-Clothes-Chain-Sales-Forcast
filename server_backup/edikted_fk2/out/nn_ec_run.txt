@@ -1,0 +1,44 @@
+D272: added 37 EV2 + CURVE features
+weekly sequences built: (85264, 26, 2)
+2025-02: train 13330 rows, 20s | WAPE(P50 total) 0.436 bias +0.067
+2025-03: train 15548 rows, 21s | WAPE(P50 total) 0.574 bias +0.431
+2025-04: train 17933 rows, 23s | WAPE(P50 total) 0.345 bias -0.105
+2025-05: train 20472 rows, 32s | WAPE(P50 total) 0.297 bias -0.033
+2025-06: train 23168 rows, 34s | WAPE(P50 total) 0.317 bias -0.038
+2025-07: train 26006 rows, 34s | WAPE(P50 total) 0.316 bias -0.101
+2025-08: train 29006 rows, 39s | WAPE(P50 total) 0.348 bias -0.107
+2025-09: train 32187 rows, 43s | WAPE(P50 total) 0.396 bias -0.294
+2025-10: train 35579 rows, 54s | WAPE(P50 total) 0.370 bias -0.139
+2025-11: train 39206 rows, 56s | WAPE(P50 total) 0.284 bias +0.073
+2025-12: train 43087 rows, 57s | WAPE(P50 total) 0.257 bias -0.027
+2026-01: train 47229 rows, 61s | WAPE(P50 total) 0.284 bias -0.039
+2026-02: train 51606 rows, 73s | WAPE(P50 total) 0.332 bias -0.133
+D272: added 37 EV2 + CURVE features
+weekly sequences built: (85264, 26, 2)
+2025-02: train 13330 rows, 21s | WAPE(P50 total) 0.501 bias +0.165
+2025-03: train 15548 rows, 21s | WAPE(P50 total) 0.594 bias +0.440
+2025-04: train 17933 rows, 26s | WAPE(P50 total) 0.329 bias -0.124
+2025-05: train 20472 rows, 26s | WAPE(P50 total) 0.312 bias +0.005
+2025-06: train 23168 rows, 29s | WAPE(P50 total) 0.320 bias +0.020
+2025-07: train 26006 rows, 33s | WAPE(P50 total) 0.340 bias -0.002
+2025-08: train 29006 rows, 39s | WAPE(P50 total) 0.357 bias -0.063
+2025-09: train 32187 rows, 44s | WAPE(P50 total) 0.384 bias -0.282
+2025-10: train 35579 rows, 59s | WAPE(P50 total) 0.367 bias -0.171
+2025-11: train 39206 rows, 54s | WAPE(P50 total) 0.252 bias -0.006
+2025-12: train 43087 rows, 59s | WAPE(P50 total) 0.243 bias -0.083
+2026-01: train 47229 rows, 63s | WAPE(P50 total) 0.285 bias -0.025
+2026-02: train 51606 rows, 69s | WAPE(P50 total) 0.330 bias -0.160
+weekly sequences built: (85264, 26, 2)
+2025-02: train 13330 rows, 20s | WAPE(P50 total) 0.636 bias +0.403
+2025-03: train 15548 rows, 21s | WAPE(P50 total) 0.620 bias +0.440
+2025-04: train 17933 rows, 30s | WAPE(P50 total) 0.397 bias +0.048
+2025-05: train 20472 rows, 34s | WAPE(P50 total) 0.338 bias +0.031
+2025-06: train 23168 rows, 30s | WAPE(P50 total) 0.345 bias +0.024
+2025-07: train 26006 rows, 34s | WAPE(P50 total) 0.346 bias +0.043
+2025-08: train 29006 rows, 38s | WAPE(P50 total) 0.370 bias +0.021
+2025-09: train 32187 rows, 43s | WAPE(P50 total) 0.402 bias -0.272
+2025-10: train 35579 rows, 48s | WAPE(P50 total) 0.392 bias -0.185
+2025-11: train 39206 rows, 52s | WAPE(P50 total) 0.292 bias +0.083
+2025-12: train 43087 rows, 56s | WAPE(P50 total) 0.262 bias +0.024
+2026-01: train 47229 rows, 63s | WAPE(P50 total) 0.312 bias +0.007
+2026-02: train 51606 rows, 78s | WAPE(P50 total) 0.339 bias -0.087

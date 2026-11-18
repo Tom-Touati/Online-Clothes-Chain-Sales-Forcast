@@ -1,0 +1,14 @@
+tabpfn v2 2025-02 context 2558 test 626 P50 WAPE 0.406 33s
+tabpfn v2 2025-03 context 3045 test 654 P50 WAPE 0.379 74s
+tabpfn v2 2025-04 context 3577 test 686 P50 WAPE 0.359 128s
+tabpfn v2 2025-05 context 4150 test 730 P50 WAPE 0.322 197s
+tabpfn v2 2025-06 context 4776 test 768 P50 WAPE 0.302 280s
+tabpfn v2 2025-07 context 5430 test 816 P50 WAPE 0.346 402s
+tabpfn v2 2025-08 context 6116 test 867 P50 WAPE 0.453 547s
+tabpfn v2 2025-09 context 6846 test 941 P50 WAPE 0.347 715s
+tabpfn v2 2025-10 context 7614 test 1003 P50 WAPE 0.310 913s
+tabpfn v2 2025-11 context 8430 test 1070 P50 WAPE 0.380 1146s
+tabpfn v2 2025-12 context 9297 test 1128 P50 WAPE 0.215 1417s
+tabpfn v2 2026-01 context 10238 test 1176 P50 WAPE 0.261 1731s
+tabpfn v2 2026-02 context 11241 test 1262 P50 WAPE 0.291 2101s
+saved v2_sel_e32

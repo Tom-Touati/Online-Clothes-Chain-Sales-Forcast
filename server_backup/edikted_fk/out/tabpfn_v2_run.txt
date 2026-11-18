@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tabpfn v2 2025-02 context 2558 test 626 P50 WAPE 0.757 16s
+tabpfn v2 2025-03 context 3045 test 654 P50 WAPE 0.548 31s
+tabpfn v2 2025-04 context 3577 test 686 P50 WAPE 0.362 51s
+tabpfn v2 2025-05 context 4150 test 730 P50 WAPE 0.358 75s
+tabpfn v2 2025-06 context 4776 test 768 P50 WAPE 0.322 104s
+tabpfn v2 2025-07 context 5430 test 816 P50 WAPE 0.363 141s
+tabpfn v2 2025-08 context 6116 test 867 P50 WAPE 0.443 186s
+[W1116 18:27:18.216505046 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 1423966208 bytes (free: 77398016, total: 15637086208).
+tabpfn v2 2025-09 context 6846 test 941 P50 WAPE 0.356 239s
+tabpfn v2 2025-10 context 7614 test 1003 P50 WAPE 0.357 302s
+tabpfn v2 2025-11 context 8430 test 1070 P50 WAPE 0.351 377s
+[W1116 18:30:31.509404691 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 1937768448 bytes (free: 1824325632, total: 15637086208).
+tabpfn v2 2025-12 context 9297 test 1128 P50 WAPE 0.208 467s
+tabpfn v2 2026-01 context 10238 test 1176 P50 WAPE 0.243 573s
+[W1116 18:33:48.097026395 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 2325741568 bytes (free: 2306670592, total: 15637086208).
+tabpfn v2 2026-02 context 11241 test 1262 P50 WAPE 0.279 696s
+saved v2
