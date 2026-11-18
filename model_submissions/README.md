@@ -3,7 +3,8 @@
 Every workbook other than the submission, one folder each: two early candidates that add one member to the LightGBM quantile model,
 and the earlier versions of the submission.
 Totals are July–October 2026 units for the 100 items; confidence counts are items at level 1 / 2 / 3. Decision ids refer to
-[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx14 (D433): nx13 with a colour-coded table of SYS's ratio to each baseline per metric in "Model explanation".
+[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx15 (D434): nx13 with a cool-warm table of SYS's ratio to each baseline per metric in "Model explanation" (every
+metric lower-is-better; blue = SYS better).
 
 | Folder | What it is | Total | Confidence | Decision |
 |---|---|---|---|---|
@@ -26,3 +27,4 @@ Totals are July–October 2026 units for the 100 items; confidence counts are it
 | `15_nx11_metrics_cascade` | The explanation coarse to fine, all the main metrics, the cascade as explainability | 630,254 | 10 / 86 / 4 | D429, submitted |
 | `16_nx12_buying_metrics_table` | The buying simulation of the submitted system, the metrics-vs-baselines sheet, NOAA temperature, bold line summaries | 630,254 | 10 / 86 / 4 | D431, submitted |
 | `17_nx13_abbreviations` | The abbreviations SYS / R3 / SN / AR in every list of figures | 630,254 | 10 / 86 / 4 | D432, submitted |
+| `18_nx14_ratio_table_green` | The ratio table in green, metrics in their own directions | 630,254 | 10 / 86 / 4 | D433, submitted |
