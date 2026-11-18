@@ -5,10 +5,18 @@
    nn_m1        WAPE 0.285 | / R3m 0.503 | bias -0.087 | within 20% 0.38
    rules_m1     WAPE 0.288 | / R3m 0.509 | bias -0.072 | within 20% 0.38
    sys_m1       WAPE 0.244 | / R3m 0.432 | bias -0.058 | within 20% 0.43
-   lstm_daily   WAPE 0.523 | / R3m 0.924 | bias +0.044 | within 20% 0.30 | error / system m1's 2.141 [2.032, 2.244]
-   lstm_ctx     WAPE 0.400 | / R3m 0.707 | bias -0.142 | within 20% 0.30 | error / system m1's 1.639 [1.569, 1.708]
-   blend_daily  WAPE 0.349 | / R3m 0.617 | bias -0.045 | within 20% 0.36 | error / system m1's 1.429 [1.367, 1.491]
-   blend_ctx    WAPE 0.307 | / R3m 0.543 | bias -0.124 | within 20% 0.38 | error / system m1's 1.258 [1.216, 1.301]
+   lstm_daily   WAPE 0.537 | / R3m 0.948 | bias +0.055 | within 20% 0.29 | error / system m1's 2.197 [2.086, 2.295]
+   lstm_ctx     WAPE 0.459 | / R3m 0.810 | bias -0.079 | within 20% 0.28 | error / system m1's 1.877 [1.790, 1.970]
+   lstm_full365 WAPE 0.261 | / R3m 0.461 | bias -0.052 | within 20% 0.41 | error / system m1's 1.068 [1.040, 1.098]
+   lstm_tabonly WAPE 0.261 | / R3m 0.461 | bias -0.030 | within 20% 0.40 | error / system m1's 1.068 [1.044, 1.095]
+   lstm_daily365 WAPE 0.558 | / R3m 0.986 | bias +0.074 | within 20% 0.29 | error / system m1's 2.284 [2.163, 2.421]
+   lstm_ctx365  WAPE 0.474 | / R3m 0.837 | bias -0.058 | within 20% 0.29 | error / system m1's 1.939 [1.845, 2.052]
+   blend_daily  WAPE 0.353 | / R3m 0.623 | bias -0.042 | within 20% 0.36 | error / system m1's 1.443 [1.385, 1.510]
+   blend_ctx    WAPE 0.327 | / R3m 0.577 | bias -0.097 | within 20% 0.37 | error / system m1's 1.337 [1.289, 1.392]
+   blend_full365 WAPE 0.240 | / R3m 0.423 | bias -0.060 | within 20% 0.44 | error / system m1's 0.980 [0.964, 0.996]
+   blend_tabonly WAPE 0.240 | / R3m 0.424 | bias -0.049 | within 20% 0.44 | error / system m1's 0.981 [0.966, 0.995]
+   blend_daily365 WAPE 0.360 | / R3m 0.636 | bias -0.036 | within 20% 0.36 | error / system m1's 1.473 [1.406, 1.533]
+   blend_ctx365 WAPE 0.332 | / R3m 0.587 | bias -0.089 | within 20% 0.36 | error / system m1's 1.360 [1.299, 1.413]
 
 == held out: 5639 item-months, actual 3,964,713 units
    R1           WAPE 0.484 | / R3m 0.768 | bias +0.040 | within 20% 0.27
@@ -16,10 +24,18 @@
    nn_m1        WAPE 0.286 | / R3m 0.454 | bias -0.085 | within 20% 0.39
    rules_m1     WAPE 0.276 | / R3m 0.438 | bias -0.062 | within 20% 0.39
    sys_m1       WAPE 0.238 | / R3m 0.378 | bias -0.076 | within 20% 0.44
-   lstm_daily   WAPE 0.645 | / R3m 1.023 | bias +0.082 | within 20% 0.27 | error / system m1's 2.707 [2.542, 2.909]
-   lstm_ctx     WAPE 0.472 | / R3m 0.748 | bias -0.156 | within 20% 0.27 | error / system m1's 1.979 [1.883, 2.100]
-   blend_daily  WAPE 0.403 | / R3m 0.639 | bias -0.050 | within 20% 0.34 | error / system m1's 1.690 [1.592, 1.791]
-   blend_ctx    WAPE 0.343 | / R3m 0.544 | bias -0.148 | within 20% 0.36 | error / system m1's 1.440 [1.368, 1.521]
+   lstm_daily   WAPE 0.672 | / R3m 1.066 | bias +0.099 | within 20% 0.26 | error / system m1's 2.821 [2.640, 3.007]
+   lstm_ctx     WAPE 0.561 | / R3m 0.889 | bias -0.071 | within 20% 0.24 | error / system m1's 2.353 [2.220, 2.495]
+   lstm_full365 WAPE 0.237 | / R3m 0.375 | bias -0.095 | within 20% 0.44 | error / system m1's 0.993 [0.956, 1.028]
+   lstm_tabonly WAPE 0.244 | / R3m 0.388 | bias -0.060 | within 20% 0.43 | error / system m1's 1.026 [0.997, 1.060]
+   lstm_daily365 WAPE 0.710 | / R3m 1.125 | bias +0.137 | within 20% 0.26 | error / system m1's 2.977 [2.769, 3.196]
+   lstm_ctx365  WAPE 0.585 | / R3m 0.928 | bias -0.040 | within 20% 0.24 | error / system m1's 2.456 [2.312, 2.604]
+   blend_daily  WAPE 0.412 | / R3m 0.653 | bias -0.046 | within 20% 0.33 | error / system m1's 1.728 [1.638, 1.826]
+   blend_ctx    WAPE 0.372 | / R3m 0.591 | bias -0.113 | within 20% 0.34 | error / system m1's 1.562 [1.482, 1.648]
+   blend_full365 WAPE 0.227 | / R3m 0.361 | bias -0.089 | within 20% 0.46 | error / system m1's 0.955 [0.940, 0.969]
+   blend_tabonly WAPE 0.232 | / R3m 0.368 | bias -0.072 | within 20% 0.45 | error / system m1's 0.973 [0.957, 0.992]
+   blend_daily365 WAPE 0.424 | / R3m 0.672 | bias -0.033 | within 20% 0.34 | error / system m1's 1.779 [1.687, 1.872]
+   blend_ctx365 WAPE 0.382 | / R3m 0.605 | bias -0.101 | within 20% 0.33 | error / system m1's 1.602 [1.510, 1.678]
 
 == all 13: 11727 item-months, actual 7,832,444 units
    R1           WAPE 0.416 | / R3m 0.746 | bias +0.023 | within 20% 0.31
@@ -27,10 +43,18 @@
    nn_m1        WAPE 0.289 | / R3m 0.519 | bias -0.058 | within 20% 0.38
    rules_m1     WAPE 0.281 | / R3m 0.504 | bias -0.054 | within 20% 0.39
    sys_m1       WAPE 0.260 | / R3m 0.467 | bias -0.012 | within 20% 0.41
-   lstm_daily   WAPE 0.470 | / R3m 0.842 | bias +0.021 | within 20% 0.32 | error / system m1's 1.803 [1.722, 1.883]
-   lstm_ctx     WAPE 0.369 | / R3m 0.661 | bias -0.122 | within 20% 0.33 | error / system m1's 1.416 [1.369, 1.466]
-   blend_daily  WAPE 0.328 | / R3m 0.588 | bias -0.029 | within 20% 0.38 | error / system m1's 1.260 [1.220, 1.296]
-   blend_ctx    WAPE 0.295 | / R3m 0.530 | bias -0.089 | within 20% 0.39 | error / system m1's 1.134 [1.101, 1.162]
+   lstm_daily   WAPE 0.481 | / R3m 0.862 | bias +0.032 | within 20% 0.32 | error / system m1's 1.847 [1.764, 1.936]
+   lstm_ctx     WAPE 0.413 | / R3m 0.741 | bias -0.070 | within 20% 0.32 | error / system m1's 1.586 [1.527, 1.641]
+   lstm_full365 WAPE 0.252 | / R3m 0.453 | bias -0.042 | within 20% 0.42 | error / system m1's 0.970 [0.944, 1.000]
+   lstm_tabonly WAPE 0.265 | / R3m 0.475 | bias -0.022 | within 20% 0.40 | error / system m1's 1.017 [0.981, 1.047]
+   lstm_daily365 WAPE 0.497 | / R3m 0.892 | bias +0.048 | within 20% 0.32 | error / system m1's 1.910 [1.819, 2.002]
+   lstm_ctx365  WAPE 0.428 | / R3m 0.768 | bias -0.051 | within 20% 0.32 | error / system m1's 1.643 [1.573, 1.711]
+   blend_daily  WAPE 0.331 | / R3m 0.594 | bias -0.026 | within 20% 0.38 | error / system m1's 1.272 [1.232, 1.309]
+   blend_ctx    WAPE 0.311 | / R3m 0.557 | bias -0.066 | within 20% 0.38 | error / system m1's 1.193 [1.156, 1.227]
+   blend_full365 WAPE 0.241 | / R3m 0.432 | bias -0.033 | within 20% 0.44 | error / system m1's 0.926 [0.912, 0.940]
+   blend_tabonly WAPE 0.245 | / R3m 0.440 | bias -0.024 | within 20% 0.43 | error / system m1's 0.942 [0.927, 0.959]
+   blend_daily365 WAPE 0.337 | / R3m 0.604 | bias -0.021 | within 20% 0.38 | error / system m1's 1.294 [1.252, 1.341]
+   blend_ctx365 WAPE 0.316 | / R3m 0.567 | bias -0.059 | within 20% 0.37 | error / system m1's 1.214 [1.177, 1.251]
 
 == July 2025 (origin 2025-06): 768 item-months, actual 621,891 units
    R1           WAPE 0.391 | / R3m 0.960 | bias -0.346 | within 20% 0.27
@@ -38,7 +62,55 @@
    nn_m1        WAPE 0.256 | / R3m 0.629 | bias -0.128 | within 20% 0.40
    rules_m1     WAPE 0.383 | / R3m 0.942 | bias -0.350 | within 20% 0.26
    sys_m1       WAPE 0.252 | / R3m 0.620 | bias -0.145 | within 20% 0.45
-   lstm_daily   WAPE 0.394 | / R3m 0.967 | bias -0.354 | within 20% 0.26 | error / system m1's 1.561 [1.420, 1.690]
-   lstm_ctx     WAPE 0.398 | / R3m 0.977 | bias -0.360 | within 20% 0.23 | error / system m1's 1.576 [1.454, 1.696]
-   blend_daily  WAPE 0.313 | / R3m 0.770 | bias -0.266 | within 20% 0.35 | error / system m1's 1.242 [1.167, 1.323]
-   blend_ctx    WAPE 0.313 | / R3m 0.770 | bias -0.269 | within 20% 0.36 | error / system m1's 1.242 [1.173, 1.309]
+   lstm_daily   WAPE 0.383 | / R3m 0.941 | bias -0.346 | within 20% 0.25 | error / system m1's 1.518 [1.392, 1.657]
+   lstm_ctx     WAPE 0.393 | / R3m 0.965 | bias -0.356 | within 20% 0.26 | error / system m1's 1.556 [1.430, 1.675]
+   lstm_full365 WAPE 0.232 | / R3m 0.569 | bias +0.040 | within 20% 0.42 | error / system m1's 0.919 [0.840, 1.007]
+   lstm_tabonly WAPE 0.259 | / R3m 0.636 | bias +0.112 | within 20% 0.36 | error / system m1's 1.026 [0.900, 1.159]
+   lstm_daily365 WAPE 0.383 | / R3m 0.941 | bias -0.342 | within 20% 0.25 | error / system m1's 1.518 [1.404, 1.659]
+   lstm_ctx365  WAPE 0.384 | / R3m 0.942 | bias -0.346 | within 20% 0.27 | error / system m1's 1.520 [1.419, 1.641]
+   blend_daily  WAPE 0.308 | / R3m 0.755 | bias -0.261 | within 20% 0.36 | error / system m1's 1.218 [1.145, 1.294]
+   blend_ctx    WAPE 0.312 | / R3m 0.766 | bias -0.266 | within 20% 0.36 | error / system m1's 1.235 [1.165, 1.292]
+   blend_full365 WAPE 0.220 | / R3m 0.541 | bias -0.061 | within 20% 0.45 | error / system m1's 0.873 [0.829, 0.917]
+   blend_tabonly WAPE 0.223 | / R3m 0.549 | bias -0.028 | within 20% 0.47 | error / system m1's 0.885 [0.833, 0.939]
+   blend_daily365 WAPE 0.308 | / R3m 0.755 | bias -0.260 | within 20% 0.36 | error / system m1's 1.219 [1.148, 1.296]
+   blend_ctx365 WAPE 0.307 | / R3m 0.755 | bias -0.260 | within 20% 0.36 | error / system m1's 1.218 [1.152, 1.298]
+
+== 4 MONTHS, recent 9: 9031 items, actual 21,796,999 units (geo = the submitted system)
+   R3                   WAPE / R3 1.0000 | WAPE 0.699 | bias +0.154 | within 20% 0.18
+   rules                WAPE / R3 0.4879 | WAPE 0.341 | bias -0.064 | within 20% 0.35
+   nn                   WAPE / R3 0.4594 | WAPE 0.321 | bias -0.095 | within 20% 0.36
+   geo                  WAPE / R3 0.3806 | WAPE 0.266 | bias -0.063 | within 20% 0.42
+   h4_daily365          WAPE / R3 0.8247 | WAPE 0.576 | bias -0.009 | within 20% 0.23 | error / system's 2.167 [2.015, 2.339]
+   h4_ctx365            WAPE / R3 0.6319 | WAPE 0.442 | bias -0.080 | within 20% 0.26 | error / system's 1.660 [1.576, 1.749]
+   blend_h4_daily365    WAPE / R3 0.5419 | WAPE 0.379 | bias -0.079 | within 20% 0.32 | error / system's 1.424 [1.336, 1.506]
+   blend_h4_ctx365      WAPE / R3 0.4717 | WAPE 0.330 | bias -0.093 | within 20% 0.34 | error / system's 1.239 [1.191, 1.295]
+
+== 4 MONTHS, held out: 5639 items, actual 11,615,545 units (geo = the submitted system)
+   R3                   WAPE / R3 1.0000 | WAPE 0.828 | bias +0.435 | within 20% 0.17
+   rules                WAPE / R3 0.3718 | WAPE 0.308 | bias -0.036 | within 20% 0.38
+   nn                   WAPE / R3 0.3631 | WAPE 0.301 | bias -0.073 | within 20% 0.38
+   geo                  WAPE / R3 0.2926 | WAPE 0.242 | bias -0.067 | within 20% 0.45
+   h4_daily365          WAPE / R3 0.8112 | WAPE 0.672 | bias +0.232 | within 20% 0.23 | error / system's 2.773 [2.498, 3.060]
+   h4_ctx365            WAPE / R3 0.5495 | WAPE 0.455 | bias +0.024 | within 20% 0.27 | error / system's 1.878 [1.765, 1.992]
+   blend_h4_daily365    WAPE / R3 0.4792 | WAPE 0.397 | bias +0.031 | within 20% 0.32 | error / system's 1.638 [1.535, 1.753]
+   blend_h4_ctx365      WAPE / R3 0.3908 | WAPE 0.324 | bias -0.043 | within 20% 0.36 | error / system's 1.336 [1.283, 1.402]
+
+== 4 MONTHS, all 13: 11727 items, actual 28,396,067 units (geo = the submitted system)
+   R3                   WAPE / R3 1.0000 | WAPE 0.668 | bias +0.133 | within 20% 0.20
+   rules                WAPE / R3 0.5090 | WAPE 0.340 | bias -0.063 | within 20% 0.35
+   nn                   WAPE / R3 0.5095 | WAPE 0.341 | bias -0.053 | within 20% 0.35
+   geo                  WAPE / R3 0.4357 | WAPE 0.291 | bias -0.019 | within 20% 0.40
+   h4_daily365          WAPE / R3 0.8298 | WAPE 0.555 | bias -0.019 | within 20% 0.24 | error / system's 1.905 [1.783, 2.040]
+   h4_ctx365            WAPE / R3 0.6655 | WAPE 0.445 | bias -0.051 | within 20% 0.27 | error / system's 1.527 [1.464, 1.600]
+   blend_h4_daily365    WAPE / R3 0.5685 | WAPE 0.380 | bias -0.058 | within 20% 0.32 | error / system's 1.305 [1.245, 1.376]
+   blend_h4_ctx365      WAPE / R3 0.5107 | WAPE 0.341 | bias -0.056 | within 20% 0.34 | error / system's 1.172 [1.133, 1.215]
+
+== 4 MONTHS, Jul-Oct 2025 (origin 2025-06): 768 items, actual 2,125,908 units (geo = the submitted system)
+   R3                   WAPE / R3 1.0000 | WAPE 0.414 | bias -0.258 | within 20% 0.26
+   rules                WAPE / R3 0.9691 | WAPE 0.401 | bias -0.323 | within 20% 0.26
+   nn                   WAPE / R3 0.7518 | WAPE 0.311 | bias -0.009 | within 20% 0.34
+   geo                  WAPE / R3 0.6849 | WAPE 0.283 | bias -0.083 | within 20% 0.38
+   h4_daily365          WAPE / R3 1.0493 | WAPE 0.434 | bias -0.333 | within 20% 0.23 | error / system's 1.532 [1.371, 1.712]
+   h4_ctx365            WAPE / R3 0.8895 | WAPE 0.368 | bias -0.242 | within 20% 0.28 | error / system's 1.299 [1.188, 1.420]
+   blend_h4_daily365    WAPE / R3 0.8038 | WAPE 0.332 | bias -0.239 | within 20% 0.33 | error / system's 1.174 [1.062, 1.304]
+   blend_h4_ctx365      WAPE / R3 0.7311 | WAPE 0.302 | bias -0.178 | within 20% 0.36 | error / system's 1.068 [0.985, 1.148]

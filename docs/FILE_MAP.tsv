@@ -817,6 +817,9 @@ data/llm/scores_part3.csv	data/llm/scores_part3.csv
 data/loc_mom_feats.parquet	archive/data/loc_mom_feats.parquet
 data/lstm_inputs.npz	archive/data/lstm_inputs.npz
 data/lstm_preds.parquet	archive/data/lstm_preds.parquet
+data/lstm_preds_full365.parquet	archive/data/lstm_preds_full365.parquet
+data/lstm_preds_w365.parquet	archive/data/lstm_preds_w365.parquet
+data/lstm_preds_w365_h4.parquet	archive/data/lstm_preds_w365_h4.parquet
 data/lstm_scored.parquet	archive/data/lstm_scored.parquet
 data/lstm_tab_feats.parquet	archive/data/lstm_tab_feats.parquet
 data/m5_experiments_by_fold.csv	archive/data/m5_experiments_by_fold.csv
@@ -1827,6 +1830,7 @@ eda/231_pages_nx11.py	archive/eda/231_pages_nx11.py
 eda/231_sim_nx11.py	pipeline/231_sim_nx11.py
 eda/231b_sim_naive.py	pipeline/231b_sim_naive.py
 eda/232_metrics_table.py	pipeline/232_metrics_table.py
+eda/232_pages_nx12.py	archive/eda/232_pages_nx12.py
 eda/23_fill_workbook_q.py	archive/eda/23_fill_workbook_q.py
 eda/24_sanity.py	archive/eda/24_sanity.py
 eda/25_own_season_test.py	archive/eda/25_own_season_test.py

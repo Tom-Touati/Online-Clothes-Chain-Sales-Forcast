@@ -23,6 +23,8 @@ Head: Linear(.., 128) -> ReLU -> Dropout 0.1 -> Linear(128, 1); 25 epochs, batch
 D407 (user: "also try it predicting the full 4 months"): env H4=1 predicts the next four calendar months' total, the system's own target.
 Training cutoffs: weekly with the next 122 days ended by o (or month-ends o' + 4 <= o with FULL); L = the last 90 days x days / 90.
 Output files get the suffix _h4.
+D408: env LYDROP=1 (the last-year-removed gate) drops training cutoffs whose month is o - 12 +/- 1 (month-end cutoffs; for weekly cutoffs
+those within that month range); output suffix _lyd.
 Writes out/lstm_preds.parquet (W=60) or out/lstm_preds_w<W>.parquet (origin, style_color, version, y1_hat, z_hat, L)."""
 import os
 import sys, time, numpy as np, pandas as pd, torch, torch.nn as nn
@@ -59,7 +61,7 @@ class Net(nn.Module):
         if self.use_ctx: parts += [self.emb(pt), ctx]
         if self.n_tab: parts += [tab]
         return self.head(torch.cat(parts, 1))[:, 0]
-FULL = os.environ.get("FULL") == "1"
+FULL = os.environ.get("FULL") == "1"; LYD = os.environ.get("LYDROP") == "1"
 if FULL:
     TF = pd.read_parquet("data/lstm_tab_feats.parquet"); TCOLS = [c for c in TF.columns if c not in ("origin", "style_color")]
     TKEY = {k: i for i, k in enumerate(zip(TF.origin, TF.style_color))}; TABX = TF[TCOLS].to_numpy(np.float32)
@@ -72,9 +74,11 @@ for o in sorted(set(EVO)):
     end = month_end_ix(o); te = np.where(EVO == o)[0]; te_rows = ii.reindex(EVI[te]).values; ok = ~np.isnan(te_rows); te, te_rows = te[ok], te_rows[ok].astype(int)
     nd = sum((pd.Period(o, "M") + h).days_in_month for h in range(1, HM + 1))
     if not FULL:
-        cuts = np.arange(PAD + 59, end - NDW + 1, 7); R, C = np.meshgrid(np.arange(N), cuts, indexing="ij"); R, C = R.ravel(), C.ravel(); NDtr = np.full(len(R), NDW)
+        cuts = np.arange(PAD + 59, end - NDW + 1, 7)
+        if LYD: lo_, hi_ = month_end_ix(str(pd.Period(o, "M") - 14)), month_end_ix(str(pd.Period(o, "M") - 11)); cuts = cuts[(cuts <= lo_) | (cuts > hi_)]
+        R, C = np.meshgrid(np.arange(N), cuts, indexing="ij"); R, C = R.ravel(), C.ravel(); NDtr = np.full(len(R), NDW)
     else:   # month-end cutoffs whose next calendar month ended by the end of o
-        ors = [str(q) for q in pd.period_range("2024-03", o, freq="M") if q + HM <= pd.Period(o, "M")]
+        ors = [str(q) for q in pd.period_range("2024-03", o, freq="M") if q + HM <= pd.Period(o, "M") and not (LYD and pd.Period(o, "M") - 13 <= q <= pd.Period(o, "M") - 11)]
         cuts = np.array([month_end_ix(q) for q in ors]); R, C = np.meshgrid(np.arange(N), cuts, indexing="ij"); R, C = R.ravel(), C.ravel()
         NDtr = np.array([sum((pd.Period(ors[list(cuts).index(c)], "M") + h).days_in_month for h in range(1, HM + 1)) for c in C])
     keep = (window_sum(R, C - 59, C) >= 5) & (C >= first[R]); R, C, NDtr = R[keep], C[keep], NDtr[keep]
@@ -105,4 +109,4 @@ for o in sorted(set(EVO)):
         out.append(pd.DataFrame({"origin": o, "style_color": EVI[te], "version": ver, "z_hat": zh, "L": L, "y1_hat": np.clip((L + 1) * np.exp(zh) - 1, 0, None)}))
     print(o, "| training sequences", len(R), "| scored items", len(te), f"| {time.time() - t_all:.0f} s", flush=True)
 _fn = ("out/lstm_preds_full" + str(W)) if FULL else ("out/lstm_preds" if W == 60 else f"out/lstm_preds_w{W}")
-pd.concat(out).to_parquet(_fn + ("_h4" if H4 else "") + ".parquet", index=False); print("saved")
+pd.concat(out).to_parquet(_fn + ("_h4" if H4 else "") + ("_lyd" if LYD else "") + ".parquet", index=False); print("saved")
