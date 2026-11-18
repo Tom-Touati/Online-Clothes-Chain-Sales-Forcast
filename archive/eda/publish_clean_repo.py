@@ -21,7 +21,7 @@ LAB = Path(__file__).resolve().parents[1]; CLEAN = LAB / "_clean_repo"; MAPFILE 
 A = sys.argv[1:]; DRY = "--dry" in A; PUSH = "--push" in A; SNAP = "--no-snapshot" not in A
 MSG = A[A.index("--commit") + 1] if "--commit" in A else None
 URL = "https://github.com/Tom-Touati/Online-Clothes-Chain-Sales-Forcast.git"
-TRAILER = "\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>"
+TRAILER = "\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 def git(*a, cwd=LAB, inp=None, check=True):
     r = subprocess.run(["git", *a], cwd=str(cwd), input=inp, capture_output=True)
     if check and r.returncode: raise SystemExit(f"git {' '.join(a[:3])} failed in {cwd}:\n{r.stderr.decode('utf-8', 'replace')[-2000:]}")
@@ -44,7 +44,7 @@ for e in ents:
     dst = pm.place(path)
     if dst is None: dropped.append(path); continue
     assert dst not in seen, f"two lab files map to {dst}: {seen[dst]} and {path}"
-    tr = pm.transform(dst, git("cat-file", "blob", sha).decode("utf-8", "replace")) if hasattr(pm, "transform") and dst.endswith((".py", ".ps1")) else None
+    tr = pm.transform(dst, git("cat-file", "blob", sha).decode("utf-8", "replace")) if hasattr(pm, "transform") and dst.endswith((".py", ".ps1", ".html")) else None
     if tr is not None and not DRY: sha = git("hash-object", "-w", "--stdin", inp=tr.encode("utf-8")).decode().strip()
     seen[dst] = path; mech[dst] = (mode, sha, path)
 missing = [p for p in getattr(pm, "REQUIRED", []) if p not in {v[2] for v in mech.values()}]

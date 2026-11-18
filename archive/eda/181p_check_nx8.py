@@ -2,7 +2,7 @@
 (eda/181o_final_nx7c_2026.py): every numeric cell of the Forecast sheet, every shared column of the cascade table and the totals ranges must
 be identical; the sheets Edikted provided must be untouched; every number quoted in an explanation must be the number in its row."""
 import re, sys, zipfile, hashlib, numpy as np, pandas as pd, openpyxl
-A, B, T = "Edikted_Forecasting_Exercise_candidate_nx7c.xlsx", "Edikted_Forecasting_Exercise_candidate_nx8.xlsx", "Edikted_Forecasting_Exercise.xlsx"
+A, B, T = "candidates/Edikted_Forecasting_Exercise_candidate_nx7c.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_nx8.xlsx", "Edikted_Forecasting_Exercise.xlsx"
 wa, wb, wt = openpyxl.load_workbook(A), openpyxl.load_workbook(B), openpyxl.load_workbook(T)
 a, b = wa["Forecast"], wb["Forecast"]; H = {c.value: c.column for c in b[1]}; EC = H["Explanation (at least 15 items of your choice)"]
 bad = [(r, k) for r in range(1, 102) for k in range(1, b.max_column + 1) if k != EC and a.cell(row=r, column=k).value != b.cell(row=r, column=k).value]

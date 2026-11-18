@@ -4,7 +4,7 @@ Writes Edikted_Forecasting_Exercise_candidate_rules.xlsx; the submitted and NN-c
 import sys
 sys.stdout.reconfigure(encoding="utf-8")
 s = open("eda/68_fill_candidate.py", encoding="utf-8").read()
-E = [('"Edikted_Forecasting_Exercise_candidate_nn.xlsx"', '"Edikted_Forecasting_Exercise_candidate_rules.xlsx"'),
+E = [('"candidates/Edikted_Forecasting_Exercise_candidate_nn.xlsx"', '"candidates/Edikted_Forecasting_Exercise_candidate_rules.xlsx"'),
      ('"Two models of each item\'s four-month total, combined, plus', '"Two models and a rule set for each item\'s four-month total, combined, plus'),
      (r'''"The answer distribution is centred on the geometric mean of the two models' medians.\\n"''',
       '"A third, rule-based forecast comes from explicit planning rules (recent daily rate x site and channel plan x like-for-like seasonal index by product type x young-item ramp and fade x occasion indices), written from the data up to each month end and revised monthly against how earlier forecasts did. "\n'

@@ -22,8 +22,8 @@ wc_now = float(c26.loc[WC, "total"].sum()); wc_rule = 34463.0   # D033 rule tota
 import openpyxl
 def _wb(f):
     ws = openpyxl.load_workbook(f, data_only=True)["Forecast"]; return {r[1]: (r[2], [float(v) for v in r[6:10]]) for r in ws.iter_rows(min_row=2, values_only=True) if r[1] in WC}
-_old, _new = _wb("Edikted_Forecasting_Exercise_candidate_nx2.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")   # the models without the cap | the submitted workbook
-_first = _wb("Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"); assert all(abs(x - y_) < 0.51 for k in WC for x, y_ in zip(_new[k][1], _first[k][1])), "the submitted World Cup rows are not the D033 rows"
+_old, _new = _wb("candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")   # the models without the cap | the submitted workbook
+_first = _wb("candidates/Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"); assert all(abs(x - y_) < 0.51 for k in WC for x, y_ in zip(_new[k][1], _first[k][1])), "the submitted World Cup rows are not the D033 rows"
 _wsub = openpyxl.load_workbook("Edikted_Forecasting_Exercise_filled.xlsx", data_only=True)["Forecast"]; sub_total = sum(float(v) for r_ in _wsub.iter_rows(min_row=2, values_only=True) if r_[1] for v in r_[6:10])
 _m = pd.read_parquet("data/monthly_item.parquet"); _m.columns = [str(c) for c in _m.columns]
 WCROWS = ""

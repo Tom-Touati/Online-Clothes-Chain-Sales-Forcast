@@ -24,7 +24,7 @@ s = rp(s, "a copy of <code>…_candidate_nx2.xlsx</code> since D274", "a copy of
 s = rp(s, "the submitted workbook (candidate_nx2, D274)", "the submitted workbook (candidate_nx3, D303)")
 s = rp(s, 's: "181a_base2026 · 181g_final_nx2_2026.py"', 's: "181a_base2026 · 181g_final_nx2_2026.py · 181h_final_nx3_2026.py"')
 s = rp(s, "One override: the out-of-stock item keeps its in-stock forecast of 130 units.", "Two hand rules: the out-of-stock item keeps its in-stock forecast of 130 units, and the three World Cup items carry the cap of the first submission.")
-s = rp(s, 'outs: ["data/final_2026_nx2_cascade.csv", "Edikted_Forecasting_Exercise_candidate_nx2.xlsx"]', 'outs: ["data/final_2026_nx3_cascade.csv", "Edikted_Forecasting_Exercise_candidate_nx3.xlsx"]')
+s = rp(s, 'outs: ["data/final_2026_nx2_cascade.csv", "candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx"]', 'outs: ["data/final_2026_nx3_cascade.csv", "candidates/Edikted_Forecasting_Exercise_candidate_nx3.xlsx"]')
 s = rp(s, '"Confidence 1 · 2 · 3 = 20 · 67 · 13", "No campaign, World Cup or segment rules on top"], dec: ["D034", "D121", "D235", "D237", "D262", "D273"]', '"Confidence 1 · 2 · 3 = 20 · 65 · 15", "World Cup hand rule: 34,463 units in place of 53,270; no campaign or segment rules"], dec: ["D033", "D034", "D121", "D235", "D237", "D262", "D273", "D291"]')
 s = rp(s, "A copy of candidate_nx2 since D274. Forecast sheet", "A copy of candidate_nx3 since D303: candidate_nx2 with the World Cup hand rule restored. Forecast sheet")
 s = rp(s, 'nums: ["620,608 units: Jul 176,453 · Aug 186,211 · Sep 126,019 · Oct 131,925", "Original submission: 580,968", "Switched at D271 (candidate_nx) and D274 (candidate_nx2)"], dec: ["D040", "D271", "D273", "D274"]',

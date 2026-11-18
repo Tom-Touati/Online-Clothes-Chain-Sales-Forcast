@@ -1,0 +1,18 @@
+statics already in BASE / FULL: 0 0 | static columns in the table: 22 of 22
+coverage in the training table: 0.974 0.971
+base reproduces the stored tree column: 4.440892098500626e-16
+base     all recent 0.3806 held out 0.2926 all 13 0.4357 JulOct25 0.6849 MarJun26 0.2465 new rec 0.4182 new held 0.3463 old rec 0.3616 | vs current: recent [+0.0000,+0.0000] held out [+0.0000,+0.0000]
+base     new recent 0.3806 held out 0.2926 all 13 0.4357 JulOct25 0.6849 MarJun26 0.2465 new rec 0.4182 new held 0.3463 old rec 0.3616 | vs current: recent [+0.0000,+0.0000] held out [+0.0000,+0.0000]
+base     old recent 0.3806 held out 0.2926 all 13 0.4357 JulOct25 0.6849 MarJun26 0.2465 new rec 0.4182 new held 0.3463 old rec 0.3616 | vs current: recent [+0.0000,+0.0000] held out [+0.0000,+0.0000]
+lm       all recent 0.3818 held out 0.2931 all 13 0.4359 JulOct25 0.6939 MarJun26 0.2454 new rec 0.4174 new held 0.3448 old rec 0.3638 | vs current: recent [+0.0000,+0.0025] held out [-0.0004,+0.0015]
+lm       new recent 0.3803 held out 0.2920 all 13 0.4349 JulOct25 0.6897 MarJun26 0.2461 new rec 0.4174 new held 0.3448 old rec 0.3616 | vs current: recent [-0.0010,+0.0004] held out [-0.0010,+0.0000]
+lm       old recent 0.3821 held out 0.2936 all 13 0.4367 JulOct25 0.6891 MarJun26 0.2458 new rec 0.4182 new held 0.3463 old rec 0.3638 | vs current: recent [+0.0005,+0.0027] held out [+0.0004,+0.0019]
+   share of the FULL model's gain from the added columns: 5.4%; top: lm_mom4_p25 2.6%, lm_mom4_p75 1.0%, lm_mom2_p25 0.8%, lm_mom1_p75 0.4%, lm_mom2_p75 0.3%, lm_mom1_p25 0.2% (57 s)
+lr       all recent 0.3804 held out 0.2924 all 13 0.4334 JulOct25 0.6894 MarJun26 0.2452 new rec 0.4175 new held 0.3452 old rec 0.3617 | vs current: recent [-0.0010,+0.0006] held out [-0.0010,+0.0005]
+lr       new recent 0.3804 held out 0.2922 all 13 0.4349 JulOct25 0.6889 MarJun26 0.2456 new rec 0.4175 new held 0.3452 old rec 0.3616 | vs current: recent [-0.0008,+0.0003] held out [-0.0010,+0.0002]
+lr       old recent 0.3807 held out 0.2927 all 13 0.4342 JulOct25 0.6854 MarJun26 0.2461 new rec 0.4182 new held 0.3463 old rec 0.3617 | vs current: recent [-0.0005,+0.0006] held out [-0.0003,+0.0006]
+   share of the FULL model's gain from the added columns: 3.7%; top: lr_mom4_p75 1.0%, lr_mom2_p75 0.8%, lr_mom4_p25 0.8%, lr_mom1_p75 0.4%, lr_mom2_p25 0.4%, lr_mom1_p25 0.3% (56 s)
+lmr      all recent 0.3809 held out 0.2927 all 13 0.4342 JulOct25 0.6893 MarJun26 0.2443 new rec 0.4172 new held 0.3448 old rec 0.3625 | vs current: recent [-0.0008,+0.0015] held out [-0.0010,+0.0012]
+lmr      new recent 0.3803 held out 0.2921 all 13 0.4346 JulOct25 0.6900 MarJun26 0.2452 new rec 0.4172 new held 0.3448 old rec 0.3616 | vs current: recent [-0.0011,+0.0003] held out [-0.0014,+0.0004]
+lmr      old recent 0.3812 held out 0.2932 all 13 0.4352 JulOct25 0.6842 MarJun26 0.2456 new rec 0.4182 new held 0.3463 old rec 0.3625 | vs current: recent [-0.0002,+0.0016] held out [+0.0000,+0.0012]
+   share of the FULL model's gain from the added columns: 6.5%; top: lm_mom4_p25 2.6%, lm_mom4_p75 0.8%, lr_mom2_p75 0.6%, lr_mom4_p75 0.5%, lm_mom2_p25 0.4%, lm_mom1_p75 0.3% (60 s)

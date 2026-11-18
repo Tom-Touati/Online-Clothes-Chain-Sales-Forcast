@@ -16,10 +16,10 @@ Builds data/item_explorer.json for eda/item_explorer.html (the page embeds it). 
 import json, numpy as np, pandas as pd, warnings
 warnings.filterwarnings("ignore")
 r = lambda x, k=1: None if x is None or not np.isfinite(x) else round(float(x), k)
-C = pd.read_csv("data/final_2026_nx9_cascade.csv")   # D412: nx9 (nx8 + look-alike correction term, D402 / D422) is the submission
+C = pd.read_csv("data/final_2026_nx10_cascade.csv")   # D416: nx10 (nx9 numbers, repaired text + roadmap, D424) is the submission
 C_ = None  # was final_2026_nx4_cascade.csv
 C = C.rename(columns={"Unnamed: 0": "style_color"})
-C5 = pd.read_csv("data/final_2026_nx9_cascade.csv").rename(columns={"Unnamed: 0": "style_color"}).set_index("style_color")
+C5 = pd.read_csv("data/final_2026_nx10_cascade.csv").rename(columns={"Unnamed: 0": "style_color"}).set_index("style_color")
 EXP = pd.read_csv("data/fk_expectation_2026.csv").set_index("style_color")
 TGT = list(C.style_color)
 IT = pd.read_parquet("data/items.parquet").set_index("style_color")

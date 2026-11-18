@@ -18,9 +18,9 @@ s = s.replace(a, "<p><b>System.</b> The submitted forecast (candidate_nx3): arit
 open(p, "w", encoding="utf-8").write(s)
 
 b = "eda/198g_build_error_study.py"; t = open(b, encoding="utf-8").read()
-a = '_old, _new = _wb("Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")'; assert a in t
-t = t.replace(a, '''_old, _new = _wb("Edikted_Forecasting_Exercise_candidate_nx2.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")   # the models without the cap | the submitted workbook
-_first = _wb("Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"); assert all(abs(x - y_) < 0.51 for k in WC for x, y_ in zip(_new[k][1], _first[k][1])), "the submitted World Cup rows are not the D033 rows"
+a = '_old, _new = _wb("candidates/Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")'; assert a in t
+t = t.replace(a, '''_old, _new = _wb("candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")   # the models without the cap | the submitted workbook
+_first = _wb("candidates/Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"); assert all(abs(x - y_) < 0.51 for k in WC for x, y_ in zip(_new[k][1], _first[k][1])), "the submitted World Cup rows are not the D033 rows"
 _wsub = openpyxl.load_workbook("Edikted_Forecasting_Exercise_filled.xlsx", data_only=True)["Forecast"]; sub_total = sum(float(v) for r_ in _wsub.iter_rows(min_row=2, values_only=True) if r_[1] for v in r_[6:10])''')
 a = "<td>first submission</td>"; assert a in t; t = t.replace(a, "<td>models, no cap</td>")
 a = "'<tr><td>submitted now</td>'"; assert a in t; t = t.replace(a, "'<tr><td>submitted (hand cap)</td>'")

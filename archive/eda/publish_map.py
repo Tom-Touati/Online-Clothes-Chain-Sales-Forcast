@@ -12,6 +12,7 @@ from pathlib import Path
 LAB = Path(__file__).resolve().parents[1]
 SUBMISSION = "Edikted_Forecasting_Exercise_filled.xlsx"
 NOT_PUBLISHED = {"README.md", ".gitignore", "Edikted_Forecasting_Exercise_candidate_nx9.xlsx"}   # the lab's own root files; nx9 = the submission (a duplicate)
+MOVED = ("candidates/", "reports/")   # D426: the lab root's workbooks and reports moved to these folders (Fork 2, user: "too many files in the main directory"); names are looked up without the folder
 # stage -> scripts, in run order (the pipeline README is written from this)
 STAGES = [
  ("1 Base tables from the order lines", ["02_build_aggs.py", "03_targets.py", "04_eda.py", "06_features.py"]),
@@ -69,19 +70,24 @@ def needed_data(lab_files):
 NEEDED_DATA = set()      # filled by publish_clean_repo.py with needed_data(<all lab files>)
 
 def place(path):
-    if path in NOT_PUBLISHED: return None
+    key = path.split("/", 1)[1] if path.startswith(MOVED) else path     # candidates/X.xlsx -> X.xlsx, so the folder does not change where it goes
+    if key in NOT_PUBLISHED: return None
     if path == SUBMISSION: return path
     if path in EXERCISE: return EXERCISE[path]
-    if path in MODELS: return f"model_submissions/{MODELS[path]}/{path}"
-    if path in DOCS: return DOCS[path]
+    if key in MODELS: return f"model_submissions/{MODELS[key]}/{key}"
+    if key in DOCS: return DOCS[key]
     if path.startswith("eda/") and path[4:] in PIPELINE: return "pipeline/" + path[4:]
     if RULE_KEEP.match(path): return "rule_agents/" + path[len("agent_eval/"):]
     if path in NEEDED_DATA: return path
     return "archive/" + path
 
 _EDA = re.compile(r"(?<![A-Za-z0-9_./])eda/([A-Za-z0-9_\-]+(?:\.[A-Za-z0-9]+)?)")
+PAGE_LINKS = {"137UdxMX2e7re5W9isksTz": "atlas.html", "NkoNJTZUBirD4soyyH9sDv": "error_study.html", "ATC2p7yCELvrxsnZRgmbS8": "item_explorer.html"}   # D428: the pages' private claude.ai links -> the sibling files in docs/pages/
 def transform(dst, text):
-    """Rewrites lab paths inside the published pipeline scripts so they run from the repository root."""
+    """Rewrites lab paths inside the published pipeline scripts so they run from the repository root, and the pages' links to each other."""
+    if dst.startswith("docs/pages/") and dst.endswith(".html"):
+        t = re.sub(r"https://claude.ai/artifact/(" + "|".join(PAGE_LINKS) + r")(?![A-Za-z0-9])", lambda m: PAGE_LINKS[m.group(1)], text)
+        return t if t != text else None
     if not (dst.startswith("pipeline/") or dst.startswith("rule_agents/")) or not dst.endswith((".py", ".ps1")): return None
     def where(tok):
         if tok in PIPELINE or tok.endswith(("_output.txt", ".err")): return "pipeline/"
@@ -93,5 +99,5 @@ def transform(dst, text):
     t = t.replace('"agent_eval"', '"rule_agents"')
     t = re.sub(r"""(["'])Edikted_Forecasting_Exercise\.xlsx\1""", r"\1exercise/Edikted_Forecasting_Exercise.xlsx\1", t)
     t = re.sub(r"""(["'])item_attributes\.csv\1""", r"\1exercise/item_attributes.csv\1", t)
-    t = t.replace('WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_candidate_nx9.xlsx"    # written', 'WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_filled.xlsx"           # written: the submission')
+    t = re.sub(r'WORKBOOK = ROOT / "(?:candidates/)?Edikted_Forecasting_Exercise_candidate_nx\w+\.xlsx"\s*# written', 'WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_filled.xlsx"           # written: the submission', t)
     return t if t != text else None

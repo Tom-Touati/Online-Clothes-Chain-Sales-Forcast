@@ -26,7 +26,7 @@ y = 'T = dict(\n'; assert y in t
 pre = '''import openpyxl
 def _wb(f):
     ws = openpyxl.load_workbook(f, data_only=True)["Forecast"]; return {r[1]: (r[2], [float(v) for v in r[6:10]]) for r in ws.iter_rows(min_row=2, values_only=True) if r[1] in WC}
-_old, _new = _wb("Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")
+_old, _new = _wb("candidates/Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx"), _wb("Edikted_Forecasting_Exercise_filled.xlsx")
 _m = pd.read_parquet("data/monthly_item.parquet"); _m.columns = [str(c) for c in _m.columns]
 WCROWS = ""
 for k in WC:

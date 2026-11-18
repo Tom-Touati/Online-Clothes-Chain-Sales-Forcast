@@ -3,7 +3,7 @@ with the model-description text updated for the NN blend; then eda/34 consistenc
 Writes Edikted_Forecasting_Exercise_candidate_nn.xlsx; the submitted workbook is not touched."""
 import sys, io, contextlib
 sys.stdout.reconfigure(encoding="utf-8")
-SRC, DST = "Edikted_Forecasting_Exercise.xlsx", "Edikted_Forecasting_Exercise_candidate_nn.xlsx"
+SRC, DST = "Edikted_Forecasting_Exercise.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_nn.xlsx"
 s = open("eda/33_fill_workbook_v3.py", encoding="utf-8").read()
 REP = [('read_csv("data/final_forecast_q4.csv"', 'read_csv("data/cand_nn_final_forecast_q4.csv"'),
        ("A quantile model of each item's four-month total, plus each item's own year-on-year trend where it has one.",

@@ -75,4 +75,4 @@ The same season in the backtest is the June 2025 origin (forecasting July–Octo
 
 The actuals file needs one row per target and month (`style_color, month, units`, month as `2026-07` … `2026-10`) or one row per target (`style_color, jul, aug, sep, oct`). Use the same unit definition as the training data: order lines excluding cancellations. The script checks the workbook's md5 against the frozen one and prints every metric above with its expected range.
 """
-open("FORECAST_EXPECTATION.md", "w", encoding="utf-8").write(md); print(md[:400]); print("bands:", band)
+open("reports/FORECAST_EXPECTATION.md", "w", encoding="utf-8").write(md); print(md[:400]); print("bands:", band)

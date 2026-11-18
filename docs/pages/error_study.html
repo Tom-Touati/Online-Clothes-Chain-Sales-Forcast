@@ -81,7 +81,7 @@ footer{padding-block:26px 40px;color:var(--muted);font-size:13px;border-top:1px 
 
 <div class="wrap">
 <header class="hero" id="summary">
-  <div class="eyebrow">Error study · the nx4 system (submitted until 18 Nov; the submitted nx9 is under <a href="#submission">Submission</a>) · built 18 Nov 2026</div>
+  <div class="eyebrow">Error study · the nx4 system (submitted until 18 Nov; the submitted nx10 is under <a href="#submission">Submission</a>) · built 18 Nov 2026</div>
   <h1>Where the forecast goes wrong, and what would fix it</h1>
   <p class="lede">11,727 backtest forecasts of 4-month item totals at 13 monthly origins, February 2025 to February 2026, scored against what sold. "Recent" means the nine origins from June 2025. R3 is the recency baseline: the last three months × 4/3.</p>
   <div class="tiles">
@@ -416,14 +416,14 @@ footer{padding-block:26px 40px;color:var(--muted);font-size:13px;border-top:1px 
 
 <section id="submission">
   <div class="eyebrow">Submission</div>
-  <h2>nx9 is the submission: the new nx5 with an honest confidence column and the plan's two new sales</h2>
-  <p>On 18 November the submitted workbook moved from nx4 to the new nx5 and then to nx6, which is the new nx5 with the confidence column below (D389t), then to nx7c, which adds the campaign uplift for the two sales in the plan sheet that did not run in past years (D389x; +8,959 units in August and September), and then to nx8: the same forecast in every cell, with the audit's corrected texts, 18 hand-written explanations and a 'Method and decisions' sheet (D421), and then to nx9, which adds the fashion fork's look-alike term to the correction layer (D402 / D422; +475 units, items −1.2% to +2.4%). The new nx5 is the six-member system with the Huber tree and the recommender at a quarter weight, where items under six months old get a tree trained with new items counted five times, the corrections refitted on that system, and ranges recalibrated per age and volume group with last July–October and the latest March–June weighted four times. Scores are WAPE ÷ R3 on the time-honest backtest.</p>
+  <h2>nx10 is the submission: the new nx5 with an honest confidence column and the plan's two new sales</h2>
+  <p>On 18 November the submitted workbook moved from nx4 to the new nx5 and then to nx6, which is the new nx5 with the confidence column below (D389t), then to nx7c, which adds the campaign uplift for the two sales in the plan sheet that did not run in past years (D389x; +8,959 units in August and September), and then to nx8: the same forecast in every cell, with the audit's corrected texts, 18 hand-written explanations and a 'Method and decisions' sheet (D421), and then to nx9, which adds the fashion fork's look-alike term to the correction layer (D402 / D422; +475 units, items −1.2% to +2.4%), and then to nx10: nx9's forecast in every cell with the Model explanation repaired (rules written by AI agents, per-item metrics, the buying simulation, explainability, how the fashion descriptors were made) and an improvement roadmap (D413 / D424). The new nx5 is the six-member system with the Huber tree and the recommender at a quarter weight, where items under six months old get a tree trained with new items counted five times, the corrections refitted on that system, and ranges recalibrated per age and volume group with last July–October and the latest March–June weighted four times. Scores are WAPE ÷ R3 on the time-honest backtest.</p>
   <div class="tscroll"><table id="t-submission"><thead><tr><th>System</th><th class="r">Recent 9</th><th class="r">Held out</th><th class="r">All 13</th><th class="r">Early 4</th><th class="r">2026 total</th></tr></thead><tbody>
     <tr><td>nx4 (previous submission)</td><td class="r">0.3851</td><td class="r">0.2948</td><td class="r">0.4399</td><td class="r">0.6623</td><td class="r">601,801</td></tr>
     <tr><td>nx5 (D361, Huber tree + recommender)</td><td class="r">0.3811</td><td class="r">0.2924</td><td class="r">0.4358</td><td class="r">0.6581</td><td class="r">604,838</td></tr>
     <tr><td>new nx5 / nx6</td><td class="r">0.3806</td><td class="r">0.2926</td><td class="r">0.4357</td><td class="r">0.6593</td><td class="r">620,826</td></tr>
     <tr><td>nx8 = nx7c = nx6 + campaign uplift</td><td class="r">0.3796</td><td class="r">0.2916</td><td class="r">0.4385</td><td class="r">0.6777</td><td class="r">629,779</td></tr>
-    <tr><td><b>nx9 = nx8 + look-alike correction term (submitted)</b></td><td class="r"><b>0.3795</b></td><td class="r"><b>0.2912</b></td><td class="r"><b>0.4384</b></td><td class="r"><b>0.6777</b></td><td class="r"><b>630,254</b></td></tr>
+    <tr><td><b>nx9 / nx10 = nx8 + look-alike correction term (submitted as nx10)</b></td><td class="r"><b>0.3795</b></td><td class="r"><b>0.2912</b></td><td class="r"><b>0.4384</b></td><td class="r"><b>0.6777</b></td><td class="r"><b>630,254</b></td></tr>
   </tbody></table></div>
   <p class="small">Almost all of the 2026 difference (+15k) is the 24 targets under six months old: the launch-weighted tree lifts them 10.6%. In the backtest the same routing moved new items' totals by only 0.3%, while the system under-forecast them by 7–12%; the 2026 lift goes the historical way but is larger than anything the backtest saw. The ranges: left one origin out, 82.5% of actuals inside P10–P90 and 52.4% inside P25–P75 on the held-out origins; on last July–October only 70%, a season that ran below the forecast, while March–June 2026 ran above it.</p>
   <div class="grid2">
@@ -591,7 +591,7 @@ footer{padding-block:26px 40px;color:var(--muted);font-size:13px;border-top:1px 
   <p><b>Scores.</b> WAPE ÷ R3 = Σ|forecast − actual| ÷ Σ|R3 − actual| on 4-month item totals. Absolute error = Σ|forecast − actual| ÷ Σ actual. Bias = Σ forecast ÷ Σ actual − 1; negative is under-forecast.</p>
   <p><b>Hindsight signals</b> use what happened in the forecast window. They show what information is missing; they are not forecasts. "Stores" counts own stores with at least one sale, so part of the store signal is demand itself. Stock gaps are inferred from improbable runs of zero-sale days (D021), not from inventory.</p>
   <p><b>Not covered.</b> Month-level errors inside the window, and the buying simulation. The season-memory test uses the tree model alone. Files: <code>eda/198c</code>–<code>198g</code>, <code>data/fk_err_master.parquet</code>, <code>data/fk_err_analysis.json</code>; decisions D276–D277 in <code>log.md</code>.</p>
-  <p>Related pages: <a href="https://claude.ai/artifact/137UdxMX2e7re5W9isksTz">Forecast Atlas</a> · <a href="https://claude.ai/artifact/9ZPDJvYzHq2cUqELfcXdVY">Scoreboard</a></p>
+  <p>Related pages: <a href="atlas.html">Forecast Atlas</a> · <a href="https://claude.ai/artifact/9ZPDJvYzHq2cUqELfcXdVY">Scoreboard</a></p>
 </section>
 <footer>Edikted demand forecast, July–October 2026 · error study of the submitted system</footer>
 </div>

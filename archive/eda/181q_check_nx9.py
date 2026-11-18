@@ -13,12 +13,12 @@ def forecast(path):
 ok = True
 # 1 regression against nx8
 src = open("eda/181q_final_nx9_2026.py", encoding="utf-8").read()
-for a, b in [('DATA / "geo_nx5r_fash_2026.parquet"', 'DATA / "geo_nx5r_x_2026.parquet"'), ('DATA / "ranges_nx5r_fash_2026.csv"', 'DATA / "ranges_nx5r_2026.csv"'), ("Edikted_Forecasting_Exercise_candidate_nx9.xlsx", "_tmp_nx9_regression.xlsx"),
+for a, b in [('DATA / "geo_nx5r_fash_2026.parquet"', 'DATA / "geo_nx5r_x_2026.parquet"'), ('DATA / "ranges_nx5r_fash_2026.csv"', 'DATA / "ranges_nx5r_2026.csv"'), ("candidates/Edikted_Forecasting_Exercise_candidate_nx9.xlsx", "_tmp_nx9_regression.xlsx"),
              ("final_2026_nx9_cascade.csv", "_tmp_nx9_regression_cascade.csv"), ("final_2026_nx9_cascade_hierarchy.csv", "_tmp_nx9_regression_hierarchy.csv"), ("final_2026_nx9_total_ranges.csv", "_tmp_nx9_regression_total_ranges.csv")]:
     assert src.count(a) == 1, a; src = src.replace(a, b)
 open("eda/_tmp_nx9_regression.py", "w", encoding="utf-8").write(src)
 r = subprocess.run([PY, "eda/_tmp_nx9_regression.py"], capture_output=True, text=True, encoding="utf-8", errors="replace"); assert r.returncode == 0, r.stderr[-1500:]
-f8, _ = forecast("Edikted_Forecasting_Exercise_candidate_nx8.xlsx"); fr, _ = forecast("_tmp_nx9_regression.xlsx")
+f8, _ = forecast("candidates/Edikted_Forecasting_Exercise_candidate_nx8.xlsx"); fr, _ = forecast("_tmp_nx9_regression.xlsx")
 d = int((f8[NUM].values != fr[NUM].values).sum()); print("1 regression, Forecast number cells differing from nx8 with nx8's inputs:", d); ok &= d == 0
 c8, cr = pd.read_csv("data/final_2026_nx8_cascade.csv", index_col=0), pd.read_csv("data/_tmp_nx9_regression_cascade.csv", index_col=0)
 shared = [c for c in c8.columns if c in cr.columns and pd.api.types.is_numeric_dtype(c8[c])]
@@ -28,7 +28,7 @@ same_expl = int((f8.explanation.fillna("") == fr.explanation.fillna("")).sum());
 for f in ["eda/_tmp_nx9_regression.py", "_tmp_nx9_regression.xlsx", "data/_tmp_nx9_regression_cascade.csv", "data/_tmp_nx9_regression_hierarchy.csv", "data/_tmp_nx9_regression_total_ranges.csv"]:
     if os.path.exists(f): os.remove(f)
 # 2 the change
-f9, wb9 = forecast("Edikted_Forecasting_Exercise_candidate_nx9.xlsx"); c9 = pd.read_csv("data/final_2026_nx9_cascade.csv", index_col=0)
+f9, wb9 = forecast("candidates/Edikted_Forecasting_Exercise_candidate_nx9.xlsx"); c9 = pd.read_csv("data/final_2026_nx9_cascade.csv", index_col=0)
 g = pd.read_parquet("data/geo_nx5r_fash_2026.parquet").set_index("style_color").reindex(c9.index); mult = g.geo / g.geo_current
 HAND = ["S24840_LIGHT-GRAY-MELANGE", "S25039_YELLOW", "S24847_NAVY", "S16079_DARK-GRAY"]; modelled = ~c9.index.isin(["S16079_DARK-GRAY"])
 err = float(np.nanmax(np.abs(c9.forecast[modelled] / c8.forecast[modelled] - mult[modelled]))); print("2 model forecast moved by the look-alike multiplier: max deviation", err, "| multiplier on the targets min / median / max:", round(float(mult[modelled].min()), 4), round(float(mult[modelled].median()), 4), round(float(mult[modelled].max()), 4)); ok &= err < 1e-9
@@ -39,7 +39,7 @@ ok &= all(isinstance(v, int) and v >= 0 for h in NUM[:4] for v in f9[h]) and boo
 wt = openpyxl.load_workbook("Edikted_Forecasting_Exercise.xlsx")
 untouched = {n: sum(1 for r in wt[n].iter_rows() for c in r if c.value != wb9[n][c.coordinate].value) for n in ["Read me first", "Item gallery", "Data dictionary", "Planned campaigns"]}
 med = lambda p: sorted(hashlib.md5(zipfile.ZipFile(p).read(n)).hexdigest() for n in zipfile.ZipFile(p).namelist() if n.startswith("xl/media/"))
-pics = med("Edikted_Forecasting_Exercise.xlsx") == med("Edikted_Forecasting_Exercise_candidate_nx9.xlsx"); print("3 sheets from Edikted, cells changed:", untouched, "| pictures identical:", pics, "| sheets:", wb9.sheetnames); ok &= not any(untouched.values()) and pics
+pics = med("Edikted_Forecasting_Exercise.xlsx") == med("candidates/Edikted_Forecasting_Exercise_candidate_nx9.xlsx"); print("3 sheets from Edikted, cells changed:", untouched, "| pictures identical:", pics, "| sheets:", wb9.sheetnames); ok &= not any(untouched.values()) and pics
 issues = []
 for s, r in f9[f9.explanation.notna()].iterrows():
     e, raw, tot = r.explanation, r[NUM[6]], r["Total Jul-Oct"]

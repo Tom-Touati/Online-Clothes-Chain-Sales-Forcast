@@ -57,8 +57,8 @@ Writes data/final_2026_nx_cascade.csv, data/final_2026_nx_cascade_hierarchy.csv 
 import sys, os, shutil, numpy as np, pandas as pd, openpyxl
 sys.stdout.reconfigure(encoding="utf-8")
 TEST = os.environ.get("FINAL_TEST") == "1"   # dry run: missing fork members replaced by qdyn, outputs to *_TEST files
-WB_IN, WB_OUT = "Edikted_Forecasting_Exercise.xlsx", ("Edikted_Forecasting_Exercise_candidate_nx6_TEST.xlsx" if TEST else "Edikted_Forecasting_Exercise_candidate_nx6.xlsx")
-assert WB_OUT not in ("Edikted_Forecasting_Exercise_filled.xlsx", "Edikted_Forecasting_Exercise_candidate_final.xlsx", "Edikted_Forecasting_Exercise_candidate_nx.xlsx", "Edikted_Forecasting_Exercise_candidate_nx2.xlsx", "Edikted_Forecasting_Exercise_candidate_nx3.xlsx", "Edikted_Forecasting_Exercise_candidate_nx4.xlsx")
+WB_IN, WB_OUT = "Edikted_Forecasting_Exercise.xlsx", ("candidates/Edikted_Forecasting_Exercise_candidate_nx6_TEST.xlsx" if TEST else "candidates/Edikted_Forecasting_Exercise_candidate_nx6.xlsx")
+assert WB_OUT not in ("Edikted_Forecasting_Exercise_filled.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_final.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_nx.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_nx3.xlsx", "candidates/Edikted_Forecasting_Exercise_candidate_nx4.xlsx")
 wb0 = openpyxl.load_workbook(WB_IN); ws0 = wb0["Forecast"]
 TG = [r[1].value for r in ws0.iter_rows(min_row=2) if r[1].value]; print("targets", len(TG))
 it = pd.read_parquet("data/items.parquet").set_index("style_color")

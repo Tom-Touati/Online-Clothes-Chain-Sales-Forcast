@@ -13,7 +13,7 @@ R = [("On 17 November the World Cup hand rule was restored on top (candidate_nx3
      ("a copy of <code>…_candidate_nx3.xlsx</code> since D303 (candidate_nx2 with the World Cup hand rule)", "a copy of <code>…_candidate_nx4.xlsx</code> since D350 (candidate_nx2 with the World Cup hand rule, the D318 confidence rule and the D317 ranges)"),
      ("the submitted workbook (candidate_nx3, D303)", "the submitted workbook (candidate_nx4, D350)"),
      ("181a_base2026 · 181g_final_nx2_2026.py · 181h_final_nx3_2026.py", "181a_base2026 · 181g_final_nx2_2026.py · 181h_final_nx3_2026.py · 181i_final_nx4_2026.py"),
-     ('outs: ["data/final_2026_nx3_cascade.csv", "Edikted_Forecasting_Exercise_candidate_nx3.xlsx"]', 'outs: ["data/final_2026_nx4_cascade.csv", "Edikted_Forecasting_Exercise_candidate_nx4.xlsx"]'),
+     ('outs: ["data/final_2026_nx3_cascade.csv", "candidates/Edikted_Forecasting_Exercise_candidate_nx3.xlsx"]', 'outs: ["data/final_2026_nx4_cascade.csv", "candidates/Edikted_Forecasting_Exercise_candidate_nx4.xlsx"]'),
      ("A copy of candidate_nx3 since D303: candidate_nx2 with the World Cup hand rule restored.", "A copy of candidate_nx4 since D350: candidate_nx2 with the World Cup hand rule restored (D303), confidence by the validated rule (D318) and ranges widened upward (D317)."),
      ("Switched at D271 (candidate_nx), D274 (candidate_nx2) and D303 (candidate_nx3)", "Switched at D271 (candidate_nx), D274 (candidate_nx2), D303 (candidate_nx3) and D350 (candidate_nx4)"),
      ("eda/181g_final_nx2_2026.py; eda/181h_final_nx3_2026.py\"", "eda/181g_final_nx2_2026.py; eda/181h_final_nx3_2026.py; eda/181i_final_nx4_2026.py\"")]
