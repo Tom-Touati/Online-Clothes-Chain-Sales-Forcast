@@ -51,15 +51,18 @@ DIV = ["2166AC", "67A9CF", "D1E5F0", "F7F7F7", "FDDBC7", "EF8A62", "B2182B"]
 # user, after nx16 (D419f): "reverse the direction of colors. strong color(blue) for good model". SYS is lowest on every row, so the ratios are all
 # >= 1 and the white-at-1 scale left every cell red, palest for the best models. Now the scale starts at the best: ratio 1 (as good as SYS, and SYS
 # itself) = deepest blue, white at sqrt(3) = 1.73x, deepest red at 3x and beyond; still one log scale shared by all rows.
+# user, on seeing nx16 still red: "still the same with the R3 being red" (D419g): the reversal meant blue where SYS beats the model, deeper the more
+# it wins, not blue for the models near SYS. So: ratio 1 = white, blue as the ratio grows (SYS better), deepest blue at 3x and beyond (R3); red below
+# 1 (a model better than SYS; none here); SYS's own column white, the reference. One log scale for every row.
 def shade_ratio(q):
-    t = max(0.0, min(1.0, np.log(q) / np.log(3.0)))     # 1x -> 0 (deep blue), 1.73x -> 0.5 (white), 3x -> 1 (deep red)
+    t = 0.5 - 0.5 * max(-1.0, min(1.0, np.log(q) / np.log(3.0)))     # 3x -> 0 (deep blue), 1x -> 0.5 (white), 1/3x -> 1 (deep red)
     t *= (len(DIV) - 1); i = min(int(t), len(DIV) - 2); f = t - i
     a, b = [tuple(int(h[j:j + 2], 16) for j in (0, 2, 4)) for h in (DIV[i], DIV[i + 1])]
     return "".join(f"{round(a[j] + (b[j] - a[j]) * f):02X}" for j in range(3))
 out = []
 for name, key, kind in ROWS:
     v = {k: val(float(V.loc[key, k]), kind) for k in COLS}; s_ = v["SYS"]
-    r = {"Metric (lower is better)": name, "SYS": fmt(s_, name), "fill SYS": shade_ratio(1.0), "value SYS": round(s_, 5)}
+    r = {"Metric (lower is better)": name, "SYS": fmt(s_, name), "fill SYS": "FFFFFF", "value SYS": round(s_, 5)}
     for k in list(COLS)[1:]:
         x = v[k]
         if not np.isfinite(x): r[k] = "–"; r[f"fill {k}"] = "FFFFFF"; continue
