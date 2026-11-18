@@ -4,7 +4,7 @@ Monthly unit-sales forecast for 100 style-colours of an online fashion retailer 
 January 2024 to June 2026 (about 1,500 items, sold on edikted.com, in the chain's own stores and through partners). Each item also
 gets a confidence level (1 to 3), and 18 items get a written explanation.
 
-**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx12): 630,254 units
+**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx13): 630,254 units
 (July 177,694, August 187,685, September 130,828, October 134,047); confidence 10 items at 1, 86 at 2, 4 at 3. Its sheets:
 
 | Sheet | What it holds |
@@ -92,7 +92,7 @@ foresight.
 Every metric on the nine most recent month-ends (9,031 item forecasts), all scored the same way (`pipeline/232_metrics_table.py`;
 the workbook's "Metrics vs baselines" sheet):
 
-| Metric | Submitted system | R3 | Seasonal naive | Agents' rules | Better than R3 | Better than the seasonal naive | Better than the agents' rules |
+| Metric | Submitted system (SYS) | R3 | Seasonal naive (SN) | Agents' rules (AR) | SYS better than R3 | SYS better than SN | SYS better than AR |
 |---|---|---|---|---|---|---|---|
 | Volume-weighted error (WAPE) | 26.5% | 69.9% | 43.6% | 34.1% | 62% lower | 39% lower | 22% lower |
 | Per-item error (median) | 24.2% | 57.2% | 38.8% | 30.3% | 58% lower | 38% lower | 20% lower |
@@ -144,7 +144,7 @@ Measured in the backtest, these would help most:
 
 All scripts run from the repository root with Python 3.12 (`python pipeline/<script>`); [`pipeline/README.md`](pipeline/README.md)
 gives the stages and the exact commands.
-- The workbook builder (`pipeline/181t_final_nx12_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
+- The workbook builder (`pipeline/181u_final_nx13_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
   cell.
 - Rerunning the earlier stages needs the raw order lines (`Dataset.parquet`, 249 MB) at the root. They are not in the repository
   because of GitHub's file limit.

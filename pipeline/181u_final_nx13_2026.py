@@ -1,6 +1,6 @@
-"""Builds the workbook nx12 (D431): nx11 with the text restructured (one topic per line, a bold summary first), the buying simulation of the
+"""Builds the workbook nx13 (D431): nx11 with the text restructured (one topic per line, a bold summary first), the buying simulation of the
 submitted system, the NOAA temperature data, real-world evaluation as the principle, the ranges as a weakness; boxes in black, the decisions
-sheet aligned (pipeline/181t_nx12_text.py). No number changes (archive/eda/181t_check_nx12.py). nx11 header follows.
+sheet aligned (pipeline/181u_nx13_text.py). No number changes (archive/eda/181u_check_nx13.py). nx11 header follows.
 Builds the workbook nx11 (D429): nx10 with the Model explanation rewritten coarse to fine, all the main metrics and the cascade as
 explainability (archive/eda/181s_nx11_text.py); column B of "Model explanation" widened from 110 to 120 for the longer boxes. No number changes
 (archive/eda/181s_check_nx11.py). nx10 header follows.
@@ -25,7 +25,7 @@ Steps, for the 100 items of the exercise workbook, at the June 2026 origin:
   6  P10 / P25 / P75 / P90 from the per-segment range ratios; ranges for totals
   7  confidence 1-3;  8  buying quantity;  9  explanations
   10 the workbook (Forecast and Model explanation sheets filled; Method and decisions, Cascade and Ranges sheets added) and the cascade tables
-Run from anywhere:  python pipeline/181t_final_nx12_2026.py"""
+Run from anywhere:  python pipeline/181u_final_nx13_2026.py"""
 import importlib.util, math, shutil, sys
 from pathlib import Path
 import numpy as np, pandas as pd, openpyxl
@@ -37,10 +37,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TEMPLATE = ROOT / "exercise/Edikted_Forecasting_Exercise.xlsx"                  # the exercise workbook as received
 WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_filled.xlsx"           # written: the submission
-CASCADE = DATA / "final_2026_nx12_cascade.csv"                           # written: every step, per item
-HIERARCHY = DATA / "final_2026_nx12_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
-TOTAL_RANGES = DATA / "final_2026_nx12_total_ranges.csv"                # written: ranges for totals
-TEXT = Path(__file__).with_name("181t_nx12_text.py")
+CASCADE = DATA / "final_2026_nx13_cascade.csv"                           # written: every step, per item
+HIERARCHY = DATA / "final_2026_nx13_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
+TOTAL_RANGES = DATA / "final_2026_nx13_total_ranges.csv"                # written: ranges for totals
+TEXT = Path(__file__).with_name("181u_nx13_text.py")
 IN = dict(
     items=DATA / "items.parquet",                                  # product type per item
     monthly=DATA / "monthly_item.parquet",                         # units per item and month
@@ -220,8 +220,8 @@ for row in wm.iter_rows(min_row=2):
 from openpyxl.styles import PatternFill, Border, Side   # D431: the decisions sheet aligned and styled
 wd = wb.create_sheet("Method and decisions", wb.sheetnames.index("Model explanation") + 1)
 INK, HEAD = "FF000000", "FF1F3864"
-wd.append(["Each major choice behind the forecast, and the evidence for it. Scores are the forecast's error relative to R3 (the last three months x 4) on the nine most recent backtest month-ends unless said otherwise; lower is better."])
-wd.merge_cells("A1:C1"); wd["A1"].font = Font(name="Calibri", size=11, color=INK); wd["A1"].alignment = Alignment(wrap_text=True, vertical="top", horizontal="left"); wd.row_dimensions[1].height = 34
+wd.append(["Each major choice behind the forecast, and the evidence for it. Abbreviations, used in every list of figures, always in this order: SYS = the submitted system; R3 = the last three months x 4; SN = the seasonal naive (R3 x last year's seasonal pattern of the product type); AR = the agents' rules. Scores are on the nine most recent backtest month-ends unless said otherwise; a ratio like 0.38 is SYS's error as a share of a baseline's (lower is better)."])
+wd.merge_cells("A1:C1"); wd["A1"].font = Font(name="Calibri", size=11, color=INK); wd["A1"].alignment = Alignment(wrap_text=True, vertical="top", horizontal="left"); wd.row_dimensions[1].height = 50
 wd.append(["Area", "Decision", "Why, and the evidence"]); wd.row_dimensions[2].height = 20
 for c in wd[2]:
     c.font = Font(name="Calibri", size=11, bold=True, color="FFFFFFFF"); c.fill = PatternFill("solid", fgColor=HEAD); c.alignment = Alignment(vertical="center", horizontal="left")
@@ -239,7 +239,7 @@ wd.freeze_panes = "A3"
 # D431: the "Metrics vs baselines" sheet (pipeline/232_metrics_table.py -> data/metrics_table_nx12.csv)
 MT = pd.read_csv(DATA / "metrics_table_nx12.csv", index_col=0)
 wt = wb.create_sheet("Metrics vs baselines", wb.sheetnames.index("Method and decisions") + 1)
-COLS = ["Metric", "What it captures", "Submitted system", "R3", "Seasonal naive", "Agents' rules", "Better than R3", "Better than the seasonal naive", "Better than the agents' rules"]
+COLS = ["Metric", "What it captures", "Submitted system (SYS)", "R3", "Seasonal naive (SN)", "Agents' rules (AR)", "SYS better than R3", "SYS better than SN", "SYS better than AR"]
 wt.append([text.METRICS_NOTE]); wt.merge_cells(start_row=1, start_column=1, end_row=1, end_column=len(COLS))
 wt["A1"].font = Font(name="Calibri", size=11, color=INK); wt["A1"].alignment = Alignment(wrap_text=True, vertical="top", horizontal="left"); wt.row_dimensions[1].height = 66
 wt.append(COLS); wt.row_dimensions[2].height = 32
@@ -270,6 +270,6 @@ for name, table in [("Cascade (items)", items_sheet.rename(columns=HEAD)), ("Cas
 wb.save(WORKBOOK)
 
 months_total = C[MONTHS + ["total"]].sum().astype(int).to_dict()
-print("nx12:", months_total, "| model raw total", round(float(C.forecast.sum())), "| campaign", fill["campaign_pct"], round(float(C.campaign_add.sum())), "units, items >= 0.5%:", int((C.campaign_add >= 0.005 * C.forecast).sum()))
+print("nx13:", months_total, "| model raw total", round(float(C.forecast.sum())), "| campaign", fill["campaign_pct"], round(float(C.campaign_add.sum())), "units, items >= 0.5%:", int((C.campaign_add >= 0.005 * C.forecast).sum()))
 print("confidence", C.confidence.value_counts().sort_index().to_dict(), "| explanations", int((C.explanation != "").sum()), "| buying", round(float(C.buying.sum())), f"(+{fill['buying_uplift']}% median), below the total for", int((C.buying < C.total - 0.5).sum()), "items")
 print("hand-ruled:", HAND_RULED, "| boxes:", {row[0].value: (len(str(row[1].value)), wm.row_dimensions[row[0].row].height) for row in wm.iter_rows(min_row=2, max_row=4)})

@@ -378,6 +378,7 @@ candidates/Edikted_Forecasting_Exercise_candidate_nn.xlsx	model_submissions/memb
 candidates/Edikted_Forecasting_Exercise_candidate_nx.xlsx	model_submissions/03_nx_new_system/Edikted_Forecasting_Exercise_candidate_nx.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx10.xlsx	model_submissions/14_nx10_roadmap_text/Edikted_Forecasting_Exercise_candidate_nx10.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx11.xlsx	model_submissions/15_nx11_metrics_cascade/Edikted_Forecasting_Exercise_candidate_nx11.xlsx
+candidates/Edikted_Forecasting_Exercise_candidate_nx12.xlsx	model_submissions/16_nx12_buying_metrics_table/Edikted_Forecasting_Exercise_candidate_nx12.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx	model_submissions/04_nx2_new_nn/Edikted_Forecasting_Exercise_candidate_nx2.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx3.xlsx	model_submissions/05_nx3_world_cup_rule/Edikted_Forecasting_Exercise_candidate_nx3.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx4.xlsx	model_submissions/06_nx4_confidence_rule/Edikted_Forecasting_Exercise_candidate_nx4.xlsx
@@ -585,6 +586,9 @@ data/final_2026_nx11_total_ranges.csv	data/final_2026_nx11_total_ranges.csv
 data/final_2026_nx12_cascade.csv	data/final_2026_nx12_cascade.csv
 data/final_2026_nx12_cascade_hierarchy.csv	data/final_2026_nx12_cascade_hierarchy.csv
 data/final_2026_nx12_total_ranges.csv	data/final_2026_nx12_total_ranges.csv
+data/final_2026_nx13_cascade.csv	data/final_2026_nx13_cascade.csv
+data/final_2026_nx13_cascade_hierarchy.csv	data/final_2026_nx13_cascade_hierarchy.csv
+data/final_2026_nx13_total_ranges.csv	data/final_2026_nx13_total_ranges.csv
 data/final_2026_nx2_cascade.csv	archive/data/final_2026_nx2_cascade.csv
 data/final_2026_nx2_cascade_hierarchy.csv	archive/data/final_2026_nx2_cascade_hierarchy.csv
 data/final_2026_nx3_cascade.csv	archive/data/final_2026_nx3_cascade.csv
@@ -1652,8 +1656,11 @@ eda/181s_check_nx11.py	archive/eda/181s_check_nx11.py
 eda/181s_final_nx11_2026.py	archive/eda/181s_final_nx11_2026.py
 eda/181s_nx11_text.py	archive/eda/181s_nx11_text.py
 eda/181t_check_nx12.py	archive/eda/181t_check_nx12.py
-eda/181t_final_nx12_2026.py	pipeline/181t_final_nx12_2026.py
-eda/181t_nx12_text.py	pipeline/181t_nx12_text.py
+eda/181t_final_nx12_2026.py	archive/eda/181t_final_nx12_2026.py
+eda/181t_nx12_text.py	archive/eda/181t_nx12_text.py
+eda/181u_check_nx13.py	archive/eda/181u_check_nx13.py
+eda/181u_final_nx13_2026.py	pipeline/181u_final_nx13_2026.py
+eda/181u_nx13_text.py	pipeline/181u_nx13_text.py
 eda/182_cooc_feats.py	pipeline/182_cooc_feats.py
 eda/182_newitems.py	archive/eda/182_newitems.py
 eda/182b_fashion_feats.py	pipeline/182b_fashion_feats.py

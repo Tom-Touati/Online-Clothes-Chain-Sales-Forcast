@@ -1,9 +1,9 @@
-"""The words of the workbook nx12 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
+"""The words of the workbook nx13 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
 opening with a summary up to its first colon, which the builder sets in bold. Added: real-world evaluation as the principle (a Framing row
 first), the buying simulation of the submitted system itself (pipeline/231_sim_nx11.py: 10.6% of the perfect-foresight profit lost, the agents'
 rules 12.4%, R3 19.5%; an earlier five-member version, split differently, lost 10.8%), the NOAA temperature data (D155 / D157 / D159 / D159b)
 and the ranges as a weakness. Figures as audited (workflow audit-nx11-buying-sim). User requests quoted in D431. Read by
-pipeline/181t_final_nx12_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
+pipeline/181u_final_nx13_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
 
 MODEL_EXPLANATION = {
  "Your approach": (
@@ -44,20 +44,23 @@ MODEL_EXPLANATION = {
    "only on data before the month-end and scored on the next four months, the task asked.\n"
    "Leakage checks: features rebuilt from data cut at two test month-ends (June and October 2025) are identical, a model trained on shuffled "
    "outcomes collapses, and one that never saw an item's style is only 1% worse.\n"
-   "Baselines: R3 (last three months x4), a naive seasonal forecast and the agents' rules. The metrics below are on the nine recent month-ends, "
-   "with R3 / the agents' rules in brackets; their intervals resample whole styles and whole month-ends.\n"
-   "Volume-weighted error (WAPE): 0.38 of R3's, 0.61 of the seasonal naive's, 0.78 of the rules'; 27% of units (70% / 34%); on the five latest "
-   "month-ends 0.29 of R3's, on last July-October 0.68.\n"
-   "Per-item error: every item counting once, the median error is 24% (57% / 30%).\n"
-   "Hit rate and win rate: 42% of items within +/-20% (18% / 35%); closer than R3 for 76% of items and than the rules for 61%.\n"
-   "Bias: -6% (+15% / -6%), -1% over all 13 month-ends.\n"
-   "Variance explained: R2 0.85 on units, 0.92 in logs (0.15 / 0.76 and 0.76 / 0.90).\n"
-   "Ranges: pinball loss 0.37 of R3's; about 80% of actuals inside P10-P90 and 50% inside P25-P75.\n"
+   "Baselines and abbreviations: SYS = the submitted system; R3 = the last three months x4; SN = the seasonal naive (R3 x last year's seasonal "
+   "pattern of the product type); AR = the agents' rules. The figures below are on the nine recent month-ends, always in the order SYS, R3, SN, "
+   "AR; intervals resample whole styles and whole month-ends.\n"
+   "Volume-weighted error (WAPE): share of units missed SYS 27%, R3 70%, SN 44%, AR 34%, so SYS has 0.38 of R3's error, 0.61 of SN's and 0.78 of"
+   " AR's; SYS on the five latest month-ends 0.29 of R3's, on last July-October 0.68.\n"
+   "Per-item error: every item counting once, the median error is SYS 24%, R3 57%, SN 39%, AR 30%.\n"
+   "Hit rate and win rate: items within +/-20% SYS 42%, R3 18%, SN 27%, AR 35%; SYS is closer than R3 for 76% of items, than SN for 68% and than"
+   " AR for 61%.\n"
+   "Bias: SYS -6%, R3 +15%, SN -7%, AR -6%; SYS -1% over all 13 month-ends.\n"
+   "Variance explained: R2 on units SYS 0.85, R3 0.15, SN 0.64, AR 0.76; on log units SYS 0.92, R3 0.76, SN 0.84, AR 0.90.\n"
+   "Ranges: pinball loss per unit SYS 10.5%, R3 28.1%, SN 16.7%, AR 13.2% (SYS 0.37 of R3's); about 80% of actuals inside P10-P90 and 50% inside"
+   " P25-P75.\n"
    "Confidence: 81% of stated levels held on the five latest month-ends.\n"
    "Decision value (buying simulation): a daily simulation orders from the forecast (arrival after 21 days, at least 7 days between orders, "
-   "safety stock from a calibrated spread, the same for every system) and compares profit with perfect foresight. The submitted system lost "
-   "10.6% of it, the agents' rules 12.4%, R3 19.5%; it was better than the rules in 9 of 11 three-month windows and than R3 in all 11. The "
-   "buying quantity sits about {buying_uplift}% above the forecast.\n"
+   "safety stock from a calibrated spread, the same for every system) and compares profit with perfect foresight. The profit lost: SYS 10.6%, R3"
+   " 19.5%, SN 14.5%, AR 12.4%; SYS was better than AR in 9 of 11 three-month windows and than R3 in all 11. The buying quantity sits about "
+   "{buying_uplift}% above the forecast.\n"
    "Rigour: in the later rounds a change was kept only if it also held on month-ends not used to choose it, on the four earliest and with last "
    "year's season removed; earlier steps (TabPFN, the averaging) and the campaign uplift do worse on the four earliest and were kept on the "
    "recent evidence. Dozens of ideas, many in several variants, were rejected.\n"
@@ -78,8 +81,8 @@ MODEL_EXPLANATION = {
    "Campaign uplift: it rests on one assumption, half the lift of a past campaign day, because the plan gives only headline discounts.\n"
    "Discontinued items: the backtest only holds items still selling in 2025-26, so it never saw an item being discontinued.\n"
    "Optimism: the same month-ends were also used to choose between models, so the real error should be somewhat worse than 0.38.\n"
-   "Early month-ends: on the four earliest, whose training data had no earlier year behind them (the data start in January 2024), the agents' "
-   "rules did better than the system (0.59 against 0.68 of R3's error).\n"
+   "Early month-ends: on the four earliest, whose training data had no earlier year behind them (the data start in January 2024), AR did better "
+   "than SYS (AR 0.59, SYS 0.68 of R3's error).\n"
    "Judgement: the World Cup and out-of-stock items rest on judgement rather than a model (confidence 3).\n"
    "Ranges: they are the weakest part of the uncertainty. About 80% of past actuals fell inside P10-P90 overall but only 70% last July-October, "
    "the same months as this forecast, and level 1 held for only 37% of items then; the total's P10-P90 is wide, 496k to 772k units.\n"
@@ -194,43 +197,45 @@ DECISIONS = [
   "World Cup items: the models extend the June ramp past the 19 July final, which they cannot know. Out-of-stock item: no recent sales to learn"
   " from, and the brief says to assume stock. The raw model totals are in the optional column."),
  ("Metrics", "Volume-weighted error (WAPE), read against baselines",
-  "Captures the errors on the large items, where most units are. Nine recent month-ends: 0.38 of R3's error, 0.61 of a naive seasonal "
-  "forecast's, 0.78 of the agents' rules'; 26.5% of units (R3 69.9%, rules 34.1%). All 13 month-ends 0.44, the five latest 0.29, last "
-  "July-October 0.68, the four earliest 0.68 (where the agents' rules did better, 0.59). Against the three baselines averaged: 0.59; better "
+  "Captures the errors on the large items, where most units are. Share of units missed on the nine recent month-ends: SYS 26.5%, R3 69.9%, SN "
+  "43.6%, AR 34.1%, so SYS has 0.38 of R3's error, 0.61 of SN's and 0.78 of AR's. SYS as a share of R3's error: all 13 month-ends 0.44, the "
+  "five latest 0.29, last July-October 0.68, the four earliest 0.68 (where AR did better, 0.59). Against R3, SN and AR averaged: 0.59; better "
   "than each at every recent month-end, with 95% intervals no higher than 0.82. A ratio to a baseline does not swing with the season as raw "
   "error does."),
  ("Metrics", "Per-item error, every item counting once",
-  "Captures the many small items that WAPE underweights. Median absolute error per item 24% (R3 57%, rules 30%); each item's error relative to "
-  "R3's, median 0.46; mean relative error 0.41 of R3's."),
+  "Captures the many small items that WAPE underweights. Median absolute error per item: SYS 24.2%, R3 57.2%, SN 38.8%, AR 30.3%. SYS's error "
+  "relative to R3's per item: median 0.46, mean 0.41."),
  ("Metrics", "Hit rate within +/-20% and win rate",
-  "Captures how often a single item lands close, the threshold of the confidence scale. 42% of items within +/-20% (49% of units; R3 18%, rules"
-  " 35%); the 100 targets 48%. The forecast is closer than R3 for 76% of item forecasts and closer than the agents' rules for 61%."),
+  "Captures how often a single item lands close, the threshold of the confidence scale. Items within +/-20%: SYS 42.3%, R3 18.1%, SN 27.1%, AR "
+  "34.6%; by units SYS 49.1%, R3 19.2%, SN 29.9%, AR 37.9%; the 100 targets SYS 48%. SYS is closer than R3 for 76% of item forecasts, than SN "
+  "for 68% and than AR for 61%."),
  ("Metrics", "Bias",
-  "Captures the direction of the miss, which drives buying cost. -5.6% on the nine recent month-ends (R3 +15.4%, rules -6.4%), -1% over all 13;"
-  " new items run 7-12% under. Error and bias together ((MAE + |bias|) relative to R3's): 0.30."),
+  "Captures the direction of the miss, which drives buying cost. Forecast against actual units: SYS -5.6%, R3 +15.4%, SN -6.7%, AR -6.4%; SYS "
+  "-1% over all 13 month-ends, and new items run 7-12% under. Error and bias together ((MAE + |bias|) per unit): SYS 33.6%, R3 113.7%, SN "
+  "50.4%, AR 45.0% (SYS 0.30 of R3's)."),
  ("Metrics", "Variance explained (R2)",
-  "Captures whether the forecast ranks and scales items correctly across the catalogue. R2 0.85 on units and 0.92 on log units (R3 0.15 / 0.76,"
-  " rules 0.76 / 0.90). The item explorer also shows each item's correlation and R2 across month-ends."),
+  "Captures whether the forecast ranks and scales items correctly across the catalogue. R2 on units: SYS 0.85, R3 0.15, SN 0.64, AR 0.76; on "
+  "log units: SYS 0.92, R3 0.76, SN 0.84, AR 0.90. The item explorer also shows each item's correlation and R2 across month-ends."),
  ("Metrics", "Ranges: pinball loss and coverage",
-  "Captures whether the uncertainty is honest. Pinball loss over P10 / P25 / P50 / P75 / P90 (each forecast given the quantile model's spread, "
-  "scored the same way for R3 and the rules) 0.37 of R3's (rules 0.47); leaving each month-end out, about 80% of actuals inside P10-P90 and 50%"
-  " inside P25-P75 (70% inside P10-P90 last July-October)."),
+  "Captures whether the uncertainty is honest. Pinball loss over P10 / P25 / P50 / P75 / P90 per unit (each forecast given the quantile model's"
+  " spread, scored the same way for all four): SYS 10.5%, R3 28.1%, SN 16.7%, AR 13.2% (SYS 0.37 of R3's). Leaving each month-end out, about "
+  "80% of actuals fell inside SYS's P10-P90 and 50% inside P25-P75 (70% inside P10-P90 last July-October)."),
  ("Metrics", "Confidence levels by the scale's own definitions",
   "Captures whether each stated level keeps its word (1 within +/-20%, 2 within +/-50%, 3 could miss by more): 81% of stated levels held on the"
   " five latest month-ends; about 60% of level-1 items landed within +/-20% and 84% of level-2 items within +/-50%."),
  ("Metrics", "Decision value: the buying simulation",
   "Captures what the forecast is worth in the decision it serves. Daily orders from the forecast, 21-day arrival, at least 7 days between "
-  "orders, safety stock from a calibrated spread, the same for every system; profit compared with perfect foresight. Profit lost, simulated on "
-  "the submitted system itself: 10.6%, the agents' rules 12.4%, the seasonal naive 14.5%, R3 19.5% (11 three-month windows, March 2025 to "
-  "January 2026); better than the rules in 9 of 11 windows and than R3 in all 11; 94% of demand filled (rules 92%, R3 86%), for slightly more "
-  "leftover stock than the rules (252k against 243k units). Without the campaign uplift it is also 10.6%, so the uplift leaves buying level "
-  "(its backtest uses the realised campaign calendar as the plan, an upper bound). An earlier five-member version, simulated with each member "
-  "split by its own monthly profile, lost 10.8%. Each order uses only the latest month-end forecast. Forecasting too low costs more than too "
-  "high, so the buying quantity sits about {buying_uplift}% above the forecast; under a 21-day lead time, chasing a July breakout does not pay."),
+  "orders, safety stock from a calibrated spread, the same for every forecast; profit compared with perfect foresight. Profit lost, simulated "
+  "on the submitted system itself, over 11 three-month windows (March 2025 to January 2026): SYS 10.6%, R3 19.5%, SN 14.5%, AR 12.4%; SYS "
+  "better than AR in 9 of 11 windows and than R3 in all 11. Demand filled: SYS 94%, R3 86%, AR 92%, with slightly more leftover stock for SYS "
+  "than for AR (252k against 243k units). Without the campaign uplift SYS also loses 10.6%, so the uplift leaves buying level (its backtest "
+  "uses the realised campaign calendar as the plan, an upper bound). An earlier five-member version, simulated with each member split by its "
+  "own monthly profile, lost 10.8%. Each order uses only the latest month-end forecast. Forecasting too low costs more than too high, so the "
+  "buying quantity sits about {buying_uplift}% above the forecast; under a 21-day lead time, chasing a July breakout does not pay."),
  ("Metrics", "How sure the scores are",
-  "Intervals resample whole styles (colours of a style move together) and whole month-ends. The system against the agents' rules: -0.12 to "
-  "-0.10 of R3's error by style, -0.15 to -0.08 by month-end. Thirteen overlapping month-ends behave like about three independent tests, so "
-  "gains under about 0.005 are not trusted."),
+  "Intervals resample whole styles (colours of a style move together) and whole month-ends. SYS against AR: -0.12 to -0.10 of R3's error by "
+  "style, -0.15 to -0.08 by month-end. Thirteen overlapping month-ends behave like about three independent tests, so gains under about 0.005 "
+  "are not trusted."),
  ("Evaluation", "A rolling backtest at 13 month-ends",
   "Each month-end repeats the real task: train on data before it, forecast the next four months, score item totals. Thirteen overlapping "
   "windows behave like about three independent tests, so single-window gains are not trusted."),
@@ -296,7 +301,7 @@ DECISIONS = [
 METRICS_NOTE = ("Every metric of the submitted forecast next to the three baselines, on the nine most recent backtest month-ends (9,031 item forecasts), all scored the same way. "
                 "The agents' rules are the toughest baseline and a time-honest one: at each month-end a fresh AI agent wrote and revised planning rules from a data snapshot cut at "
                 "that month-end, so it never saw any later data (its only outside knowledge is its language model's pretraining, which cannot be audited). "
-                "'Better than' is the share of the baseline's error removed for errors and losses, and the points gained for shares and R2.")
+                "'Better than' is the share of the baseline's error removed for errors and losses, and the points gained for shares and R2. Abbreviations as in the other sheets: SYS = the submitted system, R3 = the last three months x 4, SN = the seasonal naive, AR = the agents' rules.")
 # (key in the csv, label, what it captures, kind): kind loss = lower is better, shown as a share removed; share / r2 = higher is better, points
 # gained; bias = closer to zero, points removed; win = only the comparison columns (share of item forecasts closer than the baseline)
 METRICS_ROWS = [
