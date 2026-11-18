@@ -1,0 +1,90 @@
+"""Origin-anchored feature table: one row per (item, origin month-end, horizon h=1..4). Everything uses data <= origin only."""
+import pandas as pd, numpy as np, warnings
+warnings.filterwarnings("ignore")
+M = pd.read_parquet("data/monthly_item.parquet"); M.columns = pd.PeriodIndex(M.columns, freq="M")
+items = M.index
+it = pd.read_parquet("data/items.parquet").set_index("style_color").loc[items]
+it["pub"] = pd.to_datetime(it["published_date"], utc=True).dt.tz_convert("America/New_York").dt.tz_localize(None).dt.normalize()
+it["first_sale"] = pd.to_datetime(it["first_sale"])
+it["start_true"] = it[["pub", "first_sale"]].min(axis=1)
+it["start"] = it["start_true"].clip(lower=pd.Timestamp("2024-01-01"))
+D0 = pd.Timestamp("2024-01-01"); days = pd.date_range(D0, "2026-06-30")
+d = pd.read_parquet("data/daily_item_chan.parquet"); d = d[~d.cancelled]; d["ny_date"] = pd.to_datetime(d.ny_date)
+
+def cum(df, col="qty"):
+    m = df.groupby(["style_color", "ny_date"])[col].sum().unstack(fill_value=0).reindex(index=items, columns=days, fill_value=0).values
+    return np.concatenate([np.zeros((len(items), 1)), np.cumsum(m, axis=1)], axis=1)
+C_all = cum(d); C_ret = cum(d[d["class"] == "RETAIL"]); C_drop = cum(d[d["class"] == "DROP"]); C_tt = cum(d[d.chan == "Tiktok"])
+on = d[d["class"] == "ONLINE"]; C_on = cum(on); C_dw = cum(on, "disc_w"); del d, on
+site_q, site_dw = C_on.sum(axis=0), C_dw.sum(axis=0)
+last = lambda C, e, k: C[..., e + 1] - C[..., max(e + 1 - k, 0)]
+
+MACRO = {"Top": "top", "Tank Top": "top", "T-Shirt": "top", "Crop Top": "top", "Corset": "top", "Strapless": "top", "Bodysuit": "top", "Shirt": "top", "Knitted Top": "top",
+         "Jeans": "bottom", "Shorts": "bottom", "Skirt": "bottom", "Skort": "bottom", "Pants": "bottom", "Short Jeans": "bottom", "Sweatpants": "warm",
+         "Hoodie": "warm", "Sweater": "warm", "Jacket": "warm", "Cardigan": "warm", "Dress": "dress", "Swimwear Top": "swim", "Swimwear Bottom": "swim"}
+it["macro"] = it.product_type.map(MACRO).fillna("other")
+it["occ"] = it.occasion.fillna("none")
+occs = ["Halloween", "4th of July", "Homecoming", "Valentine", "Graduation", "New Year", "World Cup"]
+
+# tagger attributes, normalised (free-text values: 'Medium' / 'Midweight' / 'Medium Weight' / 'Regular' etc.)
+a = pd.read_csv("exercise/item_attributes.csv").set_index("style_color").reindex(items)
+def norm(s, keep=10):
+    s = s.astype("string").str.lower().str.split("|").str[0].str.strip().str.replace(r"\s+", " ", regex=True)
+    top = s.value_counts().head(keep).index
+    return s.where(s.isin(top), "other").where(s.notna(), "untagged")
+w = a.fabric_weight.astype("string").str.lower()
+it["a_weight"] = np.select([w.str.contains("sheer|ultra|light", na=False), w.str.contains("heavy|chunky|thick", na=False), w.notna()], ["light", "heavy", "medium"], "untagged")
+for c, k in [("fabric_feel", 12), ("print_pattern", 8), ("silhouette", 8), ("length", 6), ("sleeve", 5), ("occasion_tier", 7)]: it["a_" + c] = norm(a[c], k).values
+ATTR = ["a_weight", "a_fabric_feel", "a_print_pattern", "a_silhouette", "a_length", "a_sleeve", "a_occasion_tier"]
+
+def lfl(o, h, key):
+    """Like-for-like seasonal ratio from the prior year: only items already live through the whole base window a year ago."""
+    tm, b = o + h - 12, [o - 14, o - 13, o - 12]
+    if b[0] < M.columns[0]: return pd.Series(np.nan, index=items)
+    coh = (it.start_true < b[0].start_time).values
+    num, den = M.loc[coh, tm], M.loc[coh, b].mean(axis=1)
+    g = np.log(num.sum() / den.sum())
+    k = it.loc[coh, key]
+    r = np.log((num.groupby(k).sum() + 1) / (den.groupby(k).sum() + 1)); n = k.value_counts()
+    sh = n / (n + 8.0)
+    out = (sh * r + (1 - sh) * g).reindex(it[key].values).fillna(g)
+    return pd.Series(out.values, index=items)
+
+rows = []
+for o in pd.period_range("2024-03", "2026-06", freq="M"):
+    e = (o.end_time.normalize() - D0).days
+    live = np.clip((o.end_time.normalize() - it.start).dt.days.values + 1, 0, None)
+    r7, r28, r56, r91 = (last(C_all, e, k) for k in (7, 28, 56, 91))
+    level = r91 / np.clip(np.minimum(live, 91), 1, None) * 30.44
+    X = pd.DataFrame(index=items)
+    X["level"] = level; X["lvl"] = np.log1p(level); X["days_live"] = live
+    X["age_m"] = (o.end_time.normalize() - it.start_true).dt.days.values / 30.44
+    X["m3"] = M[[o - 2, o - 1, o]].mean(axis=1).values
+    for k in range(6):
+        v = np.log((M[o - k].values + 1) / (level + 1)) if (o - k) >= M.columns[0] else np.full(len(items), np.nan)
+        X[f"lagr{k+1}"] = np.where(live >= 30.44 * k + 15, v, np.nan)
+    X["f_r7"] = np.log((r7 / 7 * 30.44 + 1) / (level + 1)); X["f_r28"] = np.log((r28 / np.clip(np.minimum(live, 28), 1, None) * 30.44 + 1) / (level + 1))
+    prev = (last(C_all, e, 182) - r91) / 91 * 30.44
+    X["trend91"] = np.where(live >= 182, np.log((level + 1) / (prev + 1)), np.nan)
+    X["peak_r"] = np.log((M.loc[:, :o].max(axis=1).values + 1) / (level + 1))
+    X["sh_ret"] = last(C_ret, e, 56) / np.clip(r56, 1, None); X["sh_drop"] = last(C_drop, e, 56) / np.clip(r56, 1, None); X["sh_tt"] = last(C_tt, e, 56) / np.clip(r56, 1, None)
+    q = last(C_on, e, 28); X["disc_item"] = np.where(q > 0, last(C_dw, e, 28) / np.clip(q, 1, None), np.nan).clip(0, 1)
+    X["disc_rel"] = X.disc_item - last(site_dw, e, 28) / last(site_q, e, 28)
+    X["ptype"] = it.product_type.values; X["macro"] = it.macro.values; X["color_num"] = it.color_num.values
+    for oc in occs: X["occ_" + oc.split()[0].lower()] = it.occ.str.contains(oc).astype(int).values
+    for c in ATTR: X[c] = it[c].values
+    X["elig"] = (live >= 30) & (r56 > 0)
+    X["ytot"] = M[[o + k for k in range(1, 5)]].sum(axis=1).values if (o + 4) <= M.columns[-1] else np.nan
+    for h in range(1, 5):
+        Z = X.copy(); Z["h"] = h; Z["tmonth"] = (o + h).month; Z["origin"] = str(o); Z["o_ord"] = o.ordinal
+        Z["y"] = M[o + h].values if (o + h) <= M.columns[-1] else np.nan
+        Z["lfl_type"] = lfl(o, h, "product_type").values; Z["lfl_macro"] = lfl(o, h, "macro").values; Z["lfl_occ"] = lfl(o, h, "occ").values
+        tm, b = o + h - 12, [o - 14, o - 13, o - 12]
+        if b[0] >= M.columns[0]:
+            own = np.log((M[tm].values + 5) / (M[b].mean(axis=1).values + 5)); Z["own_sea"] = np.where((it.start_true < b[0].start_time).values, own, np.nan)
+        else: Z["own_sea"] = np.nan
+        rows.append(Z[Z.elig].reset_index())
+F = pd.concat(rows, ignore_index=True).drop(columns="elig")
+F.to_parquet("data/features.parquet")
+print(F.shape, F.origin.nunique(), "origins;", "rows per origin (h=1):", F[F.h == 1].groupby("origin").size().iloc[[0, 6, 15, 23, 27]].to_dict())
+print(F[["level", "m3", "f_r28", "trend91", "sh_ret", "disc_item", "disc_rel", "lfl_type", "own_sea"]].describe().round(2).T[["count", "mean", "min", "50%", "max"]])

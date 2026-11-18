@@ -1,0 +1,455 @@
+<meta charset="utf-8">
+<title>Edikted Item Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a fixed item rail on the left (a select on phones), one long dossier on the right: verdict, projection, the case for it, history, levels, neighbours, attributes, then the business around it. */
+:root{
+  --plane:#f6f6f3; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#7d7b75; --grid:#e1e0d9; --axis:#c3c2b7; --line:#e6e5df;
+  --accent:#2a78d6; --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#c98500; --s5:#e87ba4; --s6:#6250d6;
+  --band:rgba(42,120,214,.13); --band2:rgba(42,120,214,.24);
+  --good:#0a7d0a; --warn:#b26b00; --warnbg:#fff4dc; --goodbg:#e7f5e7; --neutralbg:#efeee9; --hi:#fff;
+  --f-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif; --f-disp:"Inter Tight","Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --plane:#0f0f0e; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#8f8d86; --grid:#2c2c2a; --axis:#45443f; --line:#2a2a27;
+  --accent:#3987e5; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#9085e9;
+  --band:rgba(57,135,229,.18); --band2:rgba(57,135,229,.32);
+  --good:#3fbf3f; --warn:#f0a83a; --warnbg:#33270f; --goodbg:#142a14; --neutralbg:#262624; --hi:#1a1a19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --plane:#0f0f0e; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#8f8d86; --grid:#2c2c2a; --axis:#45443f; --line:#2a2a27;
+  --accent:#3987e5; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#9085e9;
+  --band:rgba(57,135,229,.18); --band2:rgba(57,135,229,.32);
+  --good:#3fbf3f; --warn:#f0a83a; --warnbg:#33270f; --goodbg:#142a14; --neutralbg:#262624; --hi:#1a1a19; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--plane);color:var(--ink);font:14px/1.5 var(--f-ui);margin:0}
+.app{display:grid;grid-template-columns:300px minmax(0,1fr);height:100%}
+aside{border-right:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-height:0}
+.brand{padding:16px 16px 10px;border-bottom:1px solid var(--line)}
+.brand b{font:600 16px/1.2 var(--f-disp);letter-spacing:-.01em}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:12px}
+.filters{display:flex;flex-direction:column;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.filters input,.filters select,#pick{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--plane);color:var(--ink);width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 12px var(--f-ui);border:1px solid var(--line);background:var(--plane);color:var(--ink2);border-radius:999px;padding:3px 9px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.list{overflow:auto;flex:1;min-height:0}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:8px 16px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:3px solid transparent;width:100%;text-align:left;font:inherit;color:inherit;border-top:0;border-right:0}
+.row:hover{background:var(--plane)} .row[aria-current="true"]{background:var(--plane);border-left-color:var(--accent)}
+.row .n{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .t{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .v{font:500 13px var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.row .c{text-align:right}
+main{overflow:auto;min-height:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:22px 60px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:26px}
+.mobilepick{display:none}
+h1{font:600 28px/1.15 var(--f-disp);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font:600 17px/1.3 var(--f-disp);margin:0 0 4px;letter-spacing:-.005em}
+.eyebrow{font:600 11px var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sub{color:var(--ink2);margin:0}
+.muted{color:var(--muted)} .small{font-size:12px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:12px;padding:2px 8px;border-radius:4px;background:var(--neutralbg);color:var(--ink2)}
+.big{text-align:right}
+.big .num{font:600 40px/1 var(--f-disp);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.big .rng{font:12px var(--f-mono);color:var(--muted);margin-top:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--f-ui);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--goodbg);color:var(--good)} .pill.up,.pill.down{background:var(--warnbg);color:var(--warn)} .pill.neutral{background:var(--neutralbg);color:var(--ink2)}
+.pill svg{width:12px;height:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.verdict{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px}
+.verdict p{margin:8px 0 0;max-width:68ch}
+.bench{width:100%;border-collapse:collapse;font-size:13px}
+.bench td{padding:6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.bench td.k{color:var(--ink2);padding-right:12px}
+.bench td.x{text-align:right;font-family:var(--f-mono);white-space:nowrap}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink2);margin:6px 0 2px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px}
+.legend i.dash{background:repeating-linear-gradient(90deg,currentColor 0 4px,transparent 4px 7px)!important;height:2px}
+.legend i.box{height:10px;width:12px;border-radius:2px}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--axis);border-radius:6px;padding:7px 9px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:5}
+.tip b{font-weight:600} .tip .r{display:flex;justify-content:space-between;gap:14px} .tip .r span:last-child{font-family:var(--f-mono)}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.step{display:grid;grid-template-columns:minmax(0,1fr) 92px 64px;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.step .x{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.step .d{text-align:right;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.step.total{font-weight:600;border-bottom:0}
+.drv{display:grid;grid-template-columns:minmax(0,1fr) 38% 44px;gap:4px 10px;align-items:center;font-size:12.5px}
+.drv .lab{color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drv .bar{position:relative;height:16px}
+.drv .bar .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--axis)}
+.drv .bar .f{position:absolute;top:3px;height:10px;border-radius:2px}
+.drv .bar .vv{position:absolute;top:0;font:11px var(--f-mono);color:var(--ink2)}
+.expl{font-size:13px;color:var(--ink2);margin:10px 0 0;max-width:80ch}
+table.nb{width:100%;border-collapse:collapse;font-size:13px}
+table.nb th{font:600 11px var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--axis)}
+table.nb td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.nb td.x{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.tscroll{overflow-x:auto}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px 18px}
+.kv div{display:flex;flex-direction:column;gap:1px;min-width:0}
+.kv span:first-child{font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.kv span:last-child{overflow-wrap:anywhere}
+.scores{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 18px;margin-top:12px}
+.sc{display:grid;grid-template-columns:96px minmax(0,1fr) 28px;gap:8px;align-items:center;font-size:12px}
+.sc .tr{height:6px;background:var(--neutralbg);border-radius:3px;position:relative}
+.sc .tr i{position:absolute;left:0;top:0;bottom:0;background:var(--s6);border-radius:3px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{font:500 12px var(--f-ui);background:var(--surface);color:var(--ink2);border:0;padding:4px 10px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.gen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.note{font-size:12px;color:var(--muted);max-width:90ch}
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:4px 0 8px}.pick .pk{font-size:12px;color:var(--muted);min-width:150px}.pick .chips{display:flex;flex-wrap:wrap;gap:6px}
+.sw{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}.chip.preset{border-style:dashed}.chip[disabled]{opacity:.35;cursor:default}
+table.scard tr.dim td{color:var(--muted)} table.scard{margin-bottom:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:8px 0 10px}
+.kpis>div{background:var(--surface2,var(--neutralbg));border-radius:10px;padding:8px 12px}
+.kpis .k{font-size:12px;color:var(--muted);display:block}.kpis .v{font:600 18px var(--f-mono);display:block}
+button:focus-visible,.row:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+@media (max-width:900px){
+  .app{grid-template-columns:1fr;height:auto} aside{display:none} main{overflow:visible}
+  .mobilepick{display:flex;flex-direction:column;gap:8px}
+  .verdict,.grid2,.gen{grid-template-columns:1fr}
+  .head{grid-template-columns:1fr} .big{text-align:left}
+  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <aside>
+    <div class="brand"><b>Item Explorer</b><p>The 100 forecast items, July–October 2026 · the submitted forecast (nx9, 18 Nov: new nx5 + look-alike correction + confidence rule + campaign uplift, corrected texts)</p></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search name, ID or type" aria-label="Search items">
+      <div class="chips" id="vchips"></div>
+      <select id="sort" aria-label="Sort items"><option value="f">Sort: projection, largest first</option><option value="gap">Sort: gap to benchmark</option><option value="name">Sort: name</option><option value="type">Sort: product type</option></select>
+    </div>
+    <div class="list" id="list" role="listbox" aria-label="Items"></div>
+  </aside>
+  <main><div class="wrap" id="main">
+    <div class="mobilepick"><label class="eyebrow" for="pick">Item</label><select id="pick"></select></div>
+    <section class="head">
+      <div><div class="eyebrow" id="h-eye"></div><h1 id="h-name"></h1><div class="tags" id="h-tags"></div></div>
+      <div class="big"><div class="eyebrow">Projection, Jul–Oct 2026</div><div class="num" id="h-total"></div><div class="rng" id="h-rng"></div></div>
+    </section>
+
+    <section class="card verdict">
+      <div><div class="eyebrow">My reading</div><h2 id="v-title"></h2><div id="v-pill"></div><p id="v-text"></p><p class="note" id="v-sys"></p></div>
+      <div><div class="eyebrow">What the projection is checked against</div><table class="bench" id="v-bench"></table><p class="note">The benchmark multiplies last year's June-to-autumn step (Jul–Oct 2025 against four times the Apr–Jun 2025 monthly rate) by what we learned about items of this age, then takes the median of the checks. It is my cross-check, not a model.</p></div>
+    </section>
+
+    <section>
+      <div class="toolbar"><div><h2>History, past forecasts and projection</h2><p class="sub small">Four-month rolling averages, so forecasts and actuals compare like for like. The dark line is the actual: at each month, the average of that month and the three before. Each model's line joins its past forecasts: a forecast made with data through one month covers the next four and is plotted at the last of them as its total ÷ 4, so where it meets the dark line it was right. 13 backtest origins, data through Feb 2025 to Feb 2026; the scoreboard's "recent" score uses the 9 from Jun 2025. The point at Oct 2026 is the submitted Jul–Oct projection ÷ 4. Dashed lines continue the rolling average through Jul–Oct 2026 with each selected model's own projected months (blue = submitted). The rule agents have their own months and R3 is flat; the tree, NN and TabPFN members store only a Jul–Oct total, so their months follow the submitted shape. The light line is single months.</p></div></div>
+      <div class="pick"><span class="pk">Models to watch</span><div class="chips" id="pm" role="group" aria-label="Models to show"></div></div>
+      <div class="legend" id="pj-leg"></div>
+      <div class="chart" id="pj"></div>
+    </section>
+
+    <section>
+      <div class="toolbar"><div><h2>Past forecasts</h2><p class="sub small">What the same system forecast for this item at each backtest origin, against what it then sold. Each point is a four-month total: a forecast made with data through the month shown, for the four months after it.</p></div></div>
+      <div class="kpis" id="past-kpi"></div>
+      <div class="tscroll"><table class="nb scard" id="past-sc"></table></div>
+      <p class="note">Bold = best of the models for this item. Correlation is between log forecast and log actual across the item's origins (does the forecast move with the item?); R² = 1 − squared error ÷ variance of the actuals (can be negative: worse than always forecasting the item's average). Both need at least three origins and say little below about six.</p>
+      <div class="legend" id="past-leg"></div>
+      <div class="chart" id="past"></div>
+      <div class="tscroll"><table class="nb" id="past-tb"><thead><tr><th>Data through</th><th>Forecast window</th><th style="text-align:right">Actual</th><th style="text-align:right">Forecast</th><th style="text-align:right">Error</th><th style="text-align:right">P10–P90</th><th style="text-align:right">R3</th><th style="text-align:right">Rule agents</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section class="grid2">
+      <div class="card"><div class="eyebrow">How the number is built</div><h2>From the recent rate to the forecast</h2><div class="steps" id="steps"></div>
+        <div class="eyebrow" style="margin-top:16px">The five models and the checks</div><div class="chart" id="dots"></div><div class="legend" id="dots-leg"></div></div>
+      <div class="card"><div class="eyebrow">Explainability</div><h2>What pushes the tree model up or down</h2><p class="sub small" id="drv-sub"></p><div class="drv" id="drv"></div><p class="expl" id="expl"></p></div>
+    </section>
+
+    <section>
+      <div class="toolbar"><div><h2>Weekly history</h2><p class="sub small">Units per week by order date, cancelled lines removed, through 28 June 2026.</p></div></div>
+      <div class="chart" id="wk"></div>
+    </section>
+
+    <section class="grid2">
+      <div><h2>Where it sells</h2><p class="sub small">Monthly units by channel.</p><div class="legend" id="ch-leg"></div><div class="chart" id="ch"></div></div>
+      <div><h2>Discount on edikted.com</h2><p class="sub small">Average discount on the item's web orders, by month.</p><div class="chart" id="ds"></div></div>
+    </section>
+
+    <section>
+      <div class="toolbar"><div><h2>The item against its higher levels</h2><p class="sub small">Each series indexed to its own Jul 2025–Jun 2026 monthly mean = 100, so shapes compare on one axis.</p></div>
+        <div class="seg" id="lv-seg" role="group" aria-label="Levels shown"></div></div>
+      <div class="legend" id="lv-leg"></div>
+      <div class="chart" id="lv"></div>
+      <p class="note" id="lv-note"></p>
+    </section>
+
+    <section>
+      <h2>Nearest neighbours</h2><p class="sub small">The 10 closest items in the multi-view embedding as of June 2026 (bought together, sales moving together, fashion attributes, weather response).</p>
+      <div class="tscroll"><table class="nb" id="nb"><thead><tr><th>Item</th><th>Type</th><th style="text-align:right">Similarity</th><th style="text-align:right">Units, last 12 months</th><th style="text-align:right">Step last year</th><th>Last 18 months</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Attributes</div><h2>What the item is</h2>
+      <div class="kv" id="kv" style="margin-top:10px"></div>
+      <div class="eyebrow" style="margin-top:16px">Fashion scores (0–10, from the tagger)</div><div class="scores" id="scores"></div>
+    </section>
+
+    <section>
+      <h2>The business around it</h2><p class="sub small">The same for every item: the whole catalogue of 1,500 items.</p>
+      <div class="gen">
+        <div><div class="eyebrow">Units by channel</div><div class="legend" id="g1-leg"></div><div class="chart" id="g1"></div></div>
+        <div><div class="eyebrow">Items selling in the month</div><div class="chart" id="g2"></div></div>
+        <div><div class="eyebrow">Average web discount</div><div class="chart" id="g3"></div></div>
+        <div><div class="eyebrow">Own stores open</div><div class="chart" id="g4"></div></div>
+      </div>
+    </section>
+    <p class="note" id="foot"></p>
+  </div></main>
+</div>
+
+<script>
+const D = /*DATA*/null;
+(function(){
+const $ = (s, el=document) => el.querySelector(s);
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt = (x) => x == null || !isFinite(x) ? "–" : Math.round(x).toLocaleString("en-US");
+const fmtk = (x) => x == null ? "–" : (Math.abs(x) >= 10000 ? (x/1000).toFixed(0)+"k" : Math.abs(x) >= 1000 ? (x/1000).toFixed(1)+"k" : Math.round(x).toString());
+const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const MON = D.months, MLAB = (m) => ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m.slice(5)-1] + " " + m.slice(2,4);
+const ICON = {up:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2l4 5H7v3H5V7H2z" fill="currentColor"/></svg>', down:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10L2 5h3V2h2v3h3z" fill="currentColor"/></svg>', ok:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.6 8.4L2.2 6l-.9.9 3.3 3.3L11 3.8l-.9-.9z" fill="currentColor"/></svg>', neutral:'<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="2.5" fill="currentColor"/></svg>'};
+const CALL = {"looks low":"Looks low","looks high":"Looks high","plausible":"Plausible","no call":"No call (launch)"};
+const pill = (v) => `<span class="pill ${v.tone}">${ICON[v.tone]}${CALL[v.call]}</span>`;
+let cur = null, filt = "all", lvOn = {item:true,type:true,macro:false,cluster:true,neighbours:true};
+try { const s = localStorage.getItem("ie-item"); if (s) cur = s; } catch(e) {}
+const items = D.items; const byId = Object.fromEntries(items.map((x) => [x.id, x]));
+if (!byId[cur]) cur = [...items].sort((a,b) => b.proj.total - a.proj.total)[0].id;
+
+// ---------- generic SVG chart (line + optional bars + band), one y-scale, hover crosshair
+function chart(el, o) {
+  const W = Math.max(320, el.clientWidth || 800), H = o.h || 260, m = {l:46, r:12, t:10, b:26};
+  const n = o.x.length, iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const xs = (i) => m.l + (n <= 1 ? iw/2 : (o.bars ? (i + .5) * iw / n : i * iw / (n - 1)));
+  let vals = []; (o.series||[]).forEach((s) => s.v.forEach((v) => v != null && isFinite(v) && vals.push(v)));
+  if (o.band) o.band.forEach((b) => b.hi.forEach((v) => v != null && vals.push(v)));
+  (o.barsSeries||[]).forEach((s) => s.v.forEach((v) => v != null && isFinite(v) && vals.push(v)));
+  if (o.stack) { for (let i = 0; i < n; i++) vals.push(o.stack.reduce((a, s) => a + (s.v[i] || 0), 0)); }
+  let ymax = Math.max(...vals, 0) * 1.08 || 1, ymin = o.ymin ?? 0;
+  const tick = niceTicks(ymin, ymax, 4); ymax = tick[tick.length-1];
+  const ys = (v) => m.t + ih - (v - ymin) / (ymax - ymin) * ih;
+  const g = [], fmtY = o.fy || fmtk;
+  tick.forEach((t) => g.push(`<line x1="${m.l}" x2="${W-m.r}" y1="${ys(t)}" y2="${ys(t)}" stroke="${css('--grid')}" stroke-width="1"/><text x="${m.l-6}" y="${ys(t)+4}" text-anchor="end" font-size="11" fill="${css('--muted')}" font-family="${css('--f-mono')}">${fmtY(t)}</text>`));
+  const every = Math.ceil(n / (W < 520 ? 5 : 10));
+  o.x.forEach((x, i) => { if (i % every === 0) g.push(`<text x="${xs(i)}" y="${H-6}" text-anchor="middle" font-size="11" fill="${css('--muted')}">${esc(o.xl ? o.xl(x) : x)}</text>`); });
+  g.push(`<line x1="${m.l}" x2="${W-m.r}" y1="${ys(ymin)}" y2="${ys(ymin)}" stroke="${css('--axis')}"/>`);
+  if (o.shade) { const [a, b] = o.shade; g.push(`<rect x="${xs(a) - (o.bars? iw/n/2 : 0)}" y="${m.t}" width="${xs(b)-xs(a) + (o.bars? iw/n : 0)}" height="${ih}" fill="${css('--neutralbg')}" opacity=".7"/>`); }
+  (o.band||[]).forEach((b) => { let p = ""; b.idx.forEach((i, k) => p += (k ? "L" : "M") + xs(i) + "," + ys(b.hi[k])); for (let k = b.idx.length-1; k >= 0; k--) p += "L" + xs(b.idx[k]) + "," + ys(b.lo[k]); g.push(`<path d="${p}Z" fill="${b.fill}" stroke="none"/>`); });
+  if (o.stack) { const bw = Math.max(2, iw / n - 2); for (let i = 0; i < n; i++) { let acc = 0; o.stack.forEach((s) => { const v = s.v[i] || 0; if (v > 0) { const y1 = ys(acc + v), y0 = ys(acc); g.push(`<rect x="${xs(i)-bw/2}" y="${y1}" width="${bw}" height="${Math.max(0, y0-y1-1)}" fill="${s.c}" rx="1"/>`); } acc += v; }); } }
+  (o.barsSeries||[]).forEach((s) => { const bw = Math.max(1.5, iw / n - 2); s.v.forEach((v, i) => { if (v > 0) g.push(`<rect x="${xs(i)-bw/2}" y="${ys(v)}" width="${bw}" height="${ys(0)-ys(v)}" fill="${s.c}" rx="1"/>`); }); });
+  (o.series||[]).forEach((s) => { let p = "", on = false; s.v.forEach((v, i) => { if (v == null || !isFinite(v)) { on = false; return; } p += (on ? "L" : "M") + xs(i).toFixed(1) + "," + ys(v).toFixed(1); on = true; });
+    g.push(`<path d="${p}" fill="none" stroke="${s.c}" stroke-width="${s.w||2}" ${s.dash ? 'stroke-dasharray="5 4"' : ""} stroke-linejoin="round" stroke-linecap="round"/>`);
+    if (s.dots) s.v.forEach((v, i) => { if (v != null && s.dots.includes(i)) g.push(`<circle cx="${xs(i)}" cy="${ys(v)}" r="4" fill="${s.c}" stroke="${css('--surface')}" stroke-width="2"/>`); }); });
+  (o.marks||[]).forEach((mk) => g.push(`<line x1="${xs(mk.i)}" x2="${xs(mk.i)}" y1="${m.t}" y2="${m.t+ih}" stroke="${css('--axis')}" stroke-dasharray="3 3"/><text x="${xs(mk.i)+4}" y="${m.t+11}" font-size="11" fill="${css('--muted')}">${esc(mk.t)}</text>`));
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label||"chart")}">${g.join("")}<line class="xh" x1="0" x2="0" y1="${m.t}" y2="${m.t+ih}" stroke="${css('--ink2')}" stroke-width="1" opacity="0"/><rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" class="hit"/></svg><div class="tip" hidden></div>`;
+  const svg = el.querySelector("svg"), tip = el.querySelector(".tip"), xh = el.querySelector(".xh");
+  const move = (ev) => { const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * W / r.width;
+    let i = o.bars ? Math.floor((px - m.l) / (iw / n)) : Math.round((px - m.l) / (iw / Math.max(1, n - 1))); i = Math.max(0, Math.min(n - 1, i));
+    xh.setAttribute("x1", xs(i)); xh.setAttribute("x2", xs(i)); xh.setAttribute("opacity", ".35");
+    const rows = (o.tip ? o.tip(i) : []).map((t) => `<div class="r"><span>${t[0]}</span><span>${t[1]}</span></div>`).join("");
+    tip.innerHTML = `<b>${esc(o.xl ? o.xl(o.x[i]) : o.x[i])}</b>${rows}`; tip.hidden = false;
+    const tx = xs(i) * r.width / W; tip.style.left = Math.min(Math.max(0, tx + 12), r.width - tip.offsetWidth - 4) + "px"; tip.style.top = "6px"; };
+  svg.addEventListener("pointermove", move); svg.addEventListener("pointerleave", () => { tip.hidden = true; xh.setAttribute("opacity", "0"); });
+}
+function niceTicks(a, b, k) { const span = b - a || 1, step0 = span / k, mag = Math.pow(10, Math.floor(Math.log10(step0))), e = step0 / mag, step = (e < 1.5 ? 1 : e < 3 ? 2 : e < 7 ? 5 : 10) * mag; const t = []; for (let v = Math.floor(a / step) * step; v <= b + step * .999; v += step) t.push(+v.toFixed(10)); return t; }
+const leg = (el, arr) => { el.innerHTML = arr.map((s) => `<span><i class="${s.cls||""}" style="background:${s.c};color:${s.c}"></i>${esc(s.n)}</span>`).join(""); };
+
+// ---------- list
+const VCH = [["all","All"],["looks low","Looks low"],["looks high","Looks high"],["plausible","Plausible"],["no call","Launches"]];
+$("#vchips").innerHTML = VCH.map(([k, t]) => `<button class="chip" data-k="${k}" aria-pressed="${k===filt}">${t} <span class="muted">${k==="all"?items.length:items.filter((x)=>x.verdict.call===k).length}</span></button>`).join("");
+$("#vchips").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (!b) return; filt = b.dataset.k; [...$("#vchips").children].forEach((c) => c.setAttribute("aria-pressed", c.dataset.k === filt)); drawList(); });
+$("#q").addEventListener("input", drawList); $("#sort").addEventListener("change", drawList);
+function sorted() { const s = $("#sort").value, q = $("#q").value.trim().toLowerCase(); let a = items.filter((x) => (filt === "all" || x.verdict.call === filt) && (!q || (x.name + " " + x.id + " " + x.type).toLowerCase().includes(q)));
+  const gap = (x) => x.verdict.gap ? Math.abs(Math.log(x.verdict.gap)) : -1;
+  a.sort(s === "name" ? (p, r) => p.name.localeCompare(r.name) : s === "type" ? (p, r) => p.type.localeCompare(r.type) || r.proj.total - p.proj.total : s === "gap" ? (p, r) => gap(r) - gap(p) : (p, r) => r.proj.total - p.proj.total); return a; }
+function drawList() { const a = sorted(); $("#list").innerHTML = a.map((x) => `<button class="row" role="option" data-id="${esc(x.id)}" aria-current="${x.id===cur}"><span class="n">${esc(x.name)}</span><span class="v">${fmt(x.proj.total)}</span><span class="t">${esc(x.type)} · ${esc(x.id)}</span><span class="c"><span class="pill ${x.verdict.tone}" title="${CALL[x.verdict.call]}" aria-label="${CALL[x.verdict.call]}">${ICON[x.verdict.tone]}</span></span></button>`).join("") || `<p class="muted" style="padding:16px">No items match.</p>`;
+  $("#pick").innerHTML = items.slice().sort((p,r)=>r.proj.total-p.proj.total).map((x) => `<option value="${esc(x.id)}" ${x.id===cur?"selected":""}>${esc(x.name)} · ${esc(x.id)} · ${fmt(x.proj.total)}</option>`).join(""); }
+$("#list").addEventListener("click", (e) => { const b = e.target.closest(".row"); if (b) select(b.dataset.id); });
+$("#pick").addEventListener("change", (e) => select(e.target.value));
+function select(id) { cur = id; try { localStorage.setItem("ie-item", id); } catch(e) {} [...$("#list").children].forEach((r) => r.setAttribute("aria-current", r.dataset.id === id)); $("#pick").value = id; draw(); $("main").scrollTop = 0; }
+
+// ---------- item view
+function draw() {
+  const x = byId[cur], p = x.proj, v = x.verdict, c = x.checks;
+  $("#h-eye").textContent = `${x.id} · ${x.type} · ${x.macro}` + (x.cluster != null ? ` · cluster ${x.cluster}` : "");
+  $("#h-name").textContent = x.name;
+  $("#h-tags").innerHTML = [x.meta.color, x.meta.collection, x.meta.occasion && x.meta.occasion !== "nan" ? x.meta.occasion : null, x.meta.age_m != null ? `${x.meta.age_m} months selling` : null, `confidence ${p.confidence} of 3`].filter((t) => t && t !== "nan" && t !== "None").map((t) => `<span class="tag">${esc(t)}</span>`).join("");
+  $("#h-total").textContent = fmt(p.total);
+  $("#h-rng").innerHTML = `P25–P75 ${fmt(p.P25)}–${fmt(p.P75)} · P10–P90 ${fmt(p.P10)}–${fmt(p.P90)}<br>buying quantity ${fmt(p.buying)}`;
+  // verdict
+  $("#v-title").textContent = v.call === "plausible" ? "I would keep this projection" : v.call === "looks low" ? `I would raise it to about ${fmt(v.adj)}` : v.call === "looks high" ? `I would lower it to about ${fmt(v.adj)}` : "I would keep it and re-forecast after July";
+  $("#v-pill").innerHTML = pill(v);
+  $("#v-text").textContent = v.text;
+  $("#v-sys").textContent = "Across the backtest the system as a whole under-forecast recent origins by about 6% and the expectation for this season is about −10% (D316), so on balance the buying quantity, not the forecast, carries that margin.";
+  const rows = [[`Projection ÷ recent rate (R3 ${fmt(p.R3)})`, c.implied != null ? "×" + c.implied.toFixed(2) : "–"]].concat(v.parts.map((q) => [esc(q.how), "×" + q.v.toFixed(2)]));
+  rows.push([`<b>Benchmark (median)</b>`, v.bench ? "<b>×" + v.bench.toFixed(2) + "</b>" : "–"]);
+  rows.push([`Last 4 weeks against the 8 before`, c.mom4 != null ? "×" + c.mom4.toFixed(2) : "–"]);
+  $("#v-bench").innerHTML = rows.map((r) => `<tr><td class="k">${r[0]}</td><td class="x">${r[1]}</td></tr>`).join("");
+  // projection chart: history + 4 months
+  const X = MON.concat(p.months), n0 = MON.length, hist = x.monthly.concat([null,null,null,null]);
+  const proj = Array(n0 - 1).fill(null).concat([x.monthly[n0-1]], p.v);
+  const sc = (q) => p.total ? q / p.total : 0, idx = [n0-1, n0, n0+1, n0+2, n0+3];
+  const base = x.monthly[n0-1];
+  const band = (a) => [base].concat(p.v.map((m) => m * sc(a)));
+  const rulesM = Array(n0).fill(null).concat(p.rules_m);
+  const ly = Array(X.length).fill(null); ["2025-07","2025-08","2025-09","2025-10"].forEach((m, k) => { ly[n0 + k] = x.monthly[MON.indexOf(m)]; });
+  // rolling view: actual as a trailing 4-month average; each past forecast (data through o, months o+1..o+4) plotted at o+4 as total / 4
+  const roll4 = X.map((_, i) => i >= 3 && i < n0 ? (x.monthly[i] + x.monthly[i-1] + x.monthly[i-2] + x.monthly[i-3]) / 4 : null);
+  const mm = x.monthly.concat(p.v), rollP = X.map((_, i) => i >= n0 - 1 ? (mm[i] + mm[i-1] + mm[i-2] + mm[i-3]) / 4 : null);
+  const P4 = x.past || [], endIx = (o) => X.indexOf(addM(o, 4)), Msel = PMODELS.filter(([k]) => PM.has(k));
+  const fser = Msel.map(([k, n, c]) => { const v = Array(X.length).fill(null); P4.forEach((q) => { const i = endIx(q.o); if (i >= 0 && q[k] != null) v[i] = q[k] / 4; });
+    const d = v.map((u, i) => u != null ? i : -1).filter((i) => i >= 0); return {v, c: css(c), w: k === "F" ? 2.5 : 1.8, dash: k === "R3", dots: k === "F" ? d : null, k, n}; });
+  // each selected model's own 2026 projection as the rolling average continued (actual months + its projected months)
+  const projM = (k) => k === "rules" ? p.rules_m : k === "R3" ? [1,2,3,4].map(() => p.R3 / 4) : (p.members && p.members[k] != null && p.total ? p.v.map((m) => m * p.members[k] / p.total) : null);
+  const projTot = (k) => k === "rules" ? (p.rules_m || []).reduce((a, b) => a + b, 0) : k === "R3" ? p.R3 : (p.members || {})[k];
+  const fproj = Msel.filter(([k]) => k !== "F").map(([k, n, c]) => { const pm = projM(k); if (!pm) return null; const m2 = x.monthly.concat(pm);
+    const v = X.map((_, i) => i >= n0 - 1 ? (m2[i] + m2[i-1] + m2[i-2] + m2[i-3]) / 4 : null); return {v, c: css(c), w: 1.8, dash: true, dots: [n0 + 3], k, n, tot: projTot(k)}; }).filter(Boolean);
+  const fb = PM.has("F") ? (() => { const r = P4.filter((q) => q.p10 != null && endIx(q.o) >= 0); return r.length ? [{idx: r.map((q) => endIx(q.o)), lo: r.map((q) => q.p10 / 4), hi: r.map((q) => q.p90 / 4), fill: css("--band")}] : []; })() : [];
+  chart($("#pj"), {x: X, xl: MLAB, h: 320, label: "Four-month rolling average: actual units and past forecasts", shade: [n0, n0+3],
+    band: fb.concat(PM.has("F") ? [{idx: [n0+3], lo: [p.P10 / 4], hi: [p.P90 / 4], fill: css("--band")}] : []),
+    marks: [{i: n0 - 1, t: "data end"}],
+    series: [{v: hist, c: css("--axis"), w: 1.2}, {v: roll4, c: css("--ink2"), w: 2.5}, {v: rollP, c: css("--s1"), w: 2.5, dash: true, dots: [n0 + 3]}].concat(fser, fproj),
+    tip: (i) => { const t = []; if (hist[i] != null) t.push(["Units this month", fmt(hist[i])]); if (roll4[i] != null) t.push(["Actual, last 4 months ÷ 4", fmt(roll4[i])]); if (i >= n0) t.push(["Rolling, with projected months", fmt(rollP[i])]);
+      const q = P4.find((r) => endIx(r.o) === i);
+      if (q) { t.push(["Forecast made end of", MLAB(q.o) + " (for " + MLAB(addM(q.o, 1)).split(" ")[0] + "–" + MLAB(addM(q.o, 4)) + ")"]); fser.forEach((s) => { if (s.v[i] != null) t.push([s.n, fmt(s.v[i]) + " · " + pcs(roll4[i] ? s.v[i] / roll4[i] - 1 : null)]); }); if (PM.has("F") && q.p10 != null) t.push(["System P10–P90", fmt(q.p10 / 4) + "–" + fmt(q.p90 / 4)]); }
+      if (i >= n0) fproj.forEach((f) => t.push([f.n + ", rolling", fmt(f.v[i])]));
+      if (i === n0 + 3) { t.push(["Submitted, Jul–Oct total", fmt(p.total) + " (P10–P90 " + fmt(p.P10) + "–" + fmt(p.P90) + ")"]); fproj.forEach((f) => t.push([f.n + ", Jul–Oct total", fmt(f.tot) + " · " + pcs(p.total ? f.tot / p.total - 1 : null) + " vs submitted"])); }
+      return t; }});
+  leg($("#pj-leg"), [{n: "Actual, 4-month rolling average", c: css("--ink2")}, {n: "Actual, single month", c: css("--axis")}].concat((PM.has("F") ? [] : [{n: "System (submitted)", c: css("--s1")}]), fser.map((s) => ({n: s.n, c: s.c})), PM.has("F") ? [{n: "System P10–P90", c: css("--band"), cls: "box"}] : [], [{n: "solid = past forecasts (÷ 4, at window end) · dashed = 2026 projection", c: "transparent"}]));
+  // steps
+  const st = [["Recent rate × 4 (R3)", p.R3, null], ["Product type's seasonal pattern applied", p.season, p.season/p.R3], ["Weighted average of the six models", p.avg5, p.avg5/p.season], ["Corrections from past errors of similar items", p.forecast, p.corr], ["Rounded and split by month", p.total, null]];
+  $("#steps").innerHTML = st.map((s, k) => `<div class="step ${k===st.length-1?"total":""}"><span>${s[0]}</span><span class="x">${fmt(s[1])}</span><span class="d">${s[2] != null && isFinite(s[2]) ? "×" + s[2].toFixed(2) : ""}</span></div>`).join("");
+  dots(x);
+  drawPickers(x); past(x);
+  // drivers
+  const dr = x.drivers;
+  if (dr) { const mx = Math.max(0.05, ...dr.parts.map((q) => Math.abs(q.v))); $("#drv-sub").textContent = `The tree model alone says ${fmt(dr.tree_F)} (${(Math.exp(dr.tree_dev)*100-100).toFixed(0)}% against R3). SHAP values on the log scale, grouped into 11 families; they add up to that gap.`;
+    $("#drv").innerHTML = dr.parts.slice().sort((a,b) => Math.abs(b.v) - Math.abs(a.v)).map((q) => { const w = Math.abs(q.v) / mx * 50, pos = q.v >= 0, pc = (Math.exp(q.v)*100-100);
+      return `<span class="lab" title="${esc(q.k)}">${esc(q.k)}</span><span class="bar"><span class="mid"></span><span class="f" style="left:${pos?50:50-w}%;width:${w}%;background:${pos?css("--s1"):css("--s2")}"></span></span><span class="mono small" style="text-align:right">${pc>=0?"+":""}${pc.toFixed(0)}%</span>`; }).join("");
+  } else { $("#drv-sub").textContent = "No SHAP breakdown for this item."; $("#drv").innerHTML = ""; }
+  $("#expl").textContent = p.explanation && p.explanation !== "nan" ? p.explanation : (dr && dr.why && dr.why !== "nan" ? dr.why : "");
+  // weekly
+  const wk = x.weekly; if (wk.v.length) { const d0 = new Date(wk.start + "T00:00:00Z"); const lab = wk.v.map((_, k) => { const d = new Date(d0.getTime() + k * 7 * 864e5); return d.toISOString().slice(0,10); });
+    chart($("#wk"), {x: lab, xl: (s) => s.slice(2,7).replace("-", "/"), h: 200, bars: true, label: "Weekly units", barsSeries: [{v: wk.v, c: css("--s1")}], tip: (i) => [["Week of " + lab[i].slice(5), fmt(wk.v[i]) + " units"]]}); } else $("#wk").innerHTML = '<p class="muted">No weekly sales.</p>';
+  // channels
+  const CH = [["web","edikted.com",css("--s1")],["tiktok","TikTok",css("--s5")],["stores","Own stores",css("--s3")],["partners","Partners",css("--s4")]];
+  chart($("#ch"), {x: MON, xl: MLAB, h: 220, bars: true, label: "Units by channel", stack: CH.map(([k,,cc]) => ({v: x.ch[k], c: cc})), tip: (i) => CH.map(([k,n]) => [n, fmt(x.ch[k][i])])});
+  leg($("#ch-leg"), CH.map(([,n,cc]) => ({n, c: cc, cls:"box"})));
+  const dsc = x.disc.map((d) => d == null ? null : d * 100);
+  chart($("#ds"), {x: MON, xl: MLAB, h: 220, label: "Average web discount", fy: (t) => t.toFixed(0) + "%", series: [{v: dsc, c: css("--s6")}], tip: (i) => [["Average discount", dsc[i] == null ? "no web orders" : dsc[i].toFixed(1) + "%"]]});
+  levels(x);
+  // neighbours
+  $("#nb tbody").innerHTML = x.nb.map((q) => `<tr><td><span>${esc(q.name)}</span><br><span class="muted small mono">${esc(q.id)}</span></td><td>${esc(q.type)}</td><td class="x">${q.sim.toFixed(2)}</td><td class="x">${fmt(q.last12)}</td><td class="x">${q.ratio != null ? "×" + q.ratio.toFixed(2) : "–"}</td><td>${spark(q.spark)}</td></tr>`).join("") || `<tr><td colspan="6" class="muted">No embedding for this item.</td></tr>`;
+  // attributes
+  const kv = [["Product type", x.type], ["Group", x.macro], ["Colour", x.meta.color], ["Collection", x.meta.collection], ["Occasion", x.meta.occasion], ["Published", x.meta.published], ["First sale", x.meta.first_sale], ["Sizes / SKUs", `${x.meta.sizes ?? "–"} / ${x.meta.skus ?? "–"}`], ["Lifetime units", fmt(x.meta.lifetime_units)]]
+    .concat(Object.entries(x.attrs).map(([k, val]) => [k.replace(/_/g, " "), val])).concat(x.cluster_info.top_types ? [["Cluster " + x.cluster, `${x.cluster_info.items} items · ${x.cluster_info.top_types} · ${x.cluster_info.aesthetics}`]] : []);
+  $("#kv").innerHTML = kv.filter((r) => r[1] && r[1] !== "nan" && r[1] !== "None").map((r) => `<div><span>${esc(r[0])}</span><span>${esc(r[1])}</span></div>`).join("");
+  $("#scores").innerHTML = Object.entries(x.scores).filter(([,s]) => s != null).map(([k, s]) => `<div class="sc"><span>${esc(k.replace(/_/g," "))}</span><span class="tr"><i style="width:${Math.max(0,Math.min(10,s))*10}%"></i></span><span class="mono">${s.toFixed(1)}</span></div>`).join("") || '<span class="muted small">No scores.</span>';
+}
+// ---------- past forecasts (backtest): pickers shared with the history chart
+const PMODELS = [["F","System (submitted)","--s1"],["rules","Rule agents","--s2"],["qnx","Tree","--s3"],["nn","Neural net","--s6"],["pf2c","TabPFN conformal","--s4"],["pf2d32","TabPFN 32","--s5"],["rc","Recommender (¼ weight)","--warn"],["R3","R3 (recent rate × 4)","--muted"]];
+const ORIGS = ["2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02"];
+const B2B = ["2025-02","2025-06","2025-10","2026-02"];
+let PM = new Set(["F"]), PO = new Set(B2B);
+try { const a = JSON.parse(localStorage.getItem("ie-pm") || "null"); if (Array.isArray(a)) PM = new Set(a); const b = JSON.parse(localStorage.getItem("ie-po") || "null"); if (Array.isArray(b)) PO = new Set(b); } catch(e) {}
+const savePick = () => { try { localStorage.setItem("ie-pm", JSON.stringify([...PM])); localStorage.setItem("ie-po", JSON.stringify([...PO])); } catch(e) {} };
+const addM = (o, k) => { const y = +o.slice(0,4), m = +o.slice(5) - 1 + k; return `${y + Math.floor(m / 12)}-${String(m % 12 + 1).padStart(2, "0")}`; };
+const pcs = (v) => v == null || !isFinite(v) ? "–" : (v >= 0 ? "+" : "") + (v * 100).toFixed(0) + "%";
+function drawPickers(x) {
+  const have = new Set((x.past || []).map((q) => q.o));
+  $("#pm").innerHTML = PMODELS.map(([k, n, c]) => `<button class="chip" data-k="${k}" aria-pressed="${PM.has(k)}"><i class="sw" style="background:${css(c)}"></i>${esc(n)}</button>`).join("");
+  // origin picker removed (rolling view shows all 13 origins)
+}
+function onPick(e) { const b = e.target.closest(".chip"); if (!b || b.disabled) return;
+  if (b.parentElement.id === "pm") { const k = b.dataset.k; PM.has(k) ? PM.delete(k) : PM.add(k); }
+  else if (b.dataset.k === "b2b") PO = new Set(B2B); else if (b.dataset.k === "all") PO = new Set(ORIGS); else if (b.dataset.k === "none") PO = new Set();
+  else if (b.dataset.o) { const o = b.dataset.o; PO.has(o) ? PO.delete(o) : PO.add(o); }
+  savePick(); draw(); }
+// per-item scorecard of one model over the item's scored origins
+function itemScore(P, k) {
+  const r = P.filter((q) => q[k] != null && q.y != null); if (!r.length) return null;
+  const y = r.map((q) => q.y), f = r.map((q) => q[k]), n = r.length, sum = (a) => a.reduce((s, v) => s + v, 0);
+  const ae = sum(f.map((v, i) => Math.abs(v - y[i]))), aeR3 = sum(r.map((q) => Math.abs(q.R3 - q.y))), ys = sum(y);
+  const ly = y.map((v) => Math.log(v + 1)), lf = f.map((v) => Math.log(Math.max(v, 0) + 1)), my = sum(ly) / n, mf = sum(lf) / n;
+  const cov = sum(ly.map((v, i) => (v - my) * (lf[i] - mf))), vy = sum(ly.map((v) => (v - my) ** 2)), vf = sum(lf.map((v) => (v - mf) ** 2));
+  const ym = ys / n, sst = sum(y.map((v) => (v - ym) ** 2)), ssr = sum(f.map((v, i) => (v - y[i]) ** 2));
+  return {n, wr3: aeR3 > 0 ? ae / aeR3 : null, bias: ys > 0 ? sum(f) / ys - 1 : null, w20: f.filter((v, i) => Math.abs(v - y[i]) <= 0.2 * y[i]).length / n,
+          corr: n >= 3 && vy > 0 && vf > 0 ? cov / Math.sqrt(vy * vf) : null, r2: n >= 3 && sst > 0 ? 1 - ssr / sst : null};
+}
+function past(x) {
+  const P = x.past || [], S = x.past_stats, el = $("#past");
+  if (!P.length) { $("#past-kpi").innerHTML = ""; $("#past-leg").innerHTML = ""; $("#past-sc").innerHTML = ""; el.innerHTML = '<p class="muted">No backtest forecasts for this item: it launched too recently or sold too little at the 2025–26 origins to be scored.</p>'; $("#past-tb").hidden = true; return; }
+  $("#past-tb").hidden = false;
+  const win = (o) => MLAB(addM(o, 1)).split(" ")[0] + "–" + MLAB(addM(o, 4));
+  const sysS = itemScore(P, "F");
+  $("#past-kpi").innerHTML = [["Origins scored", `${S.n} of 13`], ["System error ÷ R3 (R3 = 1)", S.wape_r3 != null ? S.wape_r3.toFixed(2) : "–"], ["Bias", pcs(S.bias)], ["Within ±20%", (S.w20 * 100).toFixed(0) + "%"],
+    ["Correlation (logs)", sysS && sysS.corr != null ? sysS.corr.toFixed(2) : "–"], ["R²", sysS && sysS.r2 != null ? sysS.r2.toFixed(2) : "–"], ["Actual inside P10–P90", (S.inside * 100).toFixed(0) + "%"]]
+    .map(([k, v]) => `<div><span class="k">${k}</span><span class="v">${v}</span></div>`).join("");
+  const sc = PMODELS.map(([k, n, c]) => [k, n, c, itemScore(P, k)]).filter((r) => r[3]);
+  const best = (f, lowGood) => { const v = sc.map((r) => r[3][f]).filter((x) => x != null && isFinite(x)); return v.length ? (lowGood ? Math.min(...v) : Math.max(...v)) : null; };
+  const bw = best("wr3", true), bc = best("corr", false), br = best("r2", false), bb = (() => { const v = sc.map((r) => r[3].bias).filter((x) => x != null); return v.length ? Math.min(...v.map(Math.abs)) : null; })();
+  const cell = (v, d, isBest) => `<td class="x">${v == null || !isFinite(v) ? "–" : (isBest ? "<b>" : "") + v.toFixed(d) + (isBest ? "</b>" : "")}</td>`;
+  $("#past-sc").innerHTML = `<thead><tr><th>Model, over this item's ${S.n} origins</th><th style="text-align:right">Error ÷ R3's</th><th style="text-align:right">Bias</th><th style="text-align:right">Within ±20%</th><th style="text-align:right">Correlation (logs)</th><th style="text-align:right">R²</th></tr></thead><tbody>`
+    + sc.map(([k, n, c, m]) => `<tr${PM.has(k) ? "" : ' class="dim"'}><td><i class="sw" style="background:${css(c)}"></i>${esc(n)}</td>${k === "R3" ? '<td class="x">1.00</td>' : cell(m.wr3, 2, m.wr3 === bw)}<td class="x">${m.bias != null && Math.abs(m.bias) === bb ? "<b>" + pcs(m.bias) + "</b>" : pcs(m.bias)}</td><td class="x">${(m.w20 * 100).toFixed(0)}%</td>${cell(m.corr, 2, m.corr === bc)}${cell(m.r2, 2, m.r2 === br)}</tr>`).join("") + "</tbody>";
+  const M = PMODELS.filter(([k]) => PM.has(k));
+  const X = P.map((q) => q.o), idx = P.map((_, i) => i), rec = X.indexOf("2025-06");
+  chart(el, {x: X, xl: (o) => MLAB(o), h: 260, label: "Past four-month forecasts against actual units",
+    band: PM.has("F") ? [{idx, lo: P.map((q) => q.p10), hi: P.map((q) => q.p90), fill: css("--band")}] : [],
+    marks: rec > 0 ? [{i: rec, t: "recent 9"}] : [],
+    series: [{v: P.map((q) => q.y), c: css("--ink2"), w: 2, dots: idx}].concat(M.map(([k, , c]) => ({v: P.map((q) => q[k]), c: css(c), w: k === "F" ? 2.5 : 1.8, dash: k === "R3", dots: k === "F" ? idx : null}))),
+    tip: (i) => { const q = P[i]; return [["Window", win(q.o)], ["Actual", fmt(q.y)]].concat(M.map(([k, n]) => [n, fmt(q[k]) + " (" + pcs(q.y ? q[k] / q.y - 1 : null) + ")"]), PM.has("F") ? [["System P10–P90", fmt(q.p10) + "–" + fmt(q.p90)]] : []); }});
+  leg($("#past-leg"), [{n: "Actual units", c: css("--ink2")}].concat(M.map(([k, n, c]) => ({n, c: css(c), cls: k === "R3" ? "dash" : ""})), PM.has("F") ? [{n: "System P10–P90", c: css("--band"), cls: "box"}] : []));
+  $("#past-tb thead").innerHTML = `<tr><th>Data through</th><th>Forecast window</th><th style="text-align:right">Actual</th>${M.map(([, n]) => `<th style="text-align:right">${esc(n)}</th>`).join("")}${PM.has("F") ? '<th style="text-align:right">System P10–P90</th>' : ""}</tr>`;
+  $("#past-tb tbody").innerHTML = P.slice().reverse().map((q) => { const ins = q.y >= q.p10 && q.y <= q.p90;
+    return `<tr><td>${MLAB(q.o)}</td><td>${win(q.o)}</td><td class="x">${fmt(q.y)}</td>${M.map(([k]) => `<td class="x">${fmt(q[k])} <span class="muted small">${pcs(q.y ? q[k] / q.y - 1 : null)}</span></td>`).join("")}${PM.has("F") ? `<td class="x">${fmt(q.p10)}–${fmt(q.p90)}${ins ? "" : ' <span class="muted" title="actual outside the range">·out</span>'}</td>` : ""}</tr>`; }).join("");
+}
+$("#pm").addEventListener("click", onPick);
+function spark(v) { if (!v || !v.length) return ""; const W = 120, H = 26, mx = Math.max(...v, 1); const p = v.map((y, i) => (i ? "L" : "M") + (i * W / (v.length - 1)).toFixed(1) + "," + (H - 2 - y / mx * (H - 4)).toFixed(1)).join(""); return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true"><path d="${p}" fill="none" stroke="${css("--s1")}" stroke-width="1.6"/></svg>`; }
+function dots(x) { const p = x.proj, el = $("#dots"); const W = Math.max(300, el.clientWidth || 500), H = 120, m = {l: 10, r: 10};
+  const pts = [["Rule agents", p.members.rules, css("--s2")], ["Tree", p.members.qnx, css("--s3")], ["Neural net", p.members.nn, css("--s6")], ["TabPFN conf.", p.members.pf2c, css("--s4")], ["TabPFN 32", p.members.pf2d32, css("--s5")], ["Recommender", p.members.rc, css("--warn")]].filter((q) => q[1] != null);
+  const all = [p.R3, p.season, p.P10, p.P90, ...pts.map((q) => q[1])].filter((v) => v > 0); const lo = Math.log(Math.min(...all) * 0.85), hi = Math.log(Math.max(...all) * 1.15);
+  const xs = (v) => m.l + (Math.log(Math.max(v, 1)) - lo) / (hi - lo) * (W - m.l - m.r);
+  const g = [`<rect x="${xs(p.P10)}" y="40" width="${xs(p.P90)-xs(p.P10)}" height="22" fill="${css("--band")}" rx="3"/>`, `<rect x="${xs(p.P25)}" y="40" width="${xs(p.P75)-xs(p.P25)}" height="22" fill="${css("--band2")}" rx="3"/>`,
+    `<line x1="${m.l}" x2="${W-m.r}" y1="51" y2="51" stroke="${css("--axis")}"/>`];
+  [[p.R3, "R3", 12], [p.season, "seasonal", 26]].forEach(([v, t, ty]) => g.push(`<line x1="${xs(v)}" x2="${xs(v)}" y1="${ty+4}" y2="72" stroke="${css("--muted")}" stroke-dasharray="3 3"/><text x="${xs(v)}" y="${ty}" text-anchor="middle" font-size="11" fill="${css("--muted")}">${t} ${fmtk(v)}</text>`));
+  pts.forEach(([t, v, cc]) => g.push(`<circle cx="${xs(v)}" cy="51" r="6" fill="${cc}" stroke="${css("--surface")}" stroke-width="2"><title>${t}: ${fmt(v)}</title></circle>`));
+  g.push(`<line x1="${xs(p.total)}" x2="${xs(p.total)}" y1="36" y2="66" stroke="${css("--ink")}" stroke-width="2.5"/><text x="${xs(p.total)}" y="86" text-anchor="middle" font-size="12" font-weight="600" fill="${css("--ink")}">forecast ${fmtk(p.total)}</text>`);
+  if (x.verdict.adj) g.push(`<path d="M${xs(x.verdict.adj)},70 l-5,8 h10z" fill="${css("--warn")}"/><text x="${xs(x.verdict.adj)}" y="104" text-anchor="middle" font-size="11" fill="${css("--warn")}">my figure ${fmtk(x.verdict.adj)}</text>`);
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Model forecasts on a log scale">${g.join("")}</svg>`;
+  leg($("#dots-leg"), pts.map(([t, v, cc]) => ({n: `${t} ${fmtk(v)}`, c: cc, cls: "box"}))); }
+const LV = [["item","This item","--s1"],["type","Product type","--s2"],["macro","Group","--s4"],["cluster","Cluster","--s3"],["neighbours","10 neighbours","--s5"]];
+$("#lv-seg").innerHTML = LV.map(([k, t]) => `<button data-k="${k}" aria-pressed="${lvOn[k]}">${t}</button>`).join("");
+$("#lv-seg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b || b.dataset.k === "item") return; lvOn[b.dataset.k] = !lvOn[b.dataset.k]; b.setAttribute("aria-pressed", lvOn[b.dataset.k]); levels(byId[cur]); });
+function levels(x) { const ref = MON.map((m, i) => m >= "2025-07" && m <= "2026-06" ? i : -1).filter((i) => i >= 0);
+  const ix = (arr) => { if (!arr || !arr.length) return null; const mu = ref.reduce((a, i) => a + arr[i], 0) / ref.length; return mu > 0 ? arr.map((v) => v / mu * 100) : null; };
+  const S = {item: ix(x.monthly), type: ix(x.levels.type), macro: ix(x.levels.macro), cluster: ix(x.levels.cluster), neighbours: ix(x.levels.neighbours)};
+  const ser = LV.filter(([k]) => lvOn[k] && S[k]).map(([k, t, c]) => ({v: S[k], c: css(c), w: k === "item" ? 2.5 : 1.8, n: t, k}));
+  chart($("#lv"), {x: MON, xl: MLAB, h: 260, label: "Indexed monthly units", fy: (t) => t.toFixed(0), series: ser, marks: [{i: MON.indexOf("2025-07"), t: "index base from here"}], tip: (i) => ser.map((s) => [s.n, s.v[i] != null ? s.v[i].toFixed(0) : "–"])});
+  leg($("#lv-leg"), ser.map((s) => ({n: s.n + (s.k === "type" ? ` (${x.type})` : s.k === "macro" ? ` (${x.macro})` : s.k === "cluster" ? ` (${x.cluster})` : ""), c: s.c})));
+  $("#lv-note").textContent = `Last year's June-to-autumn step: item ${x.checks.own != null ? "×" + x.checks.own.toFixed(2) : "not selling then"}, product type ×${(x.checks.type||0).toFixed(2)}, neighbours ${x.checks.nb != null ? "×" + x.checks.nb.toFixed(2) : "–"}. The forecast implies ×${x.checks.implied != null ? x.checks.implied.toFixed(2) : "–"} on the recent rate.`; }
+function generic() { const G = D.generic, CH = [["web","edikted.com","--s1"],["tiktok","TikTok","--s5"],["stores","Own stores","--s3"],["partners","Partners","--s4"]];
+  chart($("#g1"), {x: MON, xl: MLAB, h: 210, bars: true, label: "Units by channel, all items", stack: CH.map(([k,,c]) => ({v: G[k], c: css(c)})), tip: (i) => CH.map(([k, n]) => [n, fmt(G[k][i])]).concat([["Total", fmt(G.total[i])]])});
+  leg($("#g1-leg"), CH.map(([,n,c]) => ({n, c: css(c), cls: "box"})));
+  chart($("#g2"), {x: MON, xl: MLAB, h: 210, label: "Items selling", series: [{v: G.active, c: css("--s6")}], tip: (i) => [["Items with sales", fmt(G.active[i])]]});
+  const d = G.disc.map((v) => v == null ? null : v * 100); chart($("#g3"), {x: MON, xl: MLAB, h: 210, label: "Average web discount", fy: (t) => t.toFixed(0) + "%", series: [{v: d, c: css("--s2")}], tip: (i) => [["Average discount", d[i] == null ? "–" : d[i].toFixed(1) + "%"]]});
+  if (G.n_stores) chart($("#g4"), {x: MON, xl: MLAB, h: 210, label: "Own stores open", series: [{v: G.n_stores, c: css("--s3")}], tip: (i) => [["Stores open", G.n_stores[i]]]}); }
+$("#foot").textContent = "Sources: the submitted forecast (new nx5, D389i: eda/181l cascade with the routed new-item tree, refitted corrections and focus-weighted ranges); past forecasts are the same system's time-honest backtest (data/geo_nx5r_x_preds.parquet) with leave-one-out ranges; rule agents agent_eval/2026-06; SHAP drivers data/fk_2026_explain.parquet; embedding clusters_2026-06.";
+drawList(); draw(); generic();
+let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { draw(); generic(); }, 150); });
+const mq = window.matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener && mq.addEventListener("change", () => { draw(); generic(); });
+new MutationObserver(() => { draw(); generic(); }).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+})();
+</script>
