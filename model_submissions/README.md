@@ -3,8 +3,8 @@
 Every workbook other than the submission, one folder each: two early candidates that add one member to the LightGBM quantile model,
 and the earlier versions of the submission.
 Totals are July–October 2026 units for the 100 items; confidence counts are items at level 1 / 2 / 3. Decision ids refer to
-[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx15 (D434): nx13 with a cool-warm table of SYS's ratio to each baseline per metric in "Model explanation" (every
-metric lower-is-better; blue = SYS better).
+[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx16 (D435): nx13 with a table in "Model explanation" of every metric for SYS and, as a ratio to it, for R3, SN,
+AR and each of SYS's six models alone.
 
 | Folder | What it is | Total | Confidence | Decision |
 |---|---|---|---|---|
@@ -28,3 +28,4 @@ metric lower-is-better; blue = SYS better).
 | `16_nx12_buying_metrics_table` | The buying simulation of the submitted system, the metrics-vs-baselines sheet, NOAA temperature, bold line summaries | 630,254 | 10 / 86 / 4 | D431, submitted |
 | `17_nx13_abbreviations` | The abbreviations SYS / R3 / SN / AR in every list of figures | 630,254 | 10 / 86 / 4 | D432, submitted |
 | `18_nx14_ratio_table_green` | The ratio table in green, metrics in their own directions | 630,254 | 10 / 86 / 4 | D433, submitted |
+| `19_nx15_ratio_table_coolwarm` | The ratio table in cool-warm, every metric lower-is-better | 630,254 | 10 / 86 / 4 | D434, submitted |

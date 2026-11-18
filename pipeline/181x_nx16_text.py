@@ -1,9 +1,9 @@
-"""The words of the workbook nx15 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
+"""The words of the workbook nx16 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
 opening with a summary up to its first colon, which the builder sets in bold. Added: real-world evaluation as the principle (a Framing row
 first), the buying simulation of the submitted system itself (pipeline/231_sim_nx11.py: 10.6% of the perfect-foresight profit lost, the agents'
 rules 12.4%, R3 19.5%; an earlier five-member version, split differently, lost 10.8%), the NOAA temperature data (D155 / D157 / D159 / D159b)
 and the ranges as a weakness. Figures as audited (workflow audit-nx11-buying-sim). User requests quoted in D431. Read by
-pipeline/181w_final_nx15_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
+pipeline/181x_final_nx16_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
 
 MODEL_EXPLANATION = {
  "Your approach": (
@@ -353,8 +353,8 @@ WORLD_CUP = ("{fact}. The models answer {model} (P10-P90 {p10}-{p90}), not knowi
 OUT_OF_STOCK = ("Out of stock: no sales since 10 April. Forecast as if back in stock, as the brief asks: its January-March rate (about 32 a month) x the seasonal pattern of tops at least a year old. "
                 "No model covers it, so the number is a rule; confidence 3.")
 
-# D434: the lead line of the cool-warm ratio table in the "Model explanation" sheet
-RATIO_LEAD = ("Submitted system against the three baselines on the nine most recent backtest month-ends. Every metric is turned so that lower is better "
-              "(shares within +/-20% as shares outside, R2 as unexplained variance 1 - R2, bias as its absolute value). Ratio = SYS / baseline: "
-              "blue below 1 = SYS better (deeper blue = more times better), red above 1 = SYS worse, grey within 5%. "
-              "SYS = the submitted system, R3 = the last three months x 4, SN = the seasonal naive, AR = the agents' rules.")
+# D435: the lead line of the all-models table in the "Model explanation" sheet (Fork 2's wording, D419e, with the abbreviations)
+MODELS_LEAD = ("Every metric of the submitted system (SYS) and, as a ratio to it, of each baseline and of each of its six models alone, on the nine most recent "
+               "backtest month-ends. Every metric is lower-is-better (hit rates and R2 as their complements, bias absolute), so a ratio above 1 is worse than SYS; "
+               "one colour scale for all rows, white at 1, deeper red = more times worse; '–' = not simulated in buying. R3 = the last three months x 4, "
+               "SN = the seasonal naive, AR = the agents' rules (also model 1 of the six).")
