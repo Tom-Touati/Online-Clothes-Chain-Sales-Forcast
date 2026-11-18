@@ -1,0 +1,213 @@
+{
+ "train": {
+  "tau": 0.8,
+  "alpha": 0.5,
+  "tau_naive": 0.85
+ },
+ "results": [
+  {
+   "window": "2025-07-01",
+   "policy": "model (trained)",
+   "revenue": 1952165.0,
+   "ideal_rev": 2099314.0,
+   "rev_gap": 147149.0,
+   "profit": 1109371.8052054793,
+   "ideal_profit": 1258166.1630136985,
+   "loss": 148794.35780821927,
+   "loss_pct": 0.11826288306133634,
+   "fill": 0.9299061502948106,
+   "left_units": 259038.0,
+   "bought": 1818077.0,
+   "n_orders": 7401
+  },
+  {
+   "window": "2025-07-01",
+   "policy": "model P50, no safety",
+   "revenue": 1761454.0,
+   "ideal_rev": 2099314.0,
+   "rev_gap": 337860.0,
+   "profit": 1032677.1465753424,
+   "ideal_profit": 1258166.1630136985,
+   "loss": 225489.01643835614,
+   "loss_pct": 0.17922037888718922,
+   "fill": 0.8390617125403822,
+   "left_units": 99701.0,
+   "bought": 1468029.0,
+   "n_orders": 9448
+  },
+  {
+   "window": "2025-07-01",
+   "policy": "naive run-rate (trained)",
+   "revenue": 1896864.0,
+   "ideal_rev": 2099314.0,
+   "rev_gap": 202450.0,
+   "profit": 1078989.0367123287,
+   "ideal_profit": 1258166.1630136985,
+   "loss": 179177.12630136986,
+   "loss_pct": 0.14241133768228595,
+   "fill": 0.9035637355821949,
+   "left_units": 255024.0,
+   "bought": 1758762.0,
+   "n_orders": 8164
+  },
+  {
+   "window": "2025-07-01",
+   "policy": "oracle forecast",
+   "revenue": 2099314.0,
+   "ideal_rev": 2099314.0,
+   "rev_gap": 0.0,
+   "profit": 1255407.564109589,
+   "ideal_profit": 1258166.1630136985,
+   "loss": 2758.59890410956,
+   "loss_pct": 0.0021925553120120947,
+   "fill": 1.0,
+   "left_units": 12051.0,
+   "bought": 1718239.0,
+   "n_orders": 10421
+  },
+  {
+   "window": "2025-10-01",
+   "policy": "model (trained)",
+   "revenue": 2269852.0,
+   "ideal_rev": 2875910.0,
+   "rev_gap": 606058.0,
+   "profit": 1271853.4753424656,
+   "ideal_profit": 1723476.389041096,
+   "loss": 451622.9136986304,
+   "loss_pct": 0.26204183391795893,
+   "fill": 0.7892639199418618,
+   "left_units": 395211.0,
+   "bought": 2232292.0,
+   "n_orders": 7899
+  },
+  {
+   "window": "2025-10-01",
+   "policy": "model P50, no safety",
+   "revenue": 1992693.0,
+   "ideal_rev": 2875910.0,
+   "rev_gap": 883217.0,
+   "profit": 1161943.31369863,
+   "ideal_profit": 1723476.389041096,
+   "loss": 561533.0753424659,
+   "loss_pct": 0.32581419676708795,
+   "fill": 0.6928912935383931,
+   "left_units": 140461.0,
+   "bought": 1700383.0,
+   "n_orders": 9663
+  },
+  {
+   "window": "2025-10-01",
+   "policy": "naive run-rate (trained)",
+   "revenue": 2042306.0,
+   "ideal_rev": 2875910.0,
+   "rev_gap": 833604.0,
+   "profit": 1121488.2917808217,
+   "ideal_profit": 1723476.389041096,
+   "loss": 601988.0972602742,
+   "loss_pct": 0.3492871159060131,
+   "fill": 0.71014252879958,
+   "left_units": 473114.0,
+   "bought": 2082649.0,
+   "n_orders": 8256
+  },
+  {
+   "window": "2025-10-01",
+   "policy": "oracle forecast",
+   "revenue": 2875910.0,
+   "ideal_rev": 2875910.0,
+   "rev_gap": 0.0,
+   "profit": 1720387.017260274,
+   "ideal_profit": 1723476.389041096,
+   "loss": 3089.3717808220536,
+   "loss_pct": 0.001792523413994033,
+   "fill": 1.0,
+   "left_units": 13235.0,
+   "bought": 2456374.0,
+   "n_orders": 12466
+  }
+ ],
+ "traces": {
+  "2025-07-01": {
+   "monthly": [
+    {
+     "index": "2025-07",
+     "revenue": 580982.0,
+     "lost": 40909.0,
+     "ideal": 621891.0,
+     "from_pre_window_stock": 393126.0,
+     "gap_pct": 0.1
+    },
+    {
+     "index": "2025-08",
+     "revenue": 583301.0,
+     "lost": 66187.0,
+     "ideal": 649488.0,
+     "from_pre_window_stock": 0.0,
+     "gap_pct": 0.1
+    },
+    {
+     "index": "2025-09",
+     "revenue": 411221.0,
+     "lost": 7079.0,
+     "ideal": 418300.0,
+     "from_pre_window_stock": 0.0,
+     "gap_pct": 0.0
+    },
+    {
+     "index": "2025-10",
+     "revenue": 376661.0,
+     "lost": 32974.0,
+     "ideal": 409635.0,
+     "from_pre_window_stock": 0.0,
+     "gap_pct": 0.1
+    }
+   ],
+   "verdicts": {
+    "too many": 5242,
+    "too few": 2135,
+    "right": 24
+   }
+  },
+  "2025-10-01": {
+   "monthly": [
+    {
+     "index": "2025-10",
+     "revenue": 519401.0,
+     "lost": 32730.0,
+     "ideal": 552131.0,
+     "from_pre_window_stock": 432771.0,
+     "gap_pct": 0.1
+    },
+    {
+     "index": "2025-11",
+     "revenue": 733508.0,
+     "lost": 308315.0,
+     "ideal": 1041823.0,
+     "from_pre_window_stock": 0.0,
+     "gap_pct": 0.3
+    },
+    {
+     "index": "2025-12",
+     "revenue": 619917.0,
+     "lost": 251507.0,
+     "ideal": 871424.0,
+     "from_pre_window_stock": 0.0,
+     "gap_pct": 0.3
+    },
+    {
+     "index": "2026-01",
+     "revenue": 397026.0,
+     "lost": 13506.0,
+     "ideal": 410532.0,
+     "from_pre_window_stock": 0.0,
+     "gap_pct": 0.0
+    }
+   ],
+   "verdicts": {
+    "too many": 3943,
+    "too few": 3894,
+    "right": 62
+   }
+  }
+ }
+}

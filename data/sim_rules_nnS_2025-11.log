@@ -1,0 +1,47 @@
+eda/51_cand:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+eda/51_cand:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+eda/51_cand:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+eda/51_cand:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+eda/51_cand:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+eda/51_cand:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+floors (2024 p30): {'Homecoming': 2.98, 'Halloween': 2.7} | swim cap (2024 median): 5.14 | mature items: 377 of 1063
+July/June: forecast 1.025, 2024 same-mix benchmark 1.017, actual 2025 0.861
+
+== items: mature  (loss = ideal profit - profit, % of ideal; bias/WAPE on the Jul-Oct total)
+                                  bias        loss_pct          wape       
+alpha                              0.0    0.5      0.0    0.5    0.0    0.5
+variant                     n                                              
++ mature blend              377  0.070  0.070    0.070  0.053  0.201  0.201
++ mature blend (ageing 1.0) 377  0.165  0.165    0.064  0.054  0.244  0.244
+model P50                   377  0.071  0.071    0.078  0.055  0.217  0.217
+
+== items: floored (Hc/Hw young)  (loss = ideal profit - profit, % of ideal; bias/WAPE on the Jul-Oct total)
+               bias        loss_pct          wape       
+alpha           0.0    0.5      0.0    0.5    0.0    0.5
+variant   n                                             
++ floors  62  0.087  0.087    0.102  0.079  0.267  0.267
+model P50 62  0.017  0.017    0.104  0.082  0.250  0.250
+
+== items: swimwear  (loss = ideal profit - profit, % of ideal; bias/WAPE on the Jul-Oct total)
+                bias        loss_pct          wape       
+alpha            0.0    0.5      0.0    0.5    0.0    0.5
+variant    n                                             
++ swim cap 27 -0.173 -0.173    0.085  0.082  0.233  0.233
+model P50  27 -0.170 -0.170    0.085  0.082  0.233  0.233
+
+== items: all  (loss = ideal profit - profit, % of ideal; bias/WAPE on the Jul-Oct total)
+                                     bias        loss_pct          wape       
+alpha                                 0.0    0.5      0.0    0.5    0.0    0.5
+variant                       n                                               
++ floors                      1063  0.068  0.068    0.093  0.067  0.252  0.252
++ mature blend                1063  0.065  0.065    0.091  0.067  0.246  0.246
++ mature blend (ageing 1.0)   1063  0.094  0.094    0.089  0.067  0.259  0.259
++ swim cap                    1063  0.065  0.065    0.093  0.068  0.251  0.251
+all rules                     1063  0.068  0.068    0.091  0.067  0.247  0.247
+all rules + July at benchmark 1063  0.068  0.068    0.091  0.067  0.247  0.247
+model P50                     1063  0.065  0.065    0.093  0.068  0.251  0.251
+
+monthly totals, all items: actual [1065515, 579957, 491452, 496318]
+model P50 [1297653, 504131, 509091, 493149]
+all rules [1268203, 517630, 517461, 508175]
+all rules + July at benchmark [1258208, 521113, 520844, 511303]
