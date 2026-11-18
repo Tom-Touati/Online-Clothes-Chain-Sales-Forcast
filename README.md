@@ -4,13 +4,13 @@ Monthly unit-sales forecast for 100 style-colours of an online fashion retailer 
 January 2024 to June 2026 (about 1,500 items, sold on edikted.com, in the chain's own stores and through partners). Each item also
 gets a confidence level (1 to 3), and 18 items get a written explanation.
 
-**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx16): 630,254 units
+**The submission is [`Edikted_Forecasting_Exercise_filled.xlsx`](Edikted_Forecasting_Exercise_filled.xlsx)** (version nx17): 630,254 units
 (July 177,694, August 187,685, September 130,828, October 134,047); confidence 10 items at 1, 86 at 2, 4 at 3. Its sheets:
 
 | Sheet | What it holds |
 |---|---|
 | Forecast | Monthly units, total, confidence and the model's raw total for each item; explanations for 18 items |
-| Model explanation | A table of every metric for SYS and, as a ratio to it, for R3, SN, AR and each of SYS's six models alone (all lower-is-better; white at 1, red = worse than SYS), and three boxes, one topic per line, each opening with a bold summary: the approach (summary, real-world evaluation, models, information, data artefacts), how it was tested (protocol, leakage checks, one metric per aspect, the buying simulation, explainability), where it is weak |
+| Model explanation | A table of every metric for SYS and, as a ratio to it, for R3, SN, AR and each of SYS's six models alone (all lower-is-better; deep blue = as good as SYS, red = much worse), shown under "How you tested it" and again below the boxes, and three boxes, one topic per line, each opening with a bold summary: the approach (summary, real-world evaluation, models, information, data artefacts), how it was tested (protocol, leakage checks, one metric per aspect, the buying simulation, explainability), where it is weak |
 | Method and decisions | Each major choice with its evidence, by area: framing, models, information, judgement, metrics (one row per aspect: volume-weighted error, per-item error, hit rate, bias, R², ranges, confidence, decision value, how sure the scores are), evaluation, explainability (the cascade, SHAP) and a six-step improvement roadmap |
 | Metrics vs baselines | Every metric of the submitted forecast next to R3, the seasonal naive and the agents' rules, and how much better it is than each (the table below) |
 | Cascade (items) | Each item's July–October total step by step: R3 and a seasonal baseline, the six models (model 1 is the planning rules), their weighted average, the total after the corrections (the raw model total), the share sold on edikted.com, the campaign uplift, the final total (World Cup and out-of-stock rules included), the buying quantity, the highest / lowest model ratio, confidence, P10 / P25 / P75 / P90 |
@@ -144,7 +144,7 @@ Measured in the backtest, these would help most:
 
 All scripts run from the repository root with Python 3.12 (`python pipeline/<script>`); [`pipeline/README.md`](pipeline/README.md)
 gives the stages and the exact commands.
-- The workbook builder (`pipeline/181x_final_nx16_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
+- The workbook builder (`pipeline/181y_final_nx17_2026.py`) reruns from the tables in `data/` and reproduces the submission cell for
   cell.
 - Rerunning the earlier stages needs the raw order lines (`Dataset.parquet`, 249 MB) at the root. They are not in the repository
   because of GitHub's file limit.

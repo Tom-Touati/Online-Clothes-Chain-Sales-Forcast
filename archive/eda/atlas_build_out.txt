@@ -1,7 +1,7 @@
-eda/19_project_map_data.py exit 0 nks': 2, 'log': 433, 'files': 2}
+eda/19_project_map_data.py exit 0 nks': 2, 'log': 444, 'files': 2}
 importance: [{'f': 'lfl_type', 'g': 0.1315}, {'f': 'ptype', 'g': 0.1162}, {'f': 'f_r28', 'g': 0.105}, {'f': 'f_r7', 'g': 0.1022}, {'f': 'lfl_macro', 'g': 0.0831}, {'f': 'own_sea', 'g': 0.076}, {'f': 'tmonth', 'g': 0.0704}, {'f': 'last 6 months (lags)', 'g': 0.0628}]
  
 eda/124_atlas_eval_data.py exit 0 137 | pinball 0.281 | bias +0.154 | 9031 item-origins
 eval keys: ['table_recent', 'table_all', 'table_targets', 'fva', 'fva_note', 'waterfall', 'month_bias', 'origin_macro', 'archetypes', 'archetypes_old', 'arch_periods', 'concentration', 'notes', 'probes', 'ablation'] | table rows: 14 | probes: 66
  
-wrote eda/atlas.html 1037 KB | log entries: 433 | eval: True
+wrote eda/atlas.html 1065 KB | log entries: 444 | eval: True

@@ -3,8 +3,8 @@
 Every workbook other than the submission, one folder each: two early candidates that add one member to the LightGBM quantile model,
 and the earlier versions of the submission.
 Totals are July–October 2026 units for the 100 items; confidence counts are items at level 1 / 2 / 3. Decision ids refer to
-[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx16 (D435): nx13 with a table in "Model explanation" of every metric for SYS and, as a ratio to it, for R3, SN,
-AR and each of SYS's six models alone.
+[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx17 (D436): nx13 with a table in "Model explanation" of every metric for SYS and, as a ratio to it, for R3, SN,
+AR and each of SYS's six models alone (deep blue = as good as SYS), under "How you tested it" and again below the boxes.
 
 | Folder | What it is | Total | Confidence | Decision |
 |---|---|---|---|---|
@@ -29,3 +29,4 @@ AR and each of SYS's six models alone.
 | `17_nx13_abbreviations` | The abbreviations SYS / R3 / SN / AR in every list of figures | 630,254 | 10 / 86 / 4 | D432, submitted |
 | `18_nx14_ratio_table_green` | The ratio table in green, metrics in their own directions | 630,254 | 10 / 86 / 4 | D433, submitted |
 | `19_nx15_ratio_table_coolwarm` | The ratio table in cool-warm, every metric lower-is-better | 630,254 | 10 / 86 / 4 | D434, submitted |
+| `20_nx16_models_table` | The all-models table (white at 1, red above) below the boxes | 630,254 | 10 / 86 / 4 | D435, submitted |

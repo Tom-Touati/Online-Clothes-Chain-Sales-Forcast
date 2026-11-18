@@ -68,11 +68,11 @@ Final corrections: `geo_nx5r_fash_2026.parquet` (June 2026) and `geo_nx5r_fash_x
 
 ## 6 The workbook
 
-`181x_final_nx16_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
-(`data/final_2026_nx16_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
-confidence → buying quantity → explanations → sheets. All words are in `181x_nx16_text.py`; it also writes the all-models table in "Model explanation" from
+`181y_final_nx17_2026.py` writes the submission (`Edikted_Forecasting_Exercise_filled.xlsx`) and the cascade tables
+(`data/final_2026_nx17_*`): members → weighted mean × correction → monthly split → campaign uplift → hand rules → ranges →
+confidence → buying quantity → explanations → sheets. All words are in `181y_nx17_text.py`; it also writes the all-models table in "Model explanation" (twice) from
 `data/model_metrics_table.csv`, and the "Metrics vs baselines" sheet from `data/metrics_table_nx12.csv`. (nx13 has
-nx9's numbers with the rewritten text; `data/final_2026_nx9_*` … `nx15_*` are the same tables under earlier names.)
+nx9's numbers with the rewritten text; `data/final_2026_nx9_*` … `nx16_*` are the same tables under earlier names.)
 
 ## 7 Evaluation quoted in the workbook
 

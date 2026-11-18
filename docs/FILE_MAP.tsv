@@ -382,6 +382,7 @@ candidates/Edikted_Forecasting_Exercise_candidate_nx12.xlsx	model_submissions/16
 candidates/Edikted_Forecasting_Exercise_candidate_nx13.xlsx	model_submissions/17_nx13_abbreviations/Edikted_Forecasting_Exercise_candidate_nx13.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx14.xlsx	model_submissions/18_nx14_ratio_table_green/Edikted_Forecasting_Exercise_candidate_nx14.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx15.xlsx	model_submissions/19_nx15_ratio_table_coolwarm/Edikted_Forecasting_Exercise_candidate_nx15.xlsx
+candidates/Edikted_Forecasting_Exercise_candidate_nx16.xlsx	model_submissions/20_nx16_models_table/Edikted_Forecasting_Exercise_candidate_nx16.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx2.xlsx	model_submissions/04_nx2_new_nn/Edikted_Forecasting_Exercise_candidate_nx2.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx3.xlsx	model_submissions/05_nx3_world_cup_rule/Edikted_Forecasting_Exercise_candidate_nx3.xlsx
 candidates/Edikted_Forecasting_Exercise_candidate_nx4.xlsx	model_submissions/06_nx4_confidence_rule/Edikted_Forecasting_Exercise_candidate_nx4.xlsx
@@ -604,6 +605,9 @@ data/final_2026_nx15_total_ranges.csv	data/final_2026_nx15_total_ranges.csv
 data/final_2026_nx16_cascade.csv	data/final_2026_nx16_cascade.csv
 data/final_2026_nx16_cascade_hierarchy.csv	data/final_2026_nx16_cascade_hierarchy.csv
 data/final_2026_nx16_total_ranges.csv	data/final_2026_nx16_total_ranges.csv
+data/final_2026_nx17_cascade.csv	data/final_2026_nx17_cascade.csv
+data/final_2026_nx17_cascade_hierarchy.csv	data/final_2026_nx17_cascade_hierarchy.csv
+data/final_2026_nx17_total_ranges.csv	data/final_2026_nx17_total_ranges.csv
 data/final_2026_nx2_cascade.csv	archive/data/final_2026_nx2_cascade.csv
 data/final_2026_nx2_cascade_hierarchy.csv	archive/data/final_2026_nx2_cascade_hierarchy.csv
 data/final_2026_nx3_cascade.csv	archive/data/final_2026_nx3_cascade.csv
@@ -1687,8 +1691,11 @@ eda/181w_check_nx15.py	archive/eda/181w_check_nx15.py
 eda/181w_final_nx15_2026.py	archive/eda/181w_final_nx15_2026.py
 eda/181w_nx15_text.py	archive/eda/181w_nx15_text.py
 eda/181x_check_nx16.py	archive/eda/181x_check_nx16.py
-eda/181x_final_nx16_2026.py	pipeline/181x_final_nx16_2026.py
-eda/181x_nx16_text.py	pipeline/181x_nx16_text.py
+eda/181x_final_nx16_2026.py	archive/eda/181x_final_nx16_2026.py
+eda/181x_nx16_text.py	archive/eda/181x_nx16_text.py
+eda/181y_check_nx17.py	archive/eda/181y_check_nx17.py
+eda/181y_final_nx17_2026.py	pipeline/181y_final_nx17_2026.py
+eda/181y_nx17_text.py	pipeline/181y_nx17_text.py
 eda/182_cooc_feats.py	pipeline/182_cooc_feats.py
 eda/182_newitems.py	archive/eda/182_newitems.py
 eda/182b_fashion_feats.py	pipeline/182b_fashion_feats.py
@@ -1869,6 +1876,7 @@ eda/232_pages_nx12.py	archive/eda/232_pages_nx12.py
 eda/233_pages_nx13.py	archive/eda/233_pages_nx13.py
 eda/234_metric_ratio_table.py	pipeline/234_metric_ratio_table.py
 eda/235_conf_baselines.py	archive/eda/235_conf_baselines.py
+eda/236_pages_nx16.py	archive/eda/236_pages_nx16.py
 eda/239_model_metrics_table.py	pipeline/239_model_metrics_table.py
 eda/23_fill_workbook_q.py	archive/eda/23_fill_workbook_q.py
 eda/24_sanity.py	archive/eda/24_sanity.py

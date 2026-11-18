@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 LAB = Path(__file__).resolve().parents[1]
 SUBMISSION = "Edikted_Forecasting_Exercise_filled.xlsx"
-NOT_PUBLISHED = {"README.md", ".gitignore", "Edikted_Forecasting_Exercise_candidate_nx16.xlsx"}   # the lab's own root files; nx16 = the submission (a duplicate, D435)
+NOT_PUBLISHED = {"README.md", ".gitignore", "Edikted_Forecasting_Exercise_candidate_nx17.xlsx"}   # the lab's own root files; nx17 = the submission (a duplicate, D436)
 MOVED = ("candidates/", "reports/")   # D426: the lab root's workbooks and reports moved to these folders (Fork 2, user: "too many files in the main directory"); names are looked up without the folder
 # stage -> scripts, in run order (the pipeline README is written from this)
 STAGES = [
@@ -22,7 +22,7 @@ STAGES = [
  ("3 The six members", ["76_rules_harness.py", "180q_models.py", "187_losses.py", "218a_route_tree_2026.py", "57_embed_nn.py", "197b_nn_ec.py", "196b_tabpfn.py", "199c_conformal.py", "199e_conformal_apply.py", "202_rc_model.py", "205_rc_handover.py"]),
  ("4 Base table and corrections", ["179d_base.py", "180d_newbase.py", "181a_base2026.py", "218_base_nx5r.py", "179x2_bias.py", "179b_breakout.py", "218c_geo_nx5r.py", "228_breakout_fashion.py"]),
  ("5 Ranges and confidence", ["219_ranges_nx5r.py", "198d_error_master.py", "198ac_confidence_rule.py", "222_confidence_new.py"]),
- ("6 The workbook", ["181x_final_nx16_2026.py", "181x_nx16_text.py"]),
+ ("6 The workbook", ["181y_final_nx17_2026.py", "181y_nx17_text.py"]),
  ("7 Evaluation quoted in the workbook", ["226_vs_baselines.py", "224_gate_nx5r.py", "221_month_split.py", "226_campaign_test.py", "217_score_new5.py", "231_sim_nx11.py", "231b_sim_naive.py", "232_metrics_table.py", "234_metric_ratio_table.py", "239_model_metrics_table.py"]),
  ("Shared helpers", ["score_lib.py", "86_metrics_suite.py", "20b_quantiles_lean.py", "lowrun.ps1", "47_decision_sim.py", "59_sim_v2.py", "87_sim_systems.py", "157_stack_new.py", "159_scoreboard.py"]),
 ]
@@ -49,6 +49,7 @@ MODELS = {   # lab workbook -> model_submissions/<folder>  (label, decision ids)
  "Edikted_Forecasting_Exercise_candidate_nx13.xlsx": "17_nx13_abbreviations",
  "Edikted_Forecasting_Exercise_candidate_nx14.xlsx": "18_nx14_ratio_table_green",
  "Edikted_Forecasting_Exercise_candidate_nx15.xlsx": "19_nx15_ratio_table_coolwarm",
+ "Edikted_Forecasting_Exercise_candidate_nx16.xlsx": "20_nx16_models_table",
 }
 EXERCISE = {"Edikted_Forecasting_Exercise.xlsx": "exercise/Edikted_Forecasting_Exercise.xlsx", "item_attributes.csv": "exercise/item_attributes.csv"}
 DOCS = {"log.md": "docs/decision_log.md", "EDA_REPORT.md": "docs/EDA_REPORT.md",
@@ -61,7 +62,7 @@ REQUIRED = [SUBMISSION] + ["eda/" + s for s in PIPELINE]
 LIT = re.compile(r"""["'](data/[^"'{}\s]+?\.(?:parquet|csv|json|npz|npy|pkl|txt))["']""")
 FAMILIES = [r"data/llm/.*", r"data/weather_raw/.*", r"data/q_backtest_ls_huber(_new5)?(_2026|_lyd)?\.parquet", r"data/srv4/q_backtest_ls_huber(_noly)?\.parquet", r"data/dec_base(_ec_ns|_ecnsnn|_ecnsnnhubrq|_ecnsnnhubrq26|_nx5r26)?\.parquet",
             r"data/bias_seg_preds_nx5r26\.parquet", r"data/breakout_preds_nx5r26_x\.parquet", r"data/geo_nx5r(_fash)?_x_(preds|2026)\.parquet", r"data/geo_nx5r_fash_2026\.parquet",
-            r"data/ranges_nx5r(_fash)?_(2026\.csv|loo\.parquet)", r"data/final_2026_nx(9|10|11|12|13|14|15|16)_.*\.csv", r"data/scoreboard\.json", r"data/q_backtest_fktab_tabpfn_v2_dyn(_e32)?\.parquet",
+            r"data/ranges_nx5r(_fash)?_(2026\.csv|loo\.parquet)", r"data/final_2026_nx(9|10|11|12|13|14|15|16|17)_.*\.csv", r"data/scoreboard\.json", r"data/q_backtest_fktab_tabpfn_v2_dyn(_e32)?\.parquet",
             r"data/q_backtest_fkconf_pfn2dyn_seg_tails\.parquet", r"data/fk_2026_(pf2c|pf2d32|w03|qdyn)\.parquet", r"data/nn_backtest_preds_(S13ecx6|finalSec|finalSec_s10)\.parquet",
             r"data/q_backtest_nx_(ec_ns|w03ec)(_2026)?\.parquet", r"data/rc_recsys_preds(_noly)?\.parquet", r"data/fk_err_master\.parquet", r"data/confidence_new_bt\.parquet"]
 PATHLIB = re.compile(r"DATA / [\"']([^\"']+\.(?:parquet|csv|json|npz))[\"']")
