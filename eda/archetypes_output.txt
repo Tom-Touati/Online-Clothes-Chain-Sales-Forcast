@@ -1,0 +1,28 @@
+                                        item-origins %  units %  abs error %  bias 3-way  rules WAPE/R3  qmodel WAPE/R3  nn WAPE/R3  r_q_nn WAPE/R3
+archetype                                                                                                                                          
+spike at origin (max/median week >= 3)          25.003   22.342       20.151      -0.016          0.425           0.370       0.430           0.373
+moderate spike (2-3)                            23.109   18.164       18.516      -0.144          0.445           0.464       0.440           0.417
+no spike (< 2)                                  53.217   59.586       61.415      -0.088          0.529           0.515       0.521           0.475
+window has Black Friday                         40.162   50.904       56.762      -0.128          0.605           0.640       0.619           0.577
+  ... and the item spiked >= 4x on BF           31.303   47.004       52.042      -0.136          0.601           0.637       0.618           0.576
+  ... item spiked < 4x on BF                     8.393    3.896        4.693      -0.031          0.651           0.676       0.632           0.594
+window without Black Friday                     59.838   49.096       43.238      -0.034          0.399           0.342       0.381           0.335
+launch < 3 months                               11.826   16.182       20.937      -0.185          0.668           0.649       0.706           0.619
+launch < 3 months, BF window                     5.116    8.600       12.923      -0.262          0.682           0.692       0.705           0.648
+spike at origin, item >= 3 months               22.113   17.347       13.655       0.038          0.355           0.316       0.359           0.312
+
+== over-forecast by spike ratio (all recent item-origins): bias of the 3-way and median log error
+            n   bias  med log err  rules bias  q bias  nn bias
+sb                                                            
+<1.5   2603.0 -0.064        0.027      -0.043  -0.074   -0.021
+1.5-2  2542.0 -0.117        0.016      -0.099  -0.140   -0.057
+2-3    1748.0 -0.143       -0.002      -0.122  -0.156   -0.104
+3-5    1352.0 -0.006        0.028       0.006  -0.025    0.041
+>=5     786.0 -0.028        0.056      -0.015  -0.050    0.017
+
+== Black Friday windows: realised item lift vs what was knowable
+realised BF lift: median 5.7 | by macro: {'bottom': 5.7, 'dress': 3.73, 'other': 6.23, 'swim': 5.56, 'top': 6.49, 'warm': 5.99}
+by age band: {'12 months+': 5.6, '3-12 months': 5.78, 'under 3 months': 5.84}
+items with a lift last year: 1892 | corr(log lift, log lift last year) 0.18 | median ratio this/last 1.00
+corr(log lift, log type lift last year) 0.18
+3-way bias in BF windows by realised lift band: {Interval(0.0, 2.0, closed='right'): 0.037, Interval(2.0, 4.0, closed='right'): -0.036, Interval(4.0, 8.0, closed='right'): -0.136, Interval(8.0, 1000000000.0, closed='right'): -0.137}

@@ -1,0 +1,109 @@
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:29: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  live = M[[mon(o, -12 - k) for k in (0, 1, 2)]].min(1) > 0   # like-for-like: items selling in the 3 months before last year's window
+C:\Users\tomto\workspaces\edikted\eda\221_month_split.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  TY = M[live][ly].groupby(PT[live]).sum(); TY = TY.div(TY.sum(1), axis=0)
+item-origins 11670
+
+recent 9 (n 8974): monthly WAPE, ratio to flat split, median per-item correlation of monthly shares
+   flat                   0.4308  1.0000  +nan
+   cur                    0.3147  0.7304  +0.843
+   rules                  0.3217  0.7467  +0.838
+   nn                     0.3223  0.7482  +0.801
+   type_ly                0.3342  0.7758  +0.776
+   item_ly                0.4226  0.9810  +0.763
+   cur shrunk 0.25        0.3294  0.7646  +0.843
+   cur shrunk 0.5         0.3552  0.8246  +0.843
+   cur x type_ly          0.3196  0.7419  +0.822
+   rules x nn x type_ly   0.3168  0.7354  +0.837
+
+Jul-Oct 25 (2025-06) (n 766): monthly WAPE, ratio to flat split, median per-item correlation of monthly shares
+   flat                   0.4036  1.0000  +nan
+   cur                    0.3360  0.8324  +0.791
+   rules                  0.3451  0.8550  +0.818
+   nn                     0.3447  0.8540  +0.698
+   type_ly                0.3708  0.9187  +0.551
+   item_ly                0.4886  1.2106  +0.740
+   cur shrunk 0.25        0.3466  0.8587  +0.791
+   cur shrunk 0.5         0.3612  0.8949  +0.791
+   cur x type_ly          0.3475  0.8610  +0.710
+   rules x nn x type_ly   0.3420  0.8474  +0.767
+
+Mar-Jun 26 (2026-02) (n 1238): monthly WAPE, ratio to flat split, median per-item correlation of monthly shares
+   flat                   0.3497  1.0000  +nan
+   cur                    0.2966  0.8481  +0.817
+   rules                  0.2981  0.8522  +0.824
+   nn                     0.3036  0.8681  +0.773
+   type_ly                0.3117  0.8911  +0.724
+   item_ly                0.4200  1.2007  +0.715
+   cur shrunk 0.25        0.3026  0.8651  +0.817
+   cur shrunk 0.5         0.3147  0.8999  +0.817
+   cur x type_ly          0.3011  0.8610  +0.790
+   rules x nn x type_ly   0.2988  0.8543  +0.805
+
+all 13 (n 11670): monthly WAPE, ratio to flat split, median per-item correlation of monthly shares
+   flat                   0.4361  1.0000  +nan
+   cur                    0.3393  0.7780  +0.807
+   rules                  0.3488  0.7998  +0.786
+   nn                     0.3455  0.7922  +0.764
+   type_ly                0.3556  0.8153  +0.745
+   item_ly                0.4562  1.0461  +0.733
+   cur shrunk 0.25        0.3516  0.8061  +0.807
+   cur shrunk 0.5         0.3730  0.8552  +0.807
+   cur x type_ly          0.3425  0.7854  +0.792
+   rules x nn x type_ly   0.3403  0.7802  +0.803
+
+new items, recent (n 2422): monthly WAPE, ratio to flat split, median per-item correlation of monthly shares
+   flat                   0.4533  1.0000  +nan
+   cur                    0.3487  0.7693  +0.877
+   rules                  0.3551  0.7835  +0.873
+   nn                     0.3552  0.7836  +0.846
+   type_ly                0.3704  0.8172  +0.818
+   item_ly                0.3487  0.7693  +0.877
+   cur shrunk 0.25        0.3585  0.7909  +0.877
+   cur shrunk 0.5         0.3810  0.8406  +0.877
+   cur x type_ly          0.3557  0.7848  +0.855
+   rules x nn x type_ly   0.3524  0.7775  +0.866

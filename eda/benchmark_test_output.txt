@@ -1,0 +1,5 @@
+benchmark by age : predicted July/June for June 2025 = 1.521 | actual = 1.528 | benchmark error -0.4%
+benchmark by cell: predicted July/June for June 2025 = 1.689 | actual = 1.528 | benchmark error +10.6%
+  <3m    2024 ratio 1.881 -> 2025 actual 1.587
+  3-12m  2024 ratio 1.548 -> 2025 actual 1.500
+  12m+   2024 ratio 1.338 -> 2025 actual 1.531

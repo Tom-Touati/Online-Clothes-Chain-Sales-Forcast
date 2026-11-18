@@ -1,0 +1,4 @@
+likely out-of-stock share of live days (91 days to origin), mean by origin: {'2026-01': 0.023, '2026-02': 0.022, '2026-03': 0.018, '2026-04': 0.019, '2026-05': 0.02, '2026-06': 0.022}
+avail 507 s
+level 484 s
+weight 693 s

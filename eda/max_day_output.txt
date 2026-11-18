@@ -1,0 +1,21 @@
+MAXDAY 9 ['md_91_r', 'md_91_since', 'md_365_r', 'md_365_since', 'md_life_r', 'md_life_since', 'md_365_share', 'md_365_units', 'md_365_recent'] | coverage 1.0
+rank correlation with the miss (direction | size | origins with that sign)
+   best day of the last year, units (log)               +0.073 -0.205 5/9
+   days since the best day of the last 91               -0.044 -0.019 5/9
+   best day of the last year over the average day       +0.028 -0.039 6/9
+   days since the best day of the last year             +0.018 +0.016 6/9
+   the year's best day fell in the last 28 days         +0.016 +0.039 6/9
+   best day of the last 91 days over the average day    -0.012 -0.032 5/9
+   best day's share of the year's units                 -0.009 +0.037 6/9
+   best day ever over the average day                   +0.006 -0.010 6/9
+                                        variant   wape   hit   n                ci          hit_ci
+correction on origin-known features (reference) 0.3876 0.421 NaN               NaN             NaN
+                              + best-day inputs 0.3885 0.419 9.0 [-0.0011, 0.0028] [-0.007, 0.002]
++ best-day inputs | 40 s
++ origin-known signals (D307) and best-day inputs | 37 s
+                                          variant  alone  stack  corrected  corrected_hit  corrected_all          stack_ci          against  wins13
+                         tree member as submitted 0.4299 0.3939     0.3851          0.417         0.4399               NaN              NaN     NaN
+                    + origin-known signals (D307) 0.4244 0.3911     0.3835          0.419         0.4349               NaN              NaN     NaN
+                                + best-day inputs 0.4301 0.3936     0.3851          0.415         0.4401 [-0.0013, 0.0007] submitted member     8.0
++ origin-known signals (D307) and best-day inputs 0.4243 0.3910     0.3834          0.416         0.4364  [-0.001, 0.0007]             D307     4.0
+saved

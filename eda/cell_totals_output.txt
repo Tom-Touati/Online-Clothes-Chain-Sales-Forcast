@@ -1,0 +1,12 @@
+1 type x look groups, recent: {'n': 2227, 'per_origin': 247.0, 'med_items': 2.0, 'single': 0.409, 'hit': 0.453, 'hit_r3': 0.181, 'wape': 0.193, 'wape_r3': 0.636, 'log_sd': 0.488, 'log_sd_w': 0.317}
+2 rescaling to a modelled group total:
+    {'variant': 'system then (p2c32a), items as forecast', 'hit': 0.405, 'wape': 0.3977}
+    {'variant': 'rescaled fully to the modelled group total', 'hit': 0.361, 'wape': 0.4345}
+    {'variant': 'rescaled half-way', 'hit': 0.394, 'wape': 0.4066}
+    {'variant': 'rescaled 30% of the way', 'hit': 0.403, 'wape': 0.4003}
+    {'variant': 'residual model of the group, half strength', 'hit': 0.387, 'wape': 0.4076}
+    {'variant': 'mix of modelled and summed total (inverse variance)', 'hit': 0.396, 'wape': 0.403}
+    oracle (true group totals): 0.556 0.254
+3 as features (time-honest): {'system': {'wape': 0.3851, 'hit': 0.417}, 'ref': {'wape': 0.3876, 'hit': 0.421}, 'with_cells': {'wape': 0.3894, 'hit': 0.422}, 'ci': [0.0001, 0.0033], 'hit_ci': [-0.004, 0.005], 'rho': {'c_mult': 0.049, 'c_growth': 0.142, 'c_size': 0.064, 'c_share': -0.037, 'c_rel': -0.018, 'l_growth': 0.15, 't_growth': 0.099}}
+4 rescaling to a noisy group total: [{'sd': 0.0, 'hit': 0.556, 'wape': 0.254}, {'sd': 0.05, 'hit': 0.551, 'wape': 0.2654}, {'sd': 0.1, 'hit': 0.527, 'wape': 0.2882}, {'sd': 0.15, 'hit': 0.488, 'wape': 0.319}, {'sd': 0.2, 'hit': 0.445, 'wape': 0.3601}, {'sd': 0.3, 'hit': 0.372, 'wape': 0.4542}, {'sd': 0.4, 'hit': 0.309, 'wape': 0.5639}] | now 0.417 | our group totals' log error SD 0.488
+saved

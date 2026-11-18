@@ -1,0 +1,123 @@
+width model fitted
+quantile models fitted
+
+=== P25-P75 ===
+protocol                                         method           period     n  below  inside  above  pinball_r3  int_score  log_width  seg_min  seg_max  seg_sd
+     loo        pf2c widths, per segment (adopted D366)         recent 9  9031  0.189   0.517  0.294      0.3201      1.144      0.585    0.485    0.552   0.020
+     loo        pf2c widths, per segment (adopted D366)           all 13 11727  0.250   0.496  0.254      0.3642      1.182      0.592    0.479    0.504   0.007
+     loo                            pf2c widths, global         recent 9  9031  0.187   0.525  0.289      0.3228      1.149      0.576    0.413    0.597   0.060
+     loo                            pf2c widths, global           all 13 11727  0.250   0.497  0.253      0.3661      1.187      0.578    0.399    0.554   0.048
+     loo                         one width, per segment         recent 9  9031  0.202   0.515  0.283      0.3181      1.146      0.541    0.466    0.556   0.027
+     loo                         one width, per segment           all 13 11727  0.250   0.496  0.254      0.3568      1.174      0.539    0.473    0.504   0.009
+     loo                          member spread, global         recent 9  9031  0.205   0.515  0.280      0.3269      1.160      0.578    0.397    0.618   0.071
+     loo                          member spread, global           all 13 11727  0.251   0.495  0.254      0.3653      1.185      0.585    0.381    0.587   0.059
+     loo                     member spread, per segment         recent 9  9031  0.206   0.510  0.284      0.3216      1.152      0.583    0.477    0.536   0.022
+     loo                     member spread, per segment           all 13 11727  0.250   0.493  0.257      0.3622      1.178      0.591    0.458    0.503   0.011
+  purged        pf2c widths, per segment (adopted D366)         recent 9  9031  0.157   0.497  0.346      0.3316      1.220      0.612    0.410    0.561   0.042
+  purged        pf2c widths, per segment (adopted D366)           all 13 11727  0.242   0.469  0.288      0.3822      1.266      0.613    0.404    0.515   0.031
+  purged                            pf2c widths, global         recent 9  9031  0.155   0.513  0.332      0.3339      1.208      0.616    0.429    0.588   0.049
+  purged                            pf2c widths, global           all 13 11727  0.240   0.479  0.281      0.3826      1.252      0.606    0.405    0.534   0.041
+  purged                         one width, per segment         recent 9  9031  0.180   0.494  0.326      0.3266      1.203      0.545    0.367    0.591   0.056
+  purged                         one width, per segment           all 13 11727  0.247   0.470  0.283      0.3675      1.231      0.536    0.402    0.519   0.037
+  purged                          member spread, global         recent 9  9031  0.186   0.493  0.320      0.3331      1.189      0.581    0.389    0.587   0.063
+  purged                          member spread, global           all 13 11727  0.248   0.472  0.280      0.3752      1.219      0.583    0.375    0.554   0.052
+  purged                     member spread, per segment         recent 9  9031  0.182   0.487  0.332      0.3282      1.202      0.586    0.403    0.540   0.041
+  purged                     member spread, per segment           all 13 11727  0.243   0.468  0.288      0.3714      1.230      0.594    0.416    0.501   0.026
+  purged                            width model, global         recent 9  9031  0.181   0.507  0.311      0.3244      1.163      0.581    0.452    0.590   0.046
+  purged                            width model, global           all 13 11727  0.249   0.480  0.271      0.3655      1.197      0.569    0.432    0.539   0.034
+  purged                       width model, per segment         recent 9  9031  0.183   0.492  0.326      0.3236      1.177      0.576    0.391    0.568   0.051
+  purged                       width model, per segment           all 13 11727  0.250   0.468  0.282      0.3647      1.208      0.565    0.402    0.521   0.040
+  purged      conformalised quantile regression, global         recent 9  9031  0.180   0.458  0.362      0.3363      1.220      0.551    0.367    0.561   0.054
+  purged      conformalised quantile regression, global           all 13 11727  0.258   0.433  0.309      0.3765      1.250      0.540    0.366    0.540   0.047
+  purged conformalised quantile regression, per segment         recent 9  9031  0.178   0.460  0.363      0.3358      1.224      0.550    0.366    0.564   0.047
+  purged conformalised quantile regression, per segment           all 13 11727  0.257   0.433  0.310      0.3761      1.253      0.539    0.367    0.510   0.039
+  honest        pf2c widths, per segment (adopted D366) 2025-07..2026-02  8263  0.090   0.480  0.430      0.3391      1.274      0.622    0.358    0.619   0.065
+  honest                            pf2c widths, global 2025-07..2026-02  8263  0.088   0.508  0.404      0.3352      1.254      0.641    0.458    0.599   0.043
+  honest                         one width, per segment 2025-07..2026-02  8263  0.117   0.487  0.396      0.3375      1.242      0.552    0.298    0.684   0.096
+  honest                          member spread, global 2025-07..2026-02  8263  0.143   0.457  0.400      0.3326      1.217      0.550    0.359    0.535   0.055
+  honest                     member spread, per segment 2025-07..2026-02  8263  0.141   0.440  0.419      0.3391      1.244      0.554    0.331    0.529   0.056
+  honest                            width model, global 2025-07..2026-02  8263  0.130   0.494  0.377      0.3253      1.188      0.565    0.420    0.597   0.052
+  honest                       width model, per segment 2025-07..2026-02  8263  0.132   0.467  0.401      0.3316      1.210      0.558    0.306    0.608   0.079
+  honest      conformalised quantile regression, global 2025-07..2026-02  8263  0.126   0.433  0.440      0.3467      1.277      0.551    0.338    0.557   0.064
+  honest conformalised quantile regression, per segment 2025-07..2026-02  8263  0.127   0.429  0.444      0.3485      1.284      0.549    0.299    0.556   0.070
+
+=== P10-P90 ===
+protocol                                         method           period     n  below  inside  above  pinball_r3  int_score  log_width  seg_min  seg_max  seg_sd
+     loo        pf2c widths, per segment (adopted D366)         recent 9  9031  0.074   0.802  0.124      0.1905      1.669      1.118    0.779    0.834   0.016
+     loo        pf2c widths, per segment (adopted D366)           all 13 11727  0.103   0.793  0.104      0.2460      1.717      1.162    0.786    0.799   0.004
+     loo                            pf2c widths, global         recent 9  9031  0.075   0.803  0.122      0.1926      1.687      1.093    0.737    0.870   0.040
+     loo                            pf2c widths, global           all 13 11727  0.102   0.796  0.102      0.2514      1.728      1.140    0.740    0.842   0.031
+     loo                         one width, per segment         recent 9  9031  0.074   0.811  0.115      0.1931      1.735      1.099    0.762    0.862   0.026
+     loo                         one width, per segment           all 13 11727  0.102   0.795  0.103      0.2134      1.758      1.095    0.792    0.800   0.003
+     loo                          member spread, global         recent 9  9031  0.081   0.810  0.110      0.2201      1.831      1.219    0.724    0.903   0.060
+     loo                          member spread, global           all 13 11727  0.101   0.797  0.102      0.2473      1.850      1.234    0.720    0.878   0.048
+     loo                     member spread, per segment         recent 9  9031  0.081   0.807  0.113      0.2130      1.811      1.245    0.773    0.826   0.018
+     loo                     member spread, per segment           all 13 11727  0.102   0.794  0.104      0.2547      1.838      1.262    0.774    0.797   0.007
+  purged        pf2c widths, per segment (adopted D366)         recent 9  9031  0.067   0.775  0.158      0.1944      1.762      1.127    0.708    0.837   0.046
+  purged        pf2c widths, per segment (adopted D366)           all 13 11727  0.113   0.758  0.129      0.2650      1.828      1.164    0.692    0.788   0.029
+  purged                            pf2c widths, global         recent 9  9031  0.069   0.785  0.146      0.1954      1.740      1.115    0.713    0.861   0.042
+  purged                            pf2c widths, global           all 13 11727  0.115   0.765  0.120      0.2714      1.804      1.150    0.703    0.812   0.035
+  purged                         one width, per segment         recent 9  9031  0.068   0.793  0.139      0.1960      1.804      1.104    0.687    0.887   0.059
+  purged                         one width, per segment           all 13 11727  0.112   0.767  0.121      0.2204      1.841      1.089    0.690    0.817   0.034
+  purged                          member spread, global         recent 9  9031  0.074   0.799  0.127      0.2228      1.860      1.235    0.714    0.896   0.062
+  purged                          member spread, global           all 13 11727  0.102   0.784  0.114      0.2532      1.880      1.243    0.708    0.866   0.050
+  purged                     member spread, per segment         recent 9  9031  0.074   0.783  0.143      0.2156      1.873      1.238    0.719    0.837   0.039
+  purged                     member spread, per segment           all 13 11727  0.104   0.771  0.125      0.2747      1.898      1.256    0.735    0.802   0.024
+  purged                            width model, global         recent 9  9031  0.071   0.815  0.114      0.1981      1.701      1.137    0.756    0.877   0.040
+  purged                            width model, global           all 13 11727  0.116   0.784  0.100      0.2207      1.739      1.113    0.748    0.823   0.026
+  purged                       width model, per segment         recent 9  9031  0.071   0.800  0.129      0.1970      1.711      1.126    0.716    0.858   0.047
+  purged                       width model, per segment           all 13 11727  0.116   0.773  0.111      0.2204      1.749      1.105    0.726    0.815   0.027
+  purged      conformalised quantile regression, global         recent 9  9031  0.065   0.770  0.165      0.1975      1.769      1.077    0.664    0.869   0.057
+  purged      conformalised quantile regression, global           all 13 11727  0.121   0.741  0.139      0.2193      1.804      1.053    0.665    0.836   0.045
+  purged conformalised quantile regression, per segment         recent 9  9031  0.066   0.764  0.170      0.1977      1.773      1.076    0.658    0.859   0.050
+  purged conformalised quantile regression, per segment           all 13 11727  0.121   0.737  0.142      0.2202      1.809      1.054    0.669    0.801   0.038
+  honest        pf2c widths, per segment (adopted D366) 2025-07..2026-02  8263  0.041   0.741  0.218      0.1981      1.824      1.108    0.629    0.853   0.063
+  honest                            pf2c widths, global 2025-07..2026-02  8263  0.041   0.767  0.193      0.1976      1.785      1.110    0.707    0.867   0.048
+  honest                         one width, per segment 2025-07..2026-02  8263  0.048   0.771  0.181      0.1986      1.861      1.094    0.569    0.915   0.091
+  honest                          member spread, global 2025-07..2026-02  8263  0.060   0.780  0.160      0.2049      1.870      1.202    0.677    0.876   0.063
+  honest                     member spread, per segment 2025-07..2026-02  8263  0.061   0.744  0.195      0.2104      1.914      1.183    0.617    0.858   0.062
+  honest                            width model, global 2025-07..2026-02  8263  0.053   0.808  0.138      0.1959      1.727      1.134    0.742    0.875   0.045
+  honest                       width model, per segment 2025-07..2026-02  8263  0.053   0.783  0.164      0.1970      1.750      1.104    0.637    0.874   0.068
+  honest      conformalised quantile regression, global 2025-07..2026-02  8263  0.045   0.751  0.203      0.1980      1.827      1.083    0.624    0.880   0.066
+  honest conformalised quantile regression, per segment 2025-07..2026-02  8263  0.048   0.743  0.209      0.1989      1.836      1.080    0.586    0.867   0.071
+
+Spearman with the absolute log miss, recent origins: {'pf2c width': 0.264, 'member spread': 0.158, 'width model (purged)': 0.222, 'width model (honest)': 0.225}
+
+inside share by third of the predicted width (purged, recent):
+                                        method   range  inside_low  inside_mid  inside_high
+       pf2c widths, per segment (adopted D366) P25-P75       0.508       0.503        0.481
+       pf2c widths, per segment (adopted D366) P10-P90       0.781       0.783        0.761
+                           pf2c widths, global P25-P75       0.536       0.514        0.488
+                           pf2c widths, global P10-P90       0.800       0.795        0.759
+                        one width, per segment P25-P75       0.546       0.513        0.423
+                        one width, per segment P10-P90       0.844       0.814        0.721
+                         member spread, global P25-P75       0.511       0.495        0.474
+                         member spread, global P10-P90       0.826       0.802        0.770
+                    member spread, per segment P25-P75       0.485       0.495        0.480
+                    member spread, per segment P10-P90       0.789       0.790        0.771
+                           width model, global P25-P75       0.469       0.516        0.536
+                           width model, global P10-P90       0.785       0.825        0.835
+                      width model, per segment P25-P75       0.457       0.505        0.513
+                      width model, per segment P10-P90       0.766       0.811        0.823
+     conformalised quantile regression, global P25-P75       0.478       0.451        0.447
+     conformalised quantile regression, global P10-P90       0.800       0.772        0.738
+conformalised quantile regression, per segment P25-P75       0.474       0.458        0.446
+conformalised quantile regression, per segment P10-P90       0.792       0.766        0.734
+
+width model, share of gain (fitted on all 13 origins):
+w_pf2d32         0.113
+w_pf2c           0.057
+spread           0.040
+disc_mom         0.032
+dev_r3           0.032
+multi_share      0.031
+disc_rel         0.031
+w_tree           0.028
+cancel_rate      0.028
+trend91          0.025
+top_day_share    0.025
+l_lev            0.024
+disc_item        0.024
+td_slope4        0.024
+lP               0.024
+saved

@@ -1,0 +1,114 @@
+trial 0: tune WAPE 0.3076 bias -0.058 | 11 s
+trial 1: tune WAPE 0.3114 bias -0.069 | 11 s
+trial 2: tune WAPE 0.3247 bias -0.009 | 15 s
+trial 3: tune WAPE 0.3147 bias -0.064 | 11 s
+trial 4: tune WAPE 0.3126 bias -0.073 | 12 s
+trial 5: tune WAPE 0.3145 bias -0.104 | 10 s
+trial 6: tune WAPE 0.3124 bias -0.060 | 11 s
+trial 7: tune WAPE 0.3112 bias -0.059 | 13 s
+trial 8: tune WAPE 0.3086 bias -0.075 | 11 s
+trial 9: tune WAPE 0.3128 bias -0.037 | 11 s
+trial 10: tune WAPE 0.3284 bias -0.009 | 14 s
+trial 11: tune WAPE 0.3222 bias -0.042 | 11 s
+trial 12: tune WAPE 0.3099 bias -0.069 | 10 s
+trial 13: tune WAPE 0.3090 bias -0.052 | 10 s
+trial 14: tune WAPE 0.3044 bias -0.072 | 10 s
+trial 15: tune WAPE 0.3152 bias -0.055 | 12 s
+trial 16: tune WAPE 0.3099 bias -0.052 | 15 s
+trial 17: tune WAPE 0.3077 bias -0.068 | 13 s
+trial 18: tune WAPE 0.3095 bias -0.049 | 14 s
+trial 19: tune WAPE 0.3093 bias -0.062 | 13 s
+trial 20: tune WAPE 0.3079 bias -0.085 | 13 s
+trial 21: tune WAPE 0.3092 bias -0.069 | 14 s
+trial 22: tune WAPE 0.3046 bias -0.070 | 13 s
+trial 23: tune WAPE 0.3073 bias -0.069 | 11 s
+trial 24: tune WAPE 0.3047 bias -0.080 | 10 s
+trial 25: tune WAPE 0.3065 bias -0.069 | 15 s
+trial 26: tune WAPE 0.3094 bias -0.046 | 15 s
+trial 27: tune WAPE 0.3069 bias -0.081 | 12 s
+trial 28: tune WAPE 0.3040 bias -0.071 | 11 s
+trial 29: tune WAPE 0.3044 bias -0.065 | 11 s
+trial 30: tune WAPE 0.3072 bias -0.074 | 13 s
+trial 31: tune WAPE 0.3074 bias -0.058 | 11 s
+trial 32: tune WAPE 0.3029 bias -0.063 | 11 s
+trial 33: tune WAPE 0.3071 bias -0.041 | 11 s
+trial 34: tune WAPE 0.3058 bias -0.068 | 11 s
+trial 35: tune WAPE 0.3045 bias -0.063 | 11 s
+trial 36: tune WAPE 0.3067 bias -0.038 | 11 s
+trial 37: tune WAPE 0.3029 bias -0.074 | 10 s
+trial 38: tune WAPE 0.3033 bias -0.068 | 12 s
+trial 39: tune WAPE 0.3036 bias -0.060 | 12 s
+trial 40: tune WAPE 0.3035 bias -0.063 | 10 s
+trial 41: tune WAPE 0.3054 bias -0.076 | 12 s
+trial 42: tune WAPE 0.3056 bias -0.068 | 10 s
+trial 43: tune WAPE 0.3036 bias -0.054 | 9 s
+trial 44: tune WAPE 0.3032 bias -0.061 | 10 s
+trial 45: tune WAPE 0.3038 bias -0.070 | 9 s
+trial 46: tune WAPE 0.3023 bias -0.065 | 10 s
+trial 47: tune WAPE 0.3046 bias -0.066 | 10 s
+trial 48: tune WAPE 0.3051 bias -0.081 | 9 s
+trial 49: tune WAPE 0.3039 bias -0.073 | 9 s
+trial 50: tune WAPE 0.3063 bias -0.071 | 10 s
+trial 51: tune WAPE 0.3023 bias -0.066 | 10 s
+trial 52: tune WAPE 0.3030 bias -0.069 | 9 s
+trial 53: tune WAPE 0.3033 bias -0.065 | 10 s
+trial 54: tune WAPE 0.3030 bias -0.064 | 13 s
+trial 55: tune WAPE 0.3038 bias -0.068 | 10 s
+trial 56: tune WAPE 0.3043 bias -0.063 | 10 s
+trial 57: tune WAPE 0.3049 bias -0.072 | 11 s
+trial 58: tune WAPE 0.3047 bias -0.065 | 10 s
+trial 59: tune WAPE 0.3024 bias -0.069 | 12 s
+{
+"v14_tune": {
+"wape": 0.3076,
+"bias": -0.058,
+"w20": 0.361,
+"per_origin": [
+0.2952,
+0.2834,
+0.2632,
+0.3084,
+0.2994,
+0.3531,
+0.3504
+]
+},
+"v14_hold": {
+"wape": 0.2997,
+"bias": -0.002,
+"w20": 0.381,
+"per_origin": [
+0.3106,
+0.2476,
+0.3,
+0.3117,
+0.3284
+]
+},
+"tuned_tune": {
+"wape": 0.3023,
+"bias": -0.066,
+"w20": 0.359,
+"per_origin": [
+0.301,
+0.2897,
+0.2651,
+0.3017,
+0.2884,
+0.3318,
+0.3383
+]
+},
+"tuned_hold": {
+"wape": 0.2939,
+"bias": -0.017,
+"w20": 0.382,
+"per_origin": [
+0.3113,
+0.2401,
+0.2997,
+0.3082,
+0.3102
+]
+}
+}

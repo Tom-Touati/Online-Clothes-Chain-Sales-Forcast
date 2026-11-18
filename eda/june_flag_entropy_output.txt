@@ -1,0 +1,75 @@
+A  by origin:
+ origin  sys_abs  r3_abs  ratio  sys_split  r3_split  split_ratio  closer  growth  sys_bias  r3_bias  has_ly   hit  move
+2025-02    0.501   0.981  0.511      0.384     0.662        0.581   0.720   0.626     0.266    0.596   0.519 0.241 0.507
+2025-03    0.457   0.609  0.750      0.292     0.566        0.516   0.593   0.893     0.329    0.120   0.544 0.225 0.458
+2025-04    0.308   0.438  0.702      0.308     0.456        0.676   0.650   1.134    -0.002   -0.118   0.576 0.378 0.415
+2025-05    0.293   0.372  0.787      0.290     0.377        0.770   0.559   1.223     0.012   -0.183   0.596 0.364 0.379
+2025-06    0.287   0.414  0.694      0.285     0.404        0.707   0.632   1.348    -0.097   -0.258   0.634 0.389 0.372
+2025-07    0.270   0.499  0.541      0.270     0.532        0.507   0.716   1.248     0.005   -0.198   0.648 0.374 0.562
+2025-08    0.313   0.600  0.522      0.299     0.635        0.471   0.735   1.116     0.044   -0.104   0.657 0.323 0.649
+2025-09    0.314   0.651  0.483      0.306     0.705        0.434   0.794   1.147    -0.164   -0.128   0.662 0.371 0.701
+2025-10    0.283   0.609  0.465      0.283     0.673        0.420   0.790   1.238    -0.111   -0.192   0.645 0.402 0.667
+2025-11    0.219   0.418  0.523      0.207     0.344        0.602   0.720   0.839     0.046    0.191   0.629 0.451 0.307
+2025-12    0.215   1.024  0.210      0.210     0.358        0.586   0.801   0.522    -0.084    0.917   0.645 0.472 0.316
+2026-01    0.233   1.306  0.178      0.235     0.552        0.426   0.814   0.476    -0.088    1.102   0.646 0.476 0.550
+2026-02    0.260   1.044  0.249      0.261     0.746        0.350   0.763   0.634    -0.116    0.577   0.627 0.440 0.690
+June: {'origin': '2025-06', 'sys_abs': 0.287, 'r3_abs': 0.414, 'ratio': 0.694, 'sys_split': 0.285, 'r3_split': 0.404, 'split_ratio': 0.707, 'closer': 0.632, 'growth': 1.348, 'sys_bias': -0.097, 'r3_bias': -0.258, 'has_ly': 0.634, 'hit': 0.389, 'move': 0.372}
+other recent origins [min, max, median]: {'sys_abs': [0.215, 0.314, 0.265], 'r3_abs': [0.418, 1.306, 0.63], 'ratio': [0.178, 0.541, 0.474], 'sys_split': [0.207, 0.306, 0.266], 'r3_split': [0.344, 0.746, 0.594], 'split_ratio': [0.35, 0.602, 0.453], 'closer': [0.716, 0.814, 0.776], 'growth': [0.476, 1.248, 0.978], 'sys_bias': [-0.164, 0.046, -0.086], 'r3_bias': [-0.198, 1.102, 0.044], 'has_ly': [0.627, 0.662, 0.645], 'hit': [0.323, 0.476, 0.421], 'move': [0.307, 0.701, 0.606]}
+                                             g     n  units   bias   err
+            gained 2+ own stores in the window 0.311  0.717 -0.132 0.699
+                       launches under 3 months 0.117  0.159 -0.088 0.126
+first month ran 20%+ above the forecast's pace 0.398  0.647 -0.228 0.623
+                           all other forecasts 0.456  0.125  0.198 0.160
+            err   bias
+ptype                 
+Shorts    0.100 -0.191
+Jeans     0.100 -0.171
+Tank Top  0.088 -0.075
+Top       0.083 -0.067
+Skort     0.076 -0.277
+Skirt     0.072 -0.257
+
+C  entropy and past peaks: rank correlation with the miss (direction) | with its size | with all-five-too-low | coverage
+   evenness of sales over the last 91 days                  +0.078 -0.215 -0.014 1.00
+   evenness of sales over the last 12 months                -0.019 -0.061 -0.033 1.00
+   evenness over channels                                   +0.057 -0.132 -0.014 1.00
+   share of the 91-day units sold on the best 7 days        -0.084 +0.198 +0.013 1.00
+   months since the item's best month                       -0.044 +0.044 -0.054 1.00
+   best month of the last year over the level               +0.002 +0.095 -0.009 1.00
+   months above 1.5× the item's median                      +0.025 +0.016 +0.003 1.00
+   last year's peak month falls in the forecast window      +0.041 +0.021 +0.024 1.00
+   last year's same window over the level                   -0.036 +0.149 -0.025 0.64
+                                        variant   wape   hit                ci          hit_ci
+                               submitted system 0.3851 0.417               NaN             NaN
+correction on origin-known features (reference) 0.3876 0.421               NaN             NaN
+                               + entropy inputs 0.3869 0.420  [-0.0025, 0.001] [-0.006, 0.003]
+                             + past-peak inputs 0.3880 0.418 [-0.0011, 0.0016]   [-0.007, 0.0]
+                       + entropy and past peaks 0.3875 0.418 [-0.0021, 0.0018] [-0.008, 0.001]
+
+B  flag: base {'auc': 0.641, 'top20_rate': 0.385, 'low20_rate': 0.132, 'top20_err': 0.397} | with entropy and peaks {'auc': 0.639, 'top20_rate': 0.39, 'low20_rate': 0.136, 'top20_err': 0.407} | without the range (as usable for 2026) {'auc': 0.639, 'top20_rate': 0.383, 'low20_rate': 0.124, 'top20_err': 0.381}
+          key                                label  gain   low  high
+     disc_web                         web discount 0.199 0.340 0.169
+       spread disagreement between the five models 0.180 0.308 0.184
+           lf                  forecast against R3 0.107 0.173 0.353
+          llv                          sales level 0.082 0.253 0.189
+      trend91                         91-day trend 0.075 0.252 0.285
+        age_m                        age in months 0.055 0.273 0.203
+  hist_months                    months of history 0.038 0.272 0.204
+top_day_share            best day's share of sales 0.037 0.258 0.234
+   sh_partner                        partner share 0.035 0.221 0.300
+   tiktok_mom               change in TikTok share 0.034 0.248 0.249
+2026 targets: {'n': 99, 'flagged': 17, 'flagged_units': 0.128, 'mean_p': 0.261, 'mean_p_all': 0.281, 'low': 26, 'flagged_young': 0, 'young': 24, 'flagged_items': ['S14842_BLACK', 'S14947_DARK-BLUE', 'S14995_NAVY', 'S16737_RED', 'S16977_NAVY', 'S17389_WHITE', 'S19271_BROWN', 'S19431_WHITE', 'S19743_CREAM', 'S21087_LIGHT-PINK', 'S21144_BLACK', 'S21659_AQUA', 'S22101_LIGHT-GRAY-MELANGE', 'S22102_BLUE', 'S22102_LIGHT-GRAY-MELANGE', 'S22382_WHITE', 'S23426_BLACK']}
+             item                                      name      ptype      F     p  age  spread  trend
+     S21144_BLACK         Nannie Off Shoulder Oversized Top        Top 3955.0 0.542  8.3    0.25  -1.39
+     S19431_WHITE       Reina Embroidered Cotton Mini Dress      Dress  966.0 0.518 14.8    0.23   1.01
+     S17389_WHITE          Drop Shoulder Light Knit Sweater    Sweater 7898.0 0.517 22.7    0.31  -1.40
+      S21659_AQUA      Only Edikted Straight Leg Sweatpants Sweatpants  325.0 0.513  9.8    0.50  -0.85
+     S22382_WHITE                Lillia V Neck Wrap Sweater    Sweater 5250.0 0.509  7.5    0.38  -1.45
+     S14842_BLACK          Ziva Faux Leather Lace Up Corset     Corset 5990.0 0.501 31.7    0.22  -0.46
+      S14995_NAVY                      80 Oversized T-Shirt    T-Shirt  905.0 0.433 33.6    0.22  -0.86
+      S16977_NAVY               Bayside Slitted Micro Skort      Skort 5373.0 0.431 25.6    0.13   0.51
+     S23426_BLACK Ofelia Asymmetric Off Shoulder Ruched Top        Top 7198.0 0.425  6.3    0.33   1.12
+     S19271_BROWN                   Roma Striped Henley Top    T-Shirt 5407.0 0.419  8.7    0.32  -1.20
+       S16737_RED           Charmaine Open Back Gingham Top        Top 3979.0 0.415 25.8    0.78   1.08
+S21087_LIGHT-PINK                 Lorenzo Polka Dot T Shirt    T-Shirt 2788.0 0.400 12.0    0.26   1.34
+saved

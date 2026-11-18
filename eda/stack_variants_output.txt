@@ -1,0 +1,131 @@
+                                        variant   wape    hit   bias  wape_all  hit_all  wape_corr  hit_corr  bias_corr
+              arithmetic mean (submitted stack) 0.3939 0.4097 -0.062    0.4470   0.3857     0.3851    0.4170     -0.062
+                                 geometric mean 0.3943 0.4074 -0.082    0.4430   0.3874     0.3858    0.4188     -0.082
+                             median of the five 0.4008 0.4085 -0.082    0.4565   0.3833     0.3941    0.4168     -0.082
+         trimmed mean (drop lowest and highest) 0.3934 0.4086 -0.073    0.4492   0.3834     0.3855    0.4203     -0.073
+                   upper four (drop the lowest) 0.4017 0.3991 -0.005    0.4673   0.3704     0.3918    0.4028     -0.004
+                                    upper three 0.4228 0.3805  0.053    0.4966   0.3483     0.4107    0.3868      0.053
+                  lower four (drop the highest) 0.3992 0.4100 -0.127    0.4412   0.3920     0.3926    0.4196     -0.127
+                densest three (smallest spread) 0.4147 0.3988 -0.078    0.4731   0.3727     0.4101    0.4043     -0.077
+       drop the member farthest from the median 0.4003 0.4083 -0.069    0.4600   0.3814     0.3940    0.4128     -0.068
+                 tighter of upper / lower three 0.4219 0.3932 -0.070    0.4837   0.3669     0.4173    0.3977     -0.069
+                 weights by past score, power 1 0.3954 0.4074 -0.063    0.4481   0.3839     0.3865    0.4155     -0.063
+                 weights by past score, power 2 0.3976 0.4079 -0.064    0.4499   0.3843     0.3889    0.4163     -0.064
+                 weights by past score, power 4 0.4039 0.4053 -0.068    0.4550   0.3823     0.3958    0.4146     -0.068
+                 weights by past score, power 8 0.4225 0.3975 -0.075    0.4699   0.3763     0.4159    0.4047     -0.075
+ weights by past score within age band, power 2 0.3969 0.4067 -0.066    0.4494   0.3834     0.3884    0.4167     -0.066
+                      best single member so far 0.4879 0.3482 -0.064    0.5224   0.3384     0.4840    0.3505     -0.062
+best member per item, picked afterwards (bound) 0.2047 0.7333 -0.059    0.2262   0.7132     0.2112    0.7309     -0.056
+
+  geometric mean                                 WAPE diff vs mean [-0.002, 0.0024]  hit diff [-0.0069, 0.0021]
+  median of the five                             WAPE diff vs mean [0.0001, 0.0139]  hit diff [-0.0077, 0.0052]
+  trimmed mean (drop lowest and highest)         WAPE diff vs mean [-0.0038, 0.0027]  hit diff [-0.0057, 0.0036]
+  upper four (drop the lowest)                   WAPE diff vs mean [0.0034, 0.0123]  hit diff [-0.0171, -0.004]
+  upper three                                    WAPE diff vs mean [0.0194, 0.0394]  hit diff [-0.0389, -0.0191]
+  lower four (drop the highest)                  WAPE diff vs mean [-0.0008, 0.0112]  hit diff [-0.0083, 0.0085]
+  densest three (smallest spread)                WAPE diff vs mean [0.0119, 0.03]  hit diff [-0.0189, -0.0023]
+  drop the member farthest from the median       WAPE diff vs mean [0.0001, 0.0127]  hit diff [-0.009, 0.0066]
+  tighter of upper / lower three                 WAPE diff vs mean [0.0173, 0.0391]  hit diff [-0.0273, -0.0055]
+  weights by past score, power 1                 WAPE diff vs mean [0.0004, 0.0026]  hit diff [-0.005, 0.0003]
+  weights by past score, power 2                 WAPE diff vs mean [0.0014, 0.0061]  hit diff [-0.0054, 0.0021]
+  weights by past score, power 4                 WAPE diff vs mean [0.0051, 0.0152]  hit diff [-0.0095, 0.0012]
+  weights by past score, power 8                 WAPE diff vs mean [0.0193, 0.039]  hit diff [-0.0202, -0.0041]
+  weights by past score within age band, power 2 WAPE diff vs mean [0.0002, 0.0061]  hit diff [-0.0077, 0.0012]
+  best single member so far                      WAPE diff vs mean [0.0785, 0.1114]  hit diff [-0.0746, -0.0491]
+  best member per item, picked afterwards (bound WAPE diff vs mean [-0.2022, -0.1779]  hit diff [0.3131, 0.3344]
+
+weights (power 2) by origin:
+ origin  rules  qdyn    nn  pf2c  pf2d32
+2025-06  0.364 0.142 0.230 0.124   0.140
+2025-07  0.348 0.173 0.173 0.138   0.168
+2025-08  0.304 0.165 0.188 0.155   0.188
+2025-09  0.284 0.164 0.198 0.163   0.190
+2025-10  0.242 0.176 0.207 0.173   0.201
+2025-11  0.232 0.186 0.208 0.183   0.192
+2025-12  0.219 0.194 0.211 0.196   0.181
+2026-01  0.210 0.199 0.204 0.200   0.186
+2026-02  0.212 0.201 0.199 0.203   0.185
+hit rate by fifth of the five models' log range: [{'q': 1, 'hit': 0.474, 'spread': 0.272}, {'q': 2, 'hit': 0.457, 'spread': 0.385}, {'q': 3, 'hit': 0.445, 'spread': 0.486}, {'q': 4, 'hit': 0.389, 'spread': 0.628}, {'q': 5, 'hit': 0.319, 'spread': 0.889}]
+
+part 2: {
+"top5": {
+"n": 451,
+"err": 0.421,
+"units": 0.258,
+"already_hit": 0.069,
+"med_level": 1283.0,
+"med_ape": 0.489,
+"med_err_units": 4251.0,
+"under": 0.705
+},
+"all": {
+"med_level": 273.0,
+"med_err_units": 168.0,
+"med_ape": 0.245
+},
+"hit_if_top5_fixed": 0.464,
+"hit_now": 0.417,
+"wape_if_top5_fixed": 0.223,
+"misses": {
+"n": 5265,
+"share": 0.583,
+"err": 0.825,
+"med_err_units": 272.0
+},
+"by_fifth": [
+{
+"fifth": 1,
+"med_level": 24.0,
+"forecasts": 0.201,
+"misses": 0.247,
+"err": 0.014,
+"hit": 0.281,
+"units": 0.009
+},
+{
+"fifth": 2,
+"med_level": 90.0,
+"forecasts": 0.2,
+"misses": 0.208,
+"err": 0.057,
+"hit": 0.392,
+"units": 0.039
+},
+{
+"fifth": 3,
+"med_level": 273.0,
+"forecasts": 0.2,
+"misses": 0.196,
+"err": 0.155,
+"hit": 0.43,
+"units": 0.12
+},
+{
+"fifth": 4,
+"med_level": 704.0,
+"forecasts": 0.2,
+"misses": 0.188,
+"err": 0.274,
+"hit": 0.451,
+"units": 0.254
+},
+{
+"fifth": 5,
+"med_level": 1880.0,
+"forecasts": 0.2,
+"misses": 0.161,
+"err": 0.5,
+"hit": 0.532,
+"units": 0.579
+}
+],
+"small3": {
+"forecasts": 0.6,
+"misses": 0.651,
+"err": 0.226,
+"units": 0.168
+},
+"hit_if_top_fifth_perfect": 0.511,
+"wape_if_top_fifth_perfect": 0.192
+}
+saved

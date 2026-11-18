@@ -1,0 +1,45 @@
+retail units 2144848 | stores 17 | first 2024-01-01 | last 2026-06-30
+
+== A) store x item zero runs (open days, between first and last sale at the store)
+store-item pairs with >= 2 selling days: 11324 | live store-item-days: 1985784
+  strict P<0.1%  runs  21187 | flagged share of live store-item-days 0.245 | est. lost share of retail units 0.217 | median run 8 days
+  loose P<5%     runs  51216 | flagged share of live store-item-days 0.344 | est. lost share of retail units 0.282 | median run 5 days
+  tail runs after the last sale (stock-out or delisted): 3709 | if all stock-outs, lost to end of data would add more; median rate 0.36/day
+  by store (loose):
+             runs    days           lost     units  lost_share
+store                                                         
+NYCSOHO      5758  111933  124086.480773  595024.0       0.209
+LAGROVE      5905  101052  105137.613586  313497.0       0.335
+CAIRV        6111   83091   65615.729045  219356.0       0.299
+MNMOA        6490   92121   74409.612917  201446.0       0.369
+FSM          4646   57748   43067.122807  159790.0       0.270
+NYR          4096   43675   36196.585106  139885.0       0.259
+BOCA         3854   38680   33247.220540  109771.0       0.303
+CAAMR        5040   77140   43052.595523  103917.0       0.414
+VATYSONS     2697   22647   24443.137388   74012.0       0.330
+FLAVENTURA   2642   22392   20569.202219   68381.0       0.301
+PAKOP        2577   23943   23194.164769   62737.0       0.370
+CHOAKBROOK    643    3800    6250.358086   38337.0       0.163
+NYFIFTH        64     296     608.622394   23002.0       0.026
+HOUGALLERIA   572    3358    3764.288915   19508.0       0.193
+FLLINCOLN     121     544     684.996266    7328.0       0.093
+
+== B) broken core size in a week
+  stores, implied >= 3: store-item-weeks 209169 | with a broken core size 8087 (3.9%) | est. lost share of retail units 0.019
+  stores, implied >= 7: store-item-weeks 209169 | with a broken core size 1006 (0.5%) | est. lost share of retail units 0.005
+  online, implied >= 3: item-weeks 95406 | broken 2236 (2.3%) | est. lost share of online units 0.002
+
+== C) checks on strict interior runs
+  same item elsewhere, run / previous 28 days: median 0.83 | IQR 0.61-1.11 | share >= 0.8: 0.54
+  store's own rate after the run / before: median 0.36 | share >= 0.5: 0.38
+  zero-day share, observed vs Poisson, by 28-day mean rate:
+                     observed  poisson    days
+(0.5, 1.0]              0.573    0.481  102318
+(1.0, 2.0]              0.399    0.254   81860
+(2.0, 4.0]              0.248    0.076   31460
+(4.0, 1000000000.0]     0.120    0.007    9289
+
+== D) share-based loss estimate (strict interior runs)
+  runs >=  3 open days:  21187 | lost share of retail units 0.175 | of all units 0.025 | 2026 H1: of retail 0.158, of all 0.030
+  runs >=  7 open days:  12077 | lost share of retail units 0.136 | of all units 0.019 | 2026 H1: of retail 0.116, of all 0.022
+  runs >= 14 open days:   6559 | lost share of retail units 0.106 | of all units 0.015 | 2026 H1: of retail 0.075, of all 0.014

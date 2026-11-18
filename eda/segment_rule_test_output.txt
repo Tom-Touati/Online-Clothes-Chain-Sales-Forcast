@@ -1,0 +1,12 @@
+2024 item-median Jul-Oct/June by segment: {'4th of July': 3.48, 'Halloween': 7.68, 'Homecoming': 6.31, 'other': 5.13, 'swimwear': 1.82}
+
+June 2025 origin, P50 vs P50 + 2024 segment rule:
+             P50_n  P50_bias  P50_med_ratio  P50_w20  P50_w50  P50_wape  rule_bias  rule_med_ratio  rule_w20  rule_w50  rule_wape
+4th of July   20.0     0.214          1.200    0.300    0.650     0.428      0.214           1.200     0.300     0.650      0.428
+Halloween     66.0    -0.285          0.805    0.394    0.848     0.365      0.114           1.120     0.394     0.773      0.350
+Homecoming    17.0    -0.274          0.831    0.529    0.882     0.295     -0.102           1.014     0.529     0.941      0.214
+other        640.0     0.026          1.143    0.345    0.675     0.310      0.026           1.143     0.345     0.675      0.310
+swimwear      25.0     1.329          2.251    0.000    0.080     1.329      0.086           1.020     0.560     0.760      0.252
+ALL          768.0    -0.004          1.126    0.341    0.674     0.334      0.047           1.135     0.359     0.691      0.320
+2025-06 coverage at k=1.3: P25-P75 0.516 | P10-P90 0.824
+2025-07 coverage at k=1.3: P25-P75 0.561 | P10-P90 0.828

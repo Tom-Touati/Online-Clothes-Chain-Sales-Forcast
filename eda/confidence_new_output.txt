@@ -1,0 +1,27 @@
+chosen thresholds t1 (p20) / t3 (p50): (0.55, 0.5)
+
+== recent 9
+D318 (submitted)             claims met 0.721 | L1: 8% of items, within20 0.59 within50 0.95 | L2: 72% of items, within20 0.44 within50 0.83 | L3: 20% of items, within20 0.29 within50 0.63 |
+ranges rule                  claims met 0.792 | L1: 4% of items, within20 0.55 within50 0.94 | L2: 93% of items, within20 0.42 within50 0.81 | L3: 3% of items, within20 0.17 within50 0.39 |
+everything 2                 claims met 0.801 | L1: 0% of items, within20 nan within50 nan | L2: 100% of items, within20 0.42 within50 0.80 | L3: 0% of items, within20 nan within50 nan |
+
+== held out
+D318 (submitted)             claims met 0.750 | L1: 7% of items, within20 0.62 within50 0.95 | L2: 73% of items, within20 0.48 within50 0.87 | L3: 20% of items, within20 0.30 within50 0.64 |
+ranges rule                  claims met 0.824 | L1: 3% of items, within20 0.59 within50 0.94 | L2: 93% of items, within20 0.46 within50 0.84 | L3: 3% of items, within20 0.18 within50 0.41 |
+everything 2                 claims met 0.830 | L1: 0% of items, within20 nan within50 nan | L2: 100% of items, within20 0.45 within50 0.83 | L3: 0% of items, within20 nan within50 nan |
+
+== Jul-Oct 25
+D318 (submitted)             claims met 0.699 | L1: 5% of items, within20 0.37 within50 0.93 | L2: 75% of items, within20 0.41 within50 0.80 | L3: 20% of items, within20 0.28 within50 0.59 |
+ranges rule                  claims met 0.719 | L1: 10% of items, within20 0.41 within50 0.96 | L2: 88% of items, within20 0.38 within50 0.75 | L3: 2% of items, within20 0.13 within50 0.33 |
+everything 2                 claims met 0.766 | L1: 0% of items, within20 nan within50 nan | L2: 100% of items, within20 0.38 within50 0.77 | L3: 0% of items, within20 nan within50 nan |
+
+== Mar-Jun 26
+D318 (submitted)             claims met 0.755 | L1: 3% of items, within20 0.45 within50 0.89 | L2: 76% of items, within20 0.48 within50 0.88 | L3: 20% of items, within20 0.26 within50 0.67 |
+ranges rule                  claims met 0.852 | L1: 1% of items, within20 0.89 within50 1.00 | L2: 95% of items, within20 0.45 within50 0.86 | L3: 4% of items, within20 0.10 within50 0.31 |
+everything 2                 claims met 0.838 | L1: 0% of items, within20 nan within50 nan | L2: 100% of items, within20 0.44 within50 0.84 | L3: 0% of items, within20 nan within50 nan |
+
+== hybrid: D318 level 1, ranges level 3
+recent 9                     claims met 0.779 | L1: 8% of items, within20 0.59 within50 0.95 | L2: 89% of items, within20 0.42 within50 0.80 | L3: 3% of items, within20 0.17 within50 0.39 |
+held out                     claims met 0.813 | L1: 7% of items, within20 0.62 within50 0.95 | L2: 90% of items, within20 0.45 within50 0.84 | L3: 3% of items, within20 0.18 within50 0.41 |
+Jul-Oct 25                   claims met 0.742 | L1: 5% of items, within20 0.37 within50 0.93 | L2: 93% of items, within20 0.39 within50 0.77 | L3: 2% of items, within20 0.13 within50 0.33 |
+Mar-Jun 26                   claims met 0.838 | L1: 3% of items, within20 0.45 within50 0.89 | L2: 93% of items, within20 0.45 within50 0.86 | L3: 4% of items, within20 0.10 within50 0.31 |

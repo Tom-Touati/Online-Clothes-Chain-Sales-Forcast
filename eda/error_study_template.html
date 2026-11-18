@@ -1,0 +1,787 @@
+<title>Edikted Error Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* layout: one reading column of findings. Each finding is a claim, a chart drawn to one scale, and how to read it; wide tables scroll in their own box. */
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --fg:#12161c; --muted:#566070; --rule:#dde1e8; --grid:#e8ebf0;
+  --accent:#2a78d6; --ref:#9aa2af; --s2:#eb6834; --s3:#1baf7a; --under:#2a78d6; --over:#e34948; --mid:#f0efec;
+  --seq-lo:#cde2fb; --seq-hi:#104281; --on-strong:#ffffff; --note-bg:#fff5e1; --note-rule:#d99a1f; --good:#0a7d0a; --warn:#9a5d00; --bad:#b92c2c;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121418; --surface:#1a1d22; --fg:#eceef2; --muted:#a4acba; --rule:#2d323a; --grid:#262a31;
+  --accent:#3987e5; --ref:#6f7785; --s2:#d95926; --s3:#199e70; --under:#3987e5; --over:#e66767; --mid:#383835;
+  --seq-lo:#1c2a3d; --seq-hi:#86b6ef; --on-strong:#0b0b0b; --note-bg:#33280f; --note-rule:#c98500; --good:#3fbf3f; --warn:#f0b03a; --bad:#ec6a6a; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#121418; --surface:#1a1d22; --fg:#eceef2; --muted:#a4acba; --rule:#2d323a; --grid:#262a31;
+  --accent:#3987e5; --ref:#6f7785; --s2:#d95926; --s3:#199e70; --under:#3987e5; --over:#e66767; --mid:#383835;
+  --seq-lo:#1c2a3d; --seq-hi:#86b6ef; --on-strong:#0b0b0b; --note-bg:#33280f; --note-rule:#c98500; --good:#3fbf3f; --warn:#f0b03a; --bad:#ec6a6a; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1060px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--rule)}
+nav.top .wrap{display:flex;gap:18px;overflow-x:auto;padding-block:10px;white-space:nowrap;font-size:13px}
+nav.top a{color:var(--muted);text-decoration:none} nav.top a:hover,nav.top a:focus-visible{color:var(--fg)}
+a{color:var(--accent)} :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+header.hero{padding-block:36px 8px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,4.2vw,38px);line-height:1.12;margin:0 0 12px;text-wrap:balance;letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.6vw,25px);line-height:1.2;margin:0 0 10px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:500;font-size:16px;margin:0 0 6px}
+p{margin:0 0 12px;max-width:72ch} .lede{color:var(--muted);max-width:76ch}
+.eyebrow{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+section{padding-block:34px;border-top:1px solid var(--rule)} section:first-of-type{border-top:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:22px 0 6px}
+.tile{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px 16px}
+.tile b{display:block;font-family:var(--display);font-size:30px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--muted)}
+ol.find{margin:14px 0 0;padding-left:20px;max-width:80ch} ol.find li{margin-bottom:9px} ol.find b{font-weight:600}
+.note{background:var(--note-bg);border-left:3px solid var(--note-rule);padding:12px 14px;border-radius:0 6px 6px 0;margin:14px 0;max-width:80ch}
+.note b{font-weight:600}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px;margin-top:8px}
+.grid2>*{min-width:0}
+.stack{display:grid;gap:18px;margin-top:8px} .stack>*{min-width:0}
+dd.status{color:var(--fg2);font-size:13px} #t-rules td:first-child,#t-combine td:first-child,#t-fstores td:first-child,#t-pick td:first-child,#t-loss td:first-child,#t-timeitem td:first-child,#t-surprise td:first-child,#t-meta td:first-child,#t-lm td:first-child,#t-mi td:first-child{min-width:250px} #t-mi tr.grp td{font-weight:600;padding-top:10px} #t-r2 td:first-child,#t-rel td:first-child{white-space:nowrap} #t-both td:first-child,#t-bothfifth td:first-child{white-space:nowrap} #t-alllow td:first-child{min-width:220px} #t-hlow td:nth-child(2),#t-hhigh td:nth-child(2){min-width:170px} #t-steps4 td:first-child{min-width:190px} #t-sets td:first-child,#t-neff td:first-child{white-space:nowrap} #t-two td:first-child{white-space:nowrap} #t-bands td:first-child{white-space:nowrap} #t-cohort td:first-child,#t-young td:first-child,#t-worst td:nth-child(2),#t-worst td:nth-child(6),#t-origin td:nth-child(2){white-space:nowrap} #t-axes td:first-child{min-width:230px} th,td{font-variant-numeric:tabular-nums}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:16px;min-width:0}
+.panel p{font-size:14px} .small{font-size:13px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+svg{display:block;width:100%;height:auto;overflow:visible} svg text{font-family:var(--body);font-size:11px;fill:var(--muted)} svg text.lab{fill:var(--fg);font-weight:500}
+svg .grid{stroke:var(--grid);stroke-width:1} svg .axis{stroke:var(--rule);stroke-width:1} svg .guide{stroke:var(--muted);stroke-width:1;opacity:0} svg g.hit:hover .guide{opacity:.6} svg g.hit:hover .hl{opacity:1}
+svg .hl{opacity:0}
+.tscroll{overflow-x:auto;margin-top:6px} table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 9px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:middle} th{font-weight:500;color:var(--muted);font-size:12px;white-space:nowrap} td.r,th.r{text-align:right}
+tr.pick{cursor:pointer} tr.pick:hover td{background:color-mix(in oklab,var(--accent) 7%,transparent)} tr.on td{background:color-mix(in oklab,var(--accent) 12%,transparent)}
+th.sort{cursor:pointer} th.sort:hover{color:var(--fg)}
+.controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:8px 0 10px;font-size:13px}
+select{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--fg);max-width:100%}
+.pair{display:grid;gap:2px;min-width:120px} .pair div{height:7px;border-radius:0 3px 3px 0} .pair .u{background:var(--ref)} .pair .e{background:var(--accent)}
+.div{position:relative;height:10px;min-width:110px;background:linear-gradient(var(--rule),var(--rule)) 50% 0/1px 100% no-repeat}
+.div i{position:absolute;top:1px;height:8px;border-radius:2px}
+.hb{display:grid;grid-template-columns:minmax(120px,38%) 1fr 64px;gap:10px;align-items:center;padding:4px 0;font-size:13px}
+.hb .t{position:relative;height:12px} .hb .t i{position:absolute;top:1px;height:10px;border-radius:2px} .hb .t::before{content:"";position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--rule);left:var(--zero,0%)}
+.hb .v{text-align:right;font-variant-numeric:tabular-nums} .hb .l small{color:var(--muted);display:block;font-size:11.5px;line-height:1.3}
+.heat td{text-align:center;border:2px solid var(--surface);padding:9px 6px;min-width:84px} .heat th{white-space:normal;font-size:11.5px;max-width:130px}
+.strip{display:inline-flex;gap:2px;vertical-align:middle} .strip i{width:9px;height:14px;border-radius:2px;display:inline-block} .strip i.gap{margin-left:5px}
+.chip{display:inline-block;font-size:12px;padding:1px 7px;border-radius:10px;border:1px solid var(--rule);white-space:nowrap}
+.chip.g{color:var(--good)} .chip.w{color:var(--warn)} .chip.b{color:var(--bad)}
+.props{display:grid;gap:14px;margin-top:10px} .prop{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px 16px}
+.prop h3{margin-bottom:4px} .prop dl{margin:6px 0 0;display:grid;grid-template-columns:86px 1fr;gap:4px 12px;font-size:14px} .prop dt{color:var(--muted);font-size:12.5px;padding-top:2px} .prop dd{margin:0;max-width:74ch}
+h2.grp{margin-top:26px;font-size:18px}
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--fg);color:var(--bg);font-size:12.5px;line-height:1.4;padding:7px 9px;border-radius:6px;max-width:300px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#tip b{font-weight:600}
+footer{padding-block:26px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--rule)}
+@media (max-width:560px){ .hb{grid-template-columns:1fr 54px} .hb .l{grid-column:1/-1} .prop dl{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+
+<nav class="top" aria-label="Sections"><div class="wrap">
+  <a href="#summary">Summary</a><a href="#hit">±20%</a><a href="#where">Where</a><a href="#when">When</a><a href="#cohorts">Cohorts</a><a href="#maps">Maps</a><a href="#information">Information</a><a href="#distribution">Distribution</a><a href="#overfit">Overfit</a><a href="#tuning">Tuning</a><a href="#submission">Submission</a><a href="#confounds">Confounds</a><a href="#causes">Large misses</a><a href="#targets">2026 targets</a><a href="#proposals">Proposals</a><a href="#method">Method</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero" id="summary">
+  <div class="eyebrow">Error study · the nx4 system (submitted until 18 Nov; the submitted nx6 is under <a href="#submission">Submission</a>) · built {{built}}</div>
+  <h1>Where the forecast goes wrong, and what would fix it</h1>
+  <p class="lede">{{n_all}} backtest forecasts of 4-month item totals at 13 monthly origins, February 2025 to February 2026, scored against what sold. "Recent" means the nine origins from June 2025. R3 is the recency baseline: the last three months × 4/3.</p>
+  <div class="tiles">
+    <div class="tile"><b>{{ratio_recent}}</b><span>WAPE ÷ R3 on recent origins ({{ratio_all}} on all 13)</span></div>
+    <div class="tile"><b>{{abs_recent}}</b><span>absolute error per item total (R3: {{r3abs_recent}})</span></div>
+    <div class="tile"><b>{{hit_items}}</b><span>of item totals within ±20% of actual (R3: {{hit_r3}})</span></div>
+    <div class="tile"><b>≈ {{neff13}}</b><span>independent windows behind 13 overlapping origins</span></div>
+  </div>
+  <ol class="find">
+    <li><b>{{hit_items}} of item totals land within ±20%, and the realistic item-level ceiling is about half.</b> The median forecast is off by {{med_ape}}, so the ±20% line cuts through the middle of the distribution; {{within30}} are within ±30%. No cohort or simple rule reaches 60% in both halves of the backtest; the most confident tenth of items reaches {{clf_top10}}. Knowing the plans and one month of sales would lift the rate to {{hit_plan_early}}. Summed to look or product-type level the same forecasts are within ±20% {{lvl_look}} and {{lvl_type}} of the time.</li>
+    <li><b>Absolute error is steady; the ratio to R3 is not.</b> The system misses by {{abs_min}}–{{abs_max}} of units at every recent origin, while R3 misses by {{r3_min}}–{{r3_max}}. The {{ratio_recent}} headline leans on three post-holiday origins where R3 is at its worst. Against a seasonal naive the system scores {{sys_vs_sea_recent}} on recent origins and {{sys_vs_sea_all}} on all 13. The June 2025 origin, which forecast the same months as the deliverable, scored {{an_ratio}} × R3.</li>
+    <li><b>The error is about which items, not how much in total.</b> {{top5}} of it sits in 5% of the forecasts. With every origin's total known in advance the score would move from {{ratio_recent}} to {{tot_known}}. {{under_err}} of the error is under-forecast, and in {{all_under}} of it all five models are too low together.</li>
+    <li><b>Re-slicing by cohort is exhausted.</b> Across {{n_axes}} cohort axes, no group bias survives a time-honest correction (best gain {{best_th}}). What remains is specific to items.</li>
+    <li><b>The missing input is the roll-out plan.</b> Launches that reached five or more additional own stores grew {{yg_big_growth}}× R3 and were under-forecast by {{yg_big_bias}}; launches with flat distribution were over-forecast by {{yg_flat_bias}}. Knowing distribution ahead is worth {{voi_dist}} of WAPE ÷ R3; a re-forecast after one month of sales is worth {{voi_m1}}.</li>
+    <li><b>The model remembers one season.</b> Remove the one to three training origins that forecast the same calendar window a year earlier and the tree model's error rises by a median of {{ls_same_med}} (once by {{ls_same_max}}). Removing as many other origins changes it by {{ls_other_med}}.</li>
+    <li><b>The backtest is weaker evidence than its intervals suggest, for four reasons.</b> First, each origin forecasts four months and origins are one month apart, so neighbouring origins are tested on mostly the same months: 13 origins behave like about {{neff13}} separate tests, and spacing them further apart does not change that (see <a href="#spacing">Origins further apart</a>). Second, {{variants}} model variants were scored on those same origins and the winners kept; with that many tries, a gain under about {{null_max}} can be luck. Third, two of the adopted steps make the forecast worse on the four earliest origins. Fourth, the 100 targets were chosen knowing how they sold later, so the backtest sees them as items that out-perform: their bias of {{tgt_bias}} comes from that choice and should not be corrected for.</li>
+    <li><b>Three World Cup items are capped by hand.</b> Three of the 100 targets are World Cup tops and shorts launched on 25 May. Sales will fall after the final on 19 July, and the models have never seen a World Cup, so they extend the June ramp: {{wc_now}} units, with August above July for the main tee. The first submission capped them by hand; the workbooks built from the model chain afterwards did not carry the cap. It was restored on 17 November: {{wc_rule}} units. The <a href="#targets">2026 targets</a> section shows the three items month by month.</li>
+  </ol>
+</header>
+
+<section id="hit">
+  <div class="eyebrow">±20% hit rate</div>
+  <h2>Four in ten item totals land within ±20%. Why, and how far that can go</h2>
+  <p>{{hit_items}} of recent item totals are forecast within ±20% of what sold: {{hit_units}} when weighted by units and {{hit_targets}} for the 100 targets. R3 manages {{hit_r3}}. The median forecast is off by {{med_ape}}, so the ±20% line cuts through the middle of the distribution: {{within25}} are within ±25% and {{within30}} within ±30%.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Share of item totals within a tolerance</h3>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Submitted system</span><span><i style="background:var(--s2)"></i>Seasonal naive</span><span><i style="background:var(--ref)"></i>R3</span></div>
+      <div id="c-tol"></div>
+      <p class="small">Recent origins. The tolerance is the allowed miss as a share of the actual.</p></div>
+    <div class="panel"><h3>What would move it</h3><div id="c-ladder"></div>
+      <p class="small">Hit rate of the same forecasts if the named information had been known. The vertical line marks 60%. "Best of the five models" picks the closest model for each item afterwards; it is a bound, not an option. Picking from each item's past instead was tested and does worse than the plain average (see <a href="#item-pick">Where</a>).</p></div>
+  </div>
+  <h3 style="margin-top:18px">The misses, by size</h3>
+  <div class="tscroll"><table id="t-bands"><thead><tr><th>Forecast is off by</th><th>Share of forecasts</th><th class="r">Share of units</th><th class="r">Under-forecast</th><th class="r">Median level / month</th><th class="r">Launch under 3 months</th><th class="r">Window with November</th><th class="r">All five models on one side</th><th class="r">Actual inside P10–P90</th></tr></thead><tbody></tbody></table></div>
+  <p style="margin-top:12px">Of the forecasts outside ±20%, {{near_share}} are near misses (20–30% off), {{mid_share}} are 30–50% off and {{large_share}} are off by more than half. The bands differ by degree, not by kind. From hits to large misses the items get smaller, the stated range wider and the window more likely to include November. The clearest separator is agreement: all five models are on the same side of the actual in {{same_hit}} of hits, {{same_near}} of near misses and {{same_large}} of 50–100% misses. Misses beyond 50% are {{over50_share}} of forecasts but {{over50_units}} of units, and {{over50_over}} of them are over-forecasts, mostly of small items.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Is the total wrong, or the split between items?</h3>
+      <p>The split. Suppose the forecast for all items together had been exactly right at every origin, with each item scaled to match: the rate would be {{hit_origin_total}}, no better than today. With the total of every product type exactly right it would be {{hit_type}}. Only when the total of every product type within every look is known (about 250 small groups) does it reach {{hit_cell}}. So the misses come from which items sell within a group, not from the overall amount.</p>
+      <p><b>Can those group totals be estimated and fed in?</b> Tested after a comment on this page: no. The groups are small ({{ce_per}} per origin, a median of {{ce_med}} items, {{ce_single}} of them a single item), so estimating a group total is nearly as hard as forecasting the item. A separate model of the group totals is worse than adding up the item forecasts (D240), and rescaling items to it lowers the hit rate from {{ce_then}} to {{ce_full}}. As inputs to a time-honest correction, the modelled group total and the group's forecast growth change nothing ({{ce_feat_w}} against {{ce_ref_w}}). The estimate would have to be accurate: rescaling to the true group total with ±10% noise gives {{ce_n10}}, ±15% gives {{ce_n15}}, ±20% gives {{ce_n20}} and ±30% gives {{ce_n30}}, below today. Our group totals are off by about ±{{ce_sd_w}} weighted by units.</p>
+      <p><b>What about the group's recent sales?</b> Also tested after a comment: no measurable gain. {{gs_ng}} inputs: for each item's type × look group, its look and its product type, the sales of the last three months, the trend against the three months before, the newest-month turn and the change on a year ago. The year-on-year change leans the right way (rank correlation with the miss {{gs_rho_yoy}}, same sign at {{gs_same_yoy}} of 13 origins). In a time-honest correction the block gives {{gs_g_w}} against {{gs_ref_w}} without it, and {{gs_g_hit}} within ±20% against {{gs_ref_hit}}. The difference ({{gs_ci_lo}} to {{gs_ci_hi}}) includes zero, and the submitted system scores {{ratio_recent}}. Measured against all other groups instead (the group's share of all units, and its trend, newest-month turn and year-on-year change against the rest; {{gs_nr}} inputs) it is the same: {{gs_r_w}}, and {{gs_r_hit}} within ±20%.</p>
+      <p><b>And new stores opening?</b> No gain either. {{gs_ns}} inputs: own stores trading at the origin, opened in the last three months and opening in the forecast window, each also weighted by the item's own-store share. They carry nothing at item level (rank correlation {{gs_rho_open}}; {{gs_s_w}} with them). Stores do drive volume: year on year, own-store sales grew {{gs_yoy_sales}}× as the stores grew {{gs_yoy_stores}}×. But an opening is the same fact for every item at an origin, so it cannot say which items gain. What does say it is the number of stores each item is itself added to during the window (rank correlation {{gs_rho_hind}}, seen afterwards). That is the allocation plan: the business holds it, the data does not.</p>
+      <p>How much tighter would item forecasts need to be? Take the spread of item errors around the forecast (their standard deviation in log terms, {{sigma}}). With that spread and no bias, {{normal_hit}} of items land within ±20%, about what we see. Half of the items would land there if the spread shrank by {{cut50}}; 60% needs {{cut60}} and 70% needs {{cut70}}.</p>
+      <p>Counting noise is not the limit: a forecast equal to the true mean would land within ±20% {{pois_all}} of the time, and {{pois_small}} for the smallest fifth, where the system hits {{hit_fifth1}}.</p></div>
+    <div class="panel"><h3>The same forecasts, summed to higher levels</h3><div id="c-levels"></div>
+      <p class="small">Share of totals within ±20%, recent origins. Most styles have one live colour, so the style level gains nothing.</p></div>
+  </div>
+  <p style="margin-top:14px"><b>How to read the next two tables.</b> Each row is a group of forecasts that share one property known on the day the forecast is made. "Within ±20%" is the share of that group's forecasts that land within ±20% of what sold; over all forecasts it is {{hit_items}}. The left table lists the eight groups that land there least often, the right table the eight that land there most often. A forecast can be in several groups. "Share of all units" shows how much of the sales the group holds.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Where the forecast lands within ±20% least often</h3><div class="tscroll"><table id="t-hlow"><thead><tr><th>Group of forecasts</th><th>What sets it apart</th><th class="r">Forecasts</th><th class="r">Share of all units</th><th class="r">Within ±20%</th></tr></thead><tbody></tbody></table></div></div>
+    <div class="panel"><h3>Where it lands within ±20% most often</h3><div class="tscroll"><table id="t-hhigh"><thead><tr><th>Group of forecasts</th><th>What sets it apart</th><th class="r">Forecasts</th><th class="r">Share of all units</th><th class="r">Within ±20%</th></tr></thead><tbody></tbody></table></div></div>
+  </div>
+  <p style="margin-top:12px">In short: the hard forecasts are small items, items short of stock or sizes, and forecasts the models themselves mark as unsure. Most of these groups hold little of the sales: the first three rows together hold {{hl_small_units}} of units. The two with real volume are the widest-range fifth and the most-disagreement fifth. The easy ones are large, widely distributed basics.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Can a confident group be named in advance?</h3><div id="c-dec"></div>
+      <p class="small">A classifier trained only on earlier origins ranks each origin's forecasts by predicted chance of a hit. Bars show the actual hit rate of each tenth, least to most confident. AUC {{clf_auc}}.</p></div>
+    <div class="panel"><h3>Simple rules that hold in both halves of the backtest</h3>
+      <div class="tscroll"><table id="t-rules"><thead><tr><th>Rule</th><th class="r">First half</th><th class="r">Second half</th><th class="r">Share of forecasts</th><th class="r">Share of units</th></tr></thead><tbody></tbody></table></div>
+      <p class="small">{{rules_n}} combinations of up to three conditions, each covering at least 3% of forecasts in both halves. {{rules_50}} reach 50% in both halves; none reaches 55%.</p></div>
+  </div>
+  <p style="margin-top:14px">A defensible top confidence level exists at about 55–60%, not higher. The most confident tenth hit {{clf_top10}} overall and {{clf_late_lo}}–{{clf_late_hi}} at the last four origins, once the classifier had a year of outcomes to learn from; the least confident fifth hit {{clf_bottom20}}. The width of the forecast range carries most of the signal. For the June 2026 targets the same classifier expects {{t26_mean}} to land within ±20%: {{t26_ge50}} targets have a predicted chance of at least 50% and {{t26_ge60}} of at least 60%. It agreed with the workbook's earlier confidence column (levels 1, 2 and 3 averaged {{t26_c1}}, {{t26_c2}} and {{t26_c3}}); the submitted workbook now sets confidence by the validated rule of proposal 12 (D318, D350).</p>
+  <div class="note"><b>Realistic ceiling.</b> At item level on four-month totals: {{hit_items}} today, {{hit_plan}} with the roll-out, promotion, stock and launch plans known, and {{hit_plan_early}} with one month of sales as well. 60% across all items would need the typical item error cut by about a third, which none of the information tested delivers. 60% is available today in three places: at look or product-type level ({{lvl_look}} and {{lvl_type}}; {{lvl_group}} by product group), for the most confident tenth of items, and at a tolerance of ±30% ({{within30}}).</div>
+</section>
+
+<section id="where">
+  <div class="eyebrow">Where</div>
+  <h2>The error is concentrated, one-sided and shared by all five models</h2>
+  <div class="grid2">
+    <div class="panel"><h3>Share of the error held by the worst forecasts</h3><div id="c-lorenz"></div>
+      <p class="small">Recent forecasts sorted by absolute error, largest first. The diagonal is what an even spread would look like.</p></div>
+    <div class="panel">
+      <h3>How the misses split</h3>
+      <div id="c-split"></div>
+      <div class="tscroll"><table><thead><tr><th>Item totals landing</th><th class="r">System</th><th class="r">R3</th></tr></thead><tbody>
+        <tr><td>within ±20% of actual</td><td class="r">{{w20}}</td><td class="r">{{w20_r3}}</td></tr>
+        <tr><td>within ±50%</td><td class="r">{{w50}}</td><td class="r">{{w50_r3}}</td></tr>
+        <tr><td>off by more than 2×</td><td class="r">{{b2x}}</td><td class="r">{{b2x_r3}}</td></tr></tbody></table></div>
+      <p class="small">The {{b2x}} of forecasts that are off by more than 2× hold {{b2x_err}} of the error.</p>
+    </div>
+  </div>
+  <p style="margin-top:14px">The worst 1% of forecasts hold {{top1}} of the error and the worst 20% hold {{top20}}. Where all five models sit on the same side of the actual, changing their weights cannot help: that covers {{same_side}} of the error. The overall amount is close to right: scaling each origin's forecasts so that they add up to the true total would give {{tot_known}}, and doing the same for each product group, {{grp_known}}.</p>
+  <div class="grid2" style="margin-top:6px">
+    <div class="panel" id="two-counts"><h3>42% of the error in 5% of forecasts, yet only {{hit_items}} within ±20%: both are true</h3>
+      <p>They count different things. The error share is measured in units, so large items dominate it. The hit rate counts every item once, so the many ordinary items dominate it. Both views side by side are in <a href="#both-ways">Scored in units and per item</a>.</p>
+      <p>The worst 5% of forecasts by units are large items: a median of {{tc_top_level}} units a month against {{tc_all_level}} overall, each off by a median of {{tc_top_err_units}} units against {{tc_all_err_units}}. Forecasting all of them perfectly would cut WAPE ÷ R3 from {{ratio_recent}} to {{tc_wape_fixed}} but lift the hit rate only from {{hit_items}} to {{tc_hit_fixed}}, because they are 5% of the count.</p>
+      <div class="tscroll"><table id="t-two"><thead><tr><th>Volume fifth</th><th class="r">Share of forecasts</th><th class="r">Share of misses beyond ±20%</th><th class="r">Share of the error</th><th class="r">Within ±20%</th></tr></thead><tbody></tbody></table></div>
+      <p class="small">The three smallest fifths hold {{tc_small_m}} of the misses and {{tc_small_e}} of the error. Fixing the big misses improves WAPE; raising the hit rate means tightening thousands of ordinary forecasts that are each 25–50% off.</p></div>
+    <div class="panel" id="combine"><h3>Other ways to combine the five models</h3>
+      <p>Tested after a comment on this page: weight the models by their past score, or keep only a dense cluster of their outputs. All time-honest; scored before the correction layer.</p>
+      <div class="tscroll"><table id="t-combine"><thead><tr><th>Combination</th><th class="r">WAPE ÷ R3</th><th class="r">Within ±20%</th><th class="r">Bias</th></tr></thead><tbody></tbody></table></div>
+      <p class="small">Nothing beats the plain average. Weights by past score end near equal ({{sv_wmin}}–{{sv_wmax}} each at the last origin) because the five models score alike; sharper weights hurt. Clusters hurt because the outlying model is as often the right one. Agreement tells how safe a forecast is ({{sv_hit_tight}} within ±20% in the tightest fifth, {{sv_hit_wide}} in the widest), not which way to move it. Picking the best model per item afterwards would reach {{sv_bound_hit}}, but nothing known at the origin identifies it; learned weights (D175) failed the same way.</p></div>
+  </div>
+  <div class="panel" id="both-ways" style="margin-top:18px"><h3>Scored in units and per item</h3>
+    <p>Asked in a comment on this page: show the evaluation both ways. In units, every unit sold counts once, so large items dominate (WAPE). Per item, every item counts once and its miss is measured as a percentage of its own total, so the many small items dominate.</p>
+    <div class="tscroll"><table id="t-both"><thead><tr><th rowspan="2">Recent origins</th><th class="r" colspan="2">In units</th><th class="r" colspan="4">Per item, as a percentage of its own total</th></tr>
+      <tr><th class="r">Error ÷ units sold</th><th class="r">÷ R3</th><th class="r">Median % error</th><th class="r">÷ R3</th><th class="r">Mean % error</th><th class="r">Within ±20%</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">Mean % error caps each item at 200%, otherwise a handful of items that sold almost nothing decide it.</p>
+    <p>The two views agree on the ranking and on the size of the gain: the system has {{bw_ratio}} of R3's error in units and {{bw_med_ratio}} of its median percentage error. They disagree on where the error sits. The worst 5% of forecasts hold {{bw_top5_units}} of the unit error but {{bw_top5_pct}} of the percentage error. In units, the largest fifth of items holds {{bw_f5_units_err}} of the error; in percentages, the smallest fifth holds {{bw_f1_pct_err}} while selling {{bw_f1_units}} of the units.</p>
+    <div class="tscroll"><table id="t-bothfifth"><thead><tr><th>Volume fifth</th><th class="r">Share of units</th><th class="r">Error ÷ units sold</th><th class="r">Share of the unit error</th><th class="r">Median % error</th><th class="r">Share of the percentage error</th><th class="r">Within ±20%</th></tr></thead><tbody></tbody></table></div>
+    <h3 style="margin-top:18px">Against R3 item by item</h3>
+    <p>Asked in the session: WAPE ÷ R3 is a ratio of sums, so large items decide it. The item-equal version takes each item's own error relative to R3's, (|F − y| + 1) ÷ (|R3 − y| + 1), and then averages over items. How it is averaged matters. A plain average of the ratios is lopsided: an item twice as good counts 0.5 and an item twice as bad counts 2, and items where R3 happened to be almost exact give huge ratios. Even capped at 5× per item, the plain average puts the system at {{ir_mean}}, close to R3, which does not match any other view. The geometric mean (GMRAE) fixes this, since a 2× better and a 2× worse item cancel. It is the standard item-equal choice, together with the median (MdRAE) and the share of items where the forecast is closer than R3.</p>
+    <div class="tscroll"><table id="t-rel"><thead><tr><th>Recent origins</th><th class="r">WAPE ÷ R3 (units)</th><th class="r">Geometric mean of item ratios (GMRAE)</th><th class="r">Median item ratio (MdRAE)</th><th class="r">Items closer than R3</th><th class="r">Plain mean of item ratios, capped at 5×</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">Below 1 means better than R3; R3 itself scores 1 on every ratio column, and a forecast no better than R3 would be closer for about half the items. All 13 origins: the system's GMRAE is {{ir_g13}} against {{ir_r13}} for R3 + rules. The +1 unit keeps an exact R3 from dividing by zero; with +5 the system's GMRAE is {{ir_g5}}.</p>
+    <p>The item-equal view agrees with the unit view on the ranking: the system beats R3 + rules and every single model on GMRAE and on the share closer than R3. It is less flattering: {{ir_g}} against {{ir_w}} in units, because the system gains most on large items. By volume fifth, the system's GMRAE runs from {{ir_f1}} on the smallest items to {{ir_f5}} on the largest. The 11-signal version (D307) helps in units (WAPE ÷ R3 {{ir_sig_w}}) but is level item by item (GMRAE {{ir_sig_g}}): its gain sits on larger items.</p>
+    <h3 style="margin-top:18px">R²: how much of the variation the forecast explains</h3>
+    <p>Asked in the session. R² is 1 when the forecast explains all the variation between items and 0 when it does no better than giving every item the same average. It is shown three ways, because the answer depends on what is to be explained.</p>
+    <div class="tscroll"><table id="t-r2"><thead><tr><th>Recent origins</th><th class="r">R² in units</th><th class="r">R² in logs</th><th class="r">R² of the change against R3</th><th class="r">The same, within an origin</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">In units, large items decide it. In logs every item counts once, and R3 already scores {{r2_r3_log}} because a big item stays big. The change against R3 is the part a forecast has to add: there R3 explains nothing by construction, the rule agents explain {{r2_rules_chg}} and the system {{r2_sys_chg}}. By origin the system's R² of the change runs from {{r2_o_lo}} to {{r2_o_hi}} on recent origins. It is lowest at the June and December 2025 origins, where items moved least against their recent level and there was least to explain.</p>
+    <h3 style="margin-top:18px">Should the models be trained on percentages?</h3>
+    <p>They already are. Every learned member predicts the four-month total as a ratio to the item's own recent level, in logs, and is trained on a quantile loss of that ratio with every item counted equally. Most inputs are normalised the same way: trend, momentum, seasonality and channel shares are ratios to the item's own level. The table moves the tree member step by step from that percentage loss towards a loss on units.</p>
+    <div class="tscroll"><table id="t-loss"><thead><tr><th>Tree member alone, trained with</th><th class="r">WAPE ÷ R3</th><th class="r">Median % error</th><th class="r">Within ±20%</th><th class="r">Bias</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">A loss on units is worse on both views ({{ls_unit_w}} and {{ls_unit_hit}}, against {{ls_base_w}} and {{ls_base_hit}}). A light weight on volume is slightly better in units ({{ls_w03_w}}) and level per item; in the full system it came out level (D264).</p></div>
+  <div class="panel" id="time-item" style="margin-top:18px"><h3>Specific times, or specific items?</h3>
+    <p>Asked in a comment on this page. Mostly neither on its own: the miss belongs to one item in one window. The table splits the variation in the miss by what moves together, and shows the score if that total had been known exactly.</p>
+    <div class="tscroll"><table id="t-timeitem"><thead><tr><th>What moves together</th><th class="r">Groups per origin</th><th class="r">Share of the variation in the miss</th><th class="r">WAPE ÷ R3 if its total were known</th><th class="r">Within ±20%</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">Each row contains the rows above it. Shares are variance components of the log miss, recent origins.</p>
+    <p><b>Times.</b> All items being too low or too high together explains {{ti_time}} of the variation. At each origin between {{ti_under_lo}} and {{ti_under_hi}} of items are under-forecast and the total is off by {{ti_bias_lo}} to {{ti_bias_hi}}; knowing every origin's total exactly would give {{ti_tot_w}} and {{ti_tot_hit}} within ±20%. The worst 5% of forecasts ({{ti_w5_n}}) are spread over all nine origins.</p>
+    <p><b>Items.</b> The same item is not missed again and again. Between windows that share no month, an item's miss repeats for {{ti_item}} of the variation; the {{ti_item_ov}} seen across overlapping origins is mostly the same window counted several times. Correcting each item by its own earlier miss makes the forecast worse ({{ti_pc25}} at a quarter of the miss, {{ti_pc50}} at half). The worst 5% of forecasts are {{ti_w5_items}} different items. Error by item follows volume: the top {{ti_top5_n}} items hold {{ti_top5_err}} of the error and {{ti_top5_units}} of the units.</p>
+    <p><b>An outside seasonal index</b> (how much US fashion e-commerce rises at this time of year) would act on the first row: at best {{ratio_recent}} → {{ti_tot_w}}, with no gain in the hit rate. An index by category would act on the third row, where the ceiling is {{ti_type_w}}; the models already carry Edikted's own seasonality by product type, so only the market-wide part that Edikted's history does not show is left. Not tested: the data holds no outside series.</p></div>
+  <div class="panel" id="item-pick" style="margin-top:18px"><h3>Picking each item's best models from its past</h3>
+    <p>Asked in a comment on this page. For each item, take the five models' errors on that same item at earlier origins whose results were already known, then keep its best one, two or three. {{ip_nohist}} of recent forecasts have no such history and keep the plain average; the rest have a median of {{ip_med}} earlier origins. Scored before the correction layer.</p>
+    <div class="tscroll"><table id="t-pick"><thead><tr><th>Choice</th><th class="r">WAPE ÷ R3</th><th class="r">Within ±20%</th><th class="r">Change against the plain average, 95% interval</th></tr></thead><tbody></tbody></table></div>
+    <p style="margin-top:10px">Every version is worse than the plain average or level with it. The reason is that the best model for an item does not stay the best. An item's best model at the last known origin is its best again {{ip_persist}} of the time; picking at random gives 20%. Each of the five is the closest for about a fifth of the items ({{ip_share_lo}}–{{ip_share_hi}}), and on any one item their errors move together (correlation {{ip_corr}}): they are mostly all too low or all too high, so small differences that do not repeat decide which is closest. The {{sv_bound_hit}} bound needs to know the answer first.</p></div>
+  <div class="panel" id="meta-pick" style="margin-top:18px"><h3>A second model that picks or re-mixes the five</h3>
+    <p>Asked in a comment on this page: train a second model that chooses between the five from high-level features such as product type, and run PCA on the five to work with their independent parts. Every version is trained on origins whose results were known and scored before the correction layer.</p>
+    <div class="tscroll"><table id="t-meta"><thead><tr><th>Second model</th><th class="r">WAPE ÷ R3</th><th class="r">Within ±20%</th><th class="r">Bias</th><th class="r">Change against the plain average, 95% interval</th></tr></thead><tbody></tbody></table></div>
+    <p style="margin-top:10px">None beats the plain average ({{mp_base}}). The gate cannot tell which model will be closest: it is right {{mp_acc_hi}} of the time from high-level features, and {{mp_acc_pos}} when it also sees where each model sits, against 20% by chance. Taking its first choice costs most ({{mp_gate_pick}}). Using its probabilities as weights is close to equal weights and still behind ({{mp_gate_soft}}). Weights per product type, shrunk towards the overall weights, give {{mp_bayes}}.</p>
+    <p>PCA shows why. The five models are mostly one shared view: the first component, with all five moving together, holds {{mp_pc1}} of the variation in their forecasts. The second ({{mp_pc2}}) is the rule agents against the four learned models. The other three hold {{mp_pc_rest}} between them. Regressing what sold on the components gives {{mp_pca_lo}} to {{mp_pca_hi}}, because a fitted model overfits the small components. The five have little independent information to separate. A better stack needs a member that knows something the five do not.</p></div>
+  <div class="panel" id="all-low" style="margin-top:18px"><h3>When all five models are too low</h3>
+    <p>Asked in a comment on this page: how do we handle it? {{al_share}} of recent forecasts have all five models below what sold, and they hold {{al_err}} of the error. The actual lands at a median of {{al_over_f}}× the forecast and {{al_over_top}}× the highest of the five. No weighting of the five can reach above the highest one, so the fix has to come from outside the models.</p>
+    <div class="grid2">
+      <div><div class="tscroll"><table id="t-alllow"><thead><tr><th>Share of forecasts where</th><th class="r">All five too low</th><th class="r">All other forecasts</th></tr></thead><tbody>
+        <tr><td>the first month already ran 20% above the forecast's pace</td><td class="r">{{al_m1}}</td><td class="r">{{al_m1_r}}</td></tr>
+        <tr><td>the item gained two or more own stores in the window</td><td class="r">{{al_st2}}</td><td class="r">{{al_st2_r}}</td></tr>
+        <tr><td>the item gained a partner in the window</td><td class="r">{{al_par}}</td><td class="r">{{al_par_r}}</td></tr>
+        <tr><td>the item was a launch under three months old</td><td class="r">{{al_young}}</td><td class="r">{{al_young_r}}</td></tr>
+        <tr><td>the actual stayed below the stated P90</td><td class="r">{{al_in}}</td><td class="r">{{al_in_r}}</td></tr></tbody></table></div>
+        <p class="small">Recent origins. The first three rows are only known afterwards; they show what was behind the miss.</p></div>
+      <div><div id="c-allow"></div>
+        <p class="small">A classifier trained only on earlier origins ranks each origin's forecasts by the risk of this miss. Bars: share of each tenth where all five models were too low, lowest risk to highest. AUC {{al_auc}}; the overall share is {{al_share}}.</p></div>
+    </div>
+    <p style="margin-top:10px">Three things handle it.</p>
+    <ol>
+      <li><b>Re-forecast after the first month.</b> In {{al_m1}} of these forecasts the first month already ran well above pace. With the plans and one month of sales known, their error falls by {{al_cut_all}} and {{al_hit_all}} of them land within ±20%, against {{al_hit_ref}} without.</li>
+      <li><b>The roll-out plan.</b> This is the business's list of which stores each item will be sent to. {{al_st2}} of these forecasts are items that reached two or more additional own stores during the window, against {{al_st2_r}} of other forecasts. Their sales rose partly because they were on more shelves. The models could not know that on the forecast date; the business did. If the models are told what the business plans ahead (stores and partners added, discount depth, stock and sizes, new colours), the error on these forecasts is {{al_cut_plan}} smaller. The effect is modest because most of these misses are demand, not distribution.</li>
+      <li><b>A watch list, for buying and for attention.</b> The fifth of forecasts with the highest risk holds {{al_top_err}} of this error, and {{al_top_rate}} of that fifth turn out all-too-low. Raising the whole fifth by the factor seen at earlier origins ({{al_fac_lo}}–{{al_fac_hi}}) brings the overall bias from {{al_up_bias0}} to {{al_up_bias}} but leaves accuracy where it was ({{al_up_w}} against {{al_up_w0}} over the last {{al_up_n}} origins), because it also raises the flagged items that did not take off. So the flag should not move the forecast. It says which items to re-forecast first and where to buy above the forecast.</li>
+    </ol>
+    <p><b>How the flag is identified.</b> At each origin a classifier is trained on earlier forecasts whose results are known. Its target is yes or no: did all five models end below what sold. Its {{fi_n}} inputs are all known on the forecast date. It gives each new forecast a risk between 0 and 1, and the flag is the fifth of forecasts with the highest risk at that origin. {{fi_top}} of that fifth turn out all-too-low, against {{fi_low}} of the lowest fifth.</p>
+    <div class="grid2">
+      <div><div class="tscroll"><table id="t-flagimp"><thead><tr><th>Input</th><th class="r">Share of the signal</th><th class="r">All-too-low in its lowest fifth</th><th class="r">In its highest fifth</th></tr></thead><tbody></tbody></table></div>
+        <p class="small">The five inputs that carry most of the signal. Items near full price and items already forecast well above R3 are the ones that still fall short. Close agreement between the five raises the rate partly by construction: five forecasts that sit together fall on the same side more often.</p></div>
+      <div><div class="tscroll"><table id="t-flag26"><thead><tr><th>2026 target</th><th>Type</th><th>Units a month now</th><th class="r">Forecast, 4 months</th><th class="r">Risk</th></tr></thead><tbody></tbody></table></div>
+        <p class="small">The flag at the June 2026 origin, trained on all 13 origins without the stated range (not stored for 2026; backtest AUC {{fi_auc_nr}}). {{fi26_n}} of the {{fi26_all}} modelled targets fall in the highest-risk fifth of all items and hold {{fi26_units}} of the target forecast; {{fi26_fy}} of the {{fi26_young}} targets under six months old are among them. Shown: the twelve with the highest risk. Units a month is the average of the last three months; the bar compares the items in the table.</p></div>
+    </div>
+    <p><b>Entropy and past peaks as inputs.</b> Asked in a comment on this page. Entropy measures how evenly an item's sales are spread: over the last 91 days, over its last 12 months and over channels, plus the share sold on its best seven days. Past peaks: months since the best month, the best month of the last year over the level, months above 1.5× the item's median, whether last year's peak month falls in the forecast window, and last year's same window over the level. Entropy tells how large the miss will be, not which way: evenness over 91 days correlates {{en_size}} with the size of the miss and {{en_dir}} with its direction, and the stated range already carries the size. In the correction: {{en_w_ent}} with entropy, {{en_w_peak}} with past peaks and {{en_w_both}} with both, against {{en_w_ref}} without. The flag stays at AUC {{en_auc}}. A peak block inside the tree model gave the same result earlier (D253).</p>
+    <p><b>Model surprise from the months before.</b> Asked in a comment on this page. The first row of the table is only known afterwards, but the same kind of surprise is known for earlier forecasts: at each origin, the forecasts made one to four origins earlier cover months that have since been sold. {{su_n}} inputs measure how far those months ran above or below the pace of the earlier forecast, also against the highest of the five models and relative to the item's product type.</p>
+    <div class="tscroll"><table id="t-surprise"><thead><tr><th>Correction trained on earlier origins, with</th><th class="r">WAPE ÷ R3</th><th class="r">Within ±20%</th><th class="r">Change against the reference, 95% interval</th></tr></thead><tbody></tbody></table></div>
+    <p style="margin-top:10px">They add nothing the models lack. The latest month's surprise correlates {{su_rho1}} with the new miss, no more than the 91-day trend the models already use ({{su_rho_tr}}); the correction scores {{su_w}} with them against {{su_ref_w}} without; the flag stays at AUC {{su_auc1}}. The models are re-fitted at every origin on sales up to that day, so last month's surprise is already in the level and trend they start from. What they lack is the first month of the new window, which has not happened yet.</p>
+    <p>The stated range also needs widening for them: only {{al_in}} of these actuals stay below the P90, against {{al_in_r}} for other forecasts.</p></div>
+  <div class="panel" id="last-month" style="margin-top:18px"><h3>More inputs from the last month</h3>
+    <p>Asked in the session. {{lm_n}} inputs were built from the daily sales of the 28 days before each origin and the 28 days before those: the pace within the month (the last 7 and 14 days, the four weekly totals, the month against the previous 28 days and against the level), its rhythm (days with a sale, days since the last sale and since the best day, the best day over the average day, weekend share), units per order, the cancelled share, and the discount and the TikTok, own-store and partner shares with their change against the previous 28 days.</p>
+    <div class="tscroll"><table id="t-lm"><thead><tr><th>Correction trained on earlier origins, with</th><th class="r">Inputs</th><th class="r">WAPE ÷ R3</th><th class="r">Within ±20%</th><th class="r">Change against the reference, 95% interval</th></tr></thead><tbody></tbody></table></div>
+    <p style="margin-top:10px">No measurable gain: {{lm_w_all}} with all of them against {{lm_w_ref}} without, and the all-too-low flag stays at AUC {{lm_auc}}. The strongest single inputs lean the right way: days since the last sale ({{lm_rho_ds}}, same sign at {{lm_same_ds}} of 9 origins), the partner share of the last 28 days ({{lm_rho_par}}) and the last 7 days against the month's pace ({{lm_rho_r7}}). For comparison, the 28-day rate and the 91-day trend that the models already use have {{lm_rho_r28}} and {{lm_rho_tr}}. Together the new inputs still do not improve the correction, because they overlap with what the models have: the models are fitted on sales up to the last day before the origin, so the last month is already their starting point.</p></div>
+</section>
+
+<section id="when">
+  <div class="eyebrow">When</div>
+  <h2>Absolute error is steady. The ratio to R3 moves with R3</h2>
+  <div class="grid2">
+    <div class="panel"><h3>Absolute error by origin, as a share of units</h3>
+      <div class="legend"><span><i style="background:var(--ref)"></i>R3</span><span><i style="background:var(--accent)"></i>Submitted system</span></div>
+      <div id="c-origin"></div>
+      <p class="small">Each origin forecasts the next four months. The marked origin, June 2025, forecast July–October: the deliverable's months.</p></div>
+    <div class="panel"><h3>The same error against two baselines</h3>
+      <div class="legend"><span><i style="background:var(--accent)"></i>System ÷ R3</span><span><i style="background:var(--s2)"></i>System ÷ seasonal naive</span></div>
+      <div id="c-metric"></div>
+      <p class="small">Seasonal naive = R3 × last year's month pattern of the product type. Against it the system scores 0.51–0.75 at every origin.</p></div>
+  </div>
+  <p style="margin-top:14px">Across origins, the ratio to R3 and R3's own error correlate at {{metric_corr}}: the ratio is best where R3 is worst. R3 is worst after the holidays, when its three months include the peak. The seasonal-naive ratio is the stable measure of what the models add beyond the calendar: {{sys_vs_sea_recent}} recent, {{sys_vs_sea_all}} on all 13.</p>
+  <div class="note"><b>What to expect for July–October 2026.</b> At the June 2025 origin the system scored {{an_ratio}} × R3 with {{an_abs}} absolute error and a bias of {{an_bias}}; {{an_w20}} of item totals landed within ±20%, and {{an_cover}} of actuals fell inside the P10–P90 range (nominal 80%). In that season the five models score 0.77–0.90 alone and the stack 0.74. <b>The expectation is frozen</b> on the submitted workbook (candidate_nx4, md5 {{ex_md5}}, {{ex_total}} units): central absolute error {{ex_abs}}, {{ex_r3}} × R3, bias {{ex_bias}}, {{ex_hit}} within ±20%. For a 100-item score the 80% band is {{ex_b_abs_lo}}–{{ex_b_abs_hi}} absolute error, {{ex_b_r3_lo}}–{{ex_b_r3_hi}} × R3 and {{ex_b_cov_lo}}–{{ex_b_cov_hi}} of actuals inside the widened P10–P90 (FORECAST_EXPECTATION.md; eda/score_2026_actuals.py scores the workbook once the actuals exist).</div>
+  <div class="note" id="june-why"><b>Why {{an_ratio}} at that origin.</b> The yardstick was strong; the system was not weak. The system's own error there was {{jn_sys}} of units sold, inside the {{jn_sys_lo}}–{{jn_sys_hi}} of the other recent origins. R3's error was {{jn_r3}}, its lowest ({{jn_r3_lo}} to {{jn_r3_hi}} elsewhere), and the score is the ratio of the two. July–October followed the April–June pattern closely: with both forecasts put on the true total, R3's split between items was off by {{jn_split}}, against a median of {{jn_split_med}} at the other origins, where Black Friday, the holidays and the turn of season reshuffle items. The system was closer than R3 for {{jn_closer}} of items, against {{jn_closer_lo}}–{{jn_closer_hi}} elsewhere. The under-forecast came from growth the origin could not show: the total rose {{jn_growth}} over the recent level, {{jn_st_err}} of the error sits on items that gained two or more own stores (bias {{jn_st_bias}}) and {{jn_m1_err}} on items whose first month already ran 20% above pace (bias {{jn_m1_bias}}). The models also had less history: {{jn_hit}} of items landed within ±20% there, against {{jn_hit_lo}}–{{jn_hit_hi}} at the last four origins.</div>
+  <div class="tscroll"><table id="t-origin"><thead><tr><th>Origin</th><th>Forecast window</th><th class="r">Items</th><th class="r">Own stores</th><th class="r">R3 abs. error</th><th class="r">System abs. error</th><th class="r">÷ R3</th><th class="r">÷ seasonal naive</th><th class="r">Bias</th><th class="r">Training origins</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="cohorts">
+  <div class="eyebrow">Cohorts</div>
+  <h2>{{n_axes}} cohort axes: where the error concentrates, and whether any bias can still be taken out</h2>
+  <p>Each axis splits the recent forecasts into groups. Four numbers summarise an axis. <b>Concentration</b> is half the sum of |error share − unit share|: 0 means the error is spread like the units. <b>Bias spread</b> is the unit-weighted standard deviation of the groups' log bias. <b>Stable</b> is the share of units in groups whose bias, relative to the overall bias, has the same sign in both halves of the backtest. <b>Time-honest gain</b> applies each group's past bias (earlier origins only, half strength, origin total kept) and reports the change in WAPE ÷ R3; negative would mean the bias is extractable.</p>
+  <p>No axis has an extractable bias left: the best is {{best_th}} and {{n_axes_worse}} of {{n_axes}} make the forecast worse. Age, volume and discount biases are real and stable, and the segment correction in the system already uses them.</p>
+  <div class="stack">
+    <div class="panel"><h3>All axes</h3><p class="small">Select a row to open it. Select a column heading to sort.</p>
+      <div class="tscroll" style="max-height:430px;overflow-y:auto"><table id="t-axes"><thead><tr><th class="sort" data-k="label">Axis</th><th class="r sort" data-k="conc">Concentration</th><th class="r sort" data-k="bias_sd">Bias spread</th><th class="r sort" data-k="sign_agree">Stable</th><th class="r sort" data-k="th_gain">Time-honest gain</th></tr></thead><tbody></tbody></table></div></div>
+    <div class="panel"><div class="controls"><label for="axis-select">Axis</label><select id="axis-select"></select></div>
+      <p id="axis-note" class="small"></p>
+      <div class="legend"><span><i style="background:var(--ref)"></i>share of units</span><span><i style="background:var(--accent)"></i>share of error</span><span><i style="background:var(--under)"></i>under-forecast</span><span><i style="background:var(--over)"></i>over-forecast</span></div>
+      <div class="tscroll"><table id="t-cohort"><thead><tr><th>Group</th><th>Units vs error</th><th class="r">÷ R3</th><th class="r">Abs. error</th><th>Bias</th><th class="r">Mix-adjusted</th><th class="r">In P10–P90</th><th class="r">n</th></tr></thead><tbody></tbody></table></div>
+      <p class="small">Mix-adjusted = the group's error per unit ÷ what its age × volume × season mix would give. Above 1 means harder than its mix explains.</p></div>
+  </div>
+</section>
+
+<section id="maps">
+  <div class="eyebrow">Maps</div>
+  <h2>Two axes at once</h2>
+  <div class="panel">
+    <div class="controls"><label for="heat-map">Map</label><select id="heat-map"><option value="dir_season">Forecast vs R3 × season</option><option value="age_vol">Age × volume</option><option value="age_season">Age × season</option><option value="age_dir">Age × forecast vs R3</option><option value="macro_season">Product group × season</option></select>
+      <label for="heat-metric">Show</label><select id="heat-metric"><option value="ratio">WAPE ÷ R3</option><option value="bias">Bias</option></select></div>
+    <div class="tscroll"><table class="heat" id="t-heat"></table></div>
+    <p class="small" id="heat-note"></p>
+  </div>
+</section>
+
+<section id="information">
+  <div class="eyebrow">Information</div>
+  <h2>Which information would have helped</h2>
+  <p>The first two charts show the rank correlation between a signal and the log residual (actual ÷ forecast), computed within each origin and averaged. A positive value means: the higher the signal, the more the item beat its forecast. The third chart gives each block of information to a residual model as if it had been known at the origin.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Known at the origin</h3><div id="c-sig-o"></div>
+      <p class="small">The strongest are inventory health (stock gaps, size run), the style's colour line-up and how far the forecast already sits from R3. None exceeds ±0.12; D205 showed that signals of this size do not convert into gains in the trees.</p></div>
+    <div class="panel"><h3>Known only afterwards</h3><div id="c-sig-h"></div>
+      <p class="small">Month-1 sales lead, as expected. Among things the business decides in advance, the count of own stores selling the item leads, with the same sign at all 13 origins.</p></div>
+  </div>
+  <div class="panel" style="margin-top:18px"><h3>Value of information: change in WAPE ÷ R3 if the block were known at the origin</h3><div id="c-voi"></div>
+    <p class="small">Residual model fitted on origins whose windows do not overlap the test origin's; it predicts the residual around its origin mean and keeps each origin's total, so it measures better allocation between items only. Reference with origin-known features: {{voi_ref}}.</p></div>
+  <div class="panel" id="member-inputs" style="margin-top:18px"><h3>Inputs added inside the tree model</h3>
+    <p>Asked in several comments on this page and in the session: add the useful origin-known signals, recent and trend features, and the business decisions as known futures. Each block was added to the tree model itself (refitted on earlier origins only), which then replaced the submitted tree model in the five-model average. "With corrections" applies the submitted correction layer as it is. With the correction layer re-fitted on the 11-signal version (Main, D293), the system scores 0.3837 on recent origins and 0.4350 on all 13, against 0.3851 and 0.4399 submitted; buying is unchanged.</p>
+    <div class="tscroll"><table id="t-mi"><thead><tr><th>Inputs added to the tree model</th><th class="r">Tree model alone</th><th class="r">Five-model average</th><th class="r">With corrections</th><th class="r">Within ±20%</th><th class="r">Origins better (of 13)</th></tr></thead><tbody>{{mi_rows}}</tbody></table></div>
+    <p class="small">WAPE ÷ R3 on recent origins. Known futures use the realised values (an exact plan), read from the sales, so they are an upper bound on a real plan. The store count off by about two stores shows how fast that bound shrinks.</p>
+    <p style="margin-top:10px"><b>Known on the forecast date.</b> Only the 11 origin-known signals help at every origin ({{mi_sig_c}} against {{mi_base_c}} with corrections). They are stock gaps, size run, size concentration, newest colour, partner share and count, share of the style, live colours, web discount, discount against the site's, and the largest day's share. They are known for June 2026 too, so they can enter the 2026 forecast; Main will ask you whether to build a workbook with them. The last-month inputs help less, and the trend inputs and the best-day inputs do not help.</p>
+    <p><b>Business decisions as known futures.</b> Together they are worth the most: {{mi_dec_c}} with corrections and {{mi_dec_h}} within ±20%, better at all 13 origins; {{mi_decsig_c}} with the 11 signals as well. Stores carry most of it; the discount plan and the launch calendar add a little each. Adding availability in the window (size run, stock gaps), which is partly a result of sales, does not add more ({{mi_av_c}}). Using them for July–October 2026 needs Edikted's plan for each of the 100 targets: own stores, partners, discount and launches.</p>
+    <p><b>Trends.</b> The ten fastest-rising products at an origin later sold {{tr_hot_g}} of R3 and the ten fastest-falling {{tr_cold_g}}: hot items cool off and falling ones recover, and the models already expect it (bias {{tr_hot_b}} and {{tr_cold_b}} on them). Closeness to either set in the co-purchase embedding carries nothing further (correlation with the miss within ±0.04). At the June 2026 origin the rising set is summer tops and the falling set is knits, sweaters and hoodies: the season turning, which the models already carry.</p>
+    <div class="grid2">
+      <div><div class="tscroll"><table id="t-hot26"><thead><tr><th>Rising fastest at June 2026</th><th>Type</th><th class="r">Last 3 months ÷ the 3 before</th></tr></thead><tbody>{{tr_hot_rows}}</tbody></table></div></div>
+      <div><div class="tscroll"><table id="t-cold26"><thead><tr><th>Falling fastest at June 2026</th><th>Type</th><th class="r">Last 3 months ÷ the 3 before</th></tr></thead><tbody>{{tr_cold_rows}}</tbody></table></div></div>
+    </div></div>
+  <div class="note"><b>This corrects an earlier ranking.</b> The explanation layer's LLM judges (D194) named unseen promotions as the most common cause of residuals, and the first future-work list put the markdown plan first. Measured directly, an item's discount change against the site's is worth {{voi_promo}}; distribution is worth {{voi_dist}}, more than four times as much.</div>
+</section>
+
+<section id="distribution">
+  <div class="eyebrow">Distribution</div>
+  <h2>The missing input is the roll-out plan</h2>
+  <div class="grid2">
+    <div class="panel"><h3>Launches under 3 months, by what happened to their distribution in the window</h3>
+      <div class="tscroll"><table id="t-young"><thead><tr><th>Group</th><th class="r">Forecasts</th><th class="r">Share of launch units</th><th class="r">Actual ÷ R3</th><th>Bias</th></tr></thead><tbody></tbody></table></div>
+      <p class="small">The model sees one population and forecasts between the two. Stores means own stores with at least one sale of the item in a month. With the business decisions given to the tree model as known futures (see <a href="#member-inputs">Information</a>), launches that gained five or more stores go from a bias of {{la_b5_0}} to {{la_b5_1}} and from {{la_h5_0}} to {{la_h5_1}} within ±20%; all launches from {{la_w_0}} to {{la_w_1}} of R3's error.</p></div>
+    <div class="panel"><h3>Own stores with sales, by month</h3><div id="c-fleet"></div>
+      <p class="small">The fleet grew from {{fleet_first}} store to {{fleet_last}} inside the data. Own stores take 11–20% of units.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><h3>Where the unexpected units came from</h3>
+      <div class="legend"><span><i style="background:var(--ref)"></i>share of those items' units before the origin</span><span><i style="background:var(--accent)"></i>share of the extra units in the window</span></div>
+      <div id="c-chan"></div>
+      <p class="small">Large under-forecasts only. TikTok carried {{tt_extra}} of the extra units against {{tt_base}} of the base.</p></div>
+    <div class="panel"><h3>Distribution or popularity?</h3>
+      <p>Both. Items that gained two or more stores were under-forecast by {{st_add_bias}} overall and by {{st_add_web}} on edikted.com alone. Items with flat store counts were over-forecast by {{st_flat_bias}}. The gain in stores correlates with web growth ({{st_rho_web}}) about as much as with the residual ({{st_rho_res}}).</p>
+      <p>Stores get the items the merchants believe in. The allocation plan therefore carries their judgement as well as the extra shelf space, and it exists inside Edikted weeks before the sales do.</p></div>
+  </div>
+  <div class="panel" id="launch-curves" style="margin-top:18px"><h3>Per-store launch curves as inputs</h3>
+    <p>Tested after a comment on this page: every item has a launch curve at each place it reaches, and the places it reached first could inform the rest. The data holds {{ln_arrivals}} such arrivals across {{ln_stores}} own stores, {{ln_partners}} partners, edikted.com and TikTok. Each arrival gets a launch index: its first-14-day units against the norm of that location.</p>
+    <div class="tscroll"><table><thead><tr><th>Test</th><th>Result</th></tr></thead><tbody>
+      <tr><td>As inputs to the item forecast: {{ln_feats}} features known at the origin (stores reached and still to reach, launch index per store, first and latest store, rate per door, partner, web and TikTok indices)</td><td>Rank correlation with the forecast's residual: {{ln_rho_all}} at most over all items, {{ln_rho_gap}} for items in some stores but not all (both the web launch index). A time-honest correction with them scores {{ln_corr}} against {{ln_ref}} without (interval {{ln_ci_lo}} to {{ln_ci_hi}}). No gain.</td></tr>
+      <tr><td>Predicting the roll-out itself: will the item gain two or more stores in the window?</td><td>Predictable from level, age and current stores (AUC {{ln_auc0}}); the launch curves take it to {{ln_auc1}}.</td></tr>
+      <tr><td>A later store from earlier stores: arrivals at least 14 days after an earlier store's</td><td>Correlation between its launch index and the earlier stores' {{ln_cross}}; out-of-sample R² about zero. A store sells a median of {{ln_u14}} units of an item in its first 14 days, and an arrival is only visible as the first sale, so a slow store looks like a late arrival.</td></tr>
+      <tr><td>Same month, different places</td><td>An item's units correlate {{ln_ss}} between pairs of own stores, {{ln_wrate}} between the web and its rate per store, and {{ln_wt}} between the web and TikTok. The web starts first for {{ln_webfirst}} of items, by a median of {{ln_lead}} days.</td></tr>
+    </tbody></table></div>
+    <p style="margin-top:10px">Appeal does carry between places, so other stores are informative. For the four-month item total it changes nothing, because the models already see that appeal through the item's level and momentum: the web is two thirds of units and leads the stores by a month. The place it would pay is store level, for allocation and replenishment, and that needs receipts: the date and units each store received, so that sell-through (sold ÷ received) replaces first-sale dating. One cohort effect remains visible: items in no own store, or in under half the fleet, are under-forecast by {{ln_b_none}} and {{ln_b_half}}; together they are {{ln_u_part}} of units.</p></div>
+  <div class="panel" id="future-stores" style="margin-top:18px"><h3>Stores reached, as an input known ahead</h3>
+    <p>Asked in a comment on this page: add the number of own stores an item reaches during the forecast window as a known future. Tested like the other inputs: a correction trained on earlier origins only, with each origin's total kept.</p>
+    <div class="tscroll"><table id="t-fstores"><thead><tr><th>Inputs</th><th class="r">WAPE ÷ R3</th><th class="r">Within ±20%</th><th class="r">Change against the reference, 95% interval</th></tr></thead><tbody></tbody></table></div>
+    <p style="margin-top:10px">It helps: {{fs_w}} against {{fs_ref_w}} without it, and {{fs_hit}} of items within ±20% against {{fs_ref_hit}}. The gain sits where distribution moves. Items that gained five or more stores go from a bias of {{fs_b5_ref}} to {{fs_b5}}; launches under three months go from {{fs_l_ref}} to {{fs_l}} of R3's error.</p>
+    <p>Two cautions. First, the backtest reads the count afterwards from the sales: a store counts once the item sells there, and strong sellers are sent to more stores. So part of the signal is demand itself. Items that gained two or more stores were under-forecast by {{fs_web_bias}} on the web alone, against {{fs_all_bias}} in total. A plan made before the window will give less: with the count off by about two stores the score is {{fs_noisy_w}}. Second, the data ends on 30 June, so it does not hold the count for July–October 2026. It has to come from the business: the planned number of own stores for each of the 100 targets. The opening calendar alone does not replace it (see <a href="#hit">±20%</a>).</p></div>
+</section>
+
+<section id="overfit">
+  <div class="eyebrow">Overfit</div>
+  <h2>How much of the improvement is real</h2>
+  <p>Eight adopted steps took the system from {{chain_from}} to {{ratio_recent}}. Each is re-tested here at three levels: resampling items (the intervals quoted in the log), resampling styles, and resampling origins in blocks of three because windows overlap. The four early origins were rarely used to choose between models, so they act as a partial hold-out.</p>
+  <div class="tscroll"><table id="t-chain"><thead><tr><th>Step</th><th class="r">Recent</th><th class="r">All 13</th><th class="r">Early 4</th><th>By origin</th><th>95% intervals ÷ size of the step</th><th>Reading</th></tr></thead><tbody></tbody></table></div>
+  <p class="small">By origin: one mark per origin, early four first; blue = the step helped, red = it hurt, grey = not applied. Intervals: item, style, origin-block, top to bottom; −1 is the measured gain, 0 is no gain.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Selection</h3><p>{{variants}} stored model variants and {{decisions}} logged decisions were scored on the same 13 origins. A typical step has an item-bootstrap standard deviation of {{sd_item}}. The best of {{variants}} variants made of pure noise would show a gain of {{null_max}}; the best of 20, {{null20}}.</p>
+      <p>Three adopted steps are smaller than that: the co-purchase neighbours, the new tree member and the new neural-net inputs. They also help on the early origins, which supports keeping them, but their size on recent origins should not be read as measured.</p></div>
+    <div class="panel"><h3>Transfer</h3><p>Two steps reverse on the early origins: adding TabPFN ({{tab_early}}) and the arithmetic, conformal stack ({{arith_early}}). Both were chosen on recent origins. With under a year of training history they hurt, as the first three-way did against the rule agents ({{first_early}}).</p>
+      <p>The all-13 score of {{ratio_all}} is the less selected number. Neither transfers to July–October directly; see the note under <a href="#when">When</a>.</p></div>
+  </div>
+  <div class="panel" id="spacing" style="margin-top:18px"><h3>Origins further apart</h3>
+    <p>Asked in a comment on this page: score on origins two months apart instead of one. Two months apart still share two of the four forecast months; only four months apart share none. The number of independent tests stays about three at any spacing, because the backtest covers the same 17 months however it is cut. More independent tests need more history, not wider spacing.</p>
+    <div class="grid2">
+      <div><div class="tscroll"><table id="t-neff"><thead><tr><th>Origins</th><th class="r">Count</th><th class="r">Months shared by neighbours</th><th class="r">Correlation of an item's error</th><th class="r">Independent tests</th></tr></thead><tbody></tbody></table></div>
+        <div class="tscroll" style="margin-top:12px"><table id="t-sets"><thead><tr><th>Set of origins</th><th class="r">Origins</th><th class="r">System, WAPE ÷ R3</th><th class="r">R3 + rules</th><th class="r">Within ±20%</th><th class="r">R3 within ±20%</th></tr></thead><tbody></tbody></table></div></div>
+      <div><div class="tscroll"><table id="t-steps4"><thead><tr><th>Adopted step</th><th class="r">All 13</th><th>Two sets, 2 months apart</th><th>Four sets, 4 months apart</th></tr></thead><tbody></tbody></table></div>
+        <p class="small">One mark per set: blue = the step helped, red = it hurt.</p></div>
+    </div>
+    <p>What wider spacing does give is a check on sets that do not overlap. The headline holds in all four: the system beats R3 + rules by {{sp_gap_lo}} to {{sp_gap_hi}}, and {{sp_hit_lo}}–{{sp_hit_hi}} of items land within ±20% against {{sp_hr_lo}}–{{sp_hr_hi}} for R3. Of the eight steps, {{sp_n4}} help in all four sets and {{sp_n3}} in three. The new tree member (D253) helps in {{sp_tree_wins}} of the four, so its gain is the least established of the eight.</p></div>
+</section>
+
+<section id="tuning">
+  <div class="eyebrow">Tuning</div>
+  <h2>Every model was tuned overnight; none moved the system</h2>
+  <p>Each model's settings were searched on the origins 2025-02/03 to 2025-09 and then judged on five held-out origins (2025-10 to 2026-02) inside the five-member system, with the submitted correction multiplier. Scores are WAPE ÷ R3; lower is better. A tuned model is adopted only if the system gains beyond the 95% interval and the last-year-removed gate still passes.</p>
+  <div class="tscroll"><table id="t-tuning"><thead><tr><th>Model</th><th>What was searched</th><th class="r">Alone, held out</th><th class="r">System, held out</th><th>Verdict</th><th>Log</th></tr></thead><tbody>
+    <tr><td>Tree member (LightGBM)</td><td>Leaves, depth, learning rate, regularisation, loss</td><td class="r">no gain</td><td class="r">no gain</td><td>Rejected</td><td>D362</td></tr>
+    <tr><td>Corrections (segment and breakout)</td><td>Shrinkage, segment sizes, caps</td><td class="r">–</td><td class="r">no gain</td><td>Rejected</td><td>D363</td></tr>
+    <tr><td>Neural net</td><td>Width, depth, dropout, learning rate, epochs</td><td class="r">no gain</td><td class="r">no gain</td><td>Rejected</td><td>D325</td></tr>
+    <tr><td>Per-location recommender</td><td>Embedding size, layers, learning rate, the tree twin</td><td class="r">–</td><td class="r">0.3031 → 0.3031</td><td>Rejected</td><td>D381</td></tr>
+    <tr><td>Rule agents</td><td>16 knobs (weights of the recent and long rates, ramps, shrinkage, seasonal anchor and power, age fade)</td><td class="r">0.3595 → 0.3532</td><td class="r">0.2922 → 0.2917<br><span class="small">95%: −0.0012 to +0.0003</span></td><td>Level; current rules stand</td><td>D389, D389b</td></tr>
+    <tr><td>TabPFN (pf2d32)</td><td>Estimators, softmax temperature, context cap, averaging</td><td class="r">0.3432 → 0.3418</td><td class="r">0.2948 → 0.2947<br><span class="small">95%: −0.0002 to −0.0000</span></td><td>Level; stored member stands</td><td>D326</td></tr>
+  </tbody></table></div>
+  <p class="small">Two models improved on their own (rules and TabPFN) and passed the held-out test alone, but averaging with the four other members absorbs the change. TabPFN's gain in the system (0.0001) is smaller than the noise from simply rerunning it (0.0004). Its tuned ranges cover more (P25–P75 inside 47.6% → 54.2%) but pinball loss got worse (0.3797 → 0.3842), so the ranges do not improve either. Not tuned: the window pf2c uses to calibrate its ranges.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Who under-forecasts</h3><p>Bias of each member (forecast ÷ actual − 1), on the recent origins against the older ones (D384):</p>
+      <div class="tscroll"><table><thead><tr><th>Member</th><th class="r">Recent</th><th class="r">Older</th></tr></thead><tbody>
+        <tr><td>Tree (absolute error)</td><td class="r">−10%</td><td class="r">+20%</td></tr>
+        <tr><td>Tree (Huber)</td><td class="r">−9%</td><td class="r">+19%</td></tr>
+        <tr><td>Rule agents</td><td class="r">−6%</td><td class="r">−6%</td></tr>
+        <tr><td>Neural net</td><td class="r">−10%</td><td class="r">+9%</td></tr>
+        <tr><td>TabPFN conformal (pf2c)</td><td class="r">−14%</td><td class="r">+23%</td></tr>
+        <tr><td>TabPFN 32 (pf2d32)</td><td class="r">+9%</td><td class="r">+20%</td></tr>
+        <tr><td><b>Five-member mean</b></td><td class="r"><b>−6%</b></td><td class="r"><b>+13%</b></td></tr>
+      </tbody></table></div>
+      <p>The trees are not singled out: every learned member swung from over-forecasting the older origins to under-forecasting the recent ones, as growth slowed. The bias follows the period, not the model type.</p></div>
+    <div class="panel"><h3>Remedies tried tonight</h3><ul>
+      <li><b>Linear-leaf trees</b> (a linear model inside each leaf, to extrapolate beyond the training range): worse (D382).</li>
+      <li><b>Stretching the ensemble</b> away from the mean: the shrinkage is real but small; a stretch hurts (0.399 against 0.385) (D382).</li>
+      <li><b>Time since the data start, and the last year weighted ×2</b> in the loss: no gain (D383).</li>
+      <li><b>Absolute (log) units as the target</b>, and a linear model's total as an input: no gain.</li>
+      <li><b>Business plan missing as NaN</b> (augmented training), or <b>imputed from the past</b>: no gain over the stored members (D385, D386).</li>
+      <li><b>The recommender's tree twin at full weight</b>: best backtest, but fails the last-year-removed gate (0.4168 → 0.7656 alone); kept only as the value of Edikted's plan (D388).</li>
+      <li><b>TabPFN first, trees and NN on its residual</b>: the first layer alone is the best no-plan model (0.406 / 0.462) but level in the system (D387, D389c).</li>
+      <li><b>Copying last year</b>, and a tree on the residual from last year: far worse on the Jul–Oct 2025 analog (2.09 × R3 against 0.66, bias +67%); too few training rows have a last year (D395, D396).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="submission">
+  <div class="eyebrow">Submission</div>
+  <h2>nx6 is the submission: the new nx5 with a confidence column that keeps its word</h2>
+  <p>On 18 November the submitted workbook moved from nx4 to the new nx5 and then to nx6, which is the new nx5 with the confidence column below (D389t; units unchanged). The new nx5 is the six-member system with the Huber tree and the recommender at a quarter weight, where items under six months old get a tree trained with new items counted five times, the corrections refitted on that system, and ranges recalibrated per age and volume group with last July–October and the latest March–June weighted four times. Scores are WAPE ÷ R3 on the time-honest backtest.</p>
+  <div class="tscroll"><table id="t-submission"><thead><tr><th>System</th><th class="r">Recent 9</th><th class="r">Held out</th><th class="r">All 13</th><th class="r">Early 4</th><th class="r">2026 total</th></tr></thead><tbody>
+    <tr><td>nx4 (previous submission)</td><td class="r">0.3851</td><td class="r">0.2948</td><td class="r">0.4399</td><td class="r">0.6623</td><td class="r">601,801</td></tr>
+    <tr><td>nx5 (D361, Huber tree + recommender)</td><td class="r">0.3811</td><td class="r">0.2924</td><td class="r">0.4358</td><td class="r">0.6581</td><td class="r">604,838</td></tr>
+    <tr><td><b>nx6 = new nx5 (submitted)</b></td><td class="r"><b>0.3806</b></td><td class="r"><b>0.2926</b></td><td class="r"><b>0.4357</b></td><td class="r"><b>0.6593</b></td><td class="r"><b>620,826</b></td></tr>
+  </tbody></table></div>
+  <p class="small">Almost all of the 2026 difference (+15k) is the 24 targets under six months old: the launch-weighted tree lifts them 10.6%. In the backtest the same routing moved new items' totals by only 0.3%, while the system under-forecast them by 7–12%; the 2026 lift goes the historical way but is larger than anything the backtest saw. The ranges: left one origin out, 82.5% of actuals inside P10–P90 and 52.4% inside P25–P75 on the held-out origins; on last July–October only 70%, a season that ran below the forecast, while March–June 2026 ran above it.</p>
+  <div class="grid2">
+    <div class="panel"><h3>What the night tried after it</h3><ul>
+      <li><b>New-item and old-item trees tuned separately</b> (333 trials): both beat the current trees on the tuning origins and lose on the five held-out ones (new 0.3463 → 0.3492, old 0.2653 → 0.2678), as every earlier tuning round (D389l).</li>
+      <li><b>A fixed grid of simple versions:</b> weighting the youngest launches (under 3 months) ×8–12 helps the held-out origins (0.3463 → 0.3418) but fails the last-year-removed gate (0.4505 → 0.4651); kept for the July re-test (D389m).</li>
+      <li><b>Corrections at full strength:</b> worse held out (0.2926 → 0.2938–0.2992) (D389o).</li>
+      <li><b>The monthly split</b> (rules × network monthly shapes), scored for the first time: best of nine on both focus windows; monthly error 0.336 on Jul–Oct 25 against 0.404 for a flat split (D389j).</li>
+      <li><b>Per-item weights by correlation</b> at item, cluster and type level, and <b>everything calibrated to the two focus windows</b>: level, or better there and worse everywhere else (D389e, D389f).</li>
+    </ul></div>
+    <div class="panel"><h3>The one change that held: confidence</h3><p>Judged by the brief's own scale (1 = within ±20%, 2 = within ±50%, 3 = could miss by more than 50%), the submitted rule's level 3 (the widest fifth of ranges) lands within ±50% 63% of the time, so most of its claims fail. Putting level 3 only where the calibrated range gives less than even odds of landing within ±50% raises the share of claims met from 0.75 to 0.81 on the held-out origins, 0.70 to 0.74 on last July–October and 0.76 to 0.84 on March–June 2026 (D389k). In 2026 that moves four model-forecast items from 3 to 2 (levels 10 / 86 / 4). It is the submission since 18 Nov (nx6, D389t; candidate_nx6, D389n).</p></div>
+  </div>
+</section>
+
+<section id="confounds">
+  <div class="eyebrow">Confounds</div>
+  <h2>What the backtest cannot separate</h2>
+  <div class="grid2">
+    <div class="panel"><h3>One-season memory</h3>
+      <div class="legend"><span><i style="background:var(--s2)"></i>same window last year removed</span><span><i style="background:var(--ref)"></i>as many other origins removed</span></div>
+      <div id="c-season"></div>
+      <p class="small">Change in the tree model's WAPE ÷ R3 at each test origin. The bar at November 2025 is cut off at 0.5; its value is {{ls_same_max}}. Seasonality is learned from one or two earlier occurrences of the same months, so season and "what happened last year" cannot be told apart.</p></div>
+    <div class="panel"><h3>Overlapping windows</h3><div id="c-lag"></div>
+      <p class="small">Correlation of the same item's log residual between origins k months apart. With these correlations 13 origins are worth about {{neff13}} independent windows and the nine recent ones about {{neff9}}.</p></div>
+    <div class="panel"><h3>Survivorship</h3><div id="c-last"></div>
+      <p class="small">Month of each catalogue item's last sale. The June 2026 bar is cut off: it stands for {{alive}} of {{n_cat}} items. None stopped before October 2025. Every backtest forecast is for an item known to survive, so the models have never seen an item die and R3 is flattered the same way.</p></div>
+    <div class="panel"><h3>The 100 targets were chosen with hindsight</h3>
+      <div class="legend"><span><i style="background:var(--accent)"></i>targets</span><span><i style="background:var(--ref)"></i>other items</span></div>
+      <div id="c-target"></div>
+      <p class="small">Forecast bias by origin. The targets grew {{tg_growth}} between the first halves of 2025 and 2026 against {{ot_growth}} for other items, and {{tg_top100}} of them are among the 100 best sellers of 2026. Seen from mid-2025 they are future winners, so the backtest under-forecasts them. The gap closes as the origin nears June 2026.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><h3>Censored demand is not the over-forecasts</h3><p>Stock gaps or a broken size run in the window cover {{cens_units}} of units and {{cens_over}} of the over-forecast error. At the origin the picture is mixed: items with stock gaps in the last 28 days are under-forecast by 27–28% weighted by units, because larger items rebound after a delivery, while by count they end lower than forecast, because small items are running out for good.</p></div>
+    <div class="panel"><h3>A growing, changing business</h3><p>Between the first and last origin the scored items grew from {{items_first}} to {{items_last}}, own stores with sales from {{stores_first}} to {{stores_last}}, and TikTok's share of units from {{tt_first}} to {{tt_last}}. Pooled scores mix seasons with these trends. The origin table under <a href="#when">When</a> lists them side by side.</p></div>
+  </div>
+</section>
+
+<section id="causes">
+  <div class="eyebrow">Large misses</div>
+  <h2>What the large misses have in common</h2>
+  <p>{{big_n}} of recent forecasts are off by more than 1.65× and by at least 50 units. They hold {{big_err}} of the error: {{big_under}} from under-forecasts and {{big_over}} from over-forecasts. Each bar shows the share of that error carrying a tag, against how common the tag is among all recent forecasts.</p>
+  <div class="grid2">
+    <div class="panel"><h3>Large under-forecasts</h3><div class="legend"><span><i style="background:var(--accent)"></i>share of the error</span><span><i style="background:var(--ref)"></i>share of all forecasts</span></div><div id="c-under"></div></div>
+    <div class="panel"><h3>Large over-forecasts</h3><div class="legend"><span><i style="background:var(--accent)"></i>share of the error</span><span><i style="background:var(--ref)"></i>share of all forecasts</span></div><div id="c-over"></div></div>
+  </div>
+  <p style="margin-top:14px">The two sides differ. Under-forecasts line up with things the business did: {{u_store}} of that error is on items that reached two or more additional own stores. Over-forecasts mostly carry none of the plannable tags ({{o_none}}); they are fades that show in month 1 ({{o_m1}}) and not before.</p>
+  <h3 style="margin-top:18px">The largest misses, one per item</h3>
+  <div class="tscroll"><table id="t-worst"><thead><tr><th>Item</th><th>Units a month at the origin</th><th>Origin</th><th class="r">Age (months)</th><th class="r">Actual</th><th class="r">Forecast</th><th class="r">Model range</th><th class="r">R3</th><th class="r">Month 1 ÷ pace</th><th class="r">Stores added</th><th class="r">Partners added</th><th class="r">New colours</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="targets">
+  <div class="eyebrow">2026 targets</div>
+  <h2>How the 100 targets sit against the risky cohorts</h2>
+  <div class="grid2">
+    <div class="panel"><h3>Share of forecast units carrying each flag</h3><div id="c-flags"></div>
+      <p class="small">{{t_n}} targets present at the June 2026 origin; forecast {{t_total}} against R3 {{t_r3}}.</p></div>
+    <div class="panel"><h3>Reading</h3>
+      <p>{{t_far}} of the forecast units are items forecast more than 1.4× R3, {{t_young}} are under six months old and {{t_tt}} have at least 15% of sales on TikTok. In the backtest, forecasts far above R3 were still too low, by 3% in this season and by 13% in windows with November.</p>
+      <p>Weighting each target by the backtest error of its age × direction cell gives an expected absolute error of {{t_exp}} on item totals.</p></div>
+  </div>
+  <div class="note"><b>World Cup items.</b> The 2026 World Cup runs from 11 June to 19 July. Three targets are tied to it; all launched on 25 May and were still climbing at the end of June. No model can learn the drop after the final, because the training data contains no World Cup.
+    <div class="tscroll" style="margin-top:8px"><table id="t-wc"><thead><tr><th>Item</th><th class="r">June actual</th><th>Workbook</th><th class="r">Jul</th><th class="r">Aug</th><th class="r">Sep</th><th class="r">Oct</th><th class="r">Total</th></tr></thead><tbody>{{wc_rows}}</tbody></table></div>
+    <p style="margin:10px 0 0">The hand rule sets July from the late-June daily pace (19 tournament days plus 12 days after the final at three quarters of that pace) and caps August, September and October at 0.75, 0.50 and 0.45 of July, the decay measured on earlier 4th of July and St Patrick's items (D033). The workbooks built from the model chain between 13 and 17 November did not carry it. It was restored on 17 November at your decision: {{wc_rule}} units in place of {{wc_now}}, about {{wc_diff}} fewer, or {{wc_pct}} of the total. The submitted total is now {{sub_total}} units; the other 97 targets are unchanged.</p></div>
+  <h3 style="margin-top:18px">Targets carrying the most flags</h3>
+  <div class="tscroll"><table id="t-watch"><thead><tr><th>Item</th><th>Units a month now</th><th class="r">Forecast</th><th class="r">R3</th><th class="r">Age (months)</th><th class="r">Expected abs. error</th><th>Flags</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="proposals">
+  <div class="eyebrow">Proposals</div>
+  <h2>What to do about it</h2>
+  <p>Each proposal names the evidence in this study, the action, and what it is worth. Values are in points of WAPE ÷ R3 on recent origins unless stated.</p>
+  <p class="note">Candidate after the proposals (D353–D358): the Huber-loss tree member plus the per-location recommender at a quarter of a member's weight (D358) gives 0.3811 recent / 0.4358 all 13 against the submitted 0.3851 / 0.4399 and passes every gate, including last year removed (0.4085 vs 0.4106); it waits on the user's decision. The recommender at full weight (D355) is the best raw backtest, 0.3786 / 0.4333, but fails the last-year-removed gate (0.4327 vs 0.4106).</p>
+
+  <h2 class="grp">Ask Edikted for</h2>
+  <div class="props">
+    <div class="prop"><h3>1. The roll-out plan: doors and partners per item, by month</h3><dl>
+      <dt>Evidence</dt><dd>Stores added in the window correlate {{st_rho_res}} with the residual at all 13 origins. Launches that gained five or more stores grew {{yg_big_growth}}× R3 (bias {{yg_big_bias_s}}); flat-distribution launches were over-forecast by {{yg_flat_bias}}.</dd>
+      <dt>Action</dt><dd>Feed planned door count and partner list as known-future inputs. Until the plan exists as data, use each launch's purchase-order quantity: one number that carries the merchants' conviction. Ask for receipts per store as well (date and units): sales alone cannot date a store arrival, and per-store launch curves built from first sales added nothing.</dd>
+      <dt>Worth</dt><dd>{{voi_dist}} across all items, the largest plannable block; more on launches, which hold {{young_err}} of the error.</dd>
+      <dt>Status</dt><dd class="status">{{ps_1}}</dd></dl></div>
+    <div class="prop"><h3>2. The wholesale order book</h3><dl>
+      <dt>Evidence</dt><dd>Partners take about 10% of units and order ahead of delivery. Launches that gained two or more partners grew {{yg_par_growth}}× R3 (bias {{yg_par_bias_s}}).</dd>
+      <dt>Action</dt><dd>Take the partner channel from confirmed orders and model only direct demand: edikted.com, TikTok and own stores.</dd>
+      <dt>Worth</dt><dd>Part of the distribution value above; it removes a known quantity from the unknown.</dd>
+      <dt>Status</dt><dd class="status">{{ps_2}}</dd></dl></div>
+    <div class="prop"><h3>3. Inventory and inbound deliveries</h3><dl>
+      <dt>Evidence</dt><dd>Size-run completeness and stock-gap days are the most stable origin-known signals (same sign at 12 of 13 origins). The direction of a stock gap depends on whether a delivery is coming.</dd>
+      <dt>Action</dt><dd>Weeks of cover and next delivery date as inputs; cap sales forecasts by available stock.</dd>
+      <dt>Worth</dt><dd>{{voi_avail}} today, because only 2% of units have gaps at the origin. It becomes necessary once the forecast drives purchasing across the assortment.</dd>
+      <dt>Status</dt><dd class="status">{{ps_3}}</dd></dl></div>
+    <div class="prop"><h3>4. TikTok Shop analytics per item</h3><dl>
+      <dt>Evidence</dt><dd>TikTok carried {{tt_extra}} of the unexpected units in large under-forecasts against {{tt_base}} of those items' base. Its share of units doubled over the backtest.</dd>
+      <dt>Action</dt><dd>Creator count, video count and views per item per week as a leading signal for launches.</dd>
+      <dt>Worth</dt><dd>Not measurable here: TikTok's own share at the origin carries almost no signal, so the value has to come from activity data the order lines do not contain.</dd>
+      <dt>Status</dt><dd class="status">{{ps_4}}</dd></dl></div>
+    <div class="prop"><h3>5. The full catalogue, including discontinued items</h3><dl>
+      <dt>Evidence</dt><dd>{{alive}} of {{n_cat}} items survive to the last month of data.</dd>
+      <dt>Action</dt><dd>Rebuild the backtest on every item that was active at each origin.</dd>
+      <dt>Worth</dt><dd>No accuracy gain. It removes an optimistic bias of unknown size from every number in this study, R3 included.</dd>
+      <dt>Status</dt><dd class="status">{{ps_5}}</dd></dl></div>
+  </div>
+
+  <h2 class="grp">Change the process</h2>
+  <div class="props">
+    <div class="prop"><h3>6. Re-forecast after month 1, and use it where lead time does not bite</h3><dl>
+      <dt>Evidence</dt><dd>Month-1 pace correlates {{rho_m1}} with the final residual. {{u_m1}} of large under-forecast error and {{o_m1}} of large over-forecast error is visible in month 1. D265 showed that chasing with new purchase orders loses money at a 21-day lead time.</dd>
+      <dt>Action</dt><dd>Use the early read for moves without lead time: shift stock between stores, partners and web, bring markdowns forward on fades, cancel or postpone the tail of open orders. Negotiate staged buys: a committed base and an option on the rest.</dd>
+      <dt>Worth</dt><dd>{{voi_m1}} of forecast error on months 2–4; {{voi_all}} together with the plans.</dd>
+      <dt>Status</dt><dd class="status">{{ps_6}}</dd></dl></div>
+    <div class="prop"><h3>7. A launch desk: forecasts conditional on the plan</h3><dl>
+      <dt>Evidence</dt><dd>Launches under three months hold {{young_units}} of units and {{young_err}} of the error. The model averages two populations it cannot tell apart at the origin.</dd>
+      <dt>Action</dt><dd>For each launch publish three numbers instead of one: the forecast if rolled out to all doors and partners, if partial, if web only, using the multiples measured here ({{yg_big_growth}}×, {{yg_mid_growth}}×, {{yg_flat_growth}}× R3). The merchant picks the row. The forecast becomes a function of a decision the business owns.</dd>
+      <dt>Worth</dt><dd>Turns the largest unexplained cohort into a planning table; needs no new data.</dd>
+      <dt>Status</dt><dd class="status">{{ps_7}}</dd></dl></div>
+    <div class="prop"><h3>8. Event rules with end dates</h3><dl>
+      <dt>Evidence</dt><dd>The World Cup items: the models' {{wc_now}} units against {{wc_rule}} under the hand rule, now in the submitted workbook.</dd>
+      <dt>Action</dt><dd>A short rule layer for items tagged with a dated event: after the event, cap each month at the decay measured on earlier event items.</dd>
+      <dt>Worth</dt><dd>About {{wc_diff}} units on three targets, {{wc_pct}} of the total; taken.</dd>
+      <dt>Status</dt><dd class="status">{{ps_8}}</dd></dl></div>
+  </div>
+
+  <h2 class="grp">Change the model</h2>
+  <div class="props">
+    <div class="prop"><h3>9. Forecast rate of sale per door, then multiply by planned doors</h3><dl>
+      <dt>Evidence</dt><dd>Own stores with sales grew from {{stores_first}} to {{stores_last}} during the backtest. A model of units mixes demand with shelf space.</dd>
+      <dt>Action</dt><dd>For the store channel, predict units per selling door-week and multiply by the plan. Keep web and TikTok as they are.</dd>
+      <dt>Worth</dt><dd>Makes proposal 1 usable by the model; also removes the fleet-growth trend from the seasonal estimates.</dd>
+      <dt>Status</dt><dd class="status">{{ps_9}}</dd></dl></div>
+    <div class="prop"><h3>10. Make the model robust to "this year differs"</h3><dl>
+      <dt>Evidence</dt><dd>Removing last year's same window costs a median of {{ls_same_med}}; removing other origins, {{ls_other_med}}.</dd>
+      <dt>Action</dt><dd>Score every candidate a second time with last year's window removed and prefer members that degrade least. Shrink each product type's seasonal effect toward a multi-year average as years accumulate. Feed the differences from last year as inputs: door count, planned promotion days, launches.</dd>
+      <dt>Worth</dt><dd>Protection, not accuracy: it limits the damage when 2026 does not repeat 2025.</dd>
+      <dt>Status</dt><dd class="status">{{ps_10}}</dd></dl></div>
+    <div class="prop"><h3>11. Widen and shift the intervals for this season</h3><dl>
+      <dt>Evidence</dt><dd>P10–P90 holds {{cov_all}} of actuals overall and {{an_cover}} at the June 2025 origin; {{cov_above}} land above P90 and {{cov_below}} below P10.</dd>
+      <dt>Action</dt><dd>For July–October multiply the log width by 1.3, which gives {{widen13}} at the June 2025 origin, and put most of the widening on the upper side.</dd>
+      <dt>Worth</dt><dd>Honest ranges and confidence levels; the buying column at P65 already leans the same way.</dd>
+      <dt>Status</dt><dd class="status">{{ps_11}}</dd></dl></div>
+  </div>
+
+  <h2 class="grp">Change how the system is judged</h2>
+  <div class="props">
+    <div class="prop"><h3>12. Use ±20% where it can be met</h3><dl>
+      <dt>Evidence</dt><dd>{{hit_items}} at item level, {{lvl_look}} by look, {{lvl_type}} by product type, {{lvl_group}} by product group. No information tested lifts the item level past {{hit_plan_early}}.</dd>
+      <dt>Action</dt><dd>Commit fabric and capacity on look or type totals, where ±20% holds most of the time, and split to items late. State the measured hit rate with each confidence level (53%, 44% and 33% in the backtest, D273) and define level 1 by the validated rule: a narrow range, a rising trend and a year of history. Report the unit-weighted rate ({{hit_units}}) beside the item count.</dd>
+      <dt>Worth</dt><dd>The decisions that need ±20% get it, and the item-level number is read for what it is: the volatility of single items, not a fault to tune away.</dd>
+      <dt>Status</dt><dd class="status">{{ps_12}}</dd></dl></div>
+    <div class="prop"><h3>13. Report three numbers, not one</h3><dl>
+      <dt>Evidence</dt><dd>The ratio to R3 ranges from 0.18 to 0.79 by origin while absolute error stays within {{abs_min}}–{{abs_max}} on recent origins.</dd>
+      <dt>Action</dt><dd>Quote absolute WAPE ({{abs_recent}}), the ratio to the seasonal naive ({{sys_vs_sea_recent}}), and the ratio to R3 by season. Take intervals from origin blocks and treat 13 origins as about {{neff13}} windows.</dd>
+      <dt>Worth</dt><dd>The same system, described in a way that does not change with the calendar.</dd>
+      <dt>Status</dt><dd class="status">{{ps_13}}</dd></dl></div>
+    <div class="prop"><h3>14. Freeze, write down the expectation, and stop tuning on the same nine origins</h3><dl>
+      <dt>Evidence</dt><dd>{{variants}} variants, selection noise of {{null_max}}, two adopted steps that reverse on early origins.</dd>
+      <dt>Action</dt><dd>Freeze the submitted system. If the backtest is honest, July–October 2026 should show absolute error near {{an_abs}} on item totals, about {{an_ratio}} × R3, a bias between −5% and −10%, and 66–80% of actuals inside P10–P90. Score it when actuals arrive: it is the first test no decision has touched. New members must also win with last year's window removed and on the early origins.</dd>
+      <dt>Worth</dt><dd>A number that can be trusted next season.</dd>
+      <dt>Status</dt><dd class="status">{{ps_14}}</dd></dl></div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="eyebrow">Method</div>
+  <h2>Definitions and limits</h2>
+  <p><b>System.</b> The submitted forecast (candidate_nx4, D350; the same units as candidate_nx3, with the D318 confidence rule and the D317 ranges): arithmetic mean of five members (rule agents, LightGBM, neural net, two TabPFN v2 variants) with the segment and breakout corrections (D273–D274), plus two hand rules on four of the 100 targets (out of stock, World Cup). The backtest scores the model system; the hand rules exist only in the 2026 workbook. Scores reproduce the log: {{ratio_recent}} recent, {{ratio_all}} on all 13.</p>
+  <p><b>Scores.</b> WAPE ÷ R3 = Σ|forecast − actual| ÷ Σ|R3 − actual| on 4-month item totals. Absolute error = Σ|forecast − actual| ÷ Σ actual. Bias = Σ forecast ÷ Σ actual − 1; negative is under-forecast.</p>
+  <p><b>Hindsight signals</b> use what happened in the forecast window. They show what information is missing; they are not forecasts. "Stores" counts own stores with at least one sale, so part of the store signal is demand itself. Stock gaps are inferred from improbable runs of zero-sale days (D021), not from inventory.</p>
+  <p><b>Not covered.</b> Month-level errors inside the window, and the buying simulation. The season-memory test uses the tree model alone. Files: <code>eda/198c</code>–<code>198g</code>, <code>data/fk_err_master.parquet</code>, <code>data/fk_err_analysis.json</code>; decisions D276–D277 in <code>log.md</code>.</p>
+  <p>Related pages: <a href="https://claude.ai/artifact/137UdxMX2e7re5W9isksTz">Forecast Atlas</a> · <a href="https://claude.ai/artifact/9ZPDJvYzHq2cUqELfcXdVY">Scoreboard</a></p>
+</section>
+<footer>Edikted demand forecast, July–October 2026 · error study of the submitted system</footer>
+</div>
+<div id="tip" hidden></div>
+<script type="application/json" id="study-data">__DATA__</script>
+<script>
+const J = JSON.parse(document.getElementById('study-data').textContent);
+const $ = (q, r = document) => r.querySelector(q), NS = 'http://www.w3.org/2000/svg';
+const h = (t, a = {}, ...k) => { const e = document.createElement(t); for (const [n, v] of Object.entries(a)) { if (n === 'class') e.className = v; else if (n === 'html') e.innerHTML = v; else if (n === 'text') e.textContent = v; else e.setAttribute(n, v); } for (const c of k) if (c != null) e.append(c); return e; };
+const s = (t, a = {}, ...k) => { const e = document.createElementNS(NS, t); for (const [n, v] of Object.entries(a)) e.setAttribute(n, v); for (const c of k) if (c != null) e.append(c); return e; };
+const pct = (x, d = 0) => x == null ? '–' : (x * 100).toFixed(d) + '%';
+const sp = (x, d = 0) => { if (x == null) return '–'; const r = Math.abs(x * 100).toFixed(d); return (+r === 0 ? '' : x > 0 ? '+' : '−') + r + '%'; };
+const sf = (x, d = 4) => x == null ? '–' : (x > 0 ? '+' : x < 0 ? '−' : '') + Math.abs(x).toFixed(d);
+const fx = (x, d = 2) => x == null ? '–' : x.toFixed(d), int = x => x == null ? '–' : Math.round(x).toLocaleString('en-US');
+const volCell = (v, mx) => h('td', {}, h('div', { style: 'display:flex;gap:8px;align-items:center;min-width:120px' }, h('div', { class: 'pair', style: 'flex:1' }, h('div', { class: 'e', style: 'width:' + Math.max(3, Math.sqrt(v / mx) * 100) + '%;height:9px' })), h('span', { text: int(v) })));
+const mon = o => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][+o.slice(5) - 1] + ' ' + o.slice(2, 4);
+const addM = (o, k) => { let y = +o.slice(0, 4), m = +o.slice(5) - 1 + k; y += Math.floor(m / 12); m = ((m % 12) + 12) % 12; return `${y}-${String(m + 1).padStart(2, '0')}`; };
+const win = o => `${mon(addM(o, 1))} – ${mon(addM(o, 4))}`;
+const tip = $('#tip');
+function showTip(e) { const t = e.target.closest ? e.target.closest('[data-tip]') : null; if (!t) { tip.hidden = true; return; } tip.innerHTML = t.dataset.tip; tip.hidden = false; const r = tip.getBoundingClientRect(); let x = e.clientX + 14, y = e.clientY + 14; if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14; if (y + r.height > innerHeight - 8) y = e.clientY - r.height - 14; tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px'; }
+document.addEventListener('pointermove', showTip); document.addEventListener('pointerdown', showTip); document.addEventListener('scroll', () => tip.hidden = true, true);
+const txt = (x, y, str, anchor = 'start', cls = '') => { const t = s('text', { x, y, 'text-anchor': anchor, class: cls }); t.textContent = str; return t; };
+const bar = (x, y, w, hh, r) => { r = Math.min(r, w / 2, Math.max(hh, 0)); return `M${x},${y + hh}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + hh}Z`; };
+
+function groupedBars(node, groups, series, o) {
+  const W = o.w || 520, H = o.h || 250, m = { l: 40, r: 8, t: 14, b: o.b || 38 }, iw = W - m.l - m.r, ih = H - m.t - m.b, gw = iw / groups.length;
+  const bw = Math.max(3, Math.min(16, (gw - 6 - 2 * (series.length - 1)) / series.length)), lo = o.min || 0, y = v => m.t + ih - (Math.min(Math.max(v, lo), o.max) - lo) / (o.max - lo) * ih;
+  const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': o.label });
+  o.ticks.forEach(t => { svg.append(s('line', { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), class: t === 0 ? 'axis' : 'grid' })); svg.append(txt(m.l - 6, y(t) + 4, o.fmt(t), 'end')); });
+  groups.forEach((g, i) => { const gx = m.l + i * gw, x0 = gx + (gw - bw * series.length - 2 * (series.length - 1)) / 2, grp = s('g', { class: 'hit', 'data-tip': g.tip });
+    if (g.mark) grp.append(s('rect', { x: gx + 1, y: m.t - 6, width: gw - 2, height: ih + 6, fill: 'var(--grid)', rx: 3 }));
+    grp.append(s('rect', { x: gx, y: m.t, width: gw, height: ih + 20, fill: 'transparent' }));
+    g.v.forEach((v, k) => { if (v == null) return; const y0 = y(Math.max(v, 0)), y1 = y(Math.min(v, 0)), bx = x0 + k * (bw + 2);
+      grp.append(v >= 0 ? s('path', { d: bar(bx, y0, bw, y1 - y0, 3), fill: `var(${series[k].c})` }) : s('rect', { x: bx, y: y0, width: bw, height: Math.max(y1 - y0, 1), fill: `var(${series[k].c})`, rx: 2 }));
+      if (v > o.max) grp.append(txt(bx + bw / 2, m.t - 2, o.fmt(v), 'middle', 'lab')); });
+    svg.append(grp); if (!o.every || i % o.every === 0) svg.append(txt(gx + gw / 2, H - m.b + 15, g.label, 'middle', g.mark ? 'lab' : '')); if (g.sub) svg.append(txt(gx + gw / 2, H - m.b + 28, g.sub, 'middle')); });
+  node.append(svg);
+}
+function lineChart(node, xs, series, o) {
+  const W = o.w || 520, H = o.h || 250, m = { l: 40, r: o.r || 56, t: 14, b: 30 }, iw = W - m.l - m.r, ih = H - m.t - m.b, n = xs.length, lo = o.min || 0;
+  const x = i => m.l + (n === 1 ? iw / 2 : i * iw / (n - 1)), y = v => m.t + ih - (v - lo) / (o.max - lo) * ih, svg = s('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': o.label });
+  o.ticks.forEach(t => { svg.append(s('line', { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), class: t === 0 ? 'axis' : 'grid' })); svg.append(txt(m.l - 6, y(t) + 4, o.fmt(t), 'end')); });
+  if (o.diag) svg.append(s('line', { x1: x(0), y1: y(o.diag[0]), x2: x(n - 1), y2: y(o.diag[1]), stroke: 'var(--ref)', 'stroke-width': 1, 'stroke-dasharray': '4 4' }));
+  series.forEach(se => { const pts = se.v.map((v, i) => v == null ? null : [x(i), y(v)]).filter(Boolean); svg.append(s('path', { d: 'M' + pts.map(p => p.join(',')).join('L'), fill: 'none', stroke: `var(${se.c})`, 'stroke-width': 2, 'stroke-linejoin': 'round' }));
+    if (o.dots) pts.forEach(p => svg.append(s('circle', { cx: p[0], cy: p[1], r: 3, fill: `var(${se.c})`, stroke: 'var(--surface)', 'stroke-width': 1.5 })));
+    if (se.end) { const p = pts[pts.length - 1]; svg.append(txt(p[0] + 7, p[1] + 4, se.end, 'start', 'lab')); } });
+  xs.forEach((lab, i) => { const grp = s('g', { class: 'hit', 'data-tip': o.tip(i) }); grp.append(s('rect', { x: x(i) - iw / n / 2, y: m.t, width: iw / n, height: ih + 16, fill: 'transparent' })); grp.append(s('line', { x1: x(i), x2: x(i), y1: m.t, y2: m.t + ih, class: 'guide' }));
+    series.forEach(se => { if (se.v[i] != null) grp.append(s('circle', { cx: x(i), cy: y(se.v[i]), r: 4.5, fill: `var(${se.c})`, stroke: 'var(--surface)', 'stroke-width': 2, class: 'hl' })); }); svg.append(grp);
+    if (i % (o.every || 1) === 0 && !(o.skip0 && i === 0)) svg.append(txt(x(i), H - m.b + 16, lab, 'middle', o.markX === i ? 'lab' : '')); });
+  node.append(svg);
+}
+// horizontal bars built in HTML: rows of {label, sub, v, v2, tip, text}
+function hbars(node, rows, o) {
+  const lo = o.min, hi = o.max, z = (0 - lo) / (hi - lo) * 100, pos = v => (Math.min(Math.max(v, lo), hi) - lo) / (hi - lo) * 100;
+  rows.forEach(r => { const t = h('div', { class: 't', style: `--zero:${z}%` });
+    const add = (v, c, top, hh) => { if (v == null) return; const a = Math.min(pos(v), z), b = Math.max(pos(v), z); t.append(h('i', { style: `left:${a}%;width:${Math.max(b - a, .6)}%;background:var(${c});top:${top}px;height:${hh}px` })); };
+    if (o.mark != null) t.append(h('i', { style: `left:${pos(o.mark)}%;width:1.5px;background:var(--fg);top:-3px;height:18px;opacity:.45;border-radius:0` }));
+    if (r.v2 != null) { add(r.v2, '--ref', 0, 5); add(r.v, o.c || '--accent', 6, 6); } else add(r.v, o.color ? o.color(r.v) : (o.c || '--accent'), 1, 10);
+    node.append(h('div', { class: 'hb', 'data-tip': r.tip || '' }, h('div', { class: 'l', html: r.label + (r.sub ? ` <small>${r.sub}</small>` : '') }), t, h('div', { class: 'v', text: r.text }))); });
+}
+const divBar = (b, cap = 0.3) => { const w = Math.min(Math.abs(b) / cap, 1) * 50; return h('div', { class: 'div' }, h('i', { style: `${b < 0 ? `right:50%` : `left:50%`};width:${w}%;background:var(${b < 0 ? '--under' : '--over'})` })); };
+
+// ---- +/-20% hit rate
+{ const HT = J.hit, C = HT.curve, L = HT.level_shape, I = HT.info;
+  lineChart($('#c-tol'), C.map(d => '±' + Math.round(d.tol * 100) + '%'), [{ c: '--ref', v: C.map(d => d.r3), end: 'R3' }, { c: '--s2', v: C.map(d => d.seasonal), end: 'seasonal' }, { c: '--accent', v: C.map(d => d.system), end: 'system' }], { max: 1, ticks: [0, .25, .5, .75, 1], fmt: v => pct(v), dots: true, r: 58, markX: 3, label: 'Share of item totals within a tolerance', tip: i => `<b>Within ±${Math.round(C[i].tol * 100)}%</b><br>system ${pct(C[i].system, 1)} (${pct(C[i].units, 1)} of units)<br>seasonal naive ${pct(C[i].seasonal, 1)}<br>R3 ${pct(C[i].r3, 1)}` });
+  const lad = [['Today', I.system, 'the submitted system'], ["Each origin's total known", L.origin_total, 'the overall amount exactly right'], ["Each product type's total known", L.type_total, ''], ['Roll-out, promotion, stock and launch plans known', I.plan, 'allocation re-fitted'], ['Plans + one month of sales', I.plan_early, 're-forecast after month 1'], ['Each type × look total known', L.cell_total, 'not forecastable (D240)'], ['Best of the five models per item', L.best_member, 'picked afterwards']];
+  hbars($('#c-ladder'), lad.map(([a, v, sub]) => ({ label: a, sub, v, text: pct(v), tip: `<b>${a}</b>: ${pct(v, 1)} within ±20%` })), { min: 0, max: 0.8, mark: 0.6 });
+  const tb = $('#t-bands tbody'); HT.bands.forEach(b => tb.append(h('tr', {}, h('td', { text: b.band }), h('td', {}, h('div', { style: 'display:flex;gap:8px;align-items:center;min-width:150px' }, h('div', { class: 'pair', style: 'flex:1' }, h('div', { class: 'e', style: `width:${b.share / 0.45 * 100}%;height:9px` })), h('span', { text: pct(b.share) }))),
+    h('td', { class: 'r', text: pct(b.units) }), h('td', { class: 'r', text: pct(b.under) }), h('td', { class: 'r', text: int(b.med_level) }), h('td', { class: 'r', text: pct(b.young) }), h('td', { class: 'r', text: pct(b.bf) }), h('td', { class: 'r', text: pct(b.all_same) }), h('td', { class: 'r', text: pct(b.inside) }))));
+  hbars($('#c-levels'), HT.levels.map(d => ({ label: d.level, sub: `${int(d.n)} totals, median ${int(d.med_units)} units`, v: d.hit, text: pct(d.hit), tip: `<b>${d.level}</b><br>${pct(d.hit, 1)} within ±20% (R3: ${pct(d.r3, 1)})<br>${pct(d.within10, 1)} within ±10%` })), { min: 0, max: 1, mark: 0.6 });
+  const coh = (id, L2) => { const t = $(id + ' tbody'); L2.slice(0, 8).forEach(d => t.append(h('tr', {}, h('td', { html: `${d.plain || d.g}<br><span class="small">${d.axis}: ${d.g}</span>` }), h('td', { class: 'small', text: d.why || '' }), h('td', { class: 'r', text: int(d.n) }), h('td', { class: 'r', text: d.units < 0.005 ? 'under 1%' : pct(d.units) }), h('td', { class: 'r', text: pct(d.hit) })))); };
+  coh('#t-hlow', HT.cohort_low); coh('#t-hhigh', HT.cohort_high);
+  groupedBars($('#c-dec'), HT.clf.deciles.map(d => ({ label: String(d.decile), v: [d.hit], tip: `<b>Tenth ${d.decile}</b> by predicted chance<br>predicted ${pct(d.p)}, actual ${pct(d.hit, 1)} within ±20%` })), [{ c: '--accent' }], { max: 0.7, ticks: [0, .2, .4, .6], fmt: v => pct(v), h: 220, label: 'Actual hit rate by tenth of predicted chance' });
+  const tr = $('#t-rules tbody'); HT.rules.filter((d, i, a) => a.findIndex(x => x.first_half === d.first_half && x.second_half === d.second_half) === i).slice(0, 6).forEach(d => tr.append(h('tr', {}, h('td', { text: d.rule }), h('td', { class: 'r', text: pct(d.first_half) }), h('td', { class: 'r', text: pct(d.second_half) }), h('td', { class: 'r', text: pct(d.cover) }), h('td', { class: 'r', text: pct(d.units) })))); }
+
+// ---- where
+lineChart($('#c-lorenz'), [0, ...J.lorenz.map(p => p[0])].map(v => pct(v)), [{ c: '--accent', v: [0, ...J.lorenz.map(p => p[1])] }], { max: 1, ticks: [0, .25, .5, .75, 1], fmt: v => pct(v), r: 12, every: 8, skip0: true, diag: [0, 1], label: 'Cumulative share of error by share of forecasts', tip: i => i === 0 ? 'Start' : `Worst <b>${pct(J.lorenz[i - 1][0], 1)}</b> of forecasts hold <b>${pct(J.lorenz[i - 1][1])}</b> of the error` });
+{ const H = J.headline, rows = [
+  { label: 'Under-forecast', sub: `${pct(H.under_n_share)} of forecasts`, v: H.under_err_share, text: pct(H.under_err_share) }, { label: 'Over-forecast', sub: `${pct(1 - H.under_n_share)} of forecasts`, v: 1 - H.under_err_share, text: pct(1 - H.under_err_share) },
+  { label: 'All five models too low', sub: `${pct(H.all_under_n)} of forecasts`, v: H.all_under_err, text: pct(H.all_under_err) }, { label: 'All five models too high', sub: `${pct(H.all_over_n)} of forecasts`, v: H.all_over_err, text: pct(H.all_over_err) },
+  { label: 'Models on both sides', sub: `${pct(1 - H.all_under_n - H.all_over_n)} of forecasts`, v: 1 - H.all_under_err - H.all_over_err, text: pct(1 - H.all_under_err - H.all_over_err) }];
+  rows.forEach(r => r.tip = `<b>${r.label}</b>: ${r.text} of the error, ${r.sub}`); hbars($('#c-split'), rows, { min: 0, max: 1 }); }
+
+// ---- the two counts, and other ways to combine the models
+{ const t2 = $('#t-two tbody'); J.twocounts.by_fifth.forEach(d => t2.append(h('tr', {}, h('td', { text: `fifth ${d.fifth} (median ${int(d.med_level)} / month)` }), h('td', { class: 'r', text: pct(d.forecasts) }), h('td', { class: 'r', text: pct(d.misses) }), h('td', { class: 'r', text: pct(d.err) }), h('td', { class: 'r', text: pct(d.hit) }))));
+  const KEEP = ['arithmetic mean (submitted stack)', 'trimmed mean (drop lowest and highest)', 'geometric mean', 'weights by past score, power 1', 'weights by past score, power 2', 'weights by past score within age band, power 2', 'median of the five', 'drop the member farthest from the median', 'upper four (drop the lowest)', 'weights by past score, power 4', 'densest three (smallest spread)', 'upper three', 'best single member so far', 'best member per item, picked afterwards (bound)'];
+  const tc = $('#t-combine tbody'); KEEP.forEach((k, i) => { const d = J.stackvar.rows.find(x => x.variant === k); if (!d) return; tc.append(h('tr', i === 0 ? { class: 'on' } : { 'data-tip': `<b>${d.variant}</b><br>difference in WAPE ÷ R3 against the plain average: ${sf(d.ci[0])} to ${sf(d.ci[1])}<br>all 13 origins: ${fx(d.wape_all, 3)}, ${pct(d.hit_all, 1)} within ±20%` }, h('td', { text: d.variant }), h('td', { class: 'r', text: fx(d.wape, 3) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: sp(d.bias) }))); }); }
+
+// ---- picking per item from its past; all five too low
+{ const tp = $('#t-pick tbody'); J.itempick.rows.forEach((d, i) => tp.append(h('tr', Object.assign(i === 0 ? { class: 'on' } : {}, d.cover != null && d.cover < 1 ? { 'data-tip': '<b>' + d.variant + '</b><br>' + pct(d.cover) + ' of recent forecasts have the history this needs<br>all 13 origins: ' + fx(d.wape_all, 3) } : {}), h('td', { text: d.variant }), h('td', { class: 'r', text: fx(d.wape, 3) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: d.ci ? sf(d.ci[0]) + ' to ' + sf(d.ci[1]) : '' }))));
+  const A = J.alllow.clf; groupedBars($('#c-allow'), A.deciles.map(d => ({ label: String(d.decile), v: [d.rate], tip: '<b>Risk tenth ' + d.decile + '</b><br>' + pct(d.rate, 1) + ' had all five models too low<br>' + pct(d.err, 1) + ' of the all-too-low error<br>bias of the tenth ' + sp(d.bias) })), [{ c: '--accent' }], { max: 0.5, ticks: [0, .1, .2, .3, .4, .5], fmt: v => pct(v), h: 220, label: 'Share of forecasts with all five models too low, by tenth of predicted risk' }); }
+
+// ---- scored both ways; the loss; time or item
+{ const B = J.bothways, tb = $('#t-both tbody'); B.systems.forEach((d, i) => tb.append(h('tr', i === 2 ? { class: 'on' } : {}, h('td', { text: d.system }), h('td', { class: 'r', text: pct(d.wape_abs, 1) }), h('td', { class: 'r', text: fx(d.ratio, 3) }), h('td', { class: 'r', text: pct(d.med_ape, 1) }), h('td', { class: 'r', text: fx(d.med_ape_ratio, 3) }), h('td', { class: 'r', text: pct(d.mean_ape, 1) }), h('td', { class: 'r', text: pct(d.hit, 1) }))));
+  const tf = $('#t-bothfifth tbody'); B.fifths.forEach(d => tf.append(h('tr', {}, h('td', { text: 'fifth ' + d.fifth + ' (median ' + int(d.med_level) + ' / month)' }), h('td', { class: 'r', text: pct(d.units, 1) }), h('td', { class: 'r', text: pct(d.wape_abs) }), h('td', { class: 'r', text: pct(d.err_units) }), h('td', { class: 'r', text: pct(d.med_ape) }), h('td', { class: 'r', text: pct(d.err_pct) }), h('td', { class: 'r', text: pct(d.hit) }))));
+  const tl = $('#t-loss tbody'); J.lossscale.forEach((d, i) => tl.append(h('tr', i === 0 ? { class: 'on' } : {}, h('td', { text: d.variant }), h('td', { class: 'r', text: fx(d.ratio, 3) }), h('td', { class: 'r', text: pct(d.med_ape, 1) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: sp(d.bias) }))));
+  const T = J.timeitem, sh = [T.time, T.group_time, T.type_time, T.cell_time], nm = ['Everything at one origin (the time)', 'A product group at one origin', 'A product type at one origin', 'A type × look group at one origin'], tt = $('#t-timeitem tbody');
+  T.oracles.forEach((d, i) => tt.append(h('tr', {}, h('td', { text: nm[i] }), h('td', { class: 'r', text: String(d.groups) }), h('td', { class: 'r', text: pct(sh[i]) }), h('td', { class: 'r', text: fx(d.wape, 3) }), h('td', { class: 'r', text: pct(d.hit, 1) }))));
+  tt.append(h('tr', { class: 'on' }, h('td', { text: 'Today, nothing known' }), h('td', { class: 'r', text: '' }), h('td', { class: 'r', text: '' }), h('td', { class: 'r', text: fx(T.system, 3) }), h('td', { class: 'r', text: pct(T.system_hit, 1) }))); }
+
+// ---- surprise inputs; a second model over the five
+{ const ts = $('#t-surprise tbody'); J.surprise.rows.forEach((d, i) => ts.append(h('tr', i === 1 ? { class: 'on' } : {}, h('td', { text: d.variant }), h('td', { class: 'r', text: fx(d.wape, 4) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: d.ci ? sf(d.ci[0]) + ' to ' + sf(d.ci[1]) : '' }))));
+  const tm = $('#t-meta tbody'); J.metapick.rows.forEach((d, i) => tm.append(h('tr', i === 0 ? { class: 'on' } : {}, h('td', { text: d.variant }), h('td', { class: 'r', text: fx(d.wape, 3) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: sp(d.bias) }), h('td', { class: 'r', text: d.ci ? sf(d.ci[0]) + ' to ' + sf(d.ci[1]) : '' })))); }
+
+// ---- the flag: inputs and the 2026 targets
+{ const FI = J.flaginfo, ti = $('#t-flagimp tbody'); FI.importance.slice(0, 5).forEach(d => ti.append(h('tr', {}, h('td', { text: d.label }), h('td', { class: 'r', text: pct(d.gain) }), h('td', { class: 'r', text: pct(d.low) }), h('td', { class: 'r', text: pct(d.high) }))));
+  const t26 = $('#t-flag26 tbody'), VF = Math.max(...FI.t26.top.map(d => d.vol)); FI.t26.top.forEach(d => t26.append(h('tr', {}, h('td', { html: d.name + '<br><span class="small">' + d.item + '</span>' }), h('td', { text: d.ptype }), volCell(d.vol, VF), h('td', { class: 'r', text: int(d.F) }), h('td', { class: 'r', text: pct(d.p) })))); }
+
+// ---- R-squared; last-month inputs
+{ const tr2 = $('#t-r2 tbody'); J.r2.systems.forEach((d, i, a) => tr2.append(h('tr', i === a.length - 1 ? { class: 'on' } : { 'data-tip': '<b>' + d.system + '</b><br>all 13 origins: ' + fx(d.all13.units, 2) + ' in units, ' + fx(d.all13.log, 2) + ' in logs, ' + fx(d.all13.change, 2) + ' of the change' }, h('td', { text: d.system }), h('td', { class: 'r', text: fx(d.units, 2) }), h('td', { class: 'r', text: fx(d.log, 2) }), h('td', { class: 'r', text: fx(d.change, 2) }), h('td', { class: 'r', text: fx(d.change_within, 2) }))));
+  const tlm = $('#t-lm tbody'); J.lastmonth.rows.forEach((d, i) => tlm.append(h('tr', i === 1 ? { class: 'on' } : {}, h('td', { text: d.variant }), h('td', { class: 'r', text: d.n ? String(d.n) : '' }), h('td', { class: 'r', text: fx(d.wape, 4) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: d.ci ? sf(d.ci[0]) + ' to ' + sf(d.ci[1]) : '' })))); }
+
+// ---- item-equal comparison with R3
+{ const tr = $('#t-rel tbody'); J.itemrel.systems.forEach(d => tr.append(h('tr', d.system === 'Submitted system' ? { class: 'on' } : { 'data-tip': '<b>' + d.system + '</b><br>all 13 origins: GMRAE ' + fx(d.all13.gmrae, 3) + ', ' + pct(d.all13.better, 1) + ' closer than R3' }, h('td', { text: d.system }), h('td', { class: 'r', text: fx(d.wape_r3, 3) }), h('td', { class: 'r', text: fx(d.gmrae, 3) }), h('td', { class: 'r', text: fx(d.mdrae, 3) }), h('td', { class: 'r', text: pct(d.better, 1) }), h('td', { class: 'r', text: fx(d.mean_rel, 3) })))); }
+
+// ---- when
+{ const O = J.origins, SN = Object.fromEntries(J.seasonal_naive.by_origin.map(d => [d.origin, d])), MX = Object.fromEntries(J.confounds.mix.map(d => [d.origin, d]));
+  groupedBars($('#c-origin'), O.map(o => ({ label: mon(o.origin), mark: o.origin === '2025-06', v: [o.r3abs, o.abs], tip: `<b>Origin ${mon(o.origin)}</b> (forecasts ${win(o.origin)})<br>R3 misses by ${pct(o.r3abs)} of units<br>System misses by ${pct(o.abs)}<br>Ratio ${fx(o.ratio)} · bias ${sp(o.bias)}` })), [{ c: '--ref' }, { c: '--accent' }], { max: 1.4, ticks: [0, .25, .5, .75, 1, 1.25], fmt: v => pct(v), every: 2, label: 'Absolute error of R3 and of the system by origin' });
+  lineChart($('#c-metric'), O.map(o => mon(o.origin)), [{ c: '--accent', v: O.map(o => o.ratio), end: '÷ R3' }, { c: '--s2', v: O.map(o => SN[o.origin].sys_vs_sea), end: '÷ seasonal' }], { max: 1, ticks: [0, .25, .5, .75, 1], fmt: v => fx(v), every: 2, dots: true, r: 66, label: 'System error relative to R3 and to a seasonal naive, by origin', tip: i => `<b>Origin ${mon(O[i].origin)}</b><br>÷ R3: ${fx(O[i].ratio)}<br>÷ seasonal naive: ${fx(SN[O[i].origin].sys_vs_sea)}` });
+  const tb = $('#t-origin tbody'); O.forEach(o => tb.append(h('tr', o.origin === '2025-06' ? { class: 'on' } : {}, h('td', { text: mon(o.origin) }), h('td', { text: win(o.origin) }), h('td', { class: 'r', text: int(o.n) }), h('td', { class: 'r', text: int(MX[o.origin].stores) }), h('td', { class: 'r', text: pct(o.r3abs) }), h('td', { class: 'r', text: pct(o.abs) }), h('td', { class: 'r', text: fx(o.ratio) }), h('td', { class: 'r', text: fx(SN[o.origin].sys_vs_sea) }), h('td', { class: 'r', text: sp(o.bias) }), h('td', { class: 'r', text: o.train_origins })))); }
+
+// ---- cohorts
+const NOTES = { age: 'Launches under 3 months are 16% of units and 21% of the error, under-forecast by 13%. The 3–6 month band is the calmest.', volume: 'Bias grows as volume falls: the middle fifths are under-forecast by 17–21%. The pattern holds in both halves of the backtest; the segment correction already uses it.',
+  direction: 'The system earns its score where it moves far from R3. Within ±10% of R3 it is R3 (ratio 0.99). Forecasts far above R3 are still 13% too low.', season: 'Windows with November hold 56% of the error. The summer-into-autumn window, the deliverable\'s season, scores 0.69.',
+  stores: 'Items in no own store are under-forecast by 15%. Items already in 8–11 stores score 0.29.', interval: 'Interval width ranks risk correctly: 40% absolute error in the widest fifth, 21% in the narrowest. Coverage runs 71–78% against a nominal 80%.',
+  target: 'Targets are under-forecast by 15%, other items by 4%. This is a selection effect: see Confounds.', burst_day: 'The spikiest fifth (largest day 17% or more of the origin month) scores 0.50 and is the only fifth that is not under-forecast: a spike at the origin fades.',
+  disc_level: 'Items at 45–55% web discount hold 51% of the error and are under-forecast by 11%. Deeply discounted items are forecast well.', momentum: 'Falling-fast items score 0.59, the worst trend band.',
+  oos: 'Stock gaps at the origin cover 2% of units. Those items are under-forecast by about 28% weighted by units: larger items rebound after a delivery.', macro: 'Warm items (hoodies, sweaters) score 0.27; dresses 0.53 with a bias of −13% and the lowest interval coverage.',
+  correction: 'Where the last layer corrected downward by 5% or more the system scores 0.20; where it corrected upward, 0.54 with a bias of −12%. Upward corrections are too timid.', partners: 'Items with no wholesale partner have 24% more error than their mix explains.', siblings: 'Styles with four or more live colours are forecast far better (0.15–0.27) than single-colour styles (0.44).',
+  newest: 'The newest colour of a style ends closer to forecast (bias −3%) than older colours (−10%).', spread: 'Model disagreement ranks risk: the top fifth scores 0.52 against 0.31–0.35 for the calmest fifths.', cohort: 'Items launched in the first half of 2026 are under-forecast by 27%; they are 1% of units.' };
+const AXK = Object.keys(J.cohorts), sel = $('#axis-select'); AXK.forEach(k => sel.append(h('option', { value: k, text: J.cohorts[k].label })));
+function drawCohort(k) { const c = J.cohorts[k], tb = $('#t-cohort tbody'); tb.replaceChildren(); sel.value = k; $('#axis-note').textContent = NOTES[k] || ''; const mx = Math.max(...c.groups.map(g => Math.max(g.unit_share, g.err_share)));
+  c.groups.forEach(g => { if (g.n < 20) return; tb.append(h('tr', { 'data-tip': `<b>${g.g}</b><br>${pct(g.unit_share, 1)} of units, ${pct(g.err_share, 1)} of the error<br>WAPE ÷ R3 ${fx(g.ratio)} (all 13: ${fx(g.ratio_all)})<br>bias ${sp(g.bias)}` }, h('td', { text: g.g }),
+    h('td', {}, h('div', { class: 'pair' }, h('div', { class: 'u', style: `width:${g.unit_share / mx * 100}%` }), h('div', { class: 'e', style: `width:${g.err_share / mx * 100}%` }))), h('td', { class: 'r', text: fx(g.ratio) }), h('td', { class: 'r', text: pct(g.abs) }),
+    h('td', {}, h('div', { style: 'display:flex;gap:8px;align-items:center' }, divBar(g.bias), h('span', { text: sp(g.bias) }))), h('td', { class: 'r', text: fx(g.adj) }), h('td', { class: 'r', text: pct(g.cover) }), h('td', { class: 'r', text: int(g.n) }))); });
+  document.querySelectorAll('#t-axes tbody tr').forEach(r => r.classList.toggle('on', r.dataset.k === k)); }
+let sortK = 'conc', sortD = -1;
+function drawAxes() { const tb = $('#t-axes tbody'); tb.replaceChildren(); [...AXK].sort((a, b) => { const x = J.cohorts[a][sortK], y = J.cohorts[b][sortK]; return (typeof x === 'string' ? x.localeCompare(y) : x - y) * sortD; }).forEach(k => { const c = J.cohorts[k];
+  const tr = h('tr', { class: 'pick', 'data-k': k, tabindex: 0 }, h('td', { text: c.label }), h('td', { class: 'r', text: fx(c.conc, 3) }), h('td', { class: 'r', text: fx(c.bias_sd, 3) }), h('td', { class: 'r', text: pct(c.sign_agree) }), h('td', { class: 'r', text: sf(c.th_gain) }));
+  tr.addEventListener('click', () => drawCohort(k)); tr.addEventListener('keydown', e => { if (e.key === 'Enter') drawCohort(k); }); tb.append(tr); }); }
+document.querySelectorAll('#t-axes th.sort').forEach(th => th.addEventListener('click', () => { const k = th.dataset.k; sortD = sortK === k ? -sortD : (k === 'label' || k === 'th_gain' ? 1 : -1); sortK = k; drawAxes(); drawCohort(sel.value); }));
+sel.addEventListener('change', () => drawCohort(sel.value)); drawAxes(); drawCohort('age');
+
+// ---- heat maps
+const HN = { dir_season: 'Rows: where the forecast sits against R3. In the deliverable\'s season (second column) forecasts 1.1–1.4× R3 were 20% too low and those near R3 14% too low.', age_vol: 'Small and mid-volume items are under-forecast at every age; the largest fifth is close to unbiased.', age_season: 'Summer-into-autumn windows score 0.67–0.81 for items over six months old: R3 is hard to beat there.', age_dir: 'Launches forecast far above R3 are still 16% too low. Forecasts near R3 add nothing at any age.', macro_season: 'Each product group by season. Cells with fewer than 15 forecasts are left blank.' };
+function drawHeat() { const k = $('#heat-map').value, mt = $('#heat-metric').value, M = J.heat[k], t = $('#t-heat'); t.replaceChildren(); const short = c => c.replace(/ \(.*\)/, '');
+  t.append(h('thead', {}, h('tr', {}, h('th', {}), ...M.cols.map(c => h('th', { text: short(c) })))));
+  const tb = h('tbody'); M.rows.forEach((r, i) => { const tr = h('tr', {}, h('th', { text: short(r) })); M.cells[i].forEach((c, j) => { const v = c[mt]; let st = 'background:var(--grid);color:var(--muted)', lab = '·';
+    if (v != null) { if (mt === 'ratio') { const u = Math.min(Math.max((v - 0.1) / 0.9, 0), 1); st = `background:color-mix(in oklab,var(--seq-hi) ${Math.round(u * 100)}%,var(--seq-lo));color:var(${u > 0.36 ? '--on-strong' : '--fg'})`; lab = fx(v); }
+      else { const u = Math.min(Math.abs(v) / 0.3, 1); st = `background:color-mix(in oklab,var(${v < 0 ? '--under' : '--over'}) ${Math.round(u * 100)}%,var(--mid));color:var(${u > 0.55 ? '--on-strong' : '--fg'})`; lab = sp(v); } }
+    tr.append(h('td', { style: st, text: lab, 'data-tip': `<b>${short(r)}</b> × <b>${short(M.cols[j])}</b><br>${int(c.n)} forecasts, ${pct(c.es, 1)} of the error<br>WAPE ÷ R3 ${fx(c.ratio)} · bias ${sp(c.bias)}` })); }); tb.append(tr); }); t.append(tb); $('#heat-note').textContent = HN[k] + (mt === 'ratio' ? ' Darker = closer to R3\'s own error.' : ' Blue = under-forecast, red = over-forecast.'); }
+$('#heat-map').addEventListener('change', drawHeat); $('#heat-metric').addEventListener('change', drawHeat); drawHeat();
+
+// ---- information
+const sigRows = (L, n) => L.slice(0, n).map(d => ({ label: d.label, sub: `${Math.round(d.sign * 13)}/13 origins`, v: d.rho, text: sf(d.rho, 2), tip: `<b>${d.label}</b><br>rank correlation with the residual: ${sf(d.rho, 3)} recent, ${sf(d.rho_all, 3)} all origins<br>same sign at ${Math.round(d.sign * 13)} of 13 origins` }));
+hbars($('#c-sig-o'), sigRows(J.sig_origin, 12), { min: -0.15, max: 0.15, color: v => v < 0 ? '--over' : '--under' });
+hbars($('#c-sig-h'), sigRows(J.sig_hind, 12), { min: -0.3, max: 0.6, color: v => v < 0 ? '--over' : '--under' });
+hbars($('#c-voi'), J.voi.slice(1).map(d => ({ label: d.block.replace(/ \(.*\)/, ''), sub: d.block.match(/\((.*)\)/) ? d.block.match(/\((.*)\)/)[1] : '', v: -d.delta, text: sf(d.delta, 3), tip: `<b>${d.block}</b><br>WAPE ÷ R3 ${fx(d.wape, 3)} against ${fx(J.voi[0].wape, 3)} without it<br>all 13 origins: ${fx(d.wape_all, 3)}` })), { min: 0, max: 0.08 });
+
+// ---- distribution
+{ const tb = $('#t-young tbody'); J.young_distribution.forEach(g => tb.append(h('tr', {}, h('td', { text: g.g }), h('td', { class: 'r', text: int(g.n) }), h('td', { class: 'r', text: pct(g.units) }), h('td', { class: 'r', text: fx(g.growth) + '×' }), h('td', {}, h('div', { style: 'display:flex;gap:8px;align-items:center' }, divBar(g.bias, 0.4), h('span', { text: sp(g.bias) }))))));
+  const F = J.fleet.filter(d => d.m >= '2024-01'); lineChart($('#c-fleet'), F.map(d => mon(d.m)), [{ c: '--accent', v: F.map(d => d.stores) }], { max: 16, ticks: [0, 4, 8, 12, 16], fmt: v => v, every: 6, r: 14, label: 'Own stores with sales by month', tip: i => `<b>${mon(F[i].m)}</b>: ${F[i].stores} own stores with sales` });
+  const C = J.channel_growth, nm = { web: 'edikted.com', tt: 'TikTok', ret: 'Own stores', par: 'Partners' }; hbars($('#c-chan'), Object.keys(nm).map(k => ({ label: nm[k], v: C.big_under[k], v2: C.big_under_base[k], text: pct(C.big_under[k]), tip: `<b>${nm[k]}</b><br>${pct(C.big_under_base[k], 1)} of these items' units before the origin<br>${pct(C.big_under[k], 1)} of the extra units in the window` })), { min: 0, max: 0.8 }); }
+
+// ---- stores reached as a known future
+{ const tb = $('#t-fstores tbody'); J.future_stores.rows.forEach((d, i) => tb.append(h('tr', i === 2 ? { class: 'on' } : {}, h('td', { text: d.variant }), h('td', { class: 'r', text: fx(d.wape, 3) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: d.ci ? sf(d.ci[0]) + ' to ' + sf(d.ci[1]) : '' })))); }
+
+// ---- overfit
+{ const tb = $('#t-chain tbody'), V = __VERDICTS__, O = J.origins.map(o => o.origin); J.chain.forEach((c, i) => { const strip = h('span', { class: 'strip' }); c.per_origin.forEach((d, j) => strip.append(h('i', { class: j === 4 ? 'gap' : '', style: `background:var(${d === 0 ? '--ref' : d < 0 ? '--under' : '--over'});opacity:${d === 0 ? .5 : Math.min(1, .35 + Math.abs(d) / Math.max(Math.abs(c.d_recent), 1e-6) * .5)}`, 'data-tip': `<b>${mon(O[j])}</b>: ${d === 0 ? 'not applied' : sf(d)}` })));
+    const W = 170, x = v => 4 + (Math.min(Math.max(v, -2.4), 0.8) + 2.4) / 3.2 * (W - 8), sc = Math.abs(c.d_recent), svg = s('svg', { viewBox: `0 0 ${W} 34`, style: `width:${W}px`, role: 'img', 'aria-label': 'intervals' });
+    svg.append(s('line', { x1: x(0), x2: x(0), y1: 2, y2: 32, class: 'axis' })); svg.append(s('line', { x1: x(-1), x2: x(-1), y1: 2, y2: 32, class: 'grid' }));
+    [['item', c.ci_item], ['style', c.ci_style], ['origin blocks', c.ci_origin]].forEach(([n, ci], r) => { const y = 7 + r * 10, col = ci[1] < 0 ? '--accent' : '--over'; const g = s('g', { 'data-tip': `resampling <b>${n}</b>: ${sf(ci[0])} to ${sf(ci[1])}` }); g.append(s('rect', { x: 0, y: y - 5, width: W, height: 10, fill: 'transparent' })); g.append(s('line', { x1: x(ci[0] / sc), x2: x(ci[1] / sc), y1: y, y2: y, stroke: `var(${col})`, 'stroke-width': 3, 'stroke-linecap': 'round' })); svg.append(g); });
+    tb.append(h('tr', {}, h('td', { text: c.step }), h('td', { class: 'r', text: sf(c.d_recent) }), h('td', { class: 'r', text: sf(c.d_all) }), h('td', { class: 'r', text: c.d_early === 0 ? 'not applied' : sf(c.d_early) }), h('td', {}, strip, h('div', { class: 'small', text: `${c.wins9}/9 recent · ${c.wins13}/13` })), h('td', {}, svg), h('td', {}, h('span', { class: 'chip ' + V[i][0], text: V[i][1] }), h('div', { class: 'small', text: V[i][2] })))); }); }
+
+// ---- origins further apart
+{ const S = J.spacing, tn = $('#t-neff tbody'); S.neff.forEach(d => tn.append(h('tr', {}, h('td', { text: d.spacing === 1 ? '1 month apart (as scored)' : d.spacing + ' months apart' }), h('td', { class: 'r', text: String(d.n) }), h('td', { class: 'r', text: d.shared + ' of 4' }), h('td', { class: 'r', text: fx(d.corr, 2) }), h('td', { class: 'r', text: fx(d.neff, 1) }))));
+  const ts = $('#t-sets tbody'); S.sets.forEach(d => ts.append(h('tr', { 'data-tip': '<b>' + d.set + '</b><br>' + d.origins.map(mon).join(', ') + '<br>bias ' + sp(d.bias) }, h('td', { text: d.set }), h('td', { class: 'r', text: String(d.n) }), h('td', { class: 'r', text: fx(d.wape, 3) }), h('td', { class: 'r', text: fx(d.rules, 3) }), h('td', { class: 'r', text: pct(d.hit, 1) }), h('td', { class: 'r', text: pct(d.hit_r3, 1) }))));
+  const mk = a => { const st = h('span', { class: 'strip' }); a.forEach((d, j) => st.append(h('i', { style: 'background:var(' + (d < 0 ? '--under' : '--over') + ')', 'data-tip': '<b>set ' + (j + 1) + '</b>: ' + sf(d) }))); return st; };
+  const t4 = $('#t-steps4 tbody'); S.steps.forEach(d => t4.append(h('tr', {}, h('td', { text: d.step }), h('td', { class: 'r', text: sf(d.d_all) }), h('td', {}, mk(d.d2), h('div', { class: 'small', text: d.wins2 + '/2' })), h('td', {}, mk(d.d4), h('div', { class: 'small', text: d.wins4 + '/4' }))))); }
+
+// ---- confounds
+{ const S = J.learning.season; groupedBars($('#c-season'), S.map(d => ({ label: mon(d.origin), v: [d.no_same, d.other], tip: `<b>Test origin ${mon(d.origin)}</b><br>same window last year removed: ${sf(d.no_same, 3)}<br>as many other origins removed: ${sf(d.other, 3)}` })), [{ c: '--s2' }, { c: '--ref' }], { min: -0.2, max: 0.5, ticks: [-0.2, 0, 0.2, 0.4], fmt: v => sf(v, 1), every: 2, label: 'Effect of removing same-season training origins' });
+  const Lg = J.confounds.lag_corr; groupedBars($('#c-lag'), Lg.map(d => ({ label: d.lag + (d.lag === 1 ? ' month' : ''), v: [d.corr], tip: `Origins <b>${d.lag}</b> month${d.lag > 1 ? 's' : ''} apart: correlation ${fx(d.corr)}` })), [{ c: '--accent' }], { max: 1, ticks: [0, .25, .5, .75, 1], fmt: v => fx(v), h: 200, label: 'Residual correlation by lag' });
+  const LS = Object.entries(J.confounds.last_sale); groupedBars($('#c-last'), LS.map(([m, v]) => ({ label: mon(m), v: [v], tip: `<b>${mon(m)}</b>: last sale of ${int(v)} items` })), [{ c: '--accent' }], { max: 100, ticks: [0, 25, 50, 75, 100], fmt: v => v, h: 200, label: 'Items by month of last sale' });
+  const TB = J.confounds.target_bias; lineChart($('#c-target'), TB.map(d => mon(d.origin)), [{ c: '--ref', v: TB.map(d => d.other) }, { c: '--accent', v: TB.map(d => d.target) }], { min: -0.4, max: 0.4, ticks: [-0.4, -0.2, 0, 0.2, 0.4], fmt: v => sp(v), every: 2, dots: true, r: 14, h: 220, label: 'Bias by origin for targets and other items', tip: i => `<b>Origin ${mon(TB[i].origin)}</b><br>targets: ${sp(TB[i].target)} (${TB[i].n_t} items)<br>other items: ${sp(TB[i].other)}` }); }
+
+// ---- causes
+const tagRows = L => L.map(d => ({ label: d.tag, v: d.err_share, v2: d.base, text: pct(d.err_share), tip: `<b>${d.tag}</b><br>${pct(d.err_share)} of this error<br>${pct(d.n_share)} of these forecasts<br>${pct(d.base)} of all recent forecasts` }));
+hbars($('#c-under'), tagRows(J.causes.under), { min: 0, max: 1 }); hbars($('#c-over'), tagRows(J.causes.over), { min: 0, max: 1 });
+{ const tb = $('#t-worst tbody'), VW = Math.max(...J.worst.map(w => w.vol)); J.worst.forEach(w => tb.append(h('tr', {}, h('td', { html: `${w.name}<br><span class="small">${w.item}</span>` }), volCell(w.vol, VW), h('td', { text: mon(w.origin) }), h('td', { class: 'r', text: fx(w.age, 1) }), h('td', { class: 'r', text: int(w.y) }), h('td', { class: 'r', text: int(w.F) }), h('td', { class: 'r', text: `${int(w.lo)}–${int(w.hi)}` }), h('td', { class: 'r', text: int(w.R3) }), h('td', { class: 'r', text: fx(w.m1) + '×' }), h('td', { class: 'r', text: sf(w.stores, 0) }), h('td', { class: 'r', text: sf(w.partners, 0) }), h('td', { class: 'r', text: int(w.newcol) })))); }
+
+// ---- targets
+{ const T = J.targets26; hbars($('#c-flags'), T.flags.filter(f => f.n > 0).sort((a, b) => b.units - a.units).map(f => ({ label: f.flag, sub: `${f.n} items`, v: f.units, text: pct(f.units), tip: `<b>${f.flag}</b><br>${f.n} of ${T.n} targets, ${pct(f.units, 1)} of forecast units` })), { min: 0, max: 0.6 });
+  const tb = $('#t-watch tbody'), VT = Math.max(...J.watch.map(w => w.vol)); J.watch.forEach(w => tb.append(h('tr', {}, h('td', { html: `${w.name}<br><span class="small">${w.item}</span>` }), volCell(w.vol, VT), h('td', { class: 'r', text: int(w.F) }), h('td', { class: 'r', text: int(w.R3) }), h('td', { class: 'r', text: fx(w.age, 1) }), h('td', { class: 'r', text: pct(w.exp_abs) }), h('td', { text: w.flags.join(' · ') })))); }
+</script>

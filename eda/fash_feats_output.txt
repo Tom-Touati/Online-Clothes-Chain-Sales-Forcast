@@ -1,0 +1,121 @@
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-03 clusters 248 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-04 clusters 270 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-05 clusters 294 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-06 clusters 325 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-07 clusters 356 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-08 clusters 395 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-09 clusters 435 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-10 clusters 487 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-11 clusters 529 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2024-12 clusters 572 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-01 clusters 626 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-02 clusters 652 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-03 clusters 679 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-04 clusters 730 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-05 clusters 766 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-06 clusters 809 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-07 clusters 864 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-08 clusters 944 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-09 clusters 1003 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-10 clusters 1075 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-11 clusters 1128 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2025-12 clusters 1180 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2026-01 clusters 1281 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2026-02 clusters 1325 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2026-03 clusters 1378 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2026-04 clusters 1414 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2026-05 clusters 1480 | dyn True
+C:\Users\tomto\workspaces\edikted\eda\182b_fashion_feats.py:103: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.where(ok.any(1), np.nanmean(np.where(ok, x[nb], np.nan), 1), np.nan)
+2026-06 clusters 1500 | dyn True
+(42000, 37)
+                        count   mean    std     min     max
+fa_type_mom           25500.0  0.070  0.569  -1.966   5.656
+fa_type_yoy           24000.0  0.330  1.043  -2.263   7.306
+fa_col_mom            25500.0  0.191  0.779  -2.438   6.130
+fa_col_yoy            24000.0  0.681  1.683  -2.665   7.663
+fa_print_pattern_mom  25500.0  0.032  0.300  -0.810   5.261
+fa_print_pattern_yoy  24000.0  0.164  0.852  -1.632   7.597
+fa_occasion_tier_mom  25500.0  0.052  0.344  -1.255   5.261
+fa_occasion_tier_yoy  24000.0  0.132  0.521  -1.250   4.824
+fa_silhouette_mom     25500.0  0.043  0.344  -0.917   5.261
+fa_silhouette_yoy     24000.0  0.127  0.417  -1.168   4.824
+fa_mean_mom           25500.0  0.050  0.226  -0.884   4.654
+fa_mean_yoy           24000.0  0.187  0.329  -1.032   4.265
+fa_mean_acc1          25500.0  0.025  0.183  -0.727   4.273
+fa_mean_sea4          24000.0  0.357  0.417  -1.221   2.593
+fa_llm_mom            25500.0 -0.000  3.032 -11.526  10.244
+fa_llm_yoy            24000.0 -0.000  0.803  -4.334   4.730
+fa_launch_type        25500.0  0.237  0.860  -1.729   6.376
+fa_launch_col         25500.0  0.499  1.429  -2.699   6.323
+fa_in_type            25500.0  0.501  1.942  -5.940   9.694
+ch_mom                18208.0  0.352  1.322  -1.519   7.814
+ch_yoy                17556.0  1.782  3.047  -2.063   9.266
+ch_acc1               18208.0  0.066  0.698  -1.517   4.526
+ch_traj6              18208.0  0.155  0.523  -0.514   2.462
+ch_surprise           18208.0  0.174  0.943  -2.037   7.689
+ch_surprise_med       17669.0  0.149  1.066  -2.037   7.689
+ch_young              18208.0  0.260  0.355   0.000   1.000
+ch_rel_mom            18208.0  0.399  1.758  -8.720   8.241
+nn_surprise           24276.0  0.112  0.863  -2.593   8.184
+nn_acc1               25500.0  0.252  0.977  -2.042   6.687
+nn_mom3               25500.0  0.980  1.646  -2.299   8.224
+nn_yoy                18069.0 -0.221  1.089  -4.401   8.258
+nn_sea4               18069.0  0.274  1.014  -2.631   8.772
+nn_lvl_rel            25500.0 -1.295  2.690  -8.737   5.885
+nn_sim                25500.0  0.692  0.150   0.074   0.974
+nn_age                25500.0  9.635  5.156   0.000  29.000

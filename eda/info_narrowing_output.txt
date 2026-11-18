@@ -1,0 +1,101 @@
+stores added: agreement with the error master's own-stores-added column: 1.0
+plan | 39 s
+noplan | 35 s
+
+=== month 1 ===
+                                           forecast  wape_r3_recent      widths protocol   range   period    n  below  inside  above  log_width  int_score  pinball_r3  seg_min  seg_max  unit_width
+               at the origin (submitted, nx4 basis)          0.3851   one width      loo P25-P75 recent 9 9031  0.251   0.492  0.257      0.518      1.147      0.3179    0.470    0.502       0.475
+               at the origin (submitted, nx4 basis)          0.3851   one width      loo P10-P90 recent 9 9031  0.104   0.793  0.103      1.072      1.730      0.1929    0.786    0.797       0.994
+               at the origin (submitted, nx4 basis)          0.3851   one width   purged P25-P75 recent 9 9031  0.256   0.465  0.279      0.503      1.199      0.3232    0.391    0.518       0.448
+               at the origin (submitted, nx4 basis)          0.3851   one width   purged P10-P90 recent 9 9031  0.118   0.764  0.117      1.056      1.820      0.1975    0.699    0.811       0.945
+               at the origin (submitted, nx4 basis)          0.3851 pf2c widths      loo P25-P75 recent 9 9031  0.250   0.495  0.255      0.547      1.140      0.3206    0.457    0.499       0.501
+               at the origin (submitted, nx4 basis)          0.3851 pf2c widths      loo P10-P90 recent 9 9031  0.102   0.793  0.105      1.098      1.671      0.1919    0.773    0.800       0.988
+               at the origin (submitted, nx4 basis)          0.3851 pf2c widths   purged P25-P75 recent 9 9031  0.251   0.465  0.285      0.544      1.199      0.3286    0.389    0.540       0.483
+               at the origin (submitted, nx4 basis)          0.3851 pf2c widths   purged P10-P90 recent 9 9031  0.112   0.773  0.115      1.124      1.765      0.1980    0.690    0.803       0.991
+              after month 1: scaled by the surprise          0.3192   one width      loo P25-P75 recent 9 9031  0.251   0.497  0.252      0.413      0.917      0.2575    0.489    0.510       0.346
+              after month 1: scaled by the surprise          0.3192   one width      loo P10-P90 recent 9 9031  0.103   0.794  0.104      0.859      1.385      0.1553    0.778    0.801       0.740
+              after month 1: scaled by the surprise          0.3192   one width   purged P25-P75 recent 9 9031  0.247   0.477  0.276      0.411      0.952      0.2627    0.405    0.538       0.366
+              after month 1: scaled by the surprise          0.3192   one width   purged P10-P90 recent 9 9031  0.108   0.781  0.110      0.863      1.439      0.1581    0.712    0.812       0.758
+              after month 1: scaled by the surprise          0.3192 pf2c widths      loo P25-P75 recent 9 9031  0.252   0.495  0.253      0.428      0.908      0.2591    0.478    0.504       0.364
+              after month 1: scaled by the surprise          0.3192 pf2c widths      loo P10-P90 recent 9 9031  0.103   0.794  0.103      0.895      1.357      0.1550    0.777    0.801       0.758
+              after month 1: scaled by the surprise          0.3192 pf2c widths   purged P25-P75 recent 9 9031  0.231   0.493  0.276      0.445      0.950      0.2651    0.425    0.549       0.377
+              after month 1: scaled by the surprise          0.3192 pf2c widths   purged P10-P90 recent 9 9031  0.105   0.787  0.108      0.925      1.417      0.1589    0.715    0.819       0.771
+after month 1: D322 pick (half model, scaled total)          0.3043   one width      loo P25-P75 recent 9 9031  0.251   0.496  0.253      0.383      0.877      0.2432    0.482    0.504       0.328
+after month 1: D322 pick (half model, scaled total)          0.3043   one width      loo P10-P90 recent 9 9031  0.103   0.795  0.102      0.826      1.328      0.1486    0.786    0.801       0.735
+after month 1: D322 pick (half model, scaled total)          0.3043   one width   purged P25-P75 recent 9 9031  0.245   0.478  0.277      0.386      0.909      0.2482    0.410    0.526       0.366
+after month 1: D322 pick (half model, scaled total)          0.3043   one width   purged P10-P90 recent 9 9031  0.105   0.779  0.115      0.822      1.368      0.1513    0.701    0.809       0.743
+after month 1: D322 pick (half model, scaled total)          0.3043 pf2c widths      loo P25-P75 recent 9 9031  0.251   0.496  0.253      0.405      0.871      0.2454    0.484    0.507       0.354
+after month 1: D322 pick (half model, scaled total)          0.3043 pf2c widths      loo P10-P90 recent 9 9031  0.103   0.794  0.103      0.864      1.301      0.1480    0.777    0.800       0.753
+after month 1: D322 pick (half model, scaled total)          0.3043 pf2c widths   purged P25-P75 recent 9 9031  0.234   0.489  0.277      0.420      0.904      0.2506    0.428    0.535       0.366
+after month 1: D322 pick (half model, scaled total)          0.3043 pf2c widths   purged P10-P90 recent 9 9031  0.103   0.788  0.109      0.885      1.352      0.1518    0.733    0.814       0.760
+
+=== plan ===
+                                                   forecast  wape_r3_recent      widths protocol   range   period     n  below  inside  above  log_width  int_score  pinball_r3  seg_min  seg_max  unit_width
+               system without the plan (tree refitted here)          0.3851   one width      loo P25-P75 recent 9  9031  0.203   0.513  0.284      0.544      1.154      0.3207    0.465    0.547       0.487
+               system without the plan (tree refitted here)          0.3851   one width      loo P25-P75   all 13 11727  0.250   0.495  0.255      0.542      1.180      0.3588    0.476    0.502       0.487
+               system without the plan (tree refitted here)          0.3851   one width      loo P10-P90 recent 9  9031  0.076   0.809  0.115      1.105      1.745      0.1943    0.761    0.859       1.025
+               system without the plan (tree refitted here)          0.3851   one width      loo P10-P90   all 13 11727  0.103   0.794  0.103      1.101      1.766      0.2145    0.792    0.801       1.015
+               system without the plan (tree refitted here)          0.3851   one width   purged P25-P75 recent 9  9031  0.183   0.484  0.333      0.546      1.214      0.3295    0.364    0.580       0.459
+               system without the plan (tree refitted here)          0.3851   one width   purged P25-P75   all 13 11727  0.249   0.463  0.288      0.537      1.239      0.3699    0.399    0.518       0.465
+               system without the plan (tree refitted here)          0.3851   one width   purged P10-P90 recent 9  9031  0.069   0.790  0.141      1.110      1.815      0.1970    0.687    0.881       0.940
+               system without the plan (tree refitted here)          0.3851   one width   purged P10-P90   all 13 11727  0.112   0.766  0.122      1.095      1.847      0.2211    0.690    0.820       0.956
+               system without the plan (tree refitted here)          0.3851 pf2c widths      loo P25-P75 recent 9  9031  0.189   0.517  0.294      0.591      1.151      0.3231    0.479    0.545       0.505
+               system without the plan (tree refitted here)          0.3851 pf2c widths      loo P25-P75   all 13 11727  0.250   0.496  0.254      0.596      1.188      0.3666    0.480    0.502       0.514
+               system without the plan (tree refitted here)          0.3851 pf2c widths      loo P10-P90 recent 9  9031  0.076   0.799  0.125      1.123      1.677      0.1919    0.777    0.826       0.954
+               system without the plan (tree refitted here)          0.3851 pf2c widths      loo P10-P90   all 13 11727  0.104   0.791  0.105      1.166      1.723      0.2507    0.783    0.802       1.018
+               system without the plan (tree refitted here)          0.3851 pf2c widths   purged P25-P75 recent 9  9031  0.159   0.493  0.348      0.614      1.227      0.3340    0.405    0.542       0.492
+               system without the plan (tree refitted here)          0.3851 pf2c widths   purged P25-P75   all 13 11727  0.244   0.467  0.289      0.615      1.272      0.3842    0.399    0.513       0.510
+               system without the plan (tree refitted here)          0.3851 pf2c widths   purged P10-P90 recent 9  9031  0.068   0.773  0.158      1.131      1.767      0.1953    0.701    0.829       0.909
+               system without the plan (tree refitted here)          0.3851 pf2c widths   purged P10-P90   all 13 11727  0.113   0.758  0.129      1.169      1.830      0.2663    0.690    0.797       0.983
+system with the plan (tree with stores, partners, launches)          0.3730   one width      loo P25-P75 recent 9  9031  0.210   0.510  0.280      0.528      1.121      0.3090    0.463    0.540       0.467
+system with the plan (tree with stores, partners, launches)          0.3730   one width      loo P25-P75   all 13 11727  0.252   0.493  0.255      0.527      1.143      0.3456    0.473    0.503       0.474
+system with the plan (tree with stores, partners, launches)          0.3730   one width      loo P10-P90 recent 9  9031  0.079   0.809  0.113      1.069      1.693      0.1869    0.763    0.856       0.956
+system with the plan (tree with stores, partners, launches)          0.3730   one width      loo P10-P90   all 13 11727  0.103   0.794  0.102      1.066      1.710      0.2066    0.788    0.797       0.964
+system with the plan (tree with stores, partners, launches)          0.3730   one width   purged P25-P75 recent 9  9031  0.192   0.487  0.321      0.530      1.174      0.3180    0.366    0.560       0.443
+system with the plan (tree with stores, partners, launches)          0.3730   one width   purged P25-P75   all 13 11727  0.252   0.466  0.282      0.521      1.194      0.3559    0.401    0.507       0.448
+system with the plan (tree with stores, partners, launches)          0.3730   one width   purged P10-P90 recent 9  9031  0.071   0.794  0.135      1.072      1.754      0.1902    0.698    0.887       0.871
+system with the plan (tree with stores, partners, launches)          0.3730   one width   purged P10-P90   all 13 11727  0.110   0.771  0.119      1.060      1.779      0.2128    0.688    0.811       0.895
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths      loo P25-P75 recent 9  9031  0.195   0.517  0.288      0.575      1.117      0.3116    0.477    0.553       0.479
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths      loo P25-P75   all 13 11727  0.252   0.495  0.253      0.576      1.147      0.3509    0.482    0.505       0.485
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths      loo P10-P90 recent 9  9031  0.079   0.800  0.121      1.095      1.630      0.1847    0.776    0.815       0.906
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths      loo P10-P90   all 13 11727  0.103   0.795  0.103      1.134      1.668      0.2278    0.786    0.799       0.967
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths   purged P25-P75 recent 9  9031  0.164   0.500  0.337      0.598      1.185      0.3220    0.411    0.557       0.472
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths   purged P25-P75   all 13 11727  0.242   0.474  0.283      0.595      1.220      0.3654    0.406    0.515       0.483
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths   purged P10-P90 recent 9  9031  0.075   0.771  0.154      1.099      1.714      0.1891    0.688    0.808       0.863
+system with the plan (tree with stores, partners, launches)          0.3730 pf2c widths   purged P10-P90   all 13 11727  0.115   0.758  0.127      1.132      1.763      0.2365    0.686    0.774       0.932
+
+narrowing (after / before, same rule and rows):
+   part      widths protocol   range   period                                                    forecast  log_width_ratio  unit_width_ratio  int_score_ratio  pinball_ratio  inside_before  inside_after
+month 1   one width      loo P25-P75 recent 9                       after month 1: scaled by the surprise            0.797             0.728            0.799          0.810          0.492         0.497
+month 1   one width      loo P25-P75 recent 9         after month 1: D322 pick (half model, scaled total)            0.739             0.691            0.765          0.765          0.492         0.496
+month 1   one width      loo P10-P90 recent 9                       after month 1: scaled by the surprise            0.801             0.744            0.801          0.805          0.793         0.794
+month 1   one width      loo P10-P90 recent 9         after month 1: D322 pick (half model, scaled total)            0.771             0.739            0.768          0.770          0.793         0.795
+month 1   one width   purged P25-P75 recent 9                       after month 1: scaled by the surprise            0.817             0.817            0.794          0.813          0.465         0.477
+month 1   one width   purged P25-P75 recent 9         after month 1: D322 pick (half model, scaled total)            0.767             0.817            0.758          0.768          0.465         0.478
+month 1   one width   purged P10-P90 recent 9                       after month 1: scaled by the surprise            0.817             0.802            0.791          0.801          0.764         0.781
+month 1   one width   purged P10-P90 recent 9         after month 1: D322 pick (half model, scaled total)            0.778             0.786            0.752          0.766          0.764         0.779
+month 1 pf2c widths      loo P25-P75 recent 9                       after month 1: scaled by the surprise            0.782             0.727            0.796          0.808          0.495         0.495
+month 1 pf2c widths      loo P25-P75 recent 9         after month 1: D322 pick (half model, scaled total)            0.740             0.707            0.764          0.765          0.495         0.496
+month 1 pf2c widths      loo P10-P90 recent 9                       after month 1: scaled by the surprise            0.815             0.767            0.812          0.808          0.793         0.794
+month 1 pf2c widths      loo P10-P90 recent 9         after month 1: D322 pick (half model, scaled total)            0.787             0.762            0.779          0.771          0.793         0.794
+month 1 pf2c widths   purged P25-P75 recent 9                       after month 1: scaled by the surprise            0.818             0.781            0.792          0.807          0.465         0.493
+month 1 pf2c widths   purged P25-P75 recent 9         after month 1: D322 pick (half model, scaled total)            0.772             0.758            0.754          0.763          0.465         0.489
+month 1 pf2c widths   purged P10-P90 recent 9                       after month 1: scaled by the surprise            0.823             0.778            0.803          0.803          0.773         0.787
+month 1 pf2c widths   purged P10-P90 recent 9         after month 1: D322 pick (half model, scaled total)            0.787             0.767            0.766          0.767          0.773         0.788
+   plan   one width      loo P25-P75 recent 9 system with the plan (tree with stores, partners, launches)            0.971             0.959            0.971          0.964          0.513         0.510
+   plan   one width      loo P25-P75   all 13 system with the plan (tree with stores, partners, launches)            0.972             0.973            0.969          0.963          0.495         0.493
+   plan   one width      loo P10-P90 recent 9 system with the plan (tree with stores, partners, launches)            0.967             0.933            0.970          0.962          0.809         0.809
+   plan   one width      loo P10-P90   all 13 system with the plan (tree with stores, partners, launches)            0.968             0.950            0.968          0.963          0.794         0.794
+   plan   one width   purged P25-P75 recent 9 system with the plan (tree with stores, partners, launches)            0.971             0.965            0.967          0.965          0.484         0.487
+   plan   one width   purged P25-P75   all 13 system with the plan (tree with stores, partners, launches)            0.970             0.963            0.964          0.962          0.463         0.466
+   plan   one width   purged P10-P90 recent 9 system with the plan (tree with stores, partners, launches)            0.966             0.927            0.966          0.965          0.790         0.794
+   plan   one width   purged P10-P90   all 13 system with the plan (tree with stores, partners, launches)            0.968             0.936            0.963          0.962          0.766         0.771
+   plan pf2c widths      loo P25-P75 recent 9 system with the plan (tree with stores, partners, launches)            0.973             0.949            0.970          0.964          0.517         0.517
+   plan pf2c widths      loo P25-P75   all 13 system with the plan (tree with stores, partners, launches)            0.966             0.944            0.965          0.957          0.496         0.495
+   plan pf2c widths      loo P10-P90 recent 9 system with the plan (tree with stores, partners, launches)            0.975             0.950            0.972          0.962          0.799         0.800
+   plan pf2c widths      loo P10-P90   all 13 system with the plan (tree with stores, partners, launches)            0.973             0.950            0.968          0.909          0.791         0.795
+   plan pf2c widths   purged P25-P75 recent 9 system with the plan (tree with stores, partners, launches)            0.974             0.959            0.966          0.964          0.493         0.500
+   plan pf2c widths   purged P25-P75   all 13 system with the plan (tree with stores, partners, launches)            0.967             0.947            0.959          0.951          0.467         0.474
+   plan pf2c widths   purged P10-P90 recent 9 system with the plan (tree with stores, partners, launches)            0.972             0.949            0.970          0.968          0.773         0.771
+   plan pf2c widths   purged P10-P90   all 13 system with the plan (tree with stores, partners, launches)            0.968             0.948            0.963          0.888          0.758         0.758
+saved

@@ -1,0 +1,78 @@
+76 terms: ['Y2K aesthetic', 'Party Girl aesthetic', 'Coquette aesthetic', 'Streetwear aesthetic', 'Clean Girl aesthetic', 'Coastal aesthetic', 'Casual aesthetic', 'Preppy aesthetic', 'Office Siren aesthetic', 'Minimalist aesthetic', 'Mob Wife aesthetic', 'Edgy aesthetic']
+Y2K aesthetic                  ok
+Party Girl aesthetic           ok
+Coquette aesthetic             ok
+Streetwear aesthetic           ok
+Clean Girl aesthetic           ok
+Coastal aesthetic              ok
+Casual aesthetic               ok
+Preppy aesthetic               ok
+Office Siren aesthetic         ok
+Minimalist aesthetic           ok
+Mob Wife aesthetic             ok
+Edgy aesthetic                 ok
+Sexy aesthetic                 ok
+Boho aesthetic                 ok
+Romantic aesthetic             ok
+Vanilla Girl aesthetic         ok
+Playful aesthetic              ok
+Sporty aesthetic               ok
+Feminine aesthetic             ok
+Modern aesthetic               ok
+Lace Trim                      ok
+Cut-Out                        ok
+Wide Leg                       ok
+Metallics                      ok
+Sheer Overlay                  ok
+Ruching                        ok
+Corset Detail                  ok
+Bow Detail                     ok
+Mesh Insert                    ok
+Satin Finish                   ok
+Low Rise                       ok
+Oversized                      ok
+Barrel Leg                     ok
+Asymmetric Hem                 ok
+Y2K                            ok
+Oversized Silhouette           ok
+Crochet                        ok
+Graphic Detail                 ok
+Sequins                        ok
+Graphic Print                  ok
+Jersey clothing                ok
+Knit clothing                  ok
+Cotton / Terry clothing        ok
+Denim clothing                 ok
+Woven clothing                 ok
+Mesh clothing                  ok
+Faux Leather clothing          ok
+Satin / Silky clothing         FAILED
+Fleece clothing                ok
+Sheer clothing                 ok
+Smooth clothing                ok
+Soft clothing                  ok
+Sequin / Beaded clothing       ok
+Crochet / Open-Knit clothing   FAILED
+Stretchy clothing              ok
+Lace / Texture clothing        ok
+top                            ok
+dress                          ok
+shorts                         ok
+tank top                       ok
+t-shirt                        ok
+jeans                          ok
+sweater                        ok
+skort                          ok
+hoodie                         ok
+sweatpants                     ok
+skirt                          ok
+pants                          ok
+corset                         ok
+short jeans                    ok
+strapless                      ok
+jacket                         ok
+swimwear bottom                ok
+crop top                       ok
+bracelet                       ok
+swimwear top                   ok
+saved; terms fetched 74 of 76

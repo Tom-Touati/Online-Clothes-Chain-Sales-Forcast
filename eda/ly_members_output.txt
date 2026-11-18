@@ -1,0 +1,17 @@
+member alone (WAPE / R3):
+                                                    member  full_rec  ly_rec  full_all  ly_all  deg_all  deg_rec
+                                              tree (ec_ns)    0.4299  0.6534    0.4998  0.7059   0.2061   0.2235
+                                      neural net (3 seeds)    0.4685  0.7903    0.5154  0.8413   0.3259   0.3217
+                              TabPFN v2 dyn, 32 estimators    0.4626  0.9480    0.5149  0.9748   0.4600   0.4854
+TabPFN v2 dyn, 8 estimators (base of the conformal member)    0.4702  0.9403    0.5324  0.9740   0.4417   0.4701
+
+system (WAPE / R3, submitted correction multiplier):
+                                       system    rec  all13   hit  gmrae  deg_all  deg_rec
+submitted system (all members with last year) 0.3851 0.4399 0.417  0.413   0.0000   0.0000
+                       tree without last year 0.4106 0.4639 0.405  0.425   0.0240   0.0255
+                 neural net without last year 0.4278 0.4842 0.389  0.438   0.0443   0.0427
+           conformal TabPFN without last year 0.4432 0.4968 0.390  0.442   0.0569   0.0581
+                  TabPFN 32 without last year 0.4643 0.5150 0.378  0.450   0.0751   0.0792
+       every learned member without last year 0.6902 0.7266 0.304  0.569   0.2867   0.3051
+check: the conformal TabPFN median equals its 8-estimator base: False
+saved

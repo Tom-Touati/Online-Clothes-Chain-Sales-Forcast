@@ -1,0 +1,3 @@
+huber_lin1  42 s
+huber_lin10  40 s
+l1log_lin1  40 s

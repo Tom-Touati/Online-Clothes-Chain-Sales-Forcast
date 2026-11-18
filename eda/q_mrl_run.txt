@@ -1,0 +1,6 @@
+v4 4 features added 185 s
+v16 16 features added 221 s
+all4 56 features added 249 s
+all16 240 features added 464 s
+g4 4 features added 211 s
+gall4 48 features added 359 s

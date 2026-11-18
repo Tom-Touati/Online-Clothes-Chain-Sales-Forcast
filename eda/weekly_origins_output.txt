@@ -1,0 +1,5 @@
+building features...
+rows 108142 1s
+month training rows at the last origin 10514 48s
+biweek training rows at the last origin 21771 61s
+week training rows at the last origin 44250 84s

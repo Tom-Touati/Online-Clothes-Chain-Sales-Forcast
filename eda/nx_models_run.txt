@@ -1,0 +1,18 @@
++AGE 101 features (full set), 21 s
++EV2 127 features (full set), 28 s
++TREND 108 features (full set), 28 s
++CURVE 98 features (full set), 25 s
++PEAK 103 features (full set), 32 s
++WDAY 96 features (full set), 24 s
++PLAN 96 features (full set), 20 s
+all 163 features (full set), 29 s
+allplan 165 features (full set), 43 s
+styleout 94 features (full set), 127 s
+nostatic 72 features (full set), 25 s
+itemid 95 features (full set), 29 s
+shuffle 94 features (full set), 23 s
+Traceback (most recent call last):
+  File "C:\Users\tomto\workspaces\edikted\eda\180q_models.py", line 70, in <module>
+    if b.any(): z[b] = (fit(a, te[b], B_) + fit(a, te[b], F_)) / 2
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'transform'

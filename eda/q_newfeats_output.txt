@@ -1,0 +1,4 @@
+cp 5 features, 81 s
+cpsea 2 features, 90 s
+attr 5 features, 92 s
+reg 11 features, 107 s

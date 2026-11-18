@@ -1,0 +1,23 @@
+2024-05: train 700 | styles seen 251/270 | sd sty_c 0.031 sty_s4 0.010 | 4m WAPE with style 0.375 without 0.375 | 5s
+2024-06: train 1444 | styles seen 272/295 | sd sty_c 0.045 sty_s4 0.019 | 4m WAPE with style 0.517 without 0.511 | 6s
+2024-07: train 2483 | styles seen 296/324 | sd sty_c 0.064 sty_s4 0.019 | 4m WAPE with style 0.537 without 0.504 | 7s
+2024-08: train 3620 | styles seen 331/360 | sd sty_c 0.072 sty_s4 0.041 | 4m WAPE with style 0.544 without 0.531 | 10s
+2024-09: train 4869 | styles seen 361/395 | sd sty_c 0.092 sty_s4 0.025 | 4m WAPE with style 0.566 without 0.531 | 13s
+2024-10: train 6243 | styles seen 404/440 | sd sty_c 0.096 sty_s4 0.049 | 4m WAPE with style 0.499 without 0.499 | 17s
+2024-11: train 7762 | styles seen 448/487 | sd sty_c 0.103 sty_s4 0.022 | 4m WAPE with style 1.737 without 1.559 | 22s
+2024-12: train 9444 | styles seen 499/532 | sd sty_c 0.104 sty_s4 0.086 | 4m WAPE with style 1.319 without 1.224 | 28s
+2025-01: train 11298 | styles seen 537/573 | sd sty_c 0.105 sty_s4 0.157 | 4m WAPE with style 0.913 without 0.878 | 36s
+2025-02: train 13330 | styles seen 578/626 | sd sty_c 0.120 sty_s4 0.230 | 4m WAPE with style 0.909 without 0.898 | 44s
+2025-03: train 15548 | styles seen 629/654 | sd sty_c 0.130 sty_s4 0.320 | 4m WAPE with style 0.801 without 0.756 | 55s
+2025-04: train 17933 | styles seen 662/686 | sd sty_c 0.135 sty_s4 0.344 | 4m WAPE with style 0.557 without 0.508 | 66s
+2025-05: train 20472 | styles seen 688/730 | sd sty_c 0.143 sty_s4 0.277 | 4m WAPE with style 0.405 without 0.404 | 79s
+2025-06: train 23168 | styles seen 739/768 | sd sty_c 0.146 sty_s4 0.264 | 4m WAPE with style 0.355 without 0.411 | 95s
+2025-07: train 26006 | styles seen 780/816 | sd sty_c 0.149 sty_s4 0.384 | 4m WAPE with style 0.382 without 0.441 | 112s
+2025-08: train 29006 | styles seen 827/867 | sd sty_c 0.148 sty_s4 0.468 | 4m WAPE with style 0.389 without 0.536 | 133s
+2025-09: train 32187 | styles seen 881/941 | sd sty_c 0.143 sty_s4 0.443 | 4m WAPE with style 0.434 without 0.581 | 158s
+2025-10: train 35579 | styles seen 951/1003 | sd sty_c 0.150 sty_s4 0.352 | 4m WAPE with style 0.450 without 0.569 | 186s
+2025-11: train 39206 | styles seen 1018/1070 | sd sty_c 0.149 sty_s4 0.244 | 4m WAPE with style 0.291 without 0.352 | 216s
+2025-12: train 43087 | styles seen 1093/1128 | sd sty_c 0.146 sty_s4 0.252 | 4m WAPE with style 0.312 without 0.289 | 247s
+2026-01: train 47229 | styles seen 1134/1176 | sd sty_c 0.143 sty_s4 0.375 | 4m WAPE with style 0.300 without 0.351 | 284s
+2026-02: train 51606 | styles seen 1197/1262 | sd sty_c 0.144 sty_s4 0.478 | 4m WAPE with style 0.383 without 0.517 | 325s
+saved data/style_emb_feats.parquet

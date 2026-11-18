@@ -1,0 +1,32 @@
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:42: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  R3 = 4 * M.reindex(TG)[["2026-04", "2026-05", "2026-06"]].mean(1)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:54: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["rules"] = RU.sum(1); C["qnx"] = NX.q50; C["nn"] = NNm.sum(1); C["pf2c"] = PC.q50; C["pf2d32"] = PD.q50; C["qdyn_prev"] = QD.q50
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:54: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["rules"] = RU.sum(1); C["qnx"] = NX.q50; C["nn"] = NNm.sum(1); C["pf2c"] = PC.q50; C["pf2d32"] = PD.q50; C["qdyn_prev"] = QD.q50
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  for c in ["rules", "nn"]: C[c] = C[c].fillna(C[["qnx", "pf2c", "pf2d32"]].mean(1))
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  for c in ["rules", "nn"]: C[c] = C[c].fillna(C[["qnx", "pf2c", "pf2d32"]].mean(1))
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:58: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["rc"] = _rc.reindex(TG).values; C["rc"] = C.rc.fillna(C[MEM].mean(1)); MEM = MEM + ["rc"]   # D357: sixth member, filled as eda/181a
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:59: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["avg5"] = C[MEM].clip(lower=0).mean(1)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:63: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["p2c32a_prev"] = C[["rules", "qdyn_prev", "nn", "pf2c", "pf2d32"]].clip(lower=0).mean(1)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:65: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["buying"] = pd.concat([C.rules, W3E.q65.fillna(W3[QB]), C.nn, PC[QB], PD[QB]], axis=1).clip(lower=0).mean(1); print("buying column: u65ec at", QB)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:66: Pandas4Warning: Starting with pandas version 4.0 all arguments of max will be keyword-only.
+  C["member_spread"] = C[MEM].clip(lower=1).max(1) / C[MEM].clip(lower=1).min(1)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:66: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  C["member_spread"] = C[MEM].clip(lower=1).max(1) / C[MEM].clip(lower=1).min(1)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:72: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  prof = np.exp((np.log(RU.div(RU.sum(1), axis=0).clip(lower=1e-4)) + np.log(NNm.div(NNm.sum(1), axis=0).clip(lower=1e-4))) / 2)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:72: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  prof = np.exp((np.log(RU.div(RU.sum(1), axis=0).clip(lower=1e-4)) + np.log(NNm.div(NNm.sum(1), axis=0).clip(lower=1e-4))) / 2)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:73: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  prof = prof.div(prof.sum(1), axis=0).fillna(0.25)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:110: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["total"] = C[["jul", "aug", "sep", "oct"]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\181j_final_nx5_2026.py:135: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["final"] = C[["jul", "aug", "sep", "oct"]].sum(1)

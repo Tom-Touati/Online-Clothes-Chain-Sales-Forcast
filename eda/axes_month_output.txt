@@ -1,0 +1,50 @@
+rows 15179907
+C:\Users\tomto\workspaces\edikted\eda\198c_axes_month.py:33: Pandas4Warning: Series.dt.dayofweek is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  A["wkend_share"] = g(T[ok & (T.ny_timestamp.dt.dayofweek >= 5)]) / A.units
+(22842, 47)
+                      mean      50%        max
+units              656.018  213.000  71222.000
+u_cancel            13.051    2.000   2035.000
+u_edikted_com      444.847  147.000  33073.000
+u_pacsun            26.460    3.000  13715.000
+u_tillys             3.592    0.000   1370.000
+u_nordstrom         15.480    3.000   5056.000
+u_macys             12.057    0.000   5425.000
+u_bloomingdales      3.023    0.000    458.000
+u_nyc               26.050    0.000   1432.000
+u_tiktok            52.063    4.000  10804.000
+u_grove             13.725    0.000    931.000
+u_moa                8.819    0.000    648.000
+u_hottopic           0.001    0.000      5.000
+u_flip               2.323    0.000    614.000
+u_glendale           4.549    0.000    785.000
+u_irvine             9.603    0.000   1205.000
+u_san diego          6.995    0.000    363.000
+u_urban              2.271    0.000    554.000
+u_roosevelt          6.124    0.000    651.000
+u_boca               4.806    0.000    351.000
+u_tysons corner      3.240    0.000    308.000
+u_king of prussia    2.747    0.000    261.000
+u_aventura           2.994    0.000    158.000
+u_choakbrook         1.678    0.000    303.000
+u_hougalleria        0.854    0.000    199.000
+u_barbie             0.022    0.000    144.000
+u_fifth avenue       1.007    0.000    559.000
+u_lincoln            0.321    0.000    192.000
+u_stonebriar         0.366    0.000    203.000
+uc_online          499.234  160.000  42013.000
+uc_drop             62.885   16.000  25566.000
+uc_retail           93.899    1.000   4625.000
+n_stores             5.122    4.000     16.000
+n_partners           3.291    3.000      6.000
+n_sizes              4.372    5.000      6.000
+size_hhi             0.379    0.313      1.000
+n_states            31.614   33.000     58.000
+state_hhi            0.106    0.084      1.000
+u_intl                 NaN      NaN        NaN
+disc_web             0.586    0.573      0.882
+multi_share          0.022    0.012      0.778
+wkend_share          0.303    0.299      1.000
+top_day_share        0.126    0.094      1.000
+days_sold           25.427   29.000     31.000
+top_hour_share       0.049    0.026      1.000

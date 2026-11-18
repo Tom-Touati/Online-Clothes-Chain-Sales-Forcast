@@ -1,0 +1,265 @@
+﻿groups per origin: {'look': 31.8, 'product group': 6.0, 'product type': 33.6, 'total': 1.0}
+all-item total, log miss by origin: {'2025-02': -0.218, '2025-03': -0.274, '2025-04': 0.013, '2025-05': -0.016, '2025-06': 0.088, '2025-07': -0.006, '2025-08': -0.035, '2025-09': 0.188, '2025-10': 0.12, '2025-11': -0.036, '2025-12': 0.085, '2026-01': 0.08, '2026-02': 0.125}
+item log miss: variance 0.266 | between-origin share 0.043 | origin mean miss {'2025-02': -0.26, '2025-03': -0.374, '2025-04': -0.123, '2025-05': -0.132, '2025-06': -0.089, '2025-07': -0.147, '2025-08': -0.145, '2025-09': -0.005, '2025-10': -0.053, '2025-11': -0.071, '2025-12': 0.024, '2026-01': 0.015, '2026-02': 0.04}
+within +/-20% (all 13): {'look': 0.6, 'product group': 0.795, 'product type': 0.606, 'total': 0.846} | recent 9: {'look': 0.658, 'product group': 0.87, 'product type': 0.659, 'total': 1.0}
+shared origin term c by test origin: {'loo': {'2025-02': 0.117, '2025-03': 0.107, '2025-04': 0.133, '2025-05': 0.133, '2025-06': 0.131, '2025-07': 0.133, '2025-08': 0.133, '2025-09': 0.121, '2025-10': 0.128, '2025-11': 0.133, '2025-12': 0.131, '2026-01': 0.131, '2026-02': 0.128}, 'purged': {'2025-02': 0.1, '2025-03': 0.101, '2025-04': 0.108, '2025-05': 0.116, '2025-06': 0.124, '2025-07': 0.16, '2025-08': 0.159, '2025-09': 0.156, '2025-10': 0.156, '2025-11': 0.148, '2025-12': 0.137, '2026-01': 0.145, '2026-02': 0.142}, 'honest': {'2025-07': 0.248, '2025-08': 0.202, '2025-09': 0.175, '2025-10': 0.162, '2025-11': 0.148, '2025-12': 0.137, '2026-01': 0.145, '2026-02': 0.142}}
+
+=== P25-P75, recent 9 ===
+level                                         product group  product type   look  total
+protocol method                                                                        
+loo      sum of item ranges                           0.778         0.650  0.694  0.889
+         independent items                            0.204         0.318  0.249  0.111
+         independent + shared origin term             0.481         0.446  0.415  0.667
+         studentised conformal                        0.574         0.567  0.498  0.667
+         level x size-third quantiles (D320)          0.556         0.535  0.555  0.444
+purged   sum of item ranges                           0.778         0.650  0.694  0.889
+         independent items                            0.204         0.318  0.249  0.111
+         independent + shared origin term             0.481         0.471  0.445  0.556
+         studentised conformal                        0.537         0.535  0.512  0.556
+         level x size-third quantiles (D320)          0.519         0.529  0.538  0.444
+level                                         width product group  width product type  width look  width total
+protocol method                                                                                               
+loo      sum of item ranges                                 0.499               0.502       0.511        0.466
+         independent items                                  0.077               0.208       0.137        0.025
+         independent + shared origin term                   0.194               0.280       0.226        0.177
+         studentised conformal                              0.247               0.355       0.286        0.226
+         level x size-third quantiles (D320)                0.161               0.319       0.348        0.124
+purged   sum of item ranges                                 0.499               0.502       0.511        0.466
+         independent items                                  0.077               0.208       0.137        0.025
+         independent + shared origin term                   0.216               0.297       0.245        0.201
+         studentised conformal                              0.271               0.372       0.308        0.252
+         level x size-third quantiles (D320)                0.199               0.349       0.373        0.181
+
+=== P25-P75, all 13 ===
+level                                         product group  product type   look  total
+protocol method                                                                        
+loo      sum of item ranges                           0.769         0.641  0.673  0.846
+         independent items                            0.205         0.309  0.220  0.154
+         independent + shared origin term             0.462         0.419  0.375  0.615
+         studentised conformal                        0.538         0.522  0.446  0.615
+         level x size-third quantiles (D320)          0.487         0.492  0.494  0.462
+purged   sum of item ranges                           0.769         0.641  0.673  0.846
+         independent items                            0.205         0.309  0.220  0.154
+         independent + shared origin term             0.436         0.435  0.395  0.538
+         studentised conformal                        0.513         0.485  0.443  0.538
+         level x size-third quantiles (D320)          0.449         0.476  0.448  0.308
+level                                         width product group  width product type  width look  width total
+protocol method                                                                                               
+loo      sum of item ranges                                 0.523               0.517       0.530        0.487
+         independent items                                  0.095               0.220       0.154        0.032
+         independent + shared origin term                   0.205               0.294       0.248        0.177
+         studentised conformal                              0.260               0.372       0.315        0.224
+         level x size-third quantiles (D320)                0.157               0.317       0.345        0.124
+purged   sum of item ranges                                 0.523               0.517       0.530        0.487
+         independent items                                  0.095               0.220       0.154        0.032
+         independent + shared origin term                   0.215               0.302       0.258        0.186
+         studentised conformal                              0.268               0.377       0.323        0.233
+         level x size-third quantiles (D320)                0.176               0.330       0.346        0.156
+
+=== P25-P75, 2025-07..2026-02 ===
+level                                         product group  product type   look  total
+protocol method                                                                        
+honest   sum of item ranges                           0.771         0.651  0.694  0.875
+         independent items                            0.229         0.324  0.255  0.125
+         independent + shared origin term             0.562         0.502  0.469  0.625
+         studentised conformal                        0.479         0.495  0.494  0.375
+         level x size-third quantiles (D320)          0.417         0.480  0.506  0.125
+level                                         width product group  width product type  width look  width total
+protocol method                                                                                               
+honest   sum of item ranges                                 0.500               0.504       0.513        0.468
+         independent items                                  0.075               0.208       0.137        0.025
+         independent + shared origin term                   0.244               0.319       0.268        0.231
+         studentised conformal                              0.286               0.377       0.317        0.270
+         level x size-third quantiles (D320)                0.212               0.376       0.381        0.146
+
+=== P10-P90, recent 9 ===
+level                                         product group  product type   look  total
+protocol method                                                                        
+loo      sum of item ranges                           1.000         0.920  0.970  1.000
+         independent items                            0.352         0.545  0.445  0.111
+         independent + shared origin term             0.815         0.752  0.698  0.889
+         studentised conformal                        0.907         0.847  0.777  0.889
+         level x size-third quantiles (D320)          0.796         0.809  0.814  0.778
+purged   sum of item ranges                           1.000         0.920  0.970  1.000
+         independent items                            0.352         0.545  0.445  0.111
+         independent + shared origin term             0.852         0.787  0.741  1.000
+         studentised conformal                        0.889         0.847  0.781  1.000
+         level x size-third quantiles (D320)          0.796         0.841  0.837  0.667
+level                                         width product group  width product type  width look  width total
+protocol method                                                                                               
+loo      sum of item ranges                                 0.923               0.924       0.958        0.857
+         independent items                                  0.145               0.384       0.260        0.049
+         independent + shared origin term                   0.370               0.535       0.436        0.336
+         studentised conformal                              0.478               0.687       0.554        0.437
+         level x size-third quantiles (D320)                0.355               0.666       0.640        0.322
+purged   sum of item ranges                                 0.923               0.924       0.958        0.857
+         independent items                                  0.145               0.384       0.260        0.049
+         independent + shared origin term                   0.411               0.567       0.472        0.381
+         studentised conformal                              0.506               0.694       0.574        0.471
+         level x size-third quantiles (D320)                0.398               0.697       0.667        0.328
+
+=== P10-P90, all 13 ===
+level                                         product group  product type   look  total
+protocol method                                                                        
+loo      sum of item ranges                           1.000         0.929  0.956  1.000
+         independent items                            0.346         0.533  0.416  0.231
+         independent + shared origin term             0.782         0.714  0.651  0.769
+         studentised conformal                        0.833         0.815  0.746  0.846
+         level x size-third quantiles (D320)          0.744         0.771  0.775  0.692
+purged   sum of item ranges                           1.000         0.929  0.956  1.000
+         independent items                            0.346         0.533  0.416  0.231
+         independent + shared origin term             0.808         0.728  0.666  0.846
+         studentised conformal                        0.833         0.803  0.729  0.846
+         level x size-third quantiles (D320)          0.692         0.767  0.772  0.538
+level                                         width product group  width product type  width look  width total
+protocol method                                                                                               
+loo      sum of item ranges                                 1.034               1.009       1.040        1.006
+         independent items                                  0.216               0.443       0.316        0.148
+         independent + shared origin term                   0.546               0.706       0.565        0.505
+         studentised conformal                              0.505               0.721       0.611        0.434
+         level x size-third quantiles (D320)                0.349               0.656       0.634        0.298
+purged   sum of item ranges                                 1.034               1.009       1.040        1.006
+         independent items                                  0.216               0.443       0.316        0.148
+         independent + shared origin term                   0.565               0.722       0.583        0.525
+         studentised conformal                              0.505               0.708       0.608        0.437
+         level x size-third quantiles (D320)                0.351               0.648       0.642        0.278
+
+=== P10-P90, 2025-07..2026-02 ===
+level                                         product group  product type   look  total
+protocol method                                                                        
+honest   sum of item ranges                           1.000         0.932  0.974  1.000
+         independent items                            0.375         0.566  0.458  0.125
+         independent + shared origin term             0.917         0.822  0.782  1.000
+         studentised conformal                        0.875         0.847  0.793  0.875
+         level x size-third quantiles (D320)          0.792         0.843  0.815  0.500
+level                                         width product group  width product type  width look  width total
+protocol method                                                                                               
+honest   sum of item ranges                                 0.942               0.944       0.978        0.875
+         independent items                                  0.145               0.392       0.265        0.049
+         independent + shared origin term                   0.466               0.618       0.521        0.438
+         studentised conformal                              0.536               0.707       0.595        0.507
+         level x size-third quantiles (D320)                0.434               0.746       0.703        0.268
+
+full table (recent 9 and honest):
+protocol                              method   range           period         level   n  below  inside  above  log_width  pinball_r3
+     loo                  sum of item ranges P25-P75         recent 9 product group  54  0.000   0.778  0.222      0.499       0.260
+     loo                  sum of item ranges P25-P75         recent 9  product type 314  0.086   0.650  0.264      0.502       0.252
+     loo                  sum of item ranges P25-P75         recent 9          look 301  0.060   0.694  0.246      0.511       0.237
+     loo                  sum of item ranges P25-P75         recent 9         total   9  0.000   0.889  0.111      0.466       0.293
+     loo                  sum of item ranges P10-P90         recent 9 product group  54  0.000   1.000  0.000      0.923       0.180
+     loo                  sum of item ranges P10-P90         recent 9  product type 314  0.019   0.920  0.061      0.924       0.160
+     loo                  sum of item ranges P10-P90         recent 9          look 301  0.007   0.970  0.023      0.958       0.136
+     loo                  sum of item ranges P10-P90         recent 9         total   9  0.000   1.000  0.000      0.857       0.220
+     loo                   independent items P25-P75         recent 9 product group  54  0.185   0.204  0.611      0.077       0.201
+     loo                   independent items P25-P75         recent 9  product type 314  0.223   0.318  0.459      0.208       0.217
+     loo                   independent items P25-P75         recent 9          look 301  0.286   0.249  0.465      0.137       0.217
+     loo                   independent items P25-P75         recent 9         total   9  0.222   0.111  0.667      0.025       0.213
+     loo                   independent items P10-P90         recent 9 product group  54  0.111   0.352  0.537      0.145       0.150
+     loo                   independent items P10-P90         recent 9  product type 314  0.146   0.545  0.309      0.384       0.139
+     loo                   independent items P10-P90         recent 9          look 301  0.219   0.445  0.336      0.260       0.145
+     loo                   independent items P10-P90         recent 9         total   9  0.222   0.111  0.667      0.049       0.178
+     loo    independent + shared origin term P25-P75         recent 9 product group  54  0.074   0.481  0.444      0.194       0.178
+     loo    independent + shared origin term P25-P75         recent 9  product type 314  0.172   0.446  0.382      0.280       0.203
+     loo    independent + shared origin term P25-P75         recent 9          look 301  0.233   0.415  0.352      0.226       0.205
+     loo    independent + shared origin term P25-P75         recent 9         total   9  0.000   0.667  0.333      0.177       0.173
+     loo    independent + shared origin term P10-P90         recent 9 product group  54  0.037   0.815  0.148      0.370       0.096
+     loo    independent + shared origin term P10-P90         recent 9  product type 314  0.102   0.752  0.146      0.535       0.114
+     loo    independent + shared origin term P10-P90         recent 9          look 301  0.136   0.698  0.166      0.436       0.114
+     loo    independent + shared origin term P10-P90         recent 9         total   9  0.000   0.889  0.111      0.336       0.098
+     loo               studentised conformal P25-P75         recent 9 product group  54  0.056   0.574  0.370      0.247       0.180
+     loo               studentised conformal P25-P75         recent 9  product type 314  0.150   0.567  0.283      0.355       0.201
+     loo               studentised conformal P25-P75         recent 9          look 301  0.206   0.498  0.296      0.286       0.202
+     loo               studentised conformal P25-P75         recent 9         total   9  0.000   0.667  0.333      0.226       0.178
+     loo               studentised conformal P10-P90         recent 9 product group  54  0.000   0.907  0.093      0.478       0.109
+     loo               studentised conformal P10-P90         recent 9  product type 314  0.045   0.847  0.108      0.687       0.123
+     loo               studentised conformal P10-P90         recent 9          look 301  0.086   0.777  0.136      0.554       0.118
+     loo               studentised conformal P10-P90         recent 9         total   9  0.000   0.889  0.111      0.437       0.112
+     loo level x size-third quantiles (D320) P25-P75         recent 9 product group  54  0.148   0.556  0.296      0.161       0.181
+     loo level x size-third quantiles (D320) P25-P75         recent 9  product type 314  0.182   0.535  0.283      0.319       0.191
+     loo level x size-third quantiles (D320) P25-P75         recent 9          look 301  0.166   0.555  0.279      0.348       0.210
+     loo level x size-third quantiles (D320) P25-P75         recent 9         total   9  0.222   0.444  0.333      0.124       0.150
+     loo level x size-third quantiles (D320) P10-P90         recent 9 product group  54  0.056   0.796  0.148      0.355       0.110
+     loo level x size-third quantiles (D320) P10-P90         recent 9  product type 314  0.067   0.809  0.124      0.666       0.134
+     loo level x size-third quantiles (D320) P10-P90         recent 9          look 301  0.060   0.814  0.126      0.640       0.126
+     loo level x size-third quantiles (D320) P10-P90         recent 9         total   9  0.000   0.778  0.222      0.322       0.108
+  purged                  sum of item ranges P25-P75         recent 9 product group  54  0.000   0.778  0.222      0.499       0.260
+  purged                  sum of item ranges P25-P75         recent 9  product type 314  0.086   0.650  0.264      0.502       0.252
+  purged                  sum of item ranges P25-P75         recent 9          look 301  0.060   0.694  0.246      0.511       0.237
+  purged                  sum of item ranges P25-P75         recent 9         total   9  0.000   0.889  0.111      0.466       0.293
+  purged                  sum of item ranges P10-P90         recent 9 product group  54  0.000   1.000  0.000      0.923       0.180
+  purged                  sum of item ranges P10-P90         recent 9  product type 314  0.019   0.920  0.061      0.924       0.160
+  purged                  sum of item ranges P10-P90         recent 9          look 301  0.007   0.970  0.023      0.958       0.136
+  purged                  sum of item ranges P10-P90         recent 9         total   9  0.000   1.000  0.000      0.857       0.220
+  purged                   independent items P25-P75         recent 9 product group  54  0.185   0.204  0.611      0.077       0.201
+  purged                   independent items P25-P75         recent 9  product type 314  0.223   0.318  0.459      0.208       0.217
+  purged                   independent items P25-P75         recent 9          look 301  0.286   0.249  0.465      0.137       0.217
+  purged                   independent items P25-P75         recent 9         total   9  0.222   0.111  0.667      0.025       0.213
+  purged                   independent items P10-P90         recent 9 product group  54  0.111   0.352  0.537      0.145       0.150
+  purged                   independent items P10-P90         recent 9  product type 314  0.146   0.545  0.309      0.384       0.139
+  purged                   independent items P10-P90         recent 9          look 301  0.219   0.445  0.336      0.260       0.145
+  purged                   independent items P10-P90         recent 9         total   9  0.222   0.111  0.667      0.049       0.178
+  purged    independent + shared origin term P25-P75         recent 9 product group  54  0.074   0.481  0.444      0.216       0.180
+  purged    independent + shared origin term P25-P75         recent 9  product type 314  0.162   0.471  0.366      0.297       0.203
+  purged    independent + shared origin term P25-P75         recent 9          look 301  0.213   0.445  0.342      0.245       0.205
+  purged    independent + shared origin term P25-P75         recent 9         total   9  0.000   0.556  0.444      0.201       0.173
+  purged    independent + shared origin term P10-P90         recent 9 product group  54  0.019   0.852  0.130      0.411       0.100
+  purged    independent + shared origin term P10-P90         recent 9  product type 314  0.092   0.787  0.121      0.567       0.115
+  purged    independent + shared origin term P10-P90         recent 9          look 301  0.116   0.741  0.143      0.472       0.112
+  purged    independent + shared origin term P10-P90         recent 9         total   9  0.000   1.000  0.000      0.381       0.100
+  purged               studentised conformal P25-P75         recent 9 product group  54  0.056   0.537  0.407      0.271       0.193
+  purged               studentised conformal P25-P75         recent 9  product type 314  0.124   0.535  0.341      0.372       0.211
+  purged               studentised conformal P25-P75         recent 9          look 301  0.166   0.512  0.322      0.308       0.209
+  purged               studentised conformal P25-P75         recent 9         total   9  0.000   0.556  0.444      0.252       0.194
+  purged               studentised conformal P10-P90         recent 9 product group  54  0.019   0.889  0.093      0.506       0.113
+  purged               studentised conformal P10-P90         recent 9  product type 314  0.045   0.847  0.108      0.694       0.125
+  purged               studentised conformal P10-P90         recent 9          look 301  0.076   0.781  0.143      0.574       0.120
+  purged               studentised conformal P10-P90         recent 9         total   9  0.000   1.000  0.000      0.471       0.119
+  purged level x size-third quantiles (D320) P25-P75         recent 9 product group  54  0.111   0.519  0.370      0.199       0.197
+  purged level x size-third quantiles (D320) P25-P75         recent 9  product type 314  0.146   0.529  0.325      0.349       0.214
+  purged level x size-third quantiles (D320) P25-P75         recent 9          look 301  0.140   0.538  0.322      0.373       0.218
+  purged level x size-third quantiles (D320) P25-P75         recent 9         total   9  0.000   0.444  0.556      0.181       0.221
+  purged level x size-third quantiles (D320) P10-P90         recent 9 product group  54  0.037   0.796  0.167      0.398       0.119
+  purged level x size-third quantiles (D320) P10-P90         recent 9  product type 314  0.051   0.841  0.108      0.697       0.139
+  purged level x size-third quantiles (D320) P10-P90         recent 9          look 301  0.047   0.837  0.116      0.667       0.126
+  purged level x size-third quantiles (D320) P10-P90         recent 9         total   9  0.000   0.667  0.333      0.328       0.126
+  honest                  sum of item ranges P25-P75 2025-07..2026-02 product group  48  0.000   0.771  0.229      0.500       0.251
+  honest                  sum of item ranges P25-P75 2025-07..2026-02  product type 281  0.085   0.651  0.263      0.504       0.240
+  honest                  sum of item ranges P25-P75 2025-07..2026-02          look 271  0.052   0.694  0.255      0.513       0.227
+  honest                  sum of item ranges P25-P75 2025-07..2026-02         total   8  0.000   0.875  0.125      0.468       0.286
+  honest                  sum of item ranges P10-P90 2025-07..2026-02 product group  48  0.000   1.000  0.000      0.942       0.176
+  honest                  sum of item ranges P10-P90 2025-07..2026-02  product type 281  0.014   0.932  0.053      0.944       0.155
+  honest                  sum of item ranges P10-P90 2025-07..2026-02          look 271  0.000   0.974  0.026      0.978       0.132
+  honest                  sum of item ranges P10-P90 2025-07..2026-02         total   8  0.000   1.000  0.000      0.875       0.218
+  honest                   independent items P25-P75 2025-07..2026-02 product group  48  0.167   0.229  0.604      0.075       0.189
+  honest                   independent items P25-P75 2025-07..2026-02  product type 281  0.221   0.324  0.456      0.208       0.202
+  honest                   independent items P25-P75 2025-07..2026-02          look 271  0.284   0.255  0.461      0.137       0.206
+  honest                   independent items P25-P75 2025-07..2026-02         total   8  0.250   0.125  0.625      0.025       0.207
+  honest                   independent items P10-P90 2025-07..2026-02 product group  48  0.083   0.375  0.542      0.145       0.140
+  honest                   independent items P10-P90 2025-07..2026-02  product type 281  0.135   0.566  0.299      0.392       0.129
+  honest                   independent items P10-P90 2025-07..2026-02          look 271  0.214   0.458  0.328      0.265       0.137
+  honest                   independent items P10-P90 2025-07..2026-02         total   8  0.250   0.125  0.625      0.049       0.172
+  honest    independent + shared origin term P25-P75 2025-07..2026-02 product group  48  0.021   0.562  0.417      0.244       0.178
+  honest    independent + shared origin term P25-P75 2025-07..2026-02  product type 281  0.146   0.502  0.352      0.319       0.196
+  honest    independent + shared origin term P25-P75 2025-07..2026-02          look 271  0.199   0.469  0.332      0.268       0.198
+  honest    independent + shared origin term P25-P75 2025-07..2026-02         total   8  0.000   0.625  0.375      0.231       0.186
+  honest    independent + shared origin term P10-P90 2025-07..2026-02 product group  48  0.000   0.917  0.083      0.466       0.105
+  honest    independent + shared origin term P10-P90 2025-07..2026-02  product type 281  0.075   0.822  0.103      0.618       0.113
+  honest    independent + shared origin term P10-P90 2025-07..2026-02          look 271  0.092   0.782  0.125      0.521       0.109
+  honest    independent + shared origin term P10-P90 2025-07..2026-02         total   8  0.000   1.000  0.000      0.438       0.113
+  honest               studentised conformal P25-P75 2025-07..2026-02 product group  48  0.000   0.479  0.521      0.286       0.220
+  honest               studentised conformal P25-P75 2025-07..2026-02  product type 281  0.071   0.495  0.434      0.377       0.229
+  honest               studentised conformal P25-P75 2025-07..2026-02          look 271  0.100   0.494  0.406      0.317       0.223
+  honest               studentised conformal P25-P75 2025-07..2026-02         total   8  0.000   0.375  0.625      0.270       0.247
+  honest               studentised conformal P10-P90 2025-07..2026-02 product group  48  0.000   0.875  0.125      0.536       0.116
+  honest               studentised conformal P10-P90 2025-07..2026-02  product type 281  0.021   0.847  0.132      0.707       0.123
+  honest               studentised conformal P10-P90 2025-07..2026-02          look 271  0.048   0.793  0.159      0.595       0.122
+  honest               studentised conformal P10-P90 2025-07..2026-02         total   8  0.000   0.875  0.125      0.507       0.121
+  honest level x size-third quantiles (D320) P25-P75 2025-07..2026-02 product group  48  0.042   0.417  0.542      0.212       0.238
+  honest level x size-third quantiles (D320) P25-P75 2025-07..2026-02  product type 281  0.089   0.480  0.431      0.376       0.253
+  honest level x size-third quantiles (D320) P25-P75 2025-07..2026-02          look 271  0.074   0.506  0.421      0.381       0.245
+  honest level x size-third quantiles (D320) P25-P75 2025-07..2026-02         total   8  0.000   0.125  0.875      0.146       0.333
+  honest level x size-third quantiles (D320) P10-P90 2025-07..2026-02 product group  48  0.000   0.792  0.208      0.434       0.133
+  honest level x size-third quantiles (D320) P10-P90 2025-07..2026-02  product type 281  0.032   0.843  0.125      0.746       0.139
+  honest level x size-third quantiles (D320) P10-P90 2025-07..2026-02          look 271  0.026   0.815  0.159      0.703       0.140
+  honest level x size-third quantiles (D320) P10-P90 2025-07..2026-02         total   8  0.000   0.500  0.500      0.268       0.228
+saved

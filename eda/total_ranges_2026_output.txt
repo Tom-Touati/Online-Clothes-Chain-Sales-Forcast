@@ -1,0 +1,12 @@
+shared origin term c: 0.1278 | quantiles of the studentised miss: {0.1: -1.801, 0.25: -0.774, 0.75: 0.921, 0.9: 1.525}
+        level     group  items       P10       P25       P50       P75       P90  backtest_within_20pct
+product group    bottom    376  739746.4  845599.4  935257.5 1054356.4 1140647.7                  0.795
+product group     dress    153  138021.1  158623.0  176155.1  199548.1  216564.6                  0.795
+product group     other    129  129395.6  148766.6  165256.6  187266.2  203280.8                  0.795
+product group      swim     42   35340.7   40835.8   45534.2   51831.2   56430.1                  0.795
+product group       top    501  950344.8 1086659.7 1202149.4 1355600.4 1466805.6                  0.795
+product group      warm    222  291989.6  334531.5  370636.2  418686.8  453559.5                  0.795
+        total all items   1423 2296180.3 2620590.8 2894988.9 3259012.3 3522452.1                  0.846
+rows by level: {'look': 40, 'product type': 36, 'product group': 6, 'total': 1}
+median range as a share of P50 by level: {'w50': {'look': 0.255, 'product group': 0.23, 'product type': 0.273, 'total': 0.221}, 'w80': {'look': 0.488, 'product group': 0.441, 'product type': 0.522, 'total': 0.424}}
+written data/fk_total_ranges_2026.csv 83

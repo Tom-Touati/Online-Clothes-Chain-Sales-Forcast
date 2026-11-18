@@ -1,0 +1,5 @@
+ec_ns 109 features (full set), 19 s
+lowvol_ecns 109 features (full set), 40 s
+bfw_ec 138 features (full set), 39 s
+bfwx 133 features (full set), 38 s
+bfwx_ns 111 features (full set), 34 s

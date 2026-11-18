@@ -1,0 +1,38 @@
+2026 inputs missing share (top): {'own_sea': 0.564, 'multi_share': 0.29, 'trend91': 0.212, 'lagr3': 0.06, 'disc_mom': 0.011, 'disc_item': 0.008} | backtest: {'own_sea': 0.664, 'trend91': 0.275, 'multi_share': 0.223}
+k (lower, upper): 1.092 0.688
+in-sample check over all 13: below 0.25 above 0.25
+target                False   True 
+r25         count  1324.000  99.000
+            mean      0.724   0.775
+            std       0.086   0.047
+            min       0.177   0.584
+            25%       0.693   0.749
+            50%       0.741   0.778
+            75%       0.778   0.806
+            max       0.874   0.853
+r25_adopted count  1324.000  99.000
+            mean      0.672   0.727
+            std       0.115   0.045
+            min       0.127   0.512
+            25%       0.592   0.712
+            50%       0.720   0.733
+            75%       0.755   0.753
+            max       0.833   0.800
+r75         count  1324.000  99.000
+            mean      1.239   1.177
+            std       0.138   0.049
+            min       1.089   1.106
+            25%       1.171   1.145
+            50%       1.208   1.171
+            75%       1.260   1.200
+            max       2.975   1.403
+r75_adopted count  1324.000  99.000
+            mean      1.178   1.124
+            std       0.156   0.050
+            min       1.065   1.068
+            25%       1.105   1.085
+            50%       1.162   1.109
+            75%       1.212   1.150
+            max       5.746   1.314
+rank correlation with the adopted P25-P75 log width (targets): 0.703
+written data/fk_ranges_2026_wm.csv 1423

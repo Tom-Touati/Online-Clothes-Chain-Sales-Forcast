@@ -1,0 +1,27 @@
+                                               rule  level  share  hit_recent  hit_h1  hit_h2  hit_units  units  abs_err
+     level 1 = narrowest fifth + rising + last year      1  0.081       0.579   0.510   0.592      0.601  0.210    0.194
+     level 1 = narrowest fifth + rising + last year      2  0.719       0.436   0.344   0.461      0.462  0.702    0.276
+     level 1 = narrowest fifth + rising + last year      3  0.200       0.282   0.234   0.293      0.291  0.088    0.390
+level 1 = two narrowest fifths + rising + last year      1  0.129       0.539   0.459   0.557      0.573  0.272    0.210
+level 1 = two narrowest fifths + rising + last year      2  0.670       0.434   0.341   0.458      0.460  0.641    0.277
+level 1 = two narrowest fifths + rising + last year      3  0.200       0.282   0.234   0.293      0.291  0.088    0.390
+level     1   2  3  All
+current                
+1         6  14  0   20
+2         4  59  2   65
+3         0   9  6   15
+All      10  82  8  100
+2026 targets by rule level: {1: 10, 2: 82, 3: 8} | broad: {1: 16, 2: 76, 3: 8}
+level-1 targets:                                                      name  current
+style_color                                                       
+S14857_BLUE-WASHED     Frayed Vintage Washed Denim Shorts        1
+S15132_WHITE                   Roman Low Rise Baggy Jeans        1
+S15999_BLUE                            Nikki Nylon Shorts        1
+S16164_CREAM              Brie Cut Out Crochet Mini Dress        2
+S16285_NAVY-AND-WHITE      Gretta Striped Ribbed Tank Top        2
+S16977_NAVY                   Bayside Slitted Micro Skort        1
+S17019_CREAM                    Double Pleated Mini Skort        2
+S17299_NAVY                     Sunrise Babydoll Tank Top        1
+S18184_DARK-GRAY        Dina Contrast Triangle Bikini Top        1
+S19030_BLACK                Studded Foldover Micro Shorts        2
+saved

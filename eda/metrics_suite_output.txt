@@ -1,0 +1,42 @@
+
+######## NINE RECENT ORIGINS: 9031 item-origins; MASE on 9031 with a past recency window
+                             MASE  MdASE  relMAE vs R3  relMAE vs rules   MAE%  bias%  MAE+|bias| (per origin)  pinball  pinball skill vs R3  P25-75 cov  P10-90 cov
+Recency (last 3 months x4)  1.648  0.679         1.000            2.061  0.699  0.154                    1.137    0.281                0.000       0.264       0.477
+Rule agents                 1.111  0.299         0.485            1.000  0.341 -0.064                    0.450    0.132                0.532       0.468       0.743
+Quantile median             1.126  0.288         0.478            0.986  0.329 -0.099                    0.420    0.123                0.563       0.488       0.784
+LightGBM                    1.099  0.298         0.495            1.020  0.349 -0.114                    0.493    0.133                0.529       0.457       0.749
+Embedding NN                1.144  0.308         0.505            1.041  0.338 -0.034                    0.420    0.128                0.546       0.482       0.764
+LightGBM+NN                 1.090  0.286         0.482            0.993  0.328 -0.074                    0.431    0.124                0.559       0.490       0.775
+Quantile x NN               1.108  0.280         0.471            0.971  0.319 -0.074                    0.400    0.120                0.574       0.503       0.793
+Rules x quantile            1.080  0.276         0.456            0.939  0.313 -0.094                    0.414    0.119                0.576       0.496       0.788
+Rules x quantile x NN       1.074  0.272         0.452            0.931  0.307 -0.082                    0.392    0.117                0.585       0.508       0.799
+
+######## ALL 13 ORIGINS: 11727 item-origins; MASE on 11727 with a past recency window
+                             MASE  MdASE  relMAE vs R3  relMAE vs rules   MAE%  bias%  MAE+|bias| (per origin)  pinball  pinball skill vs R3  P25-75 cov  P10-90 cov
+Recency (last 3 months x4)  2.638  0.643         1.000            1.936  0.668  0.133                    1.050    0.264                0.000       0.286       0.517
+Rule agents                 2.155  0.305         0.517            1.000  0.340 -0.063                    0.462    0.131                0.505       0.472       0.748
+Quantile median             2.201  0.349         0.583            1.128  0.382 -0.002                    0.578    0.139                0.476       0.461       0.768
+LightGBM                    1.781  0.326         0.553            1.071  0.360 -0.067                    0.503    0.140                0.469       0.458       0.754
+Embedding NN                1.972  0.333         0.566            1.096  0.368  0.019                    0.510    0.139                0.476       0.475       0.764
+LightGBM+NN                 1.839  0.314         0.543            1.052  0.349 -0.024                    0.483    0.134                0.494       0.484       0.774
+Quantile x NN               2.142  0.325         0.553            1.071  0.359 -0.000                    0.519    0.132                0.501       0.483       0.784
+Rules x quantile            2.128  0.302         0.512            0.992  0.328 -0.052                    0.458    0.123                0.537       0.494       0.794
+Rules x quantile x NN       2.118  0.297         0.508            0.983  0.326 -0.037                    0.447    0.122                0.540       0.504       0.801
+
+######## RECENT, THE 100 TARGETS: 570 item-origins; MASE on 570 with a past recency window
+                             MASE  MdASE  relMAE vs R3  relMAE vs rules   MAE%  bias%  MAE+|bias| (per origin)  pinball  pinball skill vs R3  P25-75 cov  P10-90 cov
+Recency (last 3 months x4)  3.054  1.023         1.000            2.006  0.742  0.111                    1.327    0.311                0.000       0.204       0.391
+Rule agents                 2.174  0.423         0.498            1.000  0.360 -0.133                    0.512    0.138                0.557       0.396       0.660
+Quantile median             2.157  0.346         0.426            0.855  0.337 -0.195                    0.505    0.128                0.589       0.446       0.753
+LightGBM                    2.221  0.377         0.455            0.913  0.364 -0.214                    0.570    0.141                0.546       0.414       0.700
+Embedding NN                2.120  0.341         0.413            0.829  0.323 -0.132                    0.464    0.124                0.602       0.461       0.746
+LightGBM+NN                 2.124  0.329         0.412            0.828  0.328 -0.173                    0.493    0.126                0.594       0.463       0.747
+Quantile x NN               2.114  0.320         0.407            0.817  0.320 -0.170                    0.469    0.122                0.607       0.489       0.760
+Rules x quantile            2.129  0.382         0.425            0.852  0.328 -0.175                    0.485    0.126                0.595       0.440       0.728
+Rules x quantile x NN       2.102  0.341         0.419            0.840  0.318 -0.167                    0.471    0.122                0.609       0.467       0.749
+
+== recent origins, 95% bootstrap of the difference (MASE | relMAE vs rules | pinball): system minus comparison
+  r_q_nn - q_nn: [-0.040, -0.026] | [-0.053, -0.025] | [-0.007, -0.004]
+  r_q_nn - qmodel: [-0.061, -0.043] | [-0.073, -0.036] | [-0.010, -0.006]
+  r_q_nn - rules: [-0.053, -0.023] | [-0.088, -0.049] | [-0.013, -0.006]
+  qmodel - R3: [-0.549, -0.495] | [-1.136, -1.025] | [-0.148, -0.130]

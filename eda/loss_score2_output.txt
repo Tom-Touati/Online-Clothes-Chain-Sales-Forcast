@@ -1,0 +1,27 @@
+l1log on the server vs the stored ec_ns member: max rel diff 3.765893929531302e-16
+member = the tree member alone; system = five-member mean; corr = system x the submitted corrections; WAPE / R3 unless named
+     loss     training  member_rec  member_bias  system_rec  corr_rec  corr_gmrae  corr_w20  corr_bias  corr_all13  corr_early
+    l1log         full      0.4299      -0.1016      0.3939    0.3851      0.4127    0.4170    -0.0616      0.4399      0.6623
+    l1log no LY window      0.6534      -0.0922      0.4182    0.4106      0.4252    0.4053    -0.0596      0.4639      0.6803
+    huber         full      0.4240      -0.0902      0.3919    0.3834      0.4125    0.4172    -0.0592      0.4381      0.6600
+    huber no LY window      0.6422      -0.1048      0.4160    0.4087      0.4235    0.4067    -0.0620      0.4635      0.6858
+  huber03         full      0.4261      -0.1070      0.3927    0.3840      0.4111    0.4165    -0.0627      0.4383      0.6587
+  huber03 no LY window      0.6591      -0.0992      0.4188    0.4111      0.4241    0.4047    -0.0610      0.4646      0.6819
+  huber10         full      0.4263      -0.0853      0.3922    0.3838      0.4128    0.4167    -0.0581      0.4398      0.6672
+  huber10 no LY window      0.6358      -0.0884      0.4147    0.4075      0.4212    0.4058    -0.0587      0.4641      0.6939
+huber_w05         full      0.4282      -0.0580      0.3924    0.3838      0.4137    0.4148    -0.0528      0.4376      0.6560
+huber_w05 no LY window      0.7067      -0.0383      0.4238    0.4176      0.4292    0.4010    -0.0486      0.4682      0.6738
+      w05         full      0.4267      -0.0945      0.3930    0.3843      0.4147    0.4156    -0.0602      0.4377      0.6545
+      w05 no LY window      0.6761      -0.0792      0.4196    0.4121      0.4263    0.4028    -0.0569      0.4634      0.6719
+
+== bootstrap, corrected system vs l1log on the same training (recent | all 13)
+  huber     full   [-0.0017 -0.0006] [-0.0017 -0.0007]
+  huber     _noly  [-0.0019 -0.0007] [-0.0009  0.0003]
+  huber03   full   [-0.0013 -0.0004] [-0.0015 -0.0007]
+  huber03   _noly  [-0.0001  0.0008] [0.    0.001]
+  huber10   full   [-0.0017 -0.0002] [-0.0008  0.0006]
+  huber10   _noly  [-0.003  -0.0014] [-0.0008  0.0009]
+  huber_w05 full   [-0.0018  0.    ] [-0.0024 -0.0007]
+  huber_w05 _noly  [0.0036 0.006 ] [0.0018 0.004 ]
+  w05       full   [-0.0013  0.0002] [-0.0022 -0.0009]
+  w05       _noly  [0.     0.0018] [-0.0013  0.0005]

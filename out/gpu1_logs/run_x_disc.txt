@@ -1,0 +1,18 @@
+panel: 238322 rows, 26568 item x location pairs, 1483 items, 31 locations; months 2024-01..2026-06
+loss logl1 | weight power 0.0 | device cuda | item inputs 82
+rows built in 2 s {'discplan': 1054556}
+2025-02 discplan: train 103808 rows | test 27664 rows | 11 s
+2025-03 discplan: train 126608 rows | test 30876 rows | 21 s
+2025-04 discplan: train 151132 rows | test 32928 rows | 33 s
+2025-05 discplan: train 176936 rows | test 35204 rows | 48 s
+2025-06 discplan: train 204600 rows | test 36300 rows | 68 s
+2025-07 discplan: train 235476 rows | test 38408 rows | 89 s
+2025-08 discplan: train 268404 rows | test 41676 rows | 114 s
+2025-09 discplan: train 303608 rows | test 44204 rows | 512 s
+2025-10 discplan: train 339908 rows | test 48260 rows | 1158 s
+2025-11 discplan: train 378316 rows | test 54888 rows | 1684 s
+2025-12 discplan: train 419992 rows | test 58080 rows | 2217 s
+2026-01 discplan: train 464196 rows | test 59144 rows | 2672 s
+2026-02 discplan: train 512456 rows | test 64148 rows | 3108 s
+2026-06 discplan: train 748716 rows | test 81192 rows | 3830 s
+saved (13150, 6) 3830 s

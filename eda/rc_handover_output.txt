@@ -1,0 +1,4 @@
+deepfm alone recent 0.4831 -> 0.4831 | all13 0.5310 -> 0.5310 | capped rows 0 | six-member mean recent 0.3899 all13 0.4428
+gbm    alone recent 0.4565 -> 0.4565 | all13 0.5097 -> 0.5097 | capped rows 0 | six-member mean recent 0.3944 all13 0.4465
+avg    alone recent 0.4380 -> 0.4380 | all13 0.4949 -> 0.4949 | capped rows 0 | six-member mean recent 0.3911 all13 0.4438
+saved data/rc_recsys_preds.parquet (13150, 5) {'2026-02': 1262, '2026-06': 1423}

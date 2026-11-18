@@ -1,0 +1,77 @@
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\189_explain_summary.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  for g in groups: S["G_" + g] = S[["shap_" + f for f in F if GROUP[f] == g]].sum(1)
+== (a) deviations from R3, nine recent origins
+  all items: actual deviation sd 0.884, model deviation sd 0.617, corr 0.775, R^2 of actual on model 0.600; sign agreement 0.834
+  100 targets: actual deviation sd 1.023, model deviation sd 0.679, corr 0.861, R^2 of actual on model 0.741; sign agreement 0.870
+
+== (b) SHAP by group, nine recent origins: share of total |contribution|, mean signed, R^2 of the actual deviation on the group alone
+  recent momentum                        share  27.1% | mean -0.004 | sd 0.260 | R^2 alone 0.330
+  special events / occasions             share  19.8% | mean -0.029 | sd 0.179 | R^2 alone 0.250
+  base                                   share  16.2% | mean -0.128 | sd 0.024 | R^2 alone 0.061
+  temperature / weather                  share  13.0% | mean +0.005 | sd 0.152 | R^2 alone 0.274
+  co-purchase cluster seasonality        share  12.1% | mean -0.067 | sd 0.097 | R^2 alone 0.259
+  level offset (young items)             share   8.1% | mean +0.056 | sd 0.182 | R^2 alone 0.135
+  product type and attributes            share   5.9% | mean -0.002 | sd 0.058 | R^2 alone 0.034
+  seasonality (history)                  share   5.1% | mean -0.030 | sd 0.059 | R^2 alone 0.169
+  sales level                            share   5.0% | mean +0.005 | sd 0.049 | R^2 alone 0.003
+  fashion descriptors (LLM scores)       share   3.9% | mean +0.005 | sd 0.041 | R^2 alone 0.071
+
+== top 30 features by mean |SHAP|
+cp_nb_sea4           0.0919
+lagr1                0.0770
+f_r7                 0.0612
+lagr6                0.0476
+f_r28                0.0456
+ptype                0.0432
+x_winter             0.0422
+x_warm_dT            0.0416
+lvl                  0.0392
+cp_nb_lvl            0.0359
+x_bts                0.0327
+x_summer             0.0317
+t_org                0.0305
+bT_dT                0.0294
+peak_r               0.0289
+ev_spring_break_t    0.0283
+lagr5                0.0251
+lagr3                0.0231
+t_tgt_norm           0.0224
+occ_next             0.0207
+own_sea4             0.0202
+lagr2                0.0175
+x_halloween          0.0169
+occ_last             0.0157
+ev_prom_o            0.0153
+beta_T               0.0139
+winter               0.0124
+tmonth               0.0123
+ev_mothers_o         0.0121
+lagr4                0.0114
+
+== mean signed group contribution by origin month (recent)
+om                                   01     02     06     07     08     09     10     11     12
+co-purchase cluster seasonality  -0.111 -0.083 -0.030 -0.014 -0.011 -0.033 -0.042 -0.099 -0.132
+fashion descriptors (LLM scores) -0.003 -0.000  0.005  0.008  0.010  0.011  0.014  0.004 -0.002
+product type and attributes      -0.008 -0.007  0.008  0.005  0.005  0.003  0.002 -0.004 -0.009
+recent momentum                  -0.178 -0.070  0.061  0.180  0.084 -0.095 -0.058  0.182 -0.043
+sales level                       0.000  0.000  0.012  0.008  0.010  0.009  0.008  0.004  0.002
+seasonality (history)            -0.049 -0.049  0.016  0.010  0.010 -0.005 -0.006 -0.051 -0.104
+special events / occasions       -0.143 -0.089  0.269  0.131  0.061  0.031 -0.008 -0.156 -0.176
+temperature / weather            -0.068 -0.133  0.103  0.029  0.051  0.131  0.141 -0.041 -0.066
+level offset (young items)        0.041  0.104  0.042  0.046  0.047  0.064  0.047  0.060  0.040
+
+wrote data/fk_categoriser_context.md

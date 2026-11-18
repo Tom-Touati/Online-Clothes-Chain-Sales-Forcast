@@ -1,0 +1,150 @@
+  L = R[(R.e.abs() > 0.5) & (R.y >= 20)].copy(); lo = L[MEM].min(1); hi = L[MEM].max(1)
+  L = R[(R.e.abs() > 0.5) & (R.y >= 20)].copy(); lo = L[MEM].min(1); hi = L[MEM].max(1)
+== 1 concentration (recent origins, 9,031 item-origins)
+  worst 1% of item-origins hold 16.5% of the error
+  worst 5% of item-origins hold 41.6% of the error
+  worst 10% of item-origins hold 58.2% of the error
+  worst 20% of item-origins hold 76.8% of the error
+
+== 2 who (recent): share of units vs share of error, WAPE / R3, bias
+-- macro
+        item_origins  unit_share  error_share  wape_r3   bias
+macro                                                        
+bottom          2512       0.318        0.286    0.419 -0.066
+dress            911       0.053        0.062    0.553 -0.135
+other            792       0.054        0.069    0.534  0.039
+swim             244       0.010        0.011    0.471 -0.113
+top             3117       0.311        0.330    0.468 -0.004
+warm            1455       0.253        0.241    0.281 -0.069
+-- age_band
+          item_origins  unit_share  error_share  wape_r3   bias
+age_band                                                       
+<3m               1068       0.162        0.216    0.577 -0.169
+3-6m              1354       0.158        0.159    0.337  0.046
+6-12m             2271       0.247        0.265    0.472 -0.085
+12-24m            2957       0.312        0.271    0.333 -0.012
+24m+              1381       0.122        0.089    0.303 -0.014
+-- vol_band
+             item_origins  unit_share  error_share  wape_r3   bias
+vol_band                                                          
+v1 smallest          1807       0.010        0.017    0.718 -0.142
+v2                   1806       0.048        0.077    0.640 -0.284
+v3                   1807       0.126        0.157    0.547 -0.165
+v4                   1805       0.258        0.281    0.508 -0.068
+v5 largest           1806       0.558        0.468    0.306  0.013
+-- bf_window
+           item_origins  unit_share  error_share  wape_r3   bias
+bf_window                                                       
+0                  5404       0.491        0.443    0.310 -0.042
+1                  3627       0.509        0.557    0.512 -0.050
+-- spread_band
+             item_origins  unit_share  error_share  wape_r3   bias
+spread_band                                                       
+agree                1807       0.199        0.184    0.377 -0.048
+q2                   1806       0.223        0.193    0.355 -0.047
+q3                   1806       0.196        0.182    0.355 -0.020
+q4                   1806       0.199        0.210    0.401 -0.035
+disagree             1806       0.183        0.231    0.517 -0.083
+-- tt_band
+         item_origins  unit_share  error_share  wape_r3   bias
+tt_band                                                       
+<2%              4437       0.327        0.344    0.475 -0.043
+2-10%            3136       0.443        0.427    0.379 -0.044
+10-25%           1088       0.174        0.169    0.338 -0.057
+>25%              370       0.055        0.061    0.368 -0.050
+-- disc_band
+           item_origins  unit_share  error_share  wape_r3   bias
+disc_band                                                       
+<40%                110       0.025        0.042    0.687 -0.070
+40-55%             3386       0.485        0.529    0.490 -0.116
+55-65%             2851       0.351        0.295    0.353  0.001
+>65%               2618       0.138        0.132    0.246  0.088
+-- sea_band
+               item_origins  unit_share  error_share  wape_r3   bias
+sea_band                                                            
+flat                    805       0.059        0.046    0.431  0.000
+mild                   1184       0.116        0.097    0.398 -0.038
+seasonal               1051       0.097        0.077    0.232  0.028
+very seasonal           267       0.028        0.025    0.235  0.085
+-- phase
+              item_origins  unit_share  error_share  wape_r3   bias
+phase                                                              
+falling fast          2230       0.145        0.147    0.566 -0.039
+falling               1243       0.097        0.099    0.438 -0.019
+steady                 832       0.075        0.077    0.381  0.009
+rising                1008       0.142        0.112    0.314 -0.003
+rising fast           1338       0.226        0.195    0.303 -0.081
+-- target
+        item_origins  unit_share  error_share  wape_r3   bias
+target                                                       
+False           8461       0.778        0.775    0.404 -0.021
+True             570       0.222        0.225    0.378 -0.134
+-- product type (12 largest error shares)
+            item_origins  unit_share  error_share  wape_r3   bias
+ptype                                                            
+Top                 1047       0.108        0.114    0.416 -0.031
+Hoodie               368       0.094        0.087    0.268 -0.060
+Tank Top             648       0.086        0.083    0.470 -0.034
+Shorts               676       0.075        0.080    0.482 -0.076
+Jeans                615       0.115        0.078    0.344 -0.030
+Sweater              467       0.073        0.075    0.295 -0.024
+Dress                911       0.053        0.062    0.553 -0.135
+Sweatpants           334       0.061        0.048    0.241 -0.074
+T-Shirt              468       0.040        0.043    0.420  0.015
+Skort                434       0.046        0.040    0.478 -0.069
+Pants                226       0.028        0.039    0.481 -0.189
+Skirt                391       0.035        0.030    0.400 -0.038
+
+== 3 when: by origin
+         wape_r3   bias      units
+origin                            
+2025-02    0.599  0.372  1354312.0
+2025-03    0.733  0.302  1485191.0
+2025-04    0.698  0.006  1801999.0
+2025-05    0.763  0.015  1957566.0
+2025-06    0.687 -0.083  2125908.0
+2025-07    0.551  0.033  2455069.0
+2025-08    0.544  0.060  2673676.0
+2025-09    0.495 -0.156  2926801.0
+2025-10    0.476 -0.112  3039933.0
+2025-11    0.566  0.068  2633255.0
+2025-12    0.206 -0.063  2063215.0
+2026-01    0.188 -0.070  1914019.0
+2026-02    0.268 -0.098  1965123.0
+-- by target calendar month (recent origins): item-month WAPE and bias
+     item_month_wape   bias      units
+cal                                   
+01             0.368 -0.135  2167226.0
+02             0.288 -0.003  1993786.0
+03             0.283 -0.057  2160532.0
+04             0.362 -0.075  1295302.0
+05             0.376 -0.097   869146.0
+06             0.428 -0.116   427220.0
+07             0.255 -0.122   621891.0
+08             0.286 -0.044  1347249.0
+09             0.447  0.277  1356645.0
+10             0.391  0.039  1960688.0
+11             0.374 -0.190  3937072.0
+12             0.353  0.021  3660242.0
+
+== 4 persistence: is the same item bad again?
+  |e| rank correlation, same item 4 months apart: +0.064 | sign repeats 0.511 | e correlation +0.016
+  chronic items (|e| > 0.5 at >= half of >= 5 origins): 112 of 992 (11.3%)
+
+== 5 cascade diagnosis of large misses (recent, |e| > 0.5, y >= 20)
+  large misses: 1714 item-origins, 44.1% of all error
+                                                  n  error_share
+kind                                                            
+combination (actual inside the members' range)   46        0.007
+consensus over (all members above)              830        0.126
+consensus under (all members below)             838        0.308
+kind                                            season_dir                         
+combination (actual inside the members' range)  seasonality moved away                 0.004
+                                                seasonality moved toward the actual    0.004
+consensus over (all members above)              seasonality moved away                 0.045
+                                                seasonality moved toward the actual    0.081
+consensus under (all members below)             seasonality moved away                 0.138
+                                                seasonality moved toward the actual    0.170
+  which member was closest in the combination misses: {'rules': 0.435, 'nn': 0.37, 'pf2c': 0.109, 'qdyn': 0.043, 'pf2d32': 0.043}
+
+gallery saved

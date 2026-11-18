@@ -1,0 +1,10 @@
+member table: (21316, 191) origins 2024-03 to 2026-06
+SIG 11 | LM 20 | coverage SIG 0.998 LM 0.996
+training rows 15877 origins 2024-03 to 2026-02 | June 2026 items 1423 | missing SIG 0.003 LM 0.004
+check done 2959958
+sig done 3009320
+lm done 2843433
+siglm done 2886956
+check against Main's stored 2026 member: max relative difference 0.0 | items compared 1423
+100 targets (99 modelled): 99 | sums: {'check': 632491, 'sig': 641748, 'lm': 616226, 'siglm': 621781}
+saved

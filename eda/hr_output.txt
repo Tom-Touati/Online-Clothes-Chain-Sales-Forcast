@@ -1,0 +1,15 @@
+huber_hr  69 s
+   2025-02: routed 0% of test rows; specialist trained on 0 rows (0% with an own ratio)
+   2025-03: routed 0% of test rows; specialist trained on 0 rows (0% with an own ratio)
+   2025-04: routed 81% of test rows; specialist trained on 0 rows (0% with an own ratio)
+   2025-05: routed 84% of test rows; specialist trained on 0 rows (0% with an own ratio)
+   2025-06: routed 80% of test rows; specialist trained on 0 rows (0% with an own ratio)
+   2025-07: routed 81% of test rows; specialist trained on 0 rows (0% with an own ratio)
+   2025-08: routed 77% of test rows; specialist trained on 558 rows (25% with an own ratio)
+   2025-09: routed 37% of test rows; specialist trained on 433 rows (65% with an own ratio)
+   2025-10: routed 37% of test rows; specialist trained on 671 rows (64% with an own ratio)
+   2025-11: routed 36% of test rows; specialist trained on 952 rows (66% with an own ratio)
+   2025-12: routed 42% of test rows; specialist trained on 1286 rows (66% with an own ratio)
+   2026-01: routed 42% of test rows; specialist trained on 1632 rows (67% with an own ratio)
+   2026-02: routed 43% of test rows; specialist trained on 2005 rows (66% with an own ratio)
+huber_hr_route  82 s

@@ -1,0 +1,70 @@
+2025-02 shade nan
+2025-03 shade nan
+2025-04 shade nan
+2025-05 shade nan
+2025-06 shade nan
+2025-07 shade 0.8
+2025-08 shade 0.82
+2025-09 shade 0.82
+2025-10 shade 0.81
+2025-11 shade 0.82
+2025-12 shade 0.82
+2026-01 shade 0.84
+2026-02 shade 0.84
+
+=== all
+                                                   origins   wape  wape_std   bias    w20    w50  ens_wape_same_origins  origins_beating_ens
+model                                                                                                                                       
+ens (L1 base + L1 full) [current best]                  13  0.363     0.086 -0.043  0.327  0.697                  0.363                    0
+L1 full + style features                                13  0.367     0.094 -0.071  0.323  0.697                  0.363                    4
+ens (base + full + style)                               13  0.361     0.090 -0.053  0.325  0.700                  0.363                    8
+B0 level x like-for-like season x age                    8  0.419     0.090 -0.292  0.276  0.655                  0.345                    1
+blend 75% ens + 25% B0                                   8  0.343     0.083 -0.151  0.338  0.725                  0.345                    4
+blend 50% ens + 50% B0                                   8  0.355     0.091 -0.198  0.327  0.718                  0.345                    2
+shade: ens x multiplier fitted on earlier origins        8  0.364     0.100 -0.265  0.326  0.725                  0.345                    2
+
+=== targets
+                                                   origins   wape  wape_std   bias    w20    w50  ens_wape_same_origins  origins_beating_ens
+model                                                                                                                                       
+ens (L1 base + L1 full) [current best]                  13  0.371     0.119 -0.115  0.341  0.738                  0.371                    0
+L1 full + style features                                13  0.381     0.119 -0.137  0.349  0.711                  0.371                    3
+ens (base + full + style)                               13  0.372     0.119 -0.122  0.348  0.736                  0.371                    5
+B0 level x like-for-like season x age                    8  0.449     0.122 -0.342  0.255  0.642                  0.352                    0
+blend 75% ens + 25% B0                                   8  0.358     0.122 -0.229  0.358  0.761                  0.352                    2
+blend 50% ens + 50% B0                                   8  0.376     0.125 -0.266  0.339  0.748                  0.352                    2
+shade: ens x multiplier fitted on earlier origins        8  0.389     0.138 -0.335  0.355  0.739                  0.352                    1
+
+=== young<=6m
+                                                   origins   wape  wape_std   bias    w20    w50  ens_wape_same_origins  origins_beating_ens
+model                                                                                                                                       
+ens (L1 base + L1 full) [current best]                  13  0.405     0.105 -0.035  0.319  0.668                  0.405                    0
+L1 full + style features                                13  0.399     0.117 -0.070  0.323  0.682                  0.405                    5
+ens (base + full + style)                               13  0.399     0.111 -0.047  0.319  0.674                  0.405                    9
+analog launch curve                                     10  0.500     0.104 -0.313  0.252  0.607                  0.381                    0
+blend 50% ens + 50% analog                              10  0.430     0.114 -0.225  0.292  0.658                  0.381                    1
+ens on the same young items                             10  0.408     0.095 -0.136  0.289  0.676                  0.381                    0
+B0 level x like-for-like season x age                    8  0.473     0.094 -0.317  0.266  0.653                  0.403                    1
+blend 75% ens + 25% B0                                   8  0.395     0.106 -0.135  0.332  0.701                  0.403                    5
+blend 50% ens + 50% B0                                   8  0.403     0.112 -0.196  0.331  0.696                  0.403                    3
+shade: ens x multiplier fitted on earlier origins        8  0.393     0.112 -0.240  0.345  0.727                  0.403                    3
+
+shade multipliers chosen by origin: {'2025-02': nan, '2025-03': nan, '2025-04': nan, '2025-05': nan, '2025-06': nan, '2025-07': 0.8, '2025-08': 0.82, '2025-09': 0.82, '2025-10': 0.81, '2025-11': 0.82, '2025-12': 0.82, '2026-01': 0.84, '2026-02': 0.84}
+
+=== confidence (logistic, trained on earlier origins; scored on 7 later origins, 7447 forecasts)
+base rates: within20 0.34 | off by >50% 0.269
+P(within 20%) >= 0.5: 147 items; actual hit rate 0.32
+P(within 20%) >= 0.45: 441 items (5.9%); actual within20 0.358, within50 0.812
+P(within 20%) >= 0.4: 1333 items (17.9%); actual within20 0.396, within50 0.803
+P(off >50%) >= 0.4: 1734 items (23.3%); actual off>50% 0.345
+P(off >50%) >= 0.35: 3075 items (41.3%); actual off>50% 0.314
+calibration by decile of P(within 20%):
+p_hit20            0      1      2      3      4      5      6      7      8      9
+p              0.198  0.250  0.277  0.300  0.320  0.339  0.358  0.381  0.409  0.471
+actual20       0.236  0.325  0.285  0.357  0.333  0.324  0.358  0.384  0.417  0.376
+actual_miss50  0.404  0.293  0.329  0.254  0.266  0.273  0.236  0.243  0.204  0.192
+by disagreement between the two models (quintiles):
+dis           0      1      2      3      4
+dis       0.028  0.089  0.156  0.238  0.418
+within20  0.377  0.355  0.345  0.322  0.299
+miss50    0.244  0.271  0.253  0.281  0.298
+drivers of being off by >50% (standardised logistic coefficients): {'tagged': -0.22, 'lvl': -0.12, 'age_m': -0.12, 'turn': -0.12, 'sh_ret': -0.04, 'mult': 0.0, 'sh_drop': 0.02, 'young3': 0.04, 'f28': 0.1, 'vol': 0.11, 'dis': 0.15}

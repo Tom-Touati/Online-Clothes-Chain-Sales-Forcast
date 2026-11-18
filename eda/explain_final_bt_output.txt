@@ -1,0 +1,29 @@
+backtest, nine recent origins: final-system deviation from R3 explained by the tree member's 11 categories (ridge on earlier origins) R^2 -0.569; by the tree member's own deviation R^2 0.917; direction agreement 0.847
+
+June 2026, 84 targets in the tree table: R3 389,101, tree member 415,950 (+6.9%)
+
+== tree member: R3-weighted mean contribution by category (log units; % effect)
+  Portfolio baseline (typical drift below recency)               -0.215 (-19.4%)
+  Event-inflated recent sales (post-event hangover)              +0.074 (+7.6%)
+  Upcoming events and occasions                                  +0.057 (+5.8%)
+  Shopper-cluster seasonality (co-purchase neighbours)           +0.053 (+5.4%)
+  Last year's seasonal pattern (like-for-like history)           +0.027 (+2.7%)
+  Short-term momentum (recent weeks' buzz or cooling)            -0.023 (-2.3%)
+  Item age and sales scale                                       +0.020 (+2.1%)
+  Geographic / regional climate mix                              +0.018 (+1.8%)
+  Item life cycle (longer-run sales trajectory)                  -0.017 (-1.7%)
+  Product type and style profile (structural fashion trend)      +0.013 (+1.3%)
+  Weather and seasonal temperature turn                          -0.008 (-0.8%)
+
+== the ten largest targets
+           style_color                                   product      R3  tree_F                                                                                                                                                                     top_drivers
+          S15132_WHITE                Roman Low Rise Baggy Jeans 17812.0 23843.0 Portfolio baseline (typical drift below recency) -19%; Short-term momentum (recent weeks' buzz or cooling) +21%; Product type and style profile (structural fashion trend) +12%
+          S20878_WHITE                 Stephanie Lace Mini Dress 15715.0  7476.0             Short-term momentum (recent weeks' buzz or cooling) -29%; Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -14%
+   S17159_BLACK-WASHED    Washed Faux Leather Micro Cargo Shorts 15305.0 21540.0                               Portfolio baseline (typical drift below recency) -19%; Upcoming events and occasions +21%; Event-inflated recent sales (post-event hangover) +13%
+          S21376_BLACK          Rhian Lacey Pleated Babydoll Top 13536.0 11641.0          Portfolio baseline (typical drift below recency) -19%; Shopper-cluster seasonality (co-purchase neighbours) +9%; Event-inflated recent sales (post-event hangover) +6%
+           S15999_BLUE                        Nikki Nylon Shorts 11831.0  8398.0              Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -13%; Short-term momentum (recent weeks' buzz or cooling) +8%
+          S23426_BLACK Ofelia Asymmetric Off Shoulder Ruched Top 11265.0  6639.0             Short-term momentum (recent weeks' buzz or cooling) -21%; Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -15%
+          S11233_BLACK                 Aisha Low Rise Mini Skirt 11221.0 15853.0                               Portfolio baseline (typical drift below recency) -19%; Upcoming events and occasions +24%; Event-inflated recent sales (post-event hangover) +13%
+           S14091_BLUE       Raelynn Washed Low Rise Baggy Jeans 10864.0 13521.0                       Portfolio baseline (typical drift below recency) -19%; Upcoming events and occasions +13%; Product type and style profile (structural fashion trend) +12%
+           S23605_PINK       Taniya Off Shoulder Zigzag Knit Top  9989.0  7081.0        Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -10%; Product type and style profile (structural fashion trend) -9%
+S20850_BLACK-AND-WHITE                  Chelsie Polka Dot Hoodie  9116.0 13520.0            Item life cycle (longer-run sales trajectory) +29%; Shopper-cluster seasonality (co-purchase neighbours) +26%; Portfolio baseline (typical drift below recency) -19%

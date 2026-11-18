@@ -1,0 +1,10 @@
+seasonality 17 34 302 s
+momentum 13 29 207 s
+lifecycle 17 36 191 s
+product 18 31 204 s
+occasion 12 32 233 s
+channel 19 36 462 s
+discount 19 37 763 s
+size 18 38 636 s
+onlyhistory 7 11 150 s
+nohistory 13 29 103 s

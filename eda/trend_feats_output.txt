@@ -1,0 +1,42 @@
+GROUP 10 | HOTCOLD 15 | coverage 0.973
+rank correlation with the miss | origins with that sign
+   item's momentum against its type's                   +0.038 7/9
+   trend size of the closest rising product             +0.038 5/9
+   is one of the 10 falling                             +0.038 8/9
+   closeness to the rising centroid                     -0.035 6/9
+   closeness to the 10 rising, weighted by trend size   -0.033 6/9
+   closeness to the 10 falling, weighted by trend size  -0.033 6/9
+   closeness to the falling centroid                    -0.032 6/9
+   item's momentum against its cluster's                +0.030 6/9
+   product type: year on year                           +0.023 6/9
+   product type: 3-month momentum                       -0.022 4/9
+   product type: change of share                        -0.022 4/9
+   product type: like-for-like momentum                 -0.021 4/9
+   cluster: year on year                                +0.017 8/9
+   is one of the 10 rising                              -0.015 6/9
+   cluster: 3-month momentum                            -0.010 5/9
+   cluster: change of share                             -0.010 5/9
+   closest of the 10 rising products                    -0.010 5/9
+   cluster: like-for-like momentum                      -0.008 5/9
+   closest of the 10 falling products                   +0.007 5/9
+   rising minus falling closeness                       +0.006 4/9
+the 10 rising / falling themselves (recent): {'hot_bias': -0.04, 'hot_n': 161, 'cold_bias': -0.111, 'cold_n': 139, 'hot_growth': 0.763, 'cold_growth': 1.787}
+                                             variant   wape   hit    n                ci          hit_ci
+     correction on origin-known features (reference) 0.3876 0.421  NaN               NaN             NaN
+                   + cluster and product-type trends 0.3882 0.418 10.0 [-0.0016, 0.0027] [-0.008, 0.001]
++ closeness to the 10 rising and 10 falling products 0.3880 0.422 15.0 [-0.0017, 0.0024] [-0.004, 0.005]
+                                              + both 0.3887 0.418 25.0 [-0.0021, 0.0041] [-0.009, 0.002]
++ cluster and type trends | 44 s
++ closeness to the rising and falling products | 47 s
++ both trend blocks | 45 s
++ origin-known signals (D307) and both trend blocks | 56 s
+                                            variant  alone  stack  corrected  corrected_hit  corrected_all         stack_ci          against  wins13
+                           tree member as submitted 0.4299 0.3939     0.3851          0.417         0.4399              NaN              NaN     NaN
+                      + origin-known signals (D307) 0.4244 0.3911     0.3835          0.419         0.4349              NaN              NaN     NaN
+                          + cluster and type trends 0.4270 0.3938     0.3849          0.418         0.4412 [-0.001, 0.0006] submitted member     5.0
+     + closeness to the rising and falling products 0.4366 0.3954     0.3872          0.417         0.4422 [0.0003, 0.0026] submitted member     4.0
+                                + both trend blocks 0.4396 0.3961     0.3877          0.417         0.4438 [0.0011, 0.0033] submitted member     3.0
++ origin-known signals (D307) and both trend blocks 0.4282 0.3933     0.3856          0.419         0.4398 [0.0011, 0.0034]             D307     2.0
+June 2026 rising: [('S23493_LIGHT-YELLOW', 3.89), ('S23736_DARK-GRAY-AND-WHITE', 3.57), ('S23624_BLACK', 3.15), ('S23924_OLIVE', 2.82), ('S23724_BLUE', 2.72), ('S23403_GRAY', 2.69), ('S23869_LIGHT-BLUE', 2.68), ('S23875_BLUE-AND-YELLOW', 2.68), ('S23556_BLACK', 2.65), ('S23846_BLACK', 2.56)]
+June 2026 falling: [('S17992_CREAM', -2.3), ('S22234_BLACK', -2.05), ('S17790_BLUE-AND-CREAM', -1.89), ('S14903_LIGHT-PINK-AND-CREAM', -1.88), ('S17474_BLUE', -1.87), ('S17954_CREAM', -1.87), ('S21078_LIGHT-BLUE', -1.84), ('S17869_NAVY', -1.84), ('S17589_LIGHT-GRAY', -1.84), ('S21463_BURGUNDY', -1.82)]
+saved

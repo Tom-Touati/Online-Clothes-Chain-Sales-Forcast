@@ -1,0 +1,46 @@
+factors at the later origins (origin, group, WAPE-optimal f, actual/forecast ratio):
+   ('2025-10', 'bottom', 1.0, 1.03)
+   ('2025-10', 'dress', 1.0, 1.15)
+   ('2025-10', 'top', 0.88, 0.97)
+   ('2025-10', 'warm', 0.8, 0.66)
+   ('2025-11', 'bottom', 1.0, 1.03)
+   ('2025-11', 'dress', 1.0, 1.14)
+   ('2025-11', 'other', 0.88, 0.99)
+   ('2025-11', 'top', 0.88, 0.96)
+   ('2025-11', 'warm', 0.8, 0.76)
+   ('2025-12', 'bottom', 0.98, 1.02)
+   ('2025-12', 'dress', 1.0, 1.16)
+   ('2025-12', 'other', 0.88, 0.99)
+   ('2025-12', 'top', 0.86, 0.94)
+   ('2025-12', 'warm', 0.8, 0.87)
+   ('2026-01', 'bottom', 1.0, 1.05)
+   ('2026-01', 'dress', 1.02, 1.17)
+   ('2026-01', 'other', 0.86, 1.01)
+   ('2026-01', 'top', 0.86, 0.95)
+   ('2026-01', 'warm', 0.86, 1.05)
+   ('2026-02', 'bottom', 1.0, 1.06)
+   ('2026-02', 'dress', 1.04, 1.19)
+   ('2026-02', 'other', 0.88, 1.04)
+   ('2026-02', 'top', 0.88, 0.97)
+   ('2026-02', 'warm', 1.0, 1.14)
+
+######## nine recent origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.4879        0.4851     0.7110           0.5000             0.3958        0.4681 -0.0639
+three-way                    0.4397        0.4515     0.7550           0.5625             0.3444        0.4148 -0.0819
+group factor, half           0.4435        0.4409     0.7563           0.5649             0.3758        0.4157 -0.1293
+group factor, full           0.4620        0.4419     0.7465           0.5496             0.4253        0.4301 -0.1766
+group bias ratio, half       0.4575        0.4552     0.7571           0.5550             0.3711        0.4284 -0.1136
+
+######## recent, 100 targets
+   R3 itself: WAPE 0.742 | MAE+|bias| 1.327 | pinball 0.311 | bias +0.111 | 570 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.4846        0.4984     0.7386           0.5000             0.3860        0.4435 -0.1328
+three-way                    0.4280        0.4186     0.7930           0.6158             0.3551        0.3910 -0.1665
+group factor, half           0.4444        0.4170     0.7842           0.5965             0.3870        0.4038 -0.2093
+group factor, full           0.4746        0.4394     0.7596           0.5544             0.4337        0.4300 -0.2521
+group bias ratio, half       0.4569        0.4128     0.7825           0.6035             0.3848        0.4157 -0.1953
+
+bootstrap vs three-way: {'half': [0.0001, 0.0049], 'full': [0.0106, 0.0198], 'ratio_half': [0.0096, 0.0154]}
+bias by group, recent, three-way vs group factor half: {'bottom': (np.float64(-0.073), np.float64(-0.104)), 'dress': (np.float64(-0.155), np.float64(-0.152)), 'other': (np.float64(-0.023), np.float64(-0.049)), 'swim': (np.float64(-0.117), np.float64(-0.117)), 'top': (np.float64(-0.019), np.float64(-0.085)), 'warm': (np.float64(-0.165), np.float64(-0.228))}

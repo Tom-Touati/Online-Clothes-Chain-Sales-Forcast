@@ -1,0 +1,79 @@
+== realised bands of the final system, recent origins: {1: 0.415, 2: 0.373, 3: 0.212} | p2c32a: {1: 0.405, 2: 0.374, 3: 0.22}
+
+-- rule_wb vs the final system's realised band (recent origins): n 9031, accuracy 0.373, quadratic kappa +0.111, unit-weighted accuracy 0.357
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo     1     2     3   All
+rule_wb                         
+1          137   101    19   257
+2         2870  2512  1176  6558
+3          740   757   719  2216
+All       3747  3370  1914  9031
+   row %:
+band_geo     1     2     3
+rule_wb                   
+1         53.3  39.3   7.4
+2         43.8  38.3  17.9
+3         33.4  34.2  32.4
+   cumulative hit rate per stated level: level 1: within 20% 53%, within 50% 93% (n 257); level 2: within 20% 44%, within 50% 82% (n 6558); level 3: within 20% 33%, within 50% 68% (n 2216)
+
+-- rule_ml vs the final system's realised band (recent origins): n 8263, accuracy 0.393, quadratic kappa +0.174, unit-weighted accuracy 0.380
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo     1     2     3   All
+rule_ml                         
+1         1344  1049   354  2747
+2         1136  1006   478  2620
+3          973  1025   898  2896
+All       3453  3080  1730  8263
+   row %:
+band_geo     1     2     3
+rule_ml                   
+1         48.9  38.2  12.9
+2         43.4  38.4  18.2
+3         33.6  35.4  31.0
+   cumulative hit rate per stated level: level 1: within 20% 49%, within 50% 87% (n 2747); level 2: within 20% 43%, within 50% 82% (n 2620); level 3: within 20% 34%, within 50% 69% (n 2896)
+
+-- rule_ml_med vs the final system's realised band (recent origins): n 8263, accuracy 0.391, quadratic kappa +0.144, unit-weighted accuracy 0.376
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo        1     2     3   All
+rule_ml_med                        
+1             458   365    98   921
+2            2573  2251  1114  5938
+3             422   464   518  1404
+All          3453  3080  1730  8263
+   row %:
+band_geo        1     2     3
+rule_ml_med                  
+1            49.7  39.6  10.6
+2            43.3  37.9  18.8
+3            30.1  33.0  36.9
+   cumulative hit rate per stated level: level 1: within 20% 50%, within 50% 89% (n 921); level 2: within 20% 43%, within 50% 81% (n 5938); level 3: within 20% 30%, within 50% 63% (n 1404)
+
+-- rule_wb, all 13 origins: n 11727, accuracy 0.386, quadratic kappa +0.139, unit-weighted accuracy 0.376
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo     1     2     3    All
+rule_wb                          
+1          172   109    22    303
+2         3472  3167  1691   8330
+3          924   979  1191   3094
+All       4568  4255  2904  11727
+   row %:
+band_geo     1     2     3
+rule_wb                   
+1         56.8  36.0   7.3
+2         41.7  38.0  20.3
+3         29.9  31.6  38.5
+   cumulative hit rate per stated level: level 1: within 20% 57%, within 50% 93% (n 303); level 2: within 20% 42%, within 50% 80% (n 8330); level 3: within 20% 30%, within 50% 62% (n 3094)
+
+== intervals around the final forecast, recent origins: coverage of P10-P90 (nominal 80%) / P25-P75 (nominal 50%) / median width P90 / P10
+  TabPFN conformal member's relative quantiles     0.806 / 0.566 / 2.72
+      level 1 (n 257): 0.813 / 0.498 / 2.02
+      level 2 (n 6558): 0.826 / 0.588 / 2.65
+      level 3 (n 2216): 0.749 / 0.511 / 3.20
+  time-honest conformal, global                    0.800 / 0.498 / 3.06
+      level 1 (n 257): 0.875 / 0.494 / 3.06
+      level 2 (n 6558): 0.825 / 0.524 / 3.05
+      level 3 (n 2216): 0.716 / 0.421 / 3.09
+  time-honest conformal, per stated level          0.782 / 0.473 / 2.75
+      level 1 (n 257): 0.498 / 0.261 / 1.92
+      level 2 (n 6558): 0.807 / 0.510 / 2.75
+      level 3 (n 2216): 0.741 / 0.387 / 3.78

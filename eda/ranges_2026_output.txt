@@ -1,0 +1,24 @@
+                            n   kl10   ku10   kl25   ku25
+3-6 months | high       803.0  1.055  0.734  0.990  0.583
+3-6 months | low        452.0  1.131  0.998  1.195  0.716
+3-6 months | mid        632.0  0.959  1.048  0.948  0.995
+6-12 months | high     1022.0  0.975  0.976  0.950  0.904
+6-12 months | low       979.0  1.171  1.021  1.126  0.991
+6-12 months | mid      1076.0  0.825  1.114  0.753  1.191
+over 12 months | high  1652.0  0.974  0.837  0.981  0.604
+over 12 months | low   2145.0  1.295  1.021  1.244  0.674
+over 12 months | mid   1580.0  0.910  0.952  0.807  0.759
+under 3 months | high   433.0  0.972  0.938  0.866  0.941
+under 3 months | low    336.0  1.058  0.924  1.184  1.125
+under 3 months | mid    617.0  0.920  1.130  0.836  1.327
+            r10       r25       r75       r90
+count  1423.000  1423.000  1423.000  1423.000
+mean      0.508     0.676     1.174     1.836
+std       0.152     0.112     0.152     7.549
+min       0.025     0.127     1.065     1.205
+25%       0.386     0.598     1.103     1.398
+50%       0.578     0.723     1.157     1.540
+75%       0.622     0.755     1.207     1.721
+max       0.707     0.833     5.746   279.318
+targets: 99 | segments: {'over 12 months | low': 283, 'over 12 months | mid': 243, 'over 12 months | high': 223, '6-12 months | mid': 132, '6-12 months | low': 125, '6-12 months | high': 110, '3-6 months | high': 99, '3-6 months | mid': 59, '3-6 months | low': 44, 'under 3 months | high': 42, 'under 3 months | mid': 40, 'under 3 months | low': 23}
+written data/fk_ranges_2026.csv 1423

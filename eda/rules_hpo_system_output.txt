@@ -1,0 +1,17 @@
+2025-02
+2025-03
+2025-04
+2025-05
+2025-06
+2025-07
+2025-08
+2025-09
+2025-10
+2025-11
+2025-12
+2026-01
+2026-02
+rules    alone tune 0.6499 held 0.3718 recent 0.4879 all 0.509 | system tune 0.5888 held 0.2948 recent 0.3851 all 0.4399 early 0.6623 bias -6.2
+r_v14    alone tune 0.5624 held 0.3595 recent 0.4476 all 0.4596 | system tune 0.5716 held 0.2922 recent 0.3777 all 0.43 early 0.6424 bias -5.2
+r_tuned  alone tune 0.5514 held 0.3532 recent 0.4349 all 0.451 | system tune 0.5687 held 0.2917 recent 0.3758 all 0.4284 early 0.642 bias -5.6
+tuned - v14, held-out system, 95%: [-0.0012  0.0003]

@@ -1,0 +1,4 @@
+agg 1280 s
+jitter 1850 s
+bag 2980 s
+mixup 341 s

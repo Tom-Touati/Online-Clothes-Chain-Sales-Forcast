@@ -1,0 +1,134 @@
+2025-02 13330 626 8 s
+2025-03 15548 654 17 s
+2025-04 17933 686 25 s
+2025-05 20472 730 34 s
+2025-06 23168 768 45 s
+2025-07 26006 816 58 s
+2025-08 29006 867 72 s
+2025-09 32187 941 91 s
+2025-10 35579 1003 107 s
+2025-11 39206 1070 135 s
+2025-12 43087 1128 153 s
+2026-01 47229 1176 180 s
+2026-02 51606 1262 209 s
+
+=== all: mean / std over 13 origins (4-month total per item)
+                                     wape_mean  wape_std  wape_worst  bias_mean  bias_std  w20_mean  w50_mean  w50_min
+model                                                                                                                 
+flat (91-day run-rate)                   0.690     0.320       1.310      0.224     0.486     0.206     0.485    0.292
+loss:l1log                               0.377     0.082       0.559     -0.016     0.171     0.320     0.678    0.537
+loss:l2log                               0.433     0.099       0.620      0.145     0.206     0.278     0.603    0.427
+loss:tw_units                            0.434     0.110       0.668      0.146     0.203     0.273     0.581    0.369
+loss:tw_ratio                            0.461     0.116       0.743      0.174     0.216     0.270     0.581    0.416
+feat:+recent                             0.460     0.107       0.705      0.170     0.228     0.264     0.576    0.414
+feat:+recent+chan                        0.447     0.106       0.721      0.165     0.203     0.272     0.588    0.427
+feat:+recent+chan+lfl                    0.425     0.116       0.721      0.092     0.227     0.288     0.630    0.427
+feat:full(+attr)                         0.431     0.132       0.774      0.100     0.240     0.289     0.637    0.431
+struct:direct per horizon                0.455     0.189       0.994      0.122     0.271     0.290     0.630    0.433
+struct:partial pool by macro             0.424     0.156       0.904      0.111     0.229     0.297     0.647    0.495
+struct:recent origins x2 weight          0.450     0.178       0.930      0.119     0.284     0.287     0.633    0.433
+ens:pooled+direct+macro (equal wt)       0.427     0.156       0.885      0.111     0.240     0.294     0.642    0.460
+ens:+l2log+tw_units base (5 models)      0.418     0.132       0.782      0.125     0.219     0.289     0.620    0.419
+--- fold 2025-06 (all)
+                                       n   wape   bias  medape    w20    w50
+model                                                                       
+flat (91-day run-rate)               768  0.398 -0.235   0.364  0.270  0.689
+loss:l1log                           768  0.317 -0.114   0.312  0.346  0.741
+loss:l2log                           768  0.319  0.003   0.318  0.339  0.672
+loss:tw_units                        768  0.340  0.007   0.325  0.339  0.651
+loss:tw_ratio                        768  0.345 -0.007   0.325  0.319  0.651
+feat:+recent                         768  0.350 -0.005   0.341  0.302  0.643
+feat:+recent+chan                    768  0.339 -0.012   0.339  0.306  0.654
+feat:+recent+chan+lfl                768  0.343 -0.028   0.331  0.306  0.672
+feat:full(+attr)                     768  0.333 -0.038   0.326  0.332  0.682
+struct:direct per horizon            768  0.385  0.113   0.398  0.286  0.587
+struct:partial pool by macro         768  0.356 -0.013   0.321  0.307  0.693
+struct:recent origins x2 weight      768  0.338 -0.028   0.352  0.319  0.669
+ens:pooled+direct+macro (equal wt)   768  0.349  0.021   0.333  0.312  0.658
+ens:+l2log+tw_units base (5 models)  768  0.333  0.015   0.327  0.326  0.665
+--- fold 2026-02 (all)
+                                        n   wape   bias  medape    w20    w50
+model                                                                        
+flat (91-day run-rate)               1262  1.080  0.675   0.617  0.200  0.438
+loss:l1log                           1262  0.379 -0.215   0.345  0.303  0.701
+loss:l2log                           1262  0.369 -0.091   0.325  0.298  0.693
+loss:tw_units                        1262  0.378 -0.111   0.350  0.295  0.681
+loss:tw_ratio                        1262  0.421 -0.024   0.368  0.284  0.652
+feat:+recent                         1262  0.409  0.043   0.359  0.293  0.632
+feat:+recent+chan                    1262  0.432  0.120   0.363  0.298  0.644
+feat:+recent+chan+lfl                1262  0.389 -0.036   0.344  0.304  0.678
+feat:full(+attr)                     1262  0.399 -0.049   0.342  0.285  0.680
+struct:direct per horizon            1262  0.412 -0.017   0.345  0.277  0.670
+struct:partial pool by macro         1262  0.372 -0.052   0.342  0.294  0.689
+struct:recent origins x2 weight      1262  0.379 -0.045   0.336  0.288  0.682
+ens:pooled+direct+macro (equal wt)   1262  0.388 -0.039   0.339  0.284  0.680
+ens:+l2log+tw_units base (5 models)  1262  0.372 -0.064   0.325  0.298  0.697
+
+=== targets: mean / std over 13 origins (4-month total per item)
+                                     wape_mean  wape_std  wape_worst  bias_mean  bias_std  w20_mean  w50_mean  w50_min
+model                                                                                                                 
+flat (91-day run-rate)                   0.741     0.403       1.550      0.212     0.626     0.211     0.481    0.250
+loss:l1log                               0.381     0.120       0.625     -0.094     0.214     0.333     0.727    0.595
+loss:l2log                               0.409     0.111       0.637      0.050     0.244     0.326     0.667    0.405
+loss:tw_units                            0.393     0.133       0.692      0.012     0.242     0.334     0.694    0.381
+loss:tw_ratio                            0.450     0.169       0.889      0.081     0.286     0.313     0.660    0.429
+feat:+recent                             0.448     0.156       0.842      0.073     0.287     0.306     0.663    0.524
+feat:+recent+chan                        0.429     0.163       0.889      0.059     0.260     0.301     0.674    0.548
+feat:+recent+chan+lfl                    0.419     0.164       0.889      0.009     0.270     0.302     0.703    0.548
+feat:full(+attr)                         0.432     0.191       0.991      0.024     0.299     0.313     0.706    0.524
+struct:direct per horizon                0.490     0.347       1.566      0.088     0.418     0.327     0.686    0.429
+struct:partial pool by macro             0.432     0.262       1.268      0.048     0.343     0.324     0.698    0.548
+struct:recent origins x2 weight          0.458     0.248       1.176      0.048     0.354     0.324     0.698    0.500
+ens:pooled+direct+macro (equal wt)       0.441     0.265       1.269      0.053     0.346     0.339     0.708    0.548
+ens:+l2log+tw_units base (5 models)      0.414     0.204       1.021      0.044     0.293     0.334     0.702    0.476
+--- fold 2025-06 (targets)
+                                      n   wape   bias  medape    w20    w50
+model                                                                      
+flat (91-day run-rate)               47  0.422 -0.339   0.454  0.234  0.596
+loss:l1log                           47  0.323 -0.243   0.309  0.340  0.787
+loss:l2log                           47  0.281 -0.148   0.293  0.426  0.809
+loss:tw_units                        47  0.293 -0.184   0.275  0.383  0.787
+loss:tw_ratio                        47  0.308 -0.194   0.333  0.362  0.723
+feat:+recent                         47  0.327 -0.195   0.301  0.362  0.702
+feat:+recent+chan                    47  0.363 -0.210   0.310  0.277  0.681
+feat:+recent+chan+lfl                47  0.352 -0.213   0.303  0.234  0.702
+feat:full(+attr)                     47  0.359 -0.228   0.344  0.298  0.745
+struct:direct per horizon            47  0.330 -0.078   0.315  0.340  0.660
+struct:partial pool by macro         47  0.355 -0.192   0.311  0.277  0.745
+struct:recent origins x2 weight      47  0.357 -0.225   0.351  0.255  0.702
+ens:pooled+direct+macro (equal wt)   47  0.345 -0.166   0.325  0.298  0.766
+ens:+l2log+tw_units base (5 models)  47  0.321 -0.166   0.305  0.319  0.766
+--- fold 2026-02 (targets)
+                                      n   wape   bias  medape    w20    w50
+model                                                                      
+flat (91-day run-rate)               85  1.268  0.846   0.654  0.188  0.388
+loss:l1log                           85  0.366 -0.222   0.330  0.282  0.718
+loss:l2log                           85  0.368 -0.096   0.343  0.329  0.706
+loss:tw_units                        85  0.360 -0.162   0.314  0.259  0.729
+loss:tw_ratio                        85  0.443 -0.046   0.376  0.271  0.647
+feat:+recent                         85  0.415  0.007   0.339  0.306  0.659
+feat:+recent+chan                    85  0.387  0.036   0.336  0.341  0.671
+feat:+recent+chan+lfl                85  0.390 -0.057   0.344  0.282  0.718
+feat:full(+attr)                     85  0.411 -0.086   0.352  0.306  0.729
+struct:direct per horizon            85  0.414 -0.058   0.338  0.259  0.694
+struct:partial pool by macro         85  0.379 -0.053   0.323  0.282  0.729
+struct:recent origins x2 weight      85  0.388 -0.066   0.323  0.353  0.706
+ens:pooled+direct+macro (equal wt)   85  0.396 -0.066   0.334  0.294  0.706
+ens:+l2log+tw_units base (5 models)  85  0.374 -0.091   0.325  0.341  0.682
+
+=== ensemble by origin (all items)
+            n   wape   bias    w20    w50
+origin                                   
+2025-02   626  0.885  0.581  0.204  0.514
+2025-03   654  0.601  0.431  0.196  0.460
+2025-04   686  0.394  0.123  0.302  0.618
+2025-05   730  0.363  0.194  0.274  0.548
+2025-06   768  0.349  0.021  0.312  0.658
+2025-07   816  0.421  0.194  0.278  0.578
+2025-08   867  0.411  0.154  0.272  0.622
+2025-09   941  0.398 -0.277  0.299  0.707
+2025-10  1003  0.364 -0.227  0.322  0.732
+2025-11  1070  0.353  0.266  0.339  0.694
+2025-12  1128  0.285  0.090  0.409  0.787
+2026-01  1176  0.333 -0.065  0.333  0.750
+2026-02  1262  0.388 -0.039  0.284  0.680

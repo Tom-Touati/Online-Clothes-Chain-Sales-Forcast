@@ -1,0 +1,1036 @@
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:41: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  site_d = Dm.sum(0); wd = days.weekday.values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:63: Pandas4Warning: Series.dt.weekday is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  cal["wkend"] = cal.d.dt.weekday >= 5; cal["pay"] = cal.d.dt.day.isin([1, 15]); cal["fri"] = cal.d.dt.weekday == 4
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:63: Pandas4Warning: Series.dt.weekday is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  cal["wkend"] = cal.d.dt.weekday >= 5; cal["pay"] = cal.d.dt.day.isin([1, 15]); cal["fri"] = cal.d.dt.weekday == 4
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-03 226
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-04 248
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-05 270
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-06 295
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-07 324
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-08 360
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-09 395
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-10 440
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-11 487
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2024-12 532
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-01 573
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-02 626
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-03 654
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-04 686
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-05 730
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-06 768
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-07 816
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-08 867
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-09 941
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-10 1003
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-11 1070
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2025-12 1128
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2026-01 1176
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2026-02 1262
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2026-03 1310
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2026-04 1343
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2026-05 1363
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:84: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  ldoy = pd.to_datetime(st).dayofyear.values; R["launch_doy_s"] = np.sin(2 * np.pi * ldoy / 365.25); R["launch_doy_c"] = np.cos(2 * np.pi * ldoy / 365.25)
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ko = months.index(o); U3 = M.iloc[:, ko - 2:ko + 1].sum(1).values; U3p = M.iloc[:, ko - 5:ko - 2].sum(1).values
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:93: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  U3y = M.iloc[:, ko - 14:ko - 11].sum(1).values if ko >= 14 else np.full(n, np.nan); site3 = U3.sum(); site3y = np.nansum(U3y) if ko >= 14 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+C:\Users\tomto\workspaces\edikted\eda\180_newfeats.py:138: Pandas4Warning: DatetimeIndex.weekday is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  cnt = lambda ds: np.array([(ds.weekday == k).sum() for k in range(7)])
+2026-06 1423
+(21316, 74)
+                          count     mean      min      50%       max
+days_live               21316.0  399.751   29.000  325.000  2025.000
+age_m                   21316.0   13.132    0.953   10.677    66.524
+launch_doy_s            21316.0   -0.087   -1.000   -0.158     1.000
+launch_doy_c            21316.0    0.001   -1.000   -0.012     1.000
+anniv_s                 21316.0    0.101   -1.000    0.220     1.000
+anniv_c                 21316.0   -0.062   -1.000   -0.123     1.000
+anniv_dist              13308.0   81.544    0.000   73.750   182.500
+e2_super_bowl_t         21316.0    2.405    0.000    0.000     8.000
+e2_super_bowl_o         21316.0    2.385    0.000    0.000     8.000
+e2_st_patricks_t        21316.0    2.572    0.000    0.000     8.000
+e2_st_patricks_o        21316.0    2.563    0.000    0.000     8.000
+e2_fathers_day_t        21316.0    4.090    0.000    0.000    10.000
+e2_fathers_day_o        21316.0    2.277    0.000    0.000    10.000
+e2_pride_t              21316.0   12.270    0.000    0.000    30.000
+e2_pride_o              21316.0    6.830    0.000    0.000    30.000
+e2_prime_fall_t         21316.0    2.032    0.000    0.000     7.000
+e2_prime_fall_o         21316.0    1.530    0.000    0.000     7.000
+e2_singles_day_t        21316.0    0.966    0.000    0.000     4.000
+e2_singles_day_o        21316.0    0.932    0.000    0.000     4.000
+e2_xmas_ship_t          21316.0    2.349    0.000    0.000     9.000
+e2_xmas_ship_o          21316.0    2.236    0.000    0.000     9.000
+e2_after_xmas_t         21316.0    1.566    0.000    0.000     6.000
+e2_after_xmas_o         21316.0    1.491    0.000    0.000     6.000
+e2_new_year_sale_t      21316.0    1.969    0.000    0.000     7.000
+e2_new_year_sale_o      21316.0    1.914    0.000    0.000     7.000
+e2_mlk_t                21316.0    1.125    0.000    0.000     4.000
+e2_mlk_o                21316.0    1.093    0.000    0.000     4.000
+e2_presidents_t         21316.0    1.203    0.000    0.000     4.000
+e2_presidents_o         21316.0    1.193    0.000    0.000     4.000
+e2_tax_refund_t         21316.0   14.177    0.000    0.000    45.000
+e2_tax_refund_o         21316.0   14.129    0.000    0.000    46.000
+e2_back_to_college_t    21316.0   10.224    0.000    0.000    27.000
+e2_back_to_college_o    21316.0    5.152    0.000    0.000    27.000
+e2_nyfw_t               21316.0    5.114    0.000    8.000     8.000
+e2_nyfw_o               21316.0    4.012    0.000    8.000     8.000
+e2_cyber_week_t         21316.0    2.220    0.000    0.000     9.000
+e2_cyber_week_o         21316.0    2.134    0.000    0.000     9.000
+c_wkend                 21316.0   34.751   34.000   35.000    36.000
+c_pay                   21316.0    8.000    8.000    8.000     8.000
+c_fri                   21316.0   17.408   17.000   17.000    18.000
+c_days                  21316.0  121.758  120.000  122.000   123.000
+tr_ptype_mom            21316.0    0.027   -2.696    0.000     5.873
+tr_ptype_shr            16540.0    0.272   -2.366    0.091     7.999
+tr_macro_mom            21316.0    0.018   -1.332    0.007     2.476
+tr_macro_shr            16540.0    0.081   -0.454   -0.000     1.992
+tr_a_silhouette_mom     21316.0    0.014   -1.267    0.011     2.141
+tr_a_silhouette_shr     16540.0    0.097   -1.048    0.074     1.437
+tr_a_print_pattern_mom  21316.0    0.004   -1.965    0.000     3.534
+tr_a_print_pattern_shr  16540.0    0.095   -1.633   -0.024     8.244
+tr_a_length_mom         21316.0    0.004   -0.985    0.051     3.049
+tr_a_length_shr         16540.0    0.056   -1.287    0.062     1.329
+tr_a_fabric_feel_mom    21316.0    0.015   -1.460    0.000     5.522
+tr_a_fabric_feel_shr    16540.0    0.154   -1.219    0.205     5.743
+tr_type_launch          21316.0    0.160    0.000    0.145     1.000
+item_vs_type            14861.0   -0.144   -3.430   -0.131     6.468
+curve_fwd               15000.0   -0.005   -0.835   -0.041     1.130
+curve_dev               15000.0   -0.036   -5.208   -0.052     8.565
+first30                 16073.0    5.260    0.693    5.501     8.706
+best_bucket             16073.0    3.017    0.000    2.000    21.000
+pk_life                 21316.0    1.671    0.151    1.519     6.732
+pk_life_days            21316.0  192.428    0.000  147.000   905.000
+pk_365                  21316.0    1.553    0.151    1.460     5.375
+pk_365_days             21316.0  140.400    0.000  119.000   364.000
+pk_anniv_dist            6683.0   77.728    0.250   64.250   182.500
+tr_365                  20257.0   -0.878   -8.219   -0.712     0.868
+tr_365_days             20257.0   94.518    0.000   61.000   364.000
+pk_spikes               21316.0    7.559    0.000    3.000    44.000
+pk_28                   21316.0    0.324   -2.318    0.307     2.447
+wk_end_rel              21116.0   -0.017   -0.453   -0.016     0.503
+cal_eff                 21316.0   -0.000   -0.024   -0.001     0.016
+plan_ptype              21316.0    0.203    0.000    0.158     8.000
+plan_macro              21316.0    0.210    0.000    0.205     1.700

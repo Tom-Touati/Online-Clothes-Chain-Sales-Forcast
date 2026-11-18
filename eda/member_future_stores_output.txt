@@ -1,0 +1,14 @@
+stores added: agreement with the error master's own-stores-added column: 1.0
++ stores added in the window, stores reached at its end (known future) | 38 s
++ stores and partners added (known future) | 50 s
++ new colours of the style and same-type launches in the window (known future) | 37 s
++ stores, partners and launches (all known futures) | 60 s
++ the store counts, off by about 2 stores at the forecast date | 818 s
+                                                                       variant  alone  alone_hit  stack  stack_hit  stack_bias  corrected  corrected_hit  stack_all          alone_ci           stack_ci     stack_hit_ci  wins13  bias5  bias5_base  bias2  bias2_base  bias0  bias0_base
+                                              tree member as submitted (refit) 0.4299      0.387 0.3939      0.410      -0.062     0.3851          0.417     0.4470               NaN                NaN              NaN     NaN    NaN         NaN    NaN         NaN    NaN         NaN
+        + stores added in the window, stores reached at its end (known future) 0.4467      0.364 0.3840      0.408      -0.039     0.3752          0.423     0.4351  [0.0034, 0.0303]  [-0.0128, -0.007]  [-0.007, 0.005]    12.0 -0.234      -0.302 -0.103       -0.15  0.053       0.068
+                                    + stores and partners added (known future) 0.4489      0.368 0.3839      0.410      -0.034     0.3753          0.422     0.4362  [0.0064, 0.0332]  [-0.013, -0.0071]  [-0.005, 0.006]    11.0 -0.226      -0.302 -0.098       -0.15  0.057       0.068
++ new colours of the style and same-type launches in the window (known future) 0.4269      0.383 0.3919      0.409      -0.058     0.3829          0.418     0.4451 [-0.0091, 0.0028] [-0.0031, -0.0009]  [-0.003, 0.002]    11.0 -0.297      -0.302 -0.146       -0.15  0.071       0.068
+                           + stores, partners and launches (all known futures) 0.4450      0.367 0.3812      0.410      -0.034     0.3730          0.424     0.4333  [0.0009, 0.0297] [-0.0159, -0.0097]  [-0.006, 0.006]    13.0 -0.224      -0.302 -0.096       -0.15  0.057       0.068
+                + the store counts, off by about 2 stores at the forecast date 0.4788      0.325 0.3888      0.403      -0.034     0.3798          0.415     0.4425  [0.0367, 0.0626]  [-0.008, -0.0022] [-0.014, -0.001]     9.0 -0.236      -0.302 -0.110       -0.15  0.074       0.068
+saved

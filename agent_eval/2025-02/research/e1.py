@@ -1,0 +1,15 @@
+import pandas as pd, numpy as np
+pd.set_option('display.width',250); pd.set_option('display.max_columns',30)
+d='data/'
+it=pd.read_csv(d+'items.csv'); print(it.head(3).T); print(it.shape)
+at=pd.read_csv(d+'item_attributes.csv'); print(at.columns.tolist()); print(at.head(2).T)
+tf=pd.read_csv(d+'to_forecast.csv'); print(tf.head()); print(tf.shape, tf.columns.tolist())
+m=pd.read_parquet(d+'monthly_item.parquet'); print(m.head()); print(m.month.min(), m.month.max())
+print(m.groupby('month')[['units','online','retail','drop']].sum().assign(n=m[m.units>0].groupby('month').size()))
+di=pd.read_parquet(d+'daily_item.parquet'); print(di.head()); print(di.date.min(), di.date.max(), di.shape)
+print(it.product_type.value_counts().head(25))
+print(it.occasion.str.split('; ').explode().value_counts().head(25))
+it['pub']=pd.to_datetime(it.published_date); print(it.pub.dt.to_period('M').value_counts().sort_index())
+tfi=tf.merge(it,on='style_color',how='left'); print(tfi.pub.dt.to_period('M').value_counts().sort_index())
+ch=pd.read_parquet(d+'daily_channel.parquet'); print(ch.channel.value_counts())
+st=pd.read_parquet(d+'daily_store.parquet'); print(st.groupby('store').date.agg(['min','max','count']), st.groupby('store').units.sum())

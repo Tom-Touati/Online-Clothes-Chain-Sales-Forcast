@@ -1,0 +1,24 @@
+== ctrl: member alone on new items recent 0.4657
+   new, recent      0.4182
+   new, held out    0.3463
+   new, Jul-Oct 25  0.5410
+   new, Mar-Jun 26  0.2673
+   all, recent      0.3806
+   all, held out    0.2926
+   all, all 13      0.4357
+== dup3: member alone on new items recent 0.4655
+   new, recent      0.4174  vs ctrl [-0.0032, +0.0015]
+   new, held out    0.3450  vs ctrl [-0.0036, +0.0014]
+   new, Jul-Oct 25  0.5412  vs ctrl [-0.0070, +0.0078]
+   new, Mar-Jun 26  0.2670  vs ctrl [-0.0024, +0.0019]
+   all, recent      0.3803  vs ctrl [-0.0011, +0.0006]
+   all, held out    0.2921  vs ctrl [-0.0012, +0.0004]
+   all, all 13      0.4355  vs ctrl [-0.0009, +0.0005]
+== only: member alone on new items recent 0.4688
+   new, recent      0.4159  vs ctrl [-0.0058, +0.0010]
+   new, held out    0.3446  vs ctrl [-0.0050, +0.0014]
+   new, Jul-Oct 25  0.5444  vs ctrl [-0.0117, +0.0182]
+   new, Mar-Jun 26  0.2650  vs ctrl [-0.0061, +0.0008]
+   all, recent      0.3798  vs ctrl [-0.0019, +0.0003]
+   all, held out    0.2920  vs ctrl [-0.0016, +0.0004]
+   all, all 13      0.4361  vs ctrl [-0.0008, +0.0014]

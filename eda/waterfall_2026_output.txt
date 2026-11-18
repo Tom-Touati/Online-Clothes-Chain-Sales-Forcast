@@ -1,0 +1,51 @@
+targets: 100 | not in the June 2026 model set (handled by rule): ['S16079_DARK-GRAY']
+refit median vs stored quantile P50 (targets in the model set): median ratio 1.0
+
+== portfolio waterfall (100 targets, units)
+                                                           step  total after step   change  factor
+                                                             R3            473375      NaN     NaN
+                                 recent-rate anchor (4 x level)            492034  18659.0   1.039
+                                          model: average uplift            395109 -96925.0   0.803
+                                             model: seasonality            510653 115544.0   1.292
+                                         model: recent momentum            564753  54100.0   1.106
+                                               model: lifecycle            568581   3828.0   1.007
+                                    model: product & attributes            569685   1104.0   1.002
+                                                model: occasion            573800   4115.0   1.007
+                                             model: channel mix            573032   -768.0   0.999
+                                                model: discount            585867  12835.0   1.022
+                                                    model: size            573563 -12304.0   0.979
+                     model reconciliation (stored quantile P50)            574451    888.0   1.002
+                             rules + NN pull (three-way centre)            619497  45046.0   1.078
+                                             year-on-year blend            625373   5876.0   1.009
+                                   segment rules (caps, floors)            625340    -34.0   1.000
+final adjustments (campaign, World Cup, out-of-stock, rounding)            615937  -9403.0   0.985
+
+== where the model's change from the anchor comes from, per item (median factor and share of items moved up)
+  base                   median x0.803 | IQR x0.803-x0.803 | up for 0% of targets
+  seasonality            median x1.278 | IQR x1.225-x1.365 | up for 91% of targets
+  recent momentum        median x1.087 | IQR x0.924-x1.276 | up for 64% of targets
+  lifecycle              median x0.995 | IQR x0.973-x1.031 | up for 44% of targets
+  product & attributes   median x1.001 | IQR x0.962-x1.040 | up for 51% of targets
+  occasion               median x0.991 | IQR x0.990-x1.006 | up for 29% of targets
+  channel mix            median x0.998 | IQR x0.992-x1.005 | up for 43% of targets
+  discount               median x1.031 | IQR x0.972-x1.050 | up for 62% of targets
+  size                   median x1.031 | IQR x0.971-x1.044 | up for 70% of targets
+
+== five example items (units after each step)
+                                                                 S17159_BLACK-WASHED  ACC1070-1_MIX  S18184_LIGHT-BLUE  S24840_LIGHT-GRAY-MELANGE  S11233_BLACK
+R3                                                                           15305.0          856.0             5471.0                     9364.0       11221.0
+recent-rate anchor (4 x level)                                               15359.0          859.0             5490.0                    12216.0       11261.0
+model: average uplift                                                        12334.0          690.0             4408.0                     9810.0        9043.0
+model: seasonality                                                           19626.0         1088.0             4515.0                    12619.0       16145.0
+model: recent momentum                                                       20017.0         1712.0             5375.0                    36376.0       16578.0
+model: lifecycle                                                             19793.0         1706.0             5584.0                    36438.0       16833.0
+model: product & attributes                                                  20476.0         1539.0             5683.0                    33284.0       17944.0
+model: occasion                                                              22218.0         1527.0             5730.0                    33500.0       19345.0
+model: channel mix                                                           22108.0         1528.0             5697.0                    33786.0       19520.0
+model: discount                                                              20884.0         1464.0             5733.0                    36833.0       18767.0
+model: size                                                                  19277.0         1542.0             5784.0                    33174.0       17728.0
+model reconciliation (stored quantile P50)                                   19265.0         1542.0             5784.0                    33174.0       17728.0
+rules + NN pull (three-way centre)                                           21467.0         1459.0             4217.0                    33849.0       20043.0
+year-on-year blend                                                           25169.0         2144.0             4217.0                    33849.0       23032.0
+segment rules (caps, floors)                                                 25169.0         2144.0             3555.0                    33849.0       23032.0
+final adjustments (campaign, World Cup, out-of-stock, rounding)              25582.0         2179.0             3612.0                    23096.0       23507.0

@@ -1,0 +1,1121 @@
+<title>Edikted Forecast Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: a working atlas. Sticky section nav, a pipeline map with a pinned detail panel, then one deep section per topic. Charts are drawn to scale from embedded data; every mark explains itself on hover, focus or tap. */
+:root {
+  --bg: #fbfafb; --surface: #ffffff; --sunk: #f3f1f4; --line: #e4e0e6; --line-strong: #cfc9d3;
+  --fg: #19161b; --fg2: #4f4955; --fg3: #7a7380;
+  --accent: #c8166f; --accent-soft: #fbe3ef; --accent-fg: #ffffff;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s7: #6250d6; --s8: #e34948;
+  --good: #0ca30c; --warn: #b77a00; --crit: #d03b3b;
+  --q1: #e6effa; --q2: #cde2fb; --q3: #9ec5f4; --q4: #6da7ec; --q5: #3987e5; --q6: #1c5cab; --q7: #0d366b;
+  --qt1: #19161b; --qt2: #19161b; --qt3: #19161b; --qt4: #19161b; --qt5: #ffffff; --qt6: #ffffff; --qt7: #ffffff;
+  --tip-bg: #19161b; --tip-fg: #f6f3f7;
+  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141216; --surface: #1c1a1f; --sunk: #232027; --line: #332f38; --line-strong: #47414e;
+  --fg: #f1eef3; --fg2: #c4bdc9; --fg3: #958d9b;
+  --accent: #ff5ca6; --accent-soft: #3a1a2b; --accent-fg: #1a0b13;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s7: #9085e9; --s8: #e66767;
+  --good: #3cc23c; --warn: #e0a42a; --crit: #ef6a6a;
+  --q1: #1d2633; --q2: #1e3350; --q3: #184f95; --q4: #256abf; --q5: #3987e5; --q6: #6da7ec; --q7: #b7d3f6;
+  --qt1: #f1eef3; --qt2: #f1eef3; --qt3: #f1eef3; --qt4: #f1eef3; --qt5: #ffffff; --qt6: #0b1830; --qt7: #0b1830;
+  --tip-bg: #f1eef3; --tip-fg: #19161b; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #141216; --surface: #1c1a1f; --sunk: #232027; --line: #332f38; --line-strong: #47414e;
+  --fg: #f1eef3; --fg2: #c4bdc9; --fg3: #958d9b;
+  --accent: #ff5ca6; --accent-soft: #3a1a2b; --accent-fg: #1a0b13;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s7: #9085e9; --s8: #e66767;
+  --good: #3cc23c; --warn: #e0a42a; --crit: #ef6a6a;
+  --q1: #1d2633; --q2: #1e3350; --q3: #184f95; --q4: #256abf; --q5: #3987e5; --q6: #6da7ec; --q7: #b7d3f6;
+  --qt1: #f1eef3; --qt2: #f1eef3; --qt3: #f1eef3; --qt4: #f1eef3; --qt5: #ffffff; --qt6: #0b1830; --qt7: #0b1830;
+  --tip-bg: #f1eef3; --tip-fg: #19161b; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--f-body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, h4 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: 18px; font-weight: 600; }
+h4 { font-size: 15px; font-weight: 600; }
+p { margin: 0; max-width: 72ch; }
+code, .mono { font-family: var(--f-mono); font-size: 0.86em; }
+code { background: var(--sunk); padding: 1px 5px; border-radius: 4px; }
+a { color: var(--accent); }
+.eyebrow { font: 600 11px/1 var(--f-body); letter-spacing: 0.09em; text-transform: uppercase; color: var(--fg3); }
+.muted { color: var(--fg2); }
+.small { font-size: 13px; }
+.num { font-variant-numeric: tabular-nums; }
+
+header.top { background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-block: 36px 28px; display: grid; gap: 18px; }
+.lede { font-size: 17px; color: var(--fg2); max-width: 78ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.fact { border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; background: var(--bg); display: grid; gap: 4px; align-content: start; }
+.fact b { font: 600 24px/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.fact span { font-size: 12.5px; color: var(--fg2); }
+
+nav.sec { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+nav.sec .wrap { display: flex; gap: 4px; overflow-x: auto; padding-block: 8px; scrollbar-width: none; }
+nav.sec a { flex: none; text-decoration: none; color: var(--fg2); font-size: 13.5px; font-weight: 500; padding: 6px 10px; border-radius: 6px; }
+nav.sec a:hover, nav.sec a:focus-visible { background: var(--sunk); color: var(--fg); outline: none; }
+
+section.block { padding-block: 44px 8px; scroll-margin-top: 56px; }
+section.block > .wrap { display: grid; gap: 20px; }
+.sub { display: grid; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); scroll-margin-top: 60px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 20px; align-items: start; }
+.grid2 > * { min-width: 0; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 10px; min-width: 0; }
+.takeaways { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 80ch; }
+.takeaways li::marker { color: var(--accent); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--fg2); }
+.legend i { display: inline-block; width: 12px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+.chart { width: 100%; min-height: 40px; position: relative; }
+.chart svg { display: block; width: 100%; overflow: visible; }
+.chart text { fill: var(--fg3); font: 11px var(--f-body); font-variant-numeric: tabular-nums; }
+.hint { font-size: 12px; color: var(--fg3); }
+
+/* map */
+.mapgrid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 20px; align-items: start; }
+@media (max-width: 920px) { .mapgrid { grid-template-columns: 1fr; } }
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 18px; position: relative; }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } }
+.stage { display: grid; gap: 8px; align-content: start; position: relative; min-width: 0; }
+.stage .eyebrow { padding: 2px 2px 4px; display: flex; gap: 6px; align-items: center; }
+.stage .eyebrow em { font-style: normal; color: var(--accent); }
+.node { text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; cursor: pointer; display: grid; gap: 2px; width: 100%; }
+.node b { font: 600 13.5px/1.25 var(--f-display); }
+.node span { font-size: 12px; color: var(--fg2); line-height: 1.35; }
+.node b, .node span, .detail dd, code { overflow-wrap: anywhere; }
+.node:hover, .node:focus-visible { border-color: var(--accent); outline: none; }
+.node.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.node.kind-file b::before { content: "▤ "; color: var(--fg3); font-weight: 400; }
+.node.kind-deliv { background: var(--accent-soft); }
+.detail { position: sticky; top: 64px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r); padding: 18px; display: grid; gap: 12px; max-height: calc(100vh - 84px); overflow: auto; }
+@media (max-width: 920px) { .detail { position: static; max-height: none; } }
+.detail dl { margin: 0; display: grid; gap: 8px; }
+.detail dt { font: 600 11px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--fg3); }
+.detail dd { margin: 0; font-size: 13.5px; }
+.detail ul { margin: 0; padding-left: 16px; display: grid; gap: 3px; font-size: 13.5px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 12px/1 var(--f-mono); padding: 5px 7px; border-radius: 5px; background: var(--sunk); color: var(--fg); border: 1px solid var(--line); cursor: pointer; }
+.chip:hover, .chip:focus-visible { border-color: var(--accent); outline: none; }
+
+/* tables */
+.tscroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font: 600 11.5px/1.2 var(--f-body); letter-spacing: .04em; text-transform: uppercase; color: var(--fg3); background: var(--sunk); position: sticky; top: 0; white-space: nowrap; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr[data-tip]:hover, tbody tr[data-tip]:focus-visible { background: var(--sunk); outline: none; }
+th.sortable { cursor: pointer; }
+th.sortable:hover { color: var(--fg); }
+.pill { display: inline-block; font: 600 11.5px/1 var(--f-body); padding: 4px 7px; border-radius: 999px; white-space: nowrap; }
+.pill.c1 { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
+.pill.c2 { background: color-mix(in srgb, var(--s1) 16%, transparent); color: var(--s1); }
+.pill.c3 { background: color-mix(in srgb, var(--crit) 16%, transparent); color: var(--crit); }
+.pill.keep { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.pill.drop { background: color-mix(in srgb, var(--crit) 14%, transparent); color: var(--crit); }
+.pill.neutral { background: var(--sunk); color: var(--fg2); }
+.pill.open { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+
+/* heatmap */
+.heat { display: grid; gap: 2px; font-size: 11.5px; min-width: 560px; }
+.heat .row { display: grid; grid-template-columns: 120px repeat(12, minmax(32px, 1fr)) 64px; gap: 2px; align-items: stretch; }
+.heat .lab { color: var(--fg2); padding: 4px 6px 4px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.heat .cell { border-radius: 3px; text-align: center; padding: 5px 0; font-variant-numeric: tabular-nums; cursor: default; }
+.heat .cell.win { box-shadow: inset 0 0 0 2px var(--accent); }
+.heat .hd { color: var(--fg3); text-align: center; font-weight: 600; padding-bottom: 2px; }
+.heat .tot { color: var(--fg3); text-align: right; padding: 5px 0; font-variant-numeric: tabular-nums; }
+
+/* bars */
+.bars { display: grid; gap: 6px; }
+.bar { display: grid; grid-template-columns: minmax(90px, 160px) minmax(0, 1fr) 64px; gap: 10px; align-items: center; font-size: 13px; }
+.bar .track { height: 14px; background: var(--sunk); border-radius: 3px; overflow: hidden; }
+.bar .fill { height: 100%; border-radius: 0 4px 4px 0; background: var(--s1); }
+.bar .v { text-align: right; font-variant-numeric: tabular-nums; color: var(--fg2); }
+.bar .k { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stack { display: flex; gap: 2px; height: 18px; border-radius: 3px; overflow: hidden; }
+.stack > div { height: 100%; }
+
+/* controls */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.controls input, .controls select { font: inherit; font-size: 13.5px; padding: 6px 9px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface); color: var(--fg); }
+.seg { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+.seg button { font: 500 13px var(--f-body); padding: 6px 10px; border: 0; background: var(--surface); color: var(--fg2); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line-strong); }
+.seg button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* log */
+.turn { display: grid; gap: 6px; }
+.turn h4 { font-size: 14px; color: var(--fg2); padding-top: 6px; }
+details.d { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+details.d summary { cursor: pointer; padding: 9px 12px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; list-style: none; }
+details.d summary::-webkit-details-marker { display: none; }
+details.d summary .id { font: 500 12.5px var(--f-mono); color: var(--accent); }
+details.d summary .t { font-weight: 500; flex: 1 1 260px; min-width: 0; }
+details.d[open] { border-color: var(--line-strong); }
+details.d .body { padding: 0 12px 12px; font-size: 13.5px; color: var(--fg2); max-width: 95ch; }
+details.d.flash { box-shadow: 0 0 0 3px var(--accent); }
+
+pre { background: var(--sunk); border: 1px solid var(--line); border-radius: 8px; padding: 12px; overflow-x: auto; font: 12.5px/1.6 var(--f-mono); margin: 0; }
+.callout { border-left: 3px solid var(--accent); padding: 10px 14px; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-size: 14px; max-width: 90ch; }
+
+#tip { position: fixed; z-index: 50; max-width: min(360px, calc(100vw - 24px)); background: var(--tip-bg); color: var(--tip-fg); border-radius: 8px; padding: 9px 11px; font-size: 12.5px; line-height: 1.45; pointer-events: none; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+#tip b { font-weight: 600; }
+#tip .tt { font: 600 13px var(--f-display); margin-bottom: 3px; }
+#tip table { font-size: 12px; width: auto; }
+#tip td { padding: 1px 10px 1px 0; border: 0; }
+#tip .sw { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+footer { padding-block: 40px 60px; color: var(--fg3); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<header class="top"><div class="wrap">
+  <div class="eyebrow">Edikted · demand forecast · Jul–Oct 2026 · state as of decision D274, 17 Nov 2026</div>
+  <h1>Edikted Forecast Atlas</h1>
+  <p class="lede" data-v="atlas-d275">Everything you need to pick this project up: where the data comes from, what the EDA found, which modelling ideas were tested and dropped, how the submitted 100-item forecast is built from five models, and where every file lives. Hover, focus or tap any box, mark or row for the detail behind it.</p>
+  <div class="facts" id="facts"></div>
+</div></header>
+
+<nav class="sec" aria-label="Sections"><div class="wrap">
+  <a href="#map">Project map</a><a href="#data">Data &amp; fields</a><a href="#growth">Growth &amp; channels</a><a href="#calendar">Calendar &amp; discounts</a>
+  <a href="#season">Seasonality</a><a href="#lifecycle">Lifecycle</a><a href="#items">Items &amp; sizes</a><a href="#artefacts">Artefacts</a>
+  <a href="#targets">The 100 targets</a><a href="#modelling">Modelling</a><a href="#evaluation">Evaluation</a><a href="#forecast">Forecast</a><a href="#features">Features</a><a href="#decisions">Decision log</a><a href="#run">Files &amp; how to run</a>
+</div></nav>
+
+<main>
+<section class="block" id="map"><div class="wrap">
+  <div class="eyebrow">1 · Project map</div>
+  <h2>From order lines to a filled workbook</h2>
+  <p class="muted">Read left to right. Each box is a step, a data file or a deliverable. Select one to see what it does, its inputs and outputs, the key numbers and the decisions that shaped it. Decision IDs open the matching entry in the log.</p>
+  <div class="mapgrid">
+    <div class="flow" id="flow"></div>
+    <aside class="detail" id="detail" aria-live="polite"></aside>
+  </div>
+</div></section>
+
+<section class="block" id="data"><div class="wrap">
+  <div class="eyebrow">2 · EDA — data &amp; fields</div>
+  <h2>What one row means, and which fields to trust</h2>
+  <p class="muted">One row of <code>Dataset.parquet</code> is one order line: an item in one size in one order. 15,179,907 lines, 8,627,791 orders, 1,500 style-colours, 6,979 SKUs, 1 Jan 2024 to 30 Jun 2026 with no missing days. Hover a row for how the field is used.</p>
+  <div class="grid2">
+    <div class="tscroll"><table id="fields"><thead><tr><th>Field</th><th>Type</th><th>Profile</th></tr></thead><tbody></tbody></table></div>
+    <div style="display:grid;gap:16px;min-width:0">
+      <div class="panel">
+        <h3>The target, exactly</h3>
+        <p class="small">Sum of <code>qty_ordered</code> on lines with <code>cancelled = FALSE</code>, grouped by the calendar month of <code>ny_date</code>, all classes (ONLINE, RETAIL, DROP) and all channels, per <code>style_color</code>. Quantities are multiplied by a constant for confidentiality; forecast in the same scaled units.</p>
+        <p class="small">99.4% of lines have qty 1; the largest line is 62. Units on non-cancelled lines: 14,984,773.</p>
+      </div>
+      <div class="panel">
+        <h3>How the raw file was tamed</h3>
+        <p class="small">The machine has about 0.5 GB of free memory, so the 249 MB parquet is never loaded into pandas. <code>eda/02_build_aggs.py</code> uses DuckDB to write four small aggregates, and every later script works from those.</p>
+        <ul class="takeaways small">
+          <li><code>data/daily_item_chan.parquet</code>: item × day × class × channel × cancelled, 1,616,758 rows, with lines, orders, unit-weighted discount and size counts.</li>
+          <li><code>data/items.parquet</code>: one row per item, with consistency counts (names, types, collections) and first and last sale.</li>
+          <li><code>data/daily_otype.parquet</code>: day × class × raw channel tag; used for store openings.</li>
+          <li><code>data/monthly_item_size.parquet</code>: item × month × size, non-cancelled.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Second source: <code>item_attributes.csv</code></h3>
+        <p class="small">1,329 of the 1,500 items (96 of the 100 targets) carry visual-tagger attributes. Values are free text with many spellings of the same thing. Fabric weight alone has 36 spellings ("Medium", "Midweight", "Medium Weight", "Regular"…), so the weight was collapsed to light / medium / heavy. For the other attributes, the top categories were kept, the rest became "other" and missing values "untagged". Missing shares: secondary colour 71%, rise 65%, neckline 35%, sleeve 35%. In the backtests the attributes added nothing measurable once an item has sales.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="growth"><div class="wrap">
+  <div class="eyebrow">3 · EDA — growth &amp; channels</div>
+  <h2>Six-fold growth that is mostly more items</h2>
+  <div class="callout">The 1,500 items are a <b>survivor panel</b>: 1,450 still sell in Q2 2026, and items keep entering (190 published before 2024, 324 in 2026). Monthly units rose from 101k to 605k largely because more items are live, not because demand per item grew. Never read trend or seasonality off raw totals; compare like-for-like item cohorts.</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Monthly units by class</h3>
+      <div class="legend" id="lg-class"></div>
+      <div class="chart" id="ch-class"></div>
+      <p class="hint">Hover a month for the split, the cancellation rate and the number of items with sales.</p>
+    </div>
+    <div class="panel">
+      <h3>Monthly units by channel</h3>
+      <div class="legend" id="lg-chan"></div>
+      <div class="chart" id="ch-chan"></div>
+      <p class="hint">"Other DROP" is Bloomingdale's, Tillys, Urban, Hot Topic and Flip. DROP is marketplace dropship at 1.26 units per order, not bulk wholesale.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Retail store roll-out</h3>
+      <p class="small muted">From one store in January 2024 to 16 by June 2026, plus a five-day pop-up. Retail was 30% of all units in June 2026. Store openings are distribution steps, not demand, and the model has no store-count feature.</p>
+      <div class="chart" id="ch-stores"></div>
+    </div>
+    <div class="panel">
+      <h3>What each class is</h3>
+      <div class="tscroll"><table><thead><tr><th>Class</th><th class="r">Lines</th><th class="r">Units / order</th><th>Note</th></tr></thead><tbody>
+        <tr><td>ONLINE</td><td class="r">11.62M</td><td class="r">1.90</td><td class="small">edikted.com (10.4M lines) and TikTok Shop (1.2M, from 31 Jan 2024). Mean discount 56%.</td></tr>
+        <tr><td>RETAIL</td><td class="r">2.14M</td><td class="r">1.60</td><td class="small">Own stores. Mean discount 4.5%, so discount data is effectively online-only. State is abbreviated ("CA").</td></tr>
+        <tr><td>DROP</td><td class="r">1.43M</td><td class="r">1.26</td><td class="small">Pacsun, Nordstrom, Macy's, Bloomingdale's, Tillys, Urban. Lines of 5+ units total only 759 units.</td></tr>
+      </tbody></table></div>
+      <p class="small muted">Share of units in H1 2026 for the 100 targets: online 76%, retail 17%, drop 7% (all items: 74 / 19 / 7).</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="calendar"><div class="wrap">
+  <div class="eyebrow">4 · EDA — calendar &amp; discounts</div>
+  <h2>A site that is always on sale, with a readable campaign calendar</h2>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Weekly units, all channels</h3>
+      <div class="chart" id="ch-weekly"></div>
+      <h3>edikted.com unit-weighted discount, same weeks</h3>
+      <div class="chart" id="ch-disc"></div>
+      <p class="hint">Two charts on one time axis rather than one chart with two scales. Hover either for the week.</p>
+    </div>
+    <div style="display:grid;gap:16px;min-width:0">
+      <div class="panel">
+        <h3>Discount depth moves volume</h3>
+        <p class="small muted">Daily edikted.com units on long-standing items, relative to the 43-day centred median, grouped by how far the day's discount sat from its own local median.</p>
+        <div class="bars" id="bars-lift"></div>
+        <p class="small">Deep days (≥ 58.5% off) average 1.55×. The seven days after a deep run average 0.94×, against 0.90× on other days, so there is no visible pull-forward.</p>
+      </div>
+      <div class="panel">
+        <h3>Day of week</h3>
+        <div class="bars" id="bars-dow"></div>
+        <p class="small muted">Black Friday is extreme: <span id="topdays"></span>. It sits outside the forecast window but distorts any recent-level feature computed over November to January.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sub" id="campaigns">
+    <h3>The 2026 campaign plan, replayed on 2024 and 2025</h3>
+    <p class="muted small">Each planned 2026 window measured on the same dates in past years. "Lift" is like-for-like edikted.com units over the local median. Labor Day, the October sale and the 4th of July push already happened on the same dates, so the model has seen them. Only the August Clearance and the late-September sale look new (D030, D031).</p>
+    <div class="tscroll"><table id="camp"><thead><tr><th>2026 campaign</th><th>Dates</th><th>Plan</th><th class="r">2024 disc</th><th class="r">2024 lift</th><th class="r">2025 disc</th><th class="r">2025 lift</th><th>Reading</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</div></section>
+
+<section class="block" id="season"><div class="wrap">
+  <div class="eyebrow">5 · EDA — seasonality</div>
+  <h2>Each product type has its own year</h2>
+  <p class="muted">2025 monthly index per product type: 1.0 is that type's monthly average. The outlined columns are the forecast months. These come from raw type totals, so they include the item-mix effect; read the shape, not the level. Hover a cell for the type's volume and how many targets it holds.</p>
+  <div class="panel"><div style="overflow-x:auto"><div class="heat" id="heat"></div></div></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Occasion tags, 2025 index</h3>
+      <p class="small muted">Merchandising tags carried on every line. 39 of the 100 targets are tagged. World Cup items (20, all launched in late May or early June 2026) have no history.</p>
+      <div style="overflow-x:auto"><div class="heat" id="heat-occ"></div></div>
+    </div>
+    <div class="panel">
+      <h3>What this means for July to October</h3>
+      <ul class="takeaways small">
+        <li>The window opens on the back-to-school peak (August about 1.2× the monthly average for untagged items) and steps down to about 0.8 in September and October.</li>
+        <li>Hoodies, sweaters, sweatpants, jackets and cardigans are at their trough in June and July (0.2–0.5) and climb to 0.8–1.0 by October.</li>
+        <li>Short jeans, skirts and skorts peak in July and August (1.5–2.1) and fall back by October; swimwear falls from July.</li>
+        <li>Halloween items peak in October (1.78), Homecoming in September (2.25); 4th of July items fade from September.</li>
+        <li>November and December are 2–3× normal for most types (Black Friday). They sit outside the window, but they distort the recent level at winter origins.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="lifecycle"><div class="wrap">
+  <div class="eyebrow">6 · EDA — lifecycle</div>
+  <h2>Launch, peak in months 2–3, settle at about half</h2>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Launch curve</h3>
+      <p class="small muted" id="launch-n"></p>
+      <div class="chart" id="ch-launch"></div>
+      <p class="hint">Month 0 is the partial launch month (median first sale is one day after publishing). Hover a month for the quartiles.</p>
+    </div>
+    <div class="panel">
+      <h3>The four-month multiplier drifts by year</h3>
+      <p class="small muted">Units over the next four months ÷ (4 × recent monthly level), by origin month. "All" includes young survivors and is inflated in 2024; "≥ 12 months" holds item age fixed. The June row is the one that matters for this task.</p>
+      <div class="tscroll"><table id="drift"><thead><tr><th>Origin month</th><th class="r">All 2024</th><th class="r">All 2025</th><th class="r">All 2026</th><th class="r">≥12m 2024</th><th class="r">≥12m 2025</th><th class="r">≥12m 2026</th></tr></thead><tbody></tbody></table></div>
+      <ul class="takeaways small">
+        <li>Old items decay year on year: for 224 items launched before March 2024, Jul–Oct 2025 was a median 0.44× of Jul–Oct 2024 (p10 0.21, p90 1.16). Last year's same months are a poor anchor.</li>
+        <li>Short-term persistence is high: for items with ≥ 100 units in Mar–Jun 2025, the log correlation with Jul–Oct 2025 is 0.93, but the ratio runs from 0.52 (p10) to 1.88 (p90). The modelling work is in that multiplier.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="items"><div class="wrap">
+  <div class="eyebrow">7 · EDA — items &amp; sizes</div>
+  <h2>Who the items are</h2>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Items by year published</h3>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Other items</span><span><i style="background:var(--accent)"></i>The 100 targets</span></div>
+      <div class="bars" id="bars-pub"></div>
+      <p class="small muted">Demand is concentrated: the top 10% of items sell 53% of units; the 100 targets sell 21%. Not intermittent: only 0.8% of item-months after launch are zero and 2.8% are under 10 units. The median item-month sells 206 units.</p>
+    </div>
+    <div class="panel">
+      <h3>Size mix by category group</h3>
+      <div class="legend" id="lg-size"></div>
+      <div id="sizes" style="display:grid;gap:8px"></div>
+      <p class="small muted">Size mix is stable, so size-level stock-outs are easy to spot: a core size selling nothing while the others sell. That happens in only 0.5% of item-weeks and hides about 0.1% of online units.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Colour extensions</h3>
+      <p class="small muted"><code>color_num</code> 1 is the original colour; 2+ are colours added later. 33 targets are extensions, and 16 targets share a style with another target.</p>
+      <div class="bars" id="bars-cn"></div>
+    </div>
+    <div class="panel">
+      <h3>Item-master quirks</h3>
+      <ul class="takeaways small">
+        <li><code>published_date</code> is stored at midnight Israel time, so it falls on the previous day in New York. Convert it before computing age.</li>
+        <li>85 items sell before their published date (up to 176 days). The effective start is the earlier of published date and first sale.</li>
+        <li>190 items were published before 2024, so their early history is unobserved. Age uses the true start; exposure uses the start clipped to 1 Jan 2024.</li>
+        <li>An item can carry up to 3 product names, 3 product types and 2 collections across its lines. Use the most recent or most common value.</li>
+        <li>Collections (<code>C2023-05-LA</code>) encode launch batch: year, month and origin.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="artefacts"><div class="wrap">
+  <div class="eyebrow">8 · EDA — artefacts</div>
+  <h2>Fifteen things in the data that will bite you</h2>
+  <p class="muted">The brief asks for these explicitly. Hover a row for the evidence. Treatments are applied in the scripts named.</p>
+  <div class="tscroll"><table id="art"><thead><tr><th>#</th><th>Artefact</th><th>Treatment</th><th>Where</th></tr></thead><tbody></tbody></table></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Stock-outs without inventory data</h3>
+      <p class="small">Item level: a zero run is flagged when it is improbable at the item's own rate (Poisson, P &lt; 0.1%, at least 3 days). That gives 1,716 runs on 664 items, 2.7% of live item-days but only about 0.4% of units. 47 runs reach the end of the data.</p>
+      <p class="small">Size level: a core size (≥ 15% share) sells nothing in a week where the other sizes imply ≥ 7 units: 516 of 95,406 item-weeks, about 0.1% of online units.</p>
+      <p class="small"><b>Decision:</b> no global de-censoring (D021). Two targets are handled individually: <code>S16079_DARK-GRAY</code>, with no sales since 10 April (forecast as in stock, D034), and <code>S14995_NAVY</code>, which lost about 15% of recent online units to a missing size (D038).</p>
+    </div>
+    <div class="panel">
+      <h3>The October 2025 cancellation event</h3>
+      <div class="chart" id="ch-cancel"></div>
+      <p class="small">On 14 Oct 2025, 145,109 units were cancelled (74% of the day), almost all on edikted.com; 15 October was 25%. Every other month sits near 1%. Cancelled lines are excluded from the target, as the brief says.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="targets"><div class="wrap">
+  <div class="eyebrow">9 · EDA — the 100 targets</div>
+  <h2>Half have never lived through a July to October</h2>
+  <div class="facts" id="tfacts"></div>
+  <div class="grid2">
+    <div class="panel"><h3>Targets by product type</h3><div class="bars" id="bars-ttype"></div></div>
+    <div class="panel"><h3>Targets by age on 1 July 2026</h3><div class="bars" id="bars-tage"></div>
+      <p class="small muted">Age is from the effective start. Confidence comes from the width of each item's calibrated range and from how far the five models disagree, not from age (D237, D266).</p></div>
+  </div>
+</div></section>
+
+<section class="block" id="modelling"><div class="wrap">
+  <div class="eyebrow">10 · Modelling</div>
+  <h2>From one quantile model to a stack of five</h2>
+  <p class="muted">Every idea, including those from the M5 and broader competition reviews, was tested on the same 13 rolling origins (end of Feb 2025 to end of Feb 2026). Each origin forecasts the next four months using only data available at the time. Scoring is on the four-month total per item, the unit the confidence scale uses. Since D109 every system is scored as a ratio to R3 (each item's last 3 months × 4), and small differences are judged by a paired item bootstrap.</p>
+  <div class="panel" id="candidate-nx5" style="scroll-margin-top:60px;border-color:var(--accent)">
+    <h3>Submitted since 18 Nov: nx6 = the new nx5 (D389i) with the hybrid confidence column (D389t)</h3>
+    <div class="grid2">
+      <ul class="takeaways small">
+        <li><b>System:</b> nx5 of D361 (rules, Huber tree, NN, both TabPFN members, the per-location recommender at a quarter weight) where items under six months old get a Huber tree trained with new items' rows counted five times (D389h), the corrections refitted on that system, and ranges recalibrated per age and volume group with last July–October and the latest March–June weighted four times.</li>
+        <li><b>Backtest, WAPE ÷ R3</b> (nx4 in brackets): recent 0.3806 (0.3851), held out 0.2926 (0.2948), all 13 0.4357 (0.4399), early 0.6593 (0.6623). Level with D361's nx5 (0.3811 / 0.2924 / 0.4358).</li>
+        <li><b>The new-item lift:</b> the 24 targets under six months rise 10.6% (194,622 → 215,244). In the backtest routing moved new items by only 0.3% while the system under-forecast them by 7–12%: the direction holds, the size is new. Stated in the workbook's "Where it is weak".</li>
+        <li><b>Workbook:</b> 16 explanations in plain words (what drove the number, what the models said, not adjusted); the Model explanation opens with the 15 data artefacts and their treatment.</li>
+        <li><b>Overnight after it</b> (D389j–o): separate tuning of the new-item and old-item trees, a grid of simple versions, full-strength corrections, per-item weights, two-window calibration: none passes the held-out test and the gate. The monthly split was scored for the first time and kept. The one change that held is the confidence column (D389k): candidate_nx6 (D389n) puts level 3 only where the calibrated range gives less than even odds of landing within ±50% (claims met on the held-out origins 0.75 → 0.81); levels 10 · 86 · 4. Submitted as nx6 on the user's word (D389t).</li>
+      </ul>
+      <div class="tscroll"><table><thead><tr><th>Jul–Oct 2026</th><th class="r">nx6 (submitted)</th><th class="r">nx5 D361</th><th class="r">nx4</th></tr></thead><tbody>
+        <tr><td>July</td><td class="r">177,611</td><td class="r">172,308</td><td class="r">171,591</td></tr>
+        <tr><td>August</td><td class="r">181,724</td><td class="r">176,664</td><td class="r">175,788</td></tr>
+        <tr><td>September</td><td class="r">127,588</td><td class="r">124,533</td><td class="r">123,969</td></tr>
+        <tr><td>October</td><td class="r">133,903</td><td class="r">131,333</td><td class="r">130,453</td></tr>
+        <tr style="background:var(--accent-soft)"><td><b>Total</b></td><td class="r"><b>620,826</b></td><td class="r"><b>604,838</b></td><td class="r"><b>601,801</b></td></tr>
+        <tr><td>Buying quantity</td><td class="r">634,349</td><td class="r">637,791</td><td class="r">636,953</td></tr>
+        <tr><td>Confidence 1 · 2 · 3</td><td class="r">10 · 86 · 4</td><td class="r">10 · 82 · 8</td><td class="r">10 · 82 · 8</td></tr>
+        <tr><td>Range of the 99 modelled targets, summed: P10 · P25 · P75 · P90</td><td class="r" colspan="3">385,955 · 477,424 · 705,984 · 886,834</td></tr>
+        <tr><td>Item change against nx4 (10th / 50th / 90th percentile)</td><td class="r" colspan="3">−1.0% / +1.3% / +10.8%; largest +20.1% (S18184_LIGHT-BLUE, a launch)</td></tr>
+      </tbody></table></div>
+    </div>
+    <p class="small muted">Files: <code>Edikted_Forecasting_Exercise_filled.xlsx</code> = <code>…_candidate_nx6.xlsx</code> (md5 efd8dd33…; builder <code>eda/181m_final_nx6_2026.py</code>; the new nx5 without the confidence change is <code>…_candidate_nx5.xlsx</code>, md5 53784513…), <code>data/final_2026_nx5_cascade.csv</code>, builder <code>eda/181l_final_nx5r_2026.py</code> (base <code>eda/218_base_nx5r.py</code>, corrections <code>eda/218c_geo_nx5r.py</code>, ranges <code>eda/219_ranges_nx5r.py</code>). Kept: <code>…_candidate_nx4.xlsx</code> (the previous submission), <code>…_candidate_nx5_d361.xlsx</code>; candidate <code>…_candidate_nx6.xlsx</code> (<code>eda/181m_final_nx6_2026.py</code>).</p>
+  </div>
+  <div class="panel" id="current" style="scroll-margin-top:60px">
+    <h3>The submitted system (D274)</h3>
+    <div class="grid2">
+      <ul class="takeaways small">
+        <li><b>Anchor:</b> R3, then the product type's like-for-like seasonality.</li>
+        <li><b>Five members, each forecasting the 4-month total:</b> the rule agents; a quantile LightGBM with events, co-purchase neighbours and launch curves; a sales-curve neural net; TabPFN v2 with 32 estimators; TabPFN v2 with conformally calibrated quantiles.</li>
+        <li><b>Stack:</b> the arithmetic mean of the five, in units. The geometric mean forecast low and bought worse (D230).</li>
+        <li><b>Corrections:</b> a segment re-allocation (volume × age × discount) and a breakout model, combined by geometric mean with each origin's total kept (D245, D247, D259).</li>
+        <li><b>Months:</b> the total is split with the rule agent's and the NN's monthly profiles (D121).</li>
+        <li><b>Buying quantity:</b> the same stack with the quantile members at P65 (D236).</li>
+        <li><b>Confidence:</b> the conformal TabPFN member's P25–P75 width, one level worse where the members differ by more than 2× (D237).</li>
+      </ul>
+      <div class="tscroll"><table id="sys-tab"><thead><tr><th>Submitted system, backtest</th><th class="r">Value</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </div>
+  <div class="panel" id="rounds">
+    <h3>What changed after the first submission</h3>
+    <p class="small muted">The 12 Nov submission was the quantile model below plus judgement rules (580,968 units). Each round was tested on the same 13 origins; decision ids open the log.</p>
+    <ul class="takeaways small">
+      <li><b>Rule agents, NN and the three-way stack.</b> Explicit rules on the recent rate, a neural net with hierarchical embeddings and a sales-curve encoder, combined with the quantile model: 0.440 × R3. A lean feature set, occasion timing and a Black Friday fix followed. <button class="chip dl" type="button" data-d="D076">D076</button> <button class="chip dl" type="button" data-d="D096">D096</button> <button class="chip dl" type="button" data-d="D105">D105</button> <button class="chip dl" type="button" data-d="D134">D134</button> <button class="chip dl" type="button" data-d="D135">D135</button> <button class="chip dl" type="button" data-d="D141">D141</button></li>
+      <li><b>Weather and events.</b> Statewide temperature and a US events calendar, kept alongside seasonality: three-way 0.4234; with the Black Friday fix 0.4222 and 11.05% buying loss. Replacing seasonality outright was worse. <button class="chip dl" type="button" data-d="D155">D155</button> <button class="chip dl" type="button" data-d="D159">D159</button> <button class="chip dl" type="button" data-d="D161">D161</button></li>
+      <li><b>Carts, style embeddings and the cart gate.</b> Co-purchase neighbours and LLM fashion scores helped (0.4326). Rule from D160: an embedding must predict cart co-occurrence better than raw product features before it is used. Content embeddings v4 and v6 (with photos) pass; a graph network is level with them; as tree features they add nothing. A Poisson co-purchase network re-fitted at every origin does help: 0.4202. <button class="chip dl" type="button" data-d="D150">D150</button> <button class="chip dl" type="button" data-d="D153">D153</button> <button class="chip dl" type="button" data-d="D160">D160</button> <button class="chip dl" type="button" data-d="D164">D164</button> <button class="chip dl" type="button" data-d="D168">D168</button> <button class="chip dl" type="button" data-d="D180">D180</button> <button class="chip dl" type="button" data-d="D193">D193</button> <button class="chip dl" type="button" data-d="D198">D198</button> <button class="chip dl" type="button" data-d="D199">D199</button> <button class="chip dl" type="button" data-d="D203">D203</button> <button class="chip dl" type="button" data-d="D208">D208</button></li>
+      <li><b>Explainability.</b> SHAP of each item's deviation from R3, grouped into 11 categories by an LLM and scored by three LLM judges; simple surrogates on the categories recover 72–85% of the lift. For the submitted stack the categories explain 94% of the deviation. <button class="chip dl" type="button" data-d="D191">D191</button> <button class="chip dl" type="button" data-d="D194">D194</button> <button class="chip dl" type="button" data-d="D195">D195</button> <button class="chip dl" type="button" data-d="D202">D202</button> <button class="chip dl" type="button" data-d="D210">D210</button></li>
+      <li><b>Foundation models.</b> Time-series models (Chronos-2, Bolt, TimesFM) rejected at 0.63–0.76 alone. TabDPT, Mitra, Nori and TabICL rejected or conditional. TabPFN v2 adopted as a member: 0.4100 recent, 10.78% buying loss. <button class="chip dl" type="button" data-d="D192">D192</button> <button class="chip dl" type="button" data-d="D196">D196</button> <button class="chip dl" type="button" data-d="D197">D197</button> <button class="chip dl" type="button" data-d="D201">D201</button> <button class="chip dl" type="button" data-d="D204">D204</button></li>
+      <li><b>The M5 round.</b> Rejected: hierarchical reconciliation, campaign-calendar features, learned combination weights, Google Trends, multi-horizon neural nets, augmentation, weekly origins, other boosting libraries, tuning, bagging, cluster and trend features. Adopted: conformal TabPFN quantiles, the arithmetic stack, and the P65 buying column (buying loss follows bias, not WAPE). <button class="chip dl" type="button" data-d="D172">D172</button> <button class="chip dl" type="button" data-d="D173">D173</button> <button class="chip dl" type="button" data-d="D175">D175</button> <button class="chip dl" type="button" data-d="D177">D177</button> <button class="chip dl" type="button" data-d="D178">D178</button> <button class="chip dl" type="button" data-d="D183">D183</button> <button class="chip dl" type="button" data-d="D205">D205</button> <button class="chip dl" type="button" data-d="D206">D206</button> <button class="chip dl" type="button" data-d="D207">D207</button> <button class="chip dl" type="button" data-d="D230">D230</button> <button class="chip dl" type="button" data-d="D231">D231</button> <button class="chip dl" type="button" data-d="D236">D236</button> <button class="chip dl" type="button" data-d="D237">D237</button></li>
+      <li><b>Decomposition and errors.</b> Looks hold twice the shared error of product types, but no group-level model beats the sum of items. The error is concentrated in young launches that break out into the peak. Two corrections with totals kept moved the system to 0.3902. <button class="chip dl" type="button" data-d="D238">D238</button> <button class="chip dl" type="button" data-d="D240">D240</button> <button class="chip dl" type="button" data-d="D244">D244</button> <button class="chip dl" type="button" data-d="D245">D245</button> <button class="chip dl" type="button" data-d="D247">D247</button> <button class="chip dl" type="button" data-d="D248">D248</button> <button class="chip dl" type="button" data-d="D250">D250</button></li>
+      <li><b>Fixable errors.</b> The tree member had no age feature. Adding 15 event windows and launch curves and dropping the static descriptors: 0.3961 before corrections, 0.3871 after. Leakage and memorisation checks clean; a survivorship limit found. A launch plan at look level would be worth about 1% but needs Edikted's calendar. <button class="chip dl" type="button" data-d="D252">D252</button> <button class="chip dl" type="button" data-d="D253">D253</button> <button class="chip dl" type="button" data-d="D254">D254</button> <button class="chip dl" type="button" data-d="D259">D259</button> <button class="chip dl" type="button" data-d="D260">D260</button> <button class="chip dl" type="button" data-d="D264">D264</button> <button class="chip dl" type="button" data-d="D265">D265</button></li>
+      <li><b>Rebuilds and switches.</b> TabPFN rebuilt on the new features is better alone but level in the stack; the NN rebuilt on them is better: 0.3851 recent, 0.4399 on all 13. The submission was switched to candidate_nx and then to candidate_nx2. On 17 November the World Cup hand rule was restored on top (candidate_nx3), then the confidence column was set by a validated rule (levels 1 / 2 / 3 land within ±20% 58% / 44% / 28% of the time in the backtest) and the ranges widened upward to 80% coverage, with units unchanged (candidate_nx4). <button class="chip dl" type="button" data-d="D291">D291</button> <button class="chip dl" type="button" data-d="D303">D303</button> <button class="chip dl" type="button" data-d="D299">D299</button> <button class="chip dl" type="button" data-d="D350">D350</button> <button class="chip dl" type="button" data-d="D262">D262</button> <button class="chip dl" type="button" data-d="D270">D270</button> <button class="chip dl" type="button" data-d="D271">D271</button> <button class="chip dl" type="button" data-d="D272">D272</button> <button class="chip dl" type="button" data-d="D273">D273</button> <button class="chip dl" type="button" data-d="D274">D274</button></li>
+    </ul>
+  </div>
+  <div class="panel" id="quantiles" style="scroll-margin-top:60px">
+    <h3>History: the quantile model behind the 12 Nov submission</h3>
+    <div class="grid2">
+      <ul class="takeaways small">
+        <li><b>Rows:</b> one per item × origin. Target: log((units over the next 4 months + 1) / (4 × level + 1)).</li>
+        <li><b>Quantiles:</b> 10th, 25th, 40th, 50th, 60th, 75th and 90th percentile, each the average of a base-feature and an all-feature LightGBM, sorted to remove crossing.</li>
+        <li><b>Answer:</b> the median. At the June and July 2025 origins, the ones that match this task, the median has zero bias (the 61st percentile is +9% to +12%). The 61st percentile used before zeroed bias pooled over nine origins, but that bias came from the Black Friday windows (D050).</li><li><b>Own trend:</b> items with a full year of history are blended 50/50 with last year's Jul–Oct × this year's change × 0.84 ageing (D052).</li>
+        <li><b>Calibration:</b> raw P25–P75 covered 40% of actuals; widened 1.3× around the median it covers 50%, and P10–P90 covers 80%.</li>
+        <li><b>Months:</b> the monthly model below supplies the July–October shape of each total, with the July share recalibrated by age group: at the June 2025 origin the split had put 4% too little into July (D061).</li>
+      </ul>
+      <div style="display:grid;gap:10px;min-width:0">
+        <div class="tscroll"><table><thead><tr><th>Answer quantile</th><th class="r">Total bias</th><th class="r">WAPE</th><th class="r">Within ±20%</th><th class="r">Within ±50%</th></tr></thead><tbody>
+          <tr><td>Previous monthly model</td><td class="r">−10.7%</td><td class="r">0.342</td><td class="r">33.5%</td><td class="r">72.1%</td></tr>
+          <tr style="background:var(--accent-soft)"><td><b>50th (median, chosen)</b></td><td class="r">−9.9%</td><td class="r">0.329</td><td class="r">35.8%</td><td class="r">73.4%</td></tr>
+          <tr><td>61st (used before the audit)</td><td class="r">−0.1%</td><td class="r">0.343</td><td class="r">33.9%</td><td class="r">69.3%</td></tr>
+        </tbody></table></div>
+        <p class="small muted">Nine origins, June 2025 – February 2026; 9,031 item forecasts. Total bias pooled over these nine; at the June and July origins alone the median is at −0.1% and the 61st at +11.5%. Bias still swings by origin from −20% to +13%.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>History: the monthly model of rounds 1–3</h3>
+    <div class="grid2">
+      <ul class="takeaways small">
+        <li><b>Rows:</b> item × month-end origin × horizon 1–4 (<code>data/features.parquet</code>, 85,264 rows over 28 origins). An item is eligible once live ≥ 30 days and selling in the last 56.</li>
+        <li><b>Target:</b> log((units + 1) / (level + 1)), where level = units in the last 91 days ÷ days live in that window × 30.44.</li>
+        <li><b>Loss:</b> absolute error, so the model predicts a median. This fits non-intermittent demand scored as a percentage error per item.</li>
+        <li><b>Structure:</b> one pooled LightGBM with the horizon as a feature. Not split by horizon or by category.</li>
+        <li><b>Ensemble:</b> equal average of a base-feature and an all-feature model.</li>
+      </ul>
+      <ul class="takeaways small">
+        <li><b>Base features:</b> six monthly lags relative to level, log level, age, product type, target month, horizon, colour number, own prior-year seasonal ratio, occasion flags.</li>
+        <li><b>All features add:</b> 7- and 28-day pace, 91-day trend, peak ratio, days live, retail / drop / TikTok share, item and relative discount, like-for-like seasonal ratios by type, category group and occasion, and tagger attributes.</li>
+        <li><b>Hyper-parameters:</b> 300 trees, learning rate 0.05, 15 leaves, min 40 per leaf, 0.8 row and column subsampling, L2 5, seed 0. Not tuned.</li>
+        <li><b>Final fit:</b> 71,487 rows from 27 origins whose targets are known by June 2026.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Backtest error by origin (WAPE on 4-month totals)</h3>
+      <div class="legend" id="lg-origin"></div>
+      <div class="chart" id="ch-origin"></div>
+      <p class="hint">Hover an origin for WAPE, bias and hit rates. The submitted system is the thick line; the others are the round 2-3 references. The structured baseline needs a year of history, so it starts in July 2025.</p>
+    </div>
+    <div class="panel">
+      <h3>What drives the monthly all-feature model (round 3)</h3>
+      <p class="small muted">Share of total split gain. Lags, occasion flags and tagger attributes are grouped. Hover a bar for what the feature means.</p>
+      <div class="bars" id="bars-imp"></div>
+    </div>
+  </div>
+  <div class="sub">
+    <h3>Experiment ledger</h3>
+    <div class="controls"><div class="seg" id="exp-filter" role="group" aria-label="Filter experiments"><button aria-pressed="true" data-v="all">All</button><button aria-pressed="false" data-v="keep">Kept</button><button aria-pressed="false" data-v="drop">Dropped</button></div></div>
+    <div class="tscroll"><table id="exp"><thead><tr><th>Experiment</th><th>Round</th><th class="r">WAPE</th><th>Result</th><th>Decision</th></tr></thead><tbody></tbody></table></div>
+    <p class="small muted">Round 1: two origins, before the M5 summary. Round 2: the M5 ideas over 13 origins. Round 3: ideas from the broader competition review. Round 4: quantiles, with the answer chosen from bias and confidence from the IQR. Round 5: the common-sense audit. Rounds 6–12: everything after the first submission, scored as WAPE ÷ R3 on the nine recent origins. WAPE is the mean over 13 origins unless the row says otherwise; "vs" compares on the same origins.</p>
+  </div>
+  <div class="sub">
+    <h3>How confidence levels are set, and how they score</h3>
+    <div class="grid2">
+      <div class="panel">
+        <p class="small">The assignment's scale: 1 = the 4-month total lands within ±20% of actual, 2 = within ±50%, 3 = off by more. The submitted rule uses the conformal TabPFN member's range around its median, w = (P75 − P25) ÷ (2 × P50):</p>
+        <ul class="takeaways small">
+          <li><span class="pill c1">1</span> w ≤ 0.2: 20 targets.</li>
+          <li><span class="pill c2">2</span> w ≤ 0.5: 67 targets.</li>
+          <li><span class="pill c3">3</span> wider, or one level worse where the five members differ by more than 2×: 13 targets.</li>
+        </ul>
+        <p class="small muted">The stated levels rank items correctly but only weakly (quadratic kappa +0.11). The member's P10–P90 range, put on the final forecast, covers 80.6% of actuals (D266, D273).</p>
+      </div>
+      <div class="tscroll"><table id="conf"><thead><tr><th>Backtest, by stated level</th><th class="r">Share</th><th class="r">Within ±20%</th><th class="r">Within ±50%</th><th class="r">Off &gt; 50%</th></tr></thead><tbody>
+        <tr><td><span class="pill c1">1</span> nine recent origins</td><td class="r">2.9%</td><td class="r">53.5%</td><td class="r">92.2%</td><td class="r">7.8%</td></tr>
+        <tr><td><span class="pill c2">2</span> nine recent origins</td><td class="r">73.2%</td><td class="r">44.2%</td><td class="r">82.6%</td><td class="r">17.4%</td></tr>
+        <tr><td><span class="pill c3">3</span> nine recent origins</td><td class="r">23.9%</td><td class="r">32.6%</td><td class="r">68.1%</td><td class="r">31.9%</td></tr>
+        <tr><td colspan="5" class="small muted">Submitted system, 9,031 item-origins (eda/confidence_output_ecnsnn.txt). On all 13 origins the three levels land within ±20% 56%, 42% and 29% of the time.</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="evaluation"><div class="wrap">
+  <div class="eyebrow">11 · Evaluation &amp; error analysis</div>
+  <h2>Judged against recency, then taken apart error by error</h2>
+  <p class="muted">Every system is scored as a ratio to R3 (each item's last 3 months × 4): below 1 beats recency. R3 + rules is the rule-agent system (recent rate × explicit rules, rewritten monthly by isolated agents). Same 13 origins and items throughout; "recent" = the nine origins June 2025 – February 2026.</p>
+  <div class="panel">
+    <h3>Scoring table, relative to R3</h3>
+    <div class="controls"><div class="seg" id="ev-scope" role="group" aria-label="Scope"><button aria-pressed="true" data-v="table_recent">Nine recent origins</button><button aria-pressed="false" data-v="table_all">All 13 origins</button><button aria-pressed="false" data-v="table_targets">Recent, 100 targets</button></div></div>
+    <div class="tscroll"><table id="ev-table"><thead><tr><th>System</th><th class="r">WAPE / R3</th><th class="r">Typical item / R3</th><th class="r">Wins vs R3</th><th class="r">Wins vs R3 + rules</th><th class="r">(MAE + |bias|) / R3</th><th class="r">Pinball / R3</th><th class="r">Buying loss / R3</th><th class="r">Bias</th></tr></thead><tbody></tbody></table></div>
+    <p class="small muted">Typical item = geometric mean of the item error ratio (Davydenko–Fildes). Pinball over P10–P90. Buying loss = profit lost against perfect foresight in the daily buying simulation (11 windows, production buying policy), recent scope only. The highlighted row is the lowest WAPE: the submitted system. Its buying quantity (P65 ladder) loses <span id="ev-ladder"></span>.</p>
+  </div>
+  <div class="grid2">
+    <div class="panel"><h3>What each step adds, from R3</h3><div class="tscroll"><table id="ev-fva"><thead><tr><th>Stage</th><th class="r">WAPE / R3</th><th class="r">Typical item</th><th class="r">Pinball / R3</th></tr></thead><tbody></tbody></table></div>
+      <p class="small muted" id="ev-fva-note"></p></div>
+    <div class="panel"><h3>The 2026 forecast, step by step (100 targets)</h3><div id="ev-wf"></div>
+      <p class="small muted">The submitted cascade (D273). The five members are alternatives, not steps: each bar is that layer's total for the 100 targets. Hover a bar for its ratio to R3.</p></div>
+  </div>
+  <div class="panel"><h3>Where the error lives</h3>
+    <div class="grid2"><div class="tscroll"><table id="ev-arch"><thead><tr><th rowspan="2">Segment (submitted system)</th><th class="r" colspan="4" id="ev-arch-rec">Recent origins</th><th class="r" colspan="4" id="ev-arch-old">Older origins</th></tr><tr><th class="r">Units</th><th class="r">Abs. error</th><th class="r">Bias</th><th class="r">WAPE / R3</th><th class="r">Units</th><th class="r">Abs. error</th><th class="r">Bias</th><th class="r">WAPE / R3</th></tr></thead><tbody></tbody></table></div>
+    <ul class="takeaways small" id="ev-notes"></ul></div>
+  </div>
+  <div class="panel"><h3>Bias by target month (the three members of the D132 system)</h3><div class="legend" id="ev-mb-leg"></div><div id="ev-mb"></div>
+    <p class="small muted">Members' monthly forecasts, all origins and horizons pooled. November 2025 (Black Friday) is under-forecast by every member. On the five-member stack the monthly split over-forecasts September by 28% and under-forecasts November by 19% and January by 14% (D244).</p></div>
+  <div class="panel"><h3>Bias by origin and product group (submitted system)</h3><div class="tscroll"><table id="ev-om"></table></div></div>
+  <div class="panel"><h3>What each kind of information is worth (quantile model at D134, one group removed at a time)</h3><div class="tscroll"><table id="ev-abl"><thead><tr><th>Feature group</th><th class="r">WAPE / R3</th><th class="r">Change when removed</th></tr></thead><tbody></tbody></table></div>
+    <p class="small muted">Nine recent origins. Seasonality carries most of the value; channel mix, discount, occasion flags and lifecycle add nothing, so the lean model drops them. On the later tree member, 15 more event windows and launch curves helped; age, type trends and peak features were level; removing the static descriptors was level on recent origins and better on all 13 (D253).</p></div>
+  <div class="panel"><h3>Probes and fixes tried</h3><div class="tscroll"><table id="ev-probes"><thead><tr><th>Probe</th><th>Decision</th><th>Verdict</th><th>Why</th></tr></thead><tbody></tbody></table></div></div>
+</div></section>
+<section class="block" id="forecast"><div class="wrap">
+  <div class="eyebrow">12 · The forecast</div>
+  <h2 id="fc-head">The forecast for the 100 items, July to October 2026</h2>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Monthly total</h3>
+      <div class="bars" id="bars-month"></div>
+      <p class="small muted" id="fc-scale"></p>
+    </div>
+    <div class="panel">
+      <h3>What the submitted numbers contain</h3>
+      <ul class="takeaways small" id="fc-notes">
+        <li><b>Point forecast:</b> the arithmetic mean of the five members at the June 2026 origin, times the segment and breakout corrections (D273). <span id="fc-corr"></span></li>
+        <li><b>Months:</b> each total is split with the geometric mean of the rule agent's and the NN's monthly profiles (D121).</li>
+        <li><b>Buying quantity:</b> the stack with the quantile members at P65, shown per item in the table (D236).</li>
+        <li><b>Two hand rules:</b> <code>S16079_DARK-GRAY</code>, out of stock since April, keeps its in-stock forecast of 130 units; no model member covers it (D034). The three World Cup items (<code>S24840</code>, <code>S25039</code>, <code>S24847</code>) carry the hand cap of the first submission, 34,463 units in place of the models' 53,270: sales fall after the final on 19 July and no model has seen a World Cup (D033, restored in D303).</li>
+        <li><b>No judgement rules after the stack.</b> The campaign uplift, World Cup caps and segment caps of the 12 Nov submission (D031, D033, D051–D053) are not applied. Event effects enter only through the June 2026 rule agent and the event windows.</li>
+        <li><b>World Cup items:</b> the three targets total <span id="fc-wc"></span> here, against <span id="fc-wc0"></span> under the tournament-end rule of the 12 Nov submission. The largest item, <code>S24840_LIGHT-GRAY-MELANGE</code>, is forecast higher in August than in July although the final is on 19 July.</li>
+        <li><b>Largest single-item risks:</b> Vikkey (<code>S23794_BLACK</code>) at about 30k, with members from 22k to 43k; the items where the members differ by more than 2× (<span id="fc-sp"></span> targets).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sub">
+    <div class="controls">
+      <input type="search" id="t-q" placeholder="Search item or name" aria-label="Search targets">
+      <select id="t-type" aria-label="Product type"></select>
+      <div class="seg" id="t-conf" role="group" aria-label="Confidence"><button aria-pressed="true" data-v="all">All</button><button aria-pressed="false" data-v="1">1</button><button aria-pressed="false" data-v="2">2</button><button aria-pressed="false" data-v="3">3</button></div>
+      <label class="small"><input type="checkbox" id="t-ex"> With explanation only</label>
+      <span class="small muted" id="t-count"></span>
+    </div>
+    <div class="tscroll" style="max-height:640px"><table id="tt"><thead><tr>
+      <th class="sortable" data-k="i">#</th><th class="sortable" data-k="sc">Item</th><th class="sortable" data-k="type">Type</th><th class="sortable r" data-k="age">Age (m)</th><th class="sortable r" data-k="jun">Jun-26</th>
+      <th class="sortable r" data-k="f0">Jul</th><th class="sortable r" data-k="f1">Aug</th><th class="sortable r" data-k="f2">Sep</th><th class="sortable r" data-k="f3">Oct</th><th class="sortable r" data-k="fin">Total</th><th class="sortable r" data-k="buy">Buy (P65)</th><th class="sortable r" data-k="vr3">vs R3</th><th class="sortable r" data-k="conf">Conf</th>
+    </tr></thead><tbody></tbody></table></div>
+    <p class="hint">Hover or focus a row for the item's history, its cascade from R3 through the five members to the forecast, and the explanation written into the workbook. Click a column header to sort.</p>
+  </div>
+</div></section>
+
+<section class="block" id="features"><div class="wrap">
+  <div class="eyebrow">Features</div>
+  <h2>Every input of every model</h2>
+  <p class="muted">Taken from the code that builds each model (<code>eda/206_feature_inventory.py</code>), not retyped. Every input is known on the forecast date. Pick a model to see its inputs; the search box filters by name, block or description.</p>
+  <div class="controls"><select id="feat-model" aria-label="Model"></select><input id="feat-q" type="search" placeholder="Search inputs" aria-label="Search inputs"><span class="small muted" id="feat-n"></span></div>
+  <div class="grid2">
+    <div class="panel"><h3 id="feat-title"></h3><p class="small muted" id="feat-src"></p><div class="bars" id="feat-blocks"></div></div>
+    <div class="tscroll" style="max-height:520px;overflow:auto"><table id="feat-tab"><thead><tr><th>Input</th><th>Block</th><th>What it is</th></tr></thead><tbody></tbody></table></div>
+  </div>
+  <p class="small muted" id="feat-note"></p>
+</div></section>
+
+<section class="block" id="decisions"><div class="wrap">
+  <div class="eyebrow">13 · Decision log</div>
+  <h2 id="log-head">Every decision, in order</h2>
+  <p class="muted"><code>log.md</code> is append-only: nothing is edited after the fact, and a reversal is a new entry that references the old one. Hover an entry for a preview, or open it for the full text.</p>
+  <div class="controls"><div class="seg" id="log-filter" role="group" aria-label="Filter decisions"><button aria-pressed="true" data-v="all">All</button><button aria-pressed="false" data-v="active">In force</button><button aria-pressed="false" data-v="replaced">Replaced</button><button aria-pressed="false" data-v="done">Done</button></div></div>
+  <div id="log" style="display:grid;gap:14px"></div>
+</div></section>
+
+<section class="block" id="run"><div class="wrap">
+  <div class="eyebrow">14 · Files &amp; how to run</div>
+  <h2>Your first hour tomorrow</h2>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Run order</h3>
+      <p class="small muted">From the project root, with the project's own virtual environment (Python 3.12). The system Python 3.8 lacks the packages. Scripts use relative paths.</p>
+      <pre id="runorder"></pre>
+    </div>
+    <div class="panel">
+      <h3>Things that will save you time</h3>
+      <ul class="takeaways small">
+        <li><b>Memory:</b> about 0.5 GB free. Never <code>pd.read_parquet("Dataset.parquet")</code>; query it with DuckDB (<code>SET memory_limit='1500MB'</code>) or use the aggregates in <code>data/</code>.</li>
+        <li><b>Features:</b> after reading <code>features.parquet</code>, cast <code>ptype</code>, <code>macro</code> and the <code>a_*</code> columns to category before LightGBM, as every model script does.</li>
+        <li><b>Future rows:</b> the June 2026 origin rows have <code>y</code> empty; training filters on <code>o_ord + h &lt;= origin</code> and a known <code>y</code>.</li>
+        <li><b>Workbook:</b> the original <code>Edikted_Forecasting_Exercise.xlsx</code> is untouched. The deliverable is <code>…_filled.xlsx</code>, a copy of <code>…_candidate_nx5.xlsx</code> since 18 Nov (D389i: the new nx5 with the routed new-item tree, refitted corrections and focus-weighted ranges; before that candidate_nx4, D350); the first submission is kept as <code>…_filled_original_2026-11-12.xlsx</code>. Replacing the submission is the user's decision. Column K keeps its <code>=SUM()</code> formulas and calculates when opened in Excel. There is no LibreOffice on this machine.</li>
+        <li><b>Shell:</b> Git Bash heredocs break on apostrophes. Write scripts and log entries to files first, then append with <code>cat … &gt;&gt; log.md</code>.</li>
+        <li><b>Log:</b> append every decision to <code>log.md</code>, continuing from the last ID shown in the decision log above. Never edit earlier entries.</li>
+        <li><b>Long write-ups:</b> <code>EDA_REPORT.md</code> (Parts 1–6), <code>ERROR_ANALYSIS_REPORT.md</code>, <code>OVERNIGHT_M5_REPORT.md</code>, <code>DECOMPOSITION_ERRORS_REPORT.md</code>, <code>FIXABLE_ERRORS_REPORT.md</code> and <code>SUBMISSION_EXPLAINABILITY.md</code>; the printed outputs sit beside each script in <code>eda/*_output.txt</code>.</li>
+        <li><b>Two sessions:</b> <code>SYNC.md</code> holds the rules for working in parallel: decision-id ranges, script-number ranges and who owns which artifact.</li>
+        <li><b>Related pages:</b> <span id="links"></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="tscroll"><table id="scripts"><thead><tr><th>Script</th><th>What it does</th></tr></thead><tbody></tbody></table></div>
+    <div class="tscroll"><table id="datafiles"><thead><tr><th>Data file</th><th class="r">KB</th><th>Contents</th></tr></thead><tbody></tbody></table></div>
+  </div>
+  <div class="panel">
+    <h3>Open questions worth your first day</h3>
+    <ul class="takeaways small">
+      <li><b>Summer 2026 actuals.</b> The backtest has one window like the deliverable (the June 2025 origin). Score the frozen submission on July–October 2026 as the months arrive: it is the only untouched test.</li>
+      <li><b>World Cup items.</b> Resolved: the submitted workbook carries the hand cap of the first submission again (D033 rule, restored in D291 / D303; 34,463 units against the models' 53,270). The models themselves still have no tournament-end rule.</li>
+      <li><b>Breakouts.</b> Young launches that break out into the peak are the largest error and are weakly visible at the origin; half show within a month. A monthly re-forecast of young items is the operational fix (D248).</li>
+      <li><b>Missing inputs.</b> Per-item markdown and promotion plans, the launch calendar (worth about 1% at look level, D264), inventory and receipts, and the full historical catalogue: the 1,500 items are survivors (D254).</li>
+      <li><b>Buying economics.</b> The P65 quantity comes from the simulation's assumed margins; with per-item cost, price and salvage the order quantile can be set per item.</li>
+    </ul>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">Built from <code>data/project_map.json</code>, which <code>eda/19_project_map_data.py</code> writes from the project's own outputs. Units are the brief's scaled units throughout.</div></footer>
+<div id="tip" hidden role="tooltip"></div>
+
+<script id="atlas-data" type="application/json">__DATA__</script>
+<script>
+(function () {
+const D = JSON.parse(document.getElementById("atlas-data").textContent);
+const NS = "http://www.w3.org/2000/svg";
+const $ = (s, r = document) => r.querySelector(s);
+const fmt = n => n == null ? "–" : Math.round(n).toLocaleString("en-US");
+const fk = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + "M" : n >= 1e3 ? (n / 1e3).toFixed(n >= 1e5 ? 0 : 1).replace(/\.0$/, "") + "k" : String(Math.round(n));
+const pct = (x, d = 0) => x == null ? "–" : (x * 100).toFixed(d) + "%";
+const spct = x => (x > 0 ? "+" : "") + (x * 100).toFixed(1) + "%";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const mlab = m => MON[+m.slice(5, 7) - 1] + " " + m.slice(2, 4);
+function svg(tag, a = {}, p) { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
+function h(tag, a = {}, html) { const e = document.createElement(tag); for (const k in a) { if (k === "class") e.className = a[k]; else if (k === "style") e.style.cssText = a[k]; else e.setAttribute(k, a[k]); } if (html != null) e.innerHTML = html; return e; }
+
+/* ---------- tooltip ---------- */
+const tips = new Map(); let seq = 0; const tip = $("#tip");
+function tipOn(node, html) { const id = "t" + (++seq); tips.set(id, html); node.setAttribute("data-tip", id); return node; }
+function show(id, x, y) {
+  const html = tips.get(id); if (!html) return; tip.innerHTML = typeof html === "function" ? html() : html; tip.hidden = false;
+  const r = tip.getBoundingClientRect(); let L = x + 14, T = y + 14;
+  if (L + r.width > innerWidth - 8) L = Math.max(8, x - r.width - 14); if (T + r.height > innerHeight - 8) T = Math.max(8, y - r.height - 14);
+  tip.style.left = L + "px"; tip.style.top = T + "px";
+}
+function hide() { tip.hidden = true; document.querySelectorAll(".xhair").forEach(l => l.setAttribute("opacity", 0)); }
+document.addEventListener("pointermove", e => { const t = e.target.closest && e.target.closest("[data-tip]"); if (t) { show(t.dataset.tip, e.clientX, e.clientY); if (t._x) t._x(); } else if (e.pointerType === "mouse") hide(); });
+document.addEventListener("pointerdown", e => { const t = e.target.closest && e.target.closest("[data-tip]"); if (t) { show(t.dataset.tip, e.clientX, e.clientY); if (t._x) t._x(); } else hide(); });
+document.addEventListener("focusin", e => { const t = e.target.closest && e.target.closest("[data-tip]"); if (t) { const r = t.getBoundingClientRect(); show(t.dataset.tip, Math.min(r.left + 20, innerWidth - 40), r.bottom); } });
+document.addEventListener("focusout", hide);
+addEventListener("scroll", () => { if (!tip.hidden) hide(); }, { passive: true });
+
+/* ---------- line chart (one scale, thin marks, hover columns) ---------- */
+function lineChart(mount, o) {
+  const draw = () => {
+    mount.innerHTML = ""; const W = Math.max(280, mount.clientWidth), H = o.height || 220;
+    const m = { l: o.ml || 46, r: 12, t: 10, b: 26 }, iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const s = svg("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": o.label || "" }, mount);
+    const n = o.labels.length; const x = i => m.l + (n === 1 ? iw / 2 : i * iw / (n - 1));
+    let vals = []; o.series.forEach(se => se.values.forEach(v => v != null && vals.push(v))); if (o.band) vals = vals.concat(o.band.hi);
+    const yMin = o.yMin != null ? o.yMin : 0, yMax = o.yMax != null ? o.yMax : Math.max(...vals) * 1.06;
+    const y = v => m.t + ih - (v - yMin) / (yMax - yMin) * ih;
+    const ticks = o.ticks || niceTicks(yMin, yMax, 4);
+    ticks.forEach(t => { svg("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: "var(--line)", "stroke-width": 1 }, s); const tx = svg("text", { x: m.l - 6, y: y(t) + 4, "text-anchor": "end" }, s); tx.textContent = o.yFmt ? o.yFmt(t) : fk(t); });
+    if (o.ref != null) svg("line", { x1: m.l, x2: W - m.r, y1: y(o.ref), y2: y(o.ref), stroke: "var(--fg3)", "stroke-dasharray": "3 3", "stroke-width": 1 }, s);
+    const every = o.xEvery || Math.ceil(n / Math.max(2, Math.floor(iw / 90)));
+    o.labels.forEach((lb, i) => { if (i % every === 0 || (o.xLast && i === n - 1)) { const tx = svg("text", { x: x(i), y: H - 6, "text-anchor": i === 0 ? "start" : (i === n - 1 ? "end" : "middle") }, s); tx.textContent = o.xFmt ? o.xFmt(lb, i) : lb; } });
+    (o.shade || []).forEach(([a, b]) => svg("rect", { x: x(a) - (iw / (n - 1)) / 2, y: m.t, width: (b - a + 1) * iw / (n - 1), height: ih, fill: "var(--accent-soft)" }, s));
+    if (o.band) { let d = ""; o.band.hi.forEach((v, i) => d += (i ? "L" : "M") + x(i) + "," + y(v)); for (let i = o.band.lo.length - 1; i >= 0; i--) d += "L" + x(i) + "," + y(o.band.lo[i]); svg("path", { d: d + "Z", fill: o.band.color, opacity: 0.18 }, s); }
+    o.series.forEach(se => { let d = "", pen = false; se.values.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1); pen = true; });
+      svg("path", { d, fill: "none", stroke: se.color, "stroke-width": se.w || 2, "stroke-linejoin": "round", "stroke-linecap": "round", "stroke-dasharray": se.dash || "none" }, s);
+      if (se.dots) se.values.forEach((v, i) => v != null && svg("circle", { cx: x(i), cy: y(v), r: 3.2, fill: se.color, stroke: "var(--surface)", "stroke-width": 1.5 }, s)); });
+    const xh = svg("line", { class: "xhair", x1: 0, x2: 0, y1: m.t, y2: m.t + ih, stroke: "var(--fg3)", "stroke-width": 1, opacity: 0 }, s);
+    const colW = n === 1 ? iw : iw / (n - 1);
+    for (let i = 0; i < n; i++) { const r = svg("rect", { x: x(i) - colW / 2, y: m.t, width: colW, height: ih, fill: "transparent" }, s); tipOn(r, () => o.tip(i)); r._x = () => { xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.setAttribute("opacity", 0.6); }; }
+  };
+  draw(); resizers.push(draw);
+}
+function niceTicks(a, b, k) { const span = b - a, step0 = span / k, mag = Math.pow(10, Math.floor(Math.log10(step0))), f = step0 / mag; const step = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * mag; const out = []; for (let v = Math.ceil(a / step) * step; v <= b + 1e-9; v += step) out.push(+v.toFixed(10)); return out; }
+const resizers = []; let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => resizers.forEach(f => f()), 150); });
+function legend(el, items) { el.innerHTML = items.map(([c, t]) => `<span><i style="background:${c}"></i>${esc(t)}</span>`).join(""); }
+function bars(el, rows, o = {}) {
+  const max = o.max || Math.max(...rows.map(r => r.v)); el.innerHTML = "";
+  rows.forEach(r => { const b = h("div", { class: "bar", tabindex: 0 }); b.innerHTML = `<span class="k">${esc(r.k)}</span><span class="track">${(r.parts || [[r.v, r.c || "var(--s1)"]]).map(([v, c]) => `<span class="fill" style="display:inline-block;width:${(v / max * 100).toFixed(2)}%;background:${c};border-radius:0"></span>`).join("")}</span><span class="v">${o.vf ? o.vf(r.v, r) : fmt(r.v)}</span>`;
+    b.querySelector(".track").style.display = "flex"; b.querySelector(".track").style.gap = "0"; if (r.tip) tipOn(b, r.tip); el.appendChild(b); });
+}
+const sw = c => `<span class="sw" style="background:${c}"></span>`;
+
+/* ---------- header facts ---------- */
+const SY = D.system || {}; const tot = D.targets.reduce((a, t) => a + t.fin, 0), raw = D.targets.reduce((a, t) => a + (t.raw || 0), 0);
+const cc = [1, 2, 3].map(c => D.targets.filter(t => t.conf === c).length).join(" · ");
+const facts = [[fmt(tot), "units forecast, Jul–Oct 2026, 100 items: the submitted workbook (nx6, D389t)"], [SY.recent.toFixed(3) + " × R3", "backtest error against recency (last 3 months × 4), nine recent origins; " + SY.all13.toFixed(3) + " on all 13"], [fmt(SY.buy), "buying quantity for the same items (quantile members at P65)"], [cc, "items at confidence 1 · 2 · 3"], [fmt(SY.orig), "the original 12 Nov submission, kept as a backup file"], [String(D.log.length), "logged decisions in log.md"]];
+$("#facts").innerHTML = facts.map(([b, s]) => `<div class="fact"><b>${b}</b><span>${s}</span></div>`).join("");
+
+/* ---------- project map ---------- */
+const STAGES = [
+  ["Inputs", [
+    { id: "ds", kind: "file", t: "Dataset.parquet", s: "15.2M order lines, Jan 2024 – Jun 2026", what: "Order lines from the US warehouse, all channels. One row = item × size × order. Item attributes (name, type, published date, occasion tag, colour number) repeat on every line.", ins: ["Provided by Edikted"], outs: ["All aggregates in data/"], nums: ["15,179,907 lines · 8,627,791 orders", "1,500 style-colours · 6,979 SKUs", "249 MB on disk; never loaded whole"], dec: ["D001", "D002"], go: "#data" },
+    { id: "attr", kind: "file", t: "item_attributes.csv", s: "Visual-tagger attributes, 1,329 items", what: "Fabric, weight, pattern, silhouette, length, sleeve, aesthetics and wear occasion as a visual tagger produced them. Free text with many spellings.", ins: ["Provided by Edikted"], outs: ["a_* columns in features.parquet"], nums: ["96 of 100 targets tagged", "Fabric weight: 36 spellings → light / medium / heavy", "No measurable lift once an item has sales"], dec: ["D018", "D026"], go: "#data" },
+    { id: "wb", kind: "file", t: "Exercise workbook", s: "100 targets, campaigns, sheets to fill", what: "The 100 items to forecast with images, the Model explanation sheet, the data dictionary and the planned site-wide campaigns for Jul–Oct 2026.", ins: ["Provided by Edikted"], outs: ["data/targets.csv", "The filled copy"], nums: ["6 campaigns planned, 28 Jun – 18 Oct", "Confidence scale: ±20% / ±50% / worse on the 4-month total"], dec: ["D040"], go: "#campaigns" },
+    { id: "outside", kind: "file", t: "Outside and derived signals", s: "Temperature, events, carts, LLM scores, photos", what: "Signals added after the first submission: NOAA statewide temperature normals and anomalies; a US calendar of 31 event windows; cart co-purchase pairs from the order lines, fitted as a network at every origin; 14 LLM-scored fashion fields per item; the public product feed (photos and text) for the content embedding.", ins: ["NOAA NCEI", "eda/161_events.py · eda/180_newfeats.py", "Dataset.parquet (baskets)", "edikted.com product feed"], outs: ["data/weather_state_month.parquet", "data/events_month.parquet", "data/fk_dyn_feats.parquet", "data/llm/scores_part*.csv", "data/content_emb.npz"], nums: ["Temperature + events: three-way 0.4365 → 0.4234 (D159)", "Dynamic co-purchase neighbours: 0.4222 → 0.4202 (D203)", "Embeddings must predict carts before use: content v4 0.431 vs 0.180 for raw product features", "As tree features the content neighbours add nothing (D205)"], dec: ["D153", "D159", "D160", "D164", "D170", "D193", "D198", "D205"], go: "#modelling" } ]],
+  ["Prepare", [
+    { id: "agg", t: "Aggregate with DuckDB", s: "02_build_aggs.py → 4 small tables", what: "Reads the parquet with DuckDB under a 1.5 GB memory limit and writes item-day-channel, item master, channel-day and item-month-size aggregates. Also runs the first artefact probes.", ins: ["Dataset.parquet"], outs: ["daily_item_chan.parquet (1.6M rows)", "items.parquet", "daily_otype.parquet", "monthly_item_size.parquet"], nums: ["Runs in a few minutes", "Every later script reads these"], dec: ["D001"], go: "#data" },
+    { id: "clean", t: "Cleaning rules", s: "Target, time zone, start dates", what: "Applied in the feature and EDA scripts rather than as a separate cleaned file.", ins: ["Aggregates"], outs: ["Rules used everywhere"], nums: ["Cancelled lines out (298k units, incl. 145k on 14 Oct 2025)", "published_date: Israel midnight → New York", "Start = min(published, first sale); 85 items sell early", "Launch month treated as partial exposure"], dec: ["D002", "D003", "D004", "D021"], go: "#artefacts" },
+    { id: "monthly", kind: "file", t: "monthly_item.parquet", s: "Item × month panel, non-cancelled", what: "The modelling panel: 1,500 items × 30 months of units. Months before launch are zero here, but the feature code treats them as missing.", ins: ["04_eda.py"], outs: ["Features, EDA, backtests"], nums: ["Median item-month after launch: 206 units", "0.8% of item-months after launch are zero"], dec: ["D004"], go: "#items" } ]],
+  ["Understand", [
+    { id: "eda", t: "EDA", s: "04_eda.py · 09 · 11 · 14", what: "Trends, channels, calendar, discount response, seasonality by type and occasion, launch curves, year-on-year decay, size mix, stock-out detection and the campaign replay.", ins: ["Aggregates", "monthly_item.parquet"], outs: ["eda/figs/*.png", "eda/*_output.txt", "EDA_REPORT.md Part 1"], nums: ["Survivor panel: 1,450 of 1,500 items still sell", "Deep-discount days: 1.55× like-for-like units", "Launch peak in months 2–3, settles near 0.5×", "Stock-outs hide about 0.4% of units"], dec: ["D007", "D016", "D021", "D030"], go: "#growth" },
+    { id: "art", t: "Artefact checks", s: "15 issues found and treated", what: "Everything in the data that would mislead a model or a reader, with the evidence and the treatment.", ins: ["Aggregates"], outs: ["Rules in features and scripts", "Artefacts table"], nums: ["Mass cancellation 14–15 Oct 2025", "Store roll-out 1 → 16 stores", "Negative and >100% discounts clipped", "State field mixes 'California' and 'CA'"], dec: ["D020", "D021"], go: "#artefacts" } ]],
+  ["Model", [
+    { id: "feat", t: "Feature tables", s: "06_features · 162 · 182 · 180_newfeats", what: "One row per item × month-end origin, built only from data up to the origin: momentum lags, like-for-like seasonality, occasion timing, statewide temperature, 31 event windows, dynamic co-purchase neighbours and launch curves. The tree member drops the static descriptors (attributes, type, LLM scores); the TabPFN members keep them.", ins: ["monthly_item.parquet", "daily_item_chan.parquet", "Outside and derived signals"], outs: ["data/features.parquet", "data/fk_explain_table.parquet", "data/fk_dyn_feats.parquet", "data/nf2_feats.parquet"], nums: ["28 origins, Mar 2024 – Jun 2026", "Target: log((4-month units + 1) / (4 × level + 1))", "Rebuilt from data cut at the origin: every feature matches (D254)"], dec: ["D009", "D135", "D159", "D198", "D252", "D254"], go: "#modelling" },
+    { id: "bt", t: "Backtest harness", s: "13 origins · ratios to R3 · buying simulation", what: "Every system forecasts the next four months at 13 month-end origins (Feb 2025 – Feb 2026) from data known at the time; training rows need their outcome known by the origin. Scores are ratios to R3 (last 3 months × 4), with R3 + rules as a row and paired item bootstraps for small differences. A daily buying simulation measures profit lost against perfect foresight.", ins: ["Feature tables"], outs: ["data/q_backtest_*.parquet", "data/dec_base_*.parquet", "The scoreboard"], nums: ["11,727 item-origins; 9,031 on the nine recent origins", "R3 itself: WAPE 0.699 on the recent origins", "R3 loses 19.5% of perfect-foresight profit in the buying simulation"], dec: ["D010", "D109", "D110", "D111", "D154"], go: "#evaluation" },
+    { id: "m_rules", t: "Member 1: rule agents", s: "R3 × explicit rules, rewritten monthly", what: "Isolated agents write explicit rules on top of each item's recent rate at every origin, from data up to that origin only. It is also the reference row of every scoring table.", ins: ["Data up to the origin"], outs: ["agent_eval/<origin>/predictions_verified.csv"], nums: ["0.488 × R3 alone (recent)", "Its monthly profile, with the NN's, splits the total into months (D121)"], dec: ["D105", "D109", "D121"], go: "#evaluation" },
+    { id: "m_tree", t: "Member 2: LightGBM", s: "180q_models.py ec_ns", what: "Quantile LightGBM on the 4-month total, base and full feature sets averaged: the lean model with occasion timing, temperature and events, dynamic co-purchase neighbours, 15 more event windows and launch curves. Static descriptors removed.", ins: ["Feature tables"], outs: ["data/q_backtest_nx_ec_ns.parquet"], nums: ["0.430 × R3 alone (recent)", "A model that never saw the item's style: +1% only", "Its volume-weighted version at P65 feeds the buying column"], dec: ["D135", "D159", "D198", "D253", "D254", "D264"], go: "#modelling" },
+    { id: "m_nn", t: "Member 3: sales-curve NN", s: "57_embed_nn.py · 197b_nn_ec.py", what: "Neural quantile forecaster with hierarchical embeddings (group, type, style, item) and a GRU over the last 26 weeks of sales, with the event and launch-curve inputs added. Six seeds.", ins: ["features.parquet", "daily_item_chan.parquet", "nf2_feats.parquet"], outs: ["data/nn_backtest_preds_S13ecx6.parquet"], nums: ["0.459 × R3 alone (0.484 before the new inputs)", "In the stack: 0.3961 → 0.3939"], dec: ["D076", "D096", "D272", "D273"], go: "#modelling" },
+    { id: "m_pfn", t: "Members 4–5: TabPFN v2", s: "196b_tabpfn.py · 199c_conformal.py", what: "A tabular foundation model used in context on the rows whose outcome is known: one version with 32 estimators, one with conformally calibrated quantiles. TabPFN v2's licence allows production use; TabPFN 3.5 is non-commercial and is not used.", ins: ["fk_explain_table.parquet", "fk_dyn_feats.parquet"], outs: ["data/q_backtest_fktab_tabpfn_v2_dyn_e32.parquet", "data/q_backtest_fkconf_pfn2dyn_seg_tails.parquet"], nums: ["0.463 and 0.429 × R3 alone (recent)", "Rebuilt on the new features: better alone, level in the stack (D270)"], dec: ["D204", "D206", "D207", "D270"], go: "#modelling" },
+    { id: "stack", t: "Stack and corrections", s: "arithmetic mean · 179x2_bias · 179b_breakout · 180g_geo", what: "The arithmetic mean of the five members in units, then two item-level corrections combined by geometric mean with each origin's total kept: past segment biases (volume × age × discount) and a breakout model (weekly momentum, look-peer growth, falling-item signals).", ins: ["The five members"], outs: ["data/dec_base_ecnsnn.parquet", "data/geo_ecnsnn_x_preds.parquet"], nums: ["Stack 0.394 → corrected 0.385 × R3 (recent)", "0.440 on all 13 origins · 0.371 on the 100 targets", "Bias −6.2% recent, −1.7% on all 13"], dec: ["D230", "D231", "D245", "D247", "D248", "D259", "D273"], go: "#evaluation" },
+    { id: "buy", t: "Buying column", s: "newsvendor ladder at P65", what: "The same stack with the quantile members (volume-weighted LightGBM, both TabPFN versions) at their 65th percentile. Buying loss follows bias more than WAPE, and the loss curve bottoms at P65–P70.", ins: ["The five members' quantiles"], outs: ["Buying quantity per item"], nums: ["Buying loss 10.4%, against 10.7% for the point forecast and 19.5% for R3", "2026: 655,940 units against 620,608 forecast"], dec: ["D233", "D236", "D260", "D265"], go: "#forecast" } ]],
+  ["Deliver", [
+    { id: "final", t: "Final 2026 chain", s: "181a_base2026 · 181i_final_nx4_2026.py · 181k_final_nx5_2026.py · 218_base_nx5r · 219_ranges_nx5r · 181l_final_nx5r_2026.py", what: "Members refitted at the June 2026 origin on every row with a known outcome; corrections re-fitted on all 13 backtest origins; the total split into months with the rule agent's and the NN's monthly profiles. Two hand rules: the out-of-stock item keeps its in-stock forecast of 130 units, and the three World Cup items carry the cap of the first submission.", ins: ["June 2026 members", "Corrections"], outs: ["data/final_2026_nx4_cascade.csv", "Edikted_Forecasting_Exercise_candidate_nx4.xlsx"], nums: ["Five-model average 626,076 → forecast 620,602 before monthly rounding", "Confidence 1 · 2 · 3 = 20 · 65 · 15", "World Cup hand rule: 34,463 units in place of 53,270; no campaign or segment rules"], dec: ["D033", "D034", "D121", "D235", "D237", "D262", "D273", "D291"], go: "#forecast" },
+    { id: "explain", t: "Explanation layer", s: "198b_explain_final.py · cascade sheets", what: "TreeSHAP of the tree member's deviation from R3, grouped into 11 named categories by an LLM categoriser and checked by three LLM judges. The workbook's cascade sheets show every layer from R3 to the buying quantity by item, style, type and total.", ins: ["Tree member", "The cascade"], outs: ["data/fk_2026_explain.parquet", "Cascade (items) · Cascade (hierarchy)"], nums: ["The categories explain 94% of the stack's deviation from R3", "Direction right for 92% of items", "16 written explanations in the workbook"], dec: ["D191", "D194", "D195", "D210", "D235"], go: "#forecast" },
+    { id: "out", kind: "deliv", t: "Submitted workbook", s: "Edikted_Forecasting_Exercise_filled.xlsx", what: "A copy of the new nx5 since 18 Nov (D389i): nx5 with the routed new-item tree, refitted corrections and focus-weighted ranges, plain explanations and the data artefacts in the Model explanation; before that candidate_nx4 (D350). Forecast sheet: 100 items × 4 months, confidence, explanations; the Model explanation sheet; two cascade sheets. The original 12 Nov submission is kept as Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx.", ins: ["Final 2026 chain"], outs: ["The submission"], nums: ["601,801 units: Jul 171,591 · Aug 175,788 · Sep 123,969 · Oct 130,453", "Original submission: 580,968", "Switched at D271 (candidate_nx), D274 (candidate_nx2), D303 (candidate_nx3) and D350 (candidate_nx4)"], dec: ["D040", "D271", "D273", "D274", "D291", "D303"], go: "#forecast" },
+    { id: "docs", kind: "deliv", t: "Reports, log, scoreboard", s: "log.md · reports · scoreboard · this page", what: "The append-only decision log; the reports (EDA, error analysis, M5 round, decomposition, fixable errors, explainability); the live scoreboard of every scored system; and this atlas.", ins: ["All of the above"], outs: ["Hand-over"], nums: [D.log.length + " logged decisions", "Scoreboard: every system against R3, with buying loss"], dec: ["D019", "D041", "D132", "D154", "D275"], go: "#decisions" } ]]
+];
+const flow = $("#flow"), detail = $("#detail"), nodes = {};
+STAGES.forEach(([name, list], si) => {
+  const st = h("div", { class: "stage" }); st.appendChild(h("div", { class: "eyebrow" }, `<em>${si + 1}</em>${name}${si < STAGES.length - 1 ? ' <span aria-hidden="true" style="margin-left:auto;color:var(--fg3)">→</span>' : ""}`));
+  list.forEach(n => { const b = h("button", { class: "node" + (n.kind ? " kind-" + n.kind : ""), type: "button", "aria-controls": "detail" }, `<b>${esc(n.t)}</b><span>${esc(n.s)}</span>`); n.el = b; nodes[n.id] = n;
+    b.addEventListener("mouseenter", () => sel(n)); b.addEventListener("focus", () => sel(n)); b.addEventListener("click", () => sel(n)); st.appendChild(b); });
+  flow.appendChild(st);
+});
+function sel(n) {
+  Object.values(nodes).forEach(x => x.el.classList.toggle("on", x === n));
+  detail.innerHTML = `<div class="eyebrow">${n.kind === "file" ? "Input file" : n.kind === "deliv" ? "Deliverable" : "Step"}</div><h3>${esc(n.t)}</h3><p class="small">${esc(n.what)}</p>
+  <dl><div><dt>Inputs</dt><dd>${n.ins.map(esc).join(" · ")}</dd></div><div><dt>Outputs</dt><dd>${n.outs.map(esc).join(" · ")}</dd></div>
+  <div><dt>Key numbers</dt><dd><ul>${n.nums.map(x => `<li>${esc(x)}</li>`).join("")}</ul></dd></div>
+  <div><dt>Decisions</dt><dd class="chips">${n.dec.map(d => `<button class="chip" type="button" data-d="${d}">${d}</button>`).join("")}</dd></div></dl>
+  <a href="${n.go}" class="small">Go to the related section ↓</a>`;
+  detail.querySelectorAll("[data-d]").forEach(c => { const e = D.log.find(l => l.id === c.dataset.d); if (e) tipOn(c, `<div class="tt">${e.id} · ${esc(e.title)}</div>${esc(e.body.slice(0, 260))}${e.body.length > 260 ? "…" : ""}`); c.addEventListener("click", () => openLog(c.dataset.d)); });
+}
+sel(nodes.stack);
+
+/* ---------- fields ---------- */
+const FIELDS = [
+  ["order_name", "text", "8.63M distinct", "Basket id; 1.9 units per online order, 1.6 retail, 1.26 drop."],
+  ["line_id", "integer", "unique, 15.18M", "No duplicate ids. 2,248 groups share order, SKU and timestamp (0.03%); left in."],
+  ["ny_date", "date", "1 Jan 2024 – 30 Jun 2026, no gaps", "Use for all grouping. Matches the date of ny_timestamp on every line."],
+  ["ny_timestamp", "timestamp", "New York time", "Not used; day-level grouping is enough."],
+  ["style_color", "text", "1,500 distinct", "The forecast key."],
+  ["sku", "text", "6,979 distinct", "style_color × size."],
+  ["size", "text", "S 36% · XS 29% · M 20% · L 7%", "Also OS 4%, XL 3%, XS/S, M/L, and 22 lines of XXL."],
+  ["color", "text", "995 nulls", "Not needed; colour is in the key."],
+  ["product_name / type", "text", "up to 3 values per item", "Take the most recent or most common."],
+  ["product_collection", "text", "up to 2 per item", "Launch batch code, e.g. C2023-05-LA."],
+  ["published_date", "timestamptz", "one per item", "Stored as midnight Israel time; convert to New York before use."],
+  ["qty_ordered", "decimal", "1 – 62; 99.4% are 1", "The target. Scaled by a constant."],
+  ["avg_discounts", "decimal", "−6.2 to 1.0+; median 0.59", "25,613 lines negative, 7,487 at or above 1, 1.62M at 0 (mostly retail). Clipped to 0–1."],
+  ["class", "text", "ONLINE · RETAIL · DROP", "76% · 14% · 9% of lines."],
+  ["otype / o_type", "text", "25 channel tags", "Raw tag / clean label: edikted.com, TikTok, store and partner names."],
+  ["store", "text", "WEB or store code", "17 codes including a 5-day pop-up (BARBIE)."],
+  ["country / state", "text", "always United States", "State mixes full names (online) and codes (retail stores)."],
+  ["cancelled", "boolean", "294,372 lines true", "298,114 units; 145k of them on 14 Oct 2025. Excluded from the target."],
+  ["color_num", "integer", "1 – 10", "1 = original colour, 2+ = later extension."],
+  ["occasion", "text", "76% blank", "Halloween, Valentine's, 4th of July, NYE, Graduation, St. Patrick's, Homecoming, World Cup; semicolon lists."]];
+const ftb = $("#fields tbody");
+FIELDS.forEach(([f, t, p, use]) => { const tr = h("tr", { tabindex: 0 }, `<td class="mono">${f}</td><td class="small muted">${t}</td><td class="small">${esc(p)}</td>`); tipOn(tr, `<div class="tt">${f}</div>${esc(use)}`); ftb.appendChild(tr); });
+
+/* ---------- growth ---------- */
+const mo = D.monthly, ml = mo.map(r => r.m);
+legend($("#lg-class"), [["var(--s1)", "Online"], ["var(--s2)", "Retail"], ["var(--s3)", "Drop"]]);
+lineChart($("#ch-class"), { labels: ml, xFmt: mlab, xLast: true, height: 230, series: [{ values: mo.map(r => r.online), color: "var(--s1)" }, { values: mo.map(r => r.retail), color: "var(--s2)" }, { values: mo.map(r => r.drop), color: "var(--s3)" }],
+  tip: i => { const r = mo[i], t = r.online + r.retail + r.drop; return `<div class="tt">${mlab(r.m)}</div><table><tr><td>${sw("var(--s1)")}Online</td><td class="r">${fmt(r.online)}</td></tr><tr><td>${sw("var(--s2)")}Retail</td><td class="r">${fmt(r.retail)}</td></tr><tr><td>${sw("var(--s3)")}Drop</td><td class="r">${fmt(r.drop)}</td></tr><tr><td><b>Total</b></td><td class="r"><b>${fmt(t)}</b></td></tr><tr><td>Cancelled</td><td class="r">${pct(r.cancel_rate, 1)}</td></tr><tr><td>Items with sales</td><td class="r">${fmt(r.items_live)}</td></tr></table>`; } });
+const C = D.channels, CC = { "edikted.com": "var(--s1)", "Tiktok": "var(--s7)", "RETAIL": "var(--s2)", "Pacsun": "var(--s3)", "Nordstrom": "var(--s4)", "Macys": "var(--s8)", "other DROP": "var(--fg3)" };
+const CN = { "edikted.com": "edikted.com", "Tiktok": "TikTok Shop", "RETAIL": "Own stores", "Pacsun": "Pacsun", "Nordstrom": "Nordstrom", "Macys": "Macy's", "other DROP": "Other drop" };
+legend($("#lg-chan"), Object.keys(C.series).map(k => [CC[k], CN[k]]));
+lineChart($("#ch-chan"), { labels: C.months, xFmt: mlab, xLast: true, height: 230, series: Object.keys(C.series).map(k => ({ values: C.series[k], color: CC[k], w: k === "edikted.com" ? 2.2 : 1.6 })),
+  tip: i => `<div class="tt">${mlab(C.months[i])}</div><table>${Object.keys(C.series).sort((a, b) => C.series[b][i] - C.series[a][i]).map(k => `<tr><td>${sw(CC[k])}${CN[k]}</td><td class="r">${fmt(C.series[k][i])}</td></tr>`).join("")}</table>` });
+(function stores() {
+  const el = $("#ch-stores"), list = D.stores; const draw = () => {
+    el.innerHTML = ""; const W = Math.max(280, el.clientWidth), rowH = 17, H = list.length * rowH + 30, m = { l: 96, r: 12, t: 4 };
+    const s = svg("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Store opening dates" }, el);
+    const t0 = Date.parse("2024-01-01"), t1 = Date.parse("2026-06-30"), x = d => m.l + (Date.parse(d) - t0) / (t1 - t0) * (W - m.l - m.r);
+    ["2024-01-01", "2025-01-01", "2026-01-01"].forEach(d => { svg("line", { x1: x(d), x2: x(d), y1: 0, y2: H - 20, stroke: "var(--line)" }, s); const t = svg("text", { x: x(d), y: H - 6, "text-anchor": "middle" }, s); t.textContent = d.slice(0, 4); });
+    const max = Math.max(...list.map(r => r.units));
+    list.forEach((r, i) => { const yy = m.t + i * rowH + rowH / 2; const lb = svg("text", { x: m.l - 8, y: yy + 4, "text-anchor": "end" }, s); lb.textContent = r.code;
+      svg("line", { x1: x(r.first), x2: x(r.last), y1: yy, y2: yy, stroke: "var(--s2)", "stroke-width": 2 + 6 * r.units / max, "stroke-linecap": "round", opacity: 0.85 }, s);
+      const hit = svg("rect", { x: 0, y: yy - rowH / 2, width: W, height: rowH, fill: "transparent" }, s);
+      tipOn(hit, `<div class="tt">${r.code}</div>First sale ${r.first}<br>Last sale ${r.last}<br>${fmt(r.units)} units${r.code === "NYCSOHO" ? "<br>Open before the data starts" : ""}${r.code === "BARBIE" ? "<br>Five-day pop-up" : ""}`); });
+  }; draw(); resizers.push(draw);
+})();
+
+/* ---------- calendar ---------- */
+const wk = D.weekly, wl = wk.map(r => r.w);
+const wtip = i => `<div class="tt">Week ending ${wk[i].w}</div>${fmt(wk[i].units)} units<br>edikted.com discount ${pct(wk[i].disc, 1)}`;
+lineChart($("#ch-weekly"), { labels: wl, xFmt: l => mlab(l.slice(0, 7)), height: 170, series: [{ values: wk.map(r => r.units), color: "var(--s1)", w: 1.6 }], tip: wtip });
+lineChart($("#ch-disc"), { labels: wl, xFmt: l => mlab(l.slice(0, 7)), height: 140, yMin: 0.3, yMax: 0.7, ticks: [0.3, 0.4, 0.5, 0.6, 0.7], yFmt: v => pct(v), ref: 0.585, series: [{ values: wk.map(r => r.disc), color: "var(--s2)", w: 1.6 }], tip: wtip });
+const LIFT = [["Far below usual (< −5 pts)", 174, 0.54, 0.52], ["Below (−5 to −2 pts)", 84, 0.82, 0.79], ["Usual (±2 pts)", 454, 1.07, 1.02], ["Above (+2 to +4 pts)", 36, 1.24, 1.14], ["Deep (+4 to +6 pts)", 78, 2.05, 1.53], ["Deepest (> +6 pts)", 86, 1.71, 1.53]];
+bars($("#bars-lift"), LIFT.map(([k, n, mean, med]) => ({ k, v: mean, c: mean >= 1 ? "var(--s1)" : "var(--fg3)", tip: `<div class="tt">${k}</div>${n} days<br>Mean ${mean.toFixed(2)}× · median ${med.toFixed(2)}× the local median` })), { max: 2.2, vf: v => v.toFixed(2) + "×" });
+bars($("#bars-dow"), ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((k, i) => ({ k, v: D.dow[i], tip: `${k}: ${D.dow[i].toFixed(2)}× the average day (all channels, Jan 2024 – Jun 2026)` })), { max: 1.3, vf: v => v.toFixed(2) + "×" });
+$("#topdays").textContent = D.top_days.slice(0, 3).map(d => `${d.d} ${fmt(d.units)} units`).join(", ") + ", against roughly 20k on a normal day";
+const CAMP = [["Summer Sale (incl. 4th of July)", "28 Jun – 19 Jul", "50–80%", 0.473, 0.902, 0.517, 1.080, "Ran in 2025 (6 deep days, 3–8 Jul). Already seen; no adjustment."],
+  ["Back to School", "20 Jul – 31 Aug", "40–50%", 0.513, 0.919, 0.533, 1.030, "Normal-level discounting both years. No adjustment."],
+  ["Clearance", "12 – 19 Aug", "60–80%", 0.477, 0.958, 0.509, 1.001, "No past campaign: new. August +7% on edikted.com share."],
+  ["Labor Day Sale", "3 – 8 Sep", "up to 80%", 0.583, 1.433, 0.579, 1.304, "Ran both years. Already seen."],
+  ["Sale up to 80% (Sep)", "24 – 29 Sep", "up to 80%", 0.518, 0.827, 0.538, 0.802, "No past campaign: new. September +4%."],
+  ["Sale up to 80% (Oct)", "7 – 18 Oct", "up to 80%", 0.573, 1.668, 0.580, 1.645, "Ran both years (10 deep days in 2025). Already seen."]];
+const ctb = $("#camp tbody");
+CAMP.forEach(c => { const isNew = c[7].startsWith("No past"); const tr = h("tr", { tabindex: 0 }, `<td>${c[0]}</td><td class="small">${c[1]}</td><td class="small">${c[2]}</td><td class="r">${pct(c[3], 1)}</td><td class="r">${c[4].toFixed(2)}×</td><td class="r">${pct(c[5], 1)}</td><td class="r">${c[6].toFixed(2)}×</td><td><span class="pill ${isNew ? "open" : "neutral"}">${isNew ? "new in 2026" : "recurring"}</span></td>`);
+  tipOn(tr, `<div class="tt">${c[0]}</div>${esc(c[7])}`); ctb.appendChild(tr); });
+
+/* ---------- heatmaps ---------- */
+function bin(v) { return v < 0.4 ? 1 : v < 0.7 ? 2 : v < 0.95 ? 3 : v < 1.25 ? 4 : v < 1.6 ? 5 : v < 2.2 ? 6 : 7; }
+function heat(el, rows, labKey, tipFn, totFn, totHead) {
+  el.innerHTML = ""; const hd = h("div", { class: "row" }); hd.appendChild(h("div", { class: "lab" }, ""));
+  MON.forEach(m => hd.appendChild(h("div", { class: "hd" }, m[0] + m.slice(1, 3)))); hd.appendChild(h("div", { class: "hd", style: "text-align:right" }, totHead)); el.appendChild(hd);
+  rows.forEach(r => { const row = h("div", { class: "row" }); row.appendChild(h("div", { class: "lab", title: r[labKey] }, esc(r[labKey])));
+    r.idx.forEach((v, j) => { const b = bin(v); const c = h("div", { class: "cell" + (j >= 6 && j <= 9 ? " win" : ""), tabindex: 0, style: `background:var(--q${b});color:var(--qt${b})` }, v.toFixed(1)); tipOn(c, tipFn(r, j, v)); row.appendChild(c); });
+    row.appendChild(h("div", { class: "tot" }, totFn(r))); el.appendChild(row); });
+}
+heat($("#heat"), D.type_season, "type", (r, j, v) => `<div class="tt">${esc(r.type)} · ${MON[j]} 2025</div>Index ${v.toFixed(2)} (1.0 = this type's monthly average)<br>${fmt(r.units)} units over 30 months · ${r.n_items} items · ${r.n_targets} targets`, r => fk(r.units), "Units");
+heat($("#heat-occ"), D.occasion, "tag", (r, j, v) => `<div class="tt">${esc(r.tag)} · ${MON[j]} 2025</div>Index ${v.toFixed(2)}<br>${r.n} items · ${r.n_targets} targets`, r => r.n + " items", "Items");
+
+/* ---------- lifecycle ---------- */
+const LC = D.launch; $("#launch-n").textContent = `${LC.n} items launched Feb 2024 – Jun 2025 with at least 30 units a month in months 1–3. Units by month since launch, relative to their own mean of months 1–3.`;
+lineChart($("#ch-launch"), { labels: LC.med.map((_, i) => String(i)), xEvery: 1, height: 220, yMin: 0, yMax: 1.4, ticks: [0, 0.5, 1, 1.4].slice(0, 3).concat([1.4]), yFmt: v => v.toFixed(1) + "×", ref: 1, band: { lo: LC.p25, hi: LC.p75, color: "var(--s1)" },
+  series: [{ values: LC.med, color: "var(--s1)", dots: true }], tip: i => `<div class="tt">Month ${i} since launch${i === 0 ? " (partial)" : ""}</div><table><tr><td>75th pct</td><td>${LC.p75[i].toFixed(2)}×</td></tr><tr><td><b>Median</b></td><td><b>${LC.med[i].toFixed(2)}×</b></td></tr><tr><td>25th pct</td><td>${LC.p25[i].toFixed(2)}×</td></tr></table>` });
+const dtb = $("#drift tbody");
+D.drift.forEach(r => { const c = (o, y) => o[y] == null ? "–" : o[y].toFixed(2); const tr = h("tr", r.mo === "06" ? { style: "background:var(--accent-soft)" } : {}, `<td>${MON[+r.mo - 1]}</td><td class="r">${c(r.all, "2024")}</td><td class="r">${c(r.all, "2025")}</td><td class="r">${c(r.all, "2026")}</td><td class="r">${c(r.mature, "2024")}</td><td class="r">${c(r.mature, "2025")}</td><td class="r">${c(r.mature, "2026")}</td>`); dtb.appendChild(tr); });
+
+/* ---------- items ---------- */
+const PY = D.published_years; const pmax = Math.max(...Object.values(PY).map(([a, b]) => a + b));
+bars($("#bars-pub"), Object.keys(PY).map(y => ({ k: y, v: PY[y][0] + PY[y][1], parts: [[PY[y][0], "var(--s1)"], [PY[y][1], "var(--accent)"]], tip: `<div class="tt">Published ${y}</div>${PY[y][0]} other items · ${PY[y][1]} targets` })), { max: pmax });
+const SZ = D.sizes, SC = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s7)", "var(--s8)", "var(--fg3)", "var(--line-strong)"];
+legend($("#lg-size"), SZ.sizes.map((s, i) => [SC[i], s]));
+SZ.rows.sort((a, b) => a.grp.localeCompare(b.grp)).forEach(r => { const row = h("div", { class: "bar", style: "grid-template-columns:minmax(70px,90px) minmax(0,1fr)" }); row.appendChild(h("span", { class: "k" }, esc(r.grp)));
+  const st = h("div", { class: "stack" }); r.share.forEach((v, i) => { if (v < 0.002) return; const seg = h("div", { style: `width:${v * 100}%;background:${SC[i]}`, tabindex: 0 }); tipOn(seg, `<div class="tt">${esc(r.grp)} · ${SZ.sizes[i]}</div>${pct(v, 1)} of units`); st.appendChild(seg); }); row.appendChild(st); $("#sizes").appendChild(row); });
+bars($("#bars-cn"), Object.keys(D.colour_num).map(k => ({ k: "Colour " + k, v: D.colour_num[k], tip: `${D.colour_num[k]} items with color_num ${k}${k === "1" ? " (original colour)" : " (later extension)"}` })));
+
+/* ---------- artefacts ---------- */
+const ART = [
+  ["Panel is selected on survival", "Never read trend or seasonality from raw totals; like-for-like cohorts only.", "06_features.py (lfl_*)", "1,450 of 1,500 items still sell in Q2 2026; 190 published before 2024, 324 in 2026. Raw type ratios biased the first baseline by +66%."],
+  ["Mass cancellation 14–15 Oct 2025", "Cancelled lines excluded; treat those days as an anomaly when reading October.", "all scripts (cancelled = FALSE)", "145,109 units cancelled on 14 Oct (74% of the day), 8,306 on 15 Oct (25%). Other months about 1%."],
+  ["Retail store roll-out", "Read as distribution, not demand. Not modelled yet (no store-count feature).", "open question", "1 store in Jan 2024 → 16 in Jun 2026 plus a pop-up. Retail went from 4.6k to 183k units a month."],
+  ["DROP is dropship, not bulk", "Kept inside the single target; no lumpy-order handling.", "D020", "1.26 units per order; lines of 5+ units total 759 units."],
+  ["Channels start and stop", "Channel shares as features; trivial channels ignored.", "06_features.py (sh_*)", "TikTok from 31 Jan 2024; Flip Jul 2024 – Jun 2025; Urban from Apr 2025; Hot Topic 32 units; BARBIE pop-up 5 days."],
+  ["Launch month is partial", "Level divides by days live; month 0 not treated as a low month.", "06_features.py", "Median first sale one day after publishing; month 0 averages 0.32× of months 1–3."],
+  ["Sales before the published date", "Effective start = min(published, first sale).", "D003", "85 items, up to 176 days early."],
+  ["published_date time zone", "Converted from Israel midnight to New York.", "D003", "Stored as 2026-05-26 03:00+03; the NY date is 25 May."],
+  ["History is left-censored", "Age from the true start; exposure clipped at 1 Jan 2024.", "D003", "190 items published before 2024, the oldest in 2020."],
+  ["Item master not constant", "Most recent or modal value.", "items.parquet", "Up to 3 names, 3 product types and 2 collections per item."],
+  ["Odd discount values", "Clipped to 0–1; retail discount ignored.", "06_features.py", "25,613 lines negative (min −6.2), 7,487 at or above 1.0, 1.62M exactly 0 (mostly retail)."],
+  ["Abnormally low days", "Ignored at monthly grain.", "—", "10 May 2024 and 31 Oct 2024 fall below 40% of the local median; likely outages."],
+  ["Stock-outs", "No global de-censoring; two targets handled individually.", "D021, D034, D038", "Zero runs cover 2.7% of live item-days but about 0.4% of units; broken sizes about 0.1% of online units."],
+  ["State field mixed", "Not needed for the target.", "—", "'California' and 'CA' both present; retail uses codes."],
+  ["Possible duplicate lines", "Left in.", "—", "2,248 groups share order, SKU and timestamp (4,549 lines, 0.03%)."]];
+const atb = $("#art tbody");
+ART.forEach((a, i) => { const tr = h("tr", { tabindex: 0 }, `<td class="r muted">${i + 1}</td><td><b>${esc(a[0])}</b></td><td class="small">${esc(a[1])}</td><td class="small mono">${esc(a[2])}</td>`); tipOn(tr, `<div class="tt">Evidence</div>${esc(a[3])}`); atb.appendChild(tr); });
+lineChart($("#ch-cancel"), { labels: ml, xFmt: mlab, xLast: true, height: 150, yMin: 0, yMax: 0.24, ticks: [0, 0.1, 0.2], yFmt: v => pct(v), series: [{ values: mo.map(r => r.cancel_rate), color: "var(--s8)", dots: true }], tip: i => `<div class="tt">${mlab(mo[i].m)}</div>${pct(mo[i].cancel_rate, 1)} of units cancelled` });
+
+/* ---------- targets profile ---------- */
+const TG = D.targets;
+const tf = [["50", "have no July–October history (launched after June 2025)"], ["25", "launched in 2026; 7 are under 3 months old"], ["39", "carry an occasion tag; 3 are World Cup items"], ["33", "are colour extensions (color_num ≥ 2)"], [fmt(TG.reduce((a, t) => a + t.jun, 0)), "units sold by the 100 in June 2026"]];
+$("#tfacts").innerHTML = tf.map(([b, s]) => `<div class="fact"><b>${b}</b><span>${s}</span></div>`).join("");
+const byType = {}; TG.forEach(t => { (byType[t.type] = byType[t.type] || []).push(t); });
+bars($("#bars-ttype"), Object.keys(byType).sort((a, b) => byType[b].length - byType[a].length).map(k => ({ k, v: byType[k].length, tip: `<div class="tt">${esc(k)}</div>${byType[k].length} targets · ${fmt(byType[k].reduce((a, t) => a + t.fin, 0))} units forecast<br>${byType[k].slice(0, 6).map(t => esc(t.name)).join("<br>")}${byType[k].length > 6 ? "<br>…" : ""}` })));
+const AGEB = [["Under 3 months", 0, 3], ["3–6 months", 3, 6], ["6–12 months", 6, 12], ["1–2 years", 12, 24], ["2–3 years", 24, 36], ["Over 3 years", 36, 999]];
+bars($("#bars-tage"), AGEB.map(([k, a, b]) => { const g = TG.filter(t => t.age >= a && t.age < b); return { k, v: g.length, c: a < 3 ? "var(--crit)" : "var(--s1)", tip: `<div class="tt">${k}</div>${g.length} targets<br>${g.slice(0, 8).map(t => esc(t.name)).join("<br>")}${g.length > 8 ? "<br>…" : ""}` }; }));
+
+/* ---------- modelling ---------- */
+const PO = D.per_origin, origins = Object.keys(PO["Monthly LightGBM pair (rounds 2-3)"]), PC = { "Submitted system (five-member stack + corrections)": "var(--accent)", "Monthly LightGBM pair (rounds 2-3)": "var(--s1)", "Structured baseline": "var(--s3)", "Tweedie on units": "var(--s2)", "Flat 91-day run-rate": "var(--fg3)" };
+legend($("#lg-origin"), Object.keys(PC).map(k => [PC[k], k]));
+lineChart($("#ch-origin"), { labels: origins, xFmt: mlab, xLast: true, height: 240, yMin: 0, yMax: 1.4, ticks: [0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4], yFmt: v => v.toFixed(1), shade: [[origins.indexOf("2025-06"), origins.indexOf("2025-06")]],
+  series: Object.keys(PC).map(k => ({ values: origins.map(o => PO[k][o] ? PO[k][o].wape : null), color: PC[k], dots: true, w: k.startsWith("Submitted") ? 2.8 : 1.6 })),
+  tip: i => { const o = origins[i]; return `<div class="tt">Origin end of ${mlab(o)} → next 4 months</div><table><tr><td></td><td>WAPE</td><td>bias</td><td>±20%</td><td>±50%</td></tr>${Object.keys(PC).filter(k => PO[k][o]).map(k => `<tr><td>${sw(PC[k])}${k.split(" (")[0]}</td><td>${PO[k][o].wape.toFixed(2)}</td><td>${spct(PO[k][o].bias)}</td><td>${pct(PO[k][o].w20)}</td><td>${pct(PO[k][o].w50)}</td></tr>`).join("")}</table>${o === "2025-06" ? "<br>Shaded: the June origin, the closest analogue to this task." : ""}`; } });
+const FEAT = { lfl_type: "Like-for-like seasonal ratio for the item's product type, from items already live a year earlier", ptype: "Product type", f_r28: "Last 28 days' pace relative to the 91-day level", f_r7: "Last 7 days' pace relative to the 91-day level", lfl_macro: "Like-for-like seasonal ratio for the category group (tops, bottoms, warm, dress, swim)", own_sea: "The item's own ratio of the target month last year to its level then", tmonth: "Calendar month being forecast", "last 6 months (lags)": "Each of the last six months' units relative to level", age_m: "Months since effective start", peak_r: "Best month so far relative to level", lvl: "Log of the recent monthly level", trend91: "Last 91 days vs the 91 before", h: "Horizon, 1–4 months ahead", days_live: "Days live inside the 91-day window", disc_item: "Item's own edikted.com discount in the last 28 days", disc_rel: "Item discount minus site discount", sh_ret: "Share of units from own stores", sh_drop: "Share of units from drop partners", sh_tt: "Share of units from TikTok Shop", lfl_occ: "Like-for-like seasonal ratio for the occasion tag", "occasion tags": "Halloween, Homecoming, 4th of July and other flags", "tagger attributes": "Fabric, weight, pattern, silhouette, length, sleeve, wear occasion", color_num: "Colour sequence within the style" };
+bars($("#bars-imp"), D.importance.slice(0, 16).map(r => ({ k: r.f, v: r.g, tip: `<div class="tt">${esc(r.f)}</div>${esc(FEAT[r.f] || "")}<br>${pct(r.g, 1)} of split gain` })), { vf: v => pct(v, 1) });
+const EXP = [
+  ["Flat 91-day run-rate", "2", "0.690", "baseline", "Breaks at winter origins (holiday peak in the level)", "D010"],
+  ["Seasonal naive (same months last year)", "1", "0.57 / 0.96", "drop", "Two origins only; biased by survivor growth and decay", "D007"],
+  ["Level × raw type seasonal ratio", "1", "0.79 / 0.63", "drop", "Two origins only; +66% bias from the survivor panel", "D007"],
+  ["Median loss, base features", "2", "0.377", "keep", "Most stable single model (std 0.082)", "D011"],
+  ["Squared loss on log ratio + smearing", "2", "0.433", "drop", "Over-forecasts +15% on average", "D011"],
+  ["Tweedie on units, level as offset", "2", "0.434", "drop", "Beat the median loss in 2 of 13 origins", "D011"],
+  ["Tweedie on the ratio", "2", "0.461", "drop", "Worst of the losses", "D011"],
+  ["One model per horizon (direct)", "2", "0.455", "drop", "Least stable (std 0.189, worst origin 0.994)", "D012"],
+  ["Separate models per category group", "2", "0.424", "drop", "Slightly better mean, worse spread (std 0.156)", "D012"],
+  ["Recent origins weighted ×2", "2", "0.450", "drop", "No gain", "D015"],
+  ["Median loss, all features", "2", "0.366", "keep", "Ensemble member", "D013"],
+  ["Average of base + all features", "2", "0.363", "keep", "Final model; better than base in 10 of 13 origins", "D013"],
+  ["Rescale to last year's multiplier", "2", "0.413", "drop", "Bias +17%; 2024 multipliers inflated", "D015"],
+  ["Oracle: true total per origin", "2", "0.352", "baseline", "Upper bound: item noise dominates", "—"],
+  ["Structured baseline (level × season × age)", "3", "0.419 vs 0.345", "baseline", "Gate passed: model wins 7 of 8 origins", "D023"],
+  ["75% model + 25% structured baseline", "3", "0.343 vs 0.345", "drop", "Noise-level gain, bias worse (−15%)", "D024"],
+  ["Launch-curve analogs for young items", "3", "0.500 vs 0.381", "drop", "Never won an origin", "D025"],
+  ["Style / sibling-colour features", "3", "0.361 vs 0.363", "drop", "Inside the noise band", "D026"],
+  ["Downward shade fitted on past origins", "3", "0.364 vs 0.345", "drop", "Fitted 0.80–0.84 made later origins worse", "D027"],
+  ["Stock-out de-censoring", "3", "—", "drop", "Hides about 0.4% of units; not worth it", "D021"],
+  ["Quantile model of the 4-month total (median)", "4", "0.322 vs 0.342", "keep", "Nine recent origins, better in 7 of 9; unstable in the earliest small-sample folds (0.403 over all 13)", "D042"],
+  ["Answer = 61st percentile (zero total bias)", "4", "0.343", "keep", "Bias −9.9% → −0.1%; within ±20% 35.8% → 33.9%. Chosen on the same origins", "D044"],
+  ["Quantile chosen each month from earlier origins only", "4", "0.337 vs 0.321", "drop", "Picked the 30th–48th percentile from over-forecasting early folds; bias −21%", "D044"],
+  ["IQR widened 1.3× for calibration", "4", "—", "keep", "P25–P75 coverage 40% → 50%; P10–P90 80%", "D045"],
+  ["Answer back to the median (season-matched bias)", "5", "—", "keep", "Zero-bias quantile 0.50 at June/July origins; 0.70 at Black Friday origins drove the 61st", "D050"],
+  ["Segment caps and floors (swim, Homecoming, Halloween)", "5", "0.320 vs 0.334", "keep", "June 2025 origin, rules from 2024 only: swim bias +133% → +9%, Homecoming −27% → −10%", "D051"],
+  ["50/50 blend with own year-on-year trend (mature items)", "5", "0.235 vs 0.257", "keep", "Within ±20% 38% → 43%; June/July origins 30% → 44%", "D052"],
+  ["General own-seasonality shift", "5", "0.339 vs 0.331", "drop", "Apparent slope was a regression artefact; no out-of-sample gain", "D056"],
+  ["Blend toward the exit pace for fading items", "5", "—", "drop", "Recent origins show no over-forecast for them (bias about 0)", "D056"],
+  ["R3 (last 3 months × 4) as the reference for every score", "6", "1.000", "baseline", "From D109 every score is WAPE ÷ R3 on the nine recent origins; R3's own WAPE is 0.699", "D109"],
+  ["Rule agents: R3 × explicit rules rewritten at each origin", "6", "0.488", "keep", "Member and reference row of every table", "D105"],
+  ["NN with hierarchical embeddings and a sales-curve encoder", "6", "0.484 alone", "keep", "Third member; small, consistent gain from the 26-week GRU", "D096"],
+  ["Rules × quantile × NN, geometric mean", "6", "0.440", "keep", "The three-way system; lean features, occasion timing and the Black Friday fix took it to 0.433", "D141"],
+  ["Temperature + events calendar alongside seasonality", "7", "0.4234", "keep", "With the Black Friday fix 0.4222, buying loss 11.05%; replacing seasonality outright is worse", "D159"],
+  ["Cart co-purchase neighbours + LLM fashion scores", "7", "0.4326", "keep", "Later superseded by the dynamic network", "D153"],
+  ["Multi-view clusters; per-style embedding; residual-distribution member", "7", "level", "drop", "No gain as features or members", "D158"],
+  ["Dynamic co-purchase network, re-fitted at each origin", "8", "0.4202", "keep", "Deviance explained on next-month carts 0.50 vs 0.27 static", "D203"],
+  ["Time-series foundation models (Chronos-2, Bolt, TimesFM)", "8", "0.63–0.76 alone", "drop", "Worse as a fourth member too", "D192"],
+  ["TabDPT, Mitra, Nori, TabICL", "8", "0.455 or worse alone", "drop", "TabDPT conditional; the rest worse than R3 at a 3k context", "D201"],
+  ["TabPFN v2 as a fourth member", "8", "0.4100", "keep", "All 13 origins 0.4586; buying loss 10.78%; production licence", "D204"],
+  ["Cluster-history, attribute-trend, trend-cycle, nearest-neighbour features", "9", "0.4427 vs 0.4315 alone", "drop", "All level or worse, in the trees and in TabPFN", "D205"],
+  ["CatBoost, XGBoost, DART, Tweedie, tuning, bagging, TabPFN fine-tuning", "9", "level or worse", "drop", "Default LightGBM stays best", "D206"],
+  ["Hierarchical reconciliation, campaign calendar, FFORMA weights, Trends, neural nets, augmentation", "9", "level or worse", "drop", "Main session's M5 directions", "D172"],
+  ["Conformal quantiles for the TabPFN member", "9", "0.4027", "keep", "Becomes the fifth member", "D206"],
+  ["Arithmetic mean of five members (p2c32a)", "9", "0.3977", "keep", "Geometric stacks forecast low; buying loss 10.74%", "D231"],
+  ["Buying quantity: quantile members at P65", "9", "buying 10.38%", "keep", "The loss curve bottoms at P65–P70; a column for buyers, not the point forecast", "D236"],
+  ["Middle-out through type × look cells; factor model", "10", "worse", "drop", "Cell totals cannot be forecast better than the sum of items", "D240"],
+  ["Segment re-allocation + breakout model, totals kept", "10", "0.3902", "keep", "Accuracy gain; buying level", "D248"],
+  ["Tree member: + 15 event windows + launch curves, − static descriptors", "11", "0.3961", "keep", "Alone 0.4326 → 0.4282; with corrections 0.3871", "D253"],
+  ["Age block, type trends, peak features, low-volume and Black Friday models", "11", "level", "drop", "Level alone or in the system", "D253"],
+  ["Launch plan at look level", "11", "0.3933 vs 0.3977", "drop", "Helps, but needs Edikted's launch calendar for Jul–Oct 2026", "D264"],
+  ["TabPFN v2 rebuilt on the new features", "12", "0.3969 vs 0.3961", "drop", "Better alone, but loses the upward level the stack needed", "D270"],
+  ["Sales-curve NN rebuilt on the new features", "12", "0.3939", "keep", "With re-fitted corrections 0.3851 recent, 0.4399 all 13: the submitted system", "D273"]];
+function renderExp(f) { const tb = $("#exp tbody"); tb.innerHTML = ""; EXP.filter(e => f === "all" || e[3] === f).forEach(e => { const lab = { keep: "kept", drop: "dropped", baseline: "reference" }[e[3]]; const tr = h("tr", { tabindex: 0 }, `<td>${esc(e[0])}</td><td class="r">${e[1]}</td><td class="r">${e[2]}</td><td><span class="pill ${e[3] === "baseline" ? "neutral" : e[3]}">${lab}</span></td><td class="mono small">${e[5]}</td>`); tipOn(tr, `<div class="tt">${esc(e[0])}</div>${esc(e[4])}`); tb.appendChild(tr); }); }
+segCtl($("#exp-filter"), renderExp); renderExp("all");
+
+/* ---------- forecast ---------- */
+const mt = [0, 1, 2, 3].map(j => TG.reduce((a, t) => a + t.f[j], 0));
+bars($("#bars-month"), ["Jul", "Aug", "Sep", "Oct"].map((k, j) => ({ k: k + " 2026", v: mt[j], c: "var(--accent)", tip: `<div class="tt">${k} 2026</div>${fmt(mt[j])} units · ${pct(mt[j] / tot, 1)} of the four months` })));
+$("#fc-head").textContent = `${fmt(tot)} units for the 100 items, July to October 2026`;
+const sumq = k => TG.reduce((a, t) => a + (t[k] || 0), 0), prevTot = TG.reduce((a, t) => a + t.prev, 0), junTot = TG.reduce((a, t) => a + t.jun, 0);
+$("#fc-scale").textContent = `For scale: June 2026 × 4 for the same items is ${fmt(junTot * 4)}; R3 (last 3 months × 4) is ${fmt(sumq("r3"))}. Five-model average ${fmt(sumq("avg5"))}; the corrections take it to ${fmt(tot)}. Buying quantity ${fmt(SY.buy)}. The original 12 Nov submission was ${fmt(prevTot)}.`;
+const q10 = a => { const v = a.filter(x => x != null).sort((x, y) => x - y); return [0.1, 0.5, 0.9].map(q => v[Math.round(q * (v.length - 1))].toFixed(2)).join(" / "); };
+$("#fc-corr").textContent = `Correction multiplier on the targets, 10th / 50th / 90th percentile: ${q10(TG.map(t => t.corr))}.`;
+const WC = TG.filter(t => /World Cup/.test(t.occ)); $("#fc-wc").textContent = fmt(WC.reduce((a, t) => a + t.fin, 0)); $("#fc-wc0").textContent = fmt(WC.reduce((a, t) => a + t.prev, 0)); $("#fc-sp").textContent = TG.filter(t => t.spread > 2).length;
+const ts = $("#t-type"); ts.innerHTML = `<option value="">All types</option>` + Object.keys(byType).sort().map(k => `<option>${esc(k)}</option>`).join("");
+let sortK = "i", sortDir = 1, confF = "all";
+TG.forEach((t, i) => { t.i = i + 1; t.f0 = t.f[0]; t.f1 = t.f[1]; t.f2 = t.f[2]; t.f3 = t.f[3]; t.vr3 = t.r3 > 20 ? t.fin / t.r3 - 1 : 0; t.buy = t.buy == null ? t.fin : t.buy; });
+function ttip(t) {
+  const row = (k, v) => `<tr><td>${k}</td><td>${v == null ? "–" : fmt(v)}</td></tr>`;
+  return `<div class="tt">${esc(t.name)}</div><span class="mono">${t.sc}</span> · ${esc(t.type)} · published ${t.pub}${t.occ ? " · " + esc(t.occ) : ""}${t.cn > 1 ? " · colour " + t.cn : ""}
+  <table>${row("June 2026 actual", t.jun)}${row("Last 12 months", t.l12)}${row("Jul–Oct 2025 actual", t.jo25)}${row("R3: last 3 months × 4", t.r3)}${row("× type seasonality", t.season)}
+  ${row("Rule agents", t.rules)}${row("LightGBM", t.tree)}${row("Sales-curve NN", t.nnm)}${row("TabPFN v2, conformal", t.pf2c)}${row("TabPFN v2, 32 estimators", t.pf2d)}${row("Average of the five", t.avg5)}
+  <tr><td>Correction</td><td>${t.corr == null ? "–" : "× " + t.corr.toFixed(3)}</td></tr><tr><td><b>Forecast</b></td><td><b>${fmt(t.fin)}</b>${t.r3 > 20 ? " (" + spct(t.vr3) + " vs R3)" : ""}</td></tr>${row("Buying quantity (P65)", t.buy)}
+  <tr><td>P10–P90</td><td>${t.p10 == null ? "–" : fmt(t.p10) + " – " + fmt(t.p90)}</td></tr>${row("12 Nov submission", t.prev)}</table><div style="margin-top:4px">Confidence ${t.conf}${t.spread != null ? ` · members differ by ×${t.spread.toFixed(2)}` : ""}</div>${t.expl ? `<div style="margin-top:6px">${esc(t.expl)}</div>` : ""}`;
+}
+function renderT() {
+  const q = $("#t-q").value.trim().toLowerCase(), ty = ts.value, ex = $("#t-ex").checked;
+  const rows = TG.filter(t => (!q || t.sc.toLowerCase().includes(q) || t.name.toLowerCase().includes(q)) && (!ty || t.type === ty) && (confF === "all" || String(t.conf) === confF) && (!ex || t.expl))
+    .sort((a, b) => (typeof a[sortK] === "string" ? a[sortK].localeCompare(b[sortK]) : a[sortK] - b[sortK]) * sortDir);
+  const tb = $("#tt tbody"); tb.innerHTML = "";
+  rows.forEach(t => { const tr = h("tr", { tabindex: 0 }, `<td class="r muted">${t.i}</td><td><span class="mono small">${t.sc}</span><br><span class="small muted">${esc(t.name)}</span></td><td class="small">${esc(t.type)}</td><td class="r">${t.age.toFixed(1)}</td><td class="r">${fmt(t.jun)}</td>${t.f.map(v => `<td class="r">${fmt(v)}</td>`).join("")}<td class="r"><b>${fmt(t.fin)}</b></td><td class="r">${fmt(t.buy)}</td><td class="r small">${t.r3 > 20 ? spct(t.vr3) : "–"}</td><td class="r"><span class="pill c${t.conf}">${t.conf}</span></td>`);
+    tipOn(tr, () => ttip(t)); tb.appendChild(tr); });
+  $("#t-count").textContent = `${rows.length} of 100 items · ${fmt(rows.reduce((a, t) => a + t.fin, 0))} units`;
+}
+document.querySelectorAll("#tt th.sortable").forEach(th => th.addEventListener("click", () => { const k = th.dataset.k; if (sortK === k) sortDir *= -1; else { sortK = k; sortDir = ["sc", "type", "i", "conf"].includes(k) ? 1 : -1; } renderT(); }));
+["#t-q", "#t-type", "#t-ex"].forEach(s => $(s).addEventListener("input", renderT));
+segCtl($("#t-conf"), v => { confF = v; renderT(); }); renderT();
+
+/* ---------- decision log ---------- */
+const cat = s => /^(superseded|withdrawn)/i.test(s) ? "replaced" : /^done/i.test(s) ? "done" : /^(open|proposed)/i.test(s) ? "open" : "active";
+const pillFor = s => { const c = cat(s); return `<span class="pill ${c === "active" ? "keep" : c === "replaced" ? "drop" : c === "open" ? "open" : "neutral"}">${esc(s || "—")}</span>`; };
+function renderLog(f) {
+  const el = $("#log"); el.innerHTML = ""; const turns = [...new Set(D.log.map(l => l.turn))];
+  turns.forEach(tn => { const items = D.log.filter(l => l.turn === tn && (f === "all" || cat(l.status) === f)); if (!items.length) return;
+    const g = h("div", { class: "turn" }); g.appendChild(h("h4", {}, esc(tn)));
+    items.forEach(l => { const d = h("details", { class: "d", id: "log-" + l.id }); d.innerHTML = `<summary><span class="id">${l.id}</span><span class="t">${esc(l.title)}</span>${pillFor(l.status)}</summary><div class="body">${esc(l.body).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")}</div>`;
+      tipOn(d.querySelector("summary"), `<div class="tt">${l.id} · ${esc(l.title)}</div>${esc(l.body.slice(0, 300))}${l.body.length > 300 ? "…" : ""}`); g.appendChild(d); });
+    el.appendChild(g); });
+}
+function openLog(id) { const f = $("#log-filter button[aria-pressed='true']").dataset.v; if (f !== "all") { $("#log-filter button[data-v='all']").click(); } const d = document.getElementById("log-" + id); if (!d) return; d.open = true; d.scrollIntoView({ block: "center" }); d.classList.add("flash"); setTimeout(() => d.classList.remove("flash"), 1600); }
+document.querySelectorAll(".chip.dl").forEach(c => { const e = D.log.find(l => l.id === c.dataset.d); if (e) tipOn(c, `<div class="tt">${e.id} · ${esc(e.title)}</div>${esc(e.body.slice(0, 260))}${e.body.length > 260 ? "…" : ""}`); c.addEventListener("click", () => openLog(c.dataset.d)); });
+const stb = $("#sys-tab tbody"); if (stb) stb.innerHTML = [["WAPE ÷ R3, nine recent origins", SY.recent.toFixed(4)], ["WAPE ÷ R3, all 13 origins", SY.all13.toFixed(4)], ["WAPE ÷ R3, the 100 targets (recent)", SY.targets.toFixed(4)], ["WAPE ÷ R3, windows with Black Friday", SY.bf.toFixed(4)], ["R3 + rules, for reference (recent)", SY.rules_recent.toFixed(4)], ["Bias, recent · all 13", spct(SY.bias_recent) + " · " + spct(SY.bias_all)], ["Buying loss: point forecast · P65 ladder · R3", pct(SY.loss_final, 1) + " · " + pct(SY.loss_ladder_geo, 1) + " · " + pct(SY.loss_r3, 1)], ["Item-origins scored, recent · all", fmt(SY.n_recent) + " · " + fmt(SY.n_all)]].map(([k, v]) => `<tr><td>${k}</td><td class="r">${v}</td></tr>`).join("");
+segCtl($("#log-filter"), renderLog); renderLog("all");
+$("#log-head").textContent = `${D.log.length} decisions, in order`;
+
+/* ---------- files ---------- */
+$("#runorder").textContent = [
+  "# 0  environment (once)", "py -3.12 -m venv .venv", ".venv/Scripts/python -m pip install pandas pyarrow openpyxl lightgbm scikit-learn matplotlib duckdb polars statsmodels", "",
+  "# 1  raw data -> small aggregates (DuckDB)", ".venv/Scripts/python -I eda/02_build_aggs.py Dataset.parquet", ".venv/Scripts/python -I eda/03_targets.py Edikted_Forecasting_Exercise.xlsx", "",
+  "# 2  EDA and the item x month panel", ".venv/Scripts/python eda/04_eda.py", ".venv/Scripts/python eda/09_campaigns.py", ".venv/Scripts/python eda/11_censoring.py Dataset.parquet", ".venv/Scripts/python eda/14_adjustment_evidence.py", "",
+  "# 3  features and backtests", ".venv/Scripts/python eda/06_features.py", ".venv/Scripts/python eda/07_m5_experiments.py", ".venv/Scripts/python eda/10_round2.py", ".venv/Scripts/python eda/12_round3.py", ".venv/Scripts/python eda/08_confidence.py", "",
+  "# 4  monthly model (monthly profile, baseline, adjustments evidence)", ".venv/Scripts/python eda/15_final_forecast.py", "",
+  "# 5  quantile model: backtest, evaluation, final answer and confidence", ".venv/Scripts/python eda/20_quantiles.py", ".venv/Scripts/python eda/21_quantile_eval.py", ".venv/Scripts/python eda/22_quantile_final.py", "",
+  "# 6  common-sense audit and final forecast v3", ".venv/Scripts/python eda/24_sanity.py data/final_forecast_q3.csv", ".venv/Scripts/python eda/25_own_season_test.py", ".venv/Scripts/python eda/28_season_checks.py data/final_forecast_q3.csv", ".venv/Scripts/python eda/29_segment_rule_test.py", ".venv/Scripts/python eda/31_yoy_test.py", ".venv/Scripts/python eda/32_final_v3.py", "",
+  "# 7  workbook (17 and 23 are superseded versions)", ".venv/Scripts/python eda/33_fill_workbook_v3.py Edikted_Forecasting_Exercise.xlsx Edikted_Forecasting_Exercise_filled.xlsx", ".venv/Scripts/python -I eda/18_verify_workbook.py Edikted_Forecasting_Exercise.xlsx Edikted_Forecasting_Exercise_filled.xlsx", "",
+  "# 8  later members and features (each script's docstring gives its inputs)", ".venv/Scripts/python eda/162_weather_event_feats.py      # temperature + events", ".venv/Scripts/python eda/180_cooc_prep.py; eda/181_cooc_dyn.py (GPU); eda/182_cooc_feats.py   # dynamic co-purchase neighbours", ".venv/Scripts/python eda/187_explain_table.py; eda/180_newfeats.py                         # model table, event windows, launch curves", ".venv/Scripts/python eda/180q_models.py ec_ns w03ec                                        # tree member (+ volume-weighted, for buying)", ".venv/Scripts/python eda/197b_nn_ec.py seq=1 seeds=3 tag=_S13ec                             # NN member (GPU)", ".venv/Scripts/python eda/196b_tabpfn.py v2 est=32 feat=dyn; eda/199c_conformal.py           # TabPFN members (GPU)", "",
+  "# 9  stack, corrections, buying simulation", ".venv/Scripts/python eda/180d_newbase.py; eda/179x2_bias.py; eda/179b_breakout.py; eda/180g_geo.py", ".venv/Scripts/python eda/175n_sim_nn.py; eda/175o_sim_ladder_nn.py", "",
+  "# 10 final 2026 chain, workbook, explanation layer", ".venv/Scripts/python eda/181a_base2026.py; eda/181g_final_nx2_2026.py; eda/181h_final_nx3_2026.py; eda/181i_final_nx4_2026.py", ".venv/Scripts/python eda/198b_explain_final.py", "",
+  "# 11 scoreboard and this page", ".venv/Scripts/python eda/159_scoreboard.py", ".venv/Scripts/python eda/127_build_atlas.py   # runs eda/19 and eda/124, then fills eda/atlas_template.html"].join("\n");
+const SDOC = { "eda/00_read_assignment.py": "Dumps every sheet of the assignment workbook", "eda/01_profile.py": "First profile of the raw parquet: schema, cardinalities, categories, nulls", "eda/02_build_aggs.py": "DuckDB aggregation into data/*.parquet plus artefact probes", "eda/03_targets.py": "Extracts the 100 targets and the campaign plan", "eda/04_eda.py": "Main EDA: trends, channels, discounts, seasonality, lifecycle, targets, figures", "eda/05_baselines.py": "Round 1: four baselines on two origins", "eda/09_campaigns.py": "Past Jul–Oct discount calendars vs the 2026 plan", "eda/13_inspect_wb.py": "Reads workbook formatting before writing to it", "eda/16_final_checks.py": "World Cup pace, confidence-1 rule, June-origin level check" };
+D.files.scripts.forEach(f => $("#scripts tbody").appendChild(h("tr", {}, `<td class="mono small">${esc(f.p)}</td><td class="small">${esc(f.doc || SDOC[f.p] || "")}</td>`)));
+{ const L = D.links || {}, a = []; if (L.scoreboard) a.push(`<a href="${L.scoreboard}">Forecast scoreboard</a> (every scored system against R3)`); if (L.error_analysis) a.push(`<a href="${L.error_analysis}">Deep error analysis</a>`); const le = $("#links"); if (le) le.innerHTML = a.join(" · ") || "–"; }
+const DDOC = { "daily_item_chan.parquet": "Item × day × class × channel × cancelled", "items.parquet": "Item master with consistency counts", "daily_otype.parquet": "Day × class × raw channel tag", "monthly_item_size.parquet": "Item × month × size", "monthly_item.parquet": "Item × month panel (non-cancelled)", "targets.csv": "The 100 targets", "targets_overview.csv": "Targets with age, recent and last-year sales", "features.parquet": "Origin-anchored feature table", "final_forecast.csv": "Raw, adjusted and confidence per target", "project_map.json": "Numbers for this page", "best_backtest_preds.parquet": "Out-of-sample predictions of the final spec, 13 origins", "round3_item_totals.parquet": "Item-level backtest totals for the confidence model", "ens_backtest_preds.parquet": "Round-2 ensemble predictions", "oos_flags_daily.parquet": "Item × day stock-out flags", "oos_runs.csv": "Flagged zero runs", "suspected_stockouts.csv": "First crude stock-out rule (turn 1)", "target_size_gaps_last13w.csv": "Targets with broken core sizes, last 13 weeks", "backtest_2025-06.csv": "Round-1 per-item backtest", "backtest_2026-02.csv": "Round-1 per-item backtest", "m5_experiments_by_fold.csv": "Round 2 results per origin", "round2_by_fold.csv": "Round 2b results per origin", "round3_by_fold.csv": "Round 3 results per origin" };
+D.files.data.forEach(f => { const n = f.p.split("/").pop(); $("#datafiles tbody").appendChild(h("tr", {}, `<td class="mono small">${esc(f.p)}</td><td class="r small">${fmt(f.kb)}</td><td class="small">${esc(DDOC[n] || "")}</td>`)); });
+
+function segCtl(el, cb) { el.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { el.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false")); cb(b.dataset.v); })); }
+
+/* ---------- evaluation & error analysis ---------- */
+(function evaluation() {
+  const EV = D.eval; if (!EV) return;
+  const f3 = x => x == null ? "–" : x.toFixed(3), sg = x => x == null ? "–" : (x > 0 ? "+" : "") + (x * 100).toFixed(1) + "%";
+  const best = (rows, k) => Math.min(...rows.filter(r => r.name !== "R3 + rules (rule agents)" && r[k] != null).map(r => r[k]));
+  function renderEv(scope) {
+    const rows = EV[scope]; const b = best(rows, "WAPE / R3");
+    $("#ev-table tbody").innerHTML = rows.map(r => `<tr${r["WAPE / R3"] === b ? ' style="background:var(--accent-soft)"' : ""}><td>${r.name === "R3 + rules (rule agents)" ? "<b>R3 + rules (rule agents)</b>" : esc(r.name)}</td><td class="r">${f3(r["WAPE / R3"])}</td><td class="r">${f3(r["relMAE vs R3"])}</td><td class="r">${pct(r["win vs R3"], 1)}</td><td class="r">${pct(r["win vs R3+rules"], 1)}</td><td class="r">${f3(r["(MAE+|bias|) / R3"])}</td><td class="r">${f3(r["pinball / R3"])}</td><td class="r">${f3(r["sim loss / R3"])}</td><td class="r">${sg(r.bias)}</td></tr>`).join("");
+  }
+  segCtl($("#ev-scope"), renderEv); renderEv("table_recent");
+  $("#ev-fva tbody").innerHTML = EV.fva.filter(r => r.name !== "R3 + rules (rule agents)").map(r => `<tr><td>${esc(r.name)}</td><td class="r">${f3(r["WAPE / R3"])}</td><td class="r">${f3(r["relMAE vs R3"])}</td><td class="r">${f3(r["pinball / R3"])}</td></tr>`).join("");
+  const wf = EV.waterfall; const mx = Math.max(...wf.map(w => w.total));
+  bars($("#ev-wf"), wf.map((w, i) => ({ k: w.step.replace("member: ", "· "), v: w.total, c: /^member/.test(w.step) ? "var(--s2)" : /forecast$/.test(w.step) ? "var(--accent)" : "var(--s1)",
+    tip: `<b>${esc(w.step)}</b><br>${fmt(w.total)} units${i ? `, ×${(w.total / wf[0].total).toFixed(3)} of R3` : ""}` })), { max: mx });
+  { const OLD = EV.archetypes_old || [], P = EV.arch_periods || {}; if (P.recent) { $("#ev-arch-rec").textContent = "Recent: " + P.recent; $("#ev-arch-old").textContent = "Older: " + P.old; }
+  const cell = (v, f) => `<td class="r">${v == null ? "–" : f(v)}</td>`;
+  $("#ev-arch tbody").innerHTML = EV.archetypes.map((a, i) => { const o = OLD[i] || {}; return `<tr title="${esc(a.name)}: ${pct(a.items)} of recent item-origins, ${o.items == null ? "–" : pct(o.items)} of older ones"><td>${esc(a.name)}</td>${cell(a.units, pct)}${cell(a.error, pct)}${cell(a.bias, sg)}${cell(a.rel, f3)}${cell(o.units, pct)}${cell(o.error, pct)}${cell(o.bias, sg)}${cell(o.rel, f3)}</tr>`; }).join(""); }
+  if ($("#ev-fva-note")) $("#ev-fva-note").textContent = EV.fva_note || ""; if ($("#ev-ladder")) $("#ev-ladder").textContent = pct(SY.loss_ladder_geo, 1) + " against " + pct(SY.loss_final, 1) + " for the point forecast";
+  $("#ev-notes").innerHTML = EV.notes ? EV.notes.map(x => `<li>${x}</li>`).join("") : [`<b>Concentration:</b> ${pct(EV.concentration.half)} of item-origins carry half of all absolute error, ${pct(EV.concentration.eighty)} carry 80%.`,
+    "<b>Black Friday:</b> the average item lift is stable year to year (median 5.7×, ratio to last year 1.00) but an item's own lift barely repeats (r = 0.18).",
+    "<b>Seasonal turns:</b> warm items were under-forecast as winter arrived and over-forecast as it ended; swimwear's own last-year pattern called its turns where the models did not.",
+    "<b>Disagreement:</b> where the members disagree most, the error is twice as large; the actual lands near the middle, so equal weights are right on average.",
+    "<b>Fine granularity:</b> forecasting per store / channel and summing was worse — TikTok and new dropship partners ramped, store assortments turned over, and those errors do not cancel."].map(x => `<li>${x}</li>`).join("");
+  const mb = EV.month_bias, cols = { lgb: "var(--s3)", nn: "var(--s4)", rules: "var(--s2)", geo: "var(--s1)" }, labs = { lgb: "LightGBM", nn: "NN", rules: "Rules", geo: "Three-way shape" };
+  legend($("#ev-mb-leg"), Object.keys(cols).map(k => [cols[k], labs[k]]));
+  lineChart($("#ev-mb"), { labels: mb.months, series: Object.keys(cols).map(k => ({ values: mb[k], color: cols[k], w: k === "geo" ? 2.6 : 1.4, dots: k === "geo" })), yMin: -0.4, yMax: 0.55, ref: 0,
+    yFmt: v => (v * 100).toFixed(0) + "%", label: "Bias by target month", tip: i => `<b>${mb.months[i]}</b><br>` + Object.keys(cols).map(k => `${labs[k]}: ${sg(mb[k][i])}`).join("<br>") });
+  const om = EV.origin_macro; const cell = v => { if (v == null) return "<td>–</td>"; const a = Math.min(1, Math.abs(v) / 0.5); const c = v < 0 ? `rgba(80,120,220,${a * 0.55})` : `rgba(220,90,70,${a * 0.55})`; return `<td class="r" style="background:${c}">${sg(v)}</td>`; };
+  $("#ev-om").innerHTML = `<thead><tr><th>Origin</th>${om.groups.map(g => `<th class="r">${esc(g)}</th>`).join("")}</tr></thead><tbody>` + om.origins.map((o, i) => `<tr><td>${o}</td>${om.bias[i].map(cell).join("")}</tr>`).join("") + "</tbody>";
+  if (EV.ablation) $("#ev-abl tbody").innerHTML = EV.ablation.map(r => `<tr><td>${esc(r.group)}</td><td class="r">${f3(r.rel)}</td><td class="r">${r.delta === 0 ? "–" : (r.delta > 0 ? "+" : "") + r.delta.toFixed(3)}</td></tr>`).join("");
+  $("#ev-probes tbody").innerHTML = EV.probes.map(p => `<tr><td>${esc(p[0])}</td><td><button class="chip" type="button" data-d="${p[1].split(/[-–]/)[0]}">${esc(p[1])}</button></td><td>${esc(p[2])}</td><td class="small">${esc(p[3])}</td></tr>`).join("");
+  document.querySelectorAll("#ev-probes .chip").forEach(b => b.addEventListener("click", () => openLog(b.dataset.d)));
+})();
+// ---- features (D343)
+(function () {
+  const FI = D.features; if (!FI) return; const sel = document.getElementById("feat-model"), q = document.getElementById("feat-q"), tb = document.querySelector("#feat-tab tbody");
+  FI.models.forEach((m, i) => { const o = document.createElement("option"); o.value = i; o.textContent = `${m.name} (${m.n})`; sel.appendChild(o); });
+  document.getElementById("feat-note").textContent = FI.note;
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  function draw() {
+    const m = FI.models[+sel.value], k = q.value.trim().toLowerCase(), rows = m.features.filter((f) => !k || (f.name + " " + f.block + " " + f.desc).toLowerCase().includes(k));
+    document.getElementById("feat-title").textContent = m.name; document.getElementById("feat-src").textContent = `${m.role} · ${m.source}`;
+    document.getElementById("feat-n").textContent = `${rows.length} of ${m.n} inputs`;
+    tb.innerHTML = rows.map((f) => `<tr><td><code>${esc(f.name)}</code></td><td class="small">${esc(f.block)}</td><td class="small">${esc(f.desc)}</td></tr>`).join("");
+    const cnt = {}; m.features.forEach((f) => { cnt[f.block] = (cnt[f.block] || 0) + 1; }); const mx = Math.max(...Object.values(cnt));
+    document.getElementById("feat-blocks").innerHTML = Object.entries(cnt).sort((a, b) => b[1] - a[1]).map(([b, n]) => `<div class="bar"><span class="k" title="${esc(b)}">${esc(b)}</span><div class="track"><div class="fill" style="width:${(n / mx) * 100}%"></div></div><span class="v">${n}</span></div>`).join("");
+  }
+  sel.addEventListener("change", draw); q.addEventListener("input", draw); sel.value = 1; draw();
+})();
+})();
+</script>
+<!--D389i-->

@@ -1,0 +1,75 @@
+
+== summer origins Jun+Jul 2025 (n=1584): answer / actual
+                n   bias  med_ratio    w20
+tag                                       
+4th of July    40  0.385      1.562  0.200
+Graduation     33  0.226      1.208  0.424
+Halloween     138 -0.117      0.926  0.420
+Homecoming     37 -0.277      0.786  0.432
+New Year       18  0.591      1.247  0.333
+Valentine      91  0.104      1.156  0.330
+no tag       1227  0.148      1.357  0.278
+
+          n   bias  med_ratio    w20
+macro                               
+bottom  462  0.058      1.234  0.327
+dress   157 -0.091      1.045  0.427
+other   132  0.224      1.351  0.265
+swim     52  1.402      2.385  0.000
+top     554  0.181      1.369  0.260
+warm    227  0.067      1.144  0.335
+
+         n   bias  med_ratio    w20
+ageb                               
+<3     177  0.198      1.432  0.209
+3-6    209  0.326      1.474  0.244
+6-12   517  0.027      1.145  0.335
+12-24  492  0.090      1.256  0.319
+24+    189  0.105      1.379  0.291
+
+
+== all 9 representative origins (n=9031): answer / actual
+                n   bias  med_ratio    w20
+tag                                       
+4th of July   247  0.064      1.180  0.275
+Graduation    157 -0.205      1.061  0.331
+Halloween     698  0.047      1.055  0.401
+Homecoming    269 -0.054      1.005  0.491
+New Year      164  0.022      1.052  0.317
+Valentine     522  0.029      1.068  0.402
+no tag       6974 -0.010      1.139  0.325
+
+           n   bias  med_ratio    w20
+macro                                
+bottom  2512  0.026      1.110  0.369
+dress    911 -0.092      1.044  0.409
+other    792  0.087      1.235  0.247
+swim     244  0.161      1.174  0.303
+top     3117  0.069      1.165  0.315
+warm    1455 -0.125      1.051  0.348
+
+          n   bias  med_ratio    w20
+ageb                                
+<3     1068 -0.049      1.135  0.273
+3-6    1354  0.097      1.199  0.323
+6-12   2271 -0.025      1.087  0.319
+12-24  2957 -0.019      1.097  0.361
+24+    1381  0.035      1.113  0.390
+
+monthly shape at the June 2025 origin by macro (month h / July):
+        pred_m2/m1  pred_m3/m1  pred_m4/m1  act_m2/m1  act_m3/m1  act_m4/m1
+macro                                                                      
+bottom        0.98        0.81        0.70       1.09       0.68       0.73
+dress         1.03        0.91        0.71       0.89       0.99       0.75
+other         0.99        0.83        0.75       0.95       0.69       0.69
+swim          0.94        0.69        0.56       0.61       0.37       0.29
+top           0.98        0.77        0.62       1.00       0.58       0.54
+warm          1.07        1.16        1.19       1.23       0.96       1.33
+
+monthly shape at the June 2025 origin by tag (month h / July):
+            pred_m2/m1  pred_m3/m1  pred_m4/m1  act_m2/m1  act_m3/m1  act_m4/m1
+tag                                                                            
+Halloween         0.98        0.85        0.78       1.04       0.83       1.27
+Homecoming        1.06        1.01        0.80       1.17       2.15       1.07
+other             0.99        0.83        0.71       1.04       0.64       0.61
+

@@ -1,0 +1,36 @@
+== 1  items 3-12 months old at the June origin: peer-ratio vs model
+2024 peer item-median Jul-Oct/June by peak position: {'<35%': 9.69, '35-70%': 6.33, '>=70%': 4.39} | n: {'>=70%': 60, '35-70%': 40, '<35%': 35}
+                 n   bias   wape    w20    w50
+seg    method                                 
+all    model   265 -0.005  0.358  0.377  0.694
+       peer    265  0.094  0.384  0.321  0.604
+       blend   265  0.036  0.351  0.358  0.668
+<35%   model   106  0.116  0.371  0.406  0.745
+       peer    106  0.162  0.354  0.396  0.604
+       blend   106  0.126  0.334  0.368  0.708
+35-70% model    85 -0.104  0.357  0.341  0.682
+       peer     85  0.103  0.447  0.235  0.565
+       blend    85 -0.011  0.373  0.329  0.647
+>=70%  model    74 -0.016  0.349  0.378  0.635
+       peer     74  0.038  0.357  0.311  0.649
+       blend    74  0.006  0.348  0.378  0.635
+
+== 2  mature items, like-for-like
+aggregate (sum over the 42 items): forecast / Jul-Oct 2025 = 0.587; expected from trend = sum(Jul-Oct 2025 x Apr-Jun yoy x 0.843) / sum(Jul-Oct 2025) = 0.623; Mar-Jun yoy aggregate 0.666 x 0.843 = 0.561
+item medians: forecast / Jul-Oct 2025 = 0.553; Apr-Jun yoy x 0.843 = 0.529; Mar-Jun yoy x 0.843 = 0.523
+spread of forecast vs expected (item level): p10 0.80, median 1.05, p90 1.22; items outside 0.67-1.5x: 2
+item-origins with a full year of own history: 3871 | by origin: {'2025-03': 190, '2025-04': 213, '2025-05': 227, '2025-06': 248, '2025-07': 269, '2025-08': 290, '2025-09': 318, '2025-10': 348, '2025-11': 383, '2025-12': 422, '2026-01': 468, '2026-02': 495}
+trend x 0.843 at the June/July 2025 origins (items with a year of history): {'n': 517, 'bias': np.float64(0.081), 'wape': np.float64(0.326), 'w20': np.float64(0.385), 'w50': np.float64(0.758)} | the blend actually used (50/50 with model): {'n': 517, 'bias': np.float64(0.016), 'wape': np.float64(0.25), 'w20': np.float64(0.414), 'w50': np.float64(0.783)}
+
+== 3  floors
+                          seg   model     P75      P90  floored  lift  percentile_in_model_range
+S19743_CREAM       Homecoming  3206.0  4068.0   5374.0   3596.0  0.12                       62.0
+S20646_BLACK        Halloween  1740.0  2099.0   2581.0   1935.0  0.11                       64.0
+S20878_LIGHT-BLUE  Homecoming  3886.0  5041.0   7371.0   5798.0  0.49                       81.0
+S22165_BLACK       Homecoming  5592.0  8054.0  10289.0   9155.0  0.64                       83.0
+S23377_TURQUOISE   Homecoming  4230.0  5762.0   6815.0   6423.0  0.52                       85.0
+S23916_WHITE        Halloween  6722.0  7978.0  12129.0   8974.0  0.33                       79.0
+2024 item-median Jul-Oct/June by segment: {'4th of July': 3.48, 'Halloween': 7.68, 'Homecoming': 6.31, 'other': 5.13, 'swimwear': 1.82}
+June 2025 origin, young Halloween items: model {'n': 45, 'bias': np.float64(-0.293), 'wape': np.float64(0.342), 'w20': np.float64(0.333), 'w50': np.float64(0.889)} | with floor {'n': 45, 'bias': np.float64(0.08), 'wape': np.float64(0.263), 'w20': np.float64(0.422), 'w50': np.float64(0.822)} | floor binding on 37
+June 2025 origin, young Homecoming items: model {'n': 9, 'bias': np.float64(-0.205), 'wape': np.float64(0.229), 'w20': np.float64(0.444), 'w50': np.float64(1.0)} | with floor {'n': 9, 'bias': np.float64(0.027), 'wape': np.float64(0.116), 'w20': np.float64(0.667), 'w50': np.float64(1.0)} | floor binding on 4
+June 2025 origin, young both items: model {'n': 54, 'bias': np.float64(-0.287), 'wape': np.float64(0.334), 'w20': np.float64(0.352), 'w50': np.float64(0.907)} | with floor {'n': 54, 'bias': np.float64(0.076), 'wape': np.float64(0.253), 'w20': np.float64(0.463), 'w50': np.float64(0.852)} | floor binding on 41

@@ -1,0 +1,18 @@
+                          view   period  current  tuned    diff  hit_current  hit_tuned  gmrae_current  gmrae_tuned
+                  member alone     tune   0.6599 0.6492 -0.0107        0.318      0.328          0.681        0.651
+                  member alone held out   0.3631 0.3627 -0.0004        0.384      0.396          0.408        0.400
+                  member alone   recent   0.4594 0.4600  0.0006        0.362      0.374          0.475        0.458
+                  member alone   all 13   0.5095 0.5040 -0.0054        0.350      0.361          0.532        0.515
+                  member alone    early   0.7128 0.6830 -0.0298        0.309      0.315          0.782        0.762
+system (submitted corrections)     tune   0.5888 0.5868 -0.0020        0.338      0.341          0.657        0.648
+system (submitted corrections) held out   0.2948 0.2957  0.0009        0.449      0.447          0.345        0.346
+system (submitted corrections)   recent   0.3851 0.3856  0.0005        0.417      0.417          0.413        0.410
+system (submitted corrections)   all 13   0.4399 0.4393 -0.0005        0.391      0.392          0.482        0.479
+system (submitted corrections)    early   0.6623 0.6575 -0.0048        0.305      0.308          0.811        0.806
+system difference, 95% interval: {'held out': [0.0001, 0.0018], 'recent': [-0.0004, 0.0014], 'all 13': [-0.0013, 0.0002]}
+without last year (3 seeds, like for like):
+period  alone_current3  alone_tuned3  alone_current_ly  alone_tuned_ly  sys_current_ly  sys_tuned_ly  deg_current  deg_tuned
+recent          0.4685        0.4712            0.7903          0.7897          0.4286        0.4296       0.3217     0.3186
+all 13          0.5154        0.5104            0.8413          0.8414          0.4843        0.4849       0.3259     0.3309
+tuned NN P25-P75 inside (recent): {'raw': 0.177, 'cal': 0.5}
+saved

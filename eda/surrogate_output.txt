@@ -1,0 +1,89 @@
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\191_surrogate.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  preds["cat_unit"][te] = D.loc[te, EXP].sum(1)
+
+######## nine recent origins, all items: 9031 item-origins | R3 WAPE 0.699
+  full model (median of the D159 quantile model)       WAPE/R3 0.4373 | lift 0.563 | recovered 100.0% | R^2 0.593
+  cat_lin                                              WAPE/R3 0.5953 | lift 0.405 | recovered  71.9% | R^2 0.417
+  cat_tree                                             WAPE/R3 0.6826 | lift 0.317 | recovered  56.4% | R^2 0.342
+  cat_unit                                             WAPE/R3 0.4373 | lift 0.563 | recovered 100.0% | R^2 0.593
+  shap_lin                                             WAPE/R3 0.5225 | lift 0.477 | recovered  84.8% | R^2 0.471
+  raw_lin                                              WAPE/R3 1.1110 | lift -0.111 | recovered -19.7% | R^2 -0.018
+  raw_tree                                             WAPE/R3 0.8620 | lift 0.138 | recovered  24.5% | R^2 0.218
+
+######## nine recent, 100 targets: 570 item-origins | R3 WAPE 0.742
+  full model (median of the D159 quantile model)       WAPE/R3 0.4325 | lift 0.568 | recovered 100.0% | R^2 0.682
+  cat_lin                                              WAPE/R3 0.5457 | lift 0.454 | recovered  80.0% | R^2 0.517
+  cat_tree                                             WAPE/R3 0.7116 | lift 0.288 | recovered  50.8% | R^2 0.441
+  cat_unit                                             WAPE/R3 0.4325 | lift 0.568 | recovered 100.0% | R^2 0.682
+  shap_lin                                             WAPE/R3 0.5203 | lift 0.480 | recovered  84.5% | R^2 0.546
+  raw_lin                                              WAPE/R3 0.9565 | lift 0.043 | recovered   7.7% | R^2 0.164
+  raw_tree                                             WAPE/R3 0.8825 | lift 0.117 | recovered  20.7% | R^2 0.238
+
+== last origin's surrogates
+cat_lin coefficients (log units per unit of category SHAP): {'baseline_drift': np.float64(0.212), 'short_term_momentum': np.float64(1.328), 'item_lifecycle': np.float64(0.713), 'upcoming_events': np.float64(1.447), 'past_event_hangover': np.float64(0.393), 'seasonal_weather': np.float64(1.486), 'regional_climate': np.float64(2.16), 'last_year_seasonality': np.float64(2.896), 'shopper_cluster_seasonality': np.float64(1.577), 'product_style': np.float64(-0.21), 'item_scale_maturity': np.float64(1.196)}
+top-15 SHAP features: ['lagr1', 'x_warm_dT', 'f_r7', 'lvl', 'ptype', 'lagr6', 'f_r28', 'x_bts', 'x_winter', 'cp_nb_sea4', 'peak_r', 'cp_nb_lvl', 'x_summer', 't_org', 'lagr3']
+
+cat_tree:
+|--- short_term_momentum <= -0.01
+|   |--- seasonal_weather <= 0.04
+|   |   |--- upcoming_events <= 0.06
+|   |   |   |--- value: [-0.71]
+|   |   |--- upcoming_events >  0.06
+|   |   |   |--- value: [-0.27]
+|   |--- seasonal_weather >  0.04
+|   |   |--- baseline_drift <= -0.02
+|   |   |   |--- value: [0.05]
+|   |   |--- baseline_drift >  -0.02
+|   |   |   |--- value: [-0.50]
+|--- short_term_momentum >  -0.01
+|   |--- item_scale_maturity <= 0.27
+|   |   |--- seasonal_weather <= 0.02
+|   |   |   |--- value: [-0.12]
+|   |   |--- seasonal_weather >  0.02
+|   |   |   |--- value: [0.44]
+|   |--- item_scale_maturity >  0.27
+|   |   |--- seasonal_weather <= 0.15
+|   |   |   |--- value: [0.97]
+|   |   |--- seasonal_weather >  0.15
+|   |   |   |--- value: [1.76]
+
+raw_tree:
+|--- cp_nb_sea4 <= 0.50
+|   |--- f_r7 <= -0.27
+|   |   |--- cp_nb_sea4 <= -0.17
+|   |   |   |--- value: [-0.87]
+|   |   |--- cp_nb_sea4 >  -0.17
+|   |   |   |--- value: [-0.50]
+|   |--- f_r7 >  -0.27
+|   |   |--- cp_nb_sea4 <= -0.34
+|   |   |   |--- value: [-0.63]
+|   |   |--- cp_nb_sea4 >  -0.34
+|   |   |   |--- value: [-0.14]
+|--- cp_nb_sea4 >  0.50
+|   |--- lagr1 <= -0.05
+|   |   |--- f_r7 <= -0.67
+|   |   |   |--- value: [-0.42]
+|   |   |--- f_r7 >  -0.67
+|   |   |   |--- value: [0.06]
+|   |--- lagr1 >  -0.05
+|   |   |--- x_warm_dT <= -4.66
+|   |   |   |--- value: [1.05]
+|   |   |--- x_warm_dT >  -4.66
+|   |   |   |--- value: [0.36]
+

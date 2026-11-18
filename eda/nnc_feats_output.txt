@@ -1,0 +1,68 @@
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\182d_nn_content.py:30: RuntimeWarning: Mean of empty slice
+  nm = lambda x: np.nanmean(np.where(okn, x[nb], np.nan), 1)
+(42000, 10) 28 origins
+               count    mean    std
+nc_surprise  23310.0   0.067  1.053
+nc_acc1      25500.0   0.088  1.061
+nc_mom3      25500.0   0.593  1.983
+nc_yoy       17426.0  -0.031  0.983
+nc_sea4      17426.0   0.366  0.961
+nc_lvl_rel   25500.0  -2.072  2.825
+nc_sim       25500.0   0.882  0.040
+nc_age       25500.0  12.012  6.235
+early (2025-02..05) {'nc_surprise': (np.float64(0.003), np.float64(0.5)), 'nc_acc1': (np.float64(0.362), np.float64(1.0)), 'nc_mom3': (np.float64(0.165), np.float64(0.75)), 'nc_yoy': (np.float64(0.068), np.float64(0.75)), 'nc_sea4': (np.float64(0.177), np.float64(0.75)), 'nc_lvl_rel': (np.float64(0.017), np.float64(0.75)), 'nc_sim': (np.float64(0.076), np.float64(0.75)), 'nc_age': (np.float64(-0.056), np.float64(0.5))}
+recent {'nc_surprise': (np.float64(-0.099), np.float64(0.67)), 'nc_acc1': (np.float64(0.104), np.float64(0.67)), 'nc_mom3': (np.float64(-0.02), np.float64(0.67)), 'nc_yoy': (np.float64(0.104), np.float64(0.67)), 'nc_sea4': (np.float64(0.276), np.float64(1.0)), 'nc_lvl_rel': (np.float64(0.06), np.float64(0.89)), 'nc_sim': (np.float64(0.049), np.float64(0.89)), 'nc_age': (np.float64(-0.051), np.float64(0.89))}

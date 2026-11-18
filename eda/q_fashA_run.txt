@@ -1,0 +1,3 @@
+dyn_ch 12 extra features 1950 s
+dyn_nn 12 extra features 1021 s
+dyn_fl 14 extra features 609 s

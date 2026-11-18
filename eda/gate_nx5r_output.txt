@@ -1,0 +1,8 @@
+== normal
+   recent 9  nx5 0.3814 routed 0.3809 [-0.0011, -0.0000]
+   all 13    nx5 0.4361 routed 0.4359 [-0.0006, +0.0003]
+   held out  nx5 0.2925 routed 0.2926 [-0.0004, +0.0007]
+== last year removed
+   recent 9  nx5 0.4085 routed 0.4087 [-0.0004, +0.0009]
+   all 13    nx5 0.4634 routed 0.4634 [-0.0006, +0.0007]
+   held out  nx5 0.3193 routed 0.3199 [-0.0002, +0.0016]

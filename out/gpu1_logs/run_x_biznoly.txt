@@ -1,0 +1,8 @@
+panel: 238322 rows, 26568 item x location pairs, 1483 items, 31 locations; months 2024-01..2026-06
+loss logl1 | weight power 0.0 | device cuda | item inputs 82
+rows built in 2 s {'biz': 1122015}
+2025-02 biz: train 104924 rows | test 30192 rows | 802 s
+2025-03 biz: train 118588 rows | test 32213 rows | 1532 s
+2025-04 biz: train 132906 rows | test 34401 rows | 2146 s
+2025-05 biz: train 156056 rows | test 37157 rows | 2919 s
+2025-06 biz: train 181757 rows | test 38845 rows | 3728 s

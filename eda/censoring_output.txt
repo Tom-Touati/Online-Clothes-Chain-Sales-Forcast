@@ -1,0 +1,23 @@
+== A) item-level improbable zero runs
+runs: 1716 | items affected: 664 | flagged share of live item-days: 0.0273 | est. lost units share: 0.0039
+run length quantiles: [5.0, 16.0, 135.0] | runs reaching the end of data: 47 | target items affected: 34
+by year-month of run start (lost units, k):
+{Period('2024Q1', 'Q-DEC'): 5.2, Period('2024Q2', 'Q-DEC'): 4.2, Period('2024Q3', 'Q-DEC'): 5.3, Period('2024Q4', 'Q-DEC'): 9.4, Period('2025Q1', 'Q-DEC'): 4.4, Period('2025Q2', 'Q-DEC'): 4.5, Period('2025Q3', 'Q-DEC'): 6.9, Period('2025Q4', 'Q-DEC'): 10.2, Period('2026Q1', 'Q-DEC'): 4.6, Period('2026Q2', 'Q-DEC'): 4.4}
+targets, flagged runs in 2026:
+     style_color      start        end  days  rate_before  runs_to_end  target
+    S23426_BLACK 2026-03-13 2026-03-15     3        38.96        False    True
+     S20827_NAVY 2026-03-24 2026-03-26     3        33.36        False    True
+    S23794_BLACK 2026-05-21 2026-05-25     5        24.86        False    True
+     S23605_PINK 2026-03-06 2026-03-09     4        22.12        False    True
+     S23605_PINK 2026-02-27 2026-03-02     4        18.86        False    True
+    S22165_BLACK 2026-01-07 2026-01-11     5        15.40        False    True
+S16079_DARK-GRAY 2026-04-11 2026-06-30    81         3.12         True    True
+S16079_DARK-GRAY 2026-03-30 2026-04-09    11         1.93        False    True
+S16079_DARK-GRAY 2026-02-17 2026-03-01    13         0.71        False    True
+
+== B) size-level: core size sells 0 in a week where >= 7 units were expected (online only)
+item-weeks with a broken core size: 516 of 95406 (0.5%) | est. lost units share of online: 0.0009 | items ever affected: 249
+lost share by quarter: {Period('2024Q1', 'Q-DEC'): 0.001, Period('2024Q2', 'Q-DEC'): 0.001, Period('2024Q3', 'Q-DEC'): 0.001, Period('2024Q4', 'Q-DEC'): 0.001, Period('2025Q1', 'Q-DEC'): 0.001, Period('2025Q2', 'Q-DEC'): 0.001, Period('2025Q3', 'Q-DEC'): 0.001, Period('2025Q4', 'Q-DEC'): 0.001, Period('2026Q1', 'Q-DEC'): 0.001, Period('2026Q2', 'Q-DEC'): 0.002}
+targets with broken core sizes in the last 13 weeks: 3 | est. lost share of their online units (top 12):
+{'S14995_NAVY': 0.146, 'S17483_CREAM': 0.028, 'S17026_RED': 0.02}
+all items, last 13 weeks: affected 33 | median lost share among affected: 0.077 | share of items losing >10%: 0.009

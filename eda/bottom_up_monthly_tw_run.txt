@@ -1,0 +1,13 @@
+2025-02 train rows 73089 test rows 17752 24s
+2025-03 train rows 89368 test rows 20460 48s
+2025-04 train rows 107036 test rows 22140 73s
+2025-05 train rows 126259 test rows 23732 105s
+2025-06 train rows 147280 test rows 24504 140s
+2025-07 train rows 169989 test rows 26148 178s
+2025-08 train rows 194120 test rows 29124 223s
+2025-09 train rows 219997 test rows 31736 266s
+2025-10 train rows 247875 test rows 35024 313s
+2025-11 train rows 278383 test rows 40452 361s
+2025-12 train rows 312467 test rows 42844 410s
+2026-01 train rows 349981 test rows 43372 495s
+2026-02 train rows 390404 test rows 47668 591s

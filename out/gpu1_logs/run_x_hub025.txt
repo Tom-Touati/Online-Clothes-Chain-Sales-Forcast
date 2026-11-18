@@ -1,0 +1,18 @@
+panel: 238322 rows, 26568 item x location pairs, 1483 items, 31 locations; months 2024-01..2026-06
+loss loghuber | weight power 0.0 | device cuda | item inputs 82
+rows built in 2 s {'honest': 1054556}
+2025-02 honest: train 103808 rows | test 27664 rows | 11 s
+2025-03 honest: train 126608 rows | test 30876 rows | 23 s
+2025-04 honest: train 151132 rows | test 32928 rows | 35 s
+2025-05 honest: train 176936 rows | test 35204 rows | 48 s
+2025-06 honest: train 204600 rows | test 36300 rows | 69 s
+2025-07 honest: train 235476 rows | test 38408 rows | 93 s
+2025-08 honest: train 268404 rows | test 41676 rows | 118 s
+2025-09 honest: train 303608 rows | test 44204 rows | 146 s
+2025-10 honest: train 339908 rows | test 48260 rows | 176 s
+2025-11 honest: train 378316 rows | test 54888 rows | 209 s
+2025-12 honest: train 419992 rows | test 58080 rows | 245 s
+2026-01 honest: train 464196 rows | test 59144 rows | 285 s
+2026-02 honest: train 512456 rows | test 64148 rows | 328 s
+2026-06 honest: train 748716 rows | test 81192 rows | 390 s
+saved (13150, 6) 390 s

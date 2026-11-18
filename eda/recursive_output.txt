@@ -1,0 +1,79 @@
+== monthly, recent origins: item-month WAPE and shape error
+                 item-month WAPE  shape error
+lgb_stored                0.4061       0.2193
+direct                    0.4056       0.2191
+recursive                 0.3856       0.2055
+partly                    0.3886       0.2075
+nn                        0.3838       0.1889
+rules                     0.3842       0.1874
+geo_r_nn                  0.3522       0.1767
+geo_r_nn_partly           0.3534       0.1828
+geo_r_nn_rec              0.3504       0.1818
+== monthly, all 13 origins: item-month WAPE and shape error
+                 item-month WAPE  shape error
+lgb_stored                0.4150       0.2146
+direct                    0.4143       0.2144
+recursive                 0.3907       0.2014
+partly                    0.3943       0.2026
+nn                        0.4137       0.1899
+rules                     0.3851       0.1953
+geo_r_nn                  0.3616       0.1794
+geo_r_nn_partly           0.3605       0.1828
+geo_r_nn_rec              0.3564       0.1817
+item-month WAPE by horizon (recent):
+   direct  recursive  partly
+h                           
+1   0.337      0.303   0.317
+2   0.398      0.381   0.383
+3   0.431      0.422   0.419
+4   0.480      0.463   0.460
+
+######## nine recent origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                                   WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)              0.4879        0.4851     0.7110           0.5000             0.3958        0.4681 -0.0639
+quantile model                        0.4707        0.4784     0.7319           0.5051             0.3695        0.4368 -0.0985
+LightGBM direct (4-month sum)         0.4995        0.4927     0.7162           0.4849             0.4353        0.4713 -0.1198
+LightGBM recursive                    0.4797        0.4821     0.7111           0.4953             0.4143        0.4526 -0.0980
+LightGBM partly recursive             0.4816        0.4837     0.7183           0.4947             0.4221        0.4522 -0.1141
+rules + quantile + NN                 0.4397        0.4515     0.7550           0.5625             0.3444        0.4148 -0.0819
+rules + quantile + NN + partly        0.4434        0.4515     0.7531           0.5501             0.3603        0.4176 -0.0925
+rules + quantile + NN + recursive     0.4399        0.4502     0.7500           0.5556             0.3569        0.4146 -0.0894
+rules + partly + NN                   0.4425        0.4500     0.7517           0.5596             0.3608        0.4190 -0.0871
+rules + recursive + NN                0.4385        0.4505     0.7494           0.5611             0.3565        0.4160 -0.0827
+
+######## all 13 origins
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                                   WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)              0.5090        0.5165     0.6899           0.5000             0.4398        0.4953 -0.0626
+quantile model                        0.5714        0.5828     0.6723           0.4701             0.5507        0.5237 -0.0019
+LightGBM direct (4-month sum)         0.5378        0.5500     0.6981           0.4792             0.4793        0.5293 -0.0728
+LightGBM recursive                    0.5125        0.5369     0.6899           0.4897             0.4442        0.5121 -0.0729
+LightGBM partly recursive             0.5151        0.5383     0.7005           0.4898             0.4474        0.5077 -0.0787
+rules + quantile + NN                 0.4873        0.5076     0.7305           0.5432             0.4258        0.4602 -0.0371
+rules + quantile + NN + partly        0.4860        0.5074     0.7316           0.5344             0.4244        0.4599 -0.0505
+rules + quantile + NN + recursive     0.4808        0.5043     0.7299           0.5398             0.4161        0.4556 -0.0506
+rules + partly + NN                   0.4740        0.4938     0.7347           0.5523             0.4061        0.4541 -0.0600
+rules + recursive + NN                0.4683        0.4923     0.7322           0.5533             0.3947        0.4500 -0.0595
+
+######## recent, 100 targets
+   R3 itself: WAPE 0.742 | MAE+|bias| 1.327 | pinball 0.311 | bias +0.111 | 570 item-origins
+                                   WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)              0.4846        0.4984     0.7386           0.5000             0.3860        0.4435 -0.1328
+quantile model                        0.4545        0.4261     0.7825           0.5667             0.3804        0.4110 -0.1949
+LightGBM direct (4-month sum)         0.4906        0.4527     0.7526           0.5175             0.4320        0.4545 -0.2180
+LightGBM recursive                    0.4549        0.4256     0.7632           0.5211             0.4020        0.4146 -0.1918
+LightGBM partly recursive             0.4662        0.4284     0.7526           0.5386             0.4156        0.4274 -0.2095
+rules + quantile + NN                 0.4280        0.4186     0.7930           0.6158             0.3551        0.3910 -0.1665
+rules + quantile + NN + partly        0.4304        0.4127     0.7895           0.6035             0.3659        0.3950 -0.1797
+rules + quantile + NN + recursive     0.4246        0.4046     0.7965           0.6088             0.3609        0.3897 -0.1757
+rules + partly + NN                   0.4271        0.4077     0.7877           0.6158             0.3633        0.3950 -0.1717
+rules + recursive + NN                0.4202        0.4014     0.7825           0.6175             0.3569        0.3894 -0.1659
+
+bootstrap WAPE(x) - WAPE(y), recent:
+  rec_t - dir_t: [-0.0188 -0.0081]
+  par_t - dir_t: [-0.0146 -0.0097]
+  par_t - qmodel: [0.004  0.0118]
+  four_par_t - r_q_nn: [0.0012 0.004 ]
+  four_rec_t - r_q_nn: [-0.0013  0.0018]
+  r_par_t_nn - r_q_nn: [0.0005 0.0035]

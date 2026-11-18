@@ -1,0 +1,28 @@
+== 1 breakouts (e > 0.5, y >= 20), recent origins: rate, share of all error, F bias, by age band x Q4 months in the window
+                 n  brk_rate  brk_err_share  err_share   bias
+age_b n_q4                                                   
+<3m   0      384.0     0.206          0.025      0.048 -0.230
+      1      222.0     0.104          0.012      0.038 -0.057
+      2      227.0     0.203          0.034      0.060 -0.226
+      3      235.0     0.191          0.047      0.073 -0.227
+3-6m  0      587.0     0.085          0.009      0.043 -0.025
+      1      283.0     0.060          0.004      0.031  0.012
+      2      241.0     0.054          0.014      0.040 -0.028
+      3      243.0     0.045          0.010      0.041  0.096
+6-12m 0      768.0     0.154          0.024      0.063 -0.145
+      1      485.0     0.085          0.019      0.055 -0.052
+      2      513.0     0.115          0.025      0.070 -0.076
+      3      505.0     0.143          0.035      0.079 -0.122
+12m+  0     1827.0     0.094          0.016      0.089 -0.047
+      1      848.0     0.050          0.010      0.078  0.003
+      2      838.0     0.053          0.017      0.089 -0.013
+      3      825.0     0.056          0.022      0.105 -0.045
+
+== 2 AUC for breakout (recent, y >= 20 or F >= 20); > 0.5 = higher value, more breakouts
+-- young < 6 months: 2421 item-origins, breakout rate 0.117
+  age_m 0.31 | wk_live 0.31 | curve_fwd 0.66 | wk_recent 0.66 | disc_rel 0.36 | wk_mom 0.64 | disc_item 0.38 | pk_28 0.62 | wk_last 0.61 | pk_365_days 0.40 | peak_r 0.40 | pe_mom 0.60 | pe_launch 0.59 | sh_drop 0.41 | sh_ret 0.42 | curve_dev 0.43 | spread 0.57 | lagr2 0.44 | lagr1 0.55 | acc7 0.55 | wk_peak 0.45 | pe_trend 0.46 | promo_lift 0.52 | n_q4 0.49 | lagr3 0.49 | pe_resid 0.51 | sh_tt 0.49 | trend91 0.50
+-- all items: 8837 item-origins, breakout rate 0.099
+  disc_rel 0.40 | curve_fwd 0.60 | disc_item 0.41 | sh_ret 0.42 | curve_dev 0.42 | age_m 0.42 | wk_live 0.42 | pk_28 0.57 | wk_mom 0.57 | wk_last 0.56 | wk_peak 0.45 | lagr1 0.55 | spread 0.54 | promo_lift 0.46 | wk_recent 0.54 | n_q4 0.46 | pk_anniv_dist 0.46 | own_sea 0.53 | pe_launch 0.53 | sh_drop 0.53 | trend91 0.47 | pe_trend 0.47 | lagr3 0.47 | pk_365_days 0.47 | lagr2 0.48 | pe_mom 0.51 | sh_tt 0.49 | pe_resid 0.49 | acc7 0.51 | peak_r 0.50
+
+== 4 residual model: Spearman(rhat, e) recent +0.120 | young +0.139 | AUC breakout young 0.654
+saved without scoring (NOSCORE)

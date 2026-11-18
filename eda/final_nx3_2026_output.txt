@@ -1,0 +1,60 @@
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:31: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  R3 = 4 * M.reindex(TG)[["2026-04", "2026-05", "2026-06"]].mean(1)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:43: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["rules"] = RU.sum(1); C["qnx"] = NX.q50; C["nn"] = NNm.sum(1); C["pf2c"] = PC.q50; C["pf2d32"] = PD.q50; C["qdyn_prev"] = QD.q50
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:43: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["rules"] = RU.sum(1); C["qnx"] = NX.q50; C["nn"] = NNm.sum(1); C["pf2c"] = PC.q50; C["pf2d32"] = PD.q50; C["qdyn_prev"] = QD.q50
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:44: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  for c in ["rules", "nn"]: C[c] = C[c].fillna(C[["qnx", "pf2c", "pf2d32"]].mean(1))
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:44: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  for c in ["rules", "nn"]: C[c] = C[c].fillna(C[["qnx", "pf2c", "pf2d32"]].mean(1))
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:46: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["avg5"] = C[MEM].clip(lower=0).mean(1)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:50: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["p2c32a_prev"] = C[["rules", "qdyn_prev", "nn", "pf2c", "pf2d32"]].clip(lower=0).mean(1)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:52: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  C["buying"] = pd.concat([C.rules, W3E.q65.fillna(W3[QB]), C.nn, PC[QB], PD[QB]], axis=1).clip(lower=0).mean(1); print("buying column: u65ec at", QB)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of max will be keyword-only.
+  C["member_spread"] = C[MEM].clip(lower=1).max(1) / C[MEM].clip(lower=1).min(1)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  C["member_spread"] = C[MEM].clip(lower=1).max(1) / C[MEM].clip(lower=1).min(1)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:59: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  prof = np.exp((np.log(RU.div(RU.sum(1), axis=0).clip(lower=1e-4)) + np.log(NNm.div(NNm.sum(1), axis=0).clip(lower=1e-4))) / 2)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:59: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  prof = np.exp((np.log(RU.div(RU.sum(1), axis=0).clip(lower=1e-4)) + np.log(NNm.div(NNm.sum(1), axis=0).clip(lower=1e-4))) / 2)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  prof = prof.div(prof.sum(1), axis=0).fillna(0.25)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:84: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["total"] = C[["jul", "aug", "sep", "oct"]].sum(1)
+C:\Users\tomto\workspaces\edikted\eda\181h_final_nx3_2026.py:105: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  C["final"] = C[["jul", "aug", "sep", "oct"]].sum(1)
+targets 100
+buying column: u65ec at q65
+in-stock override for S16079_DARK-GRAY
+World Cup rule: S24840_LIGHT-GRAY-MELANGE model 33352 -> rule 23096 | buying 23568
+World Cup rule: S25039_YELLOW model 15439 -> rule 9088 | buying 9143
+World Cup rule: S24847_NAVY model 4480 -> rule 2279 | buying 2207
+forecast total 601801 {'jul': np.int64(171591), 'aug': np.int64(175788), 'sep': np.int64(123969), 'oct': np.int64(130453), 'total': np.int64(601801)} | buying total 636953 | R3 total 473374
+confidence {1: 20, 2: 65, 3: 15} | explanations 16
+      R3   season    rules      qnx       nn     pf2c   pf2d32     avg5  forecast    final  p2c32a_prev   buying        level           group
+473375.0 593665.0 620269.0 632491.0 683016.0 571510.0 622443.0 626076.0  620602.0 601801.0     626140.0 636953.0        total all 100 targets
+  3377.0   4651.0   3528.0   3381.0   3252.0   4699.0   5046.0   3981.0    4000.0   4000.0       3916.0   4267.0 product type        Cardigan
+  8669.0  10776.0  13884.0  13563.0  11702.0  11774.0  12840.0  12753.0   12395.0  12395.0      12727.0  13377.0 product type          Corset
+ 71843.0  79515.0  72372.0  58986.0  59975.0  47745.0  51179.0  58051.0   55858.0  55859.0      58312.0  60486.0 product type           Dress
+ 28193.0  35071.0  38967.0  51487.0  47620.0  46921.0  51894.0  47378.0   47179.0  47182.0      46656.0  49840.0 product type          Hoodie
+  3617.0   6320.0   7202.0   6172.0   8477.0   6979.0   7698.0   7306.0    7488.0   7488.0       7621.0   7714.0 product type          Jacket
+ 44429.0  71425.0  71294.0  61576.0  68997.0  66407.0  73793.0  68413.0   68537.0  68540.0      69383.0  71844.0 product type           Jeans
+  4184.0   5019.0   7427.0   5503.0   4820.0   5200.0   5963.0   5783.0    5341.0   5341.0       5833.0   6132.0 product type     Knitted Top
+ 15300.0  20663.0  15971.0  25030.0  25620.0  22621.0  24861.0  22820.0   22001.0  21999.0      23000.0  23827.0 product type           Pants
+   856.0   1207.0   1634.0   2199.0   1197.0   2400.0   2609.0   2008.0    2014.0   2015.0       1929.0   2150.0 product type           Scarf
+  5744.0   7627.0   7960.0   6984.0   6764.0   7299.0   7818.0   7365.0    6881.0   6881.0       7599.0   7883.0 product type           Shirt
+ 10108.0  10078.0   8132.0   9253.0   7362.0   6775.0   7575.0   7820.0    7823.0   7823.0       7814.0   8035.0 product type     Short Jeans
+ 60101.0  73845.0  67745.0  79133.0  80338.0  64504.0  70193.0  72383.0   70732.0  68532.0      72710.0  73001.0 product type          Shorts
+ 19395.0  29190.0  32750.0  27255.0  37458.0  26702.0  29485.0  30730.0   30005.0  30005.0      31346.0  32412.0 product type           Skirt
+  7371.0  10908.0   9728.0   9557.0   9081.0   8891.0   9936.0   9439.0    9271.0   9271.0       9347.0   9855.0 product type           Skort
+ 13412.0  24505.0  25321.0  28977.0  35089.0  30915.0  32806.0  30622.0   30847.0  30847.0      30544.0  32238.0 product type         Sweater
+  7703.0  12237.0  15545.0  15217.0  14317.0  15151.0  16336.0  15313.0   15736.0  15735.0      15549.0  16010.0 product type      Sweatpants
+ 14427.0  11265.0   8342.0   9332.0   7203.0   7793.0   8531.0   8240.0    7759.0   7760.0       8326.0   8747.0 product type    Swimwear Top
+ 33247.0  41335.0  68670.0  69049.0  81341.0  55836.0  60510.0  67081.0   68728.0  52120.0      65479.0  53888.0 product type         T-Shirt
+ 66360.0  67386.0  76265.0  82900.0 107718.0  69443.0  75082.0  82282.0   81781.0  81781.0      82084.0  85226.0 product type        Tank Top
+ 55039.0  70642.0  67533.0  66938.0  64685.0  63453.0  68288.0  66309.0   66225.0  66227.0      65964.0  70022.0 product type             Top

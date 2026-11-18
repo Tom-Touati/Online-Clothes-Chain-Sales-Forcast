@@ -1,0 +1,60 @@
+lost in target window / sales, by origin: {'2025-02': 0.015, '2025-03': 0.015, '2025-04': 0.013, '2025-05': 0.016, '2025-06': 0.017, '2025-07': 0.017, '2025-08': 0.018, '2025-09': 0.019, '2025-10': 0.02, '2025-11': 0.024, '2025-12': 0.028, '2026-01': 0.027, '2026-02': 0.028}
+mean uplift by origin (flat / retail / own):
+origin    2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02
+u_flat      0.008    0.009    0.010    0.011    0.012    0.012    0.013    0.015    0.015    0.014    0.015    0.017    0.019
+u_retail    0.006    0.007    0.009    0.008    0.009    0.008    0.008    0.008    0.008    0.007    0.008    0.009    0.013
+u_own       0.008    0.011    0.013    0.016    0.015    0.013    0.013    0.015    0.016    0.015    0.015    0.016    0.017
+
+== all 13 origins (11727 item-origins): WAPE, bias vs in-stock demand | vs sales
+  r_q_nn  none    demand (np.float64(0.3193), np.float64(-0.056)) | sales (np.float64(0.3257), np.float64(-0.037))
+  r_q_nn  flat    demand (np.float64(0.3202), np.float64(-0.044)) | sales (np.float64(0.3272), np.float64(-0.024))
+  r_q_nn  retail  demand (np.float64(0.3208), np.float64(-0.043)) | sales (np.float64(0.3282), np.float64(-0.024))
+  r_q_nn  own     demand (np.float64(0.3208), np.float64(-0.043)) | sales (np.float64(0.3281), np.float64(-0.024))
+  r_q_nn  mix     demand (np.float64(0.3207), np.float64(-0.043)) | sales (np.float64(0.3281), np.float64(-0.024))
+  qmodel  none    demand (np.float64(0.3749), np.float64(-0.022)) | sales (np.float64(0.3819), np.float64(-0.002))
+  qmodel  flat    demand (np.float64(0.3763), np.float64(-0.009)) | sales (np.float64(0.3839), np.float64(0.011))
+  qmodel  retail  demand (np.float64(0.3768), np.float64(-0.009)) | sales (np.float64(0.3847), np.float64(0.011))
+  qmodel  own     demand (np.float64(0.3772), np.float64(-0.008)) | sales (np.float64(0.3852), np.float64(0.012))
+  qmodel  mix     demand (np.float64(0.3769), np.float64(-0.008)) | sales (np.float64(0.3848), np.float64(0.012))
+
+== nine recent origins (9031 item-origins): WAPE, bias vs in-stock demand | vs sales
+  r_q_nn  none    demand (np.float64(0.3016), np.float64(-0.101)) | sales (np.float64(0.3072), np.float64(-0.082))
+  r_q_nn  flat    demand (np.float64(0.3019), np.float64(-0.088)) | sales (np.float64(0.3082), np.float64(-0.068))
+  r_q_nn  retail  demand (np.float64(0.3024), np.float64(-0.089)) | sales (np.float64(0.3092), np.float64(-0.069))
+  r_q_nn  own     demand (np.float64(0.3023), np.float64(-0.088)) | sales (np.float64(0.309), np.float64(-0.068))
+  r_q_nn  mix     demand (np.float64(0.3023), np.float64(-0.088)) | sales (np.float64(0.309), np.float64(-0.069))
+  qmodel  none    demand (np.float64(0.324), np.float64(-0.118)) | sales (np.float64(0.3289), np.float64(-0.099))
+  qmodel  flat    demand (np.float64(0.3239), np.float64(-0.105)) | sales (np.float64(0.3294), np.float64(-0.085))
+  qmodel  retail  demand (np.float64(0.3243), np.float64(-0.106)) | sales (np.float64(0.3302), np.float64(-0.086))
+  qmodel  own     demand (np.float64(0.3244), np.float64(-0.104)) | sales (np.float64(0.3303), np.float64(-0.085))
+  qmodel  mix     demand (np.float64(0.3242), np.float64(-0.105)) | sales (np.float64(0.3302), np.float64(-0.085))
+
+== recent, targets (570 item-origins): WAPE, bias vs in-stock demand | vs sales
+  r_q_nn  none    demand (np.float64(0.3157), np.float64(-0.176)) | sales (np.float64(0.3176), np.float64(-0.167))
+  r_q_nn  flat    demand (np.float64(0.3146), np.float64(-0.164)) | sales (np.float64(0.3169), np.float64(-0.154))
+  r_q_nn  retail  demand (np.float64(0.3152), np.float64(-0.168)) | sales (np.float64(0.3176), np.float64(-0.158))
+  r_q_nn  own     demand (np.float64(0.3148), np.float64(-0.17)) | sales (np.float64(0.317), np.float64(-0.16))
+  r_q_nn  mix     demand (np.float64(0.315), np.float64(-0.169)) | sales (np.float64(0.3173), np.float64(-0.159))
+  qmodel  none    demand (np.float64(0.3354), np.float64(-0.204)) | sales (np.float64(0.3373), np.float64(-0.195))
+  qmodel  flat    demand (np.float64(0.3342), np.float64(-0.193)) | sales (np.float64(0.3366), np.float64(-0.183))
+  qmodel  retail  demand (np.float64(0.3347), np.float64(-0.196)) | sales (np.float64(0.3372), np.float64(-0.186))
+  qmodel  own     demand (np.float64(0.3345), np.float64(-0.198)) | sales (np.float64(0.3368), np.float64(-0.189))
+  qmodel  mix     demand (np.float64(0.3346), np.float64(-0.197)) | sales (np.float64(0.337), np.float64(-0.188))
+
+== recent, retail share >= 30% (939 item-origins): WAPE, bias vs in-stock demand | vs sales
+  r_q_nn  none    demand (np.float64(0.2703), np.float64(-0.046)) | sales (np.float64(0.2829), np.float64(-0.004))
+  r_q_nn  flat    demand (np.float64(0.2713), np.float64(-0.032)) | sales (np.float64(0.2854), np.float64(0.01))
+  r_q_nn  retail  demand (np.float64(0.2724), np.float64(-0.012)) | sales (np.float64(0.2892), np.float64(0.032))
+  r_q_nn  own     demand (np.float64(0.2709), np.float64(-0.017)) | sales (np.float64(0.287), np.float64(0.026))
+  r_q_nn  mix     demand (np.float64(0.2714), np.float64(-0.014)) | sales (np.float64(0.2878), np.float64(0.029))
+  qmodel  none    demand (np.float64(0.2986), np.float64(-0.048)) | sales (np.float64(0.3114), np.float64(-0.006))
+  qmodel  flat    demand (np.float64(0.2995), np.float64(-0.035)) | sales (np.float64(0.3135), np.float64(0.008))
+  qmodel  retail  demand (np.float64(0.3002), np.float64(-0.015)) | sales (np.float64(0.3166), np.float64(0.029))
+  qmodel  own     demand (np.float64(0.2985), np.float64(-0.02)) | sales (np.float64(0.3147), np.float64(0.023))
+  qmodel  mix     demand (np.float64(0.299), np.float64(-0.017)) | sales (np.float64(0.3153), np.float64(0.026))
+  flat minus none (demand, recent): [-0.0003  0.0002  0.0007]
+  retail minus none (demand, recent): [0.0002 0.0008 0.0013]
+  own minus none (demand, recent): [0.0001 0.0007 0.0013]
+  mix minus none (demand, recent): [0.0001 0.0006 0.0011]
+
+correlation of past own loss rate with future loss rate: 0.359 | retail share with future: 0.627

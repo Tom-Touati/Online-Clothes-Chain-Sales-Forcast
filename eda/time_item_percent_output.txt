@@ -1,0 +1,53 @@
+A  time or item:
+   time 0.019
+   type_time 0.1
+   group_time 0.051
+   cell_time 0.402
+   item 0.135
+   item_sets [0.081, 0.141, 0.173, 0.146]
+   item_overlap 0.373
+   oracles [{'known': "each origin's total", 'wape': 0.3786, 'hit': 0.409, 'cut': 0.017, 'groups': 1}, {'known': "each product group's total at each origin", 'wape': 0.3695, 'hit': 0.418, 'cut': 0.04, 'groups': 6}, {'known': "each product type's total at each origin", 'wape': 0.3398, 'hit': 0.44, 'cut': 0.118, 'groups': 47}, {'known': 'each type × look total at each origin', 'wape': 0.254, 'hit': 0.556, 'cut': 0.34, 'groups': 249}]
+   past_corr [{'k': 0.25, 'wape': 0.4, 'hit': 0.41}, {'k': 0.5, 'wape': 0.4464, 'hit': 0.385}, {'k': 1.0, 'wape': 0.6138, 'hit': 0.306}]
+   system 0.3851
+   system_hit 0.417
+   worst5 {'n': 452, 'items': 207, 'origins': 9, 'episodes': 247, 'err': 0.422}
+   worst100 {'items': 58, 'origins': 8, 'episodes': 64, 'err': 0.179}
+   top_items [{'top': 0.01, 'items': 13, 'err': 0.116, 'units': 0.091}, {'top': 0.05, 'items': 64, 'err': 0.339, 'units': 0.306}, {'top': 0.1, 'items': 128, 'err': 0.497, 'units': 0.456}]
+   n_items 1280
+   under_range [0.325, 0.595]
+   bias_range [-0.164, 0.046]
+ origin   bias  under   abs    cut  worst5  n_worst
+2025-06 -0.097  0.456 0.287  0.005   0.064       49
+2025-07  0.005  0.354 0.270  0.001   0.071       58
+2025-08  0.044  0.325 0.313  0.045   0.090       78
+2025-09 -0.164  0.474 0.314  0.025   0.094       88
+2025-10 -0.111  0.484 0.283  0.001   0.077       77
+2025-11  0.046  0.416 0.219  0.053   0.032       34
+2025-12 -0.084  0.595 0.215  0.023   0.015       17
+2026-01 -0.088  0.577 0.233 -0.011   0.020       23
+2026-02 -0.116  0.567 0.260 -0.004   0.022       28
+
+B  both ways:
+                  wape_abs   ratio   bias  med_ape  mean_ape    hit  hit_units   male  top5_units  top5_pct  male_ratio  med_ape_ratio  mean_ape_ratio
+system                                                                                                                                                
+R3                   0.699  1.0000  0.154    0.576     0.779  0.181      0.192  0.698       0.388     0.129       1.000          1.000           1.000
+R3 + rules           0.341  0.4879 -0.064    0.304     0.410  0.348      0.379  0.414       0.422     0.218       0.593          0.528           0.526
+Submitted system     0.269  0.3851 -0.062    0.245     0.364  0.417      0.476  0.348       0.422     0.248       0.499          0.425           0.467
+ fifth  med_level  wape_abs  wape_abs_r3  med_ape  med_ape_r3   hit  err_units  err_pct  units
+     1       24.0     0.423        0.620    0.362       0.563 0.281      0.014    0.335  0.009
+     2       90.0     0.391        0.641    0.262       0.525 0.392      0.057    0.195  0.039
+     3      273.0     0.348        0.629    0.236       0.527 0.430      0.155    0.173  0.120
+     4      704.0     0.290        0.631    0.222       0.596 0.451      0.274    0.157  0.254
+     5     1880.0     0.233        0.748    0.186       0.696 0.532      0.500    0.141  0.579
+
+C  the tree member alone, by loss:
+                                                                                  ratio  wape_abs   bias    hit  hit_units  med_ape  mean_ape   male
+variant                                                                                                                                             
+Percentage loss, every item counts the same (D198; how the members are trained)  0.4315     0.302 -0.085  0.376      0.417    0.269     0.384  0.384
+Percentage loss, items weighted by volume^0.3                                    0.4241     0.296 -0.084  0.378      0.420    0.269     0.381  0.382
+Percentage loss, items weighted by volume^0.5                                    0.4256     0.297 -0.087  0.374      0.417    0.271     0.384  0.386
+Percentage loss, items weighted by volume                                        0.4410     0.308 -0.100  0.358      0.409    0.290     0.407  0.403
+Loss on units (Tweedie)                                                          0.4462     0.312 -0.007  0.369      0.428    0.282     0.429  0.401
+New features, every item the same (the submitted tree member)                    0.4299     0.300 -0.102  0.387      0.425    0.270     0.382  0.383
+New features, volume^0.3                                                         0.4248     0.297 -0.097  0.385      0.435    0.269     0.380  0.383
+saved

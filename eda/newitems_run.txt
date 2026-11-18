@@ -1,0 +1,19 @@
+2025-02 train rows 5544 test young items 231 | burst rate train 0.145
+2025-03 train rows 6584 test young items 219 | burst rate train 0.128
+2025-04 train rows 7720 test young items 200 | burst rate train 0.113
+2025-05 train rows 8928 test young items 201 | burst rate train 0.104
+2025-06 train rows 10256 test young items 195 | burst rate train 0.1
+2025-07 train rows 11572 test young items 191 | burst rate train 0.094
+2025-08 train rows 12892 test young items 213 | burst rate train 0.089
+2025-09 train rows 14232 test young items 265 | burst rate train 0.083
+2025-10 train rows 15564 test young items 277 | burst rate train 0.081
+2025-11 train rows 16880 test young items 310 | burst rate train 0.081
+2025-12 train rows 18236 test young items 318 | burst rate train 0.082
+2026-01 train rows 19720 test young items 314 | burst rate train 0.085
+2026-02 train rows 21248 test young items 339 | burst rate train 0.087
+           count     mean      std    min     25%      50%      75%        max
+tw        3273.0  3088.11  4896.48  10.28  417.12  1383.72  3740.33  100973.65
+mix       3273.0  2947.95  4510.24   9.94  377.20  1309.32  3611.38   53528.29
+nonburst  3273.0  2373.26  3417.43   3.80  329.19  1127.14  3036.66   49673.19
+q4        3273.0  2666.04  3553.26  16.10  390.87  1424.14  3573.85   49463.76
+p_any     3273.0     0.21     0.28   0.00    0.03     0.08     0.27       1.00

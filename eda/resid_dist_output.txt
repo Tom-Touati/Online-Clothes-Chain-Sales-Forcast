@@ -1,0 +1,16 @@
+2025-02 train 2558 items 626 5 s
+2025-03 train 3045 items 654 9 s
+2025-04 train 3577 items 686 14 s
+2025-05 train 4150 items 730 19 s
+2025-06 train 4776 items 768 24 s
+2025-07 train 5430 items 816 30 s
+2025-08 train 6116 items 867 36 s
+2025-09 train 6846 items 941 43 s
+2025-10 train 7614 items 1003 49 s
+2025-11 train 8430 items 1070 57 s
+2025-12 train 9297 items 1128 64 s
+2026-01 train 10238 items 1176 71 s
+2026-02 train 11241 items 1262 79 s
+add recent WAPE (median, mean, R3): [np.float64(0.4561), np.float64(0.4563), np.float64(0.6987)] | P10-P90 coverage 0.77
+log recent WAPE (median, mean, R3): [np.float64(0.3395), np.float64(0.3835), np.float64(0.6987)] | P10-P90 coverage 0.753
+logt recent WAPE (median, mean, R3): [np.float64(0.3389), np.float64(5.145836403045398e+17), np.float64(0.6987)] | P10-P90 coverage 0.771

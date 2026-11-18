@@ -1,0 +1,9 @@
+12m+: 43 targets live in June 2025 | own 2025 July/June 1.68 vs forecast 1.47 | own 2025 July share 0.267 vs forecast 0.269 | own 2025 Jul-Oct/June 6.31 vs forecast 5.47
+3-12 months no items live in June 2025
+3-12 months not live in June 2025: 42 items, forecast July/June 1.38, Jul-Oct/June 5.12, segments {'other': 37, 'Homecoming': 3, 'Halloween': 2}
+2025, 3-12 month items, June at >= 70% of peak: n=75, July/June 1.35, Jul-Oct/June 4.23
+2025, 3-12 month items, June at 35-70% of peak: n=84, July/June 1.55, Jul-Oct/June 5.75
+2025, 3-12 month items, June below 35% of peak: n=106, July/June 1.85, Jul-Oct/June 8.34
+2026 forecast, 3-12 month targets, June at >= 70% of peak: n=12, July/June 1.23, Jul-Oct/June 4.10
+2026 forecast, 3-12 month targets, June at 35-70% of peak: n=9, July/June 1.21, Jul-Oct/June 5.08
+2026 forecast, 3-12 month targets, June below 35% of peak: n=21, July/June 1.59, Jul-Oct/June 5.99

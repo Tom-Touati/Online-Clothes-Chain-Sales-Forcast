@@ -1,0 +1,75 @@
+locations {'partner': 7, 'store': 17, 'tiktok': 1, 'web': 1} | arrivals 20659 | with a launch index 16146
+
+1 all items: rank correlation with the residual (recent | all | origins with the same sign)
+   launch index on edikted.com                  +0.063 +0.068  11/13
+   launch index at partners                     +0.052 +0.015  8/13
+   launch index, spread between stores          +0.048 +0.053  13/13
+   partners reached                             +0.033 +0.015  9/13
+   partners not yet reached                     -0.033 -0.015  10/13
+   stores to come x launch index                -0.033 -0.028  10/13
+   launch index on TikTok                       +0.030 +0.039  11/13
+   days from web launch to first store          -0.024 -0.012  9/13
+   own stores reached                           +0.013 +0.035  7/13
+   share of the fleet reached                   +0.013 +0.035  7/13
+   stores not yet reached                       -0.013 -0.035  7/13
+   stores first reached in the last 28 days     +0.009 +0.051  10/13
+   launch index at the latest store             -0.009 -0.013  10/13
+   launch index at the first store              -0.008 -0.027  9/13
+   launch index, mean over its stores           -0.007 -0.021  10/13
+   units per store per day, vs the fleet        -0.003 +0.019  6/13
+
+1 launches under 6 months: rank correlation with the residual (recent | all | origins with the same sign)
+   launch index on TikTok                       +0.044 +0.039  8/13
+   launch index, spread between stores          +0.041 +0.062  11/13
+   own stores reached                           -0.033 +0.002  6/13
+   share of the fleet reached                   -0.033 +0.002  6/13
+   stores not yet reached                       +0.033 -0.002  6/13
+   launch index on edikted.com                  +0.031 +0.032  7/13
+   stores to come x launch index                -0.029 -0.036  9/13
+   days from web launch to first store          -0.027 -0.034  9/13
+   stores first reached in the last 28 days     +0.017 +0.067  9/13
+   launch index, mean over its stores           -0.011 -0.056  9/13
+   partners reached                             +0.011 -0.020  9/13
+   partners not yet reached                     -0.011 +0.020  9/13
+   units per store per day, vs the fleet        -0.005 -0.013  6/13
+   launch index at partners                     -0.005 -0.027  5/13
+   launch index at the first store              +0.002 -0.043  8/13
+   launch index at the latest store             -0.002 -0.025  7/13
+
+1 items in some stores, not all: rank correlation with the residual (recent | all | origins with the same sign)
+   launch index on edikted.com                  +0.121 +0.108  13/13
+   launch index at partners                     +0.060 +0.001  7/13
+   partners reached                             +0.056 +0.008  9/13
+   partners not yet reached                     -0.056 -0.008  9/13
+   launch index, spread between stores          +0.045 +0.070  11/13
+   launch index at the latest store             +0.020 -0.014  7/13
+   days from web launch to first store          -0.020 -0.010  9/13
+   launch index, mean over its stores           +0.018 -0.021  8/13
+   units per store per day, vs the fleet        +0.018 +0.015  8/13
+   stores first reached in the last 28 days     +0.016 +0.072  9/13
+   stores to come x launch index                -0.016 -0.031  9/13
+   own stores reached                           +0.014 -0.016  8/13
+   share of the fleet reached                   +0.014 -0.016  8/13
+   stores not yet reached                       -0.014 +0.016  8/13
+   launch index on TikTok                       +0.008 +0.012  5/13
+   launch index at the first store              +0.003 -0.032  8/13
+
+2 roll-out (stores added in the window >= 2): {'base_rate': 0.27, 'auc_base': 0.69, 'auc_launch': 0.699, 'rho_gap': -0.051}
+    {'g': 'in no store yet', 'n': 2289, 'roll': 0.142, 'bias': -0.195, 'units': 0.049}
+    {'g': 'in under half the fleet', 'n': 2266, 'roll': 0.203, 'bias': -0.209, 'units': 0.09}
+    {'g': 'in half to all but one', 'n': 2242, 'roll': 0.355, 'bias': -0.069, 'units': 0.289}
+    {'g': 'in every store', 'n': 2234, 'roll': 0.382, 'bias': -0.023, 'units': 0.572}
+   by predicted roll-out fifth: [{'q': 1, 'roll': 0.061, 'bias': 0.025}, {'q': 2, 'roll': 0.212, 'bias': -0.022}, {'q': 3, 'roll': 0.298, 'bias': -0.108}, {'q': 4, 'roll': 0.285, 'bias': -0.047}, {'q': 5, 'roll': 0.491, 'bias': -0.065}]
+
+3 time-honest residual correction (trained on earlier origins, origin total kept):
+                                           system   wape    hit   bias  wape_young  hit_young  bias_young
+                                 submitted system 0.3851 0.4170 -0.062      0.4236     0.4067      -0.062
++ correction on origin-known features (reference) 0.3876 0.4213 -0.062      0.4175     0.4182      -0.038
+               + correction with the launch block 0.3888 0.4207 -0.062      0.4232     0.4133      -0.039
+             the same, items under 12 months only 0.3869 0.4220 -0.062      0.4234     0.4158      -0.045
+                    launch block at full strength 0.4137 0.3960 -0.062      0.4468     0.3914      -0.013
+   launch block minus reference: [-0.0011, 0.0034] | launch block minus system: [-0.0015, 0.0084] | reference minus system: [-0.0031, 0.0078]
+   share of the residual model's gain from the launch block: 0.243 [{'f': 'disc_web', 'share': 0.15}, {'f': 'lf', 'share': 0.14}, {'f': 'spread', 'share': 0.138}, {'f': 'llv', 'share': 0.118}, {'f': 'size_run', 'share': 0.056}, {'f': 'launch index on edikted.com', 'share': 0.046}]
+
+4 a later store's launch from earlier stores: {'n': 3890, 'items': 929, 'corr': -0.101, 'corr_spear': -0.113, 'corr_first': -0.104, 'corr_web': 0.261, 'corr_by_nprev': [{'n_prev': '1 earlier store', 'corr': -0.02, 'n': 1612}, {'n_prev': '2-3', 'corr': -0.063, 'n': 1293}, {'n_prev': '4 or more', 'corr': 0.051, 'n': 985}], 'slope': -0.277, 'r2_out': -0.062, 'r2_out_web_only': -0.037, 'r2_out_both': 0.003, 'n_test': 3473, 'mdape_store_median': 1.5, 'mdape_with_earlier': 0.888, 'within30_store_median': 0.151, 'within30_with_earlier': 0.137, 'med_u14': 5.0, 'gap_days_median': 78.0, 'first_to_second_days': 9.0, 'share_with_14d_lead': 0.508, 'arrive_same_fortnight': 0.346}
+saved

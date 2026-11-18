@@ -1,0 +1,7 @@
+== stability: correlation of segment log-bias between consecutive origins
+  vol           lag-4 (non-overlapping) correlation of segment biases: mean +0.503
+  age           lag-4 (non-overlapping) correlation of segment biases: mean +0.364
+  disc          lag-4 (non-overlapping) correlation of segment biases: mean +nan
+  vol_age       lag-4 (non-overlapping) correlation of segment biases: mean +0.237
+  vol_age_disc  lag-4 (non-overlapping) correlation of segment biases: mean +nan
+saved without scoring (NOSCORE)

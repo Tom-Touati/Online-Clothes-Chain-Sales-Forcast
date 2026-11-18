@@ -1,0 +1,17 @@
+2024 June/May 0.4-0.8 n= 23: Jul/Jun median 1.47 | Jul-Oct/Jun median 6.67
+2024 June/May >= 0.8  n= 58: Jul/Jun median 1.39 | Jul-Oct/Jun median 4.51
+2025 June/May 0.4-0.8 n= 65: Jul/Jun median 1.52 | Jul-Oct/Jun median 5.72
+2025 June/May >= 0.8  n=169: Jul/Jun median 1.42 | Jul-Oct/Jun median 4.53
+
+targets with June/May < 0.4:
+                 may     jun  jun_may  fc_jul_jun  fc_total_jun  conf
+S15557_NAVY    570.0   134.0     0.24        1.60         17.00     3
+S19431_WHITE   888.0   155.0     0.17        1.81          6.43     3
+S20878_WHITE  5820.0  1376.0     0.24        1.72          5.97     3
+S22546_WHITE  3425.0  1135.0     0.33        1.23          4.16     2
+S23916_WHITE  3522.0  1308.0     0.37        1.46          6.95     3
+S15557_NAVY weekly May-June: [155, 158, 104, 127, 106, 58, 41, 19, 11, 5]
+S19431_WHITE weekly May-June: [217, 230, 253, 195, 133, 74, 21, 27, 24, 9]
+S20878_WHITE weekly May-June: [1328, 1533, 1506, 1334, 862, 483, 388, 273, 189, 43]
+S22546_WHITE weekly May-June: [689, 870, 843, 799, 635, 435, 294, 226, 142, 38]
+S23916_WHITE weekly May-June: [747, 856, 955, 763, 632, 423, 306, 287, 207, 85]

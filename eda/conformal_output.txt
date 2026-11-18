@@ -1,0 +1,21 @@
+   member      variant  pinball/y  cov80  cov50   WAPE
+     d198          raw     0.1231  0.675  0.394 0.3015
+     d198 global_tails     0.1319  0.799  0.507 0.3086
+     d198    seg_tails     0.1326  0.786  0.505 0.3119
+     d198   global_all     0.1366  0.799  0.499 0.3417
+     d198      seg_all     0.1379  0.786  0.489 0.3462
+     pfn2          raw     0.1327  0.777  0.476 0.3330
+     pfn2 global_tails     0.1264  0.747  0.505 0.3116
+     pfn2    seg_tails     0.1254  0.739  0.503 0.3107
+     pfn2   global_all     0.1350  0.712  0.431 0.3341
+     pfn2      seg_all     0.1338  0.701  0.413 0.3318
+  pfn2dyn          raw     0.1309  0.772  0.473 0.3285
+  pfn2dyn global_tails     0.1219  0.750  0.502 0.3013
+  pfn2dyn    seg_tails     0.1211  0.743  0.503 0.3000
+  pfn2dyn   global_all     0.1267  0.741  0.447 0.3172
+  pfn2dyn      seg_all     0.1259  0.731  0.433 0.3143
+pfn35fdyn          raw     0.1162  0.815  0.518 0.2906
+pfn35fdyn global_tails     0.1190  0.733  0.456 0.2891
+pfn35fdyn    seg_tails     0.1197  0.716  0.453 0.2937
+pfn35fdyn   global_all     0.1215  0.733  0.448 0.3059
+pfn35fdyn      seg_all     0.1231  0.715  0.436 0.3092

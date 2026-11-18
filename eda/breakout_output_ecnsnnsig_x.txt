@@ -1,0 +1,77 @@
+== 1 breakouts (e > 0.5, y >= 20), recent origins: rate, share of all error, F bias, by age band x Q4 months in the window
+                 n  brk_rate  brk_err_share  err_share   bias
+age_b n_q4                                                   
+<3m   0      384.0     0.193          0.025      0.048 -0.220
+      1      222.0     0.113          0.013      0.038 -0.058
+      2      227.0     0.181          0.032      0.058 -0.196
+      3      235.0     0.166          0.042      0.072 -0.200
+3-6m  0      587.0     0.082          0.009      0.042 -0.028
+      1      283.0     0.060          0.004      0.031  0.021
+      2      241.0     0.054          0.010      0.039 -0.011
+      3      243.0     0.041          0.010      0.043  0.129
+6-12m 0      768.0     0.154          0.024      0.063 -0.152
+      1      485.0     0.080          0.018      0.055 -0.056
+      2      513.0     0.105          0.024      0.070 -0.067
+      3      505.0     0.135          0.033      0.079 -0.105
+12m+  0     1827.0     0.094          0.017      0.089 -0.057
+      1      848.0     0.053          0.011      0.078  0.001
+      2      838.0     0.049          0.016      0.090 -0.012
+      3      825.0     0.047          0.020      0.106 -0.033
+
+== 2 AUC for breakout (recent, y >= 20 or F >= 20); > 0.5 = higher value, more breakouts
+-- young < 6 months: 2422 item-origins, breakout rate 0.110
+  age_m 0.32 | wk_live 0.32 | curve_fwd 0.66 | wk_recent 0.66 | wk_mom 0.64 | disc_rel 0.36 | pk_28 0.62 | pk_365_days 0.39 | disc_item 0.39 | wk_last 0.61 | pe_mom 0.60 | peak_r 0.41 | sh_drop 0.41 | pe_launch 0.58 | sh_ret 0.42 | curve_dev 0.43 | spread 0.57 | acc7 0.56 | lagr2 0.44 | lagr1 0.56 | pe_trend 0.45 | wk_peak 0.46 | promo_lift 0.54 | n_q4 0.48 | lagr3 0.49 | sh_tt 0.49 | pe_resid 0.50 | trend91 0.50
+-- all items: 8842 item-origins, breakout rate 0.095
+  disc_rel 0.40 | curve_fwd 0.60 | sh_ret 0.41 | disc_item 0.41 | curve_dev 0.42 | age_m 0.43 | pk_28 0.57 | wk_live 0.43 | wk_mom 0.57 | wk_last 0.56 | n_q4 0.45 | spread 0.55 | lagr1 0.54 | wk_peak 0.46 | trend91 0.47 | pk_anniv_dist 0.47 | own_sea 0.53 | pe_trend 0.47 | sh_drop 0.53 | wk_recent 0.53 | promo_lift 0.47 | pe_launch 0.53 | pk_365_days 0.48 | lagr2 0.48 | lagr3 0.48 | pe_resid 0.48 | sh_tt 0.49 | acc7 0.51 | pe_mom 0.51 | peak_r 0.51
+
+== 4 residual model: Spearman(rhat, e) recent +0.107 | young +0.125 | AUC breakout young 0.668
+
+######## nine recent origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.4879        0.4851     0.7110           0.5000             0.3958        0.4681 -0.0639
+F                            0.3911        0.4192     0.7609           0.5915             0.3115        0.3807 -0.0605
+seg_age_q4                   0.3944        0.4250     0.7552           0.5787             0.3257        0.3826 -0.0680
+seg_age_q4n                  0.3910        0.4216     0.7594           0.5911             0.3113        0.3810 -0.0605
+seg_age_q4_vol               0.3941        0.4221     0.7543           0.5835             0.3252        0.3820 -0.0680
+seg_age_q4_voln              0.3906        0.4193     0.7581           0.5930             0.3111        0.3804 -0.0605
+seg_age_bf                   0.3911        0.4207     0.7574           0.5864             0.3160        0.3799 -0.0696
+seg_age_bfn                  0.3906        0.4197     0.7602           0.5919             0.3111        0.3808 -0.0605
+res_all_0.5                  0.3980        0.4150     0.7519           0.5798             0.3461        0.3826 -0.0897
+res_young_0.5                0.3904        0.4180     0.7583           0.5885             0.3193        0.3807 -0.0618
+res_all_0.5n                 0.3847        0.4091     0.7569           0.5976             0.3076        0.3767 -0.0605
+res_all_1.0                  0.4327        0.4464     0.7315           0.5317             0.3942        0.4096 -0.1100
+res_young_1.0                0.3990        0.4263     0.7512           0.5751             0.3320        0.3874 -0.0600
+res_all_1.0n                 0.4039        0.4199     0.7447           0.5740             0.3191        0.3915 -0.0605
+
+######## all 13 origins
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.5090        0.5165     0.6899           0.5000             0.4398        0.4953 -0.0626
+F                            0.4410        0.4850     0.7319           0.5613             0.3883        0.4273 -0.0177
+seg_age_q4                   0.4436        0.4901     0.7275           0.5514             0.3989        0.4289 -0.0235
+seg_age_q4n                  0.4408        0.4871     0.7307           0.5609             0.3882        0.4276 -0.0177
+seg_age_q4_vol               0.4433        0.4876     0.7268           0.5551             0.3986        0.4284 -0.0234
+seg_age_q4_voln              0.4405        0.4851     0.7297           0.5624             0.3880        0.4271 -0.0177
+seg_age_bf                   0.4410        0.4863     0.7292           0.5573             0.3917        0.4267 -0.0246
+seg_age_bfn                  0.4405        0.4855     0.7313           0.5615             0.3880        0.4274 -0.0177
+res_all_0.5                  0.4465        0.4813     0.7249           0.5522             0.4143        0.4289 -0.0401
+res_young_0.5                0.4404        0.4839     0.7299           0.5590             0.3941        0.4273 -0.0187
+res_all_0.5n                 0.4358        0.4759     0.7288           0.5660             0.3854        0.4241 -0.0177
+res_all_1.0                  0.4743        0.5090     0.7092           0.5152             0.4503        0.4509 -0.0557
+res_young_1.0                0.4473        0.4913     0.7244           0.5486             0.4037        0.4328 -0.0173
+res_all_1.0n                 0.4512        0.4856     0.7194           0.5478             0.3940        0.4362 -0.0177
+
+== bootstrap vs F, recent
+  seg_age_q4         [0.0016 0.0029]
+  seg_age_q4n        [-0.0005  0.0002]
+  seg_age_q4_vol     [0.0013 0.0028]
+  seg_age_q4_voln    [-0.0008  0.    ]
+  seg_age_bf         [-0.0006  0.0006]
+  seg_age_bfn        [-0.0008 -0.    ]
+  res_all_0.5        [0.0016 0.0079]
+  res_young_0.5      [-0.0021  0.0012]
+  res_all_0.5n       [-0.0075 -0.0014]
+  res_all_1.0        [0.0233 0.0342]
+  res_young_1.0      [0.0023 0.0089]
+  res_all_1.0n       [0.0027 0.0144]

@@ -1,0 +1,176 @@
+C:\Users\tomto\workspaces\edikted\eda\91_score_context.py:22: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  T[f"rqn|{nm}"] = np.exp((np.log(T.rules.clip(lower=0.5)) + np.log(T[f"q|{nm}"].clip(lower=0.5)) + np.log(T.nn.clip(lower=0.5))) / 3)
+C:\Users\tomto\workspaces\edikted\eda\91_score_context.py:23: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  T["occ_tagged"] = T.occ == "tagged"
+R3 buying-simulation loss: 0.1953 of perfect-foresight profit (production policy, 11 windows)
+
+######## nine recent origins, all items: 9031 item-origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.283 | bias +0.154
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.4879        0.4851          0.7110                0.5000           0.3958        0.4643         -0.0639         0.6347
+quantile                 base (stored)     0.4548        0.4576          0.7362                0.5276           0.3692        0.4204         -0.0990         0.6563
+rules+quantile+NN        base (stored)     0.4326        0.4390          0.7563                0.5767           0.3438        0.4059         -0.0817         0.6062
+quantile                 +cpllm_cl         0.4654        0.4622          0.7276                0.5174           0.4034        0.4370         -0.1429            NaN
+rules+quantile+NN        +cpllm_cl         0.4357        0.4386          0.7552                0.5745           0.3533        0.4091         -0.0970            NaN
+quantile                 +cpllm_e          0.4366        0.4449          0.7419                0.5394           0.3456        0.4004         -0.0882            NaN
+rules+quantile+NN        +cpllm_e          0.4243        0.4350          0.7586                0.5821           0.3334        0.3966         -0.0786            NaN
+quantile                 +cpllm_t          0.4390        0.4607          0.7439                0.5270           0.3385        0.4122         -0.0670            NaN
+rules+quantile+NN        +cpllm_t          0.4258        0.4391          0.7585                0.5730           0.3326        0.4038         -0.0713            NaN
+quantile                 +cpllm_we         0.4355        0.4568          0.7419                0.5277           0.3425        0.4091         -0.0578            NaN
+rules+quantile+NN        +cpllm_we         0.4234        0.4410          0.7603                0.5788           0.3307        0.4051         -0.0685            NaN
+quantile                 +cpllm_wecl       0.4338        0.4532          0.7464                0.5344           0.3413        0.4116         -0.0880            NaN
+rules+quantile+NN        +cpllm_wecl       0.4243        0.4375          0.7599                0.5780           0.3334        0.4077         -0.0783            NaN
+quantile                 +nosea            0.6538        0.6923          0.6568                0.3809           0.5875        0.6107         -0.0285            NaN
+rules+quantile+NN        +nosea            0.4885        0.5047          0.7468                0.4975           0.4083        0.4848         -0.0689            NaN
+quantile                 +nosea_e          0.4669        0.4963          0.7368                0.5011           0.3607        0.4298          0.0038            NaN
+rules+quantile+NN        +nosea_e          0.4313        0.4554          0.7596                0.5654           0.3312        0.4079         -0.0487            NaN
+quantile                 +nosea_t          0.4665        0.5040          0.7358                0.4960           0.3649        0.4441          0.0035            NaN
+rules+quantile+NN        +nosea_t          0.4317        0.4549          0.7616                0.5626           0.3330        0.4197         -0.0486            NaN
+quantile                 +nosea_we         0.4665        0.5002          0.7345                0.5025           0.3685        0.4372          0.0174            NaN
+rules+quantile+NN        +nosea_we         0.4309        0.4539          0.7624                0.5638           0.3325        0.4135         -0.0442            NaN
+quantile                 +nosea_weor       0.4649        0.4983          0.7321                0.4984           0.3644        0.4429          0.0148            NaN
+rules+quantile+NN        +nosea_weor       0.4315        0.4542          0.7606                0.5606           0.3320        0.4188         -0.0450            NaN
+quantile                 +we               0.4471        0.4795          0.7325                0.5164           0.3469        0.4201         -0.0296            NaN
+rules+quantile+NN        +we               0.4263        0.4451          0.7600                0.5701           0.3268        0.4088         -0.0594            NaN
+
+######## nine recent, occasion-tagged items: 2155 item-origins
+   R3 itself: WAPE 0.571 | MAE+|bias| 0.860 | pinball 0.221 | bias +0.160
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.6463        0.5694          0.6747                0.5000           0.5711        0.6480         -0.0445            NaN
+quantile                 base (stored)     0.5483        0.5208          0.7318                0.5619           0.4694        0.5206         -0.0642            NaN
+rules+quantile+NN        base (stored)     0.5265        0.5018          0.7452                0.6158           0.4562        0.5182         -0.0581            NaN
+quantile                 +cpllm_cl         0.5566        0.5221          0.7128                0.5457           0.4972        0.5338         -0.0982            NaN
+rules+quantile+NN        +cpllm_cl         0.5270        0.4891          0.7452                0.6116           0.4597        0.5206         -0.0699            NaN
+quantile                 +cpllm_e          0.5387        0.5094          0.7313                0.5564           0.4704        0.5047         -0.0543            NaN
+rules+quantile+NN        +cpllm_e          0.5189        0.4904          0.7503                0.6195           0.4525        0.5089         -0.0556            NaN
+quantile                 +cpllm_t          0.5507        0.5295          0.7313                0.5499           0.4629        0.5188         -0.0455            NaN
+rules+quantile+NN        +cpllm_t          0.5242        0.4989          0.7508                0.6060           0.4526        0.5141         -0.0523            NaN
+quantile                 +cpllm_we         0.5433        0.5209          0.7304                0.5485           0.4580        0.5166         -0.0364            NaN
+rules+quantile+NN        +cpllm_we         0.5203        0.4992          0.7545                0.6148           0.4486        0.5167         -0.0497            NaN
+quantile                 +cpllm_wecl       0.5422        0.5217          0.7411                0.5545           0.4693        0.5186         -0.0625            NaN
+rules+quantile+NN        +cpllm_wecl       0.5215        0.4927          0.7550                0.6172           0.4526        0.5182         -0.0582            NaN
+quantile                 +nosea            0.6861        0.6765          0.6561                0.4733           0.6324        0.6607          0.0409            NaN
+rules+quantile+NN        +nosea            0.5617        0.5448          0.7364                0.5722           0.4981        0.5641         -0.0277            NaN
+quantile                 +nosea_e          0.5818        0.5791          0.7183                0.5267           0.5012        0.5528          0.0484            NaN
+rules+quantile+NN        +nosea_e          0.5304        0.5142          0.7564                0.6032           0.4595        0.5263         -0.0222            NaN
+quantile                 +nosea_t          0.5801        0.5770          0.7285                0.5271           0.4850        0.5494          0.0399            NaN
+rules+quantile+NN        +nosea_t          0.5311        0.5124          0.7564                0.6074           0.4545        0.5259         -0.0245            NaN
+quantile                 +nosea_we         0.5780        0.5759          0.7114                0.5248           0.4923        0.5483          0.0531            NaN
+rules+quantile+NN        +nosea_we         0.5296        0.5102          0.7582                0.6056           0.4535        0.5242         -0.0206            NaN
+quantile                 +nosea_weor       0.5786        0.5702          0.7128                0.5202           0.4881        0.5537          0.0475            NaN
+rules+quantile+NN        +nosea_weor       0.5314        0.5107          0.7550                0.5986           0.4548        0.5291         -0.0223            NaN
+quantile                 +we               0.5519        0.5467          0.7234                0.5434           0.4533        0.5218          0.0028            NaN
+rules+quantile+NN        +we               0.5240        0.5004          0.7578                0.6074           0.4494        0.5165         -0.0364            NaN
+
+######## nine recent, the 100 targets: 570 item-origins
+   R3 itself: WAPE 0.742 | MAE+|bias| 1.327 | pinball 0.312 | bias +0.111
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.4846        0.4984          0.7386                0.5000           0.3860        0.4418         -0.1328            NaN
+quantile                 base (stored)     0.4482        0.4247          0.7737                0.5719           0.3625        0.4036         -0.1691            NaN
+rules+quantile+NN        base (stored)     0.4246        0.4140          0.7877                0.6228           0.3468        0.3874         -0.1569            NaN
+quantile                 +cpllm_cl         0.4624        0.4249          0.7632                0.5456           0.4021        0.4313         -0.2106            NaN
+rules+quantile+NN        +cpllm_cl         0.4310        0.4170          0.7825                0.6053           0.3593        0.4000         -0.1717            NaN
+quantile                 +cpllm_e          0.4370        0.4109          0.7702                0.5807           0.3455        0.3855         -0.1560            NaN
+rules+quantile+NN        +cpllm_e          0.4185        0.3990          0.7895                0.6298           0.3378        0.3795         -0.1530            NaN
+quantile                 +cpllm_t          0.4313        0.4148          0.7754                0.5842           0.3398        0.4012         -0.1436            NaN
+rules+quantile+NN        +cpllm_t          0.4180        0.3992          0.7877                0.6088           0.3409        0.3924         -0.1485            NaN
+quantile                 +cpllm_we         0.4285        0.4160          0.7825                0.5754           0.3249        0.4003         -0.1306            NaN
+rules+quantile+NN        +cpllm_we         0.4151        0.3988          0.7912                0.6298           0.3352        0.3948         -0.1445            NaN
+quantile                 +cpllm_wecl       0.4327        0.4154          0.7737                0.5667           0.3460        0.4081         -0.1587            NaN
+rules+quantile+NN        +cpllm_wecl       0.4180        0.4030          0.7842                0.6070           0.3409        0.4016         -0.1539            NaN
+quantile                 +nosea            0.5995        0.5797          0.7053                0.4158           0.5311        0.5725         -0.1487            NaN
+rules+quantile+NN        +nosea            0.4746        0.4634          0.7912                0.5579           0.4087        0.4574         -0.1600            NaN
+quantile                 +nosea_e          0.4616        0.4427          0.7825                0.5509           0.3270        0.4101         -0.0772            NaN
+rules+quantile+NN        +nosea_e          0.4233        0.4161          0.7982                0.6386           0.3357        0.3872         -0.1279            NaN
+quantile                 +nosea_t          0.4534        0.4526          0.7930                0.5509           0.3399        0.4264         -0.0820            NaN
+rules+quantile+NN        +nosea_t          0.4193        0.4009          0.7965                0.6404           0.3394        0.4036         -0.1292            NaN
+quantile                 +nosea_we         0.4565        0.4371          0.7912                0.5702           0.3428        0.4235         -0.0646            NaN
+rules+quantile+NN        +nosea_we         0.4199        0.4047          0.7965                0.6351           0.3386        0.4007         -0.1237            NaN
+quantile                 +nosea_weor       0.4540        0.4471          0.7702                0.5579           0.3425        0.4302         -0.0684            NaN
+rules+quantile+NN        +nosea_weor       0.4203        0.4094          0.8000                0.6263           0.3397        0.4069         -0.1247            NaN
+quantile                 +we               0.4348        0.4294          0.7737                0.5702           0.3180        0.4063         -0.1093            NaN
+rules+quantile+NN        +we               0.4154        0.3999          0.7982                0.6053           0.3317        0.3957         -0.1379            NaN
+
+######## all 13 origins, all items: 11727 item-origins
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.270 | bias +0.133
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.5090        0.5165          0.6899                0.5000           0.4398        0.4825         -0.0626            NaN
+quantile                 base (stored)     0.5329        0.5427          0.6958                0.4988           0.4972        0.4938         -0.0259            NaN
+rules+quantile+NN        base (stored)     0.4763        0.4933          0.7355                0.5576           0.4183        0.4484         -0.0430            NaN
+quantile                 +cpllm_cl         0.5554        0.5490          0.6816                0.4880           0.5430        0.5237         -0.0701            NaN
+rules+quantile+NN        +cpllm_cl         0.4824        0.4918          0.7350                0.5566           0.4344        0.4533         -0.0593            NaN
+quantile                 +cpllm_e          0.5067        0.5224          0.7109                0.5119           0.4560        0.4636         -0.0229            NaN
+rules+quantile+NN        +cpllm_e          0.4659        0.4863          0.7386                0.5648           0.3981        0.4367         -0.0421            NaN
+quantile                 +cpllm_t          0.5256        0.5489          0.6976                0.4979           0.4971        0.4873          0.0121            NaN
+rules+quantile+NN        +cpllm_t          0.4716        0.4938          0.7392                0.5540           0.4092        0.4448         -0.0312            NaN
+quantile                 +cpllm_we         0.5109        0.5375          0.7061                0.5028           0.4710        0.4745          0.0062            NaN
+rules+quantile+NN        +cpllm_we         0.4672        0.4932          0.7412                0.5598           0.4032        0.4431         -0.0328            NaN
+quantile                 +cpllm_wecl       0.5089        0.5347          0.7107                0.5072           0.4626        0.4784         -0.0219            NaN
+rules+quantile+NN        +cpllm_wecl       0.4676        0.4905          0.7413                0.5602           0.4042        0.4459         -0.0419            NaN
+quantile                 +nosea            0.7631        0.7723          0.6095                0.3775           0.7510        0.7002          0.0413            NaN
+rules+quantile+NN        +nosea            0.5338        0.5529          0.7252                0.4932           0.4840        0.5178         -0.0348            NaN
+quantile                 +nosea_e          0.5438        0.5759          0.6989                0.4795           0.4912        0.4961          0.0569            NaN
+rules+quantile+NN        +nosea_e          0.4742        0.5059          0.7395                0.5503           0.3999        0.4442         -0.0168            NaN
+quantile                 +nosea_t          0.5692        0.6057          0.6775                0.4645           0.5600        0.5268          0.0857            NaN
+rules+quantile+NN        +nosea_t          0.4799        0.5122          0.7378                0.5424           0.4136        0.4586         -0.0085            NaN
+quantile                 +nosea_we         0.5464        0.5851          0.6923                0.4793           0.5124        0.5044          0.0749            NaN
+rules+quantile+NN        +nosea_we         0.4748        0.5068          0.7411                0.5474           0.4050        0.4502         -0.0111            NaN
+quantile                 +nosea_weor       0.5418        0.5862          0.6896                0.4724           0.5002        0.5045          0.0716            NaN
+rules+quantile+NN        +nosea_weor       0.4742        0.5082          0.7395                0.5420           0.4006        0.4550         -0.0118            NaN
+quantile                 +we               0.5302        0.5667          0.6936                0.4874           0.4939        0.4866          0.0378            NaN
+rules+quantile+NN        +we               0.4711        0.4987          0.7397                0.5517           0.4009        0.4440         -0.0229            NaN
+
+######## all 13, occasion-tagged: 2797 item-origins
+   R3 itself: WAPE 0.532 | MAE+|bias| 0.776 | pinball 0.207 | bias +0.071
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.6989        0.6271          0.6453                0.5000           0.6682        0.6880         -0.0519            NaN
+quantile                 base (stored)     0.6115        0.5989          0.6965                0.5542           0.5558        0.5750         -0.0406            NaN
+rules+quantile+NN        base (stored)     0.5842        0.5622          0.7147                0.6092           0.5388        0.5683         -0.0494            NaN
+quantile                 +cpllm_cl         0.6191        0.5928          0.6811                0.5399           0.5891        0.5910         -0.0866            NaN
+rules+quantile+NN        +cpllm_cl         0.5837        0.5467          0.7165                0.6089           0.5440        0.5697         -0.0654            NaN
+quantile                 +cpllm_e          0.5942        0.5672          0.7125                0.5556           0.5208        0.5532         -0.0441            NaN
+rules+quantile+NN        +cpllm_e          0.5744        0.5475          0.7243                0.6160           0.5238        0.5578         -0.0513            NaN
+quantile                 +cpllm_t          0.6179        0.6090          0.6907                0.5399           0.5481        0.5715         -0.0133            NaN
+rules+quantile+NN        +cpllm_t          0.5836        0.5601          0.7240                0.6006           0.5346        0.5629         -0.0409            NaN
+quantile                 +cpllm_we         0.6014        0.5873          0.7050                0.5467           0.5268        0.5644         -0.0227            NaN
+rules+quantile+NN        +cpllm_we         0.5780        0.5579          0.7276                0.6089           0.5270        0.5651         -0.0442            NaN
+quantile                 +cpllm_wecl       0.5977        0.5890          0.7147                0.5506           0.5286        0.5629         -0.0496            NaN
+rules+quantile+NN        +cpllm_wecl       0.5775        0.5540          0.7290                0.6110           0.5272        0.5636         -0.0530            NaN
+quantile                 +nosea            0.7311        0.7249          0.6364                0.4848           0.6840        0.6953         -0.0025            NaN
+rules+quantile+NN        +nosea            0.6110        0.5930          0.7115                0.5799           0.5666        0.6034         -0.0416            NaN
+quantile                 +nosea_e          0.6304        0.6307          0.6972                0.5248           0.5458        0.5927          0.0320            NaN
+rules+quantile+NN        +nosea_e          0.5842        0.5708          0.7294                0.6024           0.5290        0.5702         -0.0267            NaN
+quantile                 +nosea_t          0.6546        0.6700          0.6822                0.5120           0.5882        0.6010          0.0631            NaN
+rules+quantile+NN        +nosea_t          0.5915        0.5756          0.7276                0.5989           0.5373        0.5714         -0.0166            NaN
+quantile                 +nosea_we         0.6381        0.6489          0.6825                0.5248           0.5639        0.5927          0.0504            NaN
+rules+quantile+NN        +nosea_we         0.5877        0.5724          0.7286                0.5989           0.5331        0.5683         -0.0206            NaN
+quantile                 +nosea_weor       0.6339        0.6429          0.6818                0.5188           0.5461        0.5972          0.0470            NaN
+rules+quantile+NN        +nosea_weor       0.5869        0.5733          0.7276                0.5928           0.5280        0.5755         -0.0216            NaN
+quantile                 +we               0.6157        0.6216          0.6922                0.5352           0.5307        0.5708          0.0136            NaN
+rules+quantile+NN        +we               0.5827        0.5632          0.7297                0.6017           0.5286        0.5626         -0.0322            NaN
+
+== paired bootstrap, variant minus base (stored), nine recent origins: WAPE | pinball  (quantile model alone; three-way)
+-- nine recent origins, all items
+  +cpllm_cl q: WAPE [+0.0040, +0.0110] pinball [+0.0032, +0.0063] | 3way: WAPE [+0.0008, +0.0034] pinball [-0.0000, +0.0017]
+  +cpllm_e q: WAPE [-0.0170, -0.0085] pinball [-0.0071, -0.0043] | 3way: WAPE [-0.0071, -0.0045] pinball [-0.0035, -0.0017]
+  +cpllm_t q: WAPE [-0.0150, -0.0072] pinball [-0.0037, -0.0011] | 3way: WAPE [-0.0060, -0.0035] pinball [-0.0016, +0.0003]
+  +cpllm_we q: WAPE [-0.0183, -0.0083] pinball [-0.0045, -0.0017] | 3way: WAPE [-0.0081, -0.0049] pinball [-0.0013, +0.0008]
+  +cpllm_wecl q: WAPE [-0.0193, -0.0103] pinball [-0.0038, -0.0012] | 3way: WAPE [-0.0075, -0.0045] pinball [-0.0005, +0.0015]
+  +nosea   q: WAPE [+0.1296, +0.1480] pinball [+0.0508, +0.0573] | 3way: WAPE [+0.0353, +0.0428] pinball [+0.0208, +0.0238]
+  +nosea_e q: WAPE [+0.0025, +0.0152] pinball [+0.0006, +0.0047] | 3way: WAPE [-0.0030, +0.0012] pinball [-0.0005, +0.0015]
+  +nosea_t q: WAPE [+0.0024, +0.0146] pinball [+0.0048, +0.0086] | 3way: WAPE [-0.0029, +0.0015] pinball [+0.0028, +0.0050]
+  +nosea_we q: WAPE [+0.0018, +0.0155] pinball [+0.0027, +0.0066] | 3way: WAPE [-0.0037, +0.0010] pinball [+0.0010, +0.0033]
+  +nosea_weor q: WAPE [+0.0007, +0.0144] pinball [+0.0044, +0.0084] | 3way: WAPE [-0.0031, +0.0015] pinball [+0.0026, +0.0048]
+  +we      q: WAPE [-0.0115, +0.0006] pinball [-0.0017, +0.0017] | 3way: WAPE [-0.0066, -0.0024] pinball [-0.0003, +0.0019]
+-- nine recent, occasion-tagged items
+  +cpllm_cl q: WAPE [-0.0016, +0.0113] pinball [+0.0008, +0.0050] | 3way: WAPE [-0.0020, +0.0026] pinball [-0.0009, +0.0018]
+  +cpllm_e q: WAPE [-0.0117, +0.0016] pinball [-0.0056, -0.0014] | 3way: WAPE [-0.0066, -0.0020] pinball [-0.0035, -0.0008]
+  +cpllm_t q: WAPE [-0.0037, +0.0071] pinball [-0.0020, +0.0012] | 3way: WAPE [-0.0031, +0.0006] pinball [-0.0021, +0.0003]
+  +cpllm_we q: WAPE [-0.0090, +0.0046] pinball [-0.0028, +0.0011] | 3way: WAPE [-0.0057, -0.0010] pinball [-0.0017, +0.0010]
+  +cpllm_wecl q: WAPE [-0.0098, +0.0035] pinball [-0.0023, +0.0015] | 3way: WAPE [-0.0051, -0.0004] pinball [-0.0014, +0.0014]
+  +nosea   q: WAPE [+0.0636, +0.0923] pinball [+0.0265, +0.0355] | 3way: WAPE [+0.0147, +0.0255] pinball [+0.0080, +0.0122]
+  +nosea_e q: WAPE [+0.0096, +0.0321] pinball [+0.0039, +0.0108] | 3way: WAPE [-0.0012, +0.0058] pinball [+0.0003, +0.0036]
+  +nosea_t q: WAPE [+0.0088, +0.0298] pinball [+0.0035, +0.0096] | 3way: WAPE [-0.0005, +0.0062] pinball [+0.0001, +0.0032]
+  +nosea_we q: WAPE [+0.0073, +0.0297] pinball [+0.0028, +0.0097] | 3way: WAPE [-0.0014, +0.0057] pinball [-0.0003, +0.0028]
+  +nosea_weor q: WAPE [+0.0085, +0.0290] pinball [+0.0040, +0.0110] | 3way: WAPE [-0.0003, +0.0068] pinball [+0.0007, +0.0041]
+  +we      q: WAPE [-0.0067, +0.0130] pinball [-0.0024, +0.0036] | 3way: WAPE [-0.0043, +0.0018] pinball [-0.0019, +0.0011]

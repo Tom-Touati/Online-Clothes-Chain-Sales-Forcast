@@ -1,0 +1,135 @@
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+C:\Users\tomto\workspaces\edikted\eda\154_regional.py:49: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  ct = cw.sum(1).replace(0, np.nan); sw = cw.sum(); f["clim_warm_rel"] = (cw.get("warm", 0) / ct - sw.get("warm", 0) / sw.sum()).values
+== 1. share of online units
+{'MW': 0.169, 'NE': 0.277, 'S': 0.275, 'W': 0.277, 'other': 0.002} {'cold': 0.514, 'mid': 0.273, 'warm': 0.213}
+
+== seasonal timing: each region's monthly units of a group / its own Jan-Dec 2025 mean (warm and summer-type groups)
+-- bottom
+m    2025-01  2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02  2026-03  2026-04  2026-05  2026-06
+reg                                                                                                                                                                  
+NE      0.65     0.67     0.75     0.68     0.87     0.72     1.10     1.44     0.90     1.01     1.79     1.43     0.75     0.74     0.88     0.84     0.92     0.89
+MW      0.61     0.73     0.69     0.56     0.74     0.67     1.33     1.44     0.88     1.17     1.80     1.38     0.80     0.88     0.99     0.84     0.88     0.94
+S       0.73     0.74     0.68     0.56     0.64     0.61     1.19     1.34     1.07     1.05     1.91     1.48     0.93     0.81     0.87     0.80     0.76     0.73
+W       0.73     0.76     0.83     0.66     0.75     0.71     1.18     1.26     0.95     0.98     1.84     1.34     0.79     0.77     1.01     0.80     0.75     0.74
+-- dress
+m    2025-01  2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02  2026-03  2026-04  2026-05  2026-06
+reg                                                                                                                                                                  
+NE      0.68     0.67     0.76     0.74     0.92     0.79     1.16     1.06     1.10     0.97     1.86     1.29     1.25     1.26     1.62     1.83     1.90     1.47
+MW      0.65     0.71     0.66     0.61     0.78     0.74     1.32     1.17     1.46     1.14     1.66     1.10     1.31     1.58     1.85     2.05     1.75     1.24
+S       0.63     0.63     0.61     0.63     0.75     0.66     1.06     1.24     1.51     1.10     1.92     1.27     1.19     1.21     1.40     1.53     1.45     1.03
+W       0.61     0.58     0.73     0.76     0.99     0.87     1.17     1.15     1.35     0.96     1.70     1.15     1.16     1.16     1.79     1.78     2.04     1.20
+-- na
+m    2026-06
+reg         
+NE       NaN
+MW       NaN
+S        NaN
+W        NaN
+-- other
+m    2025-01  2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02  2026-03  2026-04  2026-05  2026-06
+reg                                                                                                                                                                  
+NE      0.64     0.60     0.67     0.57     0.67     0.86     0.94     1.03     0.75     0.86     2.42     2.00     1.11     0.90     0.93     0.78     0.84     0.80
+MW      0.53     0.57     0.59     0.45     0.60     0.75     1.30     1.05     0.78     1.26     2.28     1.84     1.11     1.01     0.97     0.77     0.79     0.88
+S       0.65     0.59     0.58     0.50     0.59     0.77     1.05     1.08     1.08     0.96     2.30     1.85     1.33     1.02     0.97     0.92     0.83     0.79
+W       0.62     0.65     0.79     0.66     0.67     0.91     1.10     1.04     0.83     0.84     2.18     1.70     1.06     0.90     1.15     0.96     0.80     0.79
+-- swim
+m    2025-01  2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02  2026-03  2026-04  2026-05  2026-06
+reg                                                                                                                                                                  
+NE      0.24     0.30     0.54     1.05     1.36     2.47     1.71     0.96     0.44     0.47     1.15     1.32     0.92     1.33     2.77     1.87     2.85     4.21
+MW      0.23     0.33     0.55     0.79     1.24     2.39     1.38     0.88     0.57     0.90     1.30     1.45     1.22     1.83     3.75     2.00     2.84     4.61
+S       0.20     0.31     0.61     1.12     1.44     2.24     1.40     1.03     1.01     0.71     0.97     0.96     0.85     1.57     3.98     2.48     3.36     4.37
+W       0.15     0.19     0.60     1.14     1.42     2.43     1.50     1.22     1.05     0.68     0.85     0.79     0.68     1.01     3.58     2.08     2.63     3.85
+-- top
+m    2025-01  2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02  2026-03  2026-04  2026-05  2026-06
+reg                                                                                                                                                                  
+NE      0.60     0.62     0.71     0.66     0.88     0.75     1.12     1.34     0.91     0.88     1.97     1.55     0.82     0.85     0.99     0.96     1.07     1.09
+MW      0.59     0.74     0.71     0.54     0.75     0.71     1.28     1.34     0.87     1.23     1.85     1.40     0.88     1.00     1.08     0.95     1.00     1.17
+S       0.64     0.69     0.69     0.57     0.70     0.68     1.18     1.32     1.10     0.96     1.98     1.49     1.00     0.96     1.03     1.00     0.99     1.05
+W       0.65     0.71     0.82     0.66     0.81     0.80     1.21     1.24     0.92     0.86     1.93     1.38     0.88     0.91     1.15     0.95     0.91     1.06
+-- warm
+m    2025-01  2025-02  2025-03  2025-04  2025-05  2025-06  2025-07  2025-08  2025-09  2025-10  2025-11  2025-12  2026-01  2026-02  2026-03  2026-04  2026-05  2026-06
+reg                                                                                                                                                                  
+NE      0.98     0.86     0.62     0.32     0.26     0.19     0.31     0.61     0.57     0.79     3.46     3.03     1.69     1.39     0.87     0.45     0.32     0.20
+MW      0.84     0.79     0.50     0.26     0.23     0.19     0.42     0.60     0.53     1.02     3.58     3.04     1.92     1.55     0.97     0.50     0.35     0.28
+S       1.11     0.79     0.50     0.24     0.22     0.21     0.50     0.50     0.51     0.76     3.51     3.13     2.15     1.63     0.82     0.45     0.34     0.29
+W       1.05     1.00     0.76     0.36     0.34     0.25     0.47     0.52     0.52     0.80     3.17     2.75     1.82     1.48     1.10     0.51     0.41     0.29
+
+== 2. are item trends national?  (items with >= 30 units in every region in the last 3 months)
+ origin  items  corr_between_regions  var_explained_by_national  lead_NE  lead_MW  lead_S  lead_W
+2024-04    161                 0.712                      0.718   -0.041    0.061   0.080  -0.021
+2024-05    163                 0.705                      0.715   -0.169   -0.015  -0.057  -0.068
+2024-06    174                 0.631                      0.656   -0.233   -0.126  -0.098  -0.098
+2024-07    206                 0.757                      0.766   -0.190   -0.104  -0.016  -0.032
+2024-08    234                 0.772                      0.781   -0.047   -0.056  -0.019  -0.108
+2024-09    279                 0.785                      0.800    0.069   -0.015  -0.058  -0.152
+2024-10    298                 0.722                      0.729    0.036    0.014  -0.085  -0.053
+2024-11    365                 0.684                      0.710   -0.094    0.000  -0.019  -0.043
+2024-12    376                 0.596                      0.631   -0.085   -0.071  -0.029  -0.070
+2025-01    381                 0.603                      0.610   -0.073   -0.086  -0.160  -0.131
+2025-02    376                 0.654                      0.656    0.003   -0.002  -0.038  -0.040
+2025-03    387                 0.657                      0.648   -0.036    0.031  -0.063  -0.051
+2025-04    395                 0.721                      0.725    0.010    0.025  -0.030  -0.115
+2025-05    392                 0.679                      0.698   -0.035    0.000  -0.039  -0.074
+2025-06    373                 0.639                      0.657   -0.097   -0.061  -0.092  -0.060
+2025-07    431                 0.673                      0.686   -0.209   -0.072  -0.029  -0.115
+2025-08    478                 0.672                      0.696   -0.039   -0.027   0.021  -0.082
+2025-09    528                 0.694                      0.712    0.096   -0.008  -0.001  -0.088
+2025-10    542                 0.707                      0.717    0.133    0.085  -0.111  -0.042
+2025-11    644                 0.583                      0.603   -0.018    0.017   0.016  -0.034
+2025-12    678                 0.507                      0.528   -0.031   -0.076  -0.042  -0.087
+2026-01    654                 0.594                      0.613    0.002   -0.048  -0.210  -0.126
+2026-02    629                 0.634                      0.657   -0.015    0.016  -0.181  -0.129
+mean: {'items': 397.565, 'corr_between_regions': 0.669, 'var_explained_by_national': 0.683, 'lead_NE': -0.046, 'lead_MW': -0.022, 'lead_S': -0.055, 'lead_W': -0.079}
+saved data/region_feats.parquet

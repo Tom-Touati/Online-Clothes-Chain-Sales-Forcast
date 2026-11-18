@@ -1,0 +1,36 @@
+ trial  est  temp   cap  abs_   crit  alone  mean5  secs
+     0   32 0.900     0     0 0.6421 0.6920 0.5922  1252
+     1    8 0.839 10000     1 0.6601 0.7238 0.5963   322
+     2   16 0.570 10000     0 0.6476 0.7014 0.5938   635
+     3    8 0.615     0     0 0.6614 0.7262 0.5966   321
+     4   16 0.994     0     0 0.6471 0.7005 0.5937   639
+     5    8 0.752 10000     1 0.6601 0.7238 0.5963   326
+     6    8 0.696  6000     1 0.6630 0.7303 0.5958   304
+     7   16 1.281  3000     1 0.7143 0.8152 0.6133   293
+     8   32 1.039     0     0 0.6420 0.6919 0.5922  1238
+     9   32 1.263 10000     0 0.6419 0.6916 0.5923  1239
+    10    4 0.960 10000     0 0.6473 0.7003 0.5942   164
+    11   32 1.251     0     0 0.6420 0.6916 0.5923  1237
+    12   32 1.201 10000     0 0.6420 0.6917 0.5923  1763
+    13   32 1.232     0     1 0.6408 0.6897 0.5920  1242
+    14   32 1.173  6000     1 0.6427 0.6937 0.5918  1195
+best: {'best': {'trial': 13, 'est': 32, 'temp': 1.232, 'cap': 0, 'abs_': 1, 'crit': 0.64084, 'alone': 0.68973, 'mean5': 0.59196, 'secs': 1242}, 'base': {'trial': 0, 'est': 32, 'temp': 0.9, 'cap': 0, 'abs_': 0, 'crit': 0.64209, 'alone': 0.69198, 'mean5': 0.5922, 'secs': 1252}, 'n': 15, 'n_ok': 15, 'note': "stopped after trial 14 at Fork 2's request"}
+reproduction: stored member's criterion on the tune origins 0.6417 | trial 0 (current settings rerun on the GPU) 0.6421
+                          view   period  current  tuned    diff  hit_current  hit_tuned  gmrae_current  gmrae_tuned
+                  member alone     tune   0.6912 0.6897 -0.0014        0.285      0.286          0.806        0.802
+                  member alone held out   0.3432 0.3418 -0.0014        0.411      0.412          0.387        0.383
+                  member alone   recent   0.4626 0.4614 -0.0012        0.365      0.366          0.494        0.489
+                  member alone   all 13   0.5149 0.5135 -0.0014        0.346      0.346          0.566        0.562
+                  member alone    early   0.7272 0.7247 -0.0024        0.280      0.280          0.897        0.895
+system (submitted corrections)     tune   0.5888 0.5887 -0.0002        0.338      0.338          0.657        0.656
+system (submitted corrections) held out   0.2948 0.2947 -0.0001        0.449      0.450          0.345        0.346
+system (submitted corrections)   recent   0.3851 0.3850 -0.0001        0.417      0.418          0.413        0.413
+system (submitted corrections)   all 13   0.4399 0.4397 -0.0001        0.391      0.392          0.482        0.482
+system (submitted corrections)    early   0.6623 0.6621 -0.0003        0.305      0.305          0.811        0.811
+system difference, 95% interval: {'held out': [-0.0002, -0.0], 'recent': [-0.0002, -0.0], 'all 13': [-0.0003, -0.0]}
+without last year:
+period  alone_current_ly  alone_tuned_ly  sys_current_ly  sys_tuned_ly  deg_current  deg_tuned
+recent            0.9480          0.9379          0.4643        0.4629       0.4854     0.4765
+all 13            0.9748          0.9631          0.5150        0.5132       0.4600     0.4497
+tuned member P25-P75 inside (recent): 0.542
+saved

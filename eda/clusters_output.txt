@@ -1,0 +1,30 @@
+attribute columns 514 | LLM scores 14
+2024-03 alive 248 | comove items 0 | 1s
+2024-04 alive 270 | comove items 0 | 1s
+2024-05 alive 294 | comove items 0 | 1s
+2024-06 alive 325 | comove items 208 | 2s
+2024-07 alive 356 | comove items 225 | 2s
+2024-08 alive 395 | comove items 247 | 2s
+2024-09 alive 435 | comove items 269 | 3s
+2024-10 alive 487 | comove items 292 | 3s
+2024-11 alive 529 | comove items 323 | 3s
+2024-12 alive 572 | comove items 355 | 4s
+2025-01 alive 626 | comove items 395 | 4s
+2025-02 alive 652 | comove items 433 | 5s
+2025-03 alive 679 | comove items 486 | 5s
+2025-04 alive 730 | comove items 528 | 6s
+2025-05 alive 766 | comove items 572 | 6s
+2025-06 alive 809 | comove items 622 | 7s
+2025-07 alive 864 | comove items 650 | 7s
+2025-08 alive 944 | comove items 676 | 8s
+2025-09 alive 1003 | comove items 729 | 9s
+2025-10 alive 1075 | comove items 765 | 9s
+2025-11 alive 1128 | comove items 807 | 10s
+2025-12 alive 1180 | comove items 864 | 11s
+2026-01 alive 1281 | comove items 944 | 12s
+2026-02 alive 1325 | comove items 1003 | 13s
+2026-03 alive 1378 | comove items 1075 | 14s
+2026-04 alive 1414 | comove items 1128 | 14s
+2026-05 alive 1480 | comove items 1179 | 15s
+2026-06 alive 1500 | comove items 1280 | 17s
+saved

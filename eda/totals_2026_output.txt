@@ -1,0 +1,50 @@
+        level  third     lo    hi   hit   n     f_min      f_max  june_hit
+product group      0 -0.086 0.218 0.870  54 15549.681 909192.091     0.833
+ product type      0 -0.386 0.412 0.500 108   474.646  18991.209     0.364
+ product type      1 -0.295 0.298 0.614 101  9723.124  83564.646     0.636
+ product type      2 -0.094 0.211 0.876 105 49907.503 375624.290     0.727
+         look      0 -0.518 0.302 0.534 103   135.881  55235.624     0.400
+         look      1 -0.169 0.344 0.691  97 26880.372 113430.636     0.800
+         look      2 -0.168 0.260 0.772 101 56100.755 249921.354     0.600
+
+product group:
+        level  group  items  forecast     R3  targets_forecast     P10     P90  backtest_hit20  size_third contents
+product group    top    501   1202386 972052            241220 1103142 1495049            0.87           1         
+product group bottom    376    932337 728919            208369  855382 1159269            0.87           1         
+product group   warm    222    368110 195009            105252  337727  457709            0.87           1         
+product group  dress    153    176640 179540             55858  162060  219635            0.87           1         
+product group  other    129    163946 132623              2014  150414  203851            0.87           1         
+product group   swim     42     45107  67813              7759   41384   56087            0.87           1         
+
+product type:
+       level       group  items  forecast     R3  targets_forecast    P10    P90  backtest_hit20  size_third contents
+product type    Tank Top    111    415561 345245             81781 378416 513177           0.876           3         
+product type         Top    184    381521 335821             66095 347419 471141           0.876           3         
+product type      Shorts    112    303836 250289             70732 276677 375207           0.876           3         
+product type     T-Shirt     86    240319 144821             68728 218837 296770           0.876           3         
+product type       Jeans     85    238210 152689             68537 216917 294166           0.876           3         
+product type       Dress    153    176640 179540             55858 160851 218133           0.876           3         
+product type       Skort     62    149656 113817              9271 136279 184811           0.876           3         
+product type      Hoodie     59    129182  74868             47179 117634 159527           0.876           3         
+product type     Sweater     66    104077  50015             30847  94774 128525           0.876           3         
+product type  Sweatpants     55     96154  47749             15736  87559 118740           0.876           3         
+product type Short Jeans     31     88140 100757              7823  80261 108844           0.876           3         
+product type       Skirt     50     84235  65365             30005  76705 104022           0.876           3         
+
+look:
+level       group  items  forecast     R3  targets_forecast    P10    P90  backtest_hit20  size_third                                                                                 contents
+ look 2026-06_L11     36    220057 148577             33992 186070 285511           0.772           3 Tank Top 66%; T-Shirt 16%; Short Jeans 10% | largest: Vikkey Lacey Satin Effect Tank Top
+ look 2026-06_L30     21    180436  58551             53271 152568 234105           0.772           3           T-Shirt 47%; Tank Top 30%; Shorts 23% | largest: USA Babe Off Shoulder T Shirt
+ look  2026-06_L2     45    170160 150824             31728 143880 220774           0.772           3                 Top 74%; Tank Top 9%; Crop Top 6% | largest: Flutter Plunging V Neck Top
+ look 2026-06_L27     33    162081 147249             20351 137048 210291           0.772           3             Skort 45%; Short Jeans 27%; Skirt 19% | largest: Bayside Slitted Micro Skort
+ look  2026-06_L8     37    157001 148857             26624 132753 203700           0.772           3                     Shorts 42%; Tank Top 25%; T-Shirt 20% | largest: Basic Babe Tank Top
+ look 2026-06_L21     54    153041 102431             56890 129405 198563           0.772           3           Jeans 98%; Short Jeans 2%; Sweatpants 0% | largest: Roman Low Rise Baggy Jeans
+ look 2026-06_L10     49    140704 124137             27844 118973 182556           0.772           3                   Tank Top 24%; Top 24%; Corset 15% | largest: Aisha Low Rise Mini Skirt
+ look 2026-06_L33     45    129015 119063             34142 109090 167390           0.772           3        Top 44%; Tank Top 42%; Knitted Top 4% | largest: Rhian Lacey Pleated Babydoll Top
+ look 2026-06_L14     34     97684  52577             42046  82597 126740           0.772           3      Sweatpants 56%; Hoodie 42%; Pants 2% | largest: Basic Girl Oversized Edikted Hoodie
+ look 2026-06_L29     24     96231  61929             44767  81368 124854           0.772           3                  Hoodie 29%; Sweater 29%; Shorts 21% | largest: Chelsie Polka Dot Hoodie
+ look 2026-06_L39     25     95430  62900             15984  80691 123815           0.772           3            Pants 29%; Shorts 24%; Jeans 20% | largest: Milene Contrast Terry Capri Pants
+ look 2026-06_L22     40     89977  79952             34999  76080 116740           0.772           3    Shorts 63%; Top 21%; Short Jeans 7% | largest: Washed Faux Leather Micro Cargo Shorts
+
+all items: 2888527 | targets: 620472
+saved

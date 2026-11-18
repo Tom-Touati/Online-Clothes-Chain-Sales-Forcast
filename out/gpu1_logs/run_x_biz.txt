@@ -1,0 +1,18 @@
+panel: 238322 rows, 26568 item x location pairs, 1483 items, 31 locations; months 2024-01..2026-06
+loss logl1 | weight power 0.0 | device cuda | item inputs 82
+rows built in 2 s {'biz': 1122015}
+2025-02 biz: train 113406 rows | test 30192 rows | 117 s
+2025-03 biz: train 137068 rows | test 32213 rows | 680 s
+2025-04 biz: train 162838 rows | test 34401 rows | 1277 s
+2025-05 biz: train 190324 rows | test 37157 rows | 1907 s
+2025-06 biz: train 220516 rows | test 38845 rows | 2543 s
+2025-07 biz: train 252729 rows | test 41688 rows | 3176 s
+2025-08 biz: train 287130 rows | test 45024 rows | 3818 s
+2025-09 biz: train 324287 rows | test 48663 rows | 4471 s
+2025-10 biz: train 363132 rows | test 53523 rows | 5119 s
+2025-11 biz: train 404820 rows | test 58403 rows | 5769 s
+2025-12 biz: train 449844 rows | test 61519 rows | 6431 s
+2026-01 biz: train 498507 rows | test 64102 rows | 7096 s
+2026-02 biz: train 552030 rows | test 71352 rows | 7771 s
+2026-06 biz: train 807406 rows | test 81192 rows | 8486 s
+saved (13150, 6) 8486 s

@@ -1,0 +1,24 @@
+            JulOct_Jun               item_median               jul_share              
+year              2024  2025 2026 fc        2024  2025 2026 fc      2024  2025 2026 fc
+group                                                                                 
+12m+              4.47  5.28    5.52        4.63  4.74    6.26      0.30  0.30    0.27
+3-12 months       5.75  5.61    5.12        6.32  5.81    5.43      0.27  0.27    0.27
+World Cup          NaN   NaN    3.38         NaN   NaN    3.45       NaN   NaN    0.37
+launch <3m        8.39  5.35    3.81        5.91  4.42    4.16      0.24  0.32    0.33
+swimwear          2.00  1.71    1.72        1.82  1.81    1.85      0.57  0.43    0.48
+
+June 2025 origin backtest, P50 by group:
+                 n   bias  median_ratio
+grp                                    
+12m+         315.0 -0.042         1.139
+3-12 months  340.0 -0.022         1.079
+launch <3m    88.0  0.053         1.142
+swimwear      25.0  1.329         2.251
+
+June 2025 origin, monthly model: July share of Jul-Oct, predicted vs actual:
+             pred_jul_share  act_jul_share
+grp                                       
+12m+                  0.282          0.295
+3-12 months           0.274          0.271
+launch <3m            0.297          0.335
+swimwear              0.315          0.440

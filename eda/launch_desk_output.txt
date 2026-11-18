@@ -1,0 +1,22 @@
+items launched in the last 6 months: 307 | of them targets: 24 | own stores now: median 11.0
+young items with room for 5+ more doors: 154
+                                                                   name            ptype  age_m  cur_stores_b3     R3  system_forecast  web only (no new doors or partners)  partial roll-out  full roll-out (all 16 doors, +2 partners)
+style_color                                                                                                                                                                                                                             
+S24354_NAVY-AND-WHITE                   Briarie Striped Knit V Neck Top      Knitted Top    1.5            0.0  386.7           1142.0                               1142.0            1318.0                                     1367.0
+S25076_CREAM                                      Daniella Tie Crop Top         Crop Top    1.2            0.0  288.0            877.0                                877.0            1085.0                                     1148.0
+S23771_LIGHT-PINK                  Edikted Studio Rhinestone Sweatpants       Sweatpants    1.6            0.0  194.7            841.0                                841.0            1004.0                                     1041.0
+S23954_GRAY-MELANGE                 Donia Cutout Beaded String Tank Top         Tank Top    1.0            0.0  150.7            610.0                                610.0             755.0                                      799.0
+S24935_WHITE-AND-GREEN        Cindee Contrast Striped Babydoll Tank Top         Tank Top    1.4            0.0  238.7            568.0                                568.0             737.0                                      787.0
+S24880_BLUE-AND-WHITE                   Alvera Lacey Striped V Neck Top              Top    1.0            0.0  112.0            558.0                                558.0             687.0                                      721.0
+S22165_PINK                            Rhinestone Sheer Lace Mini Dress            Dress    2.5            0.0  205.3            519.0                                519.0             616.0                                      640.0
+S24284_BLUE-VINTAGE-WASHED                  Heidie Low Rise Baggy Jeans            Jeans    1.1            0.0  125.3            513.0                                513.0             569.0                                      588.0
+S23277_LIGHT-BLUE                  Button Foldover Low Rise Baggy Jeans            Jeans    1.4            0.0  112.0            486.0                                486.0             612.0                                      640.0
+ACC2388_SILVER                                 Textured Oval Chain Belt             Belt    1.4            0.0  153.3            454.0                                454.0             590.0                                      626.0
+S24684_WHITE                         Lazuz Crochet High Neck Mini Dress            Dress    1.6            0.0  242.7            454.0                                454.0             574.0                                      611.0
+S23008_DARK-BROWN           Jaxson Oversized Faux Leather Bomber Jacket           Jacket    5.8            0.0  233.3            447.0                                447.0             521.0                                      544.0
+S23479_PURPLE                     Kiena Spiral Cutout Halter Mini Dress            Dress    3.8            0.0  256.0            431.0                                431.0             527.0                                      559.0
+S20644_GREEN                               Elenie Fringed Cowl Neck Top              Top    1.4            0.0  124.0            419.0                                419.0             567.0                                      604.0
+S22549_BLUE                           Grace Sequin String Bikini Bottom  Swimwear Bottom    4.2            0.0  730.7            411.0                                411.0             528.0                                      572.0
+{'n_young': 307, 'n_target_young': 24, 'room5': 154, 'targets_room': 0, 'full_vs_web_room5': 1.258, 'partial_vs_web_room5': 1.187, 'full_vs_web_targets': 1.018, 'web_vs_system_all': 1.0}
+template: data/plan_template_2026.csv
+saved

@@ -1,0 +1,40 @@
+A  stores reached as a known future (time-honest, origin total kept):
+                                                          variant   wape   hit                 ci          hit_ci       d
+                                                 submitted system 0.3851 0.417                NaN             NaN     NaN
+                  correction on origin-known features (reference) 0.3876 0.421                NaN             NaN     NaN
+          + stores added in the window, stores reached at its end 0.3767 0.433 [-0.0154, -0.0067]  [0.004, 0.019] -0.0110
+                                         + partners added as well 0.3766 0.433 [-0.0157, -0.0065]  [0.003, 0.019] -0.0110
++ the whole distribution block (stores, partners, channel shifts) 0.3740 0.432 [-0.0185, -0.0089]  [0.003, 0.019] -0.0136
+                        + the store counts, off by about 2 stores 0.3807 0.424  [-0.0096, -0.004] [-0.003, 0.008] -0.0069
+                          g    n  units  wape_ref  wape_k  bias_ref  bias_k  hit_ref  hit_k
+    launches under 3 months 1068  0.162    0.5476  0.5207    -0.061  -0.051    0.340  0.365
+items that gained 2+ stores 2434  0.584    0.4988  0.4901    -0.136  -0.088    0.444  0.458
+items that gained 5+ stores  610  0.148    0.5721  0.5323    -0.258  -0.178    0.318  0.364
+       stores flat or fewer 5159  0.319    0.2634  0.2514     0.044  -0.029    0.406  0.417
+                        all 9031  1.000    0.3876  0.3767    -0.062  -0.062    0.421  0.433
+
+B  the submitted system by origin spacing:
+                          set  spacing  n   wape   hit  hit_r3   bias  rules  n_rows
+all 13 origins, 1 month apart        1 13 0.4399 0.391   0.199 -0.017 0.5090   11727
+        2 months apart, set A        2  7 0.4232 0.391   0.189 -0.031 0.4949    6340
+        2 months apart, set B        2  6 0.4611 0.392   0.212 -0.000 0.5270    5387
+        4 months apart, set 1        4  4 0.4352 0.385   0.187 -0.049 0.4892    3659
+        4 months apart, set 2        4  3 0.5935 0.368   0.223  0.095 0.6447    2540
+        4 months apart, set 3        4  3 0.4070 0.399   0.192 -0.009 0.5025    2681
+        4 months apart, set 4        4  3 0.3777 0.413   0.202 -0.092 0.4529    2847
+                           step   d_all                 d2                                   d4  wins2  wins4
+                first three-way -0.0218 [-0.0239, -0.0191]   [0.016, -0.0101, -0.0781, -0.0247]      2      3
+       + weather, events (D161) -0.0211 [-0.0143, -0.0296]   [-0.0274, -0.029, 0.0034, -0.0299]      2      3
++ co-purchase neighbours (D203) -0.0028 [-0.0012, -0.0048] [-0.0004, -0.0084, -0.0023, -0.0026]      2      4
+             + TabPFN v2 (D204) -0.0048    [-0.01, 0.0018]  [-0.0119, 0.0104, -0.0074, -0.0037]      1      3
+        arithmetic stack (D207) -0.0043 [-0.0034, -0.0055]  [-0.002, -0.0007, -0.0053, -0.0085]      2      4
+         new tree member (D253) -0.0021   [-0.004, 0.0004]    [-0.0073, 0.0006, 0.0004, 0.0003]      1      1
+           new NN inputs (D272) -0.0052 [-0.0073, -0.0025]  [-0.0108, -0.0069, -0.0026, 0.0002]      2      3
+ corrections (D273) = submitted -0.0071 [-0.0074, -0.0067] [-0.0102, -0.0072, -0.0036, -0.0063]      2      4
+item-error correlation by lag: {1: 0.719, 2: 0.481, 3: 0.269, 4: 0.123, 5: 0.106, 6: 0.093, 7: 0.094, 8: 0.108}
+ spacing  n  shared  corr  neff
+       1 13       3 0.728   3.0
+       2  7       2 0.496   3.1
+       3  5       1 0.283   3.2
+       4  4       0 0.131   3.2
+saved

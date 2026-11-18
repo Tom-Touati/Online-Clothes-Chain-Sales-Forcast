@@ -1,0 +1,5 @@
+win6 71 s
+win9 112 s
+win12 123 s
+hl6 188 s
+hl12 180 s

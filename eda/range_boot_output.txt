@@ -1,0 +1,14 @@
+                                                                        comparison   range           period  challenger  reference    diff               ci95
+                               width model (L1, one k per side) vs adopted, purged P25-P75         recent 9      0.3244     0.3316 -0.0072 [-0.0101, -0.0046]
+                               width model (L1, one k per side) vs adopted, purged P25-P75           all 13      0.3655     0.3822 -0.0167 [-0.0214, -0.0125]
+                               width model (L1, one k per side) vs adopted, purged P10-P90         recent 9      0.1981     0.1944  0.0037   [0.0009, 0.0065]
+                               width model (L1, one k per side) vs adopted, purged P10-P90           all 13      0.2207     0.2650 -0.0443 [-0.1094, -0.0066]
+                               width model (L1, one k per side) vs adopted, honest P25-P75 2025-07..2026-02      0.3253     0.3391 -0.0138 [-0.0179, -0.0102]
+                               width model (L1, one k per side) vs adopted, honest P10-P90 2025-07..2026-02      0.1959     0.1981 -0.0022  [-0.0067, 0.0023]
+                            member average, NN raw (no conformal) vs adopted (loo) P25-P75         recent 9      0.3142     0.3201 -0.0059  [-0.0089, -0.003]
+                            member average, NN raw (no conformal) vs adopted (loo) P25-P75           all 13      0.3677     0.3642  0.0035  [-0.0002, 0.0067]
+member average, NN monthly without item embeddings (no conformal) vs adopted (loo) P25-P75         recent 9      0.3151     0.3201 -0.0051 [-0.0082, -0.0018]
+member average, NN monthly without item embeddings (no conformal) vs adopted (loo) P25-P75           all 13      0.3645     0.3642  0.0002   [-0.003, 0.0036]
+       member average as delivered (D364) + conformal per segment vs adopted (loo) P25-P75         recent 9      0.3171     0.3201 -0.0031 [-0.0046, -0.0015]
+       member average as delivered (D364) + conformal per segment vs adopted (loo) P25-P75           all 13      0.3610     0.3642 -0.0032 [-0.0051, -0.0015]
+saved

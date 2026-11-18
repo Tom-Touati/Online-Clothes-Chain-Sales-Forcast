@@ -1,0 +1,31 @@
+2025-03-01
+2025-04-01
+2025-05-01
+2025-06-01
+2025-07-01
+2025-08-01
+2025-09-01
+2025-10-01
+2025-11-01
+2025-12-01
+2026-01-01
+variant     lean three-way  + BF fix, all origins  + BF fix, Sep/Oct origins only
+start                                                                            
+2025-03-01          0.1005                 0.1005                          0.1005
+2025-04-01          0.0765                 0.0765                          0.0765
+2025-05-01          0.1302                 0.1302                          0.1302
+2025-06-01          0.1432                 0.1432                          0.1432
+2025-07-01          0.1267                 0.1267                          0.1267
+2025-08-01          0.0900                 0.1219                          0.1219
+2025-09-01          0.1452                 0.1234                          0.1234
+2025-10-01          0.1477                 0.1239                          0.1239
+2025-11-01          0.1491                 0.1190                          0.1190
+2025-12-01          0.0746                 0.0746                          0.0746
+2026-01-01          0.0917                 0.0917                          0.0917
+mean loss: {'lean three-way': 0.116, '+ BF fix, all origins': 0.112, '+ BF fix, Sep/Oct origins only': 0.112}
+windows better than the lean three-way: {'+ BF fix, all origins': 3, '+ BF fix, Sep/Oct origins only': 3}
+                                 fill  left_units
+variant                                          
++ BF fix, Sep/Oct origins only  0.938  274518.636
++ BF fix, all origins           0.938  274518.636
+lean three-way                  0.929  242041.545

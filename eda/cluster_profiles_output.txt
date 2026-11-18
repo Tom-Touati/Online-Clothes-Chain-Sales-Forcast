@@ -1,0 +1,35 @@
+ cluster  items  units_12m                             top_types                       aesthetics peak_month  beta_T  warm_skew  temp_R2  temp_slope  halloween_lift  bf_lift
+      21     66     773909                   Jeans, Pants, Skirt      Y2K, Streetwear, Clean Girl         11   0.015      0.019    0.032      -0.010           1.033    2.543
+      13     95     683314                 Tank Top, Corset, Top        Party Girl, Y2K, Coquette         08  -0.002     -0.007    0.118       0.015           1.049    1.078
+      19     51     616588        Hoodie, Sweatpants, Sweatshirt        Streetwear, Y2K, Coquette         12  -0.027     -0.047    0.580      -0.135           1.547    4.678
+       7     59     434915             Sweater, Cardigan, Hoodie          Clean Girl, Preppy, Y2K         11  -0.016     -0.022    0.443      -0.072           1.349    3.178
+      10     35     415906             Short Jeans, Skirt, Skort      Y2K, Party Girl, Streetwear         08   0.013     -0.021    0.490       0.033           0.833    1.596
+       4     48     396025            Top, Tank Top, Knitted Top    Party Girl, Y2K, Office Siren         11   0.023      0.027    0.002       0.012           0.945    1.320
+      23     40     385103              Sweatpants, Pants, Jeans          Y2K, Casual, Streetwear         11  -0.017      0.025    0.405      -0.049           1.300    3.130
+       5     50     364276                T-Shirt, Tank Top, Top      Y2K, Clean Girl, Streetwear         08  -0.003     -0.038    0.139       0.018           0.897    1.955
+       2     26     356936               Hoodie, Sweatpants, Bag      Streetwear, Y2K, Party Girl         11  -0.022     -0.036    0.002      -0.025           1.648    3.774
+      20     61     328458                     Skort, Skirt, Top        Party Girl, Y2K, Coquette         07   0.016      0.019    0.083       0.027           1.202    0.646
+      25     44     285082                  Shorts, Pants, Skirt         Y2K, Coastal, Party Girl         07  -0.001     -0.037    0.329       0.031           0.789    2.468
+       0     49     263991                  Top, Tank Top, Dress        Party Girl, Y2K, Mob Wife         12   0.008      0.037    0.330      -0.125           3.798    7.268
+      29     46     259469              Shorts, Top, Short Jeans        Party Girl, Y2K, Coquette         07   0.042      0.025    0.201       0.024           1.101    0.506
+       6     49     248548              Tank Top, Top, Strapless        Party Girl, Y2K, Coquette         07   0.005      0.010    0.168       0.028           0.727    1.821
+       9     64     242517                  Skort, Shorts, Jeans        Party Girl, Y2K, Mob Wife         10   0.016      0.032    0.216      -0.023           1.457    0.781
+      17     41     235294                 T-Shirt, Top, Sweater          Clean Girl, Y2K, Preppy         11  -0.014     -0.026    0.293      -0.073           2.169    6.019
+      28     32     235154                Top, T-Shirt, Tank Top      Clean Girl, Minimalist, Y2K         11  -0.017     -0.001    0.267      -0.040           1.115    2.810
+      24     42     233735                Jacket, Dress, Sweater Clean Girl, Mob Wife, Party Girl         12   0.000     -0.018    0.639      -0.102           1.992    3.680
+      16     37     212254                Sweater, Cardigan, Top        Y2K, Streetwear, Coquette         11   0.003      0.034    0.337      -0.099           2.763    3.774
+      26     70     201162                         Dress, Romper        Coquette, Party Girl, Y2K         09  -0.005     -0.024    0.207       0.021           0.620    1.126
+      11     66     200421            Bracelet, Belt, Sunglasses                                          11   0.006     -0.002    0.002      -0.007           0.893    2.020
+      18     46     198637             Tank Top, T-Shirt, Shorts        Y2K, Clean Girl, Coquette         07  -0.014     -0.026    0.005       0.039           0.754    2.197
+      15     54     172824 Swimwear Bottom, Swimwear Top, Shorts        Coastal, Party Girl, Boho         06   0.010      0.054    0.075       0.030           0.708    1.610
+       8     63     139742                                 Dress        Party Girl, Coquette, Y2K         11   0.006      0.028    0.034      -0.015           0.813    1.425
+       1     47     122334                  Top, Tank Top, Dress        Party Girl, Y2K, Coquette         12   0.019      0.042    0.020      -0.073           0.000    0.000
+       3     48     114801             Necklace, Socks, Bracelet                                          11  -0.001      0.014    0.196      -0.024           1.173    2.588
+      12     43     112799            Short Jeans, Shorts, Jeans      Y2K, Streetwear, Party Girl         12   0.018      0.019    0.000      -0.003           0.888    1.478
+      14     55      92799              Top, Sweatpants, T-Shirt      Y2K, Streetwear, Clean Girl         12  -0.002     -0.017    0.060      -0.131           0.000    0.000
+      22     29      74481                   Top, Shorts, Corset        Party Girl, Y2K, Coquette         12   0.028      0.034    0.020      -0.072           0.000    0.000
+      27     44      44895             T-Shirt, Tank Top, Shorts                                          01   0.028      0.041    0.049       0.078           0.000    0.000
+
+units-weighted mean R^2 of log monthly units on national temperature: 0.221
+correlation across clusters, beta_T (cross-state) vs temp_slope (over time): 0.354
+saved figure

@@ -1,0 +1,4 @@
+nosea_t 45 features (full set), 265 s
+nosea_e 74 features (full set), 295 s
+cpllm_t 52 features (full set), 327 s
+cpllm_e 81 features (full set), 166 s

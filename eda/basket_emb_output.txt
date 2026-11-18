@@ -1,0 +1,30 @@
+attribute columns 514 | LLM scores 14
+2024-03 alive 248 | 1s
+2024-04 alive 270 | 1s
+2024-05 alive 294 | 1s
+2024-06 alive 325 | 2s
+2024-07 alive 356 | 3s
+2024-08 alive 395 | 3s
+2024-09 alive 435 | 4s
+2024-10 alive 487 | 5s
+2024-11 alive 529 | 5s
+2024-12 alive 572 | 6s
+2025-01 alive 626 | 6s
+2025-02 alive 652 | 7s
+2025-03 alive 679 | 8s
+2025-04 alive 729 | 8s
+2025-05 alive 766 | 9s
+2025-06 alive 808 | 9s
+2025-07 alive 863 | 10s
+2025-08 alive 944 | 10s
+2025-09 alive 1001 | 11s
+2025-10 alive 1072 | 12s
+2025-11 alive 1123 | 12s
+2025-12 alive 1180 | 13s
+2026-01 alive 1280 | 13s
+2026-02 alive 1320 | 14s
+2026-03 alive 1365 | 14s
+2026-04 alive 1396 | 15s
+2026-05 alive 1444 | 16s
+2026-06 alive 1450 | 16s
+saved ['cp', 'attr']

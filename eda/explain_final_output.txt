@@ -1,0 +1,29 @@
+backtest, nine recent origins: final-system deviation from R3 explained by the tree member's 11 categories (ridge, leave-one-origin-out) R^2 0.941; by the tree member's own deviation R^2 0.917; direction agreement 0.923
+
+June 2026, 99 targets in the tree table: R3 473,373, tree member 538,834 (+13.8%)
+
+== tree member: R3-weighted mean contribution by category (log units; % effect)
+  Portfolio baseline (typical drift below recency)               -0.215 (-19.4%)
+  Event-inflated recent sales (post-event hangover)              +0.068 (+7.1%)
+  Upcoming events and occasions                                  +0.052 (+5.4%)
+  Item age and sales scale                                       +0.046 (+4.7%)
+  Shopper-cluster seasonality (co-purchase neighbours)           +0.043 (+4.4%)
+  Last year's seasonal pattern (like-for-like history)           +0.026 (+2.6%)
+  Geographic / regional climate mix                              +0.017 (+1.8%)
+  Short-term momentum (recent weeks' buzz or cooling)            +0.014 (+1.4%)
+  Item life cycle (longer-run sales trajectory)                  -0.010 (-1.0%)
+  Weather and seasonal temperature turn                          -0.007 (-0.7%)
+  Product type and style profile (structural fashion trend)      +0.006 (+0.6%)
+
+== the ten largest targets
+        style_color                                   product      R3  tree_F                                                                                                                                                                     top_drivers
+       S15132_WHITE                Roman Low Rise Baggy Jeans 17812.0 23843.0 Portfolio baseline (typical drift below recency) -19%; Short-term momentum (recent weeks' buzz or cooling) +21%; Product type and style profile (structural fashion trend) +12%
+       S20878_WHITE                 Stephanie Lace Mini Dress 15715.0  7476.0             Short-term momentum (recent weeks' buzz or cooling) -29%; Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -14%
+S17159_BLACK-WASHED    Washed Faux Leather Micro Cargo Shorts 15305.0 21540.0                               Portfolio baseline (typical drift below recency) -19%; Upcoming events and occasions +21%; Event-inflated recent sales (post-event hangover) +13%
+       S21376_BLACK          Rhian Lacey Pleated Babydoll Top 13536.0 11641.0          Portfolio baseline (typical drift below recency) -19%; Shopper-cluster seasonality (co-purchase neighbours) +9%; Event-inflated recent sales (post-event hangover) +6%
+        S15999_BLUE                        Nikki Nylon Shorts 11831.0  8398.0              Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -13%; Short-term momentum (recent weeks' buzz or cooling) +8%
+       S23794_BLACK        Vikkey Lacey Satin Effect Tank Top 11305.0 24906.0                                  Short-term momentum (recent weeks' buzz or cooling) +48%; Item age and sales scale +45%; Portfolio baseline (typical drift below recency) -19%
+       S23426_BLACK Ofelia Asymmetric Off Shoulder Ruched Top 11265.0  6639.0             Short-term momentum (recent weeks' buzz or cooling) -21%; Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -15%
+       S11233_BLACK                 Aisha Low Rise Mini Skirt 11221.0 15853.0                               Portfolio baseline (typical drift below recency) -19%; Upcoming events and occasions +24%; Event-inflated recent sales (post-event hangover) +13%
+        S14091_BLUE       Raelynn Washed Low Rise Baggy Jeans 10864.0 13521.0                       Portfolio baseline (typical drift below recency) -19%; Upcoming events and occasions +13%; Product type and style profile (structural fashion trend) +12%
+        S23605_PINK       Taniya Off Shoulder Zigzag Knit Top  9989.0  7081.0        Portfolio baseline (typical drift below recency) -19%; Item life cycle (longer-run sales trajectory) -10%; Product type and style profile (structural fashion trend) -9%

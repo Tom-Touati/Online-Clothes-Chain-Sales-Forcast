@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2025-02 context pool 2558 test 626 P50 WAPE 0.794 52s
+2025-03 context pool 3045 test 654 P50 WAPE 0.677 101s
+2025-04 context pool 3577 test 686 P50 WAPE 0.421 149s
+2025-05 context pool 4150 test 730 P50 WAPE 0.372 197s
+2025-06 context pool 4776 test 768 P50 WAPE 0.367 244s
+2025-07 context pool 5430 test 816 P50 WAPE 0.332 292s
+2025-08 context pool 6116 test 867 P50 WAPE 0.343 341s
+2025-09 context pool 6846 test 941 P50 WAPE 0.479 393s
+2025-10 context pool 7614 test 1003 P50 WAPE 0.481 448s
+2025-11 context pool 8430 test 1070 P50 WAPE 0.228 508s
+2025-12 context pool 9297 test 1128 P50 WAPE 0.298 564s
+2026-01 context pool 10238 test 1176 P50 WAPE 0.376 619s
+2026-02 context pool 11241 test 1262 P50 WAPE 0.391 674s

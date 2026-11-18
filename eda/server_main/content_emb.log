@@ -1,0 +1,18 @@
+0 items 1 with images 1s
+100 items 81 with images 65s
+200 items 168 with images 132s
+300 items 251 with images 202s
+400 items 344 with images 287s
+500 items 438 with images 370s
+600 items 530 with images 450s
+700 items 625 with images 531s
+800 items 714 with images 611s
+900 items 811 with images 697s
+1000 items 909 with images 785s
+1100 items 1009 with images 876s
+1200 items 1109 with images 957s
+1300 items 1209 with images 1038s
+1400 items 1309 with images 1117s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 19196.56it/s]
+saved: images 1408 texts 1408 1218s

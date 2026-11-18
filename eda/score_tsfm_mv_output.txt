@@ -1,0 +1,49 @@
+chronos2 items without a forecast: 0
+chronos2mv items without a forecast: 0
+
+######## nine recent origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                                                  WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)                             0.4879        0.4851     0.7110           0.5000             0.3958        0.4681 -0.0639
+D159 quantile model alone                            0.4355        0.4568     0.7419           0.5277             0.3425        0.4125 -0.0578
+rules + D159 quantile + NN (reference)               0.4234        0.4410     0.7605           0.5789             0.3307        0.4049 -0.0685
+chronos2 alone (zero-shot)                           0.7358        0.6821     0.6550           0.3895             0.6927        0.7135  0.0136
+rules + D159 quantile + NN + chronos2                0.4609        0.4673     0.7672           0.5309             0.3733        0.4353 -0.0691
+rules + D159 quantile + chronos2 (replaces NN)       0.4767        0.4816     0.7568           0.5181             0.3927        0.4520 -0.0716
+chronos2mv alone (zero-shot)                         0.7623        0.7140     0.6276           0.3849             0.6595        0.7306  0.1504
+rules + D159 quantile + NN + chronos2mv              0.4447        0.4620     0.7599           0.5364             0.3559        0.4242 -0.0414
+rules + D159 quantile + chronos2mv (replaces NN)     0.4588        0.4739     0.7494           0.5305             0.3735        0.4401 -0.0338
+
+######## recent, 100 targets
+   R3 itself: WAPE 0.742 | MAE+|bias| 1.327 | pinball 0.311 | bias +0.111 | 570 item-origins
+                                                  WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)                             0.4846        0.4984     0.7386           0.5000             0.3860        0.4435 -0.1328
+D159 quantile model alone                            0.4285        0.4160     0.7825           0.5754             0.3249        0.3855 -0.1306
+rules + D159 quantile + NN (reference)               0.4151        0.3988     0.7912           0.6298             0.3352        0.3819 -0.1445
+chronos2 alone (zero-shot)                           0.7265        0.6696     0.6930           0.4158             0.6691        0.7007 -0.0552
+rules + D159 quantile + NN + chronos2                0.4608        0.4417     0.7912           0.5544             0.3851        0.4223 -0.1428
+rules + D159 quantile + chronos2 (replaces NN)       0.4843        0.4754     0.7807           0.5421             0.4039        0.4482 -0.1389
+chronos2mv alone (zero-shot)                         0.7292        0.6470     0.6719           0.4281             0.5670        0.6854  0.1089
+rules + D159 quantile + NN + chronos2mv              0.4296        0.4186     0.7982           0.5789             0.3440        0.3983 -0.1120
+rules + D159 quantile + chronos2mv (replaces NN)     0.4495        0.4498     0.7912           0.5719             0.3524        0.4208 -0.0962
+
+######## all 13 origins
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                                                  WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)                             0.5090        0.5165     0.6899           0.5000             0.4398        0.4953 -0.0626
+D159 quantile model alone                            0.5109        0.5375     0.7061           0.5028             0.4710        0.4789  0.0062
+rules + D159 quantile + NN (reference)               0.4672        0.4932     0.7414           0.5599             0.4032        0.4472 -0.0328
+chronos2 alone (zero-shot)                           0.7412        0.7161     0.6426           0.3977             0.6949        0.7211  0.0157
+rules + D159 quantile + NN + chronos2                0.4963        0.5163     0.7480           0.5238             0.4330        0.4711 -0.0399
+rules + D159 quantile + chronos2 (replaces NN)       0.5052        0.5258     0.7378           0.5139             0.4417        0.4817 -0.0493
+chronos2mv alone (zero-shot)                         0.7673        0.7512     0.6153           0.3901             0.6582        0.7389  0.1256
+rules + D159 quantile + NN + chronos2mv              0.4819        0.5136     0.7398           0.5255             0.4132        0.4608 -0.0183
+rules + D159 quantile + chronos2mv (replaces NN)     0.4900        0.5217     0.7298           0.5213             0.4197        0.4713 -0.0192
+
+== paired bootstrap, recent: WAPE(system) - WAPE(rules + D159 quantile + NN)
+   chronos2 alone (zero-shot)                           [0.2028 0.2347]
+   rules + D159 quantile + NN + chronos2                [0.0218 0.0295]
+   rules + D159 quantile + chronos2 (replaces NN)       [0.0321 0.0417]
+   chronos2mv alone (zero-shot)                         [0.2187 0.2614]
+   rules + D159 quantile + NN + chronos2mv              [0.0102 0.02  ]
+   rules + D159 quantile + chronos2mv (replaces NN)     [0.0181 0.032 ]

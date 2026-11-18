@@ -1,0 +1,31 @@
+                                   below  inside  above  width  interval_score
+method                                                                        
+as stated                          0.062   0.745  0.193  1.088           1.853
+calibrated on all earlier origins  0.021   0.729  0.250  1.329           2.119
+calibrated on the same season      0.021   0.729  0.250  1.329           2.119
+log width x 1.3 both sides         0.032   0.822  0.145  1.420           1.945
+ origin                            method  below  inside  above  width  interval_score    kl    ku
+2025-06                         as stated  0.098   0.661  0.241  0.876           1.961   NaN   NaN
+2025-06 calibrated on all earlier origins  0.029   0.600  0.371  1.099           2.359 1.643 0.376
+2025-06     calibrated on the same season  0.029   0.600  0.371  1.099           2.359 1.643 0.376
+2025-06        log width x 1.3 both sides  0.048   0.754  0.198  1.147           1.954   NaN   NaN
+factors: all 13 1.042 1.508 | May-July 2025 1.09 1.444
+                              below  inside  above  width  interval_score
+method                                                                   
+as stated                     0.062   0.745  0.193  1.088           1.853
+leave-one-origin-out factors  0.055   0.817  0.128  1.320           1.881
+log width x 1.3 both sides    0.032   0.822  0.145  1.420           1.945
+lower x1.0, upper x1.3        0.062   0.793  0.145  1.205           1.838
+lower x1.0, upper x1.4        0.062   0.804  0.134  1.243           1.845
+lower x1.0, upper x1.5        0.062   0.814  0.124  1.281           1.855
+               forecast  final      P10      P90  P10_all13  P90_all13  P10_season  P90_season  P10_rec  P90_rec
+ACC1070-1_MIX    2014.0   2015   1072.0   3384.0     1043.0     4406.0      1012.0      4262.0   1072.0   4165.0
+S11233_BLACK    17346.0  17346  10987.0  23697.0    10777.0    27770.0     10543.0     27220.0  10987.0  26847.0
+S11233_WHITE     5504.0   5504   3358.0   7822.0     3288.0     9351.0      3211.0      9143.0   3358.0   9002.0
+S13608_WHITE     3100.0   3100   1918.0   4496.0     1879.0     5431.0      1836.0      5303.0   1918.0   5217.0
+sums: {'forecast': 620602.0, 'final': 601801.0, 'P10': 358518.0, 'P90': 877528.0, 'P10_rec': 358518.0, 'P90_rec': 1023015.0}
+                           forecast  final     P10      P90  P10_all13  P90_all13  P10_season  P90_season  P10_rec  P90_rec
+S24840_LIGHT-GRAY-MELANGE   33352.0  23096  9520.0  42981.0    13243.0    85108.0     12690.0     81789.0   9520.0  55102.0
+S25039_YELLOW               15439.0   9088  4560.0  14738.0     7525.0    32012.0      7279.0     31036.0   4560.0  17882.0
+S24847_NAVY                  4480.0   2279  1274.0   3554.0     2445.0     8758.0      2377.0      8512.0   1274.0   4246.0
+saved

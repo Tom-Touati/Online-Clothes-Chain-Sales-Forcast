@@ -1,0 +1,32 @@
+== 1 peer-ratio vs model, items 3-12 months old
+ origin     method   n   bias  wape   w20   w50
+2025-05      model 277  0.180 0.424 0.292 0.606
+2025-05 peer ratio 277  0.039 0.318 0.350 0.726
+2025-06      model 265 -0.005 0.358 0.377 0.694
+2025-06 peer ratio 265  0.098 0.384 0.328 0.604
+2025-07      model 301 -0.010 0.317 0.372 0.714
+2025-07 peer ratio 301  0.268 0.518 0.203 0.445
+2025-08      model 301  0.013 0.389 0.289 0.645
+2025-08 peer ratio 301  0.182 0.579 0.186 0.458
+mean over origins:
+             bias   wape    w20    w50
+method                                
+model       0.044  0.372  0.332  0.665
+peer ratio  0.147  0.450  0.267  0.558
+
+== 2 mature-item blend, per origin
+item-origins with a full year of own history: 3871 | by origin: {'2025-03': 190, '2025-04': 213, '2025-05': 227, '2025-06': 248, '2025-07': 269, '2025-08': 290, '2025-09': 318, '2025-10': 348, '2025-11': 383, '2025-12': 422, '2026-01': 468, '2026-02': 495}
+ origin  ageing  model_bias  blend_bias  model_w20  blend_w20  blend_vs_actual_ratio  actual_ratio
+2025-07   0.775       0.008      -0.013      0.297      0.435                  0.606         0.614
+2025-08   0.825       0.065       0.047      0.310      0.428                  0.620         0.592
+2025-09   0.818      -0.211      -0.132      0.330      0.415                  0.544         0.627
+2025-10   0.824      -0.148      -0.080      0.339      0.405                  0.553         0.601
+2025-11   0.814       0.029       0.031      0.418      0.457                  0.546         0.530
+2025-12   0.817      -0.011       0.015      0.486      0.436                  0.565         0.556
+2026-01   0.829      -0.065       0.009      0.457      0.462                  0.549         0.544
+2026-02   0.833      -0.116      -0.048      0.408      0.386                  0.528         0.555
+origins: 8 | blend |bias| <= 10% in 7 | blend w20 >= model w20 in 6 | mean blend bias -0.021
+
+== 3 floors at the July 2025 origin (Aug-Nov / July)
+Homecoming: 2024 n=11, floor 7.46x July | young items n=8 | model {'n': 8, 'bias': np.float64(-0.37), 'wape': np.float64(0.407), 'w20': np.float64(0.0), 'w50': np.float64(0.625)} | with floor {'n': 8, 'bias': np.float64(0.389), 'wape': np.float64(0.563), 'w20': np.float64(0.25), 'w50': np.float64(0.75)}
+Halloween: 2024 n=29, floor 5.09x July | young items n=40 | model {'n': 40, 'bias': np.float64(-0.145), 'wape': np.float64(0.251), 'w20': np.float64(0.375), 'w50': np.float64(0.875)} | with floor {'n': 40, 'bias': np.float64(0.235), 'wape': np.float64(0.304), 'w20': np.float64(0.325), 'w50': np.float64(0.75)}

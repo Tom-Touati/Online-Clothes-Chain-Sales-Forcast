@@ -1,0 +1,47 @@
+             feature  rho_early  same_sign  keep
+        fa_mean_acc1      0.401       1.00  True
+             ch_acc1      0.343       1.00  True
+             nn_acc1      0.304       1.00  True
+          fa_llm_yoy     -0.287       0.75  True
+             nn_sea4      0.167       0.75  True
+        fa_mean_sea4      0.160       0.75  True
+          fl_reg_all     -0.154       1.00  True
+         fa_mean_mom      0.151       0.75  True
+        fl_combo_mom      0.138       0.75  True
+              ch_mom      0.127       0.75  True
+         fa_type_yoy     -0.123       0.75  True
+          fa_in_type      0.115       1.00  True
+         fa_mean_yoy     -0.109       0.75  True
+      fl_trough_type     -0.109       0.75  True
+              nn_sim      0.106       1.00  True
+         fa_type_mom      0.105       0.75  True
+          fa_llm_mom      0.104       0.75  True
+             nn_mom3      0.100       0.75  True
+        fl_peak_type     -0.096       0.50 False
+            ch_traj6      0.091       0.75  True
+fa_occasion_tier_mom      0.090       0.75  True
+   fa_silhouette_yoy     -0.086       0.75  True
+          ch_rel_mom      0.072       1.00 False
+              nn_yoy      0.065       0.75 False
+   fa_silhouette_mom      0.059       0.75 False
+fa_print_pattern_yoy     -0.055       0.75 False
+       fl_peak_print      0.055       0.75 False
+fa_occasion_tier_yoy     -0.053       0.50 False
+      fa_launch_type      0.052       0.50 False
+        fl_combo_yoy      0.044       0.50 False
+            ch_young      0.040       0.50 False
+fa_print_pattern_mom      0.037       0.75 False
+          fa_col_mom      0.033       0.75 False
+     ch_surprise_med     -0.026       0.50 False
+       fa_launch_col      0.026       1.00 False
+         fl_reg_type     -0.025       0.75 False
+  fl_peak_silhouette     -0.021       0.50 False
+         fl_new_type      0.020       0.50 False
+              nn_age     -0.019       0.50 False
+          fa_col_yoy     -0.012       0.50 False
+         nn_surprise     -0.010       0.50 False
+         ch_surprise     -0.009       0.50 False
+              ch_yoy      0.009       0.50 False
+          nn_lvl_rel      0.006       0.75 False
+         fl_peak_col     -0.001       0.50 False
+LEAN = ['fa_mean_acc1', 'ch_acc1', 'nn_acc1', 'fa_llm_yoy', 'nn_sea4', 'fa_mean_sea4', 'fl_reg_all', 'fa_mean_mom', 'fl_combo_mom', 'ch_mom', 'fa_type_yoy', 'fa_in_type', 'fa_mean_yoy', 'fl_trough_type', 'nn_sim', 'fa_type_mom', 'fa_llm_mom', 'nn_mom3', 'ch_traj6', 'fa_occasion_tier_mom', 'fa_silhouette_yoy']

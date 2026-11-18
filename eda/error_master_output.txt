@@ -1,0 +1,359 @@
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:68: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  dw = [c for c in OOS.columns if e < c <= (pd.Period(o, "M") + 4).end_time.normalize()]; out["h_oos"] = OOS.reindex(s)[dw].mean(1).values if dw else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:29: RuntimeWarning: Mean of empty slice
+  if how == "mean": return np.nanmean(np.where(np.isfinite(X), X, np.nan), 1)
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:51: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  out["oos_28"] = OOS.reindex(s)[d28].mean(1).values if d28 else np.nan
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:53: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  live = (M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1) > 0); lv = live[live].index
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:55: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  su = M.reindex(columns=[P(o, k) for k in B3]).fillna(0).sum(1).groupby(sty.reindex(M.index).values).sum()
+C:\Users\tomto\workspaces\edikted\eda\198d_error_master.py:60: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  out["has_ly"] = (M.reindex(s).reindex(columns=[P(o, k) for k in [-11, -10, -9, -8]]).fillna(0).sum(1).values > 0).astype(float)
+(11727, 106) (1423, 83) | recent WAPE/R3 submitted 0.3851 stack 0.3939 | all 13 0.4399
+own_sea        0.66
+trend91        0.27
+multi_share    0.22
+lagr3          0.09

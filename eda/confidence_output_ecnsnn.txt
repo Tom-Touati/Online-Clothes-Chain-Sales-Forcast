@@ -1,0 +1,80 @@
+== realised bands of the final system, recent origins: {1: 0.417, 2: 0.377, 3: 0.206} | p2c32a: {1: 0.405, 2: 0.374, 3: 0.22}
+
+-- rule_wb vs the final system's realised band (recent origins): n 9031, accuracy 0.372, quadratic kappa +0.114, unit-weighted accuracy 0.358
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo     1     2     3   All
+rule_wb                         
+1          138   100    20   258
+2         2925  2537  1153  6615
+3          703   767   688  2158
+All       3766  3404  1861  9031
+   row %:
+band_geo     1     2     3
+rule_wb                   
+1         53.5  38.8   7.8
+2         44.2  38.4  17.4
+3         32.6  35.5  31.9
+   cumulative hit rate per stated level: level 1: within 20% 53%, within 50% 92% (n 258); level 2: within 20% 44%, within 50% 83% (n 6615); level 3: within 20% 33%, within 50% 68% (n 2158)
+
+-- rule_ml vs the final system's realised band (recent origins): n 8263, accuracy 0.392, quadratic kappa +0.174, unit-weighted accuracy 0.384
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo     1     2     3   All
+rule_ml                         
+1         1371  1030   349  2750
+2         1076   971   435  2482
+3         1020  1113   898  3031
+All       3467  3114  1682  8263
+   row %:
+band_geo     1     2     3
+rule_ml                   
+1         49.9  37.5  12.7
+2         43.4  39.1  17.5
+3         33.7  36.7  29.6
+   cumulative hit rate per stated level: level 1: within 20% 50%, within 50% 87% (n 2750); level 2: within 20% 43%, within 50% 82% (n 2482); level 3: within 20% 34%, within 50% 70% (n 3031)
+
+-- rule_ml_med vs the final system's realised band (recent origins): n 8263, accuracy 0.398, quadratic kappa +0.149, unit-weighted accuracy 0.388
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo        1     2     3   All
+rule_ml_med                        
+1             478   331    85   894
+2            2583  2330  1115  6028
+3             406   453   482  1341
+All          3467  3114  1682  8263
+   row %:
+band_geo        1     2     3
+rule_ml_med                  
+1            53.5  37.0   9.5
+2            42.9  38.7  18.5
+3            30.3  33.8  35.9
+   cumulative hit rate per stated level: level 1: within 20% 53%, within 50% 90% (n 894); level 2: within 20% 43%, within 50% 82% (n 6028); level 3: within 20% 30%, within 50% 64% (n 1341)
+
+-- rule_wb, all 13 origins: n 11727, accuracy 0.385, quadratic kappa +0.139, unit-weighted accuracy 0.378
+   rows = stated confidence, columns = realised band (1: within 20%, 2: 20-50%, 3: more than 50%); counts:
+band_geo     1     2     3    All
+rule_wb                          
+1          170   111    23    304
+2         3540  3212  1686   8438
+3          879   976  1130   2985
+All       4589  4299  2839  11727
+   row %:
+band_geo     1     2     3
+rule_wb                   
+1         55.9  36.5   7.6
+2         42.0  38.1  20.0
+3         29.4  32.7  37.9
+   cumulative hit rate per stated level: level 1: within 20% 56%, within 50% 92% (n 304); level 2: within 20% 42%, within 50% 80% (n 8438); level 3: within 20% 29%, within 50% 62% (n 2985)
+
+== intervals around the final forecast, recent origins: coverage of P10-P90 (nominal 80%) / P25-P75 (nominal 50%) / median width P90 / P10
+  TabPFN conformal member's relative quantiles     0.806 / 0.567 / 2.72
+      level 1 (n 258): 0.822 / 0.500 / 2.02
+      level 2 (n 6615): 0.823 / 0.589 / 2.65
+      level 3 (n 2158): 0.754 / 0.509 / 3.23
+  time-honest conformal, global                    0.798 / 0.498 / 3.04
+      level 1 (n 258): 0.876 / 0.504 / 3.04
+      level 2 (n 6615): 0.825 / 0.524 / 3.04
+      level 3 (n 2158): 0.706 / 0.415 / 3.07
+  time-honest conformal, per stated level          0.782 / 0.477 / 2.74
+      level 1 (n 258): 0.504 / 0.271 / 1.89
+      level 2 (n 6615): 0.807 / 0.512 / 2.73
+      level 3 (n 2158): 0.739 / 0.397 / 3.81
+dashboard files written

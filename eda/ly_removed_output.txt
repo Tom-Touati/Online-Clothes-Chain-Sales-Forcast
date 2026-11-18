@@ -1,0 +1,18 @@
+member table: (21316, 191) origins 2024-03 to 2026-06
+SIG 11 | LM 20 | coverage SIG 0.998 LM 0.996
+ec_ns full done
+ec_ns no LY done
+ec_ns control done
+sig full done
+sig no LY done
+sig control done
+member    mode  alone_rec  alone_all  alone_aff  sys_rec  sys_all  sys_aff  sys_hit
+ ec_ns    full     0.4299     0.4998     0.4998   0.3851   0.4399   0.4399    0.417
+ ec_ns   no LY     0.6534     0.7059     0.7059   0.4106   0.4639   0.4639    0.405
+ ec_ns control     0.4257     0.4947     0.4947   0.3849   0.4397   0.4397    0.415
+   sig    full     0.4244     0.4783     0.4783   0.3835   0.4349   0.4349    0.419
+   sig   no LY     0.6623     0.6938     0.6938   0.4131   0.4619   0.4619    0.404
+   sig control     0.4199     0.4690     0.4690   0.3845   0.4350   0.4350    0.416
+origins where last year's window could be removed: ['2025-02', '2025-03', '2025-04', '2025-05', '2025-06', '2025-07', '2025-08', '2025-09', '2025-10', '2025-11', '2025-12', '2026-01', '2026-02']
+degradation on the affected origins (no LY - full | control - full): {'ec_ns': {'alone_ly': 0.2061, 'alone_ctrl': -0.0051, 'sys_ly': 0.024, 'sys_ctrl': -0.0002}, 'sig': {'alone_ly': 0.2155, 'alone_ctrl': -0.0093, 'sys_ly': 0.027, 'sys_ctrl': 0.0001}}
+saved

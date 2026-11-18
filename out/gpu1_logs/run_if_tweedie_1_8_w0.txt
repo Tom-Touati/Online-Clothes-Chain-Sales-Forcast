@@ -1,0 +1,18 @@
+panel: 238322 rows, 26568 item x location pairs, 1483 items, 31 locations; months 2024-01..2026-06
+loss tweedie:1.8 | weight power 0.0 | device cuda | item inputs 82
+rows built in 2 s {'honest': 1054556}
+2025-02 honest: train 103808 rows | test 27664 rows | 13 s
+2025-03 honest: train 126608 rows | test 30876 rows | 24 s
+2025-04 honest: train 151132 rows | test 32928 rows | 37 s
+2025-05 honest: train 176936 rows | test 35204 rows | 52 s
+2025-06 honest: train 204600 rows | test 36300 rows | 70 s
+2025-07 honest: train 235476 rows | test 38408 rows | 89 s
+2025-08 honest: train 268404 rows | test 41676 rows | 111 s
+2025-09 honest: train 303608 rows | test 44204 rows | 135 s
+2025-10 honest: train 339908 rows | test 48260 rows | 161 s
+2025-11 honest: train 378316 rows | test 54888 rows | 191 s
+2025-12 honest: train 419992 rows | test 58080 rows | 222 s
+2026-01 honest: train 464196 rows | test 59144 rows | 257 s
+2026-02 honest: train 512456 rows | test 64148 rows | 295 s
+2026-06 honest: train 748716 rows | test 81192 rows | 350 s
+saved (13150, 6) 350 s

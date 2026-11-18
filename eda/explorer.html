@@ -1,0 +1,910 @@
+<title>Edikted Series Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: a working bench. Findings rail on the left (each finding is a saved view), workspace on the right: the finding's claim, the view tabs, the controls, then the charts and the numbers recomputed from the data. Same identity as the project atlas. */
+:root {
+  --bg: #fbfafb; --surface: #ffffff; --sunk: #f3f1f4; --line: #e4e0e6; --line-strong: #cfc9d3;
+  --fg: #19161b; --fg2: #4f4955; --fg3: #7a7380;
+  --accent: #c8166f; --accent-soft: #fbe3ef; --accent-fg: #ffffff;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #0f97ad; --s6: #a3509b; --s7: #6250d6; --s8: #e34948; --s9: #7a8b2e; --s10: #8a6a4f;
+  --good: #0ca30c; --warn: #b77a00; --crit: #d03b3b; --band: #c8166f;
+  --tip-bg: #19161b; --tip-fg: #f6f3f7;
+  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141216; --surface: #1c1a1f; --sunk: #232027; --line: #332f38; --line-strong: #47414e;
+  --fg: #f1eef3; --fg2: #c4bdc9; --fg3: #958d9b;
+  --accent: #ff5ca6; --accent-soft: #3a1a2b; --accent-fg: #1a0b13;
+  --s1: #4f95ea; --s2: #f07a48; --s3: #2cc28c; --s4: #f0b42a; --s5: #2ab3c9; --s6: #c472bb; --s7: #9085e9; --s8: #ef6f6f; --s9: #a3b552; --s10: #b48e6e;
+  --good: #3cc23c; --warn: #e0a42a; --crit: #ef6a6a; --band: #ff5ca6;
+  --tip-bg: #f1eef3; --tip-fg: #19161b; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #141216; --surface: #1c1a1f; --sunk: #232027; --line: #332f38; --line-strong: #47414e;
+  --fg: #f1eef3; --fg2: #c4bdc9; --fg3: #958d9b;
+  --accent: #ff5ca6; --accent-soft: #3a1a2b; --accent-fg: #1a0b13;
+  --s1: #4f95ea; --s2: #f07a48; --s3: #2cc28c; --s4: #f0b42a; --s5: #2ab3c9; --s6: #c472bb; --s7: #9085e9; --s8: #ef6f6f; --s9: #a3b552; --s10: #b48e6e;
+  --good: #3cc23c; --warn: #e0a42a; --crit: #ef6a6a; --band: #ff5ca6;
+  --tip-bg: #f1eef3; --tip-fg: #19161b; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.5 var(--f-body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(22px, 3vw, 30px); font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: 14px; font-weight: 600; }
+p { margin: 0; max-width: 78ch; }
+code, .mono { font-family: var(--f-mono); font-size: 0.86em; }
+code { background: var(--sunk); padding: 1px 5px; border-radius: 4px; }
+.eyebrow { font: 600 11px/1 var(--f-body); letter-spacing: 0.09em; text-transform: uppercase; color: var(--fg3); }
+.muted { color: var(--fg2); }
+.small { font-size: 12.5px; }
+.num { font-variant-numeric: tabular-nums; }
+
+header.top { background: var(--surface); border-bottom: 1px solid var(--line); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top .in { max-width: 1480px; margin: 0 auto; padding-block: 18px 16px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; }
+header.top p { color: var(--fg2); font-size: 13.5px; }
+
+.app { max-width: 1480px; margin: 0 auto; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 20px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 18px 40px; align-items: start; }
+@media (max-width: 960px) { .app { grid-template-columns: minmax(0, 1fr); } .rail { position: static !important; max-height: 300px !important; } }
+
+.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); max-height: calc(100vh - 24px); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 8px 12px; display: grid; gap: 2px; align-content: start; }
+.rail .sec { padding: 12px 8px 4px; }
+.rail button.f { all: unset; cursor: pointer; display: grid; gap: 1px; padding: 7px 8px; border-radius: 7px; color: var(--fg); font-size: 13px; line-height: 1.35; }
+.rail button.f small { color: var(--fg3); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.rail button.f:hover { background: var(--sunk); }
+.rail button.f:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.rail button.f[aria-current="true"] { background: var(--accent-soft); }
+.rail button.f[aria-current="true"] span { color: var(--accent); font-weight: 600; }
+
+main { display: grid; gap: 14px; min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: grid; gap: 10px; min-width: 0; }
+.fcard .claim { font-size: 15px; }
+.fcard .look { color: var(--fg2); }
+.fcard .check { border-left: 3px solid var(--accent); padding: 6px 10px; background: var(--sunk); border-radius: 0 6px 6px 0; font-size: 13px; }
+.fcard .check b { font-variant-numeric: tabular-nums; }
+.fcard .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; color: var(--fg3); }
+.fcard.free .claim { color: var(--fg2); }
+
+nav.views { display: flex; flex-wrap: wrap; gap: 4px; }
+nav.views button { all: unset; cursor: pointer; font-size: 13px; font-weight: 500; padding: 6px 11px; border-radius: 999px; color: var(--fg2); border: 1px solid var(--line); background: var(--surface); }
+nav.views button:hover { color: var(--fg); border-color: var(--line-strong); }
+nav.views button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+nav.views button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; }
+.ctl { display: grid; gap: 3px; font-size: 12px; color: var(--fg3); min-width: 0; max-width: 100%; }
+.ctl select, .ctl input { width: auto; max-width: 100%; }
+.controls, .ctlrow, #vbody, #ws { min-width: 0; max-width: 100%; }
+#vbody > *, main > * { min-width: 0; max-width: 100%; }
+.ctl > span { font-weight: 500; }
+select, input[type="date"], input[type="number"], input[type="text"], input:not([type]) { font: 13px var(--f-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 7px; padding: 5px 8px; min-height: 32px; max-width: 100%; }
+input[type="number"] { width: 90px; }
+select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
+.chk { display: flex; gap: 6px; align-items: center; font-size: 13px; color: var(--fg2); min-height: 32px; }
+.chk input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
+.ctlrow { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; width: 100%; }
+.ctlrow.sep { border-top: 1px dashed var(--line); padding-top: 10px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 5px; width: 100%; min-width: 0; }
+.chips button { max-width: 100%; overflow-wrap: anywhere; white-space: normal; }
+.chips button { all: unset; cursor: pointer; font-size: 12.5px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg2); background: var(--bg); display: inline-flex; gap: 6px; align-items: center; }
+.chips button i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); display: inline-block; }
+.chips button small { color: var(--fg3); font-variant-numeric: tabular-nums; }
+.chips button[aria-pressed="true"] { border-color: var(--fg2); color: var(--fg); background: var(--surface); }
+.chips button:focus-visible { outline: 2px solid var(--accent); }
+.chips .act { border-style: dashed; color: var(--fg3); }
+
+.chart { width: 100%; max-width: 100%; min-height: 380px; }
+.chart.short { min-height: 300px; }
+.charthead { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: space-between; }
+.note { font-size: 12.5px; color: var(--fg3); }
+.warnline { font-size: 12.5px; color: var(--warn); }
+
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; width: 100%; }
+th, td { padding: 5px 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 600; color: var(--fg2); background: var(--sunk); position: sticky; top: 0; }
+td.l { text-align: left; }
+.sw { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+
+.infogrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(140px, 100%), 1fr)); gap: 8px 16px; font-size: 13px; }
+.infogrid div { display: grid; gap: 1px; min-width: 0; }
+.infogrid span { color: var(--fg3); font-size: 11.5px; }
+.infogrid b { font-weight: 500; overflow-wrap: anywhere; }
+
+.loading { padding: 60px 20px; text-align: center; color: var(--fg2); }
+@media (prefers-reduced-motion: no-preference) { .rail button.f, nav.views button, .chips button { transition: background-color .12s, color .12s, border-color .12s; } }
+</style>
+
+<header class="top"><div class="in">
+  <div style="display:grid;gap:4px">
+    <div class="eyebrow">Edikted demand forecasting</div>
+    <h1>Series Explorer</h1>
+  </div>
+  <p id="hdr">Every finding from the EDA as a live view of the data, with its number recomputed in your browser. Pick a finding on the left, or open any view and group the series your own way.</p>
+</div></header>
+
+<div class="app">
+  <aside class="rail" id="rail" aria-label="Findings"></aside>
+  <main id="main">
+    <div class="card loading" id="loading">Loading the series (about 4.5 MB)…</div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+<script>
+"use strict";
+/* ============================== utilities ============================== */
+const $ = s => document.querySelector(s);
+const DAY = 864e5, T0 = Date.UTC(2024, 0, 1);
+const iso = di => new Date(T0 + di * DAY).toISOString().slice(0, 10);
+const dIdx = s => Math.round((Date.parse(s + "T00:00:00Z") - T0) / DAY);
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const WK = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const fmt = (v, d = 0) => v == null || !isFinite(v) ? "–" : Number(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const pct = (v, d = 0) => v == null || !isFinite(v) ? "–" : (v >= 0 ? "+" : "−") + Math.abs(v * 100).toFixed(d) + "%";
+const x2 = (v, d = 2) => v == null || !isFinite(v) ? "–" : v.toFixed(d) + "×";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const sum = a => { let s = 0; for (const v of a) s += v; return s; };
+const mean = a => a.length ? sum(a) / a.length : NaN;
+function quant(a, p) { const s = a.filter(v => v != null && isFinite(v)).sort((x, y) => x - y); if (!s.length) return NaN; const k = (s.length - 1) * p, f = Math.floor(k); return s[f] + (s[Math.min(f + 1, s.length - 1)] - s[f]) * (k - f); }
+const median = a => quant(a, 0.5);
+function corr(a, b) { const n = a.length; if (n < 3) return NaN; const ma = mean(a), mb = mean(b); let sab = 0, saa = 0, sbb = 0; for (let i = 0; i < n; i++) { const x = a[i] - ma, y = b[i] - mb; sab += x * y; saa += x * x; sbb += y * y; } return sab / Math.sqrt(saa * sbb); }
+function pairCorr(a, b) { const x = [], y = []; for (let i = 0; i < a.length; i++) if (a[i] != null && b[i] != null && isFinite(a[i]) && isFinite(b[i])) { x.push(a[i]); y.push(b[i]); } return corr(x, y); }
+function centred(v, k, f = mean) { const h = Math.floor(k / 2), out = new Array(v.length).fill(null); for (let t = 0; t < v.length; t++) { const a = Math.max(0, t - h), b = Math.min(v.length, t + h + 1); const w = []; for (let j = a; j < b; j++) if (v[j] != null) w.push(v[j]); out[t] = w.length ? f(w) : null; } return out; }
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const PAL = () => ["--s1", "--s2", "--s3", "--s4", "--s7", "--s8", "--s5", "--s6", "--s9", "--s10"].map(css);
+const col = k => { const p = PAL(); return p[k % p.length]; };
+function alpha(c, a) { if (c.startsWith("#") && c.length === 7) { const n = parseInt(c.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; } return c; }
+
+/* ============================== data ============================== */
+let D, I, NI, ND, NW, startD, lastD, MS, weekX, monthX, dayX, Wall, Mall, BT, deepSpans = [], deepThr = 0.585;
+const CL = ["ONLINE", "RETAIL", "DROP"];
+function prep(data) {
+  D = data; I = D.items; NI = I.id.length; ND = D.ndays; NW = D.nweeks;
+  startD = I.start.map(s => s ? dIdx(s) : -9999); lastD = I.last.map(s => s ? dIdx(s) : -9999);
+  MS = []; for (let m = 0; m <= 30; m++) MS.push(dIdx(`${2024 + Math.floor(m / 12)}-${String(m % 12 + 1).padStart(2, "0")}-01`));
+  weekX = Array.from({ length: NW }, (_, w) => iso(7 * w)); monthX = D.months.map(m => m + "-01"); dayX = Array.from({ length: ND }, (_, d) => iso(d));
+  Wall = I.id.map((_, i) => D.W.ONLINE[i].map((v, w) => v + D.W.RETAIL[i][w] + D.W.DROP[i][w]));
+  Mall = I.id.map((_, i) => D.M.ONLINE[i].map((v, m) => v + D.M.RETAIL[i][m] + D.M.DROP[i][m]));
+  I.idx = {}; I.id.forEach((s, i) => I.idx[s] = i);
+  // backtest: 4-month totals per (origin, item)
+  const b = D.bt, n = b.y.length, key = new Map();
+  for (let r = 0; r < n; r++) { const k = b.o[r] * NI + b.i[r]; let e = key.get(k); if (!e) { e = { o: b.o[r], i: b.i[r], y: 0, lgb: 0, nn: 0, nh: 0 }; key.set(k, e); } e.y += b.y[r]; e.lgb += b.lgb[r]; e.nn += b.nn[r]; e.nh++; }
+  BT = [...key.values()].filter(e => e.nh === 4);
+  buildDeep();
+}
+function buildDeep() { deepSpans = []; const v = D.site.web_disc; let a = null; for (let d = 0; d <= ND; d++) { const on = d < ND && v[d] != null && v[d] >= deepThr; if (on && a == null) a = d; if (!on && a != null) { deepSpans.push([a, d - 1]); a = null; } } }
+const monthOfDay = d => { let m = 0; while (m < 29 && MS[m + 1] <= d) m++; return m; };
+
+/* ============================== state ============================== */
+const ATTRS = () => Object.keys(I.attrs);
+const S = {
+  view: "series", dim: "macro", sel: {}, chan: "all", grain: "week", measure: "units", smooth: 0, style: "line", log: false,
+  before: "", after: "", targets: false, ov: { deep: true, events: true, stores: false, live: false, cancelled: false }, range: null, showAll: false,
+  season: { years: [2024, 2025], lfl: false, base: "index" },
+  life: { K: 18, stat: "median", band: true, from: "2024-02-01" },
+  scatter: { a0: "2025-03", a1: "2025-06", b0: "2025-07", b1: "2025-10", minA: 100 },
+  drift: { mature: false },
+  corr: { tf: "dlog", a: 0, b: 1, L: 12, from: "2024-01-01", to: "2026-06-28" },
+  dow: { chan: "all", nodeep: false },
+  bt: { mode: "month", h: 1, origin: "all", g: 0, model: "lgb" },
+  emb: { type: "Dress", color: "macro" },
+  item: { id: "S11233_BLACK", daily: false, model: "both" },
+  finding: null
+};
+S.chans = { share: false };
+
+/* ============================== groups ============================== */
+const DIMS = () => [["none", "All items"], ["macro", "Category group"], ["type", "Product type"], ["occ", "Occasion tag (each tag counted)"], ["cohort", "Launch half-year"], ["colornum", "Colour number"],
+  ["target", "Target vs other"], ["channel", "Channel class"], ["coll", "Collection"], ["item", "Individual items"], ...ATTRS().map(a => ["attr:" + a, "Tagger: " + a])];
+function keyOf(dim, i) {
+  if (dim === "none" || dim === "channel") return "All items";
+  if (dim === "macro") return I.macro[i];
+  if (dim === "type") return I.type[i];
+  if (dim === "occ") return I.occ[i].split(";").map(x => x.trim()).filter(Boolean);
+  if (dim === "coll") return I.coll[i];
+  if (dim === "cohort") { const s = startD[i]; if (s < 0) return "before 2024"; const y = 2024 + Math.floor(monthOfDay(s) / 12); return `${y} ${monthOfDay(s) % 12 < 6 ? "H1" : "H2"}`; }
+  if (dim === "colornum") return I.color_num[i] === 1 ? "1st colour" : I.color_num[i] === 2 ? "2nd colour" : "3rd+ colour";
+  if (dim === "target") return I.target[i] ? "the 100 targets" : "other items";
+  if (dim === "item") return I.id[i];
+  if (dim.startsWith("attr:")) return I.attrs[dim.slice(5)][i];
+  return "?";
+}
+function passes(i) {
+  if (S.before && !(startD[i] < dIdx(S.before))) return false;
+  if (S.after && !(lastD[i] >= dIdx(S.after))) return false;
+  if (S.targets && !I.target[i]) return false;
+  return true;
+}
+const filtersOn = () => !!(S.before || S.after || S.targets);
+function allGroups(dim) {
+  const m = new Map();
+  if (dim === "channel") { const idx = []; for (let i = 0; i < NI; i++) if (passes(i)) idx.push(i); return CL.map(c => ({ label: c, idx, chan: c, units: idx.reduce((s, i) => s + sum(D.M[c][i]), 0) })); }
+  for (let i = 0; i < NI; i++) { if (!passes(i)) continue; const u = sum(Mall[i]); for (const k of [].concat(keyOf(dim, i))) { let g = m.get(k); if (!g) { g = { label: k, idx: [], units: 0 }; m.set(k, g); } g.idx.push(i); g.units += u; } }
+  const ck = l => l === "before 2024" ? "0" : l;
+  return [...m.values()].sort((a, b) => dim === "cohort" ? ck(a.label).localeCompare(ck(b.label)) : b.units - a.units);
+}
+function defaultSel(dim) {
+  if (dim === "item") return ["S11233_BLACK", "S14857_BLUE-WASHED", "S15999_BLUE"];
+  const g = allGroups(dim); return g.slice(0, dim === "cohort" || dim === "channel" ? g.length : 6).map(x => x.label);
+}
+function selected() {
+  const dim = S.dim; if (!S.sel[dim]) S.sel[dim] = defaultSel(dim);
+  if (dim === "item") return S.sel.item.filter(id => id in I.idx).map(id => ({ label: id, idx: [I.idx[id]], units: sum(Mall[I.idx[id]]) }));
+  const all = allGroups(dim), by = new Map(all.map(g => [g.label, g]));
+  return S.sel[dim].map(l => by.get(l)).filter(Boolean);
+}
+const allIdx = () => { const a = []; for (let i = 0; i < NI; i++) if (passes(i)) a.push(i); return a; };
+
+/* ============================== aggregation ============================== */
+const getW = (i, c) => c === "all" ? Wall[i] : D.W[c][i];
+const getM = (i, c) => c === "all" ? Mall[i] : D.M[c][i];
+function dayAvailable(gs) { if (S.dim === "none" && !filtersOn()) return true; if (S.dim === "channel" && !filtersOn()) return true; if (S.dim === "item") return gs.every(g => D.D[g.label]); return false; }
+function agg(idx, grain, c) {
+  if (grain === "week") { const v = new Array(NW).fill(0); for (const i of idx) { const a = getW(i, c); for (let w = 0; w < NW; w++) v[w] += a[w]; } return v; }
+  if (grain === "month") { const v = new Array(30).fill(0); for (const i of idx) { const a = getM(i, c); for (let m = 0; m < 30; m++) v[m] += a[m]; } return v; }
+  // day
+  if (S.dim === "item") { const v = new Array(ND).fill(0); for (const i of idx) { const a = D.D[I.id[i]]; for (let d = 0; d < ND; d++) v[d] += a[d]; } return v; }
+  return siteDaily(c);
+}
+function siteDaily(c) { if (c === "all") return D.site.units.ONLINE.map((v, d) => v + D.site.units.RETAIL[d] + D.site.units.DROP[d]); return D.site.units[c].slice(); }
+function liveCount(idx, grain) {
+  const n = grain === "week" ? NW : grain === "month" ? 30 : ND, v = new Array(n).fill(0);
+  for (const i of idx) for (let t = 0; t < n; t++) { const a = grain === "week" ? 7 * t : grain === "month" ? MS[t] : t, b = grain === "week" ? 7 * t + 6 : grain === "month" ? MS[t + 1] - 1 : t; if (startD[i] <= b && lastD[i] >= a) v[t]++; }
+  return v;
+}
+function discSeries(idx, grain) {
+  if (grain === "day") return D.site.web_disc.slice();
+  if (grain === "week") { const q = new Array(NW).fill(0), dw = new Array(NW).fill(0); for (const i of idx) for (let w = 0; w < NW; w++) { q[w] += D.W.ONLINE[i][w]; dw[w] += D.WD[i][w] / 100; } return q.map((v, w) => v > 0 ? dw[w] / v : null); }
+  return null;
+}
+const periodYear = (grain, t) => +(grain === "week" ? weekX : grain === "month" ? monthX : dayX)[t].slice(0, 4);
+function measure(v, g, grain, total) {
+  const m = S.measure;
+  if (m === "units") return v;
+  if (m === "perlive") { const n = liveCount(g.idx, grain); return v.map((x, t) => n[t] ? x / n[t] : null); }
+  if (m === "share") return v.map((x, t) => total[t] ? x / total[t] : null);
+  if (m === "index") { const by = {}; v.forEach((x, t) => { const y = periodYear(grain, t); (by[y] = by[y] || []).push(x); }); const mu = {}; for (const y in by) mu[y] = mean(by[y]); return v.map((x, t) => mu[periodYear(grain, t)] ? x / mu[periodYear(grain, t)] : null); }
+  if (m === "yoy") { const L = grain === "week" ? 52 : grain === "month" ? 12 : 364; return v.map((x, t) => t >= L && v[t - L] > 0 ? x / v[t - L] : null); }
+  if (m === "disc") return discSeries(g.idx, grain);
+  return v;
+}
+function smooth(v, grain) { if (!S.smooth) return v; const k = grain === "day" ? (S.smooth === 1 ? 7 : 28) : grain === "week" ? (S.smooth === 1 ? 4 : 13) : 3; return centred(v, k); }
+function toGrain(daily, grain, how = "sum") {
+  if (grain === "day") return daily;
+  if (grain === "week") return Array.from({ length: NW }, (_, w) => { const s = daily.slice(7 * w, 7 * w + 7); return how === "last" ? s[6] : sum(s); });
+  return Array.from({ length: 30 }, (_, m) => { const s = daily.slice(MS[m], MS[m + 1]); return how === "last" ? s[s.length - 1] : sum(s); });
+}
+
+/* ============================== plotting ============================== */
+const CFG = { displaylogo: false, responsive: true, modeBarButtonsToRemove: ["lasso2d", "select2d", "autoScale2d"] };
+function L(extra = {}) {
+  const fg2 = css("--fg2"), line = css("--line"), ls = css("--line-strong");
+  const ax = { gridcolor: line, linecolor: ls, zeroline: false, tickfont: { size: 11 }, automargin: true };
+  const base = {
+    paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", font: { family: css("--f-body"), size: 12, color: fg2 },
+    margin: { l: 56, r: 24, t: 16, b: 40 }, xaxis: { ...ax }, yaxis: { ...ax }, hovermode: "x unified",
+    legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, font: { size: 11.5 } }, hoverlabel: { bgcolor: css("--tip-bg"), font: { color: css("--tip-fg"), size: 12 }, bordercolor: css("--tip-bg") }
+  };
+  for (const k in extra) base[k] = (k.startsWith("xaxis") || k.startsWith("yaxis")) ? { ...ax, ...(base[k] || {}), ...extra[k] } : extra[k];
+  return base;
+}
+function plot(id, traces, layout) { const el = document.getElementById(id); if (!el) return; Plotly.react(el, traces, layout, CFG); }
+function eventShapes(grain, yref = "paper") {
+  const shapes = [], ann = [];
+  if (S.ov.deep) for (const [a, b] of deepSpans) shapes.push({ type: "rect", xref: "x", yref: "paper", x0: iso(a), x1: iso(b + 1), y0: 0, y1: 1, fillcolor: alpha(css("--band"), 0.09), line: { width: 0 }, layer: "below" });
+  if (S.ov.events) for (const [d, t] of EVENTS) { shapes.push({ type: "line", xref: "x", yref: "paper", x0: d, x1: d, y0: 0, y1: 1, line: { color: css("--fg3"), width: 1, dash: "dot" } }); ann.push({ x: d, y: 1, xref: "x", yref: "paper", text: t, showarrow: false, xanchor: "left", yanchor: "top", font: { size: 10, color: css("--fg3") }, textangle: -90 }); }
+  return { shapes, annotations: ann };
+}
+const EVENTS = [["2024-05-10", "low day"], ["2024-10-31", "low day"], ["2024-11-29", "Black Friday"], ["2025-10-14", "mass cancellation"], ["2025-11-28", "Black Friday"], ["2026-05-25", "World Cup items published"]];
+
+/* ============================== UI helpers ============================== */
+function selCtl(label, key, opts, val) { const nm = opts.length && opts.every(o => typeof o[0] === "number"); return `<label class="ctl"><span>${label}</span><select data-k="${key}"${nm ? ' data-t="num"' : ""}>${opts.map(([v, t]) => `<option value="${esc(v)}"${String(v) === String(val) ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></label>`; }
+function chkCtl(label, key, val) { return `<label class="chk"><input type="checkbox" data-k="${key}" data-t="bool"${val ? " checked" : ""}>${label}</label>`; }
+function dateCtl(label, key, val) { return `<label class="ctl"><span>${label}</span><input type="date" data-k="${key}" value="${val || ""}" min="2023-01-01" max="2026-06-30"></label>`; }
+function numCtl(label, key, val, step = 1, min = 0, max = 1e9) { return `<label class="ctl"><span>${label}</span><input type="number" data-k="${key}" data-t="num" value="${val}" step="${step}" min="${min}" max="${max}"></label>`; }
+const monthOpts = () => D.months.map(m => [m, `${MON[+m.slice(5) - 1]} ${m.slice(0, 4)}`]);
+function getPath(k) { return k.split(".").reduce((o, p) => o[p], S); }
+function setPath(k, v) { const p = k.split("."), last = p.pop(); p.reduce((o, q) => o[q], S)[last] = v; }
+const chanOpts = [["all", "All channels"], ["ONLINE", "Online"], ["RETAIL", "Retail"], ["DROP", "Drop"]];
+function filterCtls() { return `<div class="ctlrow sep">${dateCtl("Only items that started before", "before", S.before)}${dateCtl("…and still sold on or after", "after", S.after)}${chkCtl("Only the 100 targets", "targets", S.targets)}<span class="note">Setting a start date gives a like-for-like cohort: the same items in every period.</span></div>`; }
+function dimCtl() { return selCtl("Group by", "dim", DIMS(), S.dim); }
+function chipsCtl(maxSel = 10) {
+  const dim = S.dim; if (!S.sel[dim]) S.sel[dim] = defaultSel(dim);
+  if (dim === "none") return "";
+  if (dim === "item") {
+    return `<div class="chips">${S.sel.item.map((id, k) => `<button data-item="${esc(id)}" aria-pressed="true" title="Remove"><i style="background:${col(k)}"></i>${esc(id)} <small>${esc(I.name[I.idx[id]] || "")}</small> ✕</button>`).join("")}
+      <label class="ctl" style="min-width:min(260px,100%)"><span>Add an item</span><input id="additem" list="itemlist" placeholder="Style-colour or product name"></label></div>`;
+  }
+  const all = allGroups(dim), sel = S.sel[dim], lim = S.showAll ? all.length : 24;
+  return `<div class="chips">${all.slice(0, lim).map(g => { const k = sel.indexOf(g.label); return `<button data-g="${esc(g.label)}" aria-pressed="${k >= 0}"><i${k >= 0 ? ` style="background:${col(k)}"` : ""}></i>${esc(g.label)} <small>${g.idx.length}</small></button>`; }).join("")}
+    ${all.length > 24 ? `<button class="act" data-act="all">${S.showAll ? "Show fewer" : `Show all ${all.length}`}</button>` : ""}<button class="act" data-act="top">Top 6</button><button class="act" data-act="clear">Clear</button></div>`;
+}
+function wireControls(root) {
+  root.querySelectorAll("[data-k]").forEach(el => el.addEventListener("change", () => {
+    const k = el.dataset.k, t = el.dataset.t; let v = t === "bool" ? el.checked : t === "num" ? +el.value : el.value;
+    if (k === "dim") { S.dim = v; S.showAll = false; } else setPath(k, v);
+    if (k === "calthr") { deepThr = v; buildDeep(); }
+    if (k !== "range") S.range = k === "grain" ? null : S.range;
+    render(false);
+  }));
+  root.querySelectorAll(".chips button[data-g]").forEach(b => b.addEventListener("click", () => { const l = b.dataset.g, s = S.sel[S.dim], k = s.indexOf(l); if (k >= 0) s.splice(k, 1); else s.push(l); render(false); }));
+  root.querySelectorAll(".chips button[data-item]").forEach(b => b.addEventListener("click", () => { S.sel.item = S.sel.item.filter(x => x !== b.dataset.item); render(false); }));
+  root.querySelectorAll(".chips button[data-act]").forEach(b => b.addEventListener("click", () => { const a = b.dataset.act; if (a === "all") S.showAll = !S.showAll; if (a === "top") S.sel[S.dim] = defaultSel(S.dim); if (a === "clear") S.sel[S.dim] = []; render(false); }));
+  const ai = root.querySelector("#additem"); if (ai) ai.addEventListener("change", () => { const id = resolveItem(ai.value); if (id && !S.sel.item.includes(id)) S.sel.item.push(id); render(false); });
+  const ii = root.querySelector("#itemid"); if (ii) ii.addEventListener("change", () => { const id = resolveItem(ii.value); if (id) { S.item.id = id; render(false); } });
+}
+function resolveItem(v) { v = (v || "").trim(); if (v in I.idx) return v; const m = v.match(/^(\S+)\s/); if (m && m[1] in I.idx) return m[1]; const lo = v.toLowerCase(); const k = I.name.findIndex(n => n && n.toLowerCase() === lo); return k >= 0 ? I.id[k] : null; }
+function table(head, rows) { return `<div class="tbl"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, j) => `<td${j === 0 ? ' class="l"' : ""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`; }
+const sw = k => `<span class="sw" style="background:${col(k)}"></span>`;
+
+/* ============================== views ============================== */
+const VIEWS = {};
+
+/* ---- Series ---- */
+VIEWS.series = {
+  label: "Series",
+  controls() {
+    return `<div class="ctlrow">${dimCtl()}${selCtl("Channel", "chan", chanOpts, S.chan)}${selCtl("Grain", "grain", [["day", "Day"], ["week", "Week"], ["month", "Month"]], S.grain)}
+      ${selCtl("Measure", "measure", [["units", "Units"], ["perlive", "Units per live item"], ["share", "Share of all items"], ["index", "Index (1.0 = group's mean in that year)"], ["yoy", "Year-on-year ratio"], ["disc", "Online discount (week or day)"]], S.measure)}
+      ${selCtl("Smoothing", "smooth", [[0, "None"], [1, "Short (7 d / 4 wk / 3 mo)"], [2, "Long (28 d / 13 wk)"]], S.smooth)}${selCtl("Draw as", "style", [["line", "Lines"], ["stack", "Stacked area"]], S.style)}${chkCtl("Log scale", "log", S.log)}</div>
+      ${chipsCtl()}
+      <div class="ctlrow sep"><span class="note">Overlays</span>${chkCtl("Deep-discount days (online ≥ 58.5% off)", "ov.deep", S.ov.deep)}${chkCtl("Events", "ov.events", S.ov.events)}${chkCtl("Open retail stores", "ov.stores", S.ov.stores)}${chkCtl("Live items", "ov.live", S.ov.live)}${chkCtl("Cancelled units", "ov.cancelled", S.ov.cancelled)}</div>
+      ${filterCtls()}`;
+  },
+  body: () => `<div class="charthead"><h3 id="s-title"></h3><span class="note" id="s-note"></span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    let gs = S.dim === "none" ? [{ label: filtersOn() ? "Filtered items" : "All items", idx: allIdx() }] : selected();
+    let grain = S.grain, note = [];
+    if (grain === "day" && !dayAvailable(gs)) { grain = "week"; note.push("Daily data covers the site total, the channel classes and 112 individual items (targets and suspected stock-outs); showing weeks."); }
+    if (S.measure === "disc" && grain === "month") { grain = "week"; note.push("Discount is kept by week; showing weeks."); }
+    if (grain === "week") note.push("Weeks start on Monday.");
+    const x = grain === "day" ? dayX : grain === "week" ? weekX : monthX;
+    const total = S.measure === "share" ? agg(allIdx(), grain, S.chan) : null;
+    const tr = gs.map((g, k) => {
+      const raw = agg(g.idx, grain, g.chan || S.chan); const y = smooth(measure(raw, g, grain, total), grain);
+      return { x, y, name: g.label, type: "scatter", mode: "lines", line: { color: col(k), width: grain === "day" ? 1.2 : 1.8, shape: "linear" }, stackgroup: S.style === "stack" ? "one" : undefined, hovertemplate: `%{y:,.${S.measure === "units" ? 0 : 3}f}` };
+    });
+    let y2 = null;
+    if (S.ov.cancelled && (S.dim === "none" || S.dim === "channel") && !filtersOn()) tr.push({ x, y: toGrain(D.site.cancelled, grain), name: "Cancelled units", mode: "lines", line: { color: css("--crit"), width: 1.2, dash: "dot" } });
+    if (S.ov.stores) { tr.push({ x, y: toGrain(D.site.stores, grain, "last"), name: "Open retail stores", yaxis: "y2", mode: "lines", line: { color: css("--fg3"), width: 1.5, shape: "hv" } }); y2 = "stores"; }
+    if (S.ov.live) { tr.push({ x, y: liveCount(allIdx(), grain), name: "Live items", yaxis: "y2", mode: "lines", line: { color: css("--fg3"), width: 1.5, dash: "dash" } }); y2 = y2 ? "stores / items" : "live items"; }
+    const ev = eventShapes(grain);
+    const ytitle = { units: "units", perlive: "units per live item", share: "share of all items", index: "index", yoy: "× same period a year earlier", disc: "unit-weighted discount" }[S.measure];
+    plot("c1", tr, L({ xaxis: { type: "date", range: S.range || undefined }, yaxis: { title: { text: ytitle, font: { size: 11 } }, type: S.log ? "log" : "linear", tickformat: S.measure === "share" || S.measure === "disc" ? ".0%" : undefined }, ...(y2 ? { yaxis2: { overlaying: "y", side: "right", showgrid: false, title: { text: y2, font: { size: 11 } } } } : {}), ...ev }));
+    $("#s-title").textContent = `${{ units: "Units", perlive: "Units per live item", share: "Share of units", index: "Seasonal index", yoy: "Year-on-year ratio", disc: "Online discount" }[S.measure]} by ${grain}${S.dim !== "none" ? ", by " + DIMS().find(d => d[0] === S.dim)[1].toLowerCase() : ""}`;
+    $("#s-note").textContent = note.join(" ");
+    const el = document.getElementById("c1"); el.removeAllListeners && el.removeAllListeners("plotly_relayout");
+    el.on && el.on("plotly_relayout", e => { if (e["xaxis.range[0]"]) S.range = [e["xaxis.range[0]"], e["xaxis.range[1]"]]; if (e["xaxis.autorange"]) S.range = null; });
+    const rows = gs.map((g, k) => { const mm = agg(g.idx, "month", g.chan || S.chan); const y24 = sum(mm.slice(0, 12)), y25 = sum(mm.slice(12, 24)), h25 = sum(mm.slice(12, 18)), h26 = sum(mm.slice(24, 30)); const pk = mm.indexOf(Math.max(...mm));
+      return [sw(k) + esc(g.label), fmt(g.idx.length), fmt(y24), fmt(y25), fmt(h26), pct(h26 / h25 - 1), `${MON[pk % 12]} ${2024 + Math.floor(pk / 12)}`]; });
+    $("#s-tab").innerHTML = table(["Group", "Items", "Units 2024", "Units 2025", "Units 2026 H1", "2026 H1 vs 2025 H1", "Peak month"], rows);
+  }
+};
+
+/* ---- Season ---- */
+VIEWS.season = {
+  label: "Seasonal profile",
+  controls: () => `<div class="ctlrow">${dimCtl()}${selCtl("Channel", "chan", chanOpts, S.chan)}${selCtl("Years", "season.years", [["2024,2025", "2024 and 2025"], ["2025", "2025"], ["2024", "2024"]], S.season.years.join(","))}
+    ${selCtl("Scale", "season.base", [["index", "Index: 1.0 = group's monthly average that year"], ["units", "Units"], ["perlive", "Units per live item"]], S.season.base)}${chkCtl("Like-for-like: only items selling the whole year", "season.lfl", S.season.lfl)}</div>${chipsCtl()}${filterCtls()}`,
+  body: () => `<div class="charthead"><h3>Monthly profile by calendar year</h3><span class="note">Solid line = 2025, dotted = 2024.</span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    if (typeof S.season.years === "string") S.season.years = S.season.years.split(",").map(Number);
+    const gs = S.dim === "none" ? [{ label: "All items", idx: allIdx() }] : selected(), tr = [], rows = [];
+    gs.forEach((g, k) => S.season.years.forEach(y => {
+      const p = seasonProfile(g.idx, g.chan || S.chan, y, S.season.lfl, S.season.base);
+      tr.push({ x: MON, y: p.v, name: `${g.label} ${y}`, mode: "lines+markers", line: { color: col(k), width: 2, dash: y === 2024 ? "dot" : "solid" }, marker: { size: 5 }, hovertemplate: S.season.base === "index" ? "%{y:.2f}" : "%{y:,.0f}" });
+      rows.push([sw(k) + esc(g.label), y, fmt(p.n), ...p.v.map(v => S.season.base === "index" ? fmt(v, 2) : fmt(v))]);
+    }));
+    plot("c1", tr, L({ xaxis: { type: "category" }, yaxis: { title: { text: S.season.base === "index" ? "index (1.0 = monthly average)" : "units", font: { size: 11 } }, rangemode: "tozero" }, hovermode: "x unified" }));
+    $("#s-tab").innerHTML = table(["Group", "Year", "Items", ...MON], rows);
+  }
+};
+function seasonProfile(idx, chan, y, lfl, base) {
+  const ids = idx.filter(i => !lfl || (startD[i] < dIdx(`${y}-01-01`) && lastD[i] >= dIdx(`${y}-12-31`)));
+  const o = (y - 2024) * 12, v = new Array(12).fill(0);
+  for (const i of ids) { const a = getM(i, chan); for (let m = 0; m < 12; m++) v[m] += a[o + m]; }
+  if (base === "perlive") { const n = liveCount(ids, "month"); return { v: v.map((x, m) => n[o + m] ? x / n[o + m] : null), n: ids.length }; }
+  if (base === "units") return { v, n: ids.length };
+  const mu = mean(v); return { v: v.map(x => mu ? x / mu : null), n: ids.length };
+}
+
+/* ---- Lifecycle ---- */
+VIEWS.life = {
+  label: "Launch curve",
+  controls: () => `<div class="ctlrow">${dimCtl()}${selCtl("Channel", "chan", chanOpts, S.chan)}${numCtl("Months after launch", "life.K", S.life.K, 1, 6, 29)}${selCtl("Centre line", "life.stat", [["median", "Median"], ["mean", "Mean"]], S.life.stat)}${chkCtl("Show 25th–75th percentile band", "life.band", S.life.band)}${dateCtl("Launched on or after", "life.from", S.life.from)}</div>${chipsCtl()}${filterCtls()}`,
+  body: () => `<div class="charthead"><h3>Sales by month since launch, each item ÷ its own months 1–3</h3><span class="note">Month 0 is the launch month (partial). Launch = the earlier of publishing (NY time) and first sale; only launches inside the data.</span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    const gs = S.dim === "none" ? [{ label: "All launches", idx: allIdx() }] : selected(), tr = [], rows = [], K = Math.min(29, S.life.K), xs = Array.from({ length: K + 1 }, (_, k) => k);
+    gs.forEach((g, k) => {
+      const c = lifeCurves(g.idx, g.chan || S.chan, K), mid = S.life.stat === "mean" ? c.mean : c.med;
+      if (S.life.band) { tr.push({ x: xs, y: c.p25, mode: "lines", line: { width: 0 }, showlegend: false, hoverinfo: "skip" }); tr.push({ x: xs, y: c.p75, mode: "lines", line: { width: 0 }, fill: "tonexty", fillcolor: alpha(col(k), 0.12), showlegend: false, hoverinfo: "skip" }); }
+      tr.push({ x: xs, y: mid, name: `${g.label} (n=${c.n[0]})`, mode: "lines+markers", marker: { size: 5 }, line: { color: col(k), width: 2 }, customdata: c.n, hovertemplate: "%{y:.2f}  (n=%{customdata})" });
+      const pk = c.med.slice(1).indexOf(Math.max(...c.med.slice(1).filter(v => v != null))) + 1, half = c.med.findIndex((v, j) => j > pk && v != null && v <= 0.5 * c.med[pk]);
+      rows.push([sw(k) + esc(g.label), fmt(c.n[0]), fmt(c.mean[0], 2), fmt(c.med[0], 2), "month " + pk, half > 0 ? "month " + half : "–", fmt(c.med[8], 2), `${fmt(c.p25[8], 2)}–${fmt(c.p75[8], 2)}`, fmt(c.n[8])]);
+    });
+    plot("c1", tr, L({ xaxis: { title: { text: "months since launch", font: { size: 11 } }, dtick: 1 }, yaxis: { title: { text: "× own mean of months 1–3", font: { size: 11 } }, rangemode: "tozero" } }));
+    $("#s-tab").innerHTML = table(["Group", "Launches", "Month 0 mean", "Month 0 median", "Median peak", "Median ≤ half of peak", "Month 8 median", "Month 8 p25–p75", "n at month 8"], rows);
+  }
+};
+function lifeCurves(idx, chan, K) {
+  const from = dIdx(S.life.from || "2024-01-01"), per = Array.from({ length: K + 1 }, () => []);
+  for (const i of idx) {
+    const s = startD[i]; if (s < Math.max(0, from)) continue; const m0 = monthOfDay(s); if (m0 + 3 > 29) continue;
+    const a = getM(i, chan), base = (a[m0 + 1] + a[m0 + 2] + a[m0 + 3]) / 3; if (!(base > 0)) continue;
+    for (let k = 0; k <= K && m0 + k <= 29; k++) per[k].push(a[m0 + k] / base);
+  }
+  return { med: per.map(p => p.length >= 5 ? median(p) : null), p25: per.map(p => p.length >= 5 ? quant(p, .25) : null), p75: per.map(p => p.length >= 5 ? quant(p, .75) : null), mean: per.map(p => p.length >= 5 ? mean(p) : null), n: per.map(p => p.length) };
+}
+
+/* ---- Scatter: two windows ---- */
+VIEWS.scatter = {
+  label: "Window vs window",
+  controls: () => `<div class="ctlrow">${dimCtl()}${selCtl("Channel", "chan", chanOpts, S.chan)}${selCtl("Window A from", "scatter.a0", monthOpts(), S.scatter.a0)}${selCtl("to", "scatter.a1", monthOpts(), S.scatter.a1)}${selCtl("Window B from", "scatter.b0", monthOpts(), S.scatter.b0)}${selCtl("to", "scatter.b1", monthOpts(), S.scatter.b1)}${numCtl("Min units in A", "scatter.minA", S.scatter.minA, 10, 1)}</div>${chipsCtl()}${filterCtls()}`,
+  body: () => `<div class="charthead"><h3>Each item's units in window B against window A</h3><span class="note">Log axes. Dotted: B = A. Dashed: B = median ratio × A. Items selling nothing in B are drawn at 0.5.</span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    const mi = m => D.months.indexOf(m), a0 = mi(S.scatter.a0), a1 = mi(S.scatter.a1), b0 = mi(S.scatter.b0), b1 = mi(S.scatter.b1);
+    const gs = S.dim === "none" ? [] : selected(), memb = new Map(); gs.forEach((g, k) => g.idx.forEach(i => memb.has(i) || memb.set(i, k)));
+    const pts = []; for (const i of allIdx()) { const a = getM(i, S.chan); let A = 0, B = 0; for (let m = a0; m <= a1; m++) A += a[m]; for (let m = b0; m <= b1; m++) B += a[m]; if (A >= S.scatter.minA) pts.push({ i, A, B, g: S.dim === "none" ? -1 : (memb.has(i) ? memb.get(i) : -2) }); }
+    const groups = S.dim === "none" ? [{ k: -1, label: "All items" }] : [...gs.map((g, k) => ({ k, label: g.label })), { k: -2, label: "other" }];
+    const tr = [], rows = [];
+    for (const gr of groups) { const p = pts.filter(q => q.g === gr.k); if (!p.length) continue; const c = gr.k >= 0 ? col(gr.k) : gr.k === -1 ? col(0) : css("--fg3");
+      tr.push({ x: p.map(q => q.A), y: p.map(q => Math.max(q.B, 0.5)), text: p.map(q => `${I.id[q.i]}<br>${esc(I.name[q.i])}<br>${I.type[q.i]}`), name: gr.label, mode: "markers", type: "scattergl", marker: { size: 5, color: alpha(c, gr.k === -2 ? 0.3 : 0.6) }, hovertemplate: "%{text}<br>A %{x:,.0f} → B %{y:,.0f}<extra></extra>" });
+      rows.push([gr.k >= 0 ? sw(gr.k) + esc(gr.label) : esc(gr.label), ...scatterStats(p)]); }
+    if (S.dim !== "none") rows.push(["<b>All shown</b>", ...scatterStats(pts)]);
+    if (!pts.length) { Plotly.purge("c1"); $("#s-tab").innerHTML = '<p class="warnline">No item passes these settings.</p>'; return; }
+    const st = scatterStats(pts, true), lo = Math.max(1, Math.min(...pts.map(p => p.A))), hi = Math.max(...pts.map(p => Math.max(p.A, p.B)));
+    tr.push({ x: [lo, hi], y: [lo, hi], mode: "lines", line: { color: css("--fg3"), dash: "dot", width: 1 }, name: "B = A", hoverinfo: "skip" });
+    tr.push({ x: [lo, hi], y: [lo * st.med, hi * st.med], mode: "lines", line: { color: css("--accent"), dash: "dash", width: 1.2 }, name: `B = ${st.med.toFixed(2)} × A`, hoverinfo: "skip" });
+    plot("c1", tr, L({ hovermode: "closest", xaxis: { type: "log", title: { text: `units, ${S.scatter.a0} to ${S.scatter.a1}`, font: { size: 11 } } }, yaxis: { type: "log", title: { text: `units, ${S.scatter.b0} to ${S.scatter.b1}`, font: { size: 11 } } } }));
+    $("#s-tab").innerHTML = table(["Group", "Items", "Log correlation", "Median B/A", "p10 B/A", "p90 B/A", "Sum B / sum A", "Zero in B"], rows);
+  }
+};
+function scatterStats(p, raw) {
+  const r = p.map(q => q.B / q.A), lc = corr(p.map(q => Math.log(q.A)), p.map(q => Math.log(q.B + 1)));
+  const o = { n: p.length, lc, med: median(r), p10: quant(r, .1), p90: quant(r, .9), agg: sum(p.map(q => q.B)) / sum(p.map(q => q.A)), z: p.filter(q => q.B === 0).length };
+  return raw ? o : [fmt(o.n), fmt(o.lc, 3), x2(o.med), x2(o.p10), x2(o.p90), x2(o.agg), fmt(o.z)];
+}
+
+/* ---- Drift of the 4-month multiplier ---- */
+VIEWS.drift = {
+  label: "Multiplier drift",
+  controls: () => `<div class="ctlrow">${dimCtl()}${selCtl("Channel", "chan", chanOpts, S.chan)}${chkCtl("Only items at least 12 months old at the origin", "drift.mature", S.drift.mature)}</div>${chipsCtl()}${filterCtls()}`,
+  body: () => `<div class="charthead"><h3>Realised multiplier: units in the next 4 months ÷ (4 × recent monthly level)</h3><span class="note">Level here = mean of the last 3 months (the report used a 91-day run rate, so values differ a little). Items live for all 3 level months.</span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    const gs = S.dim === "none" ? [{ label: "All live items", idx: allIdx() }] : selected(), tr = [], rows = [];
+    gs.forEach((g, k) => { const r = driftRow(g.idx, g.chan || S.chan); [2024, 2025, 2026].forEach(y => { const ys = MON.map((_, mo) => r[(y - 2024) * 12 + mo]); if (ys.every(v => v == null)) return;
+      tr.push({ x: MON, y: ys, name: `${g.label} ${y}`, mode: "lines+markers", line: { color: col(k), width: 2, dash: y === 2024 ? "dot" : y === 2026 ? "dash" : "solid" }, marker: { size: 5 }, hovertemplate: "%{y:.2f}" });
+      rows.push([sw(k) + esc(g.label), y, ...ys.map(v => fmt(v, 2))]); }); });
+    plot("c1", tr, L({ xaxis: { type: "category", title: { text: "origin month (the level ends here)", font: { size: 11 } } }, yaxis: { title: { text: "multiplier", font: { size: 11 } } } }));
+    $("#s-tab").innerHTML = table(["Group", "Year", ...MON], rows);
+  }
+};
+function driftRow(idx, chan = S.chan) {
+  const out = new Array(30).fill(null);
+  for (let o = 2; o + 4 <= 29; o++) { let f = 0, l = 0, n = 0; for (const i of idx) { if (startD[i] > MS[o - 2]) continue; if (S.drift.mature && startD[i] > MS[o + 1] - 365) continue; const a = getM(i, chan); const lev = (a[o - 2] + a[o - 1] + a[o]) / 3; if (lev <= 0) continue; l += lev; f += a[o + 1] + a[o + 2] + a[o + 3] + a[o + 4]; n++; } out[o] = n ? f / (4 * l) : null; }
+  return out;
+}
+
+/* ---- Connections: correlation and lead-lag ---- */
+VIEWS.corr = {
+  label: "Connections",
+  controls() {
+    const gs = S.dim === "none" ? [] : selected();
+    return `<div class="ctlrow">${dimCtl()}${selCtl("Channel", "chan", chanOpts, S.chan)}${selCtl("Compare", "corr.tf", [["dlog", "Week-on-week change (log)"], ["detrend", "Deviation from own 13-week average (log)"], ["share", "Week-on-week change of share of all items (log)"]], S.corr.tf)}
+      ${dateCtl("Weeks from", "corr.from", S.corr.from)}${dateCtl("to", "corr.to", S.corr.to)}
+      ${selCtl("Lead-lag: A", "corr.a", gs.map((g, k) => [k, g.label]), S.corr.a)}${selCtl("B", "corr.b", gs.map((g, k) => [k, g.label]), S.corr.b)}${numCtl("Max lag (weeks)", "corr.L", S.corr.L, 1, 1, 26)}</div>${chipsCtl()}${filterCtls()}`;
+  },
+  body: () => `<div class="charthead"><h3>How the selected groups move together, by week</h3><span class="note" id="s-note"></span></div><div id="c1" class="chart"></div>
+    <div class="charthead"><h3 id="ll-title">Lead-lag</h3><span class="note">Bar at lag k = correlation of A this week with B k weeks later. Peaks right of 0: A leads.</span></div><div id="c2" class="chart short"></div><div id="c3" class="chart short"></div><div id="s-tab"></div>`,
+  draw() {
+    const gs = S.dim === "none" ? [] : selected();
+    if (gs.length < 2) { $("#s-note").textContent = "Select at least two groups."; ["c1", "c2", "c3"].forEach(id => Plotly.purge(id)); $("#s-tab").innerHTML = ""; return; }
+    const w0 = Math.max(0, Math.floor(dIdx(S.corr.from) / 7)), w1 = Math.min(NW - 1, Math.floor(dIdx(S.corr.to) / 7));
+    const tot = agg(allIdx(), "week", S.chan), ser = gs.map(g => transform(agg(g.idx, "week", g.chan || S.chan), tot).slice(w0, w1 + 1));
+    const n = gs.length, Z = [], T = [];
+    for (let a = 0; a < n; a++) { Z.push([]); T.push([]); for (let b = 0; b < n; b++) { const r = pairCorr(ser[a], ser[b]); Z[a].push(r); T[a].push(isFinite(r) ? r.toFixed(2) : ""); } }
+    const labs = gs.map(g => g.label);
+    plot("c1", [{ type: "heatmap", z: Z, x: labs, y: labs, text: T, texttemplate: "%{text}", zmin: -1, zmax: 1, colorscale: [[0, css("--s1")], [0.5, css("--surface")], [1, css("--s8")]], hovertemplate: "%{y} × %{x}: %{z:.2f}<extra></extra>", colorbar: { thickness: 10, outlinewidth: 0 } }],
+      L({ hovermode: "closest", xaxis: { type: "category", tickangle: -30 }, yaxis: { type: "category", autorange: "reversed" }, margin: { l: 110, r: 20, t: 10, b: 80 } }));
+    let off = []; for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) if (isFinite(Z[a][b])) off.push(Z[a][b]);
+    $("#s-note").textContent = `Mean correlation between different groups: ${fmt(mean(off), 2)} over ${w1 - w0 + 1} weeks.`;
+    const A = Math.min(S.corr.a, n - 1), B = Math.min(S.corr.b, n - 1), Lg = S.corr.L, lags = [], cc = [];
+    for (let k = -Lg; k <= Lg; k++) { const xa = [], xb = []; for (let t = 0; t < ser[A].length; t++) { const u = t + k; if (u < 0 || u >= ser[B].length) continue; xa.push(ser[A][t]); xb.push(ser[B][u]); } lags.push(k); cc.push(pairCorr(xa, xb)); }
+    $("#ll-title").textContent = `Lead-lag: ${labs[A]} (A) and ${labs[B]} (B)`;
+    plot("c2", [{ type: "bar", x: lags, y: cc, marker: { color: lags.map(k => k === 0 ? css("--accent") : css("--s1")) }, hovertemplate: "lag %{x}: %{y:.2f}<extra></extra>" }], L({ hovermode: "closest", xaxis: { title: { text: "lag k (weeks)", font: { size: 11 } }, dtick: 2 }, yaxis: { range: [-1, 1], title: { text: "correlation", font: { size: 11 } } } }));
+    const xw = weekX.slice(w0, w1 + 1);
+    plot("c3", [A, B].map((g, j) => ({ x: xw, y: ser[g], name: labs[g], mode: "lines", line: { color: col(g), width: 1.4 } })), L({ xaxis: { type: "date" }, yaxis: { title: { text: { dlog: "log change", detrend: "log deviation", share: "log change of share" }[S.corr.tf], font: { size: 11 } } } }));
+    $("#s-tab").innerHTML = table(["Group", "Items", "Units in range", "Std of series", "Corr. with all items (week-on-week)"], gs.map((g, k) => { const raw = agg(g.idx, "week", g.chan || S.chan).slice(w0, w1 + 1); const dl = transformBy("dlog", raw), dt = transformBy("dlog", tot.slice(w0, w1 + 1)); return [sw(k) + esc(g.label), fmt(g.idx.length), fmt(sum(raw)), fmt(Math.sqrt(mean(ser[k].filter(v => v != null).map(v => v * v))), 3), fmt(pairCorr(dl, dt), 2)]; }));
+  }
+};
+function transformBy(tf, v, tot) {
+  if (tf === "dlog") return v.map((x, t) => t ? Math.log(x + 1) - Math.log(v[t - 1] + 1) : null);
+  if (tf === "detrend") { const m = centred(v.map(x => x + 1), 13); return v.map((x, t) => m[t] ? Math.log((x + 1) / m[t]) : null); }
+  const s = v.map((x, t) => tot[t] ? (x + 1) / tot[t] : null); return s.map((x, t) => t && x && s[t - 1] ? Math.log(x) - Math.log(s[t - 1]) : null);
+}
+const transform = (v, tot) => transformBy(S.corr.tf, v, tot);
+
+/* ---- Weekday ---- */
+VIEWS.dow = {
+  label: "Day of week",
+  controls: () => `<div class="ctlrow">${selCtl("Channel", "dow.chan", chanOpts, S.dow.chan)}${chkCtl("Leave out deep-discount days and 20 Nov – 5 Dec", "dow.nodeep", S.dow.nodeep)}</div>`,
+  body: () => `<div class="charthead"><h3>Units on each weekday ÷ the centred 7-day average</h3><span class="note">The 7-day window holds each weekday once, so 1.00 = an average day.</span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    const by = dowStats(S.dow.chan, S.dow.nodeep);
+    const ys = ["2024", "2025", "2026", "all"], tr = ys.map((y, k) => ({ type: "bar", name: y === "all" ? "All years" : y, x: WK, y: by[y].map(mean), marker: { color: y === "all" ? css("--accent") : col(k) }, hovertemplate: "%{y:.3f}" }));
+    plot("c1", tr, L({ barmode: "group", xaxis: { type: "category" }, yaxis: { title: { text: "× centred 7-day average", font: { size: 11 } }, range: [0.6, 1.4] }, shapes: [{ type: "line", xref: "paper", x0: 0, x1: 1, y0: 1, y1: 1, line: { color: css("--fg3"), dash: "dot", width: 1 } }] }));
+    $("#s-tab").innerHTML = table(["Year", ...WK, "Days"], ys.map(y => [y === "all" ? "All years" : y, ...by[y].map(a => fmt(mean(a), 3)), fmt(sum(by[y].map(a => a.length)))]));
+  }
+};
+
+function dowStats(chan, nodeep) {
+  const u = siteDaily(chan), m7 = centred(u, 7), deep = new Set(); deepSpans.forEach(([a, b]) => { for (let d = a; d <= b; d++) deep.add(d); });
+  const by = {}; for (let d = 3; d < ND - 3; d++) { const dt = new Date(T0 + d * DAY), y = dt.getUTCFullYear(), md = dt.getUTCMonth() * 100 + dt.getUTCDate();
+    if (nodeep && (deep.has(d) || (md >= 1020 && md <= 1105))) continue; const wd = (dt.getUTCDay() + 6) % 7, r = u[d] / m7[d]; (by[y] = by[y] || WK.map(() => []))[wd].push(r); (by.all = by.all || WK.map(() => []))[wd].push(r); }
+  return by;
+}
+function calCounts() {
+  const t = [2024, 2025, 2026].map(y => [String(y) + " actual", ...MON.map((_, mo) => { let n = 0; for (let d = 0; d < ND; d++) { const s = iso(d); if (+s.slice(0, 4) === y && +s.slice(5, 7) === mo + 1 && D.site.web_disc[d] != null && D.site.web_disc[d] >= deepThr) n++; } return y === 2026 && mo > 5 ? "" : n; })]);
+  const plan = MON.map((_, mo) => { if (mo < 6 || mo > 9) return ""; const days = new Set(); D.plan.filter(p => p[0] !== "Back to School").forEach(([n, a, b]) => { for (let d = dIdx(a); d <= dIdx(b); d++) if (+iso(d).slice(5, 7) === mo + 1) days.add(d); }); return days.size; });
+  return { t, plan };
+}
+/* ---- Discount depth ---- */
+VIEWS.discount = {
+  label: "Discount depth",
+  controls: () => `<div class="ctlrow"><span class="note">edikted.com only: unit-weighted discount of each day against that day's units ÷ the centred 29-day median of units.</span></div>`,
+  body: () => `<div class="charthead"><h3>Deeper discount days sell more</h3><span class="note" id="s-note"></span></div><div id="c1" class="chart"></div><div id="s-tab"></div>
+    <div class="charthead"><h3>Daily discount over time: edikted.com against retail</h3></div><div id="c2" class="chart short"></div>`,
+  draw() {
+    const r = discRatios(), yrs = [2024, 2025, 2026], tr = yrs.map((y, k) => { const p = r.pts.filter(q => q.y === y); return { type: "scattergl", mode: "markers", name: String(y), x: p.map(q => q.disc), y: p.map(q => q.ratio), text: p.map(q => iso(q.d)), marker: { size: 4, color: alpha(col(k), 0.55) }, hovertemplate: "%{text}: %{x:.1%} off, %{y:.2f}×<extra></extra>" }; });
+    tr.push({ x: r.bk.map(b => b.mid), y: r.bk.map(b => b.mean), name: "Bucket mean", mode: "lines+markers", line: { color: css("--accent"), width: 2.5 }, marker: { size: 8 }, hovertemplate: "%{y:.2f}×<extra>bucket mean</extra>" });
+    plot("c1", tr, L({ hovermode: "closest", xaxis: { tickformat: ".0%", title: { text: "unit-weighted discount", font: { size: 11 } } }, yaxis: { type: "log", title: { text: "units ÷ centred 29-day median", font: { size: 11 } } } }));
+    $("#s-note").textContent = `Correlation of deviations (units ÷ 29-day median − 1, against discount minus its own 29-day median): ${fmt(r.cd, 2)}.`;
+    $("#s-tab").innerHTML = table(["Discount bucket", "Days", "Mean ratio", "Median ratio"], r.bk.map(b => [b.label, fmt(b.n), x2(b.mean), x2(b.med)]));
+    plot("c2", [{ x: dayX, y: D.site.web_disc, name: "edikted.com", mode: "lines", line: { color: css("--s1"), width: 1 } }, { x: dayX, y: D.site.ret_disc, name: "Retail", mode: "lines", line: { color: css("--s2"), width: 1 } }],
+      L({ xaxis: { type: "date" }, yaxis: { tickformat: ".0%", range: [0, 0.85] }, shapes: [{ type: "line", xref: "paper", x0: 0, x1: 1, y0: deepThr, y1: deepThr, line: { color: css("--accent"), dash: "dot", width: 1 } }] }));
+  }
+};
+function discRatios() {
+  const u = D.site.web_units, dsc = D.site.web_disc, m29 = centred(u, 29, median), dm = centred(dsc.map(v => v == null ? null : v), 29, median), pts = [];
+  for (let d = 14; d < ND - 14; d++) if (dsc[d] != null && m29[d] > 0 && u[d] > 0) pts.push({ d, y: +iso(d).slice(0, 4), disc: dsc[d], ratio: u[d] / m29[d], dev: dsc[d] - dm[d] });
+  const edges = [[0, .45, "below 45%"], [.45, .50, "45–50%"], [.50, .55, "50–55%"], [.55, .60, "55–60%"], [.60, .65, "60–65%"], [.65, 1.01, "65% and deeper"]];
+  const bk = edges.map(([a, b, label]) => { const p = pts.filter(q => q.disc >= a && q.disc < b).map(q => q.ratio); return { label, n: p.length, mean: mean(p), med: median(p), mid: p.length ? mean(pts.filter(q => q.disc >= a && q.disc < b).map(q => q.disc)) : null }; }).filter(b => b.n);
+  return { pts, bk, cd: corr(pts.map(q => q.ratio - 1), pts.map(q => q.dev)) };
+}
+
+/* ---- Campaign calendar ---- */
+VIEWS.calendar = {
+  label: "Campaign calendar",
+  controls: () => `<div class="ctlrow">${numCtl("Deep-discount threshold (share off)", "calthr", deepThr, 0.005, 0.4, 0.8)}<span class="note">Days at or above it count as deep. The same threshold drives the shaded bands in the Series view.</span></div>`,
+  body: () => `<div class="charthead"><h3>edikted.com discount, day by day, one row per year</h3><span class="note">2026 Jul–Oct shows the planned campaigns (outlined), from the brief.</span></div><div id="c1" class="chart short"></div><div id="s-tab"></div>`,
+  draw() {
+    const rows = ["2024", "2025", "2026"], xs = [], Z = rows.map(() => []);
+    for (let d = 0; d < 366; d++) xs.push(iso(d)); // reference year 2024 (leap)
+    rows.forEach((y, r) => { for (let d = 0; d < 366; d++) { const md = iso(d).slice(5), di = dIdx(`${y}-${md}`); Z[r].push(iso(di).slice(5) === md && di >= 0 && di < ND ? D.site.web_disc[di] : null); } });
+    const shapes = D.plan.filter(p => p[0] !== "Back to School").map(([n, a, b]) => ({ type: "rect", xref: "x", yref: "y", x0: "2024" + a.slice(4), x1: iso(dIdx("2024" + b.slice(4)) + 1), y0: 1.5, y1: 2.5, line: { color: css("--accent"), width: 2 }, fillcolor: "rgba(0,0,0,0)" }));
+    const ann = D.plan.map(([n, a]) => ({ x: "2024" + a.slice(4), y: 2.5, xref: "x", yref: "y", text: n, showarrow: false, xanchor: "left", yanchor: "bottom", font: { size: 10, color: css("--fg2") } }));
+    plot("c1", [{ type: "heatmap", x: xs, y: rows, z: Z, zmin: 0.3, zmax: 0.75, colorscale: [[0, css("--sunk")], [0.55, css("--s4")], [1, css("--crit")]], hovertemplate: "%{x|%d %b}: %{z:.1%}<extra>%{y}</extra>", colorbar: { thickness: 10, outlinewidth: 0, tickformat: ".0%" }, xgap: 0, ygap: 3 }],
+      L({ hovermode: "closest", xaxis: { type: "date", tickformat: "%b" }, yaxis: { type: "category" }, shapes, annotations: ann, margin: { l: 50, r: 20, t: 26, b: 30 } }));
+    const { t, plan } = calCounts();
+    $("#s-tab").innerHTML = table(["Days at or above threshold", ...MON], [...t, ["2026 plan (inside a deep campaign)", ...plan]]);
+  }
+};
+
+/* ---- Backtest ---- */
+VIEWS.backtest = {
+  label: "Backtest",
+  controls() {
+    const gs = S.dim === "none" ? [{ label: "All items" }] : selected();
+    return `<div class="ctlrow">${dimCtl()}${selCtl("Show", "bt.mode", [["month", "Actual against forecast, by target month"], ["bias", "Bias of 4-month totals, group × origin"]], S.bt.mode)}
+      ${S.bt.mode === "month" ? selCtl("Horizon", "bt.h", [[1, "1 month ahead"], [2, "2 months"], [3, "3 months"], [4, "4 months"]], S.bt.h) + selCtl("Group shown", "bt.g", gs.map((g, k) => [k, g.label]), S.bt.g) : selCtl("Model", "bt.model", [["lgb", "LightGBM ensemble"], ["nn", "Embedding NN (6 seeds)"], ["avg", "Average of the two"]], S.bt.model)}
+      ${selCtl("Origins in the table", "bt.origin", [["all", "All 13 (Feb 2025 – Feb 2026)"], ["summer", "Summer 2025 (May – Aug)"], ...D.bt.origins.map(o => [o, o])], S.bt.origin)}</div>${chipsCtl()}${filterCtls()}`;
+  },
+  body: () => `<div class="charthead"><h3 id="s-title"></h3><span class="note">Monthly models from the 13-origin backtest: the LightGBM ensemble and the 6-seed embedding NN with the sales-curve layer (median). Not the production quantile model.</span></div><div id="c1" class="chart"></div><div id="s-tab"></div>`,
+  draw() {
+    const gs = S.dim === "none" ? [{ label: filtersOn() ? "Filtered items" : "All items", idx: allIdx() }] : selected(), b = D.bt, O = b.origins;
+    if (S.bt.mode === "month") {
+      const g = gs[Math.min(S.bt.g, gs.length - 1)]; if (!g) return; const mask = new Uint8Array(NI); g.idx.forEach(i => mask[i] = 1);
+      const tm = new Map(); for (let r = 0; r < b.y.length; r++) { if (b.h[r] !== +S.bt.h || !mask[b.i[r]]) continue; const o = O[b.o[r]], t = addM(o, b.h[r]); let e = tm.get(t); if (!e) { e = { y: 0, l: 0, n: 0 }; tm.set(t, e); } e.y += b.y[r]; e.l += b.lgb[r]; e.n += b.nn[r]; }
+      const ts = [...tm.keys()].sort(), x = ts.map(t => t + "-01");
+      plot("c1", [{ x, y: ts.map(t => tm.get(t).y), name: "Actual", mode: "lines+markers", line: { color: css("--fg"), width: 2.5 } },
+        { x, y: ts.map(t => tm.get(t).l), name: "LightGBM ensemble", mode: "lines+markers", line: { color: col(0), width: 1.8 } },
+        { x, y: ts.map(t => tm.get(t).n), name: "Embedding NN", mode: "lines+markers", line: { color: col(1), width: 1.8 } },
+        { x, y: ts.map(t => (tm.get(t).l + tm.get(t).n) / 2), name: "Average of the two", mode: "lines", line: { color: col(2), width: 1.5, dash: "dash" } }],
+        L({ xaxis: { type: "date" }, yaxis: { title: { text: "units in the target month", font: { size: 11 } } } }));
+      $("#s-title").textContent = `${g.label}: actual against the forecast made ${S.bt.h} month${S.bt.h > 1 ? "s" : ""} ahead`;
+    } else {
+      const sel = O.map((o, k) => k), Z = [], T = [];
+      gs.forEach(g => { const mask = new Uint8Array(NI); g.idx.forEach(i => mask[i] = 1); const row = [], tr = []; sel.forEach(k => { let y = 0, p = 0; for (const e of BT) if (e.o === k && mask[e.i]) { y += e.y; p += S.bt.model === "lgb" ? e.lgb : S.bt.model === "nn" ? e.nn : (e.lgb + e.nn) / 2; } const v = y > 0 ? p / y - 1 : null; row.push(v); tr.push(v == null ? "" : pct(v)); }); Z.push(row); T.push(tr); });
+      plot("c1", [{ type: "heatmap", z: Z, x: O, y: gs.map(g => g.label), text: T, texttemplate: "%{text}", zmid: 0, zmin: -0.6, zmax: 0.6, colorscale: [[0, css("--s1")], [0.5, css("--surface")], [1, css("--s8")]], hovertemplate: "%{y}, origin %{x}: %{text}<extra></extra>", colorbar: { thickness: 10, outlinewidth: 0, tickformat: "+.0%" } }],
+        L({ hovermode: "closest", xaxis: { type: "category", title: { text: "origin (forecast made at the end of this month)", font: { size: 11 } } }, yaxis: { type: "category", autorange: "reversed" }, margin: { l: 120, r: 20, t: 10, b: 50 } }));
+      $("#s-title").textContent = `Bias of each group's 4-month total (forecast ÷ actual − 1), ${{ lgb: "LightGBM ensemble", nn: "embedding NN", avg: "average of the two" }[S.bt.model]}. Red = too high.`;
+    }
+    const os = S.bt.origin === "all" ? O.map((_, k) => k) : S.bt.origin === "summer" ? ["2025-05", "2025-06", "2025-07", "2025-08"].map(o => O.indexOf(o)) : [O.indexOf(S.bt.origin)], oset = new Set(os);
+    $("#s-tab").innerHTML = table(["Group", "Item-origins", "Actual", "LightGBM WAPE", "LightGBM bias", "NN WAPE", "NN bias", "Average WAPE", "Average bias"], gs.map((g, k) => { const s = btStats(g.idx, oset); return [(S.dim === "none" ? "" : sw(k)) + esc(g.label), fmt(s.n), fmt(s.y), fmt(s.wl, 3), pct(s.bl, 1), fmt(s.wn, 3), pct(s.bn, 1), fmt(s.wa, 3), pct(s.ba, 1)]; }));
+  }
+};
+const addM = (o, h) => { const y = +o.slice(0, 4), m = +o.slice(5) - 1 + h; return `${y + Math.floor(m / 12)}-${String(m % 12 + 1).padStart(2, "0")}`; };
+function btStats(idx, oset) {
+  const mask = new Uint8Array(NI); idx.forEach(i => mask[i] = 1); let y = 0, al = 0, an = 0, aa = 0, sl = 0, sn = 0, n = 0;
+  for (const e of BT) { if (!oset.has(e.o) || !mask[e.i]) continue; n++; y += e.y; al += Math.abs(e.lgb - e.y); an += Math.abs(e.nn - e.y); const av = (e.lgb + e.nn) / 2; aa += Math.abs(av - e.y); sl += e.lgb; sn += e.nn; }
+  return { n, y, wl: al / y, wn: an / y, wa: aa / y, bl: sl / y - 1, bn: sn / y - 1, ba: (sl + sn) / 2 / y - 1 };
+}
+
+/* ---- Embeddings ---- */
+VIEWS.embed = {
+  label: "Embeddings",
+  controls: () => D.emb ? `<div class="ctlrow">${selCtl("Neighbours of", "emb.type", D.emb.types.map(t => [t, t]), S.emb.type)}${selCtl("Colour the item map by", "emb.color", [["macro", "Category group"], ["occ", "Occasion tag"], ["target", "Target vs other"]], S.emb.color)}</div>` : "",
+  body: () => `<div class="charthead"><h3>Learned product-type vectors: cosine similarity</h3><span class="note">From one embedding NN fitted on all data known at the June 2026 origin. Types with at least 8 items, in clustered order. Click a cell to list neighbours.</span></div><div id="c1" class="chart" style="min-height:560px"></div><div id="s-tab"></div>
+    <div class="charthead"><h3>Every item's hierarchy vector (group + type + style + item), first two principal components</h3><span class="note">Items that sit together were treated alike by the model.</span></div><div id="c2" class="chart"></div>`,
+  draw() {
+    if (!D.emb) { $("#s-tab").innerHTML = '<p class="warnline">The embedding export was not available when the data was built.</p>'; return; }
+    const E = D.emb, n = E.types.length;
+    plot("c1", [{ type: "heatmap", z: E.sim, x: E.types, y: E.types, zmin: -0.2, zmax: 1, colorscale: [[0, css("--surface")], [0.5, css("--s5")], [1, css("--s7")]], hovertemplate: "%{y} · %{x}: %{z:.2f}<extra></extra>", colorbar: { thickness: 10, outlinewidth: 0 } }],
+      L({ hovermode: "closest", xaxis: { type: "category", tickangle: -45, tickfont: { size: 10.5 } }, yaxis: { type: "category", autorange: "reversed", tickfont: { size: 10.5 } }, margin: { l: 110, r: 20, t: 10, b: 110 } }));
+    const el = document.getElementById("c1"); el.removeAllListeners && el.removeAllListeners("plotly_click"); el.on && el.on("plotly_click", e => { S.emb.type = e.points[0].y; render(false); });
+    const t = E.types.indexOf(S.emb.type), nb = E.types.map((x, j) => [x, E.sim[t][j]]).filter((_, j) => j !== t).sort((a, b) => b[1] - a[1]);
+    $("#s-tab").innerHTML = `<p class="small"><b>${esc(S.emb.type)}</b> is closest to ${nb.slice(0, 5).map(([x, v]) => `${esc(x)} (${v.toFixed(2)})`).join(", ")}; furthest from ${nb.slice(-3).reverse().map(([x, v]) => `${esc(x)} (${v.toFixed(2)})`).join(", ")}.</p>`;
+    const key = i => S.emb.color === "macro" ? I.macro[i] : S.emb.color === "occ" ? I.occ[i] : (I.target[i] ? "the 100 targets" : "other items");
+    const cats = [...new Set(I.id.map((_, i) => key(i)))].sort((a, b) => (a === "none" || a === "other items") - (b === "none" || b === "other items") || a.localeCompare(b));
+    plot("c2", cats.map((c, k) => { const ids = I.id.map((_, i) => i).filter(i => E.x[i] != null && key(i) === c); const muted = c === "none" || c === "other items";
+      return { type: "scattergl", mode: "markers", name: c, x: ids.map(i => E.x[i]), y: ids.map(i => E.y[i]), text: ids.map(i => `${I.id[i]}<br>${esc(I.name[i])}<br>${I.type[i]}`), marker: { size: 5, color: muted ? alpha(css("--fg3"), 0.25) : alpha(col(k), 0.7) }, hovertemplate: "%{text}<extra></extra>" }; }),
+      L({ hovermode: "closest", xaxis: { title: { text: "PC 1", font: { size: 11 } } }, yaxis: { title: { text: "PC 2", font: { size: 11 } } } }));
+  }
+};
+
+/* ---- Channels ---- */
+VIEWS.channels = {
+  label: "Channels & stores",
+  controls: () => `<div class="ctlrow">${chkCtl("Show as share of the month", "chans.share", S.chans.share)}</div>`,
+  body: () => `<div class="charthead"><h3>Units by sales channel, by month</h3><span class="note">Channels with more than 500 units in total.</span></div><div id="c1" class="chart"></div>
+    <div class="charthead"><h3>Open retail stores</h3><span class="note">A store counts as open from its first to its last sale.</span></div><div id="c2" class="chart short"></div><div id="s-tab"></div>`,
+  draw() {
+    const ch = Object.keys(D.chan_m).sort((a, b) => sum(D.chan_m[b]) - sum(D.chan_m[a])), tot = monthX.map((_, m) => sum(ch.map(c => D.chan_m[c][m])));
+    plot("c1", ch.map((c, k) => ({ type: "bar", name: c, x: monthX, y: D.chan_m[c].map((v, m) => S.chans.share ? v / tot[m] : v), marker: { color: col(k) }, hovertemplate: S.chans.share ? "%{y:.1%}" : "%{y:,.0f}" })), L({ barmode: "stack", xaxis: { type: "date" }, yaxis: { tickformat: S.chans.share ? ".0%" : undefined } }));
+    plot("c2", [{ x: dayX, y: D.site.stores, mode: "lines", line: { color: col(1), width: 2, shape: "hv" }, name: "Open stores" }], L({ xaxis: { type: "date" }, yaxis: { rangemode: "tozero", dtick: 2 } }));
+    $("#s-tab").innerHTML = table(["Store", "First sale", "Last sale", "Units"], D.stores.map(s => [esc(s.store), s.first, s.last, fmt(s.units)])) +
+      table(["Channel", "First month", "Last month", "Units"], ch.map(c => { const v = D.chan_m[c], f = v.findIndex(x => x > 0), l = v.length - 1 - [...v].reverse().findIndex(x => x > 0); return [esc(c), D.months[f], D.months[l], fmt(sum(v))]; }));
+  }
+};
+
+/* ---- Item ---- */
+VIEWS.item = {
+  label: "Item",
+  controls: () => `<div class="ctlrow"><label class="ctl" style="min-width:min(300px,100%)"><span>Item</span><input id="itemid" list="itemlist" value="${esc(S.item.id)}" placeholder="Style-colour or product name"></label>
+    ${D.D[S.item.id] ? chkCtl("Daily (all channels)", "item.daily", S.item.daily) : '<span class="note">Daily detail is kept for the 100 targets and the suspected stock-outs.</span>'}
+    ${selCtl("Backtest model", "item.model", [["both", "Both"], ["lgb", "LightGBM ensemble"], ["nn", "Embedding NN"]], S.item.model)}</div>`,
+  body: () => `<div class="card" id="iteminfo" style="padding:12px 14px"></div><div class="charthead"><h3 id="i-t1"></h3><span class="note">Shaded: runs of improbable zero days (stock-out screen). Line on the right axis: online discount.</span></div><div id="c1" class="chart"></div>
+    <div class="charthead"><h3>Monthly actual, every backtest forecast, and the Jul–Oct 2026 forecasts</h3><span class="note">Each thin line is one origin's four-month forecast.</span></div><div id="c2" class="chart"></div>
+    <div class="charthead"><h3 id="i-t3">Other colours of the same style</h3></div><div id="c3" class="chart short"></div>`,
+  draw() {
+    const id = S.item.id, i = I.idx[id]; if (i == null) return;
+    const at = Object.keys(I.attrs).map(a => [a, I.attrs[a][i]]), fs = D.fc.submitted[id], fcd = D.fc.candidate[id];
+    $("#iteminfo").innerHTML = `<div class="infogrid">${[["Style-colour", id], ["Name", I.name[i]], ["Type", `${I.type[i]} (${I.macro[i]})`], ["Occasion", I.occ[i]], ["Collection", I.coll[i]], ["Colour number", I.color_num[i]], ["Effective start", I.start[i]], ["Last sale", I.last[i]], ["Target", I.target[i] ? "yes" : "no"],
+      ...(fs ? [["Submitted Jul–Oct 2026", fmt(sum(fs.slice(0, 4))) + ` (confidence ${fs[4]})`], ["Candidate Jul–Oct 2026", fmt(sum(fcd.slice(0, 4))) + ` (confidence ${fcd[4]})`]] : []), ...at].map(([k, v]) => `<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join("")}</div>`;
+    const runs = D.oos_runs.filter(r => r[0] === id), so = D.stockouts.filter(r => r.style_color === id);
+    const shapes = [...runs.map(r => ({ type: "rect", xref: "x", yref: "paper", x0: r[1], x1: iso(dIdx(r[2]) + 1), y0: 0, y1: 1, fillcolor: alpha(css("--warn"), 0.18), line: { width: 0 }, layer: "below" })),
+      ...so.map(r => ({ type: "rect", xref: "x", yref: "paper", x0: r.gap_start, x1: iso(dIdx(r.gap_end) + 1), y0: 0, y1: 1, fillcolor: "rgba(0,0,0,0)", line: { color: css("--crit"), width: 1.5 } }))];
+    if (S.item.daily && D.D[id]) {
+      plot("c1", [{ x: dayX, y: D.D[id], name: "Units per day", mode: "lines", line: { color: col(0), width: 1 } }], L({ xaxis: { type: "date" }, yaxis: { rangemode: "tozero" }, shapes }));
+      $("#i-t1").textContent = `${id}: daily units, all channels${so.length ? " (red outline: suspected stock-out gap)" : ""}`;
+    } else {
+      const disc = D.W.ONLINE[i].map((q, w) => q > 0 ? D.WD[i][w] / 100 / q : null);
+      plot("c1", [...CL.map((c, k) => ({ x: weekX, y: D.W[c][i], name: c.toLowerCase(), stackgroup: "u", mode: "lines", line: { color: col(k), width: 1 } })), { x: weekX, y: disc, name: "online discount", yaxis: "y2", mode: "lines", line: { color: css("--fg3"), width: 1, dash: "dot" } }],
+        L({ xaxis: { type: "date" }, yaxis: { rangemode: "tozero", title: { text: "units per week", font: { size: 11 } } }, yaxis2: { overlaying: "y", side: "right", showgrid: false, tickformat: ".0%", range: [0, 1] }, shapes }));
+      $("#i-t1").textContent = `${id}: weekly units by channel`;
+    }
+    const b = D.bt, O = b.origins, tr = [{ x: monthX, y: Mall[i], name: "Actual", mode: "lines+markers", line: { color: css("--fg"), width: 2.4 }, marker: { size: 5 } }], by = {};
+    for (let r = 0; r < b.y.length; r++) if (b.i[r] === i) { (by[b.o[r]] = by[b.o[r]] || []).push(r); }
+    const models = S.item.model === "both" ? ["lgb", "nn"] : [S.item.model];
+    models.forEach((m, j) => Object.keys(by).forEach((o, k) => { const rs = by[o].sort((p, q) => b.h[p] - b.h[q]); tr.push({ x: rs.map(r => addM(O[o], b.h[r]) + "-01"), y: rs.map(r => b[m][r]), mode: "lines", line: { color: alpha(col(j), 0.6), width: 1.2 }, name: m === "lgb" ? "LightGBM forecasts" : "NN forecasts", legendgroup: m, showlegend: k === 0, hovertemplate: `origin ${O[o]}: %{y:,.0f}<extra>${m}</extra>` }); }));
+    if (fs) { const xf = ["2026-07-01", "2026-08-01", "2026-09-01", "2026-10-01"]; tr.push({ x: xf, y: fs.slice(0, 4), name: "Submitted 2026", mode: "lines+markers", line: { color: col(3), width: 2, dash: "dash" } }); tr.push({ x: xf, y: fcd.slice(0, 4), name: "Candidate 2026", mode: "lines+markers", line: { color: col(4), width: 2, dash: "dash" } }); }
+    plot("c2", tr, L({ xaxis: { type: "date" }, yaxis: { rangemode: "tozero", title: { text: "units per month", font: { size: 11 } } }, hovermode: "closest" }));
+    const sib = I.id.map((_, j) => j).filter(j => I.style[j] === I.style[i]);
+    $("#i-t3").textContent = `Colours of style ${I.style[i]} (${sib.length}), weekly units, 4-week centred average`;
+    plot("c3", sib.map((j, k) => ({ x: weekX, y: centred(Wall[j], 4), name: I.id[j], mode: "lines", line: { color: col(k), width: j === i ? 2.6 : 1.3 } })), L({ xaxis: { type: "date" }, yaxis: { type: "log", title: { text: "units per week", font: { size: 11 } } } }));
+  }
+};
+
+/* ============================== findings ============================== */
+const F = [
+  { sec: "Calendar and seasonality", id: "year-shape", t: "The shape of the year", k: "Aug 1.2 · Nov 2.25",
+    claim: "For untagged items in 2025, with 1.0 = the monthly average: Jan–Jun 0.6–0.7, Jul 1.0, Aug 1.2, Sep 0.8, Oct 0.85, Nov 2.25, Dec 2.0. The forecast window opens on the back-to-school peak and then steps down.",
+    look: "Compare the solid 2025 line with dotted 2024. Tick like-for-like to keep only items that sold all year; the shape should hold.", src: "EDA report §3",
+    p: { view: "season", dim: "occ", sel: { occ: ["none"] }, season: { years: [2024, 2025], lfl: false, base: "index" } },
+    check() { const p = seasonProfile(allGroups("occ").find(g => g.label === "none").idx, "all", 2025, false, "index").v; return `Untagged 2025: Jul <b>${fmt(p[6], 2)}</b>, Aug <b>${fmt(p[7], 2)}</b>, Sep <b>${fmt(p[8], 2)}</b>, Oct <b>${fmt(p[9], 2)}</b>, Nov <b>${fmt(p[10], 2)}</b>, Dec <b>${fmt(p[11], 2)}</b>.`; } },
+  { sec: "Calendar and seasonality", id: "black-friday", t: "Black Friday is extreme", k: "327k units in a day",
+    claim: "2025-11-28 sold 327k units in one day, about 15× a normal day. It is outside the forecast window, but it contaminates any recent-level feature computed over Nov–Jan.",
+    look: "Zoomed to Oct–Dec 2025 by day. Drag on the chart to zoom further; double-click to reset.", src: "EDA report §3",
+    p: { view: "series", dim: "none", grain: "day", measure: "units", range: ["2025-10-01", "2025-12-31"], ov: { deep: true, events: true } },
+    check() { const u = siteDaily("all"), d = dIdx("2025-11-28"), base = median(u.slice(dIdx("2025-11-01"), dIdx("2025-11-21"))); const y25 = median(u.slice(dIdx("2025-01-01"), dIdx("2026-01-01"))); return `2025-11-28: <b>${fmt(u[d])}</b> units: <b>${fmt(u[d] / y25, 1)}×</b> the median day of 2025 (${fmt(y25)}), <b>${fmt(u[d] / base, 1)}×</b> the median day of 1–20 Nov 2025 (${fmt(base)}).`; } },
+  { sec: "Calendar and seasonality", id: "weekday", t: "Sunday and Monday sell more", k: "+20% / −15%",
+    claim: "Sunday and Monday are about 20% above average; Wednesday and Thursday about 15% below.",
+    look: "Bars per year. Tick the box to leave out campaign days and the Black Friday period; the pattern should survive.", src: "EDA report §3",
+    p: { view: "dow", dow: { chan: "all", nodeep: false } },
+    check() { const v = dowStats("all", false).all.map(mean); return `All years: ${WK.map((w, k) => `${w} <b>${fmt(v[k], 2)}</b>`).join(", ")}.`; } },
+  { sec: "Calendar and seasonality", id: "type-season", t: "Each product type has its own season", k: "warm troughs in summer",
+    claim: "Hoodies, sweaters, sweatpants and jackets bottom out in June–July (0.2–0.5) and climb to about 0.8–1.0 by October. Short jeans, skirts and skorts peak in July–August (1.5–2.1). Dresses peak in September (1.4). Raw type totals include the panel's growth, which overstates the second half; read the shape, not the level.",
+    look: "2025 profiles. Tick like-for-like to strip out the growth from new items: the second half drops, the shapes stay.", src: "EDA report §3",
+    p: { view: "season", dim: "type", sel: { type: ["Hoodie", "Sweater", "Sweatpants", "Jacket", "Short Jeans", "Skirt", "Skort", "Dress"] }, season: { years: [2025], lfl: false, base: "index" } },
+    check() { const v = t => seasonProfile(allGroups("type").find(g => g.label === t).idx, "all", 2025, false, "index").v; const h = v("Hoodie"), s = v("Short Jeans"), d = v("Dress"); return `2025 index: Hoodie Jun–Jul <b>${fmt(h[5], 2)}–${fmt(h[6], 2)}</b>, Oct <b>${fmt(h[9], 2)}</b>; Short Jeans Jul–Aug <b>${fmt(s[6], 2)}–${fmt(s[7], 2)}</b>; Dress Sep <b>${fmt(d[8], 2)}</b>.`; } },
+  { sec: "Discounts and campaigns", id: "always-on-sale", t: "The site is always on sale", k: "50–60% off online",
+    claim: "The online unit-weighted discount sits at 50–60% most days, and the past campaign calendar is readable from it. Retail lines carry almost no discount (mean 4.5%), so discount information is effectively online-only.",
+    look: "The lower chart has both channels' daily discount. The dotted line is the deep-discount threshold.", src: "EDA report §3",
+    p: { view: "discount" },
+    check() { const w = D.site.web_disc.filter(v => v != null), u = D.site.units.RETAIL; let a = 0, q = 0; D.site.ret_disc.forEach((v, d) => { if (v != null) { a += v * u[d]; q += u[d]; } }); return `edikted.com daily discount: median <b>${fmt(median(w) * 100, 1)}%</b>, middle half ${fmt(quant(w, .25) * 100, 0)}–${fmt(quant(w, .75) * 100, 0)}%. Retail unit-weighted mean <b>${fmt(a / q * 100, 1)}%</b>.`; } },
+  { sec: "Discounts and campaigns", id: "depth-lift", t: "Deeper discount days sell more", k: "0.51× → 1.55×",
+    claim: "Online daily units relative to the local 29-day median: 0.51× on days below 45% off, 0.99× at 50–55%, 1.55× at 60–65% (correlation of deviations 0.51).",
+    look: "Each dot is a day. The pink line joins the bucket means; the table below repeats them.", src: "EDA report §3",
+    p: { view: "discount" },
+    check() { const r = discRatios(), g = l => r.bk.find(b => b.label === l); return `Below 45%: <b>${x2(g("below 45%")?.mean)}</b>; 50–55%: <b>${x2(g("50–55%")?.mean)}</b>; 60–65%: <b>${x2(g("60–65%")?.mean)}</b>; correlation of deviations <b>${fmt(r.cd, 2)}</b>.`; } },
+  { sec: "Discounts and campaigns", id: "campaign-calendar", t: "Past campaigns against the 2026 plan", k: "Aug and late Sep are new",
+    claim: "Days at 58.5% off or deeper, Jul–Oct: 2024 0/0/3/8, 2025 6/0/3/12; the 2026 plan has 19/8/12/12 days inside a deep campaign. Replaying the plan on past dates later showed that the Labor Day, October and 4th of July sales ran on the same dates before; only the August Clearance and the late-September sale look new.",
+    look: "Rows are years. Compare where the hot stretches sit with the outlined 2026 plan. Change the threshold to see how sensitive the counts are.", src: "EDA report §9 and §14",
+    p: { view: "calendar" },
+    check() { const c = calCounts(); return `At ${fmt(deepThr * 100, 1)}%: 2024 Jul–Oct <b>${c.t[0].slice(7, 11).join("/")}</b>, 2025 <b>${c.t[1].slice(7, 11).join("/")}</b>, 2026 plan <b>${c.plan.slice(6, 10).join("/")}</b>.`; } },
+  { sec: "Lifecycle", id: "launch-curve", t: "Launch curve: peak in months 2–3", k: "half by month 7–8",
+    claim: "The typical item peaks in months 2–3 after launch, falls to about half by month 7–8, then plateaus. The spread is wide: 25th percentile 0.3×, 75th 1.0× at month 8.",
+    look: "Line = median of each item's sales ÷ its own months 1–3; band = middle half. Group by category or type to see whether curves differ.", src: "EDA report §3",
+    p: { view: "life", dim: "none", life: { K: 18, stat: "median", band: true, from: "2024-02-01" } },
+    check() { const c = lifeCurves(allIdx(), "all", 18); const pk = c.med.slice(1).indexOf(Math.max(...c.med.slice(1).filter(v => v != null))) + 1; return `${fmt(c.n[0])} launches: median peak at month <b>${pk}</b> (${fmt(c.med[pk], 2)}), month 8 median <b>${fmt(c.med[8], 2)}</b> (p25 <b>${fmt(c.p25[8], 2)}</b>, p75 <b>${fmt(c.p75[8], 2)}</b>).`; } },
+  { sec: "Lifecycle", id: "launch-month", t: "The launch month is partial", k: "month 0 = 0.32×",
+    claim: "The median first sale is 1 day after publishing, and the launch month averages 0.32× of months 1–3. It should be treated as partial exposure, not as a low month.",
+    look: "Read the left end of the curve: switch the centre line to Mean to match the report's 0.32.", src: "EDA report §4, artefact 6",
+    p: { view: "life", dim: "none", life: { K: 12, stat: "mean", band: false, from: "2024-02-01" } },
+    check() { const c = lifeCurves(allIdx(), "all", 12); let a = 0, b = 0; for (let i = 0; i < NI; i++) { const s = startD[i]; if (s < dIdx("2024-02-01")) continue; const m0 = monthOfDay(s); if (m0 + 3 > 29) continue; const x = Mall[i], base = (x[m0 + 1] + x[m0 + 2] + x[m0 + 3]) / 3; if (base > 0) { a += x[m0]; b += base; } } return `Month 0 ÷ own months 1–3, ${fmt(c.n[0])} launches: mean of items <b>${fmt(c.mean[0], 2)}</b>, median <b>${fmt(c.med[0], 2)}</b>, all launches pooled <b>${fmt(a / b, 2)}</b>. The report's 0.32 used its own launch set; every definition puts the launch month well below a full month.`; } },
+  { sec: "Lifecycle", id: "yoy-decay", t: "Old items decay year on year", k: "median 0.44×",
+    claim: "For the 224 items launched before March 2024, Jul–Oct 2025 was a median 0.44× of Jul–Oct 2024. Last year's same months are a poor forecast on their own.",
+    look: "Every dot is an item that started before March 2024. The dashed line is the median ratio.", src: "EDA report §3",
+    p: { view: "scatter", dim: "macro", before: "2024-03-01", scatter: { a0: "2024-07", a1: "2024-10", b0: "2025-07", b1: "2025-10", minA: 1 } },
+    check() { S.before = "2024-03-01"; const s = scatterStats(scatterPts("2024-07", "2024-10", "2025-07", "2025-10", 1), true); return `<b>${fmt(s.n)}</b> items, median Jul–Oct 2025 ÷ Jul–Oct 2024 = <b>${x2(s.med)}</b> (p10 ${x2(s.p10)}, p90 ${x2(s.p90)}).`; } },
+  { sec: "Lifecycle", id: "persistence", t: "Recent level predicts most of the next four months", k: "log correlation 0.93",
+    claim: "For items with at least 100 units in Mar–Jun 2025, the log correlation with Jul–Oct 2025 is 0.93, but the ratio ranges from 0.52× (p10) to 1.88× (p90). The level tells you most of it; the multiplier is where the modelling is.",
+    look: "Items that started before March 2025. Clear that start date to add the spring launches: the cloud widens, because a ramping launch multiplies its spring level. Group by category to see each group's multiplier.", src: "EDA report §3",
+    p: { view: "scatter", dim: "macro", before: "2025-03-01", scatter: { a0: "2025-03", a1: "2025-06", b0: "2025-07", b1: "2025-10", minA: 100 } },
+    check() { S.before = "2025-03-01"; const s = scatterStats(scatterPts("2025-03", "2025-06", "2025-07", "2025-10", 100), true); return `<b>${fmt(s.n)}</b> items: log correlation <b>${fmt(s.lc, 3)}</b>, ratio p10 <b>${x2(s.p10)}</b>, median ${x2(s.med)}, p90 <b>${x2(s.p90)}</b>.`; } },
+  { sec: "Lifecycle", id: "drift", t: "The June multiplier drifts from year to year", k: "1.47 → 1.31",
+    claim: "Units over the next four months ÷ (4 × recent level), all live items, June origin: 1.47 in 2024 and 1.31 in 2025. 2024 is inflated because the 2024 items are young winners that survived to 2026; for items at least a year old the June multiplier is steadier, 1.12 and 1.22.",
+    look: "Compare the June points of the dotted (2024) and solid (2025) lines, then tick the 12-months-old box.", src: "EDA report §9",
+    p: { view: "drift", dim: "none", drift: { mature: false } },
+    check() { const a = driftRow(allIdx()); S.drift.mature = true; const b = driftRow(allIdx()); S.drift.mature = false; return `June origin, all live items: 2024 <b>${fmt(a[5], 2)}</b>, 2025 <b>${fmt(a[17], 2)}</b>; items ≥12 months old: 2024 <b>${fmt(b[5], 2)}</b>, 2025 <b>${fmt(b[17], 2)}</b> (3-month level, so not identical to the report).`; } },
+  { sec: "Occasion tags", id: "occasions", t: "Occasion tags peak in their month", k: "Halloween Oct 1.78",
+    claim: "2025 monthly index (1.0 = the tag group's monthly average): Halloween peaks in October (1.78), Homecoming in September (2.25), 4th of July items run 1.47/1.46 in Jul–Aug and fall to 0.77/0.67, Graduation fades to 0.60 by October.",
+    look: "Add 2024 from the Years menu to see whether each peak repeats.", src: "EDA report §3",
+    p: { view: "season", dim: "occ", sel: { occ: ["Halloween", "Homecoming", "4th of July", "Graduation"] }, season: { years: [2025], lfl: false, base: "index" } },
+    check() { const v = t => seasonProfile(allGroups("occ").find(g => g.label === t).idx, "all", 2025, false, "index").v; const h = v("Halloween"), c = v("Homecoming"), j = v("4th of July"), g = v("Graduation"); return `2025: Halloween Oct <b>${fmt(h[9], 2)}</b>; Homecoming Sep <b>${fmt(c[8], 2)}</b>; 4th of July Jul/Aug <b>${fmt(j[6], 2)}/${fmt(j[7], 2)}</b>, Sep/Oct ${fmt(j[8], 2)}/${fmt(j[9], 2)}; Graduation Oct <b>${fmt(g[9], 2)}</b>.`; } },
+  { sec: "Occasion tags", id: "world-cup", t: "World Cup items have no history", k: "published 25 May 2026",
+    claim: "The three World Cup targets were published on 25 May 2026 and sold 6,685, 928 and 2,584 units in June. The tournament ends on 19 July, so their forecast was set from the late-June pace and a measured post-event decay.",
+    look: "Daily units from launch. Hover to read the late-June pace.", src: "EDA report §12 and §14",
+    p: { view: "series", dim: "item", sel: { item: null }, grain: "day", measure: "units", range: ["2026-05-20", "2026-06-30"], ov: { deep: true, events: true } },
+    check() { const ids = I.id.filter((_, i) => I.target[i] && I.occ[i].includes("World Cup")), all = I.id.filter((_, i) => I.occ[i].includes("World Cup")); return ids.map(id => `${id} June <b>${fmt(Mall[I.idx[id]][29])}</b>`).join(", ") + `. ${all.length} items carry the World Cup tag in all.`; } },
+  { sec: "Data artefacts", id: "survival", t: "The panel is selected on survival", k: "101k → 605k a month",
+    claim: "1,450 of the 1,500 items still sell in 2026 Q2, and items enter over time (190 published before 2024, 324 in 2026). Total units growing from 101k to 605k a month is mostly more items, not brand growth. Never read seasonality or trend off raw totals.",
+    look: "Stacked by launch half-year: each new layer is a cohort arriving. The dashed line on the right axis counts live items.", src: "EDA report §4, artefact 1",
+    p: { view: "series", dim: "cohort", grain: "month", measure: "units", style: "stack", ov: { deep: false, events: false, live: true } },
+    check() { const t = agg(allIdx(), "month", "all"); let q2 = 0; for (let i = 0; i < NI; i++) if (lastD[i] >= dIdx("2026-04-01")) q2++; return `Jan 2024 <b>${fmt(t[0])}</b> units, Jun 2026 <b>${fmt(t[29])}</b>; <b>${fmt(q2)}</b> items sold in 2026 Q2; <b>${fmt(startD.filter(s => s < 0).length)}</b> started before 2024.`; } },
+  { sec: "Data artefacts", id: "like-for-like", t: "Followed like-for-like, items shrink", k: "same items only",
+    claim: "Because the panel grows by adding items, seasonality and trend have to be read off cohorts: the same items in both windows. Followed that way, established items decline year on year while the raw total climbs. This is why the model uses like-for-like seasonal ratios and never last year's raw totals.",
+    look: "Only items that started before 2024 and still sold in June 2026. Compare 2025 with 2024 here, then clear the start date and see the raw total take off.", src: "EDA report §6 rec. 4",
+    p: { view: "series", dim: "none", grain: "month", measure: "units", before: "2024-01-01", after: "2026-06-01", ov: { deep: false, events: false } },
+    check() { const keep = I.id.map((_, i) => i).filter(i => startD[i] < 0 && lastD[i] >= dIdx("2026-06-01")), t = agg(keep, "month", "all"), a = agg(I.id.map((_, i) => i), "month", "all"); return `Cohort of <b>${fmt(keep.length)}</b> items: 2025 ÷ 2024 = <b>${x2(sum(t.slice(12, 24)) / sum(t.slice(0, 12)))}</b>; all items: <b>${x2(sum(a.slice(12, 24)) / sum(a.slice(0, 12)))}</b>.`; } },
+  { sec: "Data artefacts", id: "cancellations", t: "Mass cancellation on 14 October 2025", k: "145k units, 74% of the day",
+    claim: "On 2025-10-14, 145k units were cancelled (74% of the day), almost all on edikted.com; on 15 October, 25%. Other months run at about 1%. Cancelled lines are excluded from the target, and 14–15 Oct 2025 is treated as an anomaly.",
+    look: "Dotted red = cancelled units (they are not in the other lines).", src: "EDA report §4, artefact 2",
+    p: { view: "series", dim: "none", grain: "day", measure: "units", range: ["2025-09-20", "2025-11-10"], ov: { deep: true, events: true, cancelled: true } },
+    check() { const u = siteDaily("all"), c = D.site.cancelled, d = dIdx("2025-10-14"), e = d + 1; let cs = 0, us = 0; for (let k = 0; k < ND; k++) if (k !== d && k !== e) { cs += c[k]; us += u[k]; } return `14 Oct: <b>${fmt(c[d])}</b> cancelled, <b>${fmt(c[d] / (c[d] + u[d]) * 100, 0)}%</b> of the day; 15 Oct <b>${fmt(c[e] / (c[e] + u[e]) * 100, 0)}%</b>; all other days <b>${fmt(cs / (cs + us) * 100, 1)}%</b>.`; } },
+  { sec: "Data artefacts", id: "retail-rollout", t: "Retail grows by store openings", k: "1 → 16 stores",
+    claim: "1 store in January 2024 became 16 by June 2026 (plus a 5-day pop-up). Retail went from 4.5k to 183k units a month, 30% of June 2026. Openings are step changes in distribution, not demand.",
+    look: "Channel classes by month, with the open-store count on the right axis.", src: "EDA report §4, artefact 3",
+    p: { view: "series", dim: "channel", grain: "month", measure: "units", ov: { deep: false, events: false, stores: true } },
+    check() { const r = agg(allIdx(), "month", "RETAIL"), t = agg(allIdx(), "month", "all"); return `Retail Jan 2024 <b>${fmt(r[0])}</b>, Jun 2026 <b>${fmt(r[29])}</b> (<b>${fmt(r[29] / t[29] * 100, 0)}%</b> of units); stores open on 30 Jun 2026: <b>${D.site.stores[ND - 1]}</b>.`; } },
+  { sec: "Data artefacts", id: "channels", t: "Channels start and stop", k: "TikTok, Flip, Urban",
+    claim: "TikTok from 2024-01-31; Flip from July 2024 to June 2025; Urban from April 2025. DROP is marketplace dropship (1.26 units per order across Pacsun, Nordstrom, Macy's and others), not bulk wholesale.",
+    look: "Switch to shares to see how the mix moved.", src: "EDA report §4, artefacts 4–5",
+    p: { view: "channels" },
+    check() { const f = c => { const v = D.chan_m[c] || []; const a = v.findIndex(x => x > 0), b = v.length - 1 - [...v].reverse().findIndex(x => x > 0); return a < 0 ? "–" : `${D.months[a]} to ${D.months[b]}`; }; return `Tiktok <b>${f("Tiktok")}</b>; Flip <b>${f("Flip")}</b>; Urban <b>${f("Urban")}</b>.`; } },
+  { sec: "Data artefacts", id: "low-days", t: "Two abnormally low days", k: "below 40% of normal",
+    claim: "2024-05-10 and 2024-10-31 sit below 40% of the local median: likely an outage or a data gap. Minor at the monthly grain.",
+    look: "Daily units, May–November 2024. The two dips are marked.", src: "EDA report §4, artefact 12",
+    p: { view: "series", dim: "none", grain: "day", measure: "units", range: ["2024-04-20", "2024-11-20"], ov: { deep: true, events: true } },
+    check() { const u = siteDaily("all"), m = centred(u, 29, median); return ["2024-05-10", "2024-10-31"].map(s => `${s}: <b>${fmt(u[dIdx(s)] / m[dIdx(s)] * 100, 0)}%</b> of the centred 29-day median`).join("; ") + "."; } },
+  { sec: "Data artefacts", id: "stockouts", t: "Possible stock-outs", k: "12 items, none targets",
+    claim: "Twelve items show 14 or more zero days right after selling at least 3 a day (several exactly 14 days); none are targets. Zeros like these are treated as missing, not as no demand.",
+    look: "Red outline = the flagged gap. Pick another flagged item from the table, or type any item.", src: "EDA report §4, artefact 13",
+    p: { view: "item", item: { id: "1031_BURGUNDY", daily: true, model: "both" } },
+    check() { return D.stockouts.map(r => `${esc(r.style_color)} ${r.gap_start} (${r.days} d)`).join("; ") + "."; } },
+  { sec: "Data artefacts", id: "dark-gray", t: "One target stopped selling in April", k: "S16079_DARK-GRAY",
+    claim: "S16079_DARK-GRAY has not sold since 2026-04-10. Per the brief it is forecast as if in stock, at 130 units over Jul–Oct.",
+    look: "Daily view: the sales stop and never restart.", src: "EDA report §3 and §14",
+    p: { view: "item", item: { id: "S16079_DARK-GRAY", daily: true, model: "both" } },
+    check() { const i = I.idx["S16079_DARK-GRAY"], d = D.D["S16079_DARK-GRAY"]; const lastSold = d.length - 1 - [...d].reverse().findIndex(v => v > 0); return `Last day with a sale: <b>${iso(lastSold)}</b>; submitted forecast <b>${fmt(sum(D.fc.submitted["S16079_DARK-GRAY"].slice(0, 4)))}</b> units.`; } },
+  { sec: "Model behaviour", id: "peak-miss", t: "Peak months come in low", k: "WAPE 0.363 → 0.346 at best",
+    claim: "In surge months the site total is dominated by a few items. Each item's median is predicted well, but the sum comes in low. Knowing the site total exactly would only cut WAPE from 0.363 to 0.346.",
+    look: "All items, forecast one month ahead. Look at November and December; then change the horizon.", src: "log D075",
+    p: { view: "backtest", dim: "none", bt: { mode: "month", h: 1, origin: "all", g: 0, model: "lgb" } },
+    check() { const t = new Map(); const b = D.bt; for (let r = 0; r < b.y.length; r++) { if (b.h[r] !== 1) continue; const k = addM(b.origins[b.o[r]], 1); const e = t.get(k) || { y: 0, l: 0, n: 0 }; e.y += b.y[r]; e.l += b.lgb[r]; e.n += b.nn[r]; t.set(k, e); } const n = t.get("2025-11"); return `Nov 2025, one month ahead: actual <b>${fmt(n.y)}</b>, LightGBM <b>${pct(n.l / n.y - 1)}</b>, NN <b>${pct(n.n / n.y - 1)}</b>.`; } },
+  { sec: "Model behaviour", id: "segment-bias", t: "Segment biases the model does not learn", k: "swimwear high, Homecoming low",
+    claim: "Monthly models over-forecast swimwear and under-forecast young Homecoming and Halloween items at summer origins: +43% and −20% for LightGBM, +35% and −16% for the NN. The NN learns part of it; the hand rules are still needed.",
+    look: "Bias of each category group's 4-month total at every origin. Switch Group by to Occasion tag for Homecoming and Halloween. The table's origin menu has a summer-2025 set.", src: "log D051, D081",
+    p: { view: "backtest", dim: "macro", bt: { mode: "bias", h: 1, origin: "summer", g: 0, model: "lgb" } },
+    check() { const os = new Set(["2025-05", "2025-06", "2025-07", "2025-08"].map(o => D.bt.origins.indexOf(o))); const sw_ = btStats(allGroups("macro").find(g => g.label === "swim").idx, os); return `Swimwear, May–Aug 2025 origins: LightGBM <b>${pct(sw_.bl)}</b>, NN <b>${pct(sw_.bn)}</b> (these four origins; the report's segment test used its own origin set and item ages).`; } },
+  { sec: "Model behaviour", id: "nn-vs-lgb", t: "The embedding NN against LightGBM", k: "0.357 against 0.363",
+    claim: "Blended 50/50 with LightGBM, the 6-seed embedding NN with the sales-curve layer scores WAPE 0.357 against 0.363 on monthly forecasts, better at 11 of 13 origins but not significant. Re-centring the production quantile model on it gives 0.313 against 0.322, which is significant.",
+    look: "The table scores 4-month item totals for both models and their average. Pick single origins to see where each wins.", src: "log D095–D097",
+    p: { view: "backtest", dim: "none", bt: { mode: "month", h: 1, origin: "all", g: 0, model: "lgb" } },
+    check() { const s = btStats(allIdx(), new Set(D.bt.origins.map((_, k) => k))); return `4-month item totals, 13 origins: LightGBM WAPE <b>${fmt(s.wl, 3)}</b>, NN <b>${fmt(s.wn, 3)}</b>, average <b>${fmt(s.wa, 3)}</b> (an arithmetic average of the two, so not exactly the report's blend).`; } },
+  { sec: "Connections", id: "site-shocks", t: "Groups move together", k: "misses are site-wide",
+    claim: "Carrying each item's last miss into its next forecast failed because misses are site-wide and reverse the next month. Week-to-week, the category groups rise and fall together with the campaigns; taking shares of the total removes most of that common movement.",
+    look: "Compare the mean correlation under 'Week-on-week change' with 'change of share'. Use the lead-lag chart for any pair.", src: "log D078",
+    p: { view: "corr", dim: "macro", sel: { macro: ["top", "bottom", "warm", "dress", "swim", "other"] }, corr: { tf: "dlog", a: 0, b: 2, L: 12, from: "2024-01-01", to: "2026-06-28" } },
+    check() { const gs = allGroups("macro").filter(g => ["top", "bottom", "warm", "dress", "swim", "other"].includes(g.label)), tot = agg(allIdx(), "week", "all"); const mc = tf => { const s = gs.map(g => transformBy(tf, agg(g.idx, "week", "all"), tot)); const o = []; for (let a = 0; a < s.length; a++) for (let b = a + 1; b < s.length; b++) o.push(pairCorr(s[a], s[b])); return mean(o); }; return `Mean correlation between groups: week-on-week change <b>${fmt(mc("dlog"), 2)}</b>; change of share <b>${fmt(mc("share"), 2)}</b>.`; } },
+  { sec: "Connections", id: "embeddings", t: "What the type embeddings learned", k: "accessories, knitwear, denim",
+    claim: "Given only type labels, the NN's learned type vectors group accessories together, knitwear with loungewear, denim with bottoms, and tops together. Dresses and swimwear stand apart, because their seasonality is their own.",
+    look: "The clustered heatmap shows the blocks. Click a row to list its neighbours; the item map below shows where each item landed.", src: "log D091",
+    p: { view: "embed", emb: { type: "Dress", color: "macro" } },
+    check() { if (!D.emb) return "Embedding export not available."; const E = D.emb, nb = t => { const k = E.types.indexOf(t); return E.types.map((x, j) => [x, E.sim[k][j]]).filter((_, j) => j !== k).sort((a, b) => b[1] - a[1])[0]; }; return ["Sweater", "Jeans", "Earrings", "Dress"].map(t => { const [x, v] = nb(t); return `${t} → <b>${x}</b> ${v.toFixed(2)}`; }).join("; ") + "."; } },
+  { sec: "Connections", id: "siblings", t: "Colours of one style share a curve", k: "but not the weekly noise",
+    claim: "Sibling colours of a style share a launch and a season, so their sales curves look alike; their week-to-week ups and downs barely line up. As a third ensemble member, style and sibling-colour features scored 0.361 against 0.363, inside the noise band, and were not added.",
+    look: "The bottom chart overlays every colour of this style. Try another target with several colours.", src: "EDA report §11",
+    p: { view: "item", item: { id: "S11233_BLACK", daily: false, model: "both" } },
+    check() { const st = {}; I.style.forEach((s, i) => (st[s] = st[s] || []).push(i)); const big = Object.values(st).filter(a => a.length >= 3).slice(0, 120); const dl = i => transformBy("detrend", Wall[i]), lv = i => centred(Wall[i], 4).map((v, w) => (startD[i] <= 7 * w && lastD[i] >= 7 * w + 6 && v > 0) ? Math.log(v) : null);
+      const pc = f => { const w = [], r = []; big.forEach(a => { for (let p = 0; p < a.length; p++) for (let q = p + 1; q < a.length; q++) w.push(pairCorr(f(a[p]), f(a[q]))); }); for (let k = 0; k < w.length; k++) { const p = (k * 7919) % NI, q = (k * 104729 + 13) % NI; if (p !== q) r.push(pairCorr(f(p), f(q))); } return [median(w.filter(isFinite)), median(r.filter(isFinite)), w.length]; };
+      const L_ = pc(lv), N_ = pc(dl); return `Median correlation over ${fmt(L_[2])} sibling pairs (styles with 3+ colours) against the same number of random pairs. Weekly sales level (log, 4-week average): siblings <b>${fmt(L_[0], 2)}</b>, random <b>${fmt(L_[1], 2)}</b>. Weekly deviation from own 13-week average: siblings <b>${fmt(N_[0], 2)}</b>, random <b>${fmt(N_[1], 2)}</b>.`; } },
+];
+function scatterPts(a0, a1, b0, b1, minA) { const mi = m => D.months.indexOf(m), pts = []; for (const i of allIdx()) { const a = getM(i, S.chan); let A = 0, B = 0; for (let m = mi(a0); m <= mi(a1); m++) A += a[m]; for (let m = mi(b0); m <= mi(b1); m++) B += a[m]; if (A >= minA) pts.push({ i, A, B }); } return pts; }
+
+/* ============================== shell ============================== */
+const FRESH = JSON.stringify(S);
+function applyPreset(f) {
+  const base = JSON.parse(FRESH); for (const k of Object.keys(S)) S[k] = base[k];
+  const p = f.p; for (const k in p) { if (k === "sel") { for (const d in p.sel) S.sel[d] = p.sel[d]; } else if (p[k] && typeof p[k] === "object" && !Array.isArray(p[k])) Object.assign(S[k], p[k]); else S[k] = p[k]; }
+  if (f.id === "world-cup") S.sel.item = I.id.filter((_, i) => I.target[i] && I.occ[i].includes("World Cup"));
+  if (S.view !== "calendar" && deepThr !== 0.585) { deepThr = 0.585; buildDeep(); }
+  S.finding = f.id;
+}
+function renderRail() {
+  let html = "", sec = ""; F.forEach(f => { if (f.sec !== sec) { sec = f.sec; html += `<div class="sec eyebrow">${esc(sec)}</div>`; } html += `<button class="f" data-f="${f.id}" aria-current="${S.finding === f.id}"><span>${esc(f.t)}</span><small>${esc(f.k)}</small></button>`; });
+  html += `<div class="sec eyebrow">Free exploration</div><button class="f" data-f="" aria-current="${!S.finding}"><span>Open the views without a finding</span><small>${Object.keys(VIEWS).length} views</small></button>`;
+  $("#rail").innerHTML = html;
+  $("#rail").querySelectorAll("button.f").forEach(b => b.addEventListener("click", () => { const f = F.find(x => x.id === b.dataset.f); if (f) { applyPreset(f); history.replaceState(null, "", "#" + f.id); } else { S.finding = null; history.replaceState(null, "", "#explore"); } render(true); window.scrollTo({ top: 0 }); }));
+}
+function render(full = true) {
+  const f = F.find(x => x.id === S.finding), v = VIEWS[S.view];
+  if (full || !$("#ws")) {
+    $("#main").innerHTML = `<div class="card fcard${f ? "" : " free"}" id="fcard"></div><nav class="views" aria-label="Views">${Object.entries(VIEWS).map(([k, x]) => `<button data-v="${k}" aria-pressed="${k === S.view}">${x.label}</button>`).join("")}</nav>
+      <div class="card" id="ws"><div class="controls" id="controls"></div><div id="vbody" style="display:grid;gap:12px;min-width:0"></div></div>`;
+    $("#main").querySelectorAll("nav.views button").forEach(b => b.addEventListener("click", () => { S.view = b.dataset.v; render(true); }));
+    renderRail();
+  }
+  $("#fcard").innerHTML = f ? `<div class="eyebrow">${esc(f.sec)}</div><h2>${esc(f.t)}</h2><p class="claim">${esc(f.claim)}</p><p class="look"><b>What to look at.</b> ${esc(f.look)}</p><div class="check" id="fcheck">Computing…</div><div class="meta"><span>Source: ${esc(f.src)}</span><button class="act" id="resetf" style="all:unset;cursor:pointer;color:var(--accent);font-weight:500">Reset this view</button></div>`
+    : `<div class="eyebrow">Free exploration</div><h2>Group the series your own way</h2><p class="claim">Pick a view, choose what to group by, and click groups on or off. Filters at the bottom of each view make like-for-like cohorts. Units are non-cancelled order lines by New York date, January 2024 to June 2026.</p>`;
+  const rb = $("#resetf"); if (rb) rb.addEventListener("click", () => { applyPreset(f); render(true); });
+  $("#main").querySelectorAll("nav.views button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === S.view));
+  $("#controls").innerHTML = v.controls(); wireControls($("#controls"));
+  const vb = $("#vbody"); if (vb.dataset.v !== S.view) { vb.innerHTML = v.body(); vb.dataset.v = S.view; }
+  try { v.draw(); } catch (e) { console.error(e); vb.insertAdjacentHTML("afterbegin", `<p class="warnline">This view could not be drawn: ${esc(e.message)}</p>`); }
+  if (f) { const el = $("#fcheck"), saved = { chan: S.chan, before: S.before, after: S.after, targets: S.targets, dim: S.dim };
+    try { Object.assign(S, { chan: "all", before: "", after: "", targets: false, dim: "none" }); el.innerHTML = `<b>Recomputed here:</b> ${f.check()}`; } catch (e) { console.error(e); el.textContent = "Could not recompute: " + e.message; } finally { Object.assign(S, saved); } }
+}
+function fromHash() {
+  const h = location.hash.slice(1), f = F.find(x => x.id === h);
+  if (f) applyPreset(f); else if (h === "explore") S.finding = null; else applyPreset(F[0]);
+}
+fetch("data.json").then(r => { if (!r.ok) throw new Error("data.json returned " + r.status); return r.json(); }).then(data => {
+  prep(data);
+  document.body.insertAdjacentHTML("beforeend", `<datalist id="itemlist">${I.id.map((id, i) => `<option value="${esc(id)}">${esc(I.name[i])} · ${esc(I.type[i])}</option>`).join("")}</datalist>`);
+  fromHash(); render(true);
+  window.addEventListener("hashchange", () => { fromHash(); render(true); });
+  const mq = matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener && mq.addEventListener("change", () => render(false));
+  new MutationObserver(() => render(false)).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+}).catch(e => { $("#loading").innerHTML = `The data file could not be loaded (${esc(e.message)}). Reload the page to try again.`; });
+</script>

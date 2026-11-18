@@ -1,0 +1,56 @@
+young items (3-12 months) at summer origins May-Aug 2025, P50:
+                       n   bias  median_ratio    w20
+pos                                                 
+below 35% of peak  552.0  0.108         1.154  0.284
+35-70%             411.0 -0.017         1.168  0.307
+>=70%              492.0  0.030         1.143  0.350
+
+by origin:
+                               n   bias  median_ratio    w20
+origin  pos                                                 
+2025-05 below 35% of peak  158.0  0.790         1.747  0.152
+        35-70%             105.0  0.109         1.286  0.257
+        >=70%               95.0 -0.098         1.034  0.484
+2025-06 below 35% of peak  174.0  0.099         1.108  0.379
+        35-70%             100.0 -0.101         1.074  0.350
+        >=70%               79.0 -0.017         1.096  0.354
+2025-07 below 35% of peak  121.0 -0.137         0.935  0.322
+        35-70%              89.0 -0.100         1.123  0.337
+        >=70%              163.0  0.067         1.204  0.344
+2025-08 below 35% of peak   99.0 -0.374         0.886  0.283
+        35-70%             117.0  0.013         1.185  0.291
+        >=70%              155.0  0.107         1.239  0.271
+
+by warm (hoodies, sweaters, sweatpants, jackets, cardigans, pants) vs other:
+                             n   bias  median_ratio    w20
+pos               warm                                    
+below 35% of peak other  311.0 -0.081         1.130  0.289
+                  warm   241.0  0.219         1.174  0.278
+35-70%            other  340.0  0.034         1.211  0.306
+                  warm    71.0 -0.185         1.030  0.310
+>=70%             other  454.0  0.051         1.158  0.337
+                  warm    38.0 -0.148         0.897  0.500
+
+2026 targets 3-12 months below 35% of peak:
+                                 type   pos     jun       fc  fc/jun        seg
+S23162_GRAY-MELANGE          Cardigan  0.31   423.0   2252.0    5.32      other
+S20646_BLACK                    Dress  0.23   282.0   1961.0    6.95  Halloween
+S20878_WHITE                    Dress  0.24  1376.0   8216.0    5.97      other
+S22546_WHITE                    Dress  0.33  1135.0   4719.0    4.16      other
+S22101_BLUE                    Hoodie  0.14  1044.0   7223.0    6.92      other
+S22101_BURGUNDY                Hoodie  0.07   778.0   6059.0    7.79      other
+S22101_LIGHT-GRAY-MELANGE      Hoodie  0.08   203.0   1617.0    7.97      other
+S21143_BLACK                    Pants  0.08   972.0   6907.0    7.11      other
+S21730_GRAY-AND-WHITE          Shorts  0.07   941.0   6324.0    6.72      other
+S21729_GRAY-AND-WHITE         Sweater  0.05   830.0   7836.0    9.44      other
+S21911_LIGHT-GRAY             Sweater  0.13   580.0   4357.0    7.51      other
+S22382_WHITE                  Sweater  0.15   434.0   4335.0    9.99      other
+S21659_AQUA                Sweatpants  0.23    38.0    255.0    6.71      other
+S22102_BLUE                Sweatpants  0.15   860.0   6803.0    7.91      other
+S22102_LIGHT-GRAY-MELANGE  Sweatpants  0.29   937.0   6977.0    7.45      other
+S19271_BROWN                  T-Shirt  0.08   490.0   4001.0    8.17      other
+S20677_BROWN                 Tank Top  0.33  1875.0   7693.0    4.10      other
+S20679_BURGUNDY              Tank Top  0.32  1817.0   8118.0    4.47      other
+S21376_BLACK                 Tank Top  0.29  3203.0  12994.0    4.06      other
+S21144_BLACK                      Top  0.07   342.0   2932.0    8.57      other
+S21946_GRAY-MELANGE               Top  0.12   404.0   2004.0    4.96      other

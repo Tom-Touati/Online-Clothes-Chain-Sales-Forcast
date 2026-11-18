@@ -1,0 +1,38 @@
+attribute columns 514 | LLM scores 14
+attribute cols 514 | collections 101 | name words 175
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-06 fold 0 47s
+2025-06 fold 1 84s
+2025-06 fold 2 121s
+2025-06 fold 3 152s
+2025-06 fold 4 183s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-10 fold 0 228s
+2025-10 fold 1 269s
+2025-10 fold 2 314s
+2025-10 fold 3 360s
+2025-10 fold 4 405s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-02 fold 0 469s
+2026-02 fold 1 529s
+2026-02 fold 2 584s
+2026-02 fold 3 642s
+2026-02 fold 4 693s
+
+== mean over held-out items: Spearman with cart PPMI | top-20 precision | chance
+                                         rho    prec  chance
+target model                                                
+future dyn net (uses own past carts)  0.3055  0.3152  0.0243
+       raw everything                 0.2037  0.1503  0.0243
+       raw product                    0.1588  0.1415  0.0243
+       v4_noevt_notemp                0.2772  0.2134  0.0243
+past   raw everything                 0.3177  0.2000  0.0236
+       raw product                    0.1804  0.1568  0.0236
+       v4_noevt_notemp                0.4000  0.2985  0.0236
+
+== paired bootstrap over held-out styles, model minus raw product (95% interval)
+  past   raw everything                 rho +0.1340 [+0.1307, +0.1372] | prec +0.0431 [+0.0407, +0.0454]
+  past   v4_noevt_notemp                rho +0.2137 [+0.2094, +0.2179] | prec +0.1350 [+0.1294, +0.1408]
+  future raw everything                 rho +0.0431 [+0.0409, +0.0450] | prec +0.0093 [+0.0073, +0.0112]
+  future v4_noevt_notemp                rho +0.1121 [+0.1084, +0.1163] | prec +0.0684 [+0.0632, +0.0735]
+  future dyn net (uses own past carts)  rho +0.1368 [+0.1323, +0.1417] | prec +0.1675 [+0.1619, +0.1727]

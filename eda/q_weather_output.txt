@@ -1,0 +1,7 @@
+nosea 22 features (full set), 109 s
+nosea_we 83 features (full set), 177 s
+nosea_weor 85 features (full set), 204 s
+we 88 features (full set), 210 s
+cpllm_we 90 features (full set), 171 s
+cpllm_cl 49 features (full set), 150 s
+cpllm_wecl 96 features (full set), 169 s

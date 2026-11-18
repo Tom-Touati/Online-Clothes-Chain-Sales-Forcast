@@ -1,0 +1,5 @@
+items: train (2024) 420 | test (2025) 900 | mean log lift 2024 1.69 2025 1.687
+2025 test: corr(predicted, actual log lift) 0.423 | MSE vs the 2024 mean lift 0.1932 vs 0.2341 (R2 vs that 0.175)
+items with their own 2024 lift (438): corr(own 2024 lift, 2025 lift) 0.304 | corr(model, 2025) on them 0.420
+top drivers: {'lvl': 0.178, 'ptype': 0.105, 'sh_tt': 0.099, 'disc_item': 0.097, 'sh_drop': 0.095, 'f_r7': 0.082, 'f_r28': 0.068, 'trend91': 0.066}
+2025 lift by predicted-lift quintile (mean actual log lift): {0: 1.372, 1: 1.575, 2: 1.719, 3: 1.819, 4: 1.948}

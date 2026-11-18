@@ -1,0 +1,369 @@
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-03-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-04-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-05-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-06-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-07-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-08-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-09-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-10-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-11-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2025-12-01
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+C:\Users\tomto\workspaces\edikted\eda\175k_sim_nx.py:25: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  MT = Mo[coh].groupby(PT[coh]).sum().reindex(columns=ly).fillna(0); ts = (MT + 1).div((MT + 1).sum(1), axis=0)
+2026-01-01
+variant     dyn|ts  dyn|ts|geo  ec_ns|lgb  ec_ns|lgb|geo  ec_ns|ts  ec_ns|ts|geo
+start                                                                           
+2025-03-01  0.0959      0.0959     0.0957         0.0957    0.0944        0.0944
+2025-04-01  0.0729      0.0729     0.0720         0.0720    0.0723        0.0723
+2025-05-01  0.1264      0.1264     0.1244         0.1244    0.1247        0.1247
+2025-06-01  0.1408      0.1408     0.1401         0.1402    0.1407        0.1407
+2025-07-01  0.1263      0.1264     0.1304         0.1300    0.1269        0.1269
+2025-08-01  0.1038      0.1014     0.1036         0.1004    0.1042        0.1018
+2025-09-01  0.1226      0.1264     0.1209         0.1244    0.1214        0.1259
+2025-10-01  0.1179      0.1213     0.1148         0.1197    0.1172        0.1206
+2025-11-01  0.1170      0.1197     0.1145         0.1166    0.1166        0.1190
+2025-12-01  0.0702      0.0671     0.0697         0.0677    0.0710        0.0676
+2026-01-01  0.0927      0.0913     0.0923         0.0908    0.0929        0.0913
+mean loss: {'ec_ns|lgb': 0.1071, 'ec_ns|lgb|geo': 0.1074, 'ec_ns|ts': 0.1075, 'ec_ns|ts|geo': 0.1078, 'dyn|ts': 0.1079, 'dyn|ts|geo': 0.1081}

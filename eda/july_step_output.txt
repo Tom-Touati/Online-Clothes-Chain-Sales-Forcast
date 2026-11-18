@@ -1,0 +1,9 @@
+2024 like-for-like (n=257): June class share {'DROP': 0.085, 'ONLINE': 0.73, 'RETAIL': 0.185} | July/June by class {'DROP': 1.48, 'ONLINE': 1.63, 'RETAIL': 1.25} | total 1.55
+2025 like-for-like (n=603): June class share {'DROP': 0.076, 'ONLINE': 0.694, 'RETAIL': 0.23} | July/June by class {'DROP': 1.82, 'ONLINE': 1.58, 'RETAIL': 1.42} | total 1.56
+2026 targets: June class share {'DROP': 0.055, 'ONLINE': 0.659, 'RETAIL': 0.286}
+expected July/June for the 2026 targets' June channel mix with 2024 class ratios: 1.51
+expected July/June for the 2026 targets' June channel mix with 2025 class ratios: 1.55
+
+retail weekly units, May-June 2026: all stores [16143, 23012, 26270, 28557, 31775, 36813, 38941, 44286, 50673, 12741] | stores opened since mid-April [4314, 5513, 5344, 5037, 5598, 10956, 10860, 14132, 17723, 4554]
+retail all items Jun/Jul 2025: {6: 94056, 7: 133315} -> July/June 1.42
+targets June 2026 daily units: first half avg 3726 | second half avg 4306 | 28-30 June avg 4951

@@ -1,0 +1,14 @@
+2025-02 train rows 13330 | head 4-month WAPE by prefix {'k=2': 0.839, 'k=4': 0.842, 'k=8': 0.922, 'k=16': 0.964} | 12s
+2025-03 train rows 15548 | head 4-month WAPE by prefix {'k=2': 0.627, 'k=4': 0.665, 'k=8': 0.685, 'k=16': 0.726} | 25s
+2025-04 train rows 17933 | head 4-month WAPE by prefix {'k=2': 0.817, 'k=4': 0.761, 'k=8': 0.746, 'k=16': 0.649} | 38s
+2025-05 train rows 20472 | head 4-month WAPE by prefix {'k=2': 0.338, 'k=4': 0.374, 'k=8': 0.371, 'k=16': 0.367} | 54s
+2025-06 train rows 23168 | head 4-month WAPE by prefix {'k=2': 0.384, 'k=4': 0.372, 'k=8': 0.388, 'k=16': 0.389} | 72s
+2025-07 train rows 26006 | head 4-month WAPE by prefix {'k=2': 0.449, 'k=4': 0.449, 'k=8': 0.459, 'k=16': 0.431} | 92s
+2025-08 train rows 29006 | head 4-month WAPE by prefix {'k=2': 0.499, 'k=4': 0.444, 'k=8': 0.472, 'k=16': 0.434} | 114s
+2025-09 train rows 32187 | head 4-month WAPE by prefix {'k=2': 0.492, 'k=4': 0.458, 'k=8': 0.47, 'k=16': 0.447} | 138s
+2025-10 train rows 35579 | head 4-month WAPE by prefix {'k=2': 0.452, 'k=4': 0.417, 'k=8': 0.458, 'k=16': 0.45} | 169s
+2025-11 train rows 39206 | head 4-month WAPE by prefix {'k=2': 0.293, 'k=4': 0.357, 'k=8': 0.342, 'k=16': 0.343} | 202s
+2025-12 train rows 43087 | head 4-month WAPE by prefix {'k=2': 0.257, 'k=4': 0.26, 'k=8': 0.274, 'k=16': 0.261} | 240s
+2026-01 train rows 47229 | head 4-month WAPE by prefix {'k=2': 0.294, 'k=4': 0.32, 'k=8': 0.305, 'k=16': 0.31} | 282s
+2026-02 train rows 51606 | head 4-month WAPE by prefix {'k=2': 0.39, 'k=4': 0.384, 'k=8': 0.373, 'k=16': 0.379} | 327s
+mean head WAPE by prefix: {'k=2': 0.472, 'k=4': 0.469, 'k=8': 0.482, 'k=16': 0.473}

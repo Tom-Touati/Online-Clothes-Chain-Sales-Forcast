@@ -1,0 +1,3 @@
+sub early 4: 0.6623 | within 20% recent: 0.417 | GMRAE recent: 0.4127
+rc early 4: 0.6578 | within 20% recent: 0.4284 | GMRAE recent: 0.3946
+bootstrap rc vs submitted: recent [-0.0053 -0.0022] | all 13 [-0.0049 -0.0021]

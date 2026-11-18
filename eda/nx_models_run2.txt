@@ -1,0 +1,11 @@
++PROMO 99 features (full set), 30 s
+ec 131 features (full set), 30 s
+eca 138 features (full set), 36 s
+ecp 136 features (full set), 31 s
+lowvol_ec 131 features (full set), 56 s
+bfsep_ec 131 features (full set), 36 s
+bfw_ec 165 features (full set), 45 s
+lowvol 163 features (full set), 66 s
+bfsep 163 features (full set), 47 s
+bfw 165 features (full set), 43 s
+all2 168 features (full set), 39 s

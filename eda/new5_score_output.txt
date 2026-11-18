@@ -1,0 +1,18 @@
+new items (under 6 months): share of rows 0.279 | share of recent units 0.32
+                  variant    rec    all   hold  early  new rec new bias  old rec  tree alone new rec tree new bias             ci rec         ci new rec
+submitted (ec_ns, log L1) 0.3851 0.4399 0.2948 0.6623   0.4236   -0.062   0.3656              0.4688        -0.128 [-0.0000, +0.0000] [-0.0000, +0.0000]
+             log L1 rerun 0.3851 0.4399 0.2948 0.6623   0.4236   -0.062   0.3656              0.4688        -0.128 [-0.0000, +0.0000] [-0.0000, +0.0000]
+           log L1, new x5 0.3841 0.4386 0.2955 0.6601   0.4200   -0.062   0.3659              0.4569        -0.131 [-0.0022, +0.0001] [-0.0055, -0.0020]
+                    Huber 0.3834 0.4381 0.2936 0.6600   0.4218   -0.060   0.3640              0.4608        -0.120 [-0.0025, -0.0008] [-0.0030, -0.0005]
+            Huber, new x5 0.3836 0.4382 0.2961 0.6599   0.4200   -0.060   0.3651              0.4495        -0.120 [-0.0026, -0.0004] [-0.0055, -0.0016]
+            Huber, new x3 0.3832 0.4389 0.2947 0.6650   0.4203   -0.062   0.3645              0.4562        -0.129 [-0.0029, -0.0009] [-0.0052, -0.0019]
+
+routed (x5 tree for new items only):
+log L1, new x5 {'rec': np.float64(0.3839), 'all': np.float64(0.439), 'hold': np.float64(0.2933), 'early': np.float64(0.6629)} | ci rec [-0.0018, -0.0007] ci hold [-0.0023, -0.0009] ci all [-0.0015, -0.0004] ci early [-0.0011, +0.0022]
+Huber, new x5 {'rec': np.float64(0.3839), 'all': np.float64(0.4389), 'hold': np.float64(0.2941), 'early': np.float64(0.6624)} | ci rec [-0.0019, -0.0006] ci hold [-0.0015, +0.0001] ci all [-0.0016, -0.0003] ci early [-0.0014, +0.0016]
+
+last-year-removed gate (tree refit without last year's window; routed = x5 tree for new items only):
+rec ec_ns no-LY 0.4106 routed no-LY 0.4094 [-0.0020, -0.0005]
+all ec_ns no-LY 0.4639 routed no-LY 0.4633 [-0.0014, -0.0000]
+hold ec_ns no-LY 0.3245 routed no-LY 0.3234 [-0.0022, -0.0001]
+tree alone no-LY, recent: ec_ns 0.6534 x5 routed 0.647

@@ -1,0 +1,40 @@
+
+== P25/P75: coverage error in points (|below - 25%| + |above - 25%|)
+set     June 2025  all 13  check half (2025-11..2026-02)  early 4  pick half (2025-06..10)  recent
+method                                                                                            
+raw           4.2     7.9                            7.3     35.4                      7.1     3.5
+K2           33.5     6.5                           16.7     35.4                     21.5    19.0
+K3           33.5     8.3                           18.0     35.4                     24.8    21.3
+K4           33.5     9.7                           19.5     35.4                     27.1    23.2
+K6           33.5    12.3                           25.3     35.4                     27.8    26.5
+H2           33.5     9.9                           21.8     35.4                     25.1    23.4
+H3           33.5    11.2                           24.1     35.4                     26.1    25.1
+   picked on the earlier half: raw | check half: 7.3 vs raw 7.3
+  range method                           set  below  inside  above  cov_error
+P25/P75    raw                        recent   23.1    53.5   23.4        3.5
+P25/P75    raw                        all 13   28.8    50.3   20.9        7.9
+P25/P75    raw                     June 2025   28.0    48.2   23.8        4.2
+P25/P75    raw                       early 4   48.0    39.4   12.6       35.4
+P25/P75    raw check half (2025-11..2026-02)   18.2    56.2   25.5        7.3
+
+== P10/P90: coverage error in points (|below - 10%| + |above - 10%|)
+set     June 2025  all 13  check half (2025-11..2026-02)  early 4  pick half (2025-06..10)  recent
+method                                                                                            
+raw           6.5     5.7                            8.0     17.4                      6.3     6.4
+K2           35.5     7.3                           10.6     17.4                     19.0    14.7
+K3           35.5     8.2                           10.6     17.4                     21.3    15.8
+K4           35.5     9.0                           11.5     17.4                     22.6    16.9
+K6           35.5    10.6                           14.8     17.4                     23.4    19.0
+H2           35.5     8.9                           12.9     17.4                     20.7    16.7
+H3           35.5     9.4                           13.7     17.4                     21.4    17.4
+   picked on the earlier half: raw | check half: 8.0 vs raw 8.0
+  range method                           set  below  inside  above  cov_error
+P10/P90    raw                        recent    7.9    86.4    5.6        6.4
+P10/P90    raw                        all 13   10.4    84.9    4.7        5.7
+P10/P90    raw                     June 2025   14.1    78.4    7.6        6.5
+P10/P90    raw                       early 4   18.8    79.8    1.4       17.4
+P10/P90    raw check half (2025-11..2026-02)    5.3    88.0    6.8        8.0
+
+2026-06 P25/P75: method raw, log shifts lower +0.000 upper +0.000 | beats raw on recent and June 2025: False -> keep raw
+
+2026-06 P10/P90: method raw, log shifts lower +0.000 upper +0.000 | beats raw on recent and June 2025: False -> keep raw

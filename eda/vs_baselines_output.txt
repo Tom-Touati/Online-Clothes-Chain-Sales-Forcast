@@ -1,0 +1,24 @@
+
+== recent nine (item-origins 9031): system WAPE 0.266
+   vs R3                  baseline WAPE 0.699 | system / baseline 0.381 | by style [0.354, 0.408] | by origin [0.284, 0.502] | items won 76% | origins won 9 of 9
+   vs seasonal naive      baseline WAPE 0.436 | system / baseline 0.609 | by style [0.583, 0.634] | by origin [0.575, 0.652] | items won 68% | origins won 9 of 9
+   vs hand rules          baseline WAPE 0.341 | system / baseline 0.780 | by style [0.746, 0.817] | by origin [0.746, 0.813] | items won 60% | origins won 9 of 9
+   vs the three together  baseline WAPE 0.448 | system / baseline 0.594 | by style [0.567, 0.621] | by origin [0.503, 0.680] | items won 69% | origins won 9 of 9
+
+== all 13 (item-origins 11727): system WAPE 0.291
+   vs R3                  baseline WAPE 0.668 | system / baseline 0.436 | by style [0.411, 0.459] | by origin [0.335, 0.555] | items won 73% | origins won 13 of 13
+   vs seasonal naive      baseline WAPE 0.476 | system / baseline 0.612 | by style [0.588, 0.636] | by origin [0.575, 0.649] | items won 69% | origins won 13 of 13
+   vs hand rules          baseline WAPE 0.340 | system / baseline 0.856 | by style [0.821, 0.890] | by origin [0.785, 0.950] | items won 57% | origins won 11 of 13
+   vs the three together  baseline WAPE 0.448 | system / baseline 0.650 | by style [0.624, 0.676] | by origin [0.564, 0.741] | items won 66% | origins won 13 of 13
+
+== Jul-Oct 2025 (item-origins 768): system WAPE 0.283
+   vs R3                  baseline WAPE 0.414 | system / baseline 0.685 | by style [0.633, 0.750] | items won 64% | origins won 1 of 1
+   vs seasonal naive      baseline WAPE 0.383 | system / baseline 0.740 | by style [0.654, 0.830] | items won 65% | origins won 1 of 1
+   vs hand rules          baseline WAPE 0.401 | system / baseline 0.707 | by style [0.654, 0.772] | items won 63% | origins won 1 of 1
+   vs the three together  baseline WAPE 0.347 | system / baseline 0.817 | by style [0.760, 0.882] | items won 63% | origins won 1 of 1
+
+== Mar-Jun 2026 (item-origins 1262): system WAPE 0.257
+   vs R3                  baseline WAPE 1.044 | system / baseline 0.247 | by style [0.208, 0.301] | items won 76% | origins won 1 of 1
+   vs seasonal naive      baseline WAPE 0.510 | system / baseline 0.505 | by style [0.469, 0.542] | items won 75% | origins won 1 of 1
+   vs hand rules          baseline WAPE 0.335 | system / baseline 0.768 | by style [0.716, 0.816] | items won 61% | origins won 1 of 1
+   vs the three together  baseline WAPE 0.601 | system / baseline 0.429 | by style [0.385, 0.476] | items won 73% | origins won 1 of 1

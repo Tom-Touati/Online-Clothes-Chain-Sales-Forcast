@@ -1,0 +1,20 @@
+member table (21316, 191)
+{'MOM': 8, 'DER': 8, 'ENT': 3, 'RHY': 5} | coverage 1.0
+ec_ns (refit, check) | 109 features | 32 s
++ MOM | 117 features | 36 s
++ DER | 117 features | 35 s
++ ENT | 112 features | 38 s
++ RHY | 114 features | 38 s
++ all four blocks | 133 features | 44 s
+ec_ns, last year removed | 109 features | 30 s
++ all four, last year removed | 133 features | 39 s
+refit check: max rel diff to the stored member 0.0
+                      variant  n_add  alone  alone_all  stack  stack_all  stack_early  stack_hit  corrected  corrected_all           ci_stack
+         ec_ns (refit, check)      0 0.4299     0.4998 0.3939     0.4470       0.6623      0.410     0.3851         0.4399               None
+                        + MOM      8 0.4308     0.5011 0.3921     0.4457       0.6634      0.408     0.3834         0.4387 [-0.0028, -0.0008]
+                        + DER      8 0.4263     0.4929 0.3932     0.4454       0.6575      0.407     0.3849         0.4388  [-0.0017, 0.0003]
+                        + ENT      3 0.4320     0.5055 0.3929     0.4469       0.6663      0.409     0.3847         0.4403  [-0.0024, 0.0004]
+                        + RHY      5 0.4271     0.4993 0.3925     0.4459       0.6630      0.408     0.3838         0.4390 [-0.0023, -0.0006]
+            + all four blocks     24 0.4300     0.4941 0.3923     0.4444       0.6562      0.410     0.3839         0.4377 [-0.0029, -0.0005]
+     ec_ns, last year removed      0 0.6534     0.7059 0.4182     0.4700       0.6803      0.395     0.4106         0.4639               None
++ all four, last year removed     24 0.6831     0.7119 0.4214     0.4687       0.6607      0.394     0.4162         0.4645               None

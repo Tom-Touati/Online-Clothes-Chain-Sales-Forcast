@@ -1,0 +1,49 @@
+
+######## nine recent origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.4879        0.4851     0.7110           0.5000             0.3958        0.4681 -0.0639
+p2c32a                       0.3977        0.4285     0.7594           0.5820             0.3141        0.3866 -0.0462
+p2c32a_geo                   0.3902        0.4178     0.7596           0.5978             0.3091        0.3807 -0.0462
+E:ecnsnnrcd2_x               0.3899        0.4055     0.7675           0.6007             0.3068        0.3779 -0.0727
+E:ecnsnnrcd2_x_seg           0.3844        0.4028     0.7644           0.6040             0.3031        0.3735 -0.0727
+E:ecnsnnrcd2_x_brk           0.3811        0.3930     0.7665           0.6099             0.3014        0.3718 -0.0727
+E:ecnsnnrcd2_x_geo           0.3797        0.3946     0.7655           0.6112             0.3004        0.3702 -0.0727
+
+######## all 13 origins
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.5090        0.5165     0.6899           0.5000             0.4398        0.4953 -0.0626
+p2c32a                       0.4542        0.4964     0.7299           0.5528             0.4053        0.4387 -0.0005
+p2c32a_geo                   0.4482        0.4869     0.7301           0.5650             0.4016        0.4339 -0.0005
+E:ecnsnnrcd2_x               0.4428        0.4725     0.7396           0.5701             0.3855        0.4270 -0.0314
+E:ecnsnnrcd2_x_seg           0.4385        0.4701     0.7372           0.5727             0.3827        0.4234 -0.0314
+E:ecnsnnrcd2_x_brk           0.4358        0.4613     0.7388           0.5772             0.3814        0.4221 -0.0314
+E:ecnsnnrcd2_x_geo           0.4347        0.4628     0.7380           0.5782             0.3806        0.4207 -0.0314
+
+######## Black Friday origins
+   R3 itself: WAPE 0.593 | MAE+|bias| 0.745 | pinball 0.233 | bias -0.155 | 3627 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.6046        0.5406     0.7251           0.5000             0.6532        0.5876 -0.0777
+p2c32a                       0.5122        0.5082     0.7532           0.5462             0.5279        0.5120 -0.0500
+p2c32a_geo                   0.5079        0.4989     0.7565           0.5613             0.5246        0.5072 -0.0500
+E:ecnsnnrcd2_x               0.5001        0.4630     0.7720           0.5826             0.5115        0.4999 -0.0860
+E:ecnsnnrcd2_x_seg           0.4962        0.4647     0.7687           0.5820             0.5086        0.4959 -0.0860
+E:ecnsnnrcd2_x_brk           0.4914        0.4436     0.7720           0.6008             0.5048        0.4916 -0.0860
+E:ecnsnnrcd2_x_geo           0.4911        0.4481     0.7701           0.5961             0.5046        0.4916 -0.0860
+
+######## recent, 100 targets
+   R3 itself: WAPE 0.742 | MAE+|bias| 1.327 | pinball 0.311 | bias +0.111 | 570 item-origins
+                          WAPE / R3  relMAE vs R3  win vs R3  win vs R3+rules  (MAE+|bias|) / R3  pinball / R3    bias
+R3 + rules (rule agents)     0.4846        0.4984     0.7386           0.5000             0.3860        0.4435 -0.1328
+p2c32a                       0.3784        0.3747     0.7982           0.6667             0.3101        0.3525 -0.1339
+p2c32a_geo                   0.3726        0.3425     0.8088           0.6912             0.3098        0.3464 -0.1380
+E:ecnsnnrcd2_x               0.3782        0.3711     0.7947           0.6474             0.3144        0.3495 -0.1515
+E:ecnsnnrcd2_x_seg           0.3718        0.3605     0.7912           0.6860             0.3145        0.3444 -0.1563
+E:ecnsnnrcd2_x_brk           0.3724        0.3456     0.8053           0.6930             0.3109        0.3439 -0.1498
+E:ecnsnnrcd2_x_geo           0.3686        0.3446     0.7965           0.6965             0.3108        0.3414 -0.1530
+  p2c32a_geo       vs p2c32a [-0.0073 -0.0031] | vs p2c32a_geo [0. 0.]
+  E:ecnsnnrcd2_x   vs p2c32a [-0.0072 -0.0034] | vs p2c32a_geo [-0.0031  0.003 ]
+  E:ecnsnnrcd2_x_seg vs p2c32a [-0.0117 -0.0066] | vs p2c32a_geo [-0.0064 -0.0014]
+  E:ecnsnnrcd2_x_brk vs p2c32a [-0.0148 -0.0085] | vs p2c32a_geo [-0.0084 -0.0041]
+  E:ecnsnnrcd2_x_geo vs p2c32a [-0.0151 -0.0099] | vs p2c32a_geo [-0.0092 -0.0049]

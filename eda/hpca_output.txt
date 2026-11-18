@@ -1,0 +1,28 @@
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+panel: 482 items x 24 months
+L0 global: cumulative share of variance, k = 1..5: [0.363 0.517 0.611 0.681 0.736]
+L1 after 3 global factors (share of total variance explained by 1 factor per group):
+  product type 0.136 | groups 38 | item-specific left 0.253
+  look cluster 0.178 | groups 35 | item-specific left 0.212
+  type x look  0.134 | groups 159 | item-specific left 0.256
+  random (look sizes) 0.142
+stability, |corr| of item loadings between halves, global PC1-3: [np.float64(0.481), np.float64(0.211), np.float64(0.33)]
+stability of within-look PC1 loadings between halves: median |corr| 0.452 over 29 looks
+  PC1: autocorr lag1 +0.08 lag4 -0.25 lag12 +0.24 | R^2 next-4-month mean from last year 0.81, from last 3 months 0.16
+  PC2: autocorr lag1 +0.46 lag4 -0.08 lag12 +0.15 | R^2 next-4-month mean from last year 0.02, from last 3 months 0.01
+  PC3: autocorr lag1 +0.29 lag4 -0.32 lag12 +0.21 | R^2 next-4-month mean from last year 0.05, from last 3 months 0.51
+figure saved

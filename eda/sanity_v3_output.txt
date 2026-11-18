@@ -1,0 +1,142 @@
+== 1 PORTFOLIO
+forecast by month: {'Jul': 165267, 'Aug': 170700, 'Sep': 123661, 'Oct': 123957} | total 583585
+June 2026 actual x4: 481972 | Mar-Jun 2026 actual: 482468
+42 targets live since before Mar 2025: forecast Jul-Oct 26 / actual Mar-Jun 26 = 1.27; same items, actual Jul-Oct 25 / Mar-Jun 25 = 1.44
+   their Jul-Oct 2026 forecast vs Jul-Oct 2025 actual: 0.59x | Mar-Jun 26 vs Mar-Jun 25: 0.66x
+month-to-month ratios Jun>Jul>Aug>Sep>Oct | forecast (targets): [1.37, 1.03, 0.72, 1.0] | 2025 like-for-like panel: [1.54, 1.09, 0.65, 1.1] | 2024 like-for-like: [1.47, 1.11, 0.76, 0.81]
+
+== 2 ITEMS: growth year on year for mature items
+mature targets (n=42): forecast vs last Jul-Oct median 0.54x; spring 26 vs spring 25 median 0.61x
+forecast Jul-Oct/Mar-Jun 2026 vs the item's own 2025 ratio: median log gap -0.13 | items where forecast season ratio is >1.5x last year's: 1 | <1/1.5x: 5
+                                   type    age     mj25     jo25     mj26       fc  spring_yoy  fc_vs_jo25  last_season  implied_season
+S17920_BROWN                     Shorts  19.74   1945.0   5735.0   2973.0   4562.0        1.53        0.80         2.95            1.53
+S15557_NAVY                       Dress  30.75   1630.0   4035.0   1704.0   2278.0        1.05        0.56         2.48            1.34
+S17324_BLUE                    Tank Top  21.22   3644.0   8300.0   9264.0  12330.0        2.54        1.49         2.28            1.33
+S14842_BLACK                     Corset  31.70   3050.0   9839.0   3715.0   7122.0        1.22        0.72         3.23            1.92
+S17250_LEOPARD                   Shorts  23.78   9300.0  18584.0   5012.0   6323.0        0.54        0.34         2.00            1.26
+S11233_BLACK                      Skirt  60.45  14577.0  40794.0  11762.0  22109.0        0.81        0.54         2.80            1.88
+S14857_BLUE-WASHED          Short Jeans  34.46   5649.0   6486.0   5926.0   4788.0        1.05        0.74         1.15            0.81
+S15999_BLUE                      Shorts  24.41  20816.0  21169.0  11489.0   8535.0        0.55        0.40         1.02            0.74
+S17389_WHITE                    Sweater  22.73  10859.0  17282.0   5487.0   6394.0        0.51        0.37         1.59            1.17
+S17159_BLACK-WASHED              Shorts  23.19  15801.0  34393.0  15137.0  24234.0        0.96        0.70         2.18            1.60
+S17044_BLACK                        Top  19.48   2572.0   3554.0   1837.0   1904.0        0.71        0.54         1.38            1.04
+S14947_DARK-BLUE                 Jacket  33.74   1409.0   2992.0   3898.0   6284.0        2.77        2.10         2.12            1.61
+S19030_BLACK                     Shorts  17.25   4393.0   6588.0   4962.0   5714.0        1.13        0.87         1.50            1.15
+S11233_WHITE                      Skirt  53.35   4731.0  10192.0   3485.0   5893.0        0.74        0.58         2.15            1.69
+S17302_WHITE                      Shirt  22.60  10985.0  17867.0   6023.0   7708.0        0.55        0.43         1.63            1.28
+S16840_BURGUNDY                  Corset  20.99   4973.0   6331.0   2848.0   2978.0        0.57        0.47         1.27            1.05
+S17091_LIGHT-GRAY-MELANGE         Pants  24.21   3126.0   5428.0   3792.0   5533.0        1.21        1.02         1.74            1.46
+S16164_CREAM                      Dress  27.76   3112.0   2140.0   8183.0   4738.0        2.63        2.21         0.69            0.58
+S17954_CREAM                    Sweater  21.42   1547.0   4947.0   1230.0   3429.0        0.80        0.69         3.20            2.79
+S18915_BLUE                       Pants  17.28    373.0    419.0   1501.0   1481.0        4.02        3.53         1.12            0.99
+S14091_BLACK-WASHED               Jeans  35.61  17419.0  28987.0   8707.0  12748.0        0.50        0.44         1.66            1.46
+S15329_GRAY-MELANGE                 Top  31.31   4397.0   4700.0   1762.0   1665.0        0.40        0.35         1.07            0.94
+S17019_CREAM                      Skort  24.31   3677.0   6019.0   2904.0   4276.0        0.79        0.71         1.64            1.47
+S17299_NAVY                    Tank Top  23.78  13834.0  11652.0   3616.0   2786.0        0.26        0.24         0.84            0.77
+S14091_BLUE                       Jeans  37.71  23856.0  35695.0  11528.0  15806.0        0.48        0.44         1.50            1.37
+S16382_BROWN                     Corset  26.18   5613.0   4704.0   1285.0   1008.0        0.23        0.21         0.84            0.78
+ACC1070-1_MIX                     Scarf  19.51    436.0   1023.0   1018.0   2240.0        2.33        2.19         2.35            2.20
+S15872_BLACK                     Shorts  28.25   2426.0   2960.0   1155.0   1323.0        0.48        0.45         1.22            1.15
+S16285_NAVY-AND-WHITE          Tank Top  27.66  11423.0   7452.0   4053.0   2514.0        0.35        0.34         0.65            0.62
+S15132_WHITE                      Jeans  33.08  15149.0  22698.0  17038.0  24769.0        1.12        1.09         1.50            1.45
+S15987_RED                       Corset  28.75   2331.0   3182.0   1163.0   1554.0        0.50        0.49         1.37            1.34
+S16977_NAVY                       Skort  25.56   7279.0   8036.0   4394.0   4788.0        0.60        0.60         1.10            1.09
+S18408_NAVY                       Pants  19.51   3530.0   4769.0   1812.0   2436.0        0.51        0.51         1.35            1.34
+S17473_DARK-GRAY                 Hoodie  22.14  20804.0  17501.0   5556.0   5070.0        0.27        0.29         0.84            0.91
+S18686_GREEN                   Tank Top  18.20  12252.0   6609.0   3333.0   2015.0        0.27        0.30         0.54            0.60
+S17764_BROWN                     Jacket  21.58   1032.0   1385.0    635.0    975.0        0.62        0.70         1.34            1.54
+S16737_RED                          Top  25.79   2781.0   3361.0   2862.0   4088.0        1.03        1.22         1.21            1.43
+S14995_NAVY                     T-Shirt  33.61   1979.0   1783.0    653.0    706.0        0.33        0.40         0.90            1.08
+S16484_RED                     Tank Top  23.29   1858.0   1731.0    510.0    588.0        0.27        0.34         0.93            1.15
+S17483_CREAM                     Hoodie  24.74   2375.0    890.0    429.0    209.0        0.18        0.23         0.37            0.49
+S17026_RED                 Swimwear Top  24.41   1643.0    448.0   1028.0    412.0        0.63        0.92         0.27            0.40
+S16079_DARK-GRAY                    Top  29.47    178.0    273.0     55.0    130.0        0.31        0.48         1.53            2.36
+
+== 3 YOUNG LAUNCHES: forecast vs the best month so far and vs what comparable launches did
+                                   type   age     jun    best       fc   fc_avg  avg_vs_best
+S25039_YELLOW                   T-Shirt  1.18  2584.0  2584.0   9088.0  2272.00         0.88
+S24847_NAVY                      Shorts  1.18   928.0   928.0   2279.0   569.75         0.61
+S23794_BLACK                   Tank Top  2.04  7711.0  7711.0  32329.0  8082.25         1.05
+S24840_LIGHT-GRAY-MELANGE       T-Shirt  2.27  6685.0  6685.0  23096.0  5774.00         0.86
+S22994_NAVY-AND-WHITE               Top  2.40  1076.0  1076.0   4868.0  1217.00         1.13
+S23965_BLACK                        Top  2.63  4687.0  4687.0  13904.0  3476.00         0.74
+S24167_BLUE-AND-WHITE            Shorts  2.73   605.0   605.0   2498.0   624.50         1.03
+S23377_TURQUOISE                  Dress  3.32  1018.0  1018.0   6500.0  1625.00         1.60
+S23839_GRAY-MELANGE             T-Shirt  3.78  1888.0  2384.0   6121.0  1530.25         0.64
+S23888_YELLOW                    Shorts  3.78  2058.0  2058.0   7761.0  1940.25         0.94
+S23916_WHITE                      Dress  3.94  1308.0  3522.0   9095.0  2273.75         0.65
+S20827_NAVY                     T-Shirt  3.98  1065.0  1384.0   4283.0  1070.75         0.77
+S22744_YELLOW                    Hoodie  4.34   706.0   706.0   3722.0   930.50         1.32
+S18974_BLUE                Swimwear Top  4.80  1417.0  1417.0   2627.0   656.75         0.46
+S23484_LIGHT-BLUE                 Jeans  4.83  1059.0  1059.0   5043.0  1260.75         1.19
+S23277_OFF-WHITE                  Jeans  5.06  1083.0  1311.0   5626.0  1406.50         1.07
+S22546_WHITE                      Dress  5.09  1135.0  3425.0   4719.0  1179.75         0.34
+S20878_WHITE                      Dress  5.16  1376.0  5820.0   8216.0  2054.00         0.35
+S13608_WHITE                Short Jeans  5.29  1095.0  1231.0   4208.0  1052.00         0.85
+S20878_YELLOW                     Dress  5.55   621.0  1210.0   2547.0   636.75         0.53
+S23374_LIGHT-GRAY-MELANGE           Top  5.62  1059.0  1478.0   4122.0  1030.50         0.70
+S23605_PINK                         Top  5.75  2175.0  2837.0   7066.0  1766.50         0.62
+S18184_LIGHT-BLUE          Swimwear Top  5.75  1952.0  1952.0   3612.0   903.00         0.46
+S13662_WHITE                      Skirt  5.75  1913.0  1913.0   7654.0  1913.50         1.00
+history, age 1-3 m, best month >= 300: next-4-month avg / best month so far: p50 0.92, p90 2.96, p97 4.74, share > 1: 46.4% (n=1115) | June origins only: p50 1.13, p90 2.70 (n=78)
+history, age 3-6 m, best month >= 300: next-4-month avg / best month so far: p50 0.45, p90 1.21, p97 1.92, share > 1: 14.8% (n=1776) | June origins only: p50 0.89, p90 2.03 (n=93)
+history, age 6-12 m, best month >= 300: next-4-month avg / best month so far: p50 0.41, p90 1.21, p97 1.87, share > 1: 14.0% (n=2835) | June origins only: p50 0.50, p90 1.29 (n=231)
+history, age 12-99 m, best month >= 300: next-4-month avg / best month so far: p50 0.25, p90 0.67, p97 1.15, share > 1: 4.2% (n=4443) | June origins only: p50 0.33, p90 0.93 (n=259)
+targets whose forecast avg / best month sits above the 95th percentile of comparable history:
+Empty DataFrame
+Columns: [type, age, best, jun, fc_avg, avg_vs_best, pct_vs_history]
+Index: []
+targets below the 5th percentile:
+                          type    age     best    jun   fc_avg  avg_vs_best  pct_vs_history
+S14995_NAVY            T-Shirt  33.61   4166.0  108.0   176.50         0.04            0.03
+S16382_BROWN            Corset  26.18   4794.0  209.0   252.00         0.05            0.05
+S17473_DARK-GRAY        Hoodie  22.14  71222.0  761.0  1267.50         0.02            0.01
+S17483_CREAM            Hoodie  24.74   3844.0   89.0    52.25         0.01            0.01
+S17764_BROWN            Jacket  21.58   4832.0   88.0   243.75         0.05            0.05
+S21729_GRAY-AND-WHITE  Sweater  10.28  16394.0  830.0  1959.00         0.12            0.05
+S21730_GRAY-AND-WHITE   Shorts   9.76  13296.0  941.0  1581.00         0.12            0.05
+
+== 4 SEASONAL DIRECTION BY TYPE: forecast Oct/Jul vs 2025 like-for-like Oct/Jul
+               n  fc_oct_jul  hist_oct_jul  ratio
+ptype                                            
+Scarf          1        3.19          7.01   0.46
+Cardigan       1        0.90          1.33   0.68
+Skort          2        0.62          0.87   0.71
+Top           13        0.57          0.75   0.76
+T-Shirt        7        0.49          0.63   0.79
+Jacket         2        2.33          2.96   0.79
+Shirt          1        1.85          2.24   0.82
+Jeans          5        0.70          0.75   0.94
+Tank Top      10        0.42          0.43   0.98
+Swimwear Top   4        0.18          0.18   0.99
+Shorts        11        0.79          0.80   0.99
+Hoodie         7        1.24          1.23   1.01
+Sweatpants     3        1.29          1.24   1.04
+Sweater        5        1.42          1.34   1.06
+Pants          6        1.16          1.01   1.15
+Short Jeans    2        0.26          0.22   1.18
+Corset         4        0.94          0.79   1.20
+Dress         12        0.97          0.80   1.22
+Skirt          3        1.02          0.82   1.24
+Knitted Top    1        0.56          0.29   1.91
+
+== 5 JULY vs JUNE continuity
+history (items live before Mar 2025, June 2025 >= 300): July/June p10 1.02 p50 1.45 p90 2.29
+targets July/June: {'count': 99.0, 'mean': 1.42, 'std': 0.4, 'min': 0.32, '10%': 0.97, '50%': 1.39, '90%': 1.96, 'max': 2.4}
+                      type    age    jun  jul_vs_jun    Jul
+S17026_RED    Swimwear Top  24.41  550.0        0.32  178.0
+S17483_CREAM        Hoodie  24.74   89.0        0.49   44.0
+
+== 6 INTERVALS AND CONFIDENCE
+answer between P50 and calibrated P75: 63 of 99
+       n  cv_last6_median  iqr_ratio_median  age_median  level_median
+conf                                                                 
+1      4             0.17              1.32       23.49       1876.24
+2     61             0.48              1.81       12.29       1012.88
+3     35             0.80              2.31        9.46        792.59
+confidence-1 items:
+                           ptype  age_m    level      p25c    answer      p75c  vol6     mj25     jo25     mj26       fc
+S14857_BLUE-WASHED   Short Jeans  34.46  1523.00   4038.30   4706.10   5296.23  0.40   5649.0   6486.0   5926.0   4788.0
+S17159_BLACK-WASHED       Shorts  23.19  3839.79  17969.54  23843.03  23259.23  0.09  15801.0  34393.0  15137.0  24234.0
+S17299_NAVY             Tank Top  23.78   893.13   2398.91   2729.17   3337.82  0.21  13834.0  11652.0   3616.0   2786.0
+S17324_BLUE             Tank Top  21.22  2229.48   8530.73  12099.34  11367.90  0.14   3644.0   8300.0   9264.0  12330.0

@@ -1,0 +1,29 @@
+== 1. oracle rescaling of the final system (recent origins): error left if each level's totals were known
+  as forecast  WAPE 0.2779 | WAPE / R3 0.3977
+  site         WAPE 0.2760 | WAPE / R3 0.3951
+  macro        WAPE 0.2680 | WAPE / R3 0.3835
+  ptype        WAPE 0.2454 | WAPE / R3 0.3512
+  look         WAPE 0.2436 | WAPE / R3 0.3486
+  type_look    WAPE 0.1818 | WAPE / R3 0.2602
+  style        WAPE 0.0542 | WAPE / R3 0.0776
+
+== 2. nested variance shares (weights sqrt(y + F)), mean over recent origins
+  growth vs R3         path A: macro 0.223 | ptype 0.131 | style 0.585 | colour (item) 0.061
+  growth vs R3         path B: look 0.530 | style 0.437 | colour (item) 0.033
+  final-system error   path A: macro 0.043 | ptype 0.112 | style 0.765 | colour (item) 0.080
+  final-system error   path B: look 0.234 | style 0.723 | colour (item) 0.043
+
+== 3. when: error variance shares by origin (path B) and WAPE / R3
+  2025-02  WAPE/R3 0.599 | look 0.444 style 0.517 colour 0.038
+  2025-03  WAPE/R3 0.733 | look 0.207 style 0.750 colour 0.043
+  2025-04  WAPE/R3 0.698 | look 0.269 style 0.651 colour 0.080
+  2025-05  WAPE/R3 0.763 | look 0.225 style 0.738 colour 0.036
+  2025-06  WAPE/R3 0.687 | look 0.189 style 0.783 colour 0.029
+  2025-07  WAPE/R3 0.551 | look 0.296 style 0.659 colour 0.045
+  2025-08  WAPE/R3 0.544 | look 0.222 style 0.725 colour 0.053
+  2025-09  WAPE/R3 0.495 | look 0.279 style 0.686 colour 0.035
+  2025-10  WAPE/R3 0.476 | look 0.229 style 0.732 colour 0.038
+  2025-11  WAPE/R3 0.566 | look 0.184 style 0.780 colour 0.036
+  2025-12  WAPE/R3 0.206 | look 0.162 style 0.772 colour 0.065
+  2026-01  WAPE/R3 0.188 | look 0.268 style 0.692 colour 0.040
+  2026-02  WAPE/R3 0.268 | look 0.278 style 0.674 colour 0.048

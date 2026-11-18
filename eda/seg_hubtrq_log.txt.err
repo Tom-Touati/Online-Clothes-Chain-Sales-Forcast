@@ -1,0 +1,4 @@
+C:\Users\tomto\workspaces\edikted\eda\179x2_bias.py:18: RuntimeWarning: Mean of empty slice
+  print(f"  {nm:13s} lag-4 (non-overlapping) correlation of segment biases: mean {np.nanmean(c):+.3f}")
+C:\Users\tomto\workspaces\edikted\eda\179x2_bias.py:18: RuntimeWarning: Mean of empty slice
+  print(f"  {nm:13s} lag-4 (non-overlapping) correlation of segment biases: mean {np.nanmean(c):+.3f}")

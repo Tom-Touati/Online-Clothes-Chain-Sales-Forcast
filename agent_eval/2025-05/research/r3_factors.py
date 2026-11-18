@@ -1,0 +1,16 @@
+import sys; sys.path.insert(0,".")
+import pandas as pd, numpy as np, rules as R
+it,di,st=R.load()
+items=pd.read_csv("data/to_forecast.csv").style_color.tolist()
+o=di.date.max(); B=o.to_period("M"); T=[B+h for h in range(1,5)]
+f=R.seasonal_factors(it,di,st,B,T)
+for k in ["web","defl_w","ret"]: print(k, f[k].round(3).to_dict())
+print("a_feb",{str(k):round(v,3) for k,v in f["a_feb"].items()}, "cur_pd",round(f["cur_pd"],3),"cur_ret",round(f["cur_ret"],3),"ret_adj",f["ret_adj"])
+print(f["grp_rel"].round(3))
+P=R.forecast(o,items,it,di,st)
+print(P.sum().round(0))
+it2=it.reindex(items)
+print(P.groupby(it2.grp.values).sum().round(0))
+mi=pd.read_parquet("data/monthly_item.parquet")
+print("May actual panel",mi[(mi.month=="2025-05")&mi.style_color.isin(items)][["units","online","retail","drop"]].sum())
+print(it2.launch.dt.to_period("M").value_counts().sort_index().tail(6))

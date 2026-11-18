@@ -1,0 +1,7 @@
+falling fast: 2230 item-origins, 14.5% of units, 14.9% of error; WAPE / R3 0.5617
+  under-forecast (rebounded): 49.5% of items, 59.5% of their error | over (kept falling): 40.5%
+  by age: {Interval(3, 6, closed='right'): 'n 8, err share 0.00, bias +0.25', Interval(6, 12, closed='right'): 'n 894, err share 0.51, bias -0.06', Interval(12, 999, closed='right'): 'n 1328, err share 0.49, bias -0.05'}
+  by Black Friday window: {0: 'n 1564, err share 0.63, bias -0.08', 1: 'n 666, err share 0.37, bias +0.00'}
+
+== Spearman with the residual log((y + 1) / (forecast + 1)), falling fast, n 2111
+  promo_lift -0.215 | pk_28 -0.190 | pk_365_days -0.161 | curve_fwd +0.127 | lagr1 -0.126 | f_r28 -0.117 | sh_tt +0.111 | pk_anniv_dist +0.101 | lagr3 +0.100 | anniv_dist -0.089 | own_sea +0.077 | spread -0.076 | tr_ptype_mom -0.072 | pk_life_days -0.066 | bfcm_ly -0.062 | pk_365 -0.059 | disc_rel -0.055 | tr_365 +0.053 | age_m -0.047 | tr_365_days -0.039 | f_r7 -0.038 | disc_item +0.027 | wk_end_rel -0.026 | tr_ptype_shr +0.016 | item_vs_type +0.011 | curve_dev +0.009 | peak_r -0.006 | lagr2 +0.000

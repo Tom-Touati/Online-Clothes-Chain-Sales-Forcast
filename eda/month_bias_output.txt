@@ -1,0 +1,34 @@
+== aggregate bias by target month (all origins and horizons pooled)
+           lgb     nn  rules    geo
+tm                                 
+2025-03 -0.125  0.183 -0.045 -0.016
+2025-04  0.248  0.502  0.136  0.259
+2025-05  0.116  0.235  0.043  0.093
+2025-06  0.159  0.181  0.150  0.123
+2025-07  0.004  0.090 -0.234 -0.078
+2025-08 -0.059  0.005 -0.285 -0.135
+2025-09  0.226  0.280  0.039  0.153
+2025-10 -0.061 -0.061  0.002 -0.068
+2025-11 -0.321 -0.194 -0.174 -0.255
+2025-12 -0.071 -0.047 -0.013 -0.068
+2026-01 -0.180 -0.104 -0.107 -0.145
+2026-02 -0.025  0.114 -0.008  0.011
+2026-03 -0.063  0.053  0.034 -0.008
+2026-04 -0.110 -0.060  0.009 -0.078
+2026-05 -0.179 -0.004 -0.006 -0.090
+2026-06 -0.209 -0.072 -0.078 -0.146
+
+== November 2025 by horizon (h = months ahead)
+     lgb     nn  rules    geo
+h                            
+1 -0.389 -0.261 -0.256 -0.318
+2 -0.420 -0.294 -0.299 -0.353
+3 -0.218 -0.134 -0.018 -0.155
+4 -0.219 -0.042 -0.078 -0.158
+
+knowable last year: like-for-like November 2024 / mean(Jul-Sep 2024) = 1.164 | November 2024 / October 2024 = 1.558
+realised this year:   like-for-like November 2025 / mean(Jul-Sep 2025) = 1.46 | November 2025 / October 2025 = 1.811
+origin 2025-07: implied November / mean of last 3 months (forecast set) lgb 1.33 nn 1.63 rules 1.57 | actual 1.70
+origin 2025-08: implied November / mean of last 3 months (forecast set) lgb 1.20 nn 1.32 rules 1.50 | actual 1.53
+origin 2025-09: implied November / mean of last 3 months (forecast set) lgb 0.95 nn 1.15 rules 1.15 | actual 1.63
+origin 2025-10: implied November / mean of last 3 months (forecast set) lgb 1.14 nn 1.38 rules 1.39 | actual 1.86

@@ -1,0 +1,36 @@
+== a  July at the June 2025 origin, production method
+               n  julJun_pred  julJun_act  july_bias  total_bias  jul_share_pred  jul_share_act
+group                                                                                          
+12m+         315        1.427       1.558     -0.084      -0.042           0.282          0.295
+3-12 months  340        1.511       1.537     -0.017      -0.022           0.273          0.271
+launch <3m    88        1.482       1.589     -0.067       0.053           0.297          0.335
+swimwear      25        1.230       0.738      0.667       1.329           0.315          0.440
+ALL          768        1.463       1.528     -0.042      -0.004           0.281          0.293
+
+== b  mature items: the production blend at the summer origins
+item-origins with a full year of own history: 3871 | by origin: {'2025-03': 190, '2025-04': 213, '2025-05': 227, '2025-06': 248, '2025-07': 269, '2025-08': 290, '2025-09': 318, '2025-10': 348, '2025-11': 383, '2025-12': 422, '2026-01': 468, '2026-02': 495}
+2025-06 model alone {'n': 248, 'bias': np.float64(-0.013), 'wape': np.float64(0.318), 'w20': np.float64(0.339), 'w50': np.float64(0.669)} | trend x 0.843 {'n': 248, 'bias': np.float64(0.051), 'wape': np.float64(0.326), 'w20': np.float64(0.359), 'w50': np.float64(0.754)} | blend (used) {'n': 248, 'bias': np.float64(-0.0), 'wape': np.float64(0.271), 'w20': np.float64(0.379), 'w50': np.float64(0.77)}
+2025-07 model alone {'n': 269, 'bias': np.float64(0.008), 'wape': np.float64(0.262), 'w20': np.float64(0.297), 'w50': np.float64(0.717)} | trend x 0.843 {'n': 269, 'bias': np.float64(0.105), 'wape': np.float64(0.326), 'w20': np.float64(0.409), 'w50': np.float64(0.762)} | blend (used) {'n': 269, 'bias': np.float64(0.03), 'wape': np.float64(0.233), 'w20': np.float64(0.446), 'w50': np.float64(0.796)}
+June 2025 origin, same items: blend forecast / last Jul-Oct = 0.604 (item median 0.475); actual / last Jul-Oct = 0.604 (item median 0.441)
+2026: blend forecast / last Jul-Oct = 0.577 (item median 0.543); final incl. campaign = 0.587
+
+== c  floor level sensitivity (2024 distribution -> 2025 young items)
+2024 item-median Jul-Oct/June by segment: {'4th of July': 3.48, 'Halloween': 7.68, 'Homecoming': 6.31, 'other': 5.13, 'swimwear': 1.82}
+Homecoming: 2024 n=9, young 2025 items n=9
+                   mult  n   bias   wape    w20    w50
+level                                                 
+model only          NaN  9 -0.205  0.229  0.444  1.000
+floor at 2024 p25  5.26  9 -0.107  0.146  0.667  1.000
+floor at 2024 p40  5.88  9 -0.028  0.093  0.667  1.000
+floor at 2024 p50  6.31  9  0.027  0.116  0.667  1.000
+floor at 2024 p60  8.01  9  0.271  0.299  0.556  0.889
+floor at 2024 p75  9.52  9  0.506  0.506  0.444  0.556
+Halloween: 2024 n=26, young 2025 items n=45
+                    mult   n   bias   wape    w20    w50
+level                                                   
+model only           NaN  45 -0.293  0.342  0.333  0.889
+floor at 2024 p25   5.28  45 -0.214  0.279  0.333  0.889
+floor at 2024 p40   7.25  45  0.022  0.242  0.422  0.867
+floor at 2024 p50   7.68  45  0.080  0.263  0.422  0.822
+floor at 2024 p60   9.81  45  0.372  0.441  0.222  0.644
+floor at 2024 p75  10.66  45  0.488  0.525  0.178  0.533

@@ -1,0 +1,91 @@
+== (a) realised multiplier = next-4-month units / (4 x recent monthly level). Aggregate (left) and item median (right), by origin month x year
+   aggregate             item median            
+yr      2024  2025  2026        2024  2025  2026
+mo                                              
+01       NaN  0.52  0.47         NaN  0.62  0.56
+02       NaN  0.58  0.60         NaN  0.65  0.71
+03      1.45  0.86   NaN        0.91  0.75   NaN
+04      1.52  1.08   NaN        0.97  0.86   NaN
+05      1.56  1.20   NaN        1.14  0.94   NaN
+06      1.47  1.31   NaN        1.30  1.14   NaN
+07      1.29  1.21   NaN        1.24  1.03   NaN
+08      1.13  1.09   NaN        1.05  0.86   NaN
+09      1.20  1.12   NaN        0.85  0.82   NaN
+10      1.28  1.22   NaN        0.90  0.83   NaN
+11      0.88  0.79   NaN        0.81  0.71   NaN
+12      0.54  0.50   NaN        0.61  0.52   NaN
+items >=12 months old only, aggregate:
+yr  2024  2025  2026
+mo                  
+01   NaN  0.52  0.42
+02   NaN  0.56  0.50
+03  1.30  0.82   NaN
+04  1.29  1.00   NaN
+05  1.25  1.10   NaN
+06  1.12  1.22   NaN
+07  1.03  1.11   NaN
+08  0.91  1.04   NaN
+09  0.88  1.03   NaN
+10  0.99  1.08   NaN
+11  0.81  0.72   NaN
+12  0.56  0.45   NaN
+2025-02
+2025-03
+2025-04
+2025-05
+2025-06
+2025-07
+2025-08
+2025-09
+2025-10
+2025-11
+2025-12
+2026-01
+2026-02
+
+=== (b-d) all: over rolling origins
+                                                     folds  wape_mean  wape_std  wape_worst  bias_mean  bias_std  abs_bias_mean    w20    w50  folds_beating_l1_base
+model                                                                                                                                                               
+l1 base                                                 13      0.377     0.082       0.559     -0.016     0.171          0.131  0.320  0.678                      0
+l1 base+lfl                                             13      0.378     0.084       0.559     -0.078     0.197          0.167  0.316  0.693                      5
+l1 full                                                 13      0.366     0.091       0.532     -0.070     0.195          0.162  0.323  0.692                      8
+l2 base+lfl                                             13      0.406     0.104       0.620      0.064     0.227          0.194  0.295  0.636                      5
+tw base+lfl                                             13      0.425     0.117       0.668      0.078     0.255          0.225  0.283  0.605                      2
+l1 base+lfl, recent 12 origins only                     13      0.375     0.080       0.559     -0.073     0.189          0.161  0.316  0.694                      7
+ens: l1+l2+tw (base+lfl)                                13      0.395     0.099       0.608      0.021     0.225          0.187  0.299  0.648                      5
+ens: l1 base + l1 full                                  13      0.363     0.086       0.539     -0.043     0.180          0.140  0.327  0.697                     10
+ORACLE: ens rescaled to true fold total                 13      0.352     0.068       0.504     -0.000     0.000          0.000  0.322  0.676                     10
+anchor: ens rescaled to last year's fold multiplier     12      0.413     0.139       0.792      0.165     0.200          0.169  0.280  0.595                      5
+anchor: 50/50 model and last year's multiplier          12      0.383     0.106       0.679      0.084     0.193          0.149  0.303  0.634                      7
+
+=== (b-d) targets: over rolling origins
+                                                     folds  wape_mean  wape_std  wape_worst  bias_mean  bias_std  abs_bias_mean    w20    w50  folds_beating_l1_base
+model                                                                                                                                                               
+l1 base                                                 13      0.381     0.120       0.625     -0.094     0.214          0.185  0.333  0.727                      0
+l1 base+lfl                                             13      0.388     0.121       0.625     -0.140     0.224          0.222  0.323  0.711                      5
+l1 full                                                 13      0.376     0.114       0.562     -0.136     0.212          0.198  0.340  0.724                      8
+l2 base+lfl                                             13      0.391     0.123       0.637     -0.016     0.246          0.192  0.317  0.681                      6
+tw base+lfl                                             13      0.401     0.131       0.692     -0.030     0.274          0.232  0.326  0.696                      5
+l1 base+lfl, recent 12 origins only                     13      0.383     0.115       0.625     -0.131     0.212          0.214  0.326  0.718                      5
+ens: l1+l2+tw (base+lfl)                                13      0.387     0.123       0.651     -0.062     0.247          0.208  0.309  0.705                      4
+ens: l1 base + l1 full                                  13      0.371     0.119       0.591     -0.115     0.211          0.190  0.341  0.738                      9
+ORACLE: ens rescaled to true fold total                 13      0.346     0.087       0.525     -0.087     0.088          0.094  0.340  0.722                      9
+anchor: ens rescaled to last year's fold multiplier     12      0.385     0.147       0.787      0.061     0.242          0.175  0.327  0.674                      6
+anchor: 50/50 model and last year's multiplier          12      0.365     0.118       0.676     -0.014     0.227          0.173  0.341  0.702                      6
+
+bias by origin (all items):
+model    l1 base  l1 base+lfl  ens: l1+l2+tw (base+lfl)  anchor: 50/50 model and last year's multiplier
+origin                                                                                                 
+2025-02     0.14         0.14                      0.25                                             NaN
+2025-03     0.23         0.23                      0.39                                            0.53
+2025-04     0.02        -0.02                      0.14                                            0.27
+2025-05     0.03        -0.00                      0.11                                            0.20
+2025-06    -0.11        -0.16                     -0.08                                            0.02
+2025-07     0.03         0.01                      0.10                                            0.08
+2025-08    -0.00        -0.06                      0.05                                            0.04
+2025-09    -0.29        -0.39                     -0.32                                           -0.13
+2025-10    -0.27        -0.29                     -0.23                                           -0.09
+2025-11     0.23         0.20                      0.32                                            0.21
+2025-12     0.07        -0.13                     -0.02                                            0.03
+2026-01    -0.08        -0.26                     -0.21                                           -0.05
+2026-02    -0.21        -0.28                     -0.23                                           -0.12

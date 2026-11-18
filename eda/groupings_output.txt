@@ -1,0 +1,231 @@
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  step = pd.Series(MT.iloc[:, k - 12].values / np.maximum(MT.iloc[:, k - 15:k - 12].mean(1).values, 1e-9), index=MT.index).reindex(ptype).fillna(1).values if k >= 15 else np.ones(n)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+done K 8
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+done K 20
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+done K 40
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+done K 100
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+C:\Users\tomto\workspaces\edikted\eda\179g_groupings.py:28: RuntimeWarning: Mean of empty slice
+  X = np.nan_to_num(Wi - np.nanmean(Wi, 1, keepdims=True)); X = X / (np.linalg.norm(X, axis=1, keepdims=True) + 1e-9)
+done K 250
+F as is: WAPE / R3 0.3977
+                     grouping  groups  oracle_wape_r3  resid_var_share  random_oracle  random_var_share  oracle_gain_over_random  var_share_over_random
+                        macro       6          0.3835           0.0443         0.3931            0.0081                   0.0096                 0.0362
+              co-surprise K=8      14          0.3682           0.1317         0.3895            0.0170                   0.0213                 0.1148
+             co-surprise K=20      26          0.3604           0.1632         0.3850            0.0346                   0.0246                 0.1285
+                         look      34          0.3486           0.2398         0.3807            0.0474                   0.0321                 0.1924
+  co-surprise within type K=8      44          0.3483           0.1953         0.3745            0.0582                   0.0262                 0.1371
+ co-surprise within type K=20      46          0.3469           0.2051         0.3755            0.0596                   0.0286                 0.1455
+             co-surprise K=40      46          0.3513           0.2014         0.3736            0.0587                   0.0223                 0.1427
+                 product type      48          0.3512           0.1630         0.3736            0.0613                   0.0223                 0.1017
+ co-surprise within type K=40      62          0.3386           0.2301         0.3697            0.0763                   0.0310                 0.1538
+            co-surprise K=100     106          0.3360           0.2541         0.3460            0.1354                   0.0100                 0.1188
+co-surprise within type K=100     111          0.3240           0.2803         0.3427            0.1356                   0.0187                 0.1447
+co-surprise within type K=250     241          0.2958           0.3726         0.2906            0.2654                  -0.0053                 0.1072
+                  type x look     250          0.2602           0.5003         0.2808            0.2860                   0.0206                 0.2143
+            co-surprise K=250     256          0.3005           0.3669         0.2874            0.2745                  -0.0131                 0.0924

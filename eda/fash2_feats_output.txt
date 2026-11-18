@@ -1,0 +1,15 @@
+C:\Users\tomto\workspaces\edikted\eda\182c_fashion_cycle.py:20: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  chk = S.groupby("it").units.sum().reindex(range(n)).fillna(0).values; print("state file vs monthly totals, corr", np.corrcoef(chk, M.sum(1).values)[0, 1].round(4))
+state file vs monthly totals, corr 0.9889
+(42000, 12)
+                      count   mean    std    min    max
+fl_peak_type        25500.0 -0.399  0.418 -2.724  0.000
+fl_trough_type      25500.0  0.766  0.984  0.000  7.830
+fl_peak_col         25500.0 -0.316  0.385 -3.315  0.000
+fl_peak_silhouette  25500.0 -0.259  0.294 -1.466  0.000
+fl_peak_print       25500.0 -0.225  0.312 -1.770  0.000
+fl_combo_mom        25500.0  0.183  0.764 -1.973  6.382
+fl_combo_yoy        24000.0  0.671  1.379 -2.901  6.458
+fl_reg_type         25500.0 -0.028  0.349 -5.656  1.966
+fl_reg_all          25500.0  0.006  0.197 -0.548  0.572
+fl_new_type         25500.0  0.082  0.108  0.000  1.000

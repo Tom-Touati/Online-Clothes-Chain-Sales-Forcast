@@ -1,0 +1,64 @@
+R3 buying-simulation loss: 0.1953 of perfect-foresight profit (production policy, 11 windows)
+
+######## nine recent origins, all items: 9031 item-origins
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.288 | bias +0.154
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.4879        0.4851          0.7110                0.5000           0.3958        0.4605         -0.0639         0.6347
+quantile                 base (stored)     0.4355        0.4568          0.7419                0.5277           0.3425        0.4012         -0.0578         0.6563
+rules+quantile+NN        base (stored)     0.4234        0.4410          0.7603                0.5788           0.3307        0.3973         -0.0685         0.6062
+quantile                 +mid              0.4331        0.4515          0.7450                0.5285           0.3413        0.3944         -0.0886            NaN
+rules+quantile+NN        +mid              0.4231        0.4384          0.7599                0.5721           0.3299        0.3930         -0.0788            NaN
+quantile                 +midhalf          0.4318        0.4562          0.7396                0.5277           0.3396        0.3913         -0.0827            NaN
+rules+quantile+NN        +midhalf          0.4219        0.4374          0.7584                0.5767           0.3287        0.3904         -0.0769            NaN
+
+######## nine recent, occasion-tagged items: 2155 item-origins
+   R3 itself: WAPE 0.571 | MAE+|bias| 0.860 | pinball 0.226 | bias +0.160
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.6463        0.5694          0.6747                0.5000           0.5711        0.6355         -0.0445            NaN
+quantile                 base (stored)     0.5433        0.5209          0.7304                0.5485           0.4580        0.5057         -0.0364            NaN
+rules+quantile+NN        base (stored)     0.5203        0.4992          0.7545                0.6148           0.4486        0.5058         -0.0497            NaN
+quantile                 +mid              0.5422        0.5171          0.7309                0.5452           0.4608        0.5050         -0.0742            NaN
+rules+quantile+NN        +mid              0.5188        0.4919          0.7517                0.6144           0.4466        0.5049         -0.0621            NaN
+quantile                 +midhalf          0.5383        0.5247          0.7285                0.5462           0.4542        0.4980         -0.0661            NaN
+rules+quantile+NN        +midhalf          0.5184        0.4902          0.7513                0.6130           0.4454        0.5010         -0.0594            NaN
+
+######## nine recent, the 100 targets: 570 item-origins
+   R3 itself: WAPE 0.742 | MAE+|bias| 1.327 | pinball 0.318 | bias +0.111
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.4846        0.4984          0.7386                0.5000           0.3860        0.4496         -0.1328            NaN
+quantile                 base (stored)     0.4285        0.4160          0.7825                0.5754           0.3249        0.3918         -0.1306            NaN
+rules+quantile+NN        base (stored)     0.4151        0.3988          0.7912                0.6298           0.3352        0.3865         -0.1445            NaN
+quantile                 +mid              0.4337        0.4289          0.7667                0.5737           0.3503        0.3911         -0.1645            NaN
+rules+quantile+NN        +mid              0.4183        0.4067          0.7772                0.6018           0.3395        0.3860         -0.1559            NaN
+quantile                 +midhalf          0.4267        0.4249          0.7561                0.5614           0.3405        0.3856         -0.1556            NaN
+rules+quantile+NN        +midhalf          0.4148        0.4031          0.7772                0.6000           0.3366        0.3808         -0.1531            NaN
+
+######## all 13 origins, all items: 11727 item-origins
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.273 | bias +0.133
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.5090        0.5165          0.6899                0.5000           0.4398        0.4790         -0.0626            NaN
+quantile                 base (stored)     0.5109        0.5375          0.7061                0.5028           0.4710        0.4693          0.0062            NaN
+rules+quantile+NN        base (stored)     0.4672        0.4932          0.7412                0.5598           0.4032        0.4383         -0.0328            NaN
+quantile                 +mid              0.5419        0.5536          0.6857                0.4909           0.5379        0.4882          0.0117            NaN
+rules+quantile+NN        +mid              0.4729        0.4960          0.7370                0.5509           0.4106        0.4369         -0.0327            NaN
+quantile                 +midhalf          0.5298        0.5532          0.6872                0.4925           0.5117        0.4778          0.0056            NaN
+rules+quantile+NN        +midhalf          0.4701        0.4947          0.7364                0.5545           0.4066        0.4347         -0.0341            NaN
+
+######## all 13, occasion-tagged: 2797 item-origins
+   R3 itself: WAPE 0.532 | MAE+|bias| 0.776 | pinball 0.211 | bias +0.071
+                                        WAPE / R3  relMAE vs R3  win rate vs R3  win rate vs R3+rules  MAE+|bias| / R3  pinball / R3  bias (context)  sim loss / R3
+R3 + rules (rule agents)                   0.6989        0.6271          0.6453                0.5000           0.6682        0.6767         -0.0519            NaN
+quantile                 base (stored)     0.6014        0.5873          0.7050                0.5467           0.5268        0.5554         -0.0227            NaN
+rules+quantile+NN        base (stored)     0.5780        0.5579          0.7276                0.6089           0.5270        0.5561         -0.0442            NaN
+quantile                 +mid              0.6161        0.6039          0.6861                0.5309           0.5512        0.5642         -0.0321            NaN
+rules+quantile+NN        +mid              0.5801        0.5554          0.7240                0.6074           0.5287        0.5548         -0.0477            NaN
+quantile                 +midhalf          0.6053        0.5986          0.6947                0.5374           0.5313        0.5561         -0.0362            NaN
+rules+quantile+NN        +midhalf          0.5784        0.5535          0.7233                0.6042           0.5265        0.5535         -0.0487            NaN
+
+== paired bootstrap, variant minus base (stored), nine recent origins: WAPE | pinball  (quantile model alone; three-way)
+-- nine recent origins, all items
+  +mid     q: WAPE [-0.0051, +0.0017] pinball [-0.0031, -0.0011] | 3way: WAPE [-0.0014, +0.0011] pinball [-0.0021, -0.0005]
+  +midhalf q: WAPE [-0.0058, +0.0005] pinball [-0.0039, -0.0019] | 3way: WAPE [-0.0021, -0.0001] pinball [-0.0028, -0.0013]
+-- nine recent, occasion-tagged items
+  +mid     q: WAPE [-0.0084, +0.0058] pinball [-0.0023, +0.0021] | 3way: WAPE [-0.0033, +0.0015] pinball [-0.0014, +0.0010]
+  +midhalf q: WAPE [-0.0093, +0.0024] pinball [-0.0034, -0.0001] | 3way: WAPE [-0.0031, +0.0009] pinball [-0.0021, -0.0001]

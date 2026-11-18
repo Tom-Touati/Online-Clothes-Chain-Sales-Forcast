@@ -1,0 +1,22 @@
+== running eda/169c_run_wx_chain.py
+rules backtest origins: ['2025-02', '2025-03', '2025-04', '2025-05', '2025-06', '2025-07', '2025-08', '2025-09', '2025-10', '2025-11', '2025-12', '2026-01', '2026-02'] | live rules items: 1424
+NN files: nn_backtest_preds_S13x6 ['nn_backtest_preds_finalS', 'nn_backtest_preds_finalS_s10']
+--- 22: re-centred backtest on rules+q+NN: median shift 0.009 | tau* = 0.59 | per-origin bias at tau*: {'2025-06': np.float64(-0.056), '2025-07': np.float64(0.077), '2025-08': np.float64(0.083), '2025-09': np.float64(-0.159), '2025-10': np.float64(-0.122), '2025-11': np.float64(0.154), '2025-12': np.float64(0.026), '2026-01': np.float64(0.024), '2026-02': np.float64(-0.021)} | == 3 IQR coverage raw: 0.39 | k* = 1.35 -> coverage 0.501 | [P10,P90] coverage at k*: 0.792 (nominal 0.80) | 2026 fit re-centred on rules+q+NN: median shift 0.006 | aggregate median x 1.011 | tau* = 0.59 | k* = 1.35 | totals: raw answer 695284 | final 682098 (-1.9%) | previous final 528718 | calibrated P25 / P75 sum (not a portfolio interval): 415234 / 1559892 | confidence: {2.0: 8, 3.0: 92} | previous: {1: 2, 2: 87, 3: 11}
+--- 32: aging factor: 0.843 from 3871 item-origins | totals: model P50 632849 | after YoY blend 636822 | after segment rules 636788 | final 627525 | previous (q, P61) 682098 | confidence: {2: 10, 3: 90}
+--- 41: July/June before 1.47 -> after 1.502 | monthly totals: {'f_jul': 180929, 'f_aug': 181322, 'f_sep': 132426, 'f_oct': 132848} | total 627525 | 12m+: July/June 1.535 -> 1.574 | July share 0.267 -> 0.274 | 3-12 months: July/June 1.496 -> 1.487 | July share 0.276 -> 0.275 | launch <3m: July/June 1.285 -> 1.382 | July share 0.345 -> 0.371
+submitted              total 580,968 | months [168399, 168366, 121927, 122276] | Jul/Jun 1.398 | Jul-Oct/Jun 4.822 | conf {1: 2, 2: 64, 3: 34}
+candidate (rules+q+NN) total 627,525 | months [180929, 181322, 132426, 132848] | Jul/Jun 1.502 | Jul-Oct/Jun 5.208 | conf {2: 10, 3: 90}
+
+
+== running eda/169d_wx_shape.py
+items on the rules + NN profile: 99 of 100
+totals: model P50 632849 | after YoY blend 636822 | after segment rules 636788 | final 627615 | previous (q, P61) 682098
+by month: {'f_jul': 173463, 'f_aug': 187568, 'f_sep': 131733, 'f_oct': 134851} | mature items blended: 42
+submitted                                            total 580,968 | months [168399, 168366, 121927, 122276] | Jul/Jun 1.398 | shares [0.29, 0.29, 0.21, 0.21]
+lean candidate (old split + July calibration)        total 627,525 | months [180929, 181322, 132426, 132848] | Jul/Jun 1.502 | shares [0.288, 0.289, 0.211, 0.212]
+rules+q+NN candidate (D105)                          total 615,937 | months [178334, 178372, 129368, 129863] | Jul/Jun 1.480 | shares [0.29, 0.29, 0.21, 0.211]
+lean candidate, rules + NN split                     total 627,615 | months [173463, 187568, 131733, 134851] | Jul/Jun 1.440 | shares [0.276, 0.299, 0.21, 0.215]
+history 2024 (same 100 items, month / June): [1.742, 2.796, 2.552, 2.718] | shares [0.178, 0.285, 0.26, 0.277]
+history 2025 (same 100 items, month / June): [1.682, 1.962, 1.454, 1.851] | shares [0.242, 0.282, 0.209, 0.266]
+
+

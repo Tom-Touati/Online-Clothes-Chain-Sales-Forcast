@@ -1,0 +1,45 @@
+<script>
+  // Confidence calibration (D266): stated level vs where the final forecast landed, and coverage of the forecast ranges.
+  const cfPct = (v) => (v == null || v === '' || isNaN(+v)) ? '—' : `${(+v).toFixed(1)}%`;
+  const cfWhere = (rows, where) => {
+    const crit = where.split('&').map((kv) => kv.split('=').map(decodeURIComponent));
+    return rows.find((r) => crit.every(([k, v]) => String(r[k]) === v));
+  };
+  dash.draw('cfv', (el) => {
+    const d = dash.data(el.dataset.source);
+    if (d.status !== 'ok') { el.textContent = '—'; return; }
+    const r = cfWhere(d.data, el.dataset.where || '');
+    el.textContent = r ? cfPct(r[el.dataset.field]) : '—';
+  });
+  dash.draw('cfmatrix', (tb) => {
+    const d = dash.data('calib_cm'); tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    d.data.filter((r) => r.rule === tb.dataset.rule).sort((a, b) => +a.stated - +b.stated).forEach((r) => {
+      const tr = document.createElement('tr'); tr.dataset.key = `${r.rule},${r.stated}`;
+      const th = document.createElement('th'); th.scope = 'row'; th.className = 'sb-l'; th.textContent = String(r.stated); tr.appendChild(th);
+      const n = document.createElement('td'); n.textContent = d3.format(',')(+r.n); tr.appendChild(n);
+      ['within20', 'b20to50', 'over50'].forEach((f, j) => {
+        const td = document.createElement('td'); td.textContent = cfPct(r[f]); if (j + 1 === +r.stated) td.className = 'sb-diag';
+        td.style.background = `color-mix(in srgb, var(${j === 2 ? '--color-bad' : '--color-ok'}) ${Math.round(+r[f] * 0.45)}%, transparent)`;
+        tr.appendChild(td);
+      });
+      const c = document.createElement('td'); c.textContent = cfPct(r.within50); tr.appendChild(c);
+      tb.appendChild(tr);
+    });
+  });
+  dash.draw('cfint', (tb) => {
+    const d = dash.data('calib_int'); tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    d.data.forEach((r) => {
+      const tr = document.createElement('tr'); tr.dataset.key = `${r.method},${r.level}`;
+      const cells = [[r.method_name, 'sb-l'], [String(r.level), 'sb-l'], [d3.format(',')(+r.n), ''], [cfPct(r.cov80), ''], [cfPct(r.cov50), ''], [(+r.width).toFixed(2), '']];
+      cells.forEach(([t, cls], j) => {
+        const td = document.createElement('td'); td.textContent = t; if (cls) td.className = cls;
+        if (j === 3) td.classList.add(Math.abs(+r.cov80 - 80) <= 5 ? 'sb-good' : 'sb-badc');
+        if (j === 4) td.classList.add(Math.abs(+r.cov50 - 50) <= 5 ? 'sb-good' : 'sb-badc');
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  });
+</script>

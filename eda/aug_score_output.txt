@@ -1,0 +1,84 @@
+
+######## nine recent origins | m:
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                    WAPE / R3  relMAE vs R3    bias
+m:ec_ns | full         0.4299        0.4399 -0.1016
+m:aug | full           0.4372        0.4639 -0.0393
+m:aug_tta | full       0.4448        0.4802 -0.0197
+m:aug_null | full      0.4578        0.5028  0.0014
+m:ec_ns | no LY        0.6534        0.5717 -0.0922
+m:aug | no LY          0.7632        0.6517  0.0037
+m:aug_tta | no LY      0.8205        0.7002  0.0503
+m:aug_null | no LY     0.8886        0.7497  0.1026
+
+######## nine recent origins | S:
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                    WAPE / R3  relMAE vs R3    bias
+S:ec_ns | full         0.3939        0.4213 -0.0616
+S:aug | full           0.3946        0.4273 -0.0491
+S:aug_tta | full       0.3958        0.4293 -0.0452
+S:aug_null | full      0.3974        0.4331 -0.0410
+S:ec_ns | no LY        0.4182        0.4365 -0.0597
+S:aug | no LY          0.4335        0.4479 -0.0405
+S:aug_tta | no LY      0.4416        0.4584 -0.0312
+S:aug_null | no LY     0.4513        0.4670 -0.0207
+
+######## nine recent origins | S+corr:
+   R3 itself: WAPE 0.699 | MAE+|bias| 1.137 | pinball 0.281 | bias +0.154 | 9031 item-origins
+                         WAPE / R3  relMAE vs R3    bias
+S+corr:ec_ns | full         0.3851        0.4127 -0.0616
+S+corr:aug | full           0.3853        0.4167 -0.0491
+S+corr:aug_tta | full       0.3861        0.4187 -0.0452
+S+corr:aug_null | full      0.3872        0.4217 -0.0411
+S+corr:ec_ns | no LY        0.4106        0.4252 -0.0596
+S+corr:aug | no LY          0.4267        0.4389 -0.0402
+S+corr:aug_tta | no LY      0.4345        0.4455 -0.0309
+S+corr:aug_null | no LY     0.4441        0.4547 -0.0205
+
+######## all 13 origins | m:
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                    WAPE / R3  relMAE vs R3    bias
+m:ec_ns | full         0.4998        0.5227 -0.0317
+m:aug | full           0.5130        0.5482  0.0241
+m:aug_tta | full       0.5203        0.5637  0.0406
+m:aug_null | full      0.5322        0.5859  0.0582
+m:ec_ns | no LY        0.7059        0.6550 -0.0291
+m:aug | no LY          0.7976        0.7335  0.0535
+m:aug_tta | no LY      0.8442        0.7769  0.0905
+m:aug_null | no LY     0.8995        0.8203  0.1319
+
+######## all 13 origins | S:
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                    WAPE / R3  relMAE vs R3    bias
+S:ec_ns | full         0.4470        0.4898 -0.0167
+S:aug | full           0.4485        0.4962 -0.0055
+S:aug_tta | full       0.4496        0.4981 -0.0022
+S:aug_null | full      0.4510        0.5018  0.0013
+S:ec_ns | no LY        0.4700        0.5074 -0.0161
+S:aug | no LY          0.4834        0.5190  0.0004
+S:aug_tta | no LY      0.4901        0.5287  0.0078
+S:aug_null | no LY     0.4979        0.5365  0.0161
+
+######## all 13 origins | S+corr:
+   R3 itself: WAPE 0.668 | MAE+|bias| 1.050 | pinball 0.264 | bias +0.133 | 11727 item-origins
+                         WAPE / R3  relMAE vs R3    bias
+S+corr:ec_ns | full         0.4399        0.4821 -0.0167
+S+corr:aug | full           0.4410        0.4867 -0.0055
+S+corr:aug_tta | full       0.4418        0.4887 -0.0022
+S+corr:aug_null | full      0.4429        0.4915  0.0013
+S+corr:ec_ns | no LY        0.4639        0.4972 -0.0160
+S+corr:aug | no LY          0.4780        0.5110  0.0006
+S+corr:aug_tta | no LY      0.4844        0.5173  0.0080
+S+corr:aug_null | no LY     0.4922        0.5256  0.0162
+bootstrap S+corr aug | full       vs ec_ns | full  (recent): [-0.0007  0.0009]
+bootstrap S+corr aug_tta | full   vs ec_ns | full  (recent): [-0.0002  0.0016]
+bootstrap S+corr aug_null | full  vs ec_ns | full  (recent): [0.0005 0.0025]
+bootstrap S+corr aug | no LY      vs ec_ns | no LY (recent): [0.0095 0.0131]
+bootstrap S+corr aug_tta | no LY  vs ec_ns | no LY (recent): [0.0143 0.0192]
+bootstrap S+corr aug_null | no LY vs ec_ns | no LY (recent): [0.0203 0.0266]
+bootstrap S+corr aug | full       vs ec_ns | full  (all 13): [0.0001 0.0015]
+bootstrap S+corr aug_tta | full   vs ec_ns | full  (all 13): [0.0005 0.0021]
+bootstrap S+corr aug_null | full  vs ec_ns | full  (all 13): [0.0011 0.0029]
+bootstrap S+corr aug | no LY      vs ec_ns | no LY (all 13): [0.008  0.0111]
+bootstrap S+corr aug_tta | no LY  vs ec_ns | no LY (all 13): [0.0117 0.0159]
+bootstrap S+corr aug_null | no LY vs ec_ns | no LY (all 13): [0.0163 0.0217]

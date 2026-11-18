@@ -1,0 +1,45 @@
+A overall {'items': 0.417, 'units': 0.4759, 'targets': 0.4544, 'all13': 0.3913, 'n': 9031}
+  chain [('R3', 0.1807), ('R3 x type seasonality', 0.2711), ('R3 + rules', 0.3482), ('first three-way', 0.3747), ('+ weather, events (D161)', 0.3835), ('+ co-purchase (D203)', 0.3859), ('+ TabPFN v2 (D204)', 0.3948), ('arithmetic stack (D207)', 0.4055), ('new tree member (D253)', 0.4053), ('new NN inputs (D272)', 0.4097), ('+ corrections = submitted', 0.417)]
+B bands
+              band  share  units    err  under  young  med_level  spread    iw  far_above  far_below  near_r3     bf  stores2  m1_off  all_same  inside
+        within 20% 0.4170 0.4759 0.1745 0.5489 0.0961      390.0   0.462 0.935     0.1734     0.4705   0.1070 0.3550   0.2844  0.4140    0.1490  0.9233
+20-30% (near miss) 0.1702 0.1791 0.1643 0.5667 0.1171      321.0   0.473 0.969     0.1815     0.4196   0.1034 0.3748   0.2876  0.4327    0.5530  0.7482
+            30-50% 0.2067 0.2067 0.2949 0.5404 0.1371      232.0   0.496 1.020     0.2287     0.3696   0.1232 0.4178   0.2978  0.4280    0.7970  0.6052
+           50-100% 0.1406 0.1273 0.3072 0.3260 0.1646      174.0   0.533 1.096     0.2811     0.3157   0.1110 0.4921   0.2661  0.4496    0.8976  0.5906
+       beyond 100% 0.0591 0.0109 0.0587 0.0000 0.1142       38.0   0.653 1.301     0.2191     0.3708   0.1517 0.5712   0.0506  0.7228    0.9401  0.3708
+  of the misses: {'near': 0.2919, 'mid': 0.3546, 'large': 0.3535, 'within30': 0.5872, 'within25': 0.5088}
+C level/shape {'now': 0.417, 'origin_total': 0.4095, 'group_total': 0.4182, 'type_total': 0.4404, 'cell_total': 0.5563, 'style_total': 0.933, 'best_member': 0.7333, 'robust_sigma': 0.355, 'sd': 0.516, 'normal_hit_at_sigma': 0.431, 'sigma_for_50': 0.299, 'sigma_for_60': 0.24, 'sigma_for_70': 0.194, 'median_ape': 0.245}
+D levels
+                        level    n   hit    r3  med_units  within10
+          item (style-colour) 8974 0.420 0.182      918.0     0.217
+          style (all colours) 7504 0.413 0.187      765.0     0.217
+look (cart + content cluster)  310 0.655 0.216    59428.0     0.381
+                 product type  428 0.605 0.215    12994.0     0.339
+                product group   54 0.870 0.407   215063.0     0.500
+       all items at an origin    9 1.000 0.556  2455069.0     0.667
+E lowest cohorts [('under 60% (broken run)', 0.2185), ('15% +', 0.2611), ('fifth 1 (median 26/month)', 0.2811), ('1.30 to 7.45', 0.2835), ('none', 0.2982), ('some (under 15%)', 0.3077)]
+  highest [('Width of the forecas', '0.53 to 0.79', 0.5445), ('Live colours in the ', '4-6', 0.5402), ('Sales level at the o', 'fifth 5 (median 1832/month)', 0.5315), ('Own stores selling i', '8-11', 0.5202), ('Product type (top 12', 'Sweatpants', 0.518), ('Product type (top 12', 'Jeans', 0.5171), ('Product type (top 12', 'Hoodie', 0.5082), ("Share of its style's", '40-80%', 0.508)]
+  rules tested 821 | worst-half >= 0.50: 14 >= 0.55: 0 >= 0.60: 0
+                                                                       rule  k  first_half  second_half  recent  cover  units
+narrowest interval fifth + rising trend + sold in the same months last year  3       0.549        0.589   0.584  0.067  0.179
+                 top volume fifth + narrowest interval fifth + rising trend  3       0.547        0.588   0.587  0.048  0.172
+            top two volume fifths + narrowest interval fifth + rising trend  3       0.536        0.584   0.580  0.064  0.191
+  narrowest interval fifth + calmest two model-spread fifths + rising trend  3       0.535        0.587   0.577  0.042  0.116
+                                    narrowest interval fifth + rising trend  2       0.525        0.582   0.574  0.073  0.194
+             age 3 months or more + narrowest interval fifth + rising trend  3       0.525        0.582   0.574  0.073  0.194
+    narrowest two interval fifths + narrowest interval fifth + rising trend  3       0.525        0.582   0.574  0.073  0.194
+          top volume fifth + calmest two model-spread fifths + rising trend  3       0.513        0.594   0.580  0.039  0.129
+            age 12 months or more + narrowest interval fifth + rising trend  3       0.513        0.612   0.598  0.056  0.143
+                  narrowest interval fifth + rising trend + TikTok under 5%  3       0.510        0.588   0.569  0.048  0.114
+        top volume fifth + rising trend + sold in the same months last year  3       0.504        0.573   0.568  0.067  0.218
+    narrowest two interval fifths + rising trend + web discount 55% or more  3       0.503        0.589   0.583  0.070  0.144
+F classifier AUC 0.584 | top decile 0.556 top fifth 0.53 bottom fifth 0.319
+  bins [{'bin': 'under 0.30', 'share': 0.435, 'hit': 0.359, 'p': 0.225}, {'bin': '0.30-0.40', 'share': 0.31, 'hit': 0.408, 'p': 0.348}, {'bin': '0.40-0.50', 'share': 0.187, 'hit': 0.516, 'p': 0.443}, {'bin': '0.50-0.60', 'share': 0.06, 'hit': 0.554, 'p': 0.54}, {'bin': '0.60 or more', 'share': 0.007, 'hit': 0.613, 'p': 0.629}]
+  deciles [(1, 0.299), (2, 0.338), (3, 0.404), (4, 0.374), (5, 0.412), (6, 0.401), (7, 0.419), (8, 0.463), (9, 0.504), (10, 0.556)]
+  top decile by origin [('2025-06', 0.403, 0.389), ('2025-07', 0.378, 0.374), ('2025-08', 0.552, 0.323), ('2025-09', 0.543, 0.371), ('2025-10', 0.554, 0.402), ('2025-11', 0.607, 0.451), ('2025-12', 0.664, 0.472), ('2026-01', 0.602, 0.476), ('2026-02', 0.598, 0.44)]
+  importance [{'f': 'iw', 'share': 0.358}, {'f': 'lf', 'share': 0.081}, {'f': 'llv', 'share': 0.055}, {'f': 'spread', 'share': 0.051}, {'f': 'hist_months', 'share': 0.036}, {'f': 'disc_web', 'share': 0.034}, {'f': 'trend91', 'share': 0.033}, {'f': 'month', 'share': 0.031}]
+G info {'system': 0.417, 'ref': 0.4029, 'plan': 0.429, 'plan_early': 0.4812, 'type_look_known': 0.5563, 'best_member': 0.7333}
+H targets 2026 {'n': 99, 'mean_p': 0.455, 'unit_p': 0.477, 'ge50': 32, 'ge60': 9, 'lt35': 11, 'by_conf': [{'conf': 1, 'n': 20, 'p': 0.585}, {'conf': 2, 'n': 67, 'p': 0.433}, {'conf': 3, 'n': 12, 'p': 0.357}], 'hist': [{'lo': 0.2, 'n': 1}, {'lo': 0.25, 'n': 3}, {'lo': 0.3, 'n': 7}, {'lo': 0.35, 'n': 19}, {'lo': 0.4, 'n': 20}, {'lo': 0.45, 'n': 17}, {'lo': 0.5, 'n': 17}, {'lo': 0.55, 'n': 6}, {'lo': 0.6, 'n': 4}, {'lo': 0.65, 'n': 5}]}
+I counting-noise ceiling {'overall': 0.963, 'by_fifth': [{'fifth': 1, 'poisson': 0.832, 'hit': 0.281, 'med': 67.0}, {'fifth': 2, 'poisson': 0.984, 'hit': 0.392, 'med': 283.0}, {'fifth': 3, 'poisson': 0.999, 'hit': 0.43, 'med': 896.0}, {'fifth': 4, 'poisson': 1.0, 'hit': 0.451, 'med': 2162.0}, {'fifth': 5, 'poisson': 1.0, 'hit': 0.532, 'med': 5028.0}]}
+  naive recency by horizon [{'months': 1, 'hit': 0.218}, {'months': 2, 'hit': 0.205}, {'months': 3, 'hit': 0.196}, {'months': 4, 'hit': 0.182}]
+saved

@@ -1,0 +1,3 @@
+dyn_core 10 extra features 1931 s
+dyn_lean 25 extra features 1053 s
+dyn_all2 49 extra features 668 s

@@ -1,0 +1,8 @@
+l1_pf_only  1 s
+l1_rc_only  1 s
+res_base  1 s
+res_basep  1 s
+res_pfrc  38 s
+res_pfrc_half  22 s
+res_pfrc_lr  21 s
+res_pfrcp  33 s

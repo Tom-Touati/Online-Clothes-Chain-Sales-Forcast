@@ -1,0 +1,60 @@
+attribute columns 514 | LLM scores 14
+attribute cols 514 | collections 101 | name words 175
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-06 fold 0 201s
+2025-06 fold 1 359s
+2025-06 fold 2 557s
+2025-06 fold 3 697s
+2025-06 fold 4 828s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-10 fold 0 985s
+2025-10 fold 1 1139s
+2025-10 fold 2 1293s
+2025-10 fold 3 1445s
+2025-10 fold 4 1619s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-02 fold 0 1835s
+2026-02 fold 1 2085s
+2026-02 fold 2 2306s
+2026-02 fold 3 2496s
+2026-02 fold 4 2693s
+
+== mean over held-out items (3 origins x 5 folds): Spearman with cart PPMI | top-20 precision | chance
+                          rho    prec  chance
+target model                                 
+future g_both          0.2838  0.2247  0.0243
+       g_cart          0.2313  0.1477  0.0243
+       g_content       0.2729  0.2198  0.0243
+       raw image+text  0.2094  0.2272  0.0243
+       raw product     0.1588  0.1415  0.0243
+       v6_all          0.2806  0.2233  0.0243
+past   g_both          0.4169  0.3191  0.0236
+       g_cart          0.3796  0.2159  0.0236
+       g_content       0.4285  0.3389  0.0236
+       raw image+text  0.2165  0.2317  0.0236
+       raw product     0.1804  0.1568  0.0236
+       v6_all          0.4379  0.3543  0.0236
+
+== paired bootstrap over held-out styles, model minus raw product (95% interval)
+  past   raw image+text   rho +0.0322 [+0.0288, +0.0355] | prec +0.0708 [+0.0656, +0.0759]
+  past   v6_all           rho +0.2515 [+0.2472, +0.2558] | prec +0.1887 [+0.1826, +0.1943]
+  past   g_content        rho +0.2421 [+0.2378, +0.2466] | prec +0.1746 [+0.1683, +0.1807]
+  past   g_both           rho +0.2313 [+0.2272, +0.2355] | prec +0.1552 [+0.1490, +0.1613]
+  past   g_cart           rho +0.1950 [+0.1908, +0.1993] | prec +0.0547 [+0.0492, +0.0601]
+  future raw image+text   rho +0.0490 [+0.0459, +0.0520] | prec +0.0819 [+0.0774, +0.0866]
+  future v6_all           rho +0.1149 [+0.1104, +0.1188] | prec +0.0784 [+0.0735, +0.0833]
+  future g_content        rho +0.1075 [+0.1033, +0.1114] | prec +0.0756 [+0.0705, +0.0806]
+  future g_both           rho +0.1185 [+0.1142, +0.1226] | prec +0.0802 [+0.0751, +0.0851]
+  future g_cart           rho +0.0666 [+0.0622, +0.0708] | prec +0.0056 [+0.0009, +0.0105]
+
+== paired bootstrap over held-out styles, model minus v6_all (95% interval)
+  past   raw product      rho -0.2515 [-0.2559, -0.2473] | prec -0.1887 [-0.1946, -0.1828]
+  past   raw image+text   rho -0.2193 [-0.2236, -0.2149] | prec -0.1179 [-0.1227, -0.1128]
+  past   g_content        rho -0.0094 [-0.0104, -0.0083] | prec -0.0142 [-0.0174, -0.0111]
+  past   g_both           rho -0.0202 [-0.0220, -0.0183] | prec -0.0336 [-0.0374, -0.0298]
+  past   g_cart           rho -0.0565 [-0.0587, -0.0539] | prec -0.1340 [-0.1396, -0.1280]
+  future raw product      rho -0.1149 [-0.1188, -0.1105] | prec -0.0784 [-0.0831, -0.0732]
+  future raw image+text   rho -0.0659 [-0.0696, -0.0621] | prec +0.0035 [-0.0011, +0.0078]
+  future g_content        rho -0.0074 [-0.0086, -0.0064] | prec -0.0029 [-0.0056, -0.0003]
+  future g_both           rho +0.0037 [+0.0018, +0.0055] | prec +0.0018 [-0.0014, +0.0048]
+  future g_cart           rho -0.0483 [-0.0510, -0.0456] | prec -0.0728 [-0.0771, -0.0683]

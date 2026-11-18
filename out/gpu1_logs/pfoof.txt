@@ -1,0 +1,9 @@
+2025-02 2558 train rows 49 s
+2025-03 3045 train rows 138 s
+2025-04 3577 train rows 229 s
+2025-05 4150 train rows 375 s
+2025-06 4776 train rows 525 s
+[W1117 21:57:22.577262850 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 1044381696 bytes (free: 391970816, total: 15637086208).
+2025-07 5430 train rows 760 s
+2025-08 6116 train rows 983 s
+2025-09 6846 train rows 1252 s

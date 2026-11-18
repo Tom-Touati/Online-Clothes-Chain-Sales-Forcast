@@ -1,0 +1,54 @@
+C:\Users\tomto\workspaces\edikted\eda\192_judges.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  cats = sorted(set(rp.values.ravel())); cnt = np.stack([(rp == c).sum(1).values for c in cats], 1); nr = 3
+== 1. agreement between judges (A Opus, B Sonnet, C Haiku): correlation of signed scores per explained category
+                               A-B    A-C    B-C  judges mean vs SHAP sum  mean |score|
+category                                                                               
+baseline_drift               0.612  0.869  0.733                    0.956         3.672
+short_term_momentum          0.986  0.988  0.976                    0.981         4.472
+item_lifecycle               0.928  0.953  0.958                    0.947         2.028
+upcoming_events              0.855  0.911  0.901                    0.951         1.911
+past_event_hangover          0.213  0.510  0.717                    0.843         0.486
+seasonal_weather             0.950  0.988  0.952                    0.969         2.486
+regional_climate             0.971  0.949  0.950                    0.926         0.853
+last_year_seasonality        0.813  0.711  0.916                    0.948         1.419
+shopper_cluster_seasonality  0.976  0.982  0.974                    0.988         3.158
+product_style                0.964  0.980  0.963                    0.910         1.447
+item_scale_maturity          0.981  0.977  0.979                    0.939         1.475
+mean pairwise r: 0.881 | mean judges-vs-SHAP r: 0.942
+
+== residual primary cause: pairwise agreement A-B 0.74, A-C 0.71, B-C 0.77
+Fleiss kappa 0.661
+                                   A   B   C
+none                              33  33  33
+unexplained_assortment_lifecycle  34  21  26
+unexplained_data_artefact          4   6   5
+unexplained_promo_markdown        26  48  34
+unexplained_supply_constraint      9   6  13
+unexplained_viral_spike           14   6   9
+
+== 3. surrogate of the lift over R3 on the 120 cards (5-fold cross-validated ridge on log deviation)
+  R3 WAPE 0.657 | full model (D159 quantile median) WAPE/R3 0.558, lift 0.442
+  judges' mean explained scores (11)       WAPE/R3 0.716 | lift 0.284 | recovered  64.3% | R^2 0.473
+  SHAP category sums (11), same cards      WAPE/R3 0.558 | lift 0.442 | recovered 100.0% | R^2 0.586
+  judges + SHAP sums                       WAPE/R3 0.663 | lift 0.337 | recovered  76.2% | R^2 0.502
+  judges' unexplained plausibility (5)     WAPE/R3 0.780 | lift 0.220 | recovered  49.7% | R^2 0.596
+
+== 4. residual = actual minus model deviation: what the judges call it (majority vote)
+                                  cards  mean_residual  mean_abs  young_share
+cause                                                                        
+unexplained_promo_markdown           38          0.229     0.332        0.132
+none                                 33          0.005     0.074        0.152
+unexplained_assortment_lifecycle     25         -0.123     0.945        0.480
+unexplained_viral_spike               7          0.539     0.830        0.143
+unexplained_supply_constraint         7          0.230     0.691        0.143
+no majority                           6         -0.314     0.531        0.333
+unexplained_data_artefact             4         -0.302     0.555        0.000
+
+residual |r| >= 0.5: 38 cards; their majority causes:
+cause
+unexplained_assortment_lifecycle    15
+unexplained_viral_spike              7
+unexplained_supply_constraint        6
+unexplained_promo_markdown           5
+no majority                          3
+unexplained_data_artefact            2

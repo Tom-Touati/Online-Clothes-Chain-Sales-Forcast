@@ -1,0 +1,46 @@
+             feature  coverage  rho(resid of D198)  same sign share  rho(dev from R3)
+        fa_mean_sea4      1.00               0.214             1.00             0.483
+             nn_sea4      0.80               0.198             1.00             0.375
+         nn_surprise      0.96              -0.136             0.78            -0.248
+        fl_peak_type      1.00              -0.134             0.89            -0.302
+          fa_llm_yoy      1.00               0.130             0.67             0.167
+      fa_launch_type      1.00               0.121             1.00             0.190
+  fl_peak_silhouette      1.00              -0.107             1.00            -0.206
+             nn_acc1      1.00               0.100             0.78             0.271
+        fa_mean_acc1      1.00               0.082             0.67             0.208
+     ch_surprise_med      0.99              -0.079             0.78            -0.138
+             ch_acc1      1.00               0.078             0.56             0.246
+         ch_surprise      1.00              -0.078             0.78            -0.149
+         fa_type_yoy      1.00               0.072             0.89             0.149
+              nn_sim      1.00               0.061             0.78             0.098
+         fa_type_mom      1.00              -0.059             0.67            -0.136
+            ch_young      1.00              -0.058             0.78            -0.022
+              ch_yoy      1.00               0.056             1.00             0.184
+          fa_llm_mom      1.00              -0.051             0.67            -0.175
+         fl_reg_type      1.00               0.050             0.67             0.101
+         fa_mean_mom      1.00              -0.049             0.67            -0.114
+fa_occasion_tier_mom      1.00              -0.048             0.89            -0.092
+      fl_trough_type      1.00              -0.047             0.44            -0.095
+        fl_combo_mom      1.00              -0.043             0.67            -0.071
+   fa_silhouette_mom      1.00              -0.043             0.56            -0.078
+            ch_traj6      1.00              -0.039             0.67            -0.037
+fa_occasion_tier_yoy      1.00              -0.036             0.89            -0.017
+        fl_combo_yoy      1.00               0.036             0.56             0.127
+          ch_rel_mom      1.00               0.035             0.56             0.120
+          fa_col_mom      1.00              -0.033             0.67            -0.027
+              ch_mom      1.00              -0.033             0.67            -0.036
+              nn_age      1.00              -0.032             0.56            -0.149
+          fa_in_type      1.00               0.032             0.67             0.097
+          fl_reg_all      1.00              -0.031             0.67            -0.054
+          nn_lvl_rel      1.00               0.029             0.67            -0.013
+         fl_peak_col      1.00              -0.028             0.67            -0.004
+          fa_col_yoy      1.00              -0.021             0.78             0.058
+         fl_new_type      1.00               0.015             0.56             0.024
+       fl_peak_print      1.00               0.014             0.44             0.005
+         fa_mean_yoy      1.00               0.014             0.56             0.131
+       fa_launch_col      1.00              -0.009             0.56             0.064
+fa_print_pattern_yoy      1.00              -0.008             0.56             0.059
+             nn_mom3      1.00              -0.005             0.44             0.047
+fa_print_pattern_mom      1.00              -0.005             0.44            -0.020
+   fa_silhouette_yoy      1.00               0.004             0.44             0.065
+              nn_yoy      0.80              -0.000             0.33             0.003

@@ -1,0 +1,39 @@
+attribute columns 514 | LLM scores 14
+== GATE: can the descriptors predict cart co-occurrence and regional correlation for items they never saw?
+  2025-06 cart held-out items: r(learned) 0.416 | r(raw descriptors) 0.327 | top-20 precision learned 0.220 raw 0.189 chance 0.031
+  2025-06 reg  held-out items: r(learned) 0.460 | r(raw descriptors) 0.162 | top-20 precision learned 0.118 raw 0.087 chance 0.032
+  2025-10 cart held-out items: r(learned) 0.418 | r(raw descriptors) 0.327 | top-20 precision learned 0.195 raw 0.161 chance 0.023
+  2025-10 reg  held-out items: r(learned) 0.447 | r(raw descriptors) 0.170 | top-20 precision learned 0.097 raw 0.075 chance 0.025
+  2026-02 cart held-out items: r(learned) 0.460 | r(raw descriptors) 0.347 | top-20 precision learned 0.196 raw 0.159 chance 0.019
+  2026-02 reg  held-out items: r(learned) 0.458 | r(raw descriptors) 0.163 | top-20 precision learned 0.080 raw 0.066 chance 0.020
+
+== features at every origin
+2024-03 cart observed 242 | region observed 223 | 6s
+2024-04 cart observed 268 | region observed 244 | 13s
+2024-05 cart observed 290 | region observed 273 | 19s
+2024-06 cart observed 313 | region observed 298 | 26s
+2024-07 cart observed 353 | region observed 332 | 33s
+2024-08 cart observed 393 | region observed 365 | 41s
+2024-09 cart observed 428 | region observed 415 | 50s
+2024-10 cart observed 479 | region observed 448 | 63s
+2024-11 cart observed 527 | region observed 516 | 75s
+2024-12 cart observed 569 | region observed 550 | 88s
+2025-01 cart observed 619 | region observed 583 | 102s
+2025-02 cart observed 647 | region observed 622 | 118s
+2025-03 cart observed 675 | region observed 651 | 138s
+2025-04 cart observed 723 | region observed 702 | 157s
+2025-05 cart observed 763 | region observed 750 | 175s
+2025-06 cart observed 805 | region observed 776 | 193s
+2025-07 cart observed 858 | region observed 835 | 216s
+2025-08 cart observed 936 | region observed 892 | 243s
+2025-09 cart observed 1001 | region observed 946 | 283s
+2025-10 cart observed 1067 | region observed 1004 | 325s
+2025-11 cart observed 1128 | region observed 1090 | 375s
+2025-12 cart observed 1166 | region observed 1115 | 422s
+2026-01 cart observed 1261 | region observed 1167 | 475s
+2026-02 cart observed 1313 | region observed 1223 | 527s
+2026-03 cart observed 1373 | region observed 1291 | 583s
+2026-04 cart observed 1409 | region observed 1331 | 651s
+2026-05 cart observed 1472 | region observed 1363 | 725s
+2026-06 cart observed 1499 | region observed 1411 | 794s
+saved

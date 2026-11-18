@@ -1,0 +1,30 @@
+2025-03-01
+2025-04-01
+2025-05-01
+2025-06-01
+2025-07-01
+2025-08-01
+2025-09-01
+2025-10-01
+2025-11-01
+2025-12-01
+2026-01-01
+Traceback (most recent call last):
+  File "C:\Users\tomto\workspaces\edikted\eda\175m_sim_chase.py", line 69, in <module>
+    piv = R.pivot(index="start", columns="variant", values="loss_pct").join(pd.read_csv("data/sim_ladder_nx_windows.csv").pivot(index="start", columns="variant", values="loss_pct"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\pandas\core\frame.py", line 15900, in join
+    return merge(
+           ^^^^^^
+  File "C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 405, in merge
+    return op.get_result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 1139, in get_result
+    result = self._reindex_and_concat(join_index, left_indexer, right_indexer)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 1090, in _reindex_and_concat
+    llabels, rlabels = _items_overlap_with_suffix(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 3347, in _items_overlap_with_suffix
+    raise ValueError(f"columns overlap but no suffix specified: {to_rename}")
+ValueError: columns overlap but no suffix specified: Index(['u65ec'], dtype='str', name='variant')

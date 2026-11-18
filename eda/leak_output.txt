@@ -1,0 +1,8 @@
+== 1 truncation test at 2025-06: items 768 stored, 768 rebuilt, 768 common
+   columns that differ: none
+== 1 truncation test at 2025-10: items 1003 stored, 1003 rebuilt, 1003 common
+   columns that differ: none
+
+== 3 item universe
+  catalogue items 1500; with sales 1500; last sale before 2025-01: 0; before 2025-07: 0; before 2026-01: 11
+  sold codes not in the catalogue: 0

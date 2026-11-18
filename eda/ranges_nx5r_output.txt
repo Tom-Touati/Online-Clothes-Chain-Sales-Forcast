@@ -1,0 +1,29 @@
+omega 1:
+   all 13     {'below10': 0.103, 'below25': 0.25, 'above75': 0.254, 'above90': 0.103, 'in1090': 0.794, 'in2575': 0.496, 'pinball': 0.6102}
+   recent 9   {'below10': 0.073, 'below25': 0.189, 'above75': 0.294, 'above90': 0.123, 'in1090': 0.803, 'in2575': 0.517, 'pinball': 0.5098}
+   Jul-Oct 25 {'below10': 0.138, 'below25': 0.271, 'above75': 0.238, 'above90': 0.147, 'in1090': 0.715, 'in2575': 0.491, 'pinball': 0.9138}
+   Mar-Jun 26 {'below10': 0.038, 'below25': 0.107, 'above75': 0.399, 'above90': 0.159, 'in1090': 0.803, 'in2575': 0.494, 'pinball': 0.3427}
+   held out   {'below10': 0.053, 'below25': 0.146, 'above75': 0.335, 'above90': 0.136, 'in1090': 0.811, 'in2575': 0.519, 'pinball': 0.3966}
+omega 4:
+   all 13     {'below10': 0.112, 'below25': 0.275, 'above75': 0.232, 'above90': 0.089, 'in1090': 0.799, 'in2575': 0.493, 'pinball': 0.6402}
+   recent 9   {'below10': 0.082, 'below25': 0.214, 'above75': 0.268, 'above90': 0.106, 'in1090': 0.812, 'in2575': 0.518, 'pinball': 0.5096}
+   Jul-Oct 25 {'below10': 0.154, 'below25': 0.305, 'above75': 0.216, 'above90': 0.142, 'in1090': 0.704, 'in2575': 0.479, 'pinball': 0.9085}
+   Mar-Jun 26 {'below10': 0.037, 'below25': 0.11, 'above75': 0.398, 'above90': 0.153, 'in1090': 0.81, 'in2575': 0.492, 'pinball': 0.3413}
+   held out   {'below10': 0.058, 'below25': 0.168, 'above75': 0.307, 'above90': 0.117, 'in1090': 0.825, 'in2575': 0.524, 'pinball': 0.3946}
+
+chosen omega 4: within 0.0002 of omega 8 on the focus windows and held out (first run, omegas 1 / 2 / 4 / 8), better on all 13 and on segment balance (omega 8 leaves young items about 40% inside P25-P75)
+3-6 months | high            n   803 | omega 1 in1090 0.795 in2575 0.496 | omega 4 in1090 0.783 in2575 0.486
+3-6 months | low             n   452 | omega 1 in1090 0.792 in2575 0.498 | omega 4 in1090 0.819 in2575 0.504
+3-6 months | mid             n   632 | omega 1 in1090 0.796 in2575 0.492 | omega 4 in1090 0.786 in2575 0.478
+6-12 months | high           n  1022 | omega 1 in1090 0.798 in2575 0.497 | omega 4 in1090 0.798 in2575 0.495
+6-12 months | low            n   979 | omega 1 in1090 0.791 in2575 0.498 | omega 4 in1090 0.804 in2575 0.499
+6-12 months | mid            n  1076 | omega 1 in1090 0.797 in2575 0.503 | omega 4 in1090 0.798 in2575 0.47
+over 12 months | high        n  1652 | omega 1 in1090 0.791 in2575 0.497 | omega 4 in1090 0.799 in2575 0.513
+over 12 months | low         n  2145 | omega 1 in1090 0.794 in2575 0.493 | omega 4 in1090 0.809 in2575 0.505
+over 12 months | mid         n  1580 | omega 1 in1090 0.794 in2575 0.499 | omega 4 in1090 0.801 in2575 0.503
+under 3 months | high        n   433 | omega 1 in1090 0.797 in2575 0.49 | omega 4 in1090 0.769 in2575 0.443
+under 3 months | low         n   336 | omega 1 in1090 0.78 in2575 0.479 | omega 4 in1090 0.798 in2575 0.452
+under 3 months | mid         n   617 | omega 1 in1090 0.799 in2575 0.498 | omega 4 in1090 0.793 in2575 0.478
+
+2026 ratios, median over items: {'r10': 0.6, 'r25': 0.751, 'r75': 1.195, 'r90': 1.622} | omega 4
+D329 ratios, median: {'r10_d329': 0.578, 'r25_d329': 0.723, 'r75_d329': 1.157, 'r90_d329': 1.54}

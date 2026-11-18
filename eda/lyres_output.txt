@@ -1,0 +1,28 @@
+   2025-02: last year on 0% of training rows, 0% of test rows
+   2025-03: last year on 0% of training rows, 32% of test rows
+   2025-04: last year on 0% of training rows, 33% of test rows
+   2025-05: last year on 0% of training rows, 34% of test rows
+   2025-06: last year on 0% of training rows, 35% of test rows
+   2025-07: last year on 4% of training rows, 36% of test rows
+   2025-08: last year on 7% of training rows, 37% of test rows
+   2025-09: last year on 10% of training rows, 37% of test rows
+   2025-10: last year on 12% of training rows, 39% of test rows
+   2025-11: last year on 15% of training rows, 40% of test rows
+   2025-12: last year on 17% of training rows, 43% of test rows
+   2026-01: last year on 19% of training rows, 44% of test rows
+   2026-02: last year on 20% of training rows, 44% of test rows
+huber_lyres  42 s
+   2025-02: last year on 0% of training rows, 0% of test rows
+   2025-03: last year on 0% of training rows, 32% of test rows
+   2025-04: last year on 0% of training rows, 33% of test rows
+   2025-05: last year on 0% of training rows, 34% of test rows
+   2025-06: last year on 0% of training rows, 35% of test rows
+   2025-07: last year on 4% of training rows, 36% of test rows
+   2025-08: last year on 7% of training rows, 37% of test rows
+   2025-09: last year on 10% of training rows, 37% of test rows
+   2025-10: last year on 12% of training rows, 39% of test rows
+   2025-11: last year on 15% of training rows, 40% of test rows
+   2025-12: last year on 17% of training rows, 43% of test rows
+   2026-01: last year on 19% of training rows, 44% of test rows
+   2026-02: last year on 20% of training rows, 44% of test rows
+huber_lyres_noimp  34 s

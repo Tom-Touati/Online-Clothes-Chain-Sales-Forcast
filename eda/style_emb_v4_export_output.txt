@@ -1,0 +1,94 @@
+attribute columns 514 | LLM scores 14
+attribute cols 514 | collections 101 | name words 175
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-03 items with carts 242 | 13s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-04 items with carts 268 | 23s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-05 items with carts 290 | 34s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-06 items with carts 313 | 45s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-07 items with carts 353 | 57s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-08 items with carts 393 | 71s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-09 items with carts 428 | 95s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-10 items with carts 479 | 110s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-11 items with carts 527 | 127s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2024-12 items with carts 569 | 145s
+<string>:69: RuntimeWarning: Mean of empty slice
+<string>:49: RuntimeWarning: Mean of empty slice
+C:\Users\tomto\workspaces\edikted\.venv\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2025-01 items with carts 619 | 167s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-02 items with carts 647 | 190s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-03 items with carts 675 | 213s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-04 items with carts 723 | 238s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-05 items with carts 763 | 262s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-06 items with carts 805 | 288s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-07 items with carts 858 | 316s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-08 items with carts 936 | 347s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-09 items with carts 1001 | 381s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-10 items with carts 1067 | 417s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-11 items with carts 1128 | 457s
+<string>:69: RuntimeWarning: Mean of empty slice
+2025-12 items with carts 1166 | 501s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-01 items with carts 1261 | 554s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-02 items with carts 1313 | 618s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-03 items with carts 1373 | 682s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-04 items with carts 1409 | 741s
+<string>:69: RuntimeWarning: Mean of empty slice
+2026-05 items with carts 1472 | 808s
+2026-06 items with carts 1499 | 866s
+saved data/style_emb_v4.npz with 28 origins

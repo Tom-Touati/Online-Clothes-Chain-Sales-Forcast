@@ -1,0 +1,117 @@
+age            conc 0.071 bias_sd 0.043 sign_agree 0.88 time-honest gain +0.0036
+volume         conc 0.078 bias_sd 0.059 sign_agree 1.00 time-honest gain +0.0054
+macro          conc 0.039 bias_sd 0.040 sign_agree 0.69 time-honest gain +0.0113
+ptype          conc 0.070 bias_sd 0.028 sign_agree 0.32 time-honest gain +0.0163
+colour_family  conc 0.035 bias_sd 0.055 sign_agree 0.45 time-honest gain +0.0017
+aesthetic      conc 0.029 bias_sd 0.032 sign_agree 0.27 time-honest gain +0.0060
+occasion       conc 0.015 bias_sd 0.003 sign_agree 0.00 time-honest gain +0.0029
+target         conc 0.005 bias_sd 0.052 sign_agree 1.00 time-honest gain -0.0008
+season         conc 0.057 bias_sd 0.027 sign_agree 0.85 time-honest gain -0.0000
+direction      conc 0.074 bias_sd 0.056 sign_agree 0.89 time-honest gain +0.0016
+momentum       conc 0.058 bias_sd 0.027 sign_agree 0.62 time-honest gain +0.0051
+spread         conc 0.066 bias_sd 0.015 sign_agree 0.00 time-honest gain +0.0010
+disc_level     conc 0.069 bias_sd 0.056 sign_agree 0.99 time-honest gain +0.0079
+disc_mom       conc 0.038 bias_sd 0.069 sign_agree 0.81 time-honest gain +0.0069
+channel        conc 0.014 bias_sd 0.042 sign_agree 0.24 time-honest gain +0.0035
+tiktok         conc 0.027 bias_sd 0.021 sign_agree 0.32 time-honest gain +0.0037
+stores         conc 0.075 bias_sd 0.052 sign_agree 1.00 time-honest gain +0.0035
+partners       conc 0.026 bias_sd 0.019 sign_agree 0.85 time-honest gain +0.0028
+size_run       conc 0.009 bias_sd 0.012 sign_agree 1.00 time-honest gain +0.0009
+siblings       conc 0.052 bias_sd 0.011 sign_agree 0.02 time-honest gain +0.0047
+newest         conc 0.028 bias_sd 0.037 sign_agree 1.00 time-honest gain -0.0005
+style_share    conc 0.037 bias_sd 0.015 sign_agree 0.05 time-honest gain -0.0005
+cohort         conc 0.053 bias_sd 0.037 sign_agree 0.37 time-honest gain +0.0114
+has_ly         conc 0.056 bias_sd 0.000 sign_agree 0.00 time-honest gain +0.0012
+launch_q       conc 0.023 bias_sd 0.023 sign_agree 0.00 time-honest gain +0.0040
+burst_day      conc 0.026 bias_sd 0.066 sign_agree 0.66 time-honest gain +0.0011
+burst_hour     conc 0.030 bias_sd 0.051 sign_agree 0.74 time-honest gain +0.0015
+oos            conc 0.018 bias_sd 0.040 sign_agree 1.00 time-honest gain +0.0007
+cancel         conc 0.033 bias_sd 0.010 sign_agree 0.08 time-honest gain +0.0018
+warm           conc 0.017 bias_sd 0.038 sign_agree 0.00 time-honest gain +0.0109
+summer         conc 0.026 bias_sd 0.007 sign_agree 0.13 time-honest gain +0.0129
+statement      conc 0.052 bias_sd 0.019 sign_agree 0.61 time-honest gain +0.0041
+interval       conc 0.095 bias_sd 0.059 sign_agree 0.13 time-honest gain +0.0051
+correction     conc 0.057 bias_sd 0.038 sign_agree 0.38 time-honest gain +0.0005
+
+origin-known signals (rho with residual, recent | all | sign stability):
+  forecast vs R3 (log)                 +0.116 +0.142 0.85
+  size concentration                   -0.112 -0.061 0.54
+  stock-gap days, 28 d                 -0.108 -0.090 0.92
+  newest colour                        -0.106 -0.099 0.92
+  size-run completeness                +0.101 +0.089 0.92
+  partner share                        +0.091 +0.046 0.69
+  partners selling it                  +0.090 +0.067 0.77
+  share of style's units               -0.080 -0.057 0.62
+  live colours in style                +0.079 +0.058 0.54
+  interval width                       -0.077 -0.108 0.92
+  web discount level                   -0.074 -0.137 0.92
+  discount vs the site's               -0.074 -0.137 0.92
+  largest day's share                  -0.071 -0.093 0.77
+  91-day trend                         +0.064 +0.101 0.77
+hindsight signals:
+  month-1 sales vs forecast pace (early read)      +0.510 +0.550 1.0
+  own stores added in the window                   +0.277 +0.303 1.0
+  no sales in the window's last month              -0.215 -0.188 1.0
+  size-run completeness in the window              +0.213 +0.225 1.0
+  stock-gap days in the window                     -0.202 -0.178 1.0
+  partners added in the window                     +0.147 +0.148 1.0
+  largest day's share in the window                -0.140 -0.181 1.0
+  new colours of the style launched in the window  +0.130 +0.143 1.0
+  TikTok share change                              +0.079 +0.075 0.92
+  own-store share change                           +0.071 +0.113 1.0
+  web discount change into the window              -0.055 -0.017 0.54
+  the same, relative to the site                   -0.055 -0.017 0.54
+  launches of the same type in the window          +0.042 +0.043 0.77
+  partner share change                             -0.001 -0.024 0.54
+
+value of information (cross-fitted on non-overlapping origins; oracle features):
+  origin-known features only (reference)               0.3976 (+0.0000) bias -0.062
+  promotion depth (discount change in the window)      0.3946 (-0.0030) bias -0.062
+  distribution (stores, partners, channel shifts)      0.3837 (-0.0138) bias -0.062
+  availability (size run, stock gaps, delisting)       0.3948 (-0.0028) bias -0.062
+  launch plan (new colours, same-type launches)        0.3951 (-0.0024) bias -0.062
+  early read (month-1 sales)                           0.3501 (-0.0475) bias -0.062
+  all four plannable blocks together                   0.3741 (-0.0235) bias -0.062
+  plannable blocks + early read                        0.3220 (-0.0756) bias -0.062
+R3 + rules -> first three-way (rules x quantile x NN)      -0.0482 all -0.0218 early +0.0856 wins 8/9 10/13 item [-0.0678, -0.032] style [-0.0734, -0.0272] origin [-0.0925, -0.0145]
++ weather, events, Black Friday fix (D161)                 -0.0175 all -0.0211 early -0.0353 wins 7/9 11/13 item [-0.0242, -0.0109] style [-0.0247, -0.0091] origin [-0.0398, -0.0013]
++ time-aware co-purchase neighbours (D203)                 -0.0020 all -0.0028 early -0.0063 wins 7/9 10/13 item [-0.0033, -0.0007] style [-0.0033, -0.0006] origin [-0.0036, -0.0006]
++ TabPFN v2 member (D204, p2)                              -0.0102 all -0.0048 early +0.0171 wins 8/9 8/13 item [-0.015, -0.0053] style [-0.0156, -0.0052] origin [-0.0164, -0.0045]
+arithmetic stack, conformal + 32-estimator TabPFN (D207)   -0.0123 all -0.0043 early +0.0280 wins 8/9 8/13 item [-0.017, -0.008] style [-0.0173, -0.0071] origin [-0.0187, -0.0063]
+new tree member: events, launch curves (D253)              -0.0015 all -0.0021 early -0.0042 wins 8/9 9/13 item [-0.0029, -0.0002] style [-0.0029, -0.0003] origin [-0.0031, 0.0006]
+new NN inputs (D272)                                       -0.0022 all -0.0052 early -0.0173 wins 6/9 8/13 item [-0.0042, -0.0003] style [-0.0041, -0.0001] origin [-0.0054, -0.0004]
+segment + breakout corrections (D273)                      -0.0088 all -0.0071 early +0.0000 wins 7/9 7/13 item [-0.013, -0.0043] style [-0.0132, -0.0045] origin [-0.0115, -0.0059]
+multiplicity {'variant_files': 192, 'decisions': 274, 'scripts': 289, 'sd_item': 0.00158, 'null_max': 0.0051, 'null_max_20': 0.0039}
+fleet {'2024-01': 1, '2024-04': 1, '2024-07': 3, '2024-10': 3, '2025-01': 5, '2025-04': 6, '2025-07': 7, '2025-10': 8, '2026-01': 11, '2026-04': 13}
+channel growth {'big_under': {'web': 0.612, 'tt': 0.132, 'ret': 0.127, 'par': 0.128}, 'big_under_base': {'web': 0.695, 'tt': 0.068, 'ret': 0.113, 'par': 0.124}, 'all_units': {'web': 0.67, 'tt': 0.093, 'ret': 0.14, 'par': 0.096}}
+store check {'rho_resid': 0.303, 'rho_web_resid': 0.136, 'rho_web_growth': 0.344, 'add2': {'n': 0.27, 'units': 0.584, 'bias': -0.15, 'err': 0.612, 'web_bias': -0.105}, 'flat': {'n': 0.64, 'bias': 0.054, 'web_bias': 0.072}, 'lost': {'n': 0.091, 'bias': 0.11, 'web_bias': 0.041}}
+confounds: {'metric_corr': -0.851, 'sys_abs_range': [0.215, 0.501], 'r3_abs_range': [0.372, 1.306], 'pooled_abs': {'system': 0.294, 'r3': 0.668, 'system_recent': 0.269, 'r3_recent': 0.699}, 'lag_corr': [{'lag': 1, 'corr': 0.728}, {'lag': 2, 'corr': 0.496}, {'lag': 3, 'corr': 0.283}, {'lag': 4, 'corr': 0.131}, {'lag': 5, 'corr': 0.1}, {'lag': 6, 'corr': 0.077}], 'censor': {'over_err_share': 0.3856, 'flagged_share_of_over_err': 0.0146, 'flagged_n': 0.1803, 'bias_flagged': 0.3593, 'bias_clean': -0.0629, 'units_flagged': 0.0032, 'ratio_flagged': 0.4905, 'ratio_clean': 0.3845}, 'alive_at_end': 1431}
+target bias by origin: [('2025-02', 0.273, 0.264), ('2025-03', 0.261, 0.346), ('2025-04', -0.076, 0.017), ('2025-05', -0.01, 0.018), ('2025-06', -0.192, -0.073), ('2025-07', -0.131, 0.043), ('2025-08', -0.139, 0.099), ('2025-09', -0.306, -0.121), ('2025-10', -0.226, -0.076), ('2025-11', 0.025, 0.052), ('2025-12', -0.092, -0.082), ('2026-01', -0.076, -0.091), ('2026-02', -0.149, -0.107)]
+target rank {'median_rank': 150, 'in_top100': 35, 'in_top200': 55, 'in_top400': 79, 'units_share_2026h1': 0.214} {'target': 0.479, 'other': 0.348}
+
+large under-forecasts:
+  young launch (under 6 months)                      error 0.46 items 0.32 base 0.27
+  month 1 already 1.5x the forecast pace             error 0.54 items 0.53 base 0.27
+  web discount deepened 3+ pts vs the site           error 0.29 items 0.34 base 0.43
+  own stores added (2+)                              error 0.88 items 0.55 base 0.27
+  partner added                                      error 0.39 items 0.29 base 0.15
+  TikTok share up 5+ pts                             error 0.27 items 0.27 base 0.21
+  one day carried 15%+ of a month (spike)            error 0.62 items 0.49 base 0.57
+  window includes November                           error 0.62 items 0.39 base 0.40
+  all five models under                              error 1.00 items 1.00 base 0.25
+  none of the tags above (except the last two)       error 0.01 items 0.04 base 0.07
+large over-forecasts:
+  size run broken or stock gaps in the window        error 0.03 items 0.24 base 0.13
+  delisted: no sales in the last month               error 0.00 items 0.05 base 0.03
+  web discount pulled back 3+ pts vs the site        error 0.18 items 0.29 base 0.30
+  own stores lost (2+)                               error 0.12 items 0.13 base 0.09
+  partner lost                                       error 0.18 items 0.31 base 0.23
+  new colours of the style launched                  error 0.06 items 0.02 base 0.07
+  spike in the origin month (top day 15%+)           error 0.12 items 0.22 base 0.27
+  falling fast at the origin                         error 0.14 items 0.17 base 0.20
+  month 1 already under 0.67x the forecast pace      error 0.58 items 0.56 base 0.18
+  all five models over                               error 0.93 items 0.94 base 0.25
+  none of the first seven tags                       error 0.52 items 0.30 base 0.33
+
+targets 2026: [{'flag': 'young (under 6 months)', 'n': 24, 'units': 0.316}, {'flag': 'models disagree (top fifth of spread)', 'n': 12, 'units': 0.08}, {'flag': 'forecast far above R3', 'n': 41, 'units': 0.517}, {'flag': 'forecast far below R3', 'n': 10, 'units': 0.058}, {'flag': 'falling fast', 'n': 29, 'units': 0.234}, {'flag': 'broken size run', 'n': 0, 'units': 0.0}, {'flag': 'TikTok 15% +', 'n': 31, 'units': 0.346}, {'flag': 'spike in June (top day 15%+)', 'n': 2, 'units': 0.006}, {'flag': 'dress', 'n': 12, 'units': 0.09}] expected abs WAPE 0.287
+saved data/fk_err_analysis.json

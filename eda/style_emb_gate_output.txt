@@ -1,0 +1,63 @@
+attribute columns 514 | LLM scores 14
+attribute cols 514 | collections 101 | name words 175
+C:\Users\tomto\workspaces\edikted\eda\170_style_emb_gate.py:69: RuntimeWarning: Mean of empty slice
+  ub = np.where(live, U, np.nan); mean_u = np.nanmean(ub, 1, keepdims=True)
+2025-06 fold 0 100s
+2025-06 fold 1 198s
+2025-06 fold 2 308s
+2025-06 fold 3 400s
+2025-06 fold 4 494s
+C:\Users\tomto\workspaces\edikted\eda\170_style_emb_gate.py:69: RuntimeWarning: Mean of empty slice
+  ub = np.where(live, U, np.nan); mean_u = np.nanmean(ub, 1, keepdims=True)
+2025-10 fold 0 642s
+2025-10 fold 1 809s
+2025-10 fold 2 977s
+2025-10 fold 3 1120s
+2025-10 fold 4 1272s
+C:\Users\tomto\workspaces\edikted\eda\170_style_emb_gate.py:69: RuntimeWarning: Mean of empty slice
+  ub = np.where(live, U, np.nan); mean_u = np.nanmean(ub, 1, keepdims=True)
+2026-02 fold 0 1466s
+2026-02 fold 1 1675s
+2026-02 fold 2 1849s
+2026-02 fold 3 2082s
+2026-02 fold 4 2303s
+
+== mean over held-out items (3 origins x 5 folds): Spearman with cart PPMI | top-20 precision | chance
+                          rho    prec  chance
+target model                                 
+future raw everything  0.2069  0.1520  0.0243
+       raw product     0.1588  0.1415  0.0243
+       v1              0.1993  0.1867  0.0243
+       v2              0.2208  0.2096  0.0243
+       v3              0.2723  0.2059  0.0243
+       v3_noevt        0.2772  0.2125  0.0243
+       v3_noreg        0.2576  0.1951  0.0243
+       v3_notemp       0.2705  0.2064  0.0243
+       v3_prodonly     0.2558  0.1970  0.0243
+past   raw everything  0.3109  0.1950  0.0236
+       raw product     0.1804  0.1568  0.0236
+       v1              0.2635  0.2097  0.0236
+       v2              0.3767  0.3387  0.0236
+       v3              0.4285  0.3328  0.0236
+       v3_noevt        0.4012  0.2959  0.0236
+       v3_noreg        0.4156  0.3124  0.0236
+       v3_notemp       0.4286  0.3319  0.0236
+       v3_prodonly     0.3725  0.2618  0.0236
+
+== paired bootstrap over held-out styles, model minus raw product features (95% interval)
+  past   raw everything   rho +0.1275 [+0.1243, +0.1307] | prec +0.0379 [+0.0357, +0.0399]
+  past   v1               rho +0.0831 [+0.0782, +0.0881] | prec +0.0532 [+0.0478, +0.0587]
+  past   v2               rho +0.1899 [+0.1857, +0.1943] | prec +0.1772 [+0.1712, +0.1832]
+  past   v3               rho +0.2422 [+0.2378, +0.2465] | prec +0.1686 [+0.1626, +0.1741]
+  past   v3_noreg         rho +0.2311 [+0.2271, +0.2355] | prec +0.1512 [+0.1459, +0.1569]
+  past   v3_notemp        rho +0.2428 [+0.2382, +0.2470] | prec +0.1681 [+0.1627, +0.1736]
+  past   v3_noevt         rho +0.2147 [+0.2101, +0.2192] | prec +0.1325 [+0.1264, +0.1379]
+  past   v3_prodonly      rho +0.1886 [+0.1846, +0.1931] | prec +0.1015 [+0.0964, +0.1069]
+  future raw everything   rho +0.0465 [+0.0444, +0.0487] | prec +0.0109 [+0.0091, +0.0127]
+  future v1               rho +0.0391 [+0.0354, +0.0431] | prec +0.0461 [+0.0415, +0.0505]
+  future v2               rho +0.0566 [+0.0528, +0.0605] | prec +0.0669 [+0.0620, +0.0717]
+  future v3               rho +0.1070 [+0.1031, +0.1109] | prec +0.0624 [+0.0577, +0.0672]
+  future v3_noreg         rho +0.0944 [+0.0904, +0.0980] | prec +0.0534 [+0.0487, +0.0580]
+  future v3_notemp        rho +0.1057 [+0.1013, +0.1096] | prec +0.0626 [+0.0578, +0.0673]
+  future v3_noevt         rho +0.1119 [+0.1080, +0.1161] | prec +0.0680 [+0.0632, +0.0727]
+  future v3_prodonly      rho +0.0934 [+0.0895, +0.0970] | prec +0.0549 [+0.0507, +0.0596]

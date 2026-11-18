@@ -1,0 +1,29 @@
+C:\Users\tomto\workspaces\edikted\eda\198_explain_2026.py:24: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  print(f"100 targets, June 2026 origin: R3 total {S.R3.sum():,.0f}, model median total {S.F.sum():,.0f} ({S.F.sum() / S.R3.sum() - 1:+.1%}); check: categories sum to the deviation, max error {np.abs(C.sum(1) - S.d_hat).max():.2e}")
+100 targets, June 2026 origin: R3 total 389,101, model median total 461,931 (+18.7%); check: categories sum to the deviation, max error 1.11e-15
+
+== R3-weighted mean contribution by category (log units; % effect)
+  Portfolio baseline (typical drift below recency)     -0.217  (-19.5%)
+  Weather and seasonal temperature turn                +0.101  (+10.6%)
+  Event-inflated recent sales (post-event hangover)    +0.093  (+9.8%)
+  Upcoming events and occasions                        +0.053  (+5.4%)
+  Shopper-cluster seasonality (co-purchase neighbours) +0.048  (+4.9%)
+  Short-term momentum (recent weeks' buzz or cooling)  -0.026  (-2.6%)
+  Last year's seasonal pattern (like-for-like history) +0.024  (+2.5%)
+  Item age and sales scale                             +0.017  (+1.7%)
+  Geographic / regional climate mix                    +0.014  (+1.5%)
+  Item life cycle (longer-run sales trajectory)        -0.014  (-1.4%)
+  Product type and style profile (structural fashion trend) +0.014  (+1.4%)
+
+== the ten largest targets
+           style_color                                   product           R3            F                                                                                                                                                                     top_drivers
+          S15132_WHITE                Roman Low Rise Baggy Jeans 17812.000000 26313.304951 Portfolio baseline (typical drift below recency) -20%; Short-term momentum (recent weeks' buzz or cooling) +18%; Product type and style profile (structural fashion trend) +11%
+          S20878_WHITE                 Stephanie Lace Mini Dress 15714.666667  9307.310008             Short-term momentum (recent weeks' buzz or cooling) -29%; Portfolio baseline (typical drift below recency) -20%; Item life cycle (longer-run sales trajectory) -15%
+   S17159_BLACK-WASHED    Washed Faux Leather Micro Cargo Shorts 15305.333333 24644.851116                               Upcoming events and occasions +26%; Portfolio baseline (typical drift below recency) -20%; Event-inflated recent sales (post-event hangover) +14%
+          S21376_BLACK          Rhian Lacey Pleated Babydoll Top 13536.000000 13286.027634                     Portfolio baseline (typical drift below recency) -20%; Weather and seasonal temperature turn +12%; Shopper-cluster seasonality (co-purchase neighbours) +9%
+           S15999_BLUE                        Nikki Nylon Shorts 11830.666667  8711.917031             Portfolio baseline (typical drift below recency) -20%; Item life cycle (longer-run sales trajectory) -13%; Last year's seasonal pattern (like-for-like history) -8%
+          S23426_BLACK Ofelia Asymmetric Off Shoulder Ruched Top 11265.333333  7165.147394             Portfolio baseline (typical drift below recency) -20%; Item life cycle (longer-run sales trajectory) -18%; Short-term momentum (recent weeks' buzz or cooling) -17%
+          S11233_BLACK                 Aisha Low Rise Mini Skirt 11221.333333 16949.253623                               Portfolio baseline (typical drift below recency) -20%; Upcoming events and occasions +23%; Event-inflated recent sales (post-event hangover) +16%
+           S14091_BLUE       Raelynn Washed Low Rise Baggy Jeans 10864.000000 15355.189487   Portfolio baseline (typical drift below recency) -20%; Event-inflated recent sales (post-event hangover) +14%; Product type and style profile (structural fashion trend) +12%
+           S23605_PINK       Taniya Off Shoulder Zigzag Knit Top  9989.333333  7554.382667                           Portfolio baseline (typical drift below recency) -20%; Item life cycle (longer-run sales trajectory) -12%; Weather and seasonal temperature turn +12%
+S20850_BLACK-AND-WHITE                  Chelsie Polka Dot Hoodie  9116.000000 13153.734393            Item life cycle (longer-run sales trajectory) +29%; Portfolio baseline (typical drift below recency) -20%; Shopper-cluster seasonality (co-purchase neighbours) +15%

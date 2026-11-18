@@ -1,0 +1,105 @@
+######## (1) where the error lives (nine recent origins, three-way)
+WAPE as is 0.307
+  oracle: site level known                   WAPE 0.306
+  oracle: + product group totals known       WAPE 0.285
+  oracle: + product type totals known        WAPE 0.258
+  oracle: + style totals known (siblings)    WAPE 0.056
+  oracle: occasion-tag totals known          WAPE 0.304
+  oracle: age-band totals known              WAPE 0.303
+  oracle: retail-share band totals known     WAPE 0.302
+units-weighted variance of log error 0.227; share explained by group means, added level by level:
+  origin (site level)    cumulative share 0.089
+  origin x macro         cumulative share 0.174
+  origin x type          cumulative share 0.324
+  origin x style         cumulative share 0.942
+  item residual = the rest
+
+######## (2) segments (nine recent origins): WAPE / R3 for each member, the three-way's bias, best member
+
+-- age
+               items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+12 months+      4338  43.347123  0.418645  0.406754  0.394025  0.430758  0.369992 -0.062908      nn
+3-12 months     3625  40.471241   0.49696  0.474531  0.499785  0.502051  0.449609  -0.06098  qmodel
+under 3 months  1068  16.181636  0.668211  0.649496  0.705994   0.69882   0.61875 -0.185149  qmodel
+
+-- vol
+            items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+v1 smallest  1881   0.984792  0.751295  0.790654  0.801704  0.785353  0.725063 -0.149397   rules
+v2           1735   3.893623  0.703379  0.728233  0.685711  0.746295  0.671357 -0.268326      nn
+v3           1759  11.700189  0.676576  0.684912  0.665624  0.706774  0.642617 -0.261178      nn
+v4           1794   25.96896  0.581351  0.598225   0.61211  0.625859  0.551409 -0.141331   rules
+v5 largest   1862  57.452436  0.405818  0.368582    0.3902  0.400745  0.347236 -0.004749  qmodel
+
+-- macro
+       items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+bottom  2512  31.837025  0.566919  0.476161  0.467865   0.51884  0.462526 -0.073161      nn
+dress    911   5.335858  0.648156  0.611334  0.654523  0.617012  0.586449 -0.154991  qmodel
+other    792   5.406217  0.550152  0.688115  0.654016  0.696344  0.586085 -0.023204   rules
+swim     244    1.04875  0.572794  0.746303   0.57902  0.633893  0.608623  -0.11668   rules
+top     3117  31.076865  0.567535  0.509373  0.565728   0.53746  0.485294 -0.019391  qmodel
+warm    1455  25.295285  0.327236  0.376112   0.37889  0.405612  0.338364 -0.165412   rules
+
+-- retail
+       items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+20-40%  1160  20.806713  0.481222  0.489632  0.493932  0.514621   0.44088 -0.021998   rules
+5-20%   1688   39.80898  0.440089  0.394654  0.423037  0.431059  0.379005 -0.044951  qmodel
+<5%     5659  31.913297  0.551302  0.551351  0.550913  0.575739  0.514528  -0.18549      nn
+>40%     524    7.47101  0.517063  0.528936   0.53279  0.546113  0.475587  -0.00322   rules
+
+-- trend
+             items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+falling        847   6.937969  0.505808  0.470608  0.468905   0.48571  0.437703 -0.061979      nn
+falling fast  2626  17.278787  0.653122  0.624909  0.609922  0.664222  0.580811  -0.09755      nn
+flat           832   7.504235  0.464704  0.420574  0.450919  0.437196  0.407434 -0.049159  qmodel
+rising         703   9.402955  0.423526  0.417327  0.390352  0.441364    0.3807 -0.078366      nn
+rising fast   1643  27.338929  0.387633  0.396851    0.3939  0.419611  0.361839  -0.09142   rules
+
+-- occ
+         items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+tagged    2155  23.617471   0.64631  0.559809  0.594142  0.573751  0.533626 -0.059159  qmodel
+untagged  6876  76.382529  0.450054  0.449387   0.45749  0.482254  0.417228 -0.088942  qmodel
+
+-- launch_season
+       items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+autumn  2551  28.622784  0.447008  0.424083  0.468504  0.457089  0.411884 -0.102562  qmodel
+spring  2005  20.388536  0.579381  0.510511   0.50567  0.532721  0.471575  0.021144      nn
+summer  2609  35.968185  0.466797  0.469449  0.462228  0.498355  0.431208 -0.119044      nn
+winter  1866  15.020494  0.519027   0.52463  0.545166  0.554972  0.481842 -0.093505   rules
+
+-- cnum
+  items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+1  6111    61.4741  0.497395   0.49128  0.498037  0.514103  0.455319 -0.095273  qmodel
+2  1767  19.210319  0.492537  0.476005  0.515512  0.503053  0.447877 -0.087192  qmodel
+3  1153  19.315581  0.451332  0.395717  0.404795  0.448723  0.378689 -0.034117  qmodel
+
+-- oos
+     items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+<5%   3236  69.489749  0.439922  0.408253  0.425015  0.436261  0.381876 -0.029372  qmodel
+>=5%   872   7.258756   0.56905  0.580766  0.566502  0.619074  0.534493  -0.10748      nn
+none  4923  23.251494  0.620419   0.64178  0.650843  0.672399  0.600028 -0.230934   rules
+
+-- dis_q
+            items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+d1 agree     1947  24.613072  0.347138  0.327836  0.330971  0.353706  0.324436  0.004986  qmodel
+d2           1911   22.04442  0.388898  0.370638  0.389425  0.399371  0.359177 -0.044985  qmodel
+d3           1847  19.678535  0.494995  0.491163  0.530904  0.529375  0.466945 -0.075898  qmodel
+d4           1801  20.520797  0.567968   0.60102  0.583296  0.640014  0.532291 -0.181086   rules
+d5 disagree  1525  13.143176  0.830288  0.718407  0.748294  0.725687  0.641912 -0.160712  qmodel
+
+-- ante
+                            items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+1 recency good (<=20%)       1498  15.061555  0.498332  0.492712  0.476958  0.514693  0.456925 -0.094759      nn
+2 recency middling (20-50%)  2111  23.870089  0.494263  0.478061  0.470333  0.514072  0.437082 -0.061758      nn
+3 recency bad (>50%)         3863  38.500594  0.414727  0.397297  0.406149   0.41667   0.37105 -0.064066  qmodel
+4 no record (young)          1559  22.567763  0.627981  0.602483   0.66427  0.650386  0.574469 -0.125083  qmodel
+
+-- target
+      items    units %     rules    qmodel        nn       lgb    r_q_nn bias 3way    best
+False  8461  77.777445  0.488949  0.475698  0.499017  0.503009  0.443292 -0.057736  qmodel
+True    570  22.222555  0.484637  0.454515  0.434817  0.489892  0.428041 -0.166509      nn
+
+######## (3) when rules and quantile disagree by more than 30%: where does the actual land?
+items 3871 (43%); position of the actual on the quantile(0) -> rules(1) line: median 0.47, IQR -0.24-1.20
+  by age: {'12 months+': 0.39, '3-12 months': 0.48, 'under 3 months': 0.61}
+  by macro: {'bottom': 0.19, 'dress': 0.28, 'other': 0.96, 'swim': 0.76, 'top': 0.47, 'warm': 0.63}
+  by occ: {'tagged': 0.28, 'untagged': 0.52}
