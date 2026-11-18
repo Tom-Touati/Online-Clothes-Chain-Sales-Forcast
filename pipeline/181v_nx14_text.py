@@ -1,9 +1,9 @@
-"""The words of the workbook nx13 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
+"""The words of the workbook nx14 (D431): nx11's text (D429) restructured and extended. The three boxes have one topic per line, each line
 opening with a summary up to its first colon, which the builder sets in bold. Added: real-world evaluation as the principle (a Framing row
 first), the buying simulation of the submitted system itself (pipeline/231_sim_nx11.py: 10.6% of the perfect-foresight profit lost, the agents'
 rules 12.4%, R3 19.5%; an earlier five-member version, split differently, lost 10.8%), the NOAA temperature data (D155 / D157 / D159 / D159b)
 and the ranges as a weakness. Figures as audited (workflow audit-nx11-buying-sim). User requests quoted in D431. Read by
-pipeline/181u_final_nx13_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
+pipeline/181v_final_nx14_2026.py, which fills the {placeholders} (see archive/eda/181s_nx11_text.py for them and for the earlier sources)."""
 
 MODEL_EXPLANATION = {
  "Your approach": (
@@ -352,3 +352,8 @@ WORLD_CUP = ("{fact}. The models answer {model} (P10-P90 {p10}-{p90}), not knowi
              "the post-event decay of past holiday items. Final {final}. Confidence 3: one season, event-driven demand.")
 OUT_OF_STOCK = ("Out of stock: no sales since 10 April. Forecast as if back in stock, as the brief asks: its January-March rate (about 32 a month) x the seasonal pattern of tops at least a year old. "
                 "No model covers it, so the number is a rule; confidence 3.")
+
+# D433: the lead line of the coloured ratio table in the "Model explanation" sheet (Fork 2's wording, D419c)
+RATIO_LEAD = ("Submitted system against the three baselines on the nine most recent backtest month-ends; ratio = SYS / baseline (for bias, of the absolute bias); "
+              "green = SYS better, deeper green = more times better; grey = within 5%. SYS = the submitted system, R3 = the last three months x 4, "
+              "SN = the seasonal naive, AR = the agents' rules.")

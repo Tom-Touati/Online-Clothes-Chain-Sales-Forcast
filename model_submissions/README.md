@@ -3,7 +3,7 @@
 Every workbook other than the submission, one folder each: two early candidates that add one member to the LightGBM quantile model,
 and the earlier versions of the submission.
 Totals are July–October 2026 units for the 100 items; confidence counts are items at level 1 / 2 / 3. Decision ids refer to
-[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx13 (D432): nx12 with the abbreviations SYS / R3 / SN / AR defined once and used in every list of figures.
+[`docs/decision_log.md`](../docs/decision_log.md). The submission at the root is nx14 (D433): nx13 with a colour-coded table of SYS's ratio to each baseline per metric in "Model explanation".
 
 | Folder | What it is | Total | Confidence | Decision |
 |---|---|---|---|---|
@@ -25,3 +25,4 @@ Totals are July–October 2026 units for the 100 items; confidence counts are it
 | `14_nx10_roadmap_text` | nx9's numbers with the repaired text and the improvement roadmap | 630,254 | 10 / 86 / 4 | D424, submitted D428 |
 | `15_nx11_metrics_cascade` | The explanation coarse to fine, all the main metrics, the cascade as explainability | 630,254 | 10 / 86 / 4 | D429, submitted |
 | `16_nx12_buying_metrics_table` | The buying simulation of the submitted system, the metrics-vs-baselines sheet, NOAA temperature, bold line summaries | 630,254 | 10 / 86 / 4 | D431, submitted |
+| `17_nx13_abbreviations` | The abbreviations SYS / R3 / SN / AR in every list of figures | 630,254 | 10 / 86 / 4 | D432, submitted |

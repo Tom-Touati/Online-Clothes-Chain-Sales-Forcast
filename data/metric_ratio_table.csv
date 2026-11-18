@@ -1,0 +1,11 @@
+Metric,Better when,SYS,R3,SYS / R3,fill SYS / R3,SN,SYS / SN,fill SYS / SN,AR,SYS / AR,fill SYS / AR
+"Volume-weighted error (WAPE, share of units)",lower,0.2651,0.6987,0.379,1E8449,0.4363,0.608,52BE80,0.3409,0.778,52BE80
+"Per-item error (median, every item counts once)",lower,0.2416,0.572,0.422,1E8449,0.3884,0.622,52BE80,0.303,0.797,52BE80
+Items within +/-20%,higher,0.4234,0.1807,2.343,1E8449,0.2711,1.562,52BE80,0.3461,1.223,A9DFBF
+Units within +/-20%,higher,0.4911,0.1915,2.564,1E8449,0.299,1.642,52BE80,0.3787,1.297,52BE80
+"Bias (absolute, forecast / actual - 1)",lower,-0.0563,0.1544,0.365,1E8449,-0.0665,0.846,A9DFBF,-0.0639,0.881,A9DFBF
+Error plus bias ((MAE + |bias|) / units),lower,0.3364,1.137,0.296,1E8449,0.5043,0.667,52BE80,0.45,0.747,52BE80
+"Variance explained (R2, units)",higher,0.8512,0.146,5.829,1E8449,0.6428,1.324,52BE80,0.756,1.126,A9DFBF
+"Variance explained (R2, log units)",higher,0.9228,0.7624,1.21,A9DFBF,0.8359,1.104,A9DFBF,0.9015,1.024,F2F3F4
+"Range accuracy (pinball loss P10-P90, / units)",lower,0.1046,0.2811,0.372,1E8449,0.1673,0.625,52BE80,0.1316,0.795,52BE80
+Buying simulation (profit lost vs perfect foresight),lower,0.1062,0.1953,0.544,52BE80,0.1448,0.734,52BE80,0.1239,0.857,A9DFBF

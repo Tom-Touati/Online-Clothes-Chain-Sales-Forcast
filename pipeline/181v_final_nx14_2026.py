@@ -1,6 +1,6 @@
-"""Builds the workbook nx13 (D431): nx11 with the text restructured (one topic per line, a bold summary first), the buying simulation of the
+"""Builds the workbook nx14 (D431): nx11 with the text restructured (one topic per line, a bold summary first), the buying simulation of the
 submitted system, the NOAA temperature data, real-world evaluation as the principle, the ranges as a weakness; boxes in black, the decisions
-sheet aligned (pipeline/181u_nx13_text.py). No number changes (archive/eda/181u_check_nx13.py). nx11 header follows.
+sheet aligned (pipeline/181v_nx14_text.py). No number changes (archive/eda/181v_check_nx14.py). nx11 header follows.
 Builds the workbook nx11 (D429): nx10 with the Model explanation rewritten coarse to fine, all the main metrics and the cascade as
 explainability (archive/eda/181s_nx11_text.py); column B of "Model explanation" widened from 110 to 120 for the longer boxes. No number changes
 (archive/eda/181s_check_nx11.py). nx10 header follows.
@@ -25,7 +25,7 @@ Steps, for the 100 items of the exercise workbook, at the June 2026 origin:
   6  P10 / P25 / P75 / P90 from the per-segment range ratios; ranges for totals
   7  confidence 1-3;  8  buying quantity;  9  explanations
   10 the workbook (Forecast and Model explanation sheets filled; Method and decisions, Cascade and Ranges sheets added) and the cascade tables
-Run from anywhere:  python pipeline/181u_final_nx13_2026.py"""
+Run from anywhere:  python pipeline/181v_final_nx14_2026.py"""
 import importlib.util, math, shutil, sys
 from pathlib import Path
 import numpy as np, pandas as pd, openpyxl
@@ -37,10 +37,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TEMPLATE = ROOT / "exercise/Edikted_Forecasting_Exercise.xlsx"                  # the exercise workbook as received
 WORKBOOK = ROOT / "Edikted_Forecasting_Exercise_filled.xlsx"           # written: the submission
-CASCADE = DATA / "final_2026_nx13_cascade.csv"                           # written: every step, per item
-HIERARCHY = DATA / "final_2026_nx13_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
-TOTAL_RANGES = DATA / "final_2026_nx13_total_ranges.csv"                # written: ranges for totals
-TEXT = Path(__file__).with_name("181u_nx13_text.py")
+CASCADE = DATA / "final_2026_nx14_cascade.csv"                           # written: every step, per item
+HIERARCHY = DATA / "final_2026_nx14_cascade_hierarchy.csv"               # written: the steps summed by total / product type / style
+TOTAL_RANGES = DATA / "final_2026_nx14_total_ranges.csv"                # written: ranges for totals
+TEXT = Path(__file__).with_name("181v_nx14_text.py")
 IN = dict(
     items=DATA / "items.parquet",                                  # product type per item
     monthly=DATA / "monthly_item.parquet",                         # units per item and month
@@ -211,7 +211,8 @@ def bold_leads(t):
         out.append(TextBlock(InlineFont(rFont="Calibri", sz=11, b=True, color="FF000000"), p[:m.end()]))
         out.append(TextBlock(InlineFont(rFont="Calibri", sz=11, color="FF000000"), p[m.end():] + ("\n" if i < len(lines) - 1 else "")))
     return out
-wm = wb["Model explanation"]; BOX_W = 170; wm.column_dimensions["B"].width = BOX_W   # D431: wider boxes, one topic per line (template 110, nx11 120)                                         # the three boxes, enlarged to their text (the template rows are 220 points; Excel's limit is 409)
+wm = wb["Model explanation"]; BOX_W = 169; SPLIT = {"B": 36, "C": 19, "D": 19, "E": 19, "F": 19, "G": 19, "H": 19, "I": 19}   # D433: column B split into B..I (the boxes merge across them)
+for k, v in SPLIT.items(): wm.column_dimensions[k].width = v   # D431: wider boxes, one topic per line (template 110, nx11 120)                                         # the three boxes, enlarged to their text (the template rows are 220 points; Excel's limit is 409)
 for row in wm.iter_rows(min_row=2):
     if row[0].value in text.MODEL_EXPLANATION:
         t = text.MODEL_EXPLANATION[row[0].value].format(**fill); cell = wm.cell(row=row[0].row, column=2); cell.value = bold_leads(t)
@@ -267,9 +268,41 @@ items_sheet = C.reset_index().rename(columns={"index": "style_color"})[["style_c
 for name, table in [("Cascade (items)", items_sheet.rename(columns=HEAD)), ("Cascade (hierarchy)", H[["level", "group"] + STEPS].rename(columns=HEAD)), ("Ranges (totals)", TOTALS)]:
     sheet = wb.create_sheet(name); sheet.append(list(table.columns))
     for values in table.itertuples(index=False): sheet.append([float(v) if isinstance(v, np.floating) else int(v) if isinstance(v, np.integer) else v for v in values])
+# D433: merge the header and the three boxes across B..I (the template's B styles copied to the cells they cover), then the ratio table below
+from copy import copy as _copy
+for r in range(1, 5):
+    src = wm.cell(row=r, column=2)
+    for col in range(3, 10):
+        c = wm.cell(row=r, column=col); c.fill = _copy(src.fill); c.border = _copy(src.border); c.font = _copy(src.font); c.alignment = _copy(src.alignment)
+    wm.merge_cells(start_row=r, start_column=2, end_row=r, end_column=9)
+RT = pd.read_csv(DATA / "metric_ratio_table.csv")
+T0 = 8                                                                     # the template's note sits in A6
+wm.cell(row=T0, column=1, value=text.RATIO_LEAD); wm.merge_cells(start_row=T0, start_column=1, end_row=T0, end_column=9)
+wm.cell(row=T0, column=1).font = Font(name="Calibri", size=11, bold=True, color="FF000000"); wm.cell(row=T0, column=1).alignment = Alignment(wrap_text=True, vertical="top", horizontal="left")
+wm.row_dimensions[T0].height = 36
+HDR = ["Metric", "Better when", "SYS", "R3", "SYS / R3", "SN", "SYS / SN", "AR", "SYS / AR"]
+for j, h in enumerate(HDR, start=1):
+    c = wm.cell(row=T0 + 1, column=j, value=h); c.font = Font(name="Calibri", size=11, bold=True, color="FFFFFFFF"); c.fill = PatternFill("solid", fgColor="FF1F3864")
+    c.alignment = Alignment(wrap_text=True, vertical="center", horizontal="left" if j <= 2 else "right")
+wm.row_dimensions[T0 + 1].height = 20
+thin = Side(style="thin", color="FFBFBFBF")
+for i, r in RT.iterrows():
+    n = T0 + 2 + i; name = r["Metric"]; kind = "r2" if name.startswith("Variance") else ("bias" if name.startswith("Bias") else "pct")
+    vfmt = {"r2": "0.00", "bias": "+0.0%;-0.0%", "pct": "0.0%"}[kind]
+    cells = [(name, None, None), (r["Better when"], None, None), (float(r["SYS"]), vfmt, None),
+             (float(r["R3"]), vfmt, None), (float(r["SYS / R3"]), "0.00", r["fill SYS / R3"]),
+             (float(r["SN"]), vfmt, None), (float(r["SYS / SN"]), "0.00", r["fill SYS / SN"]),
+             (float(r["AR"]), vfmt, None), (float(r["SYS / AR"]), "0.00", r["fill SYS / AR"])]
+    for j, (v, fmt, fillhex) in enumerate(cells, start=1):
+        c = wm.cell(row=n, column=j, value=v); dark = fillhex == "1E8449"
+        c.font = Font(name="Calibri", size=11, bold=(j in (1, 3) or fillhex is not None), color="FFFFFFFF" if dark else "FF000000")
+        c.alignment = Alignment(wrap_text=True, vertical="center", horizontal="left" if j <= 2 else "right"); c.border = Border(bottom=thin)
+        if fmt: c.number_format = fmt
+        if fillhex: c.fill = PatternFill("solid", fgColor="FF" + fillhex)
+    wm.row_dimensions[n].height = 36
 wb.save(WORKBOOK)
 
 months_total = C[MONTHS + ["total"]].sum().astype(int).to_dict()
-print("nx13:", months_total, "| model raw total", round(float(C.forecast.sum())), "| campaign", fill["campaign_pct"], round(float(C.campaign_add.sum())), "units, items >= 0.5%:", int((C.campaign_add >= 0.005 * C.forecast).sum()))
+print("nx14:", months_total, "| model raw total", round(float(C.forecast.sum())), "| campaign", fill["campaign_pct"], round(float(C.campaign_add.sum())), "units, items >= 0.5%:", int((C.campaign_add >= 0.005 * C.forecast).sum()))
 print("confidence", C.confidence.value_counts().sort_index().to_dict(), "| explanations", int((C.explanation != "").sum()), "| buying", round(float(C.buying.sum())), f"(+{fill['buying_uplift']}% median), below the total for", int((C.buying < C.total - 0.5).sum()), "items")
 print("hand-ruled:", HAND_RULED, "| boxes:", {row[0].value: (len(str(row[1].value)), wm.row_dimensions[row[0].row].height) for row in wm.iter_rows(min_row=2, max_row=4)})
