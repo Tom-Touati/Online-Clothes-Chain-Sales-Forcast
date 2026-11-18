@@ -155,7 +155,7 @@ INFO = {
     "nx_ecsig_geo": ("nx_ecsig with the segment and breakout corrections re-fitted on it.", "5 members + time-honest corrections", "Main (D293); production-usable; best accuracy of the licensable systems; not in the workbook yet"),
     "nx5r_geo": ("D361's nx5 (Huber tree, NN, rules, both TabPFN members, the recommender at a quarter weight) with the tree member for items under 6 months old replaced by the Huber tree trained with new items' rows x5, corrections re-fitted on it.", "6 members (routed tree) + time-honest corrections", "Submitted as nx6 (D389t) until the campaign uplift (nx7c, D389x) and nx8 (D421) took its place; same backtest as candidate_nx5 / nx6"),
     "nx8_geo": ("The new nx5 (routed new-item tree, recommender at a quarter, corrections) times the campaign uplift: exp(0.22 x change in campaign days against the same months last year / window days x the item's edikted.com share); 0.22 = half the measured x1.55 lift of a campaign day. In 2026 it raises August and September for the plan's two new sales (Clearance 12-19 Aug, 24-29 Sep).", "6 members (routed tree) + corrections + campaign uplift", "Submitted as nx8 (18 Nov, D421) until nx9 (D422): Edikted_Forecasting_Exercise_filled.xlsx = this system plus the World Cup and out-of-stock rules, the focus-weighted ranges, the hybrid confidence column and the audit's corrected texts; nx7c has the same numbers"),
-    "nx9_geo": ("nx8 with the fashion fork's look-alike term in the correction layer (D402): the new nx5 (routed new-item tree, recommender at a quarter, corrections incl. look-alikes) times the campaign uplift for the plan's new sales.", "6 members (routed tree) + corrections with look-alikes + campaign uplift", "SUBMITTED as nx12 (18 Nov, D431 / D419); buying simulation of this system 10.6% of the ideal profit lost: Edikted_Forecasting_Exercise_filled.xlsx = this system plus the World Cup and out-of-stock rules, the focus-weighted ranges, the hybrid confidence column, the repaired texts and the improvement roadmap; nx9 has the same numbers"),
+    "nx9_geo": ("nx8 with the fashion fork's look-alike term in the correction layer (D402): the new nx5 (routed new-item tree, recommender at a quarter, corrections incl. look-alikes) times the campaign uplift for the plan's new sales.", "6 members (routed tree) + corrections with look-alikes + campaign uplift", "SUBMITTED as nx13 (18 Nov, D432; same numbers as nx12, D431); buying simulation of this system 10.6% of the ideal profit lost: Edikted_Forecasting_Exercise_filled.xlsx = this system plus the World Cup and out-of-stock rules, the focus-weighted ranges, the hybrid confidence column, the repaired texts and the improvement roadmap; nx9 has the same numbers"),
     "sea_naive": ("R3's monthly level x the product type's like-for-like seasonal ratio per target month (the error study's seasonal naive).", "baseline", "Reference"),
     "nx_hpo_pf_geo": ("The submitted system with the TabPFN member (pf2d32) replaced by its overnight-tuned settings (32 estimators, temperature 1.23, no cap); submitted correction multiplier kept.", "5 members + submitted corrections", "Tuned overnight (D326): level in the system, not adopted"),
     "nx_hpo_rules_geo": ("The submitted system with the rules member scaled by the tuned/v14 ratio from the overnight rules search (agents' oracle-site harness, 16 knobs); submitted correction multiplier kept.", "5 members + submitted corrections", "Tuned overnight (D389 / D389b): level in the system, v14 stands"),
@@ -169,7 +169,7 @@ INFO = {
 # id, name, decision, role, column, simulation source (file, system/variant)
 SYSTEMS = [
     ("R3", "R3 (last 3 months x 4)", "D109", "reference", "R3", ("sys", "R3")),
-    ("rules", "R3 + rules (rule agents)", "D105", "reference", "rules", ("sys", "rules")),
+    ("rules", "AR: agents' rules (with R3)", "D105", "reference", "rules", ("sys", "rules")),
     ("qmodel", "Quantile model (production)", "D042", "member", "qmodel", ("sys", "qmodel")),
     ("nn", "Embedding NN (6 seeds)", "D097", "member", "nn", ("sys", "nn")),
     ("lgb", "LightGBM ensemble", "D013", "member", "lgb", None),
@@ -237,8 +237,8 @@ SYSTEMS = [
     ("nx_ecnsnnhubrq_geo", "Huber LightGBM + new NN + recommender at 1/4 weight + corrections", "D358", "ensemble", "nx_ecnsnnhubrq_geo", None),
     ("nx5r_geo", "new nx5 / nx6: routed new-item tree", "D389i", "ensemble", "nx5r_geo", None),
     ("nx8_geo", "nx8 = new nx5 + campaign uplift", "D421", "ensemble", "nx8_geo", None),
-    ("nx9_geo", "nx9 – nx12 = nx8 + look-alike correction (submitted as nx12)", "D422", "ensemble", "nx9_geo", ("nx11", "nx11")),
-    ("sea_naive", "Seasonal naive (R3 x type seasonal ratio)", "D294", "reference", "sea_naive", ("nx11", "sea_naive")),
+    ("nx9_geo", "SYS: nx9 – nx13 = nx8 + look-alike correction (submitted as nx13)", "D422", "ensemble", "nx9_geo", ("nx11", "nx11")),
+    ("sea_naive", "SN: seasonal naive (R3 x type seasonal ratio)", "D294", "reference", "sea_naive", ("nx11", "sea_naive")),
     ("nx_hpo_pf_geo", "nx4, TabPFN tuned overnight", "D326", "ensemble", "nx_hpo_pf_geo", None),
     ("nx_hpo_rules_geo", "nx4, rules tuned overnight", "D389b", "ensemble", "nx_hpo_rules_geo", None),
 ]
@@ -303,7 +303,7 @@ def xm(Z, c):   # D293 (user via the fork's D289 / D305): per-item views next to
             "mdrae": round(float(np.median(rel)), 4)}                                                                   # D294: median of (|e| + 1) / (|R3 e| + 1)
 for sid, sname, m in SUBS:
     Z = T[m].reset_index(drop=True); tb = sl.table(Z, [c for c in cols if c != "rules"] + ["rules"], {k: v[m] for k, v in D.items()})
-    tb = tb.rename(index={"R3 + rules (rule agents)": "rules"})
+    tb = tb.rename(index={"AR: agents' rules (with R3)": "rules"})
     for i, (s, name, dec, role, c, src) in enumerate(SYSTEMS):
         r = tb.loc[c]; loss = simw(src).mean() if src else np.nan
         bt = BOOT.get((sid, s), (None, None, None, None)); de, inp, st = INFO[s]

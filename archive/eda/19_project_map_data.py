@@ -88,7 +88,7 @@ gi = imp.groupby([grp(c) for c in imp.index]).sum().sort_values(ascending=False)
 J["importance"] = [dict(f=k, g=round(float(v), 4)) for k, v in gi.items()]
 # 11 targets table: the SUBMITTED workbook (D350: a copy of candidate_nx4 = candidate_nx3 + the D318 confidence rule and the D317 ranges, D299) with its cascade (data/final_2026_nx3_cascade.csv);
 #    prev = the original 12 Nov submission (kept as a backup file). Workbooks are opened read-only.
-C = pd.read_csv("data/final_2026_nx12_cascade.csv", index_col=0); W0 = pd.read_csv("data/final_forecast.csv", index_col=0); tv = pd.read_csv("data/targets_overview.csv", index_col=0)
+C = pd.read_csv("data/final_2026_nx13_cascade.csv", index_col=0); W0 = pd.read_csv("data/final_forecast.csv", index_col=0); tv = pd.read_csv("data/targets_overview.csv", index_col=0)
 def wbrows(path):
     wb = openpyxl.load_workbook(path, read_only=True, data_only=True); r = {x[1]: x for x in wb["Forecast"].iter_rows(min_row=2, max_row=101, values_only=True)}; wb.close(); return r
 WB = wbrows("Edikted_Forecasting_Exercise_filled.xlsx"); WB0 = wbrows("candidates/Edikted_Forecasting_Exercise_filled_original_2026-11-12.xlsx")
@@ -102,7 +102,7 @@ for sc in T:
         r3=nn_(cz.R3), season=nn_(cz.season), rules=nn_(cz.rules), tree=nn_(cz.qnx), nnm=nn_(cz.nn), pf2c=nn_(cz.pf2c), pf2d=nn_(cz.pf2d32), avg5=nn_(cz.avg5),
         corr=nn_(cz.correction, 3), buy=nn_(cz.buying), p10=nn_(cz.P10), p90=nn_(cz.P90), spread=nn_(cz.member_spread, 4)))
 assert sum(t["fin"] for t in J["targets"]) == 630254, sum(t["fin"] for t in J["targets"])
-H = pd.read_csv("data/final_2026_nx12_cascade_hierarchy.csv"); h0 = H[H.level == "total"].iloc[0]
+H = pd.read_csv("data/final_2026_nx13_cascade_hierarchy.csv"); h0 = H[H.level == "total"].iloc[0]
 J["system"] = dict(total=int(sum(t["fin"] for t in J["targets"])), months=[int(sum(t["f"][j] for t in J["targets"])) for j in range(4)], buy=int(round(h0.buying)),
                    orig=int(sum(t["prev"] for t in J["targets"])), conf=[int(sum(t["conf"] == k for t in J["targets"])) for k in (1, 2, 3)], n_expl=int(sum(bool(t["expl"]) for t in J["targets"])),
                    cascade=[dict(step=k, total=int(round(h0[c]))) for k, c in [("R3: last 3 months x 4", "R3"), ("x type seasonality", "season"), ("member: rule agents", "rules"), ("member: LightGBM (events + launch curves)", "qnx"),

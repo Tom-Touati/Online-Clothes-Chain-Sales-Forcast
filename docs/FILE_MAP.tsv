@@ -1838,6 +1838,7 @@ eda/231_sim_nx11.py	pipeline/231_sim_nx11.py
 eda/231b_sim_naive.py	pipeline/231b_sim_naive.py
 eda/232_metrics_table.py	pipeline/232_metrics_table.py
 eda/232_pages_nx12.py	archive/eda/232_pages_nx12.py
+eda/233_pages_nx13.py	archive/eda/233_pages_nx13.py
 eda/23_fill_workbook_q.py	archive/eda/23_fill_workbook_q.py
 eda/24_sanity.py	archive/eda/24_sanity.py
 eda/25_own_season_test.py	archive/eda/25_own_season_test.py
